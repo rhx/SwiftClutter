@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:4.2
 
 import PackageDescription
 
@@ -8,12 +8,16 @@ let package = Package(
         .library(name: "Clutter", targets: ["Clutter"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/rhx/CClutter.git", .branch("master")),
         .package(url: "https://github.com/rhx/SwiftCairo.git", .branch("master")),
         .package(url: "https://github.com/rhx/SwiftCoglPango.git", .branch("master")),
     ],
     targets: [
-        .target(name: "Clutter", dependencies: ["CoglPango", "Cairo"]),
+	.systemLibrary(name: "CClutter", pkgConfig: "clutter-1.0 cogl-gl-1.0 cogl-path-1.0 glib-2.0 gio-unix-2.0",
+	    providers: [
+		.brew(["clutter", "glib", "glib-networking", "gobject-introspection"]),
+		.apt(["libclutter-1.0-dev", "libglib2.0-dev", "glib-networking", "gobject-introspection", "libgirepository1.0-dev"])
+	    ]),
+        .target(name: "Clutter", dependencies: ["CClutter", "CoglPango", "Cairo"]),
         //.testTarget(name: "ClutterTests", dependencies: ["Clutter"]),
     ]
 )
