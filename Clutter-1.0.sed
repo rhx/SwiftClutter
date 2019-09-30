@@ -8,6 +8,13 @@ s/: \([A-Z][A-Za-z.]*Callback[,)]\)/: @escaping \1/g
 s/CoglHandle {/CoglHandle! {/
 s/FixedRef!/CoglFixed/
 s/Fixed!/CoglFixed/
+s/ ObjectProtocol/ GLibObject.ObjectProtocol/g
+s/ ObjectClassProtocol/ GLibObject.ObjectClassProtocol/g
+s/ Object/ GLibObject.Object/g
+s/ ValueProtocol/ GLibObject.ValueProtocol/g
+s/ ValueClassProtocol/ GLibObject.ValueClassProtocol/g
+s/ Value/ GLibObject.Value/g
+s/, modifiers, callback,/, modifiers, cast(callback),/
 s/rv.map { FixedRef(cast($0)) }/rv/
 s/rv.map { Fixed(cast($0)) }/rv/
 s/cast(minimum.ptr)/minimum/
