@@ -1,4 +1,6 @@
-.build
+/.build
+/.docs.old
+/*.xcodeproj
 Packages
 Package.pins
 Package.resolved
