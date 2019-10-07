@@ -17679,7 +17679,7 @@ API.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L258-L277">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L257-L276">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17712,7 +17712,7 @@ API.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the scaling factor of <code>canvas</code>, as set using
-clutter_canvas_set_scale_factor().</p>
+<code>clutter_canvas_set_scale_factor()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17724,7 +17724,7 @@ clutter_canvas_set_scale_factor().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L286-L289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L285-L288">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17750,7 +17750,7 @@ clutter_canvas_set_scale_factor().</p>
 <p>This function should rarely be used.</p>
 
 <p>The default scaling factor of a <code>ClutterCanvas</code> content uses the
-<code>ClutterSettings</code>:window-scaling-factor property, which is set by
+<code>ClutterSettings:window</code>-scaling-factor property, which is set by
 the windowing system. By using this function it is possible to
 override that setting.</p>
 
@@ -17766,7 +17766,7 @@ override that setting.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L301-L304">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L300-L303">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17794,7 +17794,7 @@ if the size of the canvas surface has changed.</p>
 
 <p>If you want to invalidate the contents of the <code>canvas</code> when setting
 the size, you can use the return value of the function to conditionally
-call clutter_content_invalidate():</p>
+call <code>clutter_content_invalidate()</code>:</p>
 <pre class="highlight swift"><code>  <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nf">clutter_canvas_set_size</span> <span class="p">(</span><span class="n">canvas</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">))</span>
     <span class="nf">clutter_content_invalidate</span> <span class="p">(</span><span class="kt">CLUTTER_CONTENT</span> <span class="p">(</span><span class="n">canvas</span><span class="p">));</span>
 </code></pre>
@@ -17809,7 +17809,7 @@ call clutter_content_invalidate():</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L320-L323">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L319-L322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17831,7 +17831,7 @@ call clutter_content_invalidate():</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the scaling factor of <code>canvas</code>, as set using
-clutter_canvas_set_scale_factor().</p>
+<code>clutter_canvas_set_scale_factor()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17843,7 +17843,7 @@ clutter_canvas_set_scale_factor().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L326-L346">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L325-L345">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17856,7 +17856,7 @@ clutter_canvas_set_scale_factor().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

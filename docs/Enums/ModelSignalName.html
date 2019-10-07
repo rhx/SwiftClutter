@@ -17402,7 +17402,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::filter-changed signal is emitted when a new filter has been applied</p>
+                        <p>The <code>filter</code>-changed signal is emitted when a new filter has been applied</p>
 
 <p><strong>filter-changed is deprecated:</strong>
 Use #GListModel instead</p>
@@ -17417,7 +17417,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1280">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17436,20 +17436,20 @@ Use #GListModel instead</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -17457,7 +17457,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -17470,7 +17470,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1310">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1305">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17488,8 +17488,8 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::row-added signal is emitted when a new row has been added.
-The data on the row has already been set when the ::row-added signal
+                        <p>The <code>row</code>-added signal is emitted when a new row has been added.
+The data on the row has already been set when the <code>row</code>-added signal
 has been emitted.</p>
 
 <p><strong>row-added is deprecated:</strong>
@@ -17505,7 +17505,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17523,8 +17523,8 @@ Use #GListModel instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::row-removed signal is emitted when a row has been changed.
-The data on the row has already been updated when the ::row-changed
+                        <p>The <code>row</code>-removed signal is emitted when a row has been changed.
+The data on the row has already been updated when the <code>row</code>-changed
 signal has been emitted.</p>
 
 <p><strong>row-changed is deprecated:</strong>
@@ -17540,7 +17540,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1324">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17558,9 +17558,9 @@ Use #GListModel instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::row-removed signal is emitted when a row has been removed.
+                        <p>The <code>row</code>-removed signal is emitted when a row has been removed.
 The data on the row pointed by the passed iterator is still valid
-when the ::row-removed signal has been emitted.</p>
+when the <code>row</code>-removed signal has been emitted.</p>
 
 <p><strong>row-removed is deprecated:</strong>
 Use #GListModel instead</p>
@@ -17575,7 +17575,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17593,7 +17593,7 @@ Use #GListModel instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::sort-changed signal is emitted after the model has been sorted</p>
+                        <p>The <code>sort</code>-changed signal is emitted after the model has been sorted</p>
 
 <p><strong>sort-changed is deprecated:</strong>
 Use #GListModel instead</p>
@@ -17608,7 +17608,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17629,7 +17629,7 @@ Use #GListModel instead</p>
                         <p>Whether the <code>ClutterModel</code> has a filter set</p>
 
 <p>This property is set to <code>true</code> if a filter function has been
-set using clutter_model_set_filter()</p>
+set using <code>clutter_model_set_filter()</code></p>
 
 <p><strong>filter-set is deprecated:</strong>
 Use #GListModel instead</p>
@@ -17644,7 +17644,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17657,7 +17657,7 @@ Use #GListModel instead</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

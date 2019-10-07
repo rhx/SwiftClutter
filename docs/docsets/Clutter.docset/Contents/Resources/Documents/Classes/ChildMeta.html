@@ -17394,7 +17394,7 @@ interface member to your subclass type, like:</p>
 <pre class="highlight swift"><code><span class="kd">static</span> <span class="n">void</span>
 <span class="nf">my_container_iface_init</span> <span class="p">(</span><span class="kt">ClutterContainerIface</span> <span class="o">*</span><span class="n">iface</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// set the rest of the `ClutterContainer` vtable</span>
+  <span class="c1">// set the rest of the #ClutterContainer vtable</span>
 
   <span class="n">container_iface</span><span class="o">-&gt;</span><span class="n">child_meta_type</span>  <span class="o">=</span> <span class="kt">MY_TYPE_CHILD_META</span><span class="p">;</span>
 <span class="p">}</span>
@@ -17404,16 +17404,16 @@ interface member to your subclass type, like:</p>
 <code>MY_TYPE_CHILD_META</code> for every actor that is added to the container.</p>
 
 <p>The child data for an actor can be retrieved using the
-clutter_container_get_child_meta() function.</p>
+<code>clutter_container_get_child_meta()</code> function.</p>
 
 <p>The properties of the data and your subclass can be manipulated with
-clutter_container_child_set() and clutter_container_child_get() which
-act like g_object_set() and g_object_get().</p>
+<code>clutter_container_child_set()</code> and <code>clutter_container_child_get()</code> which
+act like <code>g_object_set()</code> and <code>g_object_get()</code>.</p>
 
 <p>You can provide hooks for your own storage as well as control the
 instantiation by overriding the <code>ClutterContainerIface</code> virtual functions
-<code>ClutterContainerIface</code>.create_child_meta(), <code>ClutterContainerIface</code>.destroy_child_meta(),
-and <code>ClutterContainerIface</code>.get_child_meta().</p>
+<code>ClutterContainerIface.create_child_meta</code><code>()</code>, <code>ClutterContainerIface.destroy_child_meta</code><code>()</code>,
+and <code>ClutterContainerIface.get_child_meta</code><code>()</code>.</p>
 
           </div>
         </section>
@@ -17448,7 +17448,7 @@ Ownership is transferred to the <code>ChildMeta</code> instance.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L524-L526">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L520-L522">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17474,12 +17474,12 @@ Will retain <code>ClutterChildMeta</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">)</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ChildMetaProtocol.html">ChildMetaProtocol</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">other</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">)</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt"><a href="../Protocols/ChildMetaProtocol.html">ChildMetaProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L530-L533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L526-L529">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17505,12 +17505,12 @@ Will retain <code>ClutterChildMeta</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="kd">init</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="nv">cPointer</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L537-L539">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L533-L535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17536,12 +17536,12 @@ Will retain <code>ClutterChildMeta</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L543-L545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L539-L541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17567,12 +17567,12 @@ Will retain <code>ClutterChildMeta</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">raw</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L549-L551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L545-L547">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17598,12 +17598,12 @@ Will retain <code>ClutterChildMeta</code>.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="n">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">opaquePointer</span><span class="p">:</span> <span class="kt">OpaquePointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L555-L557">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L551-L553">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17616,7 +17616,7 @@ Will retain <code>ClutterChildMeta</code>.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

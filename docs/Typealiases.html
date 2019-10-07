@@ -17462,8 +17462,8 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags passed to the <code>ClutterActorClass</code>.allocate() virtual function
-and to the clutter_actor_allocate() function.</p>
+                        <p>Flags passed to the <code>ClutterActorClass.allocate</code><code>()</code> virtual function
+and to the <code>clutter_actor_allocate()</code> function.</p>
 
                       </div>
                       <div class="declaration">
@@ -17615,7 +17615,7 @@ system and graphics backend.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Runtime flags to change the font quality. To be used with
-clutter_set_font_flags().</p>
+<code>clutter_set_font_flags()</code>.</p>
 
 <p><strong>FontFlags is deprecated:</strong>
 Use #cairo_font_options_t instead</p>
@@ -17683,7 +17683,7 @@ remove all reserved values.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Possible flags to pass to clutter_actor_set_offscreen_redirect().</p>
+                        <p>Possible flags to pass to <code>clutter_actor_set_offscreen_redirect()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17713,7 +17713,7 @@ remove all reserved values.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags to pass to clutter_threads_add_repaint_func_full().</p>
+                        <p>Flags to pass to <code>clutter_threads_add_repaint_func_full()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17864,8 +17864,8 @@ These can be used to trigger post-scroll effects like kinetic scrolling.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Flags for clutter_texture_set_from_rgb_data() and
-clutter_texture_set_from_yuv_data().</p>
+                        <p>Flags for <code>clutter_texture_set_from_rgb_data()</code> and
+<code>clutter_texture_set_from_yuv_data()</code>.</p>
 
 <p><strong>TextureFlags is deprecated:</strong>
 The #ClutterTexture class was the only user of
@@ -17907,7 +17907,7 @@ The #ClutterTexture class was the only user of
 
 <p>The usual way to implement this function is to create a <code>ClutterActor</code>
 instance and then bind the <code>GObject</code> properties to the actor properties
-of interest, using g_object_bind_property(). This way, when the <code>item</code>
+of interest, using <code>g_object_bind_property()</code>. This way, when the <code>item</code>
 in the <code>GListModel</code> changes, the <code>ClutterActor</code> changes as well.</p>
 
                       </div>
@@ -17972,7 +17972,7 @@ Use #ClutterTimelineProgressFunc instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function is passed to clutter_behaviour_actors_foreach() and
+                        <p>This function is passed to <code>clutter_behaviour_actors_foreach()</code> and
 will be called for each actor driven by <code>behaviour</code>.</p>
 
 <p><strong>BehaviourForeachFunc is deprecated:</strong>
@@ -18007,8 +18007,8 @@ This method is deprecated.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The prototype for the callback function registered with
-clutter_binding_pool_install_action() and invoked by
-clutter_binding_pool_activate().</p>
+<code>clutter_binding_pool_install_action()</code> and invoked by
+<code>clutter_binding_pool_activate()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18069,7 +18069,7 @@ clutter_binding_pool_activate().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>A function pointer type used by event filters that are added with
-clutter_event_add_filter().</p>
+<code>clutter_event_add_filter()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18198,7 +18198,7 @@ Implement sorting using a custom #GListModel instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This function is passed to clutter_path_foreach() and will be
+                        <p>This function is passed to <code>clutter_path_foreach()</code> and will be
 called for each node contained in the path.</p>
 
                       </div>
@@ -18238,7 +18238,7 @@ type as <code><a href="Global%20Variables.html#/s:7Clutter1as5Int32Vvp">a</a></c
 
 <p>This function will be called by <code>ClutterInterval</code> if the
 type of the values of the interval was registered using
-clutter_interval_register_progress_func().</p>
+<code>clutter_interval_register_progress_func()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18269,7 +18269,7 @@ clutter_interval_register_progress_func().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>This is the signature of a function used to connect signals.  It is used
-by the clutter_script_connect_signals_full() function.  It is mainly
+by the <code>clutter_script_connect_signals_full()</code> function.  It is mainly
 intended for interpreted language bindings, but could be useful where the
 programmer wants more control over the signal connection process.</p>
 
@@ -18339,8 +18339,8 @@ programmer wants more control over the signal connection process.</p>
 assigned to it during the allocation.</p>
 
 <p>Alignment only matters if the allocated space given to an actor is
-bigger than its natural size; for example, when the <code>ClutterActor</code>:x-expand
-or the <code>ClutterActor</code>:y-expand properties of <code>ClutterActor</code> are set to <code>true</code>.</p>
+bigger than its natural size; for example, when the <code>ClutterActor:x</code>-expand
+or the <code>ClutterActor:y</code>-expand properties of <code>ClutterActor</code> are set to <code>true</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18409,8 +18409,8 @@ enumeration can be expanded in later versions of Clutter.</p>
   <graphic fileref="easing-modes.png" format="PNG"/>
 </figure>
 
-<p>Every global alpha function registered using clutter_alpha_register_func()
-or clutter_alpha_register_closure() will have a logical id greater than
+<p>Every global alpha function registered using <code>clutter_alpha_register_func()</code>
+or <code>clutter_alpha_register_closure()</code> will have a logical id greater than
 <code>CLUTTER_ANIMATION_LAST</code>.</p>
 
                       </div>
@@ -18657,7 +18657,7 @@ a <code>ClutterFlowLayout</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Enum passed to the clutter_gesture_action_set_threshold_trigger_edge()
+                        <p>Enum passed to the <code>clutter_gesture_action_set_threshold_trigger_edge()</code>
 function.</p>
 
                       </div>
@@ -18783,7 +18783,7 @@ Use the normalized #ClutterActor pivot point instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Error conditions returned by clutter_init() and clutter_init_with_args().</p>
+                        <p>Error conditions returned by <code>clutter_init()</code> and <code>clutter_init_with_args()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18939,7 +18939,7 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The states for the <code>ClutterClickAction</code>::long-press signal.</p>
+                        <p>The states for the <code>ClutterClickAction::long</code>-press signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -19183,8 +19183,8 @@ This method is deprecated.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The scaling filters to be used with the <code>ClutterActor</code>:minification-filter
-and <code>ClutterActor</code>:magnification-filter properties.</p>
+                        <p>The scaling filters to be used with the <code>ClutterActor:minification</code>-filter
+and <code>ClutterActor:magnification</code>-filter properties.</p>
 
                       </div>
                       <div class="declaration">
@@ -19434,7 +19434,7 @@ This method is deprecated.</p>
                       <div class="abstract">
                         <p>Change the value transition of a step function.</p>
 
-<p>See clutter_timeline_set_step_progress().</p>
+<p>See <code>clutter_timeline_set_step_progress()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -19851,7 +19851,7 @@ zooming action.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

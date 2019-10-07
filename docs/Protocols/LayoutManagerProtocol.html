@@ -17678,7 +17678,7 @@ and should be accessed using the provided API</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L358-L377">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L356-L375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17712,7 +17712,7 @@ and should be accessed using the provided API</p>
                       <div class="abstract">
                         <p>Allocates the children of <code>container</code> given an area</p>
 
-<p>See also clutter_actor_allocate()</p>
+<p>See also <code>clutter_actor_allocate()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -17724,7 +17724,7 @@ and should be accessed using the provided API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L387-L390">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L385-L388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17749,7 +17749,7 @@ and should be accessed using the provided API</p>
 easing <code>mode</code></p>
 
 <p>The easing mode can be specified either as a <code>ClutterAnimationMode</code>
-or as a logical id returned by clutter_alpha_register_func()</p>
+or as a logical id returned by <code>clutter_alpha_register_func()</code></p>
 
 <p>The result of this function depends on the <code>manager</code> implementation</p>
 
@@ -17767,7 +17767,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L402-L405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L400-L403">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17792,7 +17792,7 @@ This method is deprecated.</p>
 attached to a child of <code>container</code></p>
 
 <p>The <code>GValue</code> must already be initialized to the type of the property
-and has to be unset with g_value_unset() after extracting the real
+and has to be unset with <code>g_value_unset()</code> after extracting the real
 value out of it</p>
 
                       </div>
@@ -17805,7 +17805,7 @@ value out of it</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L417-L420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L415-L418">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17839,7 +17839,7 @@ attached to a child of <code>container</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L428-L431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L426-L429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17860,7 +17860,7 @@ attached to a child of <code>container</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Ends an animation started by clutter_layout_manager_begin_animation()</p>
+                        <p>Ends an animation started by <code>clutter_layout_manager_begin_animation()</code></p>
 
 <p>The result of this call depends on the <code>manager</code> implementation</p>
 
@@ -17878,7 +17878,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L439-L442">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L437-L440">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17912,7 +17912,7 @@ the <code>ClutterLayoutMeta</code> sub-class used by <code>manager</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L446-L449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L444-L447">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17934,9 +17934,9 @@ the <code>ClutterLayoutMeta</code> sub-class used by <code>manager</code></p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the progress of the animation, if one has been started by
-clutter_layout_manager_begin_animation()</p>
+<code>clutter_layout_manager_begin_animation()</code></p>
 
-<p>The returned value has the same semantics of the <code>ClutterAlpha</code>:alpha
+<p>The returned value has the same semantics of the <code>ClutterAlpha:alpha</code>
 value</p>
 
 <p><strong>get_animation_progress is deprecated:</strong>
@@ -17953,7 +17953,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L459-L462">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L457-L460">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17988,7 +17988,7 @@ to the <code>actor</code> child of <code>container</code>, eventually by creatin
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L467-L470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L465-L468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18012,7 +18012,7 @@ to the <code>actor</code> child of <code>container</code>, eventually by creatin
                         <p>Computes the minimum and natural heights of the <code>container</code> according
 to <code>manager</code>.</p>
 
-<p>See also clutter_actor_get_preferred_height()</p>
+<p>See also <code>clutter_actor_get_preferred_height()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -18024,7 +18024,7 @@ to <code>manager</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L476-L479">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L474-L477">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18048,7 +18048,7 @@ to <code>manager</code>.</p>
                         <p>Computes the minimum and natural widths of the <code>container</code> according
 to <code>manager</code>.</p>
 
-<p>See also clutter_actor_get_preferred_width()</p>
+<p>See also <code>clutter_actor_get_preferred_width()</code></p>
 
                       </div>
                       <div class="declaration">
@@ -18060,7 +18060,7 @@ to <code>manager</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L485-L488">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L483-L486">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18081,7 +18081,7 @@ to <code>manager</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the <code>ClutterLayoutManager</code>::layout-changed signal on <code>manager</code></p>
+                        <p>Emits the <code>ClutterLayoutManager::layout</code>-changed signal on <code>manager</code></p>
 
 <p>This function should only be called by implementations of the
 <code>ClutterLayoutManager</code> class</p>
@@ -18096,7 +18096,7 @@ to <code>manager</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L494-L497">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L492-L495">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18130,7 +18130,7 @@ stored inside the <code>ClutterLayoutMeta</code> sub-class used by <code>manager
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L501-L504">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L499-L502">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18168,7 +18168,7 @@ count of the <code>container</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L512-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L510-L513">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18190,9 +18190,9 @@ count of the <code>container</code></p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the progress of the animation, if one has been started by
-clutter_layout_manager_begin_animation()</p>
+<code>clutter_layout_manager_begin_animation()</code></p>
 
-<p>The returned value has the same semantics of the <code>ClutterAlpha</code>:alpha
+<p>The returned value has the same semantics of the <code>ClutterAlpha:alpha</code>
 value</p>
 
 <p><strong>get_animation_progress is deprecated:</strong>
@@ -18208,7 +18208,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L524-L537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L522-L535">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18221,7 +18221,7 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

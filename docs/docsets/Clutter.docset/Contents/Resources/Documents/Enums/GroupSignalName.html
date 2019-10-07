@@ -17417,7 +17417,7 @@ signal when the cell in the table which has focus changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1322">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17435,8 +17435,8 @@ signal when the cell in the table which has focus changes.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::allocation-changed signal is emitted when the
-<code>ClutterActor</code>:allocation property changes. Usually, application
+                        <p>The <code>allocation</code>-changed signal is emitted when the
+<code>ClutterActor:allocation</code> property changes. Usually, application
 code should just use the notifications for the :allocation property
 but if you want to track the allocation flags as well, for instance
 to know whether the absolute origin of <code>actor</code> changed, then you might
@@ -17452,7 +17452,7 @@ want use this signal instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1329">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17470,7 +17470,7 @@ want use this signal instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::button-press-event signal is emitted each time a mouse button
+                        <p>The <code>button</code>-press-event signal is emitted each time a mouse button
 is pressed on <code>actor</code>.</p>
 
                       </div>
@@ -17483,7 +17483,7 @@ is pressed on <code>actor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1329">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17501,7 +17501,7 @@ is pressed on <code>actor</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::button-release-event signal is emitted each time a mouse button
+                        <p>The <code>button</code>-release-event signal is emitted each time a mouse button
 is released on <code>actor</code>.</p>
 
                       </div>
@@ -17514,7 +17514,7 @@ is released on <code>actor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1332">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17532,12 +17532,12 @@ is released on <code>actor</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::captured-event signal is emitted when an event is captured
+                        <p>The <code>captured</code>-event signal is emitted when an event is captured
 by Clutter. This signal will be emitted starting from the top-level
 container (the <code>ClutterStage</code>) to the actor which received the event
 going down the hierarchy. This signal can be used to intercept every
 event before the specialized events (like
-ClutterActor::button-press-event or ::key-released-event) are
+ClutterActor<code>button</code>-press-event or <code>key</code>-released-event) are
 emitted.</p>
 
                       </div>
@@ -17550,7 +17550,7 @@ emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1343">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1340">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17582,7 +17582,7 @@ removed form an object. It supports two details: <q>add</q> and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1347">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1344">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17600,10 +17600,10 @@ removed form an object. It supports two details: <q>add</q> and
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::destroy signal notifies that all references held on the
+                        <p>The <code>destroy</code> signal notifies that all references held on the
 actor which emitted it should be released.</p>
 
-<p>The ::destroy signal should be used by all holders of a reference
+<p>The <code>destroy</code> signal should be used by all holders of a reference
 on <code>actor</code>.</p>
 
 <p>This signal might result in the finalization of the <code>ClutterActor</code>
@@ -17611,7 +17611,7 @@ if all references are released.</p>
 
 <p>Composite actors and actors implementing the <code>ClutterContainer</code>
 interface should override the default implementation of the
-class handler of this signal and call clutter_actor_destroy() on
+class handler of this signal and call <code>clutter_actor_destroy()</code> on
 their children. When overriding the default class handler, it is
 required to chain up to the parent&rsquo;s implementation.</p>
 
@@ -17625,7 +17625,7 @@ required to chain up to the parent&rsquo;s implementation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1362">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1359">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17643,7 +17643,7 @@ required to chain up to the parent&rsquo;s implementation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::enter-event signal is emitted when the pointer enters the <code>actor</code></p>
+                        <p>The <code>enter</code>-event signal is emitted when the pointer enters the <code>actor</code></p>
 
                       </div>
                       <div class="declaration">
@@ -17655,7 +17655,7 @@ required to chain up to the parent&rsquo;s implementation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17673,7 +17673,7 @@ required to chain up to the parent&rsquo;s implementation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::event signal is emitted each time an event is received
+                        <p>The <code>event</code> signal is emitted each time an event is received
 by the <code>actor</code>. This signal will be emitted on every actor,
 following the hierarchy chain, until it reaches the top-level
 container (the <code>ClutterStage</code>).</p>
@@ -17688,7 +17688,7 @@ container (the <code>ClutterStage</code>).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1369">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1366">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17722,7 +17722,7 @@ Use the #AtkObject::state-change signal instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1375">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17740,7 +17740,7 @@ Use the #AtkObject::state-change signal instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::hide signal is emitted when an actor is no longer rendered
+                        <p>The <code>hide</code> signal is emitted when an actor is no longer rendered
 on the stage.</p>
 
                       </div>
@@ -17753,7 +17753,7 @@ on the stage.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1378">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1375">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17771,7 +17771,7 @@ on the stage.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::key-focus-in signal is emitted when <code>actor</code> receives key focus.</p>
+                        <p>The <code>key</code>-focus-in signal is emitted when <code>actor</code> receives key focus.</p>
 
                       </div>
                       <div class="declaration">
@@ -17783,7 +17783,7 @@ on the stage.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17801,7 +17801,7 @@ on the stage.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::key-focus-out signal is emitted when <code>actor</code> loses key focus.</p>
+                        <p>The <code>key</code>-focus-out signal is emitted when <code>actor</code> loses key focus.</p>
 
                       </div>
                       <div class="declaration">
@@ -17813,7 +17813,7 @@ on the stage.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1382">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1379">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17831,8 +17831,8 @@ on the stage.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::key-press-event signal is emitted each time a keyboard button
-is pressed while <code>actor</code> has key focus (see clutter_stage_set_key_focus()).</p>
+                        <p>The <code>key</code>-press-event signal is emitted each time a keyboard button
+is pressed while <code>actor</code> has key focus (see <code>clutter_stage_set_key_focus()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -17844,7 +17844,7 @@ is pressed while <code>actor</code> has key focus (see clutter_stage_set_key_foc
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17862,9 +17862,9 @@ is pressed while <code>actor</code> has key focus (see clutter_stage_set_key_foc
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::key-release-event signal is emitted each time a keyboard button
+                        <p>The <code>key</code>-release-event signal is emitted each time a keyboard button
 is released while <code>actor</code> has key focus (see
-clutter_stage_set_key_focus()).</p>
+<code>clutter_stage_set_key_focus()</code>).</p>
 
                       </div>
                       <div class="declaration">
@@ -17876,7 +17876,7 @@ clutter_stage_set_key_focus()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17894,7 +17894,7 @@ clutter_stage_set_key_focus()).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::leave-event signal is emitted when the pointer leaves the <code>actor</code>.</p>
+                        <p>The <code>leave</code>-event signal is emitted when the pointer leaves the <code>actor</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17906,7 +17906,7 @@ clutter_stage_set_key_focus()).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1391">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17924,7 +17924,7 @@ clutter_stage_set_key_focus()).</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::motion-event signal is emitted each time the mouse pointer is
+                        <p>The <code>motion</code>-event signal is emitted each time the mouse pointer is
 moved over <code>actor</code>.</p>
 
                       </div>
@@ -17937,7 +17937,7 @@ moved over <code>actor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17956,20 +17956,20 @@ moved over <code>actor</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -17977,7 +17977,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -17990,7 +17990,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1420">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18008,16 +18008,16 @@ detail strings for the notify signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::paint signal is emitted each time an actor is being painted.</p>
+                        <p>The <code>paint</code> signal is emitted each time an actor is being painted.</p>
 
-<p>Subclasses of <code>ClutterActor</code> should override the <code>ClutterActorClass</code>.paint
+<p>Subclasses of <code>ClutterActor</code> should override the <code>ClutterActorClass.paint</code>
 virtual function paint themselves in that function.</p>
 
 <p>It is strongly discouraged to connect a signal handler to
-the <code>ClutterActor</code>::paint signal; if you want to change the paint
+the <code>ClutterActor::paint</code> signal; if you want to change the paint
 sequence of an existing <code>ClutterActor</code> instance, either create a new
-<code>ClutterActor</code> class and override the <code>ClutterActorClass</code>.paint virtual
-function, or use a <code>ClutterEffect</code>. The <code>ClutterActor</code>::paint signal
+<code>ClutterActor</code> class and override the <code>ClutterActorClass.paint</code> virtual
+function, or use a <code>ClutterEffect</code>. The <code>ClutterActor::paint</code> signal
 will be removed in a future version of Clutter.</p>
 
 <p><strong>paint is deprecated:</strong>
@@ -18035,7 +18035,7 @@ Override the #ClutterActorClass.paint virtual
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1433">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18065,7 +18065,7 @@ Override the #ClutterActorClass.paint virtual
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1439">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1435">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18083,15 +18083,15 @@ Override the #ClutterActorClass.paint virtual
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::pick signal is emitted each time an actor is being painted
+                        <p>The <code>pick</code> signal is emitted each time an actor is being painted
 in <q>pick mode</q>. The pick mode is used to identify the actor during
-the event handling phase, or by clutter_stage_get_actor_at_pos().
+the event handling phase, or by <code>clutter_stage_get_actor_at_pos()</code>.
 The actor should paint its shape using the passed <code>pick_color</code>.</p>
 
 <p>Subclasses of <code>ClutterActor</code> should override the class signal handler
 and paint themselves in that function.</p>
 
-<p>It is possible to connect a handler to the ::pick signal in order
+<p>It is possible to connect a handler to the <code>pick</code> signal in order
 to set up some custom aspect of a paint in pick mode.</p>
 
 <p><strong>pick is deprecated:</strong>
@@ -18108,7 +18108,7 @@ Override the #ClutterActorClass.pick virtual function
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1450">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18135,9 +18135,9 @@ may also be emitted when the setter of the property is called to
 reinstate the previous value.</p>
 
 <p>Toolkit implementor note: ATK implementors should use
-g_object_notify() to emit property-changed
-notifications. <code>AtkObject</code>::property-changed is needed by the
-implementation of atk_add_global_event_listener() because GObject
+<code>g_object_notify()</code> to emit property-changed
+notifications. <code>AtkObject::property</code>-changed is needed by the
+implementation of <code>atk_add_global_event_listener()</code> because GObject
 notify doesn&rsquo;t support emission hooks.</p>
 
                       </div>
@@ -18150,7 +18150,7 @@ notify doesn&rsquo;t support emission hooks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1464">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18168,13 +18168,13 @@ notify doesn&rsquo;t support emission hooks.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::queue_redraw signal is emitted when clutter_actor_queue_redraw()
+                        <p>The <code>queue_redraw</code> signal is emitted when <code>clutter_actor_queue_redraw()</code>
 is called on <code>origin</code>.</p>
 
 <p>The default implementation for <code>ClutterActor</code> chains up to the
 parent actor and queues a redraw on the parent, thus <q>bubbling</q>
 the redraw queue up through the actor graph. The default
-implementation for <code>ClutterStage</code> queues a clutter_stage_ensure_redraw()
+implementation for <code>ClutterStage</code> queues a <code>clutter_stage_ensure_redraw()</code>
 in a main loop idle handler.</p>
 
 <p>Note that the <code>origin</code> actor may be the stage, or a container; it
@@ -18182,7 +18182,7 @@ does not have to be a leaf node in the actor graph.</p>
 
 <p>Toolkits embedding a <code>ClutterStage</code> which require a redraw and
 relayout cycle can stop the emission of this signal using the
-GSignal API, redraw the UI and then call clutter_stage_ensure_redraw()
+GSignal API, redraw the UI and then call <code>clutter_stage_ensure_redraw()</code>
 themselves, like:</p>
 
 <p>(C Language Example):</p>
@@ -18209,8 +18209,8 @@ themselves, like:</p>
 
 <p>Note: This signal is emitted before the Clutter paint
 pipeline is executed. If you want to know when the pipeline has
-been completed you should use clutter_threads_add_repaint_func()
-or clutter_threads_add_repaint_func_full().</p>
+been completed you should use <code>clutter_threads_add_repaint_func()</code>
+or <code>clutter_threads_add_repaint_func_full()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18222,7 +18222,7 @@ or clutter_threads_add_repaint_func_full().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1514">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18240,7 +18240,7 @@ or clutter_threads_add_repaint_func_full().</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::queue_layout signal is emitted when clutter_actor_queue_relayout()
+                        <p>The <code>queue_layout</code> signal is emitted when <code>clutter_actor_queue_relayout()</code>
 is called on an actor.</p>
 
 <p>The default implementation for <code>ClutterActor</code> chains up to the
@@ -18261,7 +18261,7 @@ not normally need to connect to this signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1520">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18279,7 +18279,7 @@ not normally need to connect to this signal.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::realize signal is emitted each time an actor is being
+                        <p>The <code>realize</code> signal is emitted each time an actor is being
 realized.</p>
 
 <p><strong>realize is deprecated:</strong>
@@ -18296,7 +18296,7 @@ The signal should not be used in newly
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1532">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18314,7 +18314,7 @@ The signal should not be used in newly
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::scroll-event signal is emitted each time the mouse is
+                        <p>The <code>scroll</code>-event signal is emitted each time the mouse is
 scrolled on <code>actor</code></p>
 
                       </div>
@@ -18327,7 +18327,7 @@ scrolled on <code>actor</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18345,7 +18345,7 @@ scrolled on <code>actor</code></p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::show signal is emitted when an actor is visible and
+                        <p>The <code>show</code> signal is emitted when an actor is visible and
 rendered on the stage.</p>
 
                       </div>
@@ -18358,7 +18358,7 @@ rendered on the stage.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1533">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18390,7 +18390,7 @@ changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1542">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1537">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18408,7 +18408,7 @@ changed.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::touch-event signal is emitted each time a touch
+                        <p>The <code>touch</code>-event signal is emitted each time a touch
 begin/end/update/cancel event.</p>
 
                       </div>
@@ -18421,7 +18421,7 @@ begin/end/update/cancel event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1545">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1540">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18439,11 +18439,11 @@ begin/end/update/cancel event.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::transition-stopped signal is emitted once a transition
+                        <p>The <code>transition</code>-stopped signal is emitted once a transition
 is stopped; a transition is stopped once it reached its total
 duration (including eventual repeats), it has been stopped
-using clutter_timeline_stop(), or it has been removed from the
-transitions applied on <code>actor</code>, using clutter_actor_remove_transition().</p>
+using <code>clutter_timeline_stop()</code>, or it has been removed from the
+transitions applied on <code>actor</code>, using <code>clutter_actor_remove_transition()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -18455,7 +18455,7 @@ transitions applied on <code>actor</code>, using clutter_actor_remove_transition
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1551">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1546">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18473,7 +18473,7 @@ transitions applied on <code>actor</code>, using clutter_actor_remove_transition
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::transitions-completed signal is emitted once all transitions
+                        <p>The <code>transitions</code>-completed signal is emitted once all transitions
 involving <code>actor</code> are complete.</p>
 
                       </div>
@@ -18486,7 +18486,7 @@ involving <code>actor</code> are complete.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1554">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1549">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18504,7 +18504,7 @@ involving <code>actor</code> are complete.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::unrealize signal is emitted each time an actor is being
+                        <p>The <code>unrealize</code> signal is emitted each time an actor is being
 unrealized.</p>
 
 <p><strong>unrealize is deprecated:</strong>
@@ -18521,7 +18521,7 @@ The signal should not be used in newly
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1561">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18552,7 +18552,7 @@ appearance of the object changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1559">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18795,7 +18795,7 @@ Since 1.3. Use table-caption-object instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1576">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1571">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18859,7 +18859,7 @@ and atk_table_set_column_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18893,7 +18893,7 @@ atk_table_set_column_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1589">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1584">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18927,7 +18927,7 @@ atk_table_set_row_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1595">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1590">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18961,7 +18961,7 @@ atk_table_set_row_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1596">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19026,7 +19026,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1609">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19056,7 +19056,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1611">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1606">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19089,7 +19089,7 @@ actor moves or resizes</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19109,13 +19109,13 @@ actor moves or resizes</p>
                       <div class="abstract">
                         <p>The anchor point expressed as a <code>ClutterGravity</code></p>
 
-<p>It is highly recommended not to use <code>ClutterActor</code>:anchor-x,
-<code>ClutterActor</code>:anchor-y, and <code>ClutterActor</code>:anchor-gravity in newly
+<p>It is highly recommended not to use <code>ClutterActor:anchor</code>-x,
+<code>ClutterActor:anchor</code>-y, and <code>ClutterActor:anchor</code>-gravity in newly
 written code; the anchor point adds an additional translation that
 will affect the actor&rsquo;s relative position with regards to its
 parent, as well as the position of its children. This change needs
 to always be taken into account when positioning the actor. It is
-recommended to use the <code>ClutterActor</code>:pivot-point property instead,
+recommended to use the <code>ClutterActor:pivot</code>-point property instead,
 as it will affect only the transformations.</p>
 
 <p><strong>anchor-gravity is deprecated:</strong>
@@ -19131,7 +19131,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1630">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1625">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19152,13 +19152,13 @@ Use #ClutterActor:pivot-point instead</p>
                         <p>The X coordinate of an actor&rsquo;s anchor point, relative to
 the actor coordinate space, in pixels.</p>
 
-<p>It is highly recommended not to use <code>ClutterActor</code>:anchor-x,
-<code>ClutterActor</code>:anchor-y, and <code>ClutterActor</code>:anchor-gravity in newly
+<p>It is highly recommended not to use <code>ClutterActor:anchor</code>-x,
+<code>ClutterActor:anchor</code>-y, and <code>ClutterActor:anchor</code>-gravity in newly
 written code; the anchor point adds an additional translation that
 will affect the actor&rsquo;s relative position with regards to its
 parent, as well as the position of its children. This change needs
 to always be taken into account when positioning the actor. It is
-recommended to use the <code>ClutterActor</code>:pivot-point property instead,
+recommended to use the <code>ClutterActor:pivot</code>-point property instead,
 as it will affect only the transformations.</p>
 
 <p><strong>anchor-x is deprecated:</strong>
@@ -19174,7 +19174,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1645">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1640">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19195,13 +19195,13 @@ Use #ClutterActor:pivot-point instead</p>
                         <p>The Y coordinate of an actor&rsquo;s anchor point, relative to
 the actor coordinate space, in pixels</p>
 
-<p>It is highly recommended not to use <code>ClutterActor</code>:anchor-x,
-<code>ClutterActor</code>:anchor-y, and <code>ClutterActor</code>:anchor-gravity in newly
+<p>It is highly recommended not to use <code>ClutterActor:anchor</code>-x,
+<code>ClutterActor:anchor</code>-y, and <code>ClutterActor:anchor</code>-gravity in newly
 written code; the anchor point adds an additional translation that
 will affect the actor&rsquo;s relative position with regards to its
 parent, as well as the position of its children. This change needs
 to always be taken into account when positioning the actor. It is
-recommended to use the <code>ClutterActor</code>:pivot-point property instead,
+recommended to use the <code>ClutterActor:pivot</code>-point property instead,
 as it will affect only the transformations.</p>
 
 <p><strong>anchor-y is deprecated:</strong>
@@ -19217,7 +19217,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1660">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1655">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19238,7 +19238,7 @@ Use #ClutterActor:pivot-point instead</p>
                         <p>Paints a solid fill of the actor&rsquo;s allocation using the specified
 color.</p>
 
-<p>The <code>ClutterActor</code>:background-color property is animatable.</p>
+<p>The <code>ClutterActor:background</code>-color property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -19250,7 +19250,7 @@ color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1665">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1660">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19268,7 +19268,7 @@ color.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Whether the <code>ClutterActor</code>:background-color property has been set.</p>
+                        <p>Whether the <code>ClutterActor:background</code>-color property has been set.</p>
 
                       </div>
                       <div class="declaration">
@@ -19280,7 +19280,7 @@ color.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1667">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19301,11 +19301,11 @@ color.</p>
                         <p>Applies a transformation matrix on each child of an actor.</p>
 
 <p>Setting this property with a <code>ClutterMatrix</code> will set the
-<code>ClutterActor</code>:child-transform-set property to <code>true</code> as a side effect;
+<code>ClutterActor:child</code>-transform-set property to <code>true</code> as a side effect;
 setting this property with <code>nil</code> will set the
-<code>ClutterActor</code>:child-transform-set property to <code>false</code>.</p>
+<code>ClutterActor:child</code>-transform-set property to <code>false</code>.</p>
 
-<p>The <code>ClutterActor</code>:child-transform property is animatable.</p>
+<p>The <code>ClutterActor:child</code>-transform property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -19317,7 +19317,7 @@ setting this property with <code>nil</code> will set the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1671">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19335,7 +19335,7 @@ setting this property with <code>nil</code> will set the
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Whether the <code>ClutterActor</code>:child-transform property is set.</p>
+                        <p>Whether the <code>ClutterActor:child</code>-transform property is set.</p>
 
                       </div>
                       <div class="declaration">
@@ -19347,7 +19347,7 @@ setting this property with <code>nil</code> will set the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1678">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19380,7 +19380,7 @@ Use #ClutterActor:clip-rect instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1683">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1678">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19403,7 +19403,7 @@ expressed as a <code>ClutterRect</code>.</p>
 
 <p>Setting this property to <code>nil</code> will unset the existing clip.</p>
 
-<p>Setting this property will change the <code>ClutterActor</code>:has-clip
+<p>Setting this property will change the <code>ClutterActor:has</code>-clip
 property as a side effect.</p>
 
                       </div>
@@ -19416,7 +19416,7 @@ property as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1691">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1686">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19438,7 +19438,7 @@ property as a side effect.</p>
 of the actor.</p>
 
 <p>This property is ignored if a clip area has been explicitly
-set using clutter_actor_set_clip().</p>
+set using <code>clutter_actor_set_clip()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -19450,7 +19450,7 @@ set using clutter_actor_set_clip().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1697">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1692">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19480,7 +19480,7 @@ set using clutter_actor_set_clip().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1699">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1694">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19511,7 +19511,7 @@ of the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19531,8 +19531,8 @@ of the actor.</p>
                       <div class="abstract">
                         <p>The bounding box for the <code>ClutterContent</code> used by the actor.</p>
 
-<p>The value of this property is controlled by the <code>ClutterActor</code>:allocation
-and <code>ClutterActor</code>:content-gravity properties of <code>ClutterActor</code>.</p>
+<p>The value of this property is controlled by the <code>ClutterActor:allocation</code>
+and <code>ClutterActor:content</code>-gravity properties of <code>ClutterActor</code>.</p>
 
 <p>The bounding box for the content is guaranteed to never exceed the
 allocation&rsquo;s of the actor.</p>
@@ -19547,7 +19547,7 @@ allocation&rsquo;s of the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1710">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1705">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19566,10 +19566,10 @@ allocation&rsquo;s of the actor.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The alignment that should be honoured by the <code>ClutterContent</code>
-set with the <code>ClutterActor</code>:content property.</p>
+set with the <code>ClutterActor:content</code> property.</p>
 
 <p>Changing the value of this property will change the bounding box of
-the content; you can use the <code>ClutterActor</code>:content-box property to
+the content; you can use the <code>ClutterActor:content</code>-box property to
 get the position and size of the content within the actor&rsquo;s
 allocation.</p>
 
@@ -19577,7 +19577,7 @@ allocation.</p>
 that have a preferred size, and if the preferred size is smaller than
 the actor&rsquo;s allocation.</p>
 
-<p>The <code>ClutterActor</code>:content-gravity property is animatable.</p>
+<p>The <code>ClutterActor:content</code>-gravity property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -19589,7 +19589,7 @@ the actor&rsquo;s allocation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1724">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1719">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19607,7 +19607,7 @@ the actor&rsquo;s allocation.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The repeat policy for the actor&rsquo;s <code>ClutterActor</code>:content.</p>
+                        <p>The repeat policy for the actor&rsquo;s <code>ClutterActor:content</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -19619,7 +19619,7 @@ the actor&rsquo;s allocation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1726">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1721">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19639,13 +19639,13 @@ the actor&rsquo;s allocation.</p>
                       <div class="abstract">
                         <p>The position of the actor on the Z axis.</p>
 
-<p>The <code>ClutterActor</code>:depth property is relative to the parent&rsquo;s
+<p>The <code>ClutterActor:depth</code> property is relative to the parent&rsquo;s
 modelview matrix.</p>
 
-<p>Setting this property will call <code>ClutterContainerIface</code>.sort_depth_order()
+<p>Setting this property will call <code>ClutterContainerIface.sort_depth_order</code><code>()</code>
 which is usually a no-op, and it&rsquo;s most likely not what you want.</p>
 
-<p>The <code>ClutterActor</code>:depth property is animatable.</p>
+<p>The <code>ClutterActor:depth</code> property is animatable.</p>
 
 <p><strong>depth is deprecated:</strong>
 Use #ClutterActor:z-position instead.</p>
@@ -19660,7 +19660,7 @@ Use #ClutterActor:z-position instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1739">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1734">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19690,7 +19690,7 @@ Use #ClutterActor:z-position instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1741">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1736">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19720,7 +19720,7 @@ Use #ClutterActor:z-position instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19738,8 +19738,8 @@ Use #ClutterActor:z-position instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This flag controls whether the <code>ClutterActor</code>:fixed-x and
-<code>ClutterActor</code>:fixed-y properties are used</p>
+                        <p>This flag controls whether the <code>ClutterActor:fixed</code>-x and
+<code>ClutterActor:fixed</code>-y properties are used</p>
 
                       </div>
                       <div class="declaration">
@@ -19751,7 +19751,7 @@ Use #ClutterActor:z-position instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1746">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1741">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19771,7 +19771,7 @@ Use #ClutterActor:z-position instead.</p>
                       <div class="abstract">
                         <p>The fixed X position of the actor in pixels.</p>
 
-<p>Writing this property sets <code>ClutterActor</code>:fixed-position-set
+<p>Writing this property sets <code>ClutterActor:fixed</code>-position-set
 property as well, as a side effect</p>
 
                       </div>
@@ -19784,7 +19784,7 @@ property as well, as a side effect</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1751">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1746">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19804,7 +19804,7 @@ property as well, as a side effect</p>
                       <div class="abstract">
                         <p>The fixed Y position of the actor in pixels.</p>
 
-<p>Writing this property sets the <code>ClutterActor</code>:fixed-position-set
+<p>Writing this property sets the <code>ClutterActor:fixed</code>-position-set
 property as well, as a side effect</p>
 
                       </div>
@@ -19817,7 +19817,7 @@ property as well, as a side effect</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1756">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1751">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19835,7 +19835,7 @@ property as well, as a side effect</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Whether the actor has the <code>ClutterActor</code>:clip property set or not</p>
+                        <p>Whether the actor has the <code>ClutterActor:clip</code> property set or not</p>
 
                       </div>
                       <div class="declaration">
@@ -19847,7 +19847,7 @@ property as well, as a side effect</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1753">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19878,7 +19878,7 @@ or not.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1761">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1756">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19900,7 +19900,7 @@ or not.</p>
 natural size request of the actor to the given height. If read, returns
 the allocated height if available, otherwise the height request.</p>
 
-<p>The <code>ClutterActor</code>:height property is animatable.</p>
+<p>The <code>ClutterActor:height</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -19912,7 +19912,7 @@ the allocated height if available, otherwise the height request.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1767">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1762">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19942,7 +19942,7 @@ the allocated height if available, otherwise the height request.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1769">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19973,7 +19973,7 @@ an actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1772">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1767">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20034,7 +20034,7 @@ to which it belongs is mapped)</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1776">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20057,7 +20057,7 @@ to which it belongs is mapped)</p>
 <p>This property adds a margin to the actor&rsquo;s preferred size; the margin
 will be automatically taken into account when allocating the actor.</p>
 
-<p>The <code>ClutterActor</code>:margin-bottom property is animatable.</p>
+<p>The <code>ClutterActor:margin</code>-bottom property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20069,7 +20069,7 @@ will be automatically taken into account when allocating the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1783">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1778">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20092,7 +20092,7 @@ will be automatically taken into account when allocating the actor.</p>
 <p>This property adds a margin to the actor&rsquo;s preferred size; the margin
 will be automatically taken into account when allocating the actor.</p>
 
-<p>The <code>ClutterActor</code>:margin-left property is animatable.</p>
+<p>The <code>ClutterActor:margin</code>-left property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20104,7 +20104,7 @@ will be automatically taken into account when allocating the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1790">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1785">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20127,7 +20127,7 @@ will be automatically taken into account when allocating the actor.</p>
 <p>This property adds a margin to the actor&rsquo;s preferred size; the margin
 will be automatically taken into account when allocating the actor.</p>
 
-<p>The <code>ClutterActor</code>:margin-right property is animatable.</p>
+<p>The <code>ClutterActor:margin</code>-right property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20139,7 +20139,7 @@ will be automatically taken into account when allocating the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1792">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20162,7 +20162,7 @@ will be automatically taken into account when allocating the actor.</p>
 <p>This property adds a margin to the actor&rsquo;s preferred size; the margin
 will be automatically taken into account when allocating the actor.</p>
 
-<p>The <code>ClutterActor</code>:margin-top property is animatable.</p>
+<p>The <code>ClutterActor:margin</code>-top property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20174,7 +20174,7 @@ will be automatically taken into account when allocating the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1804">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1799">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20194,7 +20194,7 @@ will be automatically taken into account when allocating the actor.</p>
                       <div class="abstract">
                         <p>A forced minimum height request for the actor, in pixels</p>
 
-<p>Writing this property sets the <code>ClutterActor</code>:min-height-set property
+<p>Writing this property sets the <code>ClutterActor:min</code>-height-set property
 as well, as a side effect. This property overrides the usual height
 request of the actor.</p>
 
@@ -20208,7 +20208,7 @@ request of the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1810">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1805">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20226,7 +20226,7 @@ request of the actor.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This flag controls whether the <code>ClutterActor</code>:min-height property
+                        <p>This flag controls whether the <code>ClutterActor:min</code>-height property
 is used</p>
 
                       </div>
@@ -20239,7 +20239,7 @@ is used</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1813">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1808">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20259,7 +20259,7 @@ is used</p>
                       <div class="abstract">
                         <p>A forced minimum width request for the actor, in pixels</p>
 
-<p>Writing this property sets the <code>ClutterActor</code>:min-width-set property
+<p>Writing this property sets the <code>ClutterActor:min</code>-width-set property
 as well, as a side effect.</p>
 
 <p>This property overrides the usual width request of the actor.</p>
@@ -20274,7 +20274,7 @@ as well, as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1820">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1815">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20292,7 +20292,7 @@ as well, as a side effect.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This flag controls whether the <code>ClutterActor</code>:min-width property
+                        <p>This flag controls whether the <code>ClutterActor:min</code>-width property
 is used</p>
 
                       </div>
@@ -20305,7 +20305,7 @@ is used</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1823">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1818">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20365,7 +20365,7 @@ is used</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1826">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1821">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20385,7 +20385,7 @@ is used</p>
                       <div class="abstract">
                         <p>A forced natural height request for the actor, in pixels</p>
 
-<p>Writing this property sets the <code>ClutterActor</code>:natural-height-set
+<p>Writing this property sets the <code>ClutterActor:natural</code>-height-set
 property as well, as a side effect. This property overrides the
 usual height request of the actor</p>
 
@@ -20399,7 +20399,7 @@ usual height request of the actor</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1832">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1827">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20417,7 +20417,7 @@ usual height request of the actor</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This flag controls whether the <code>ClutterActor</code>:natural-height property
+                        <p>This flag controls whether the <code>ClutterActor:natural</code>-height property
 is used</p>
 
                       </div>
@@ -20430,7 +20430,7 @@ is used</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1835">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1830">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20450,7 +20450,7 @@ is used</p>
                       <div class="abstract">
                         <p>A forced natural width request for the actor, in pixels</p>
 
-<p>Writing this property sets the <code>ClutterActor</code>:natural-width-set
+<p>Writing this property sets the <code>ClutterActor:natural</code>-width-set
 property as well, as a side effect. This property overrides the
 usual width request of the actor</p>
 
@@ -20464,7 +20464,7 @@ usual width request of the actor</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1841">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1836">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20482,7 +20482,7 @@ usual width request of the actor</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This flag controls whether the <code>ClutterActor</code>:natural-width property
+                        <p>This flag controls whether the <code>ClutterActor:natural</code>-width property
 is used</p>
 
                       </div>
@@ -20495,7 +20495,7 @@ is used</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1844">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20517,7 +20517,7 @@ is used</p>
 to an offscreen framebuffer while being painted. For example this
 can be used to cache an actor in a framebuffer or for improved
 handling of transparent actors. See
-clutter_actor_set_offscreen_redirect() for details.</p>
+<code>clutter_actor_set_offscreen_redirect()</code> for details.</p>
 
                       </div>
                       <div class="declaration">
@@ -20529,7 +20529,7 @@ clutter_actor_set_offscreen_redirect() for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1850">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1845">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20550,7 +20550,7 @@ clutter_actor_set_offscreen_redirect() for details.</p>
                         <p>Opacity of an actor, between 0 (fully transparent) and
 255 (fully opaque)</p>
 
-<p>The <code>ClutterActor</code>:opacity property is animatable.</p>
+<p>The <code>ClutterActor:opacity</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20562,7 +20562,7 @@ clutter_actor_set_offscreen_redirect() for details.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1855">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1850">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20588,7 +20588,7 @@ of the actor.</p>
 
 <p>The default pivot point is located at (0, 0).</p>
 
-<p>The <code>ClutterActor</code>:pivot-point property is animatable.</p>
+<p>The <code>ClutterActor:pivot</code>-point property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20600,7 +20600,7 @@ of the actor.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1865">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1860">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20618,10 +20618,10 @@ of the actor.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Z component of the <code>ClutterActor</code>:pivot-point, expressed as a value
+                        <p>The Z component of the <code>ClutterActor:pivot</code>-point, expressed as a value
 along the Z axis.</p>
 
-<p>The <code>ClutterActor</code>:pivot-point-z property is animatable.</p>
+<p>The <code>ClutterActor:pivot</code>-point-z property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20633,7 +20633,7 @@ along the Z axis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1870">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1865">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20654,10 +20654,10 @@ along the Z axis.</p>
                         <p>The position of the origin of the actor.</p>
 
 <p>This property is a shorthand for setting and getting the
-<code>ClutterActor</code>:x and <code>ClutterActor</code>:y properties at the same
+<code>ClutterActor:x</code> and <code>ClutterActor:y</code> properties at the same
 time.</p>
 
-<p>The <code>ClutterActor</code>:position property is animatable.</p>
+<p>The <code>ClutterActor:position</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20669,7 +20669,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1878">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1873">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20701,7 +20701,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1882">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1877">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20731,7 +20731,7 @@ time.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1884">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1879">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20800,7 +20800,7 @@ the preferred height first, and then the preferred width for that height.</p>
 <p>will retrieve the minimum and natural width and height depending on the
 preferred request mode of the <code>ClutterActor</code> <q>child</q>.</p>
 
-<p>The clutter_actor_get_preferred_size() function will implement this
+<p>The <code>clutter_actor_get_preferred_size()</code> function will implement this
 check for you.</p>
 
                       </div>
@@ -20813,7 +20813,7 @@ check for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1940">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1934">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20833,7 +20833,7 @@ check for you.</p>
                       <div class="abstract">
                         <p>The rotation angle on the X axis.</p>
 
-<p>The <code>ClutterActor</code>:rotation-angle-x property is animatable.</p>
+<p>The <code>ClutterActor:rotation</code>-angle-x property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20845,7 +20845,7 @@ check for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1944">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1938">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20865,7 +20865,7 @@ check for you.</p>
                       <div class="abstract">
                         <p>The rotation angle on the Y axis</p>
 
-<p>The <code>ClutterActor</code>:rotation-angle-y property is animatable.</p>
+<p>The <code>ClutterActor:rotation</code>-angle-y property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20877,7 +20877,7 @@ check for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1948">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1942">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20897,7 +20897,7 @@ check for you.</p>
                       <div class="abstract">
                         <p>The rotation angle on the Z axis</p>
 
-<p>The <code>ClutterActor</code>:rotation-angle-z property is animatable.</p>
+<p>The <code>ClutterActor:rotation</code>-angle-z property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -20909,7 +20909,7 @@ check for you.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1952">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1946">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20942,7 +20942,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1957">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1951">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20975,7 +20975,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1962">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1956">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21008,7 +21008,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1967">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1961">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21041,7 +21041,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1972">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1966">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21074,7 +21074,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1977">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1971">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21107,7 +21107,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1982">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1976">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21140,7 +21140,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1987">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1981">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21160,7 +21160,7 @@ Use #ClutterActor:pivot-point instead</p>
                       <div class="abstract">
                         <p>The horizontal scale of the actor.</p>
 
-<p>The <code>ClutterActor</code>:scale-x property is animatable.</p>
+<p>The <code>ClutterActor:scale</code>-x property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21172,7 +21172,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1991">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1985">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21192,7 +21192,7 @@ Use #ClutterActor:pivot-point instead</p>
                       <div class="abstract">
                         <p>The vertical scale of the actor.</p>
 
-<p>The <code>ClutterActor</code>:scale-y property is animatable.</p>
+<p>The <code>ClutterActor:scale</code>-y property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21204,7 +21204,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1995">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1989">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21224,7 +21224,7 @@ Use #ClutterActor:pivot-point instead</p>
                       <div class="abstract">
                         <p>The scale factor of the actor along the Z axis.</p>
 
-<p>The <code>ClutterActor</code>:scale-y property is animatable.</p>
+<p>The <code>ClutterActor:scale</code>-y property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21236,7 +21236,7 @@ Use #ClutterActor:pivot-point instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1999">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1993">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21256,7 +21256,7 @@ Use #ClutterActor:pivot-point instead</p>
                       <div class="abstract">
                         <p>If <code>true</code>, the actor is automatically shown when parented.</p>
 
-<p>Calling clutter_actor_hide() on an actor which has not been
+<p>Calling <code>clutter_actor_hide()</code> on an actor which has not been
 parented will set this property to <code>false</code> as a side effect.</p>
 
                       </div>
@@ -21269,7 +21269,7 @@ parented will set this property to <code>false</code> as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2004">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L1998">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21290,9 +21290,9 @@ parented will set this property to <code>false</code> as a side effect.</p>
                         <p>The size of the actor.</p>
 
 <p>This property is a shorthand for setting and getting the
-<code>ClutterActor</code>:width and <code>ClutterActor</code>:height at the same time.</p>
+<code>ClutterActor:width</code> and <code>ClutterActor:height</code> at the same time.</p>
 
-<p>The <code>ClutterActor</code>:size property is animatable.</p>
+<p>The <code>ClutterActor:size</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21304,7 +21304,7 @@ parented will set this property to <code>false</code> as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2011">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2005">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21334,7 +21334,7 @@ parented will set this property to <code>false</code> as a side effect.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2013">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2007">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21355,18 +21355,18 @@ parented will set this property to <code>false</code> as a side effect.</p>
                         <p>Overrides the transformations of a <code>ClutterActor</code> with a custom
 matrix.</p>
 
-<p>The matrix specified by the <code>ClutterActor</code>:transform property is
+<p>The matrix specified by the <code>ClutterActor:transform</code> property is
 applied to the actor and its children relative to the actor&rsquo;s
-<code>ClutterActor</code>:allocation and <code>ClutterActor</code>:pivot-point.</p>
+<code>ClutterActor:allocation</code> and <code>ClutterActor:pivot</code>-point.</p>
 
 <p>Application code should rarely need to use this function directly.</p>
 
 <p>Setting this property with a <code>ClutterMatrix</code> will set the
-<code>ClutterActor</code>:transform-set property to <code>true</code> as a side effect;
+<code>ClutterActor:transform</code>-set property to <code>true</code> as a side effect;
 setting this property with <code>nil</code> will set the
-<code>ClutterActor</code>:transform-set property to <code>false</code>.</p>
+<code>ClutterActor:transform</code>-set property to <code>false</code>.</p>
 
-<p>The <code>ClutterActor</code>:transform property is animatable.</p>
+<p>The <code>ClutterActor:transform</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21378,7 +21378,7 @@ setting this property with <code>nil</code> will set the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2029">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21396,7 +21396,7 @@ setting this property with <code>nil</code> will set the
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Whether the <code>ClutterActor</code>:transform property is set.</p>
+                        <p>Whether the <code>ClutterActor:transform</code> property is set.</p>
 
                       </div>
                       <div class="declaration">
@@ -21408,7 +21408,7 @@ setting this property with <code>nil</code> will set the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2031">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2025">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21427,9 +21427,9 @@ setting this property with <code>nil</code> will set the
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>An additional translation applied along the X axis, relative
-to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
+to the actor&rsquo;s <code>ClutterActor:pivot</code>-point.</p>
 
-<p>The <code>ClutterActor</code>:translation-x property is animatable.</p>
+<p>The <code>ClutterActor:translation</code>-x property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21441,7 +21441,7 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2036">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2030">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21460,9 +21460,9 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>An additional translation applied along the Y axis, relative
-to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
+to the actor&rsquo;s <code>ClutterActor:pivot</code>-point.</p>
 
-<p>The <code>ClutterActor</code>:translation-y property is animatable.</p>
+<p>The <code>ClutterActor:translation</code>-y property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21474,7 +21474,7 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2041">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2035">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21493,9 +21493,9 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>An additional translation applied along the Z axis, relative
-to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
+to the actor&rsquo;s <code>ClutterActor:pivot</code>-point.</p>
 
-<p>The <code>ClutterActor</code>:translation-z property is animatable.</p>
+<p>The <code>ClutterActor:translation</code>-z property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21507,7 +21507,7 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2040">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21527,7 +21527,7 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                       <div class="abstract">
                         <p>Whether the actor is set to be visible or not</p>
 
-<p>See also <code>ClutterActor</code>:mapped</p>
+<p>See also <code>ClutterActor:mapped</code></p>
 
                       </div>
                       <div class="declaration">
@@ -21539,7 +21539,7 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2050">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2044">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21561,7 +21561,7 @@ to the actor&rsquo;s <code>ClutterActor</code>:pivot-point.</p>
 natural size request of the actor to the given width. If read, returns
 the allocated width if available, otherwise the width request.</p>
 
-<p>The <code>ClutterActor</code>:width property is animatable.</p>
+<p>The <code>ClutterActor:width</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21573,7 +21573,7 @@ the allocated width if available, otherwise the width request.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2056">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2050">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21595,7 +21595,7 @@ the allocated width if available, otherwise the width request.</p>
 position for the actor. If read, returns the fixed position if any,
 otherwise the allocation if available, otherwise 0.</p>
 
-<p>The <code>ClutterActor</code>:x property is animatable.</p>
+<p>The <code>ClutterActor:x</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21607,7 +21607,7 @@ otherwise the allocation if available, otherwise 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2056">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21626,7 +21626,7 @@ otherwise the allocation if available, otherwise 0.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The alignment of an actor on the X axis, if the actor has been given
-extra space for its allocation. See also the <code>ClutterActor</code>:x-expand
+extra space for its allocation. See also the <code>ClutterActor:x</code>-expand
 property.</p>
 
                       </div>
@@ -21639,7 +21639,7 @@ property.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2066">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21670,7 +21670,7 @@ the X axis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2069">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2063">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21692,7 +21692,7 @@ the X axis.</p>
 position for the actor.  If read, returns the fixed position if
 any, otherwise the allocation if available, otherwise 0.</p>
 
-<p>The <code>ClutterActor</code>:y property is animatable.</p>
+<p>The <code>ClutterActor:y</code> property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21704,7 +21704,7 @@ any, otherwise the allocation if available, otherwise 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2075">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2069">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21735,7 +21735,7 @@ extra space for its allocation.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2078">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2072">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21766,7 +21766,7 @@ the Y axis.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2081">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2075">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21791,10 +21791,10 @@ transformations.</p>
 whereas negative values will bring the actor&rsquo;s position farther from
 the user.</p>
 
-<p>The <code>ClutterActor</code>:z-position does not affect the paint or allocation
+<p>The <code>ClutterActor:z</code>-position does not affect the paint or allocation
 order.</p>
 
-<p>The <code>ClutterActor</code>:z-position property is animatable.</p>
+<p>The <code>ClutterActor:z</code>-position property is animatable.</p>
 
                       </div>
                       <div class="declaration">
@@ -21806,7 +21806,7 @@ order.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2093">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-GridLayout-Image.swift#L2087">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21819,7 +21819,7 @@ order.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

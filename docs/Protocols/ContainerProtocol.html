@@ -17587,9 +17587,9 @@ accessed</p>
 <code>container</code>. You cannot add a <code>ClutterActor</code> to more than one
 <code>ClutterContainer</code>.</p>
 
-<p>This function will call <code>ClutterContainerIface</code>.add(), which is a
+<p>This function will call <code>ClutterContainerIface.add</code><code>()</code>, which is a
 deprecated virtual function. The default implementation will
-call clutter_actor_add_child().</p>
+call <code>clutter_actor_add_child()</code>.</p>
 
 <p><strong>add_actor is deprecated:</strong>
 Use clutter_actor_add_child() instead.</p>
@@ -17626,11 +17626,11 @@ Use clutter_actor_add_child() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Alternative va_list version of clutter_container_add().</p>
+                        <p>Alternative va_list version of <code>clutter_container_add()</code>.</p>
 
-<p>This function will call <code>ClutterContainerIface</code>.add(), which is a
+<p>This function will call <code>ClutterContainerIface.add</code><code>()</code>, which is a
 deprecated virtual function. The default implementation will
-call clutter_actor_add_child().</p>
+call <code>clutter_actor_add_child()</code>.</p>
 
 <p><strong>add_valist is deprecated:</strong>
 Use clutter_actor_add_child() instead.</p>
@@ -17669,10 +17669,10 @@ Use clutter_actor_add_child() instead.</p>
                       <div class="abstract">
                         <p>Gets a container specific property of a child of <code>container</code>, In general,
 a copy is made of the property contents and the caller is responsible for
-freeing the memory by calling g_value_unset().</p>
+freeing the memory by calling <code>g_value_unset()</code>.</p>
 
-<p>Note that clutter_container_child_set_property() is really intended for
-language bindings, clutter_container_child_set() is much more convenient
+<p>Note that <code>clutter_container_child_set_property()</code> is really intended for
+language bindings, <code>clutter_container_child_set()</code> is much more convenient
 for C programming.</p>
 
                       </div>
@@ -17706,9 +17706,9 @@ for C programming.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calls the <code>ClutterContainerIface</code>.child_notify() virtual function
+                        <p>Calls the <code>ClutterContainerIface.child_notify</code><code>()</code> virtual function
 of <code>ClutterContainer</code>. The default implementation will emit the
-<code>ClutterContainer</code>::child-notify signal.</p>
+<code>ClutterContainer::child</code>-notify signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -17775,12 +17775,12 @@ of <code>ClutterContainer</code>. The default implementation will emit the
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Creates the <code>ClutterChildMeta</code> wrapping <code>actor</code> inside the
-<code>container</code>, if the <code>ClutterContainerIface</code>::child_meta_type
+<code>container</code>, if the <code>ClutterContainerIface::child_meta_type</code>
 class member is not set to <code>G_TYPE_INVALID</code>.</p>
 
 <p>This function is only useful when adding a <code>ClutterActor</code> to
 a <code>ClutterContainer</code> implementation outside of the
-<code>ClutterContainer</code>::add() virtual function implementation.</p>
+<code>ClutterContainer::add</code><code>()</code> virtual function implementation.</p>
 
 <p>Applications should not call this function.</p>
 
@@ -17820,7 +17820,7 @@ a <code>ClutterContainer</code> implementation outside of the
 
 <p>This function is only useful when removing a <code>ClutterActor</code> to
 a <code>ClutterContainer</code> implementation outside of the
-<code>ClutterContainer</code>::add() virtual function implementation.</p>
+<code>ClutterContainer::add</code><code>()</code> virtual function implementation.</p>
 
 <p>Applications should not call this function.</p>
 
@@ -17890,11 +17890,11 @@ into any child container.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Calls <code>callback</code> for each child of <code>container</code> that was added
-by the application (with clutter_container_add_actor()). Does
+by the application (with <code>clutter_container_add_actor()</code>). Does
 not iterate over <q>internal</q> children that are part of the
 container&rsquo;s own implementation, if any.</p>
 
-<p>This function calls the <code>ClutterContainerIface</code>.foreach()
+<p>This function calls the <code>ClutterContainerIface.foreach</code><code>()</code>
 virtual function, which has been deprecated.</p>
 
 <p><strong>foreach is deprecated:</strong>
@@ -17940,7 +17940,7 @@ Use clutter_actor_get_first_child() or
 children built in to the container itself that were never added
 by the application.</p>
 
-<p>This function calls the <code>ClutterContainerIface</code>.foreach_with_internals()
+<p>This function calls the <code>ClutterContainerIface.foreach_with_internals</code><code>()</code>
 virtual function, which has been deprecated.</p>
 
 <p><strong>foreach_with_internals is deprecated:</strong>
@@ -18051,9 +18051,9 @@ Use clutter_actor_get_children() instead.</p>
                       <div class="abstract">
                         <p>Lowers <code>actor</code> to <code>sibling</code> level, in the depth ordering.</p>
 
-<p>This function calls the <code>ClutterContainerIface</code>.lower() virtual function,
+<p>This function calls the <code>ClutterContainerIface.lower</code><code>()</code> virtual function,
 which has been deprecated. The default implementation will call
-clutter_actor_set_child_below_sibling().</p>
+<code>clutter_actor_set_child_below_sibling()</code>.</p>
 
 <p><strong>lower_child is deprecated:</strong>
 Use clutter_actor_set_child_below_sibling() instead.</p>
@@ -18092,9 +18092,9 @@ Use clutter_actor_set_child_below_sibling() instead.</p>
                       <div class="abstract">
                         <p>Raises <code>actor</code> to <code>sibling</code> level, in the depth ordering.</p>
 
-<p>This function calls the <code>ClutterContainerIface</code>.raise() virtual function,
+<p>This function calls the <code>ClutterContainerIface.raise</code><code>()</code> virtual function,
 which has been deprecated. The default implementation will call
-clutter_actor_set_child_above_sibling().</p>
+<code>clutter_actor_set_child_above_sibling()</code>.</p>
 
 <p><strong>raise_child is deprecated:</strong>
 Use clutter_actor_set_child_above_sibling() instead.</p>
@@ -18133,12 +18133,12 @@ Use clutter_actor_set_child_above_sibling() instead.</p>
                       <div class="abstract">
                         <p>Removes <code>actor</code> from <code>container</code>. The actor should be unparented, so
 if you want to keep it around you must hold a reference to it
-yourself, using g_object_ref(). When the actor has been removed,
+yourself, using <code>g_object_ref()</code>. When the actor has been removed,
 the <q>actor-removed</q> signal is emitted by <code>container</code>.</p>
 
-<p>This function will call <code>ClutterContainerIface</code>.remove(), which is a
+<p>This function will call <code>ClutterContainerIface.remove</code><code>()</code>, which is a
 deprecated virtual function. The default implementation will call
-clutter_actor_remove_child().</p>
+<code>clutter_actor_remove_child()</code>.</p>
 
 <p><strong>remove_actor is deprecated:</strong>
 Use clutter_actor_remove_child() instead.</p>
@@ -18175,11 +18175,11 @@ Use clutter_actor_remove_child() instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Alternative va_list version of clutter_container_remove().</p>
+                        <p>Alternative va_list version of <code>clutter_container_remove()</code>.</p>
 
-<p>This function will call <code>ClutterContainerIface</code>.remove(), which is a
+<p>This function will call <code>ClutterContainerIface.remove</code><code>()</code>, which is a
 deprecated virtual function. The default implementation will call
-clutter_actor_remove_child().</p>
+<code>clutter_actor_remove_child()</code>.</p>
 
 <p><strong>remove_valist is deprecated:</strong>
 Use clutter_actor_remove_child() instead.</p>
@@ -18284,7 +18284,7 @@ Use clutter_actor_get_children() instead.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
