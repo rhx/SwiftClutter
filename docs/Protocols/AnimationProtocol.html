@@ -17420,7 +17420,7 @@ be accessed using the provided functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7626">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7614">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17458,7 +17458,7 @@ be accessed using the provided functions.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7629">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7617">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17586,7 +17586,7 @@ be accessed using the provided functions.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7819-L7843">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7807-L7831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17678,7 +17678,7 @@ be accessed using the provided functions.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7929-L7948">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7916-L7935">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17712,7 +17712,7 @@ be accessed using the provided functions.</p>
                       <div class="abstract">
                         <p>Adds a single property with name <code>property_name</code> to the
 animation <code>animation</code>.  For more information about animations,
-see clutter_actor_animate().</p>
+see <code>clutter_actor_animate()</code>.</p>
 
 <p>This method returns the animation primarily to make chained
 calls convenient in language bindings.</p>
@@ -17731,7 +17731,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7964-L7967">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7951-L7954">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17755,10 +17755,10 @@ Use #ClutterPropertyTransition instead</p>
                         <p>Binds <code>interval</code> to the <code>property_name</code> of the <code>GObject</code>
 attached to <code>animation</code>. The <code>ClutterAnimation</code> will take
 ownership of the passed <code>ClutterInterval</code>.  For more information
-about animations, see clutter_actor_animate().</p>
+about animations, see <code>clutter_actor_animate()</code>.</p>
 
 <p>If you need to update the interval instance use
-clutter_animation_update_interval() instead.</p>
+<code>clutter_animation_update_interval()</code> instead.</p>
 
 <p><strong>bind_interval is deprecated:</strong>
 Use #ClutterPropertyTransition instead</p>
@@ -17774,7 +17774,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7979-L7982">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7966-L7969">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17795,14 +17795,14 @@ Use #ClutterPropertyTransition instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Emits the ::completed signal on <code>animation</code></p>
+                        <p>Emits the <code>completed</code> signal on <code>animation</code></p>
 
 <p>When using this function with a <code>ClutterAnimation</code> created
-by the clutter_actor_animate() family of functions, <code>animation</code>
+by the <code>clutter_actor_animate()</code> family of functions, <code>animation</code>
 will be unreferenced and it will not be valid anymore,
-unless g_object_ref() was called before calling this function
+unless <code>g_object_ref()</code> was called before calling this function
 or unless a reference was taken inside a handler for the
-<code>ClutterAnimation</code>::completed signal</p>
+<code>ClutterAnimation::completed</code> signal</p>
 
 <p><strong>completed is deprecated:</strong>
 Use #ClutterPropertyTransition instead</p>
@@ -17818,7 +17818,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7995-L7998">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7982-L7985">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17856,7 +17856,7 @@ Use clutter_animation_get_timeline() and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8005-L8008">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L7992-L7995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17893,7 +17893,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8014-L8017">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8001-L8004">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17931,7 +17931,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8024-L8027">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8011-L8014">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17968,7 +17968,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8033-L8036">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8020-L8023">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17990,7 +17990,7 @@ Use #ClutterPropertyTransition instead</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Retrieves the animation mode of <code>animation</code>, as set by
-clutter_animation_set_mode().</p>
+<code>clutter_animation_set_mode()</code>.</p>
 
 <p><strong>get_mode is deprecated:</strong>
 Use #ClutterPropertyTransition instead</p>
@@ -18006,7 +18006,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8043-L8046">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8030-L8033">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18043,7 +18043,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8052-L8055">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8039-L8042">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18080,7 +18080,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8061-L8064">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8048-L8051">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18117,7 +18117,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8070-L8073">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8057-L8060">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18158,7 +18158,7 @@ Use clutter_animation_get_timeline() and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8083-L8086">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8070-L8073">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18181,8 +18181,8 @@ Use clutter_animation_get_timeline() and
                       <div class="abstract">
                         <p>Sets the duration of <code>animation</code> in milliseconds.</p>
 
-<p>This function will set <code>ClutterAnimation</code>:alpha and
-<code>ClutterAnimation</code>:timeline if needed.</p>
+<p>This function will set <code>ClutterAnimation:alpha</code> and
+<code>ClutterAnimation:timeline</code> if needed.</p>
 
 <p><strong>set_duration is deprecated:</strong>
 Use #ClutterPropertyTransition instead</p>
@@ -18198,7 +18198,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8095-L8098">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8082-L8085">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18221,11 +18221,11 @@ Use #ClutterPropertyTransition instead</p>
                       <div class="abstract">
                         <p>Sets whether <code>animation</code> should loop over itself once finished.</p>
 
-<p>A looping <code>ClutterAnimation</code> will not emit the <code>ClutterAnimation</code>::completed
+<p>A looping <code>ClutterAnimation</code> will not emit the <code>ClutterAnimation::completed</code>
 signal when finished.</p>
 
-<p>This function will set <code>ClutterAnimation</code>:alpha and
-<code>ClutterAnimation</code>:timeline if needed.</p>
+<p>This function will set <code>ClutterAnimation:alpha</code> and
+<code>ClutterAnimation:timeline</code> if needed.</p>
 
 <p><strong>set_loop is deprecated:</strong>
 Use #ClutterPropertyTransition instead</p>
@@ -18241,7 +18241,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8110-L8113">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8097-L8100">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18264,9 +18264,9 @@ Use #ClutterPropertyTransition instead</p>
                       <div class="abstract">
                         <p>Sets the animation <code><a href="../Protocols/AnimationProtocol.html#/s:7Clutter17AnimationProtocolPAAE4modeSuvp">mode</a></code> of <code>animation</code>. The animation <code><a href="../Protocols/AnimationProtocol.html#/s:7Clutter17AnimationProtocolPAAE4modeSuvp">mode</a></code> is
 a logical id, either coming from the <code>ClutterAnimationMode</code> enumeration
-or the return value of clutter_alpha_register_func().</p>
+or the return value of <code>clutter_alpha_register_func()</code>.</p>
 
-<p>This function will also set <code>ClutterAnimation</code>:alpha if needed.</p>
+<p>This function will also set <code>ClutterAnimation:alpha</code> if needed.</p>
 
 <p><strong>set_mode is deprecated:</strong>
 Use #ClutterPropertyTransition instead</p>
@@ -18282,7 +18282,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8123-L8126">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8110-L8113">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18320,7 +18320,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8133-L8136">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8120-L8123">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18359,7 +18359,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8144-L8147">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8131-L8134">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18396,7 +18396,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8153-L8156">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8140-L8143">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18433,7 +18433,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8162-L8165">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8149-L8152">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18471,7 +18471,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8172-L8175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8159-L8162">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18508,7 +18508,7 @@ Use the #ClutterAnimation:timeline property and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8181-L8202">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8168-L8189">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18544,7 +18544,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8208-L8227">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8195-L8214">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18580,7 +18580,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8233-L8255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8220-L8242">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18602,7 +18602,7 @@ Use #ClutterPropertyTransition instead</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The animation mode, either a value from <code>ClutterAnimationMode</code>
-or a value returned by clutter_alpha_register_func(). The
+or a value returned by <code>clutter_alpha_register_func()</code>. The
 default value is <code>CLUTTER_LINEAR</code>.</p>
 
 <p><strong>mode is deprecated:</strong>
@@ -18618,7 +18618,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8263-L8284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8250-L8271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18654,7 +18654,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8290-L8307">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8277-L8294">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18690,7 +18690,7 @@ Use #ClutterPropertyTransition instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8313-L8331">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Action-Backend.swift#L8300-L8318">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18703,7 +18703,7 @@ Use #ClutterPropertyTransition instead</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

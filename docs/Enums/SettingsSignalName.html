@@ -17403,20 +17403,20 @@
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -17424,7 +17424,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -17437,7 +17437,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2262">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17470,7 +17470,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2261">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17501,7 +17501,7 @@ should travel before a drag operation should start.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2270">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2264">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17532,7 +17532,7 @@ determines whether or not to increase the click count by 1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2273">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2267">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17563,7 +17563,7 @@ events in order to increase the click count by 1.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2270">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17595,7 +17595,7 @@ unconditionally; and -1 will use the system&rsquo;s default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2274">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17627,7 +17627,7 @@ unconditionally; and -1 will use the system&rsquo;s default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2284">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2278">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17665,7 +17665,7 @@ are:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2286">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17697,7 +17697,7 @@ it; and a value of -1 will use the system&rsquo;s default.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2296">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17716,7 +17716,7 @@ it; and a value of -1 will use the system&rsquo;s default.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The default font name that should be used by text actors, as
-a string that can be passed to pango_font_description_from_string().</p>
+a string that can be passed to <code>pango_font_description_from_string()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17728,7 +17728,7 @@ a string that can be passed to pango_font_description_from_string().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2299">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17767,7 +17767,7 @@ values are:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17818,7 +17818,7 @@ values are:</p>
                         <p>Sets the minimum duration for a press to be recognized as a long press
 gesture. The duration is expressed in milliseconds.</p>
 
-<p>See also <code>ClutterClickAction</code>:long-press-duration.</p>
+<p>See also <code>ClutterClickAction:long</code>-press-duration.</p>
 
                       </div>
                       <div class="declaration">
@@ -17830,7 +17830,7 @@ gesture. The duration is expressed in milliseconds.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2314">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L2308">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17933,7 +17933,7 @@ gesture. The duration is expressed in milliseconds.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

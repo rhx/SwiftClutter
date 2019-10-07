@@ -17502,20 +17502,20 @@ Use the #AtkObject::state-change signal instead.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -17523,7 +17523,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -17536,7 +17536,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L280">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L279">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17563,9 +17563,9 @@ may also be emitted when the setter of the property is called to
 reinstate the previous value.</p>
 
 <p>Toolkit implementor note: ATK implementors should use
-g_object_notify() to emit property-changed
-notifications. <code>AtkObject</code>::property-changed is needed by the
-implementation of atk_add_global_event_listener() because GObject
+<code>g_object_notify()</code> to emit property-changed
+notifications. <code>AtkObject::property</code>-changed is needed by the
+implementation of <code>atk_add_global_event_listener()</code> because GObject
 notify doesn&rsquo;t support emission hooks.</p>
 
                       </div>
@@ -17578,7 +17578,7 @@ notify doesn&rsquo;t support emission hooks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L293">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17610,7 +17610,7 @@ changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L297">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17641,7 +17641,7 @@ appearance of the object changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L301">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L300">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17884,7 +17884,7 @@ Since 1.3. Use table-caption-object instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L313">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17948,7 +17948,7 @@ and atk_table_set_column_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17982,7 +17982,7 @@ atk_table_set_column_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L326">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L325">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18016,7 +18016,7 @@ atk_table_set_row_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L332">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18050,7 +18050,7 @@ atk_table_set_row_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L338">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L337">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18115,7 +18115,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L346">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L345">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18145,7 +18145,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18175,7 +18175,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L350">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L349">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18206,7 +18206,7 @@ desaturation).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L353">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L352">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18236,7 +18236,7 @@ desaturation).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-DesaturateEffect-Effect.swift#L354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18249,7 +18249,7 @@ desaturation).</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

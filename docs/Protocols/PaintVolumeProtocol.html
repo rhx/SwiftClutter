@@ -17573,13 +17573,13 @@ space <code>pv</code> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the z-axis.</p>
 
-<p>If, for example, clutter_actor_get_transformed_paint_volume()
+<p>If, for example, <code>clutter_actor_get_transformed_paint_volume()</code>
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the depth might
 not simply be 0px if the child actor has a 3D rotation applied to
 it.</p>
 
-<p>Remember: if clutter_actor_get_transformed_paint_volume() is
+<p>Remember: if <code>clutter_actor_get_transformed_paint_volume()</code> is
 used then the transformed volume will be defined relative to the
 container actor and in container coordinates a 2D child actor
 can have a 3D bounding volume.</p>
@@ -17627,13 +17627,13 @@ space <code>pv</code> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the y-axis.</p>
 
-<p>If, for example, clutter_actor_get_transformed_paint_volume()
+<p>If, for example, <code>clutter_actor_get_transformed_paint_volume()</code>
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the height might
 not simply be 100px if the child actor has a 3D rotation applied to
 it.</p>
 
-<p>Remember: if clutter_actor_get_transformed_paint_volume() is
+<p>Remember: if <code>clutter_actor_get_transformed_paint_volume()</code> is
 used then a transformed child volume will be defined relative to the
 ancestor container actor and so a 2D child actor
 can have a 3D bounding volume.</p>
@@ -17714,13 +17714,13 @@ space <code>pv</code> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the x-axis.</p>
 
-<p>If, for example, clutter_actor_get_transformed_paint_volume()
+<p>If, for example, <code>clutter_actor_get_transformed_paint_volume()</code>
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the width might
 not simply be 100px if the child actor has a 3D rotation applied to
 it.</p>
 
-<p>Remember: if clutter_actor_get_transformed_paint_volume() is
+<p>Remember: if <code>clutter_actor_get_transformed_paint_volume()</code> is
 used then a transformed child volume will be defined relative to the
 ancestor container actor and so a 2D child actor can have a 3D
 bounding volume.</p>
@@ -17798,7 +17798,7 @@ the z axis in the actor coordinates that <code>pv</code> is associated with.</p>
                         <p>Sets the <code>ClutterPaintVolume</code> from the allocation of <code>actor</code>.</p>
 
 <p>This function should be used when overriding the
-<code>ClutterActorClass</code>.get_paint_volume() by <code>ClutterActor</code> sub-classes
+<code>ClutterActorClass.get_paint_volume</code><code>()</code> by <code>ClutterActor</code> sub-classes
 that do not paint outside their allocation.</p>
 
 <p>A typical example is:</p>
@@ -17985,7 +17985,7 @@ will be unioned.</p>
                       <div class="abstract">
                         <p>Unions the 2D region represented by <code>box</code> to a <code>ClutterPaintVolume</code>.</p>
 
-<p>This function is similar to clutter_paint_volume_union(), but it is
+<p>This function is similar to <code>clutter_paint_volume_union()</code>, but it is
 specific for 2D regions.</p>
 
                       </div>
@@ -18026,13 +18026,13 @@ space <code>pv</code> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the z-axis.</p>
 
-<p>If, for example, clutter_actor_get_transformed_paint_volume()
+<p>If, for example, <code>clutter_actor_get_transformed_paint_volume()</code>
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the depth might
 not simply be 0px if the child actor has a 3D rotation applied to
 it.</p>
 
-<p>Remember: if clutter_actor_get_transformed_paint_volume() is
+<p>Remember: if <code>clutter_actor_get_transformed_paint_volume()</code> is
 used then the transformed volume will be defined relative to the
 container actor and in container coordinates a 2D child actor
 can have a 3D bounding volume.</p>
@@ -18080,13 +18080,13 @@ space <code>pv</code> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the y-axis.</p>
 
-<p>If, for example, clutter_actor_get_transformed_paint_volume()
+<p>If, for example, <code>clutter_actor_get_transformed_paint_volume()</code>
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the height might
 not simply be 100px if the child actor has a 3D rotation applied to
 it.</p>
 
-<p>Remember: if clutter_actor_get_transformed_paint_volume() is
+<p>Remember: if <code>clutter_actor_get_transformed_paint_volume()</code> is
 used then a transformed child volume will be defined relative to the
 ancestor container actor and so a 2D child actor
 can have a 3D bounding volume.</p>
@@ -18134,13 +18134,13 @@ space <code>pv</code> belongs too and conceptually fits an axis aligned box
 around the volume. It returns the size of that bounding box as
 measured along the x-axis.</p>
 
-<p>If, for example, clutter_actor_get_transformed_paint_volume()
+<p>If, for example, <code>clutter_actor_get_transformed_paint_volume()</code>
 is used to transform a 2D child actor that is 100px wide, 100px
 high and 0px deep into container coordinates then the width might
 not simply be 100px if the child actor has a 3D rotation applied to
 it.</p>
 
-<p>Remember: if clutter_actor_get_transformed_paint_volume() is
+<p>Remember: if <code>clutter_actor_get_transformed_paint_volume()</code> is
 used then a transformed child volume will be defined relative to the
 ancestor container actor and so a 2D child actor can have a 3D
 bounding volume.</p>
@@ -18173,7 +18173,7 @@ fitting paint volumes for efficiency.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

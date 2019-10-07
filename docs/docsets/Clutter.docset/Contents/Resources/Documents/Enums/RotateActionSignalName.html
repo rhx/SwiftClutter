@@ -17501,7 +17501,7 @@ Use the #AtkObject::state-change signal instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::gesture_begin signal is emitted when the <code>ClutterActor</code> to which
+                        <p>The <code>gesture_begin</code> signal is emitted when the <code>ClutterActor</code> to which
 a <code>ClutterGestureAction</code> has been applied starts receiving a gesture.</p>
 
                       </div>
@@ -17532,10 +17532,10 @@ a <code>ClutterGestureAction</code> has been applied starts receiving a gesture.
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::gesture-cancel signal is emitted when the ongoing gesture gets
-cancelled from the <code>ClutterGestureAction</code>::gesture-progress signal handler.</p>
+                        <p>The <code>gesture</code>-cancel signal is emitted when the ongoing gesture gets
+cancelled from the <code>ClutterGestureAction::gesture</code>-progress signal handler.</p>
 
-<p>This signal is emitted if and only if the <code>ClutterGestureAction</code>::gesture-begin
+<p>This signal is emitted if and only if the <code>ClutterGestureAction::gesture</code>-begin
 signal has been emitted first.</p>
 
                       </div>
@@ -17566,10 +17566,10 @@ signal has been emitted first.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::gesture-end signal is emitted at the end of the gesture gesture,
+                        <p>The <code>gesture</code>-end signal is emitted at the end of the gesture gesture,
 when the pointer&rsquo;s button is released</p>
 
-<p>This signal is emitted if and only if the <code>ClutterGestureAction</code>::gesture-begin
+<p>This signal is emitted if and only if the <code>ClutterGestureAction::gesture</code>-begin
 signal has been emitted first.</p>
 
                       </div>
@@ -17600,8 +17600,8 @@ signal has been emitted first.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::gesture-progress signal is emitted for each motion event after
-the <code>ClutterGestureAction</code>::gesture-begin signal has been emitted.</p>
+                        <p>The <code>gesture</code>-progress signal is emitted for each motion event after
+the <code>ClutterGestureAction::gesture</code>-begin signal has been emitted.</p>
 
                       </div>
                       <div class="declaration">
@@ -17632,20 +17632,20 @@ the <code>ClutterGestureAction</code>::gesture-begin signal has been emitted.</p
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -17653,7 +17653,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -17666,7 +17666,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L311">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L310">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17693,9 +17693,9 @@ may also be emitted when the setter of the property is called to
 reinstate the previous value.</p>
 
 <p>Toolkit implementor note: ATK implementors should use
-g_object_notify() to emit property-changed
-notifications. <code>AtkObject</code>::property-changed is needed by the
-implementation of atk_add_global_event_listener() because GObject
+<code>g_object_notify()</code> to emit property-changed
+notifications. <code>AtkObject::property</code>-changed is needed by the
+implementation of <code>atk_add_global_event_listener()</code> because GObject
 notify doesn&rsquo;t support emission hooks.</p>
 
                       </div>
@@ -17708,7 +17708,7 @@ notify doesn&rsquo;t support emission hooks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L325">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L324">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17726,7 +17726,7 @@ notify doesn&rsquo;t support emission hooks.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::rotate signal is emitted when a rotate gesture is
+                        <p>The <code>rotate</code> signal is emitted when a rotate gesture is
 recognized on the attached actor and when the gesture is
 cancelled (in this case with an angle value of 0).</p>
 
@@ -17740,7 +17740,7 @@ cancelled (in this case with an angle value of 0).</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L329">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L328">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17772,7 +17772,7 @@ changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L333">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L332">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17803,7 +17803,7 @@ appearance of the object changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18046,7 +18046,7 @@ Since 1.3. Use table-caption-object instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L347">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18110,7 +18110,7 @@ and atk_table_set_column_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L355">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L354">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18144,7 +18144,7 @@ atk_table_set_column_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18178,7 +18178,7 @@ atk_table_set_row_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L366">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18212,7 +18212,7 @@ atk_table_set_row_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L372">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18277,7 +18277,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L381">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L380">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18307,7 +18307,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L383">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18337,7 +18337,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L385">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L384">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18367,7 +18367,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L387">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L386">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18397,7 +18397,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L389">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L388">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18416,8 +18416,8 @@ changes.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The horizontal trigger distance to be used by the action to either
-emit the <code>ClutterGestureAction</code>::gesture-begin signal or to emit
-the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
+emit the <code>ClutterGestureAction::gesture</code>-begin signal or to emit
+the <code>ClutterGestureAction::gesture</code>-cancel signal.</p>
 
 <p>A negative value will be interpreted as the default drag threshold.</p>
 
@@ -18431,7 +18431,7 @@ the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L395">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18450,8 +18450,8 @@ the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The vertical trigger distance to be used by the action to either
-emit the <code>ClutterGestureAction</code>::gesture-begin signal or to emit
-the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
+emit the <code>ClutterGestureAction::gesture</code>-begin signal or to emit
+the <code>ClutterGestureAction::gesture</code>-cancel signal.</p>
 
 <p>A negative value will be interpreted as the default drag threshold.</p>
 
@@ -18465,7 +18465,7 @@ the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L401">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18484,8 +18484,8 @@ the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The trigger edge to be used by the action to either emit the
-<code>ClutterGestureAction</code>::gesture-begin signal or to emit the
-<code>ClutterGestureAction</code>::gesture-cancel signal.</p>
+<code>ClutterGestureAction::gesture</code>-begin signal or to emit the
+<code>ClutterGestureAction::gesture</code>-cancel signal.</p>
 
                       </div>
                       <div class="declaration">
@@ -18497,7 +18497,7 @@ the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-RotateAction-Score.swift#L404">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18510,7 +18510,7 @@ the <code>ClutterGestureAction</code>::gesture-cancel signal.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

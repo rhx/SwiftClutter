@@ -17417,7 +17417,7 @@ signal when the cell in the table which has focus changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8061">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8043">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17449,7 +17449,7 @@ removed form an object. It supports two details: <q>add</q> and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8065">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8047">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17483,7 +17483,7 @@ Use the #AtkObject::state-change signal instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8071">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8053">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17501,9 +17501,9 @@ Use the #AtkObject::state-change signal instead.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The ::layout-changed signal is emitted each time a layout manager
+                        <p>The <code>layout</code>-changed signal is emitted each time a layout manager
 has been changed. Every <code>ClutterActor</code> using the <code>manager</code> instance
-as a layout manager should connect a handler to the ::layout-changed
+as a layout manager should connect a handler to the <code>layout</code>-changed
 signal and queue a relayout on themselves:</p>
 <pre class="highlight swift"><code>  <span class="kd">static</span> <span class="n">void</span> <span class="nf">layout_changed</span> <span class="p">(</span><span class="kt">ClutterLayoutManager</span> <span class="o">*</span><span class="n">manager</span><span class="p">,</span>
                               <span class="kt">ClutterActor</span>         <span class="o">*</span><span class="k">self</span><span class="p">)</span>
@@ -17519,8 +17519,8 @@ signal and queue a relayout on themselves:</p>
 
 <p>Sub-classes of <code>ClutterLayoutManager</code> that implement a layout that
 can be controlled or changed using parameters should emit the
-::layout-changed signal whenever one of the parameters changes,
-by using clutter_layout_manager_layout_changed().</p>
+<code>layout</code>-changed signal whenever one of the parameters changes,
+by using <code>clutter_layout_manager_layout_changed()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17532,7 +17532,7 @@ by using clutter_layout_manager_layout_changed().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8095">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8076">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17551,20 +17551,20 @@ by using clutter_layout_manager_layout_changed().</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The notify signal is emitted on an object when one of its properties has
-its value set through g_object_set_property(), g_object_set(), et al.</p>
+its value set through <code>g_object_set_property()</code>, <code>g_object_set()</code>, et al.</p>
 
 <p>Note that getting this signal doesn’t itself guarantee that the value of
 the property has actually changed. When it is emitted is determined by the
 derived GObject class. If the implementor did not create the property with
-<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to g_object_set_property() results
-in ::notify being emitted, even if the new value is the same as the old.
+<code>G_PARAM_EXPLICIT_NOTIFY</code>, then any call to <code>g_object_set_property()</code> results
+in <code>notify</code> being emitted, even if the new value is the same as the old.
 If they did pass <code>G_PARAM_EXPLICIT_NOTIFY</code>, then this signal is emitted only
-when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+when they explicitly call <code>g_object_notify()</code> or <code>g_object_notify_by_pspec()</code>,
 and common practice is to do that only when the value has actually changed.</p>
 
 <p>This signal is typically used to obtain change notification for a
 single property, by specifying the property name as a detail in the
-g_signal_connect() call, like this:
+<code>g_signal_connect()</code> call, like this:
 (C Language Example):</p>
 <pre class="highlight plaintext"><code>g_signal_connect (text_view-&gt;buffer, "notify::paste-target-list",
                   G_CALLBACK (gtk_text_view_target_list_notify),
@@ -17572,7 +17572,7 @@ g_signal_connect() call, like this:
 </code></pre>
 
 <p>It is important to note that you must use
-[canonical parameter names][canonical-parameter-names] as
+<a href="#canonical-parameter-names">canonical parameter names</a> as
 detail strings for the notify signal.</p>
 
                       </div>
@@ -17585,7 +17585,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8121">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8101">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17612,9 +17612,9 @@ may also be emitted when the setter of the property is called to
 reinstate the previous value.</p>
 
 <p>Toolkit implementor note: ATK implementors should use
-g_object_notify() to emit property-changed
-notifications. <code>AtkObject</code>::property-changed is needed by the
-implementation of atk_add_global_event_listener() because GObject
+<code>g_object_notify()</code> to emit property-changed
+notifications. <code>AtkObject::property</code>-changed is needed by the
+implementation of <code>atk_add_global_event_listener()</code> because GObject
 notify doesn&rsquo;t support emission hooks.</p>
 
                       </div>
@@ -17627,7 +17627,7 @@ notify doesn&rsquo;t support emission hooks.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8135">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8115">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17659,7 +17659,7 @@ changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8139">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8119">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17690,7 +17690,7 @@ appearance of the object changed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8142">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8122">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17933,7 +17933,7 @@ Since 1.3. Use table-caption-object instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8154">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8134">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17997,7 +17997,7 @@ and atk_table_set_column_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8141">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18031,7 +18031,7 @@ atk_table_set_column_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8167">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8147">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18065,7 +18065,7 @@ atk_table_set_row_description() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8173">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8153">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18099,7 +18099,7 @@ atk_table_set_row_header() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8179">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8159">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18164,7 +18164,7 @@ changes.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8187">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8167">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18197,7 +18197,7 @@ Use #ClutterGridLayout:column-spacing instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8192">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8172">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18215,7 +18215,7 @@ Use #ClutterGridLayout:column-spacing instead</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The duration of the animations, in case <code>ClutterTableLayout</code>:use-animations
+                        <p>The duration of the animations, in case <code>ClutterTableLayout:use</code>-animations
 is set to <code>true</code>.</p>
 
 <p>The duration is expressed in milliseconds.</p>
@@ -18235,7 +18235,7 @@ is set to <code>true</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8201">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8181">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18254,12 +18254,12 @@ is set to <code>true</code>.</p>
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>The easing mode for the animations, in case
-<code>ClutterTableLayout</code>:use-animations is set to <code>true</code>.</p>
+<code>ClutterTableLayout:use</code>-animations is set to <code>true</code>.</p>
 
-<p>The easing mode has the same semantics of <code>ClutterAnimation</code>:mode: it can
+<p>The easing mode has the same semantics of <code>ClutterAnimation:mode:</code> it can
 either be a value from the <code>ClutterAnimationMode</code> enumeration, like
 <code>CLUTTER_EASE_OUT_CUBIC</code>, or a logical id as returned by
-clutter_alpha_register_func().</p>
+<code>clutter_alpha_register_func()</code>.</p>
 
 <p>The default value is <code>CLUTTER_EASE_OUT_CUBIC</code>.</p>
 
@@ -18278,7 +18278,7 @@ clutter_alpha_register_func().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8195">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18311,7 +18311,7 @@ Use #ClutterGridLayout:row-spacing instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8220">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8200">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18335,7 +18335,7 @@ layout properties.</p>
 <p>By default, <code>ClutterTableLayout</code> will honour the easing state of
 the children when allocating them. Setting this property to
 <code>true</code> will override the easing state with the layout manager&rsquo;s
-<code>ClutterTableLayout</code>:easing-mode and <code>ClutterTableLayout</code>:easing-duration
+<code>ClutterTableLayout:easing</code>-mode and <code>ClutterTableLayout:easing</code>-duration
 properties.</p>
 
 <p><strong>use-animations is deprecated:</strong></p>
@@ -18353,7 +18353,7 @@ properties.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8233">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Script-TableLayout.swift#L8213">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18366,7 +18366,7 @@ properties.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

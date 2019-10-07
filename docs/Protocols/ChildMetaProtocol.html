@@ -17395,7 +17395,7 @@ interface member to your subclass type, like:</p>
 <pre class="highlight swift"><code><span class="kd">static</span> <span class="n">void</span>
 <span class="nf">my_container_iface_init</span> <span class="p">(</span><span class="kt">ClutterContainerIface</span> <span class="o">*</span><span class="n">iface</span><span class="p">)</span>
 <span class="p">{</span>
-  <span class="c1">// set the rest of the `ClutterContainer` vtable</span>
+  <span class="c1">// set the rest of the #ClutterContainer vtable</span>
 
   <span class="n">container_iface</span><span class="o">-&gt;</span><span class="n">child_meta_type</span>  <span class="o">=</span> <span class="kt">MY_TYPE_CHILD_META</span><span class="p">;</span>
 <span class="p">}</span>
@@ -17405,16 +17405,16 @@ interface member to your subclass type, like:</p>
 <code>MY_TYPE_CHILD_META</code> for every actor that is added to the container.</p>
 
 <p>The child data for an actor can be retrieved using the
-clutter_container_get_child_meta() function.</p>
+<code>clutter_container_get_child_meta()</code> function.</p>
 
 <p>The properties of the data and your subclass can be manipulated with
-clutter_container_child_set() and clutter_container_child_get() which
-act like g_object_set() and g_object_get().</p>
+<code>clutter_container_child_set()</code> and <code>clutter_container_child_get()</code> which
+act like <code>g_object_set()</code> and <code>g_object_get()</code>.</p>
 
 <p>You can provide hooks for your own storage as well as control the
 instantiation by overriding the <code>ClutterContainerIface</code> virtual functions
-<code>ClutterContainerIface</code>.create_child_meta(), <code>ClutterContainerIface</code>.destroy_child_meta(),
-and <code>ClutterContainerIface</code>.get_child_meta().</p>
+<code>ClutterContainerIface.create_child_meta</code><code>()</code>, <code>ClutterContainerIface.destroy_child_meta</code><code>()</code>,
+and <code>ClutterContainerIface.get_child_meta</code><code>()</code>.</p>
 
           </div>
         </section>
@@ -17448,7 +17448,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L391">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17486,7 +17486,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L396">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L394">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17614,7 +17614,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L579-L603">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L575-L599">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17706,7 +17706,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L645-L664">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L640-L659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17750,7 +17750,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L672-L675">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L667-L670">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17783,7 +17783,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L678-L681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L673-L676">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17816,7 +17816,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L683-L689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L678-L684">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17849,7 +17849,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L692-L698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Canvas-DeformEffect.swift#L687-L693">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17862,7 +17862,7 @@ and <code>ClutterContainerIface</code>.get_child_meta().</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>

@@ -1,6 +1,8 @@
 /.build
 /.docs.old
 /*.xcodeproj
+*.tgz
+undocumented.json      
 Packages
 Package.pins
 Package.resolved

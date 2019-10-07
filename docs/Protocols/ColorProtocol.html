@@ -17526,7 +17526,7 @@ between the alpha channels of <code><a href="../Global%20Variables.html#/s:7Clut
                       <div class="pointer"></div>
                       <div class="abstract">
                         <p>Makes a copy of the color structure.  The result must be
-freed using clutter_color_free().</p>
+freed using <code>clutter_color_free()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17595,7 +17595,7 @@ in <code>result</code>.</p>
                       <div class="abstract">
                         <p>Compares two <code>ClutterColor</code>&lt;!&ndash; &ndash;&gt;s and checks if they are the same.</p>
 
-<p>This function can be passed to g_hash_table_new() as the <code>key_equal_func</code>
+<p>This function can be passed to <code>g_hash_table_new()</code> as the <code>key_equal_func</code>
 parameter, when using <code>ClutterColor</code>&lt;!&ndash; &ndash;&gt;s as keys in a <code>GHashTable</code>.</p>
 
                       </div>
@@ -17629,7 +17629,7 @@ parameter, when using <code>ClutterColor</code>&lt;!&ndash; &ndash;&gt;s as keys
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Frees a color structure created with clutter_color_copy().</p>
+                        <p>Frees a color structure created with <code>clutter_color_copy()</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -17664,7 +17664,7 @@ parameter, when using <code>ClutterColor</code>&lt;!&ndash; &ndash;&gt;s as keys
                       <div class="abstract">
                         <p>Converts a <code>ClutterColor</code> to a hash value.</p>
 
-<p>This function can be passed to g_hash_table_new() as the <code>hash_func</code>
+<p>This function can be passed to <code>g_hash_table_new()</code> as the <code>hash_func</code>
 parameter, when using <code>ClutterColor</code>&lt;!&ndash; &ndash;&gt;s as keys in a <code>GHashTable</code>.</p>
 
                       </div>
@@ -18046,8 +18046,8 @@ color to a <code>ClutterColor</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a string definition of a color, filling the <code>ClutterColor</code>.red,
-<code>ClutterColor</code>.green, <code>ClutterColor</code>.blue and <code>ClutterColor</code>.alpha fields
+                        <p>Parses a string definition of a color, filling the <code>ClutterColor.red</code>,
+<code>ClutterColor.green</code>, <code>ClutterColor.blue</code> and <code>ClutterColor.alpha</code> fields
 of <code>color</code>.</p>
 
 <p>The <code>color</code> is not allocated.</p>
@@ -18067,14 +18067,14 @@ of <code>color</code>.</p>
 intensities and the opacity. The &lsquo;h&rsquo;, &lsquo;s&rsquo; and &lsquo;l&rsquo; are (respectively) the
 hue, saturation and luminance values.</p>
 
-<p>In the rgb() and rgba() formats, the &lsquo;r&rsquo;, &lsquo;g&rsquo;, and &lsquo;b&rsquo; values are either
-integers between 0 and 255, or percentage values in the range between 0<code>
-and 100</code>; the percentages require the &lsquo;&ldquo;&rsquo; character. The &lsquo;a&rsquo; value, if
+<p>In the <code>rgb()</code> and <code>rgba()</code> formats, the &lsquo;r&rsquo;, &lsquo;g&rsquo;, and &lsquo;b&rsquo; values are either
+integers between 0 and 255, or percentage values in the range between 0%
+and 100<code>; the percentages require the &#39;</code>&lsquo; character. The &#39;a&rsquo; value, if
 specified, can only be a floating point value between 0.0 and 1.0.</p>
 
-<p>In the hls() and hlsa() formats, the &lsquo;h&rsquo; value (hue) is an angle between
+<p>In the <code>hls()</code> and <code>hlsa()</code> formats, the &lsquo;h&rsquo; value (hue) is an angle between
 0 and 360.0 degrees; the &lsquo;l&rsquo; and &lsquo;s&rsquo; values (luminance and saturation) are
-percentage values in the range between 0<code>and 100</code>. The &lsquo;a&rsquo; value, if specified,
+percentage values in the range between 0% and 100%. The &lsquo;a&rsquo; value, if specified,
 can only be a floating point value between 0.0 and 1.0.</p>
 
 <p>Whitespace inside the definitions is ignored; no leading whitespace
@@ -18222,8 +18222,8 @@ color to a <code>ClutterColor</code>.</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Parses a string definition of a color, filling the <code>ClutterColor</code>.red,
-<code>ClutterColor</code>.green, <code>ClutterColor</code>.blue and <code>ClutterColor</code>.alpha fields
+                        <p>Parses a string definition of a color, filling the <code>ClutterColor.red</code>,
+<code>ClutterColor.green</code>, <code>ClutterColor.blue</code> and <code>ClutterColor.alpha</code> fields
 of <code>color</code>.</p>
 
 <p>The <code>color</code> is not allocated.</p>
@@ -18243,14 +18243,14 @@ of <code>color</code>.</p>
 intensities and the opacity. The &lsquo;h&rsquo;, &lsquo;s&rsquo; and &lsquo;l&rsquo; are (respectively) the
 hue, saturation and luminance values.</p>
 
-<p>In the rgb() and rgba() formats, the &lsquo;r&rsquo;, &lsquo;g&rsquo;, and &lsquo;b&rsquo; values are either
-integers between 0 and 255, or percentage values in the range between 0<code>
-and 100</code>; the percentages require the &lsquo;&ldquo;&rsquo; character. The &lsquo;a&rsquo; value, if
+<p>In the <code>rgb()</code> and <code>rgba()</code> formats, the &lsquo;r&rsquo;, &lsquo;g&rsquo;, and &lsquo;b&rsquo; values are either
+integers between 0 and 255, or percentage values in the range between 0%
+and 100<code>; the percentages require the &#39;</code>&lsquo; character. The &#39;a&rsquo; value, if
 specified, can only be a floating point value between 0.0 and 1.0.</p>
 
-<p>In the hls() and hlsa() formats, the &lsquo;h&rsquo; value (hue) is an angle between
+<p>In the <code>hls()</code> and <code>hlsa()</code> formats, the &lsquo;h&rsquo; value (hue) is an angle between
 0 and 360.0 degrees; the &lsquo;l&rsquo; and &lsquo;s&rsquo; values (luminance and saturation) are
-percentage values in the range between 0<code>and 100</code>. The &lsquo;a&rsquo; value, if specified,
+percentage values in the range between 0% and 100%. The &lsquo;a&rsquo; value, if specified,
 can only be a floating point value between 0.0 and 1.0.</p>
 
 <p>Whitespace inside the definitions is ignored; no leading whitespace
@@ -18383,7 +18383,7 @@ component of <code>color</code> and <code>result</code> is ignored.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-01)</p>
+      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
       <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
