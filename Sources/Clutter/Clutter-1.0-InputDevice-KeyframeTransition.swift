@@ -141,7 +141,7 @@ public enum InputDevicePropertyName: String, PropertyNameProtocol {
     case deviceType = "device-type"
     /// Whether the device is enabled.
     /// 
-    /// A device with the `ClutterInputDevice`:device-mode property set
+    /// A device with the `ClutterInputDevice:device`-mode property set
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
@@ -198,29 +198,28 @@ public extension InputDeviceProtocol {
 
 public enum InputDeviceSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `ClutterBackend` that created the device.
@@ -232,7 +231,7 @@ public enum InputDeviceSignalName: String, SignalNameProtocol {
     case notifyDeviceType = "notify::device-type"
     /// Whether the device is enabled.
     /// 
-    /// A device with the `ClutterInputDevice`:device-mode property set
+    /// A device with the `ClutterInputDevice:device`-mode property set
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
@@ -286,7 +285,7 @@ public extension InputDeviceProtocol {
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
     /// associated to `device`.
     /// 
-    /// If the `ClutterInputDevice`:device-mode property of `device` is
+    /// If the `ClutterInputDevice:device`-mode property of `device` is
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
     func getAssociatedDevice() -> UnsafeMutablePointer<ClutterInputDevice>! {
@@ -380,7 +379,7 @@ public extension InputDeviceProtocol {
         return Bool(rv != 0)
     }
 
-    /// Retrieves the key set using clutter_input_device_set_key()
+    /// Retrieves the key set using `clutter_input_device_set_key()`
     func getKey(index_: CUnsignedInt, keyval: UnsafeMutablePointer<CUnsignedInt>, modifiers: UnsafeMutablePointer<ClutterModifierType>) -> Bool {
         let rv = clutter_input_device_get_key(cast(input_device_ptr), guint(index_), cast(keyval), cast(modifiers))
         return Bool(rv != 0)
@@ -439,7 +438,7 @@ public extension InputDeviceProtocol {
     /// 
     /// Any event coming from `device` will be delivered to `actor`, bypassing
     /// the usual event delivery mechanism, until the grab is released by
-    /// calling clutter_input_device_ungrab().
+    /// calling `clutter_input_device_ungrab()`.
     /// 
     /// The grab is client-side: even if the windowing system used by the Clutter
     /// backend has the concept of "device grabs", Clutter will not use them.
@@ -455,7 +454,7 @@ public extension InputDeviceProtocol {
     /// equivalent evdev keycode. Note that depending on the input backend
     /// used by Clutter this function can fail if there is no obvious
     /// mapping between the key codes. The hardware keycode can be taken
-    /// from the `ClutterKeyEvent`.hardware_keycode member of `ClutterKeyEvent`.
+    /// from the `ClutterKeyEvent.hardware_keycode` member of `ClutterKeyEvent`.
     func keycodeToEvdev(hardwareKeycode hardware_keycode: CUnsignedInt, evdevKeycode evdev_keycode: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
         let rv = clutter_input_device_keycode_to_evdev(cast(input_device_ptr), guint(hardware_keycode), cast(evdev_keycode))
         return Bool(rv != 0)
@@ -474,7 +473,7 @@ public extension InputDeviceProtocol {
     /// Any touch event coming from `device` and from `sequence` will be
     /// delivered to `actor`, bypassing the usual event delivery mechanism,
     /// until the grab is released by calling
-    /// clutter_input_device_sequence_ungrab().
+    /// `clutter_input_device_sequence_ungrab()`.
     /// 
     /// The grab is client-side: even if the windowing system used by the Clutter
     /// backend has the concept of "device grabs", Clutter will not use them.
@@ -492,7 +491,7 @@ public extension InputDeviceProtocol {
 
     /// Enables or disables a `ClutterInputDevice`.
     /// 
-    /// Only devices with a `ClutterInputDevice`:device-mode property set
+    /// Only devices with a `ClutterInputDevice:device`-mode property set
     /// to `CLUTTER_INPUT_MODE_SLAVE` or `CLUTTER_INPUT_MODE_FLOATING` can
     /// be disabled.
     func set(enabled: Bool) {
@@ -523,7 +522,7 @@ public extension InputDeviceProtocol {
     /// Embedding toolkits that disable the event collection inside Clutter
     /// need to use this function to update the state of input devices depending
     /// on a `ClutterEvent` that they are going to submit to the event handling code
-    /// in Clutter though clutter_do_event(). Since the input devices hold the state
+    /// in Clutter though `clutter_do_event()`. Since the input devices hold the state
     /// that is going to be used to fill in fields like the `ClutterButtonEvent`
     /// click count, or to emit synthesized events like `CLUTTER_ENTER` and
     /// `CLUTTER_LEAVE`, it is necessary for embedding toolkits to also be
@@ -541,9 +540,8 @@ public extension InputDeviceProtocol {
     ///   clutter_do_event (&c_event);
     /// ```
     /// 
-    /// 
-    /// Before letting clutter_do_event() process the event, it is necessary to call
-    /// clutter_input_device_update_from_event():
+    /// Before letting `clutter_do_event()` process the event, it is necessary to call
+    /// `clutter_input_device_update_from_event()`:
     /// 
     /// ```
     ///   ClutterEvent c_event;
@@ -556,14 +554,13 @@ public extension InputDeviceProtocol {
     ///   manager = clutter_device_manager_get_default ();
     /// 
     ///   // use the default Core Pointer that Clutter backends register by default
-    ///   device = clutter_device_manager_get_core_device (manager, `CLUTTER_POINTER_DEVICE`);
+    ///   device = clutter_device_manager_get_core_device (manager, %CLUTTER_POINTER_DEVICE);
     /// 
     ///   // update the state of the input device
     ///   clutter_input_device_update_from_event (device, &c_event, FALSE);
     /// 
     ///   clutter_do_event (&c_event);
     /// ```
-    /// 
     /// 
     /// The `update_stage` boolean argument should be used when the input device
     /// enters and leaves a `ClutterStage`; it will use the `ClutterStage` field
@@ -575,14 +572,14 @@ public extension InputDeviceProtocol {
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
     /// associated to `device`.
     /// 
-    /// If the `ClutterInputDevice`:device-mode property of `device` is
+    /// If the `ClutterInputDevice:device`-mode property of `device` is
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
     var associatedDevice: UnsafeMutablePointer<ClutterInputDevice>! {
         /// Retrieves a pointer to the `ClutterInputDevice` that has been
         /// associated to `device`.
         /// 
-        /// If the `ClutterInputDevice`:device-mode property of `device` is
+        /// If the `ClutterInputDevice:device`-mode property of `device` is
         /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
         /// `nil`.
         get {
@@ -629,7 +626,7 @@ public extension InputDeviceProtocol {
 
     /// Whether the device is enabled.
     /// 
-    /// A device with the `ClutterInputDevice`:device-mode property set
+    /// A device with the `ClutterInputDevice:device`-mode property set
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
@@ -641,7 +638,7 @@ public extension InputDeviceProtocol {
         }
         /// Enables or disables a `ClutterInputDevice`.
         /// 
-        /// Only devices with a `ClutterInputDevice`:device-mode property set
+        /// Only devices with a `ClutterInputDevice:device`-mode property set
         /// to `CLUTTER_INPUT_MODE_SLAVE` or `CLUTTER_INPUT_MODE_FLOATING` can
         /// be disabled.
         nonmutating set {
@@ -1014,29 +1011,28 @@ public enum IntervalSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -1048,9 +1044,9 @@ public enum IntervalSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -1154,12 +1150,12 @@ public extension IntervalProtocol {
     /// Computes the value between the `interval` boundaries given the
     /// progress `factor`
     /// 
-    /// Unlike clutter_interval_compute_value(), this function will
+    /// Unlike `clutter_interval_compute_value()`, this function will
     /// return a const pointer to the computed value
     /// 
     /// You should use this function if you immediately pass the computed
     /// value to another function that makes a copy of it, like
-    /// g_object_set_property()
+    /// `g_object_set_property()`
     func compute(factor: gdouble) -> UnsafePointer<GValue>! {
         let rv = clutter_interval_compute(cast(interval_ptr), factor)
         return cast(rv)
@@ -1417,8 +1413,8 @@ public enum KeyframeTransitionPropertyName: String, PropertyNameProtocol {
     /// Whether the timeline should automatically rewind and restart.
     /// 
     /// As a side effect, setting this property to `true` will set the
-    /// `ClutterTimeline`:repeat-count property to -1, while setting this
-    /// property to `false` will set the `ClutterTimeline`:repeat-count
+    /// `ClutterTimeline:repeat`-count property to -1, while setting this
+    /// property to `false` will set the `ClutterTimeline:repeat`-count
     /// property to 0.
     ///
     /// **loop is deprecated:**
@@ -1429,11 +1425,11 @@ public enum KeyframeTransitionPropertyName: String, PropertyNameProtocol {
     /// The name of the property of a `ClutterAnimatable` to animate.
     case propertyName = "property-name"
     /// Whether the `ClutterTransition` should be automatically detached
-    /// from the `ClutterTransition`:animatable instance whenever the
-    /// `ClutterTimeline`::stopped signal is emitted.
+    /// from the `ClutterTransition:animatable` instance whenever the
+    /// `ClutterTimeline::stopped` signal is emitted.
     /// 
-    /// The `ClutterTransition`:remove-on-complete property takes into
-    /// account the value of the `ClutterTimeline`:repeat-count property,
+    /// The `ClutterTransition:remove`-on-complete property takes into
+    /// account the value of the `ClutterTimeline:repeat`-count property,
     /// and it only detaches the transition if the transition is not
     /// repeating.
     case removeOnComplete = "remove-on-complete"
@@ -1483,8 +1479,8 @@ public extension KeyframeTransitionProtocol {
 }
 
 public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
-    /// The `ClutterTimeline`::completed signal is emitted when the timeline's
-    /// elapsed time reaches the value of the `ClutterTimeline`:duration
+    /// The `ClutterTimeline::completed` signal is emitted when the timeline's
+    /// elapsed time reaches the value of the `ClutterTimeline:duration`
     /// property.
     /// 
     /// This signal will be emitted even if the `ClutterTimeline` is set to be
@@ -1492,13 +1488,13 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// 
     /// If you want to get notification on whether the `ClutterTimeline` has
     /// been stopped or has finished its run, including its eventual repeats,
-    /// you should use the `ClutterTimeline`::stopped signal instead.
+    /// you should use the `ClutterTimeline::stopped` signal instead.
     case completed = "completed"
-    /// The ::marker-reached signal is emitted each time a timeline
+    /// The `marker`-reached signal is emitted each time a timeline
     /// reaches a marker set with
-    /// clutter_timeline_add_marker_at_time(). This signal is detailed
+    /// `clutter_timeline_add_marker_at_time()`. This signal is detailed
     /// with the name of the marker as well, so it is possible to connect
-    /// a callback to the ::marker-reached signal for a specific marker
+    /// a callback to the `marker`-reached signal for a specific marker
     /// with:
     /// 
     /// <informalexample><programlisting>
@@ -1507,9 +1503,9 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// 
     ///   g_signal_connect (timeline, "marker-reached",
     ///                     G_CALLBACK (each_marker_reached), NULL);
-    ///   g_signal_connect (timeline, "marker-reached::foo",
+    ///   g_signal_connect (timeline, "marker-reached`foo`",
     ///                     G_CALLBACK (foo_marker_reached), NULL);
-    ///   g_signal_connect (timeline, "marker-reached::bar",
+    ///   g_signal_connect (timeline, "marker-reached`bar`",
     ///                     G_CALLBACK (bar_marker_reached), NULL);
     /// </programlisting></informalexample>
     /// 
@@ -1517,48 +1513,47 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// the "foo" and "bar" marker, while the second and third callbacks
     /// will be invoked for the "foo" or "bar" markers, respectively.
     case markerReached = "marker-reached"
-    /// The ::new-frame signal is emitted for each timeline running
+    /// The `new`-frame signal is emitted for each timeline running
     /// timeline before a new frame is drawn to give animations a chance
     /// to update the scene.
     case newFrame = "new-frame"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::paused signal is emitted when clutter_timeline_pause() is invoked.
+    /// The `paused` signal is emitted when `clutter_timeline_pause()` is invoked.
     case paused = "paused"
-    /// The ::started signal is emitted when the timeline starts its run.
-    /// This might be as soon as clutter_timeline_start() is invoked or
+    /// The `started` signal is emitted when the timeline starts its run.
+    /// This might be as soon as `clutter_timeline_start()` is invoked or
     /// after the delay set in the ClutterTimeline:delay property has
     /// expired.
     case started = "started"
-    /// The `ClutterTimeline`::stopped signal is emitted when the timeline
-    /// has been stopped, either because clutter_timeline_stop() has been
+    /// The `ClutterTimeline::stopped` signal is emitted when the timeline
+    /// has been stopped, either because `clutter_timeline_stop()` has been
     /// called, or because it has been exhausted.
     /// 
-    /// This is different from the `ClutterTimeline`::completed signal,
+    /// This is different from the `ClutterTimeline::completed` signal,
     /// which gets emitted after every repeat finishes.
     /// 
     /// If the `ClutterTimeline` has is marked as infinitely repeating,
@@ -1584,8 +1579,8 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// Whether the timeline should automatically rewind and restart.
     /// 
     /// As a side effect, setting this property to `true` will set the
-    /// `ClutterTimeline`:repeat-count property to -1, while setting this
-    /// property to `false` will set the `ClutterTimeline`:repeat-count
+    /// `ClutterTimeline:repeat`-count property to -1, while setting this
+    /// property to `false` will set the `ClutterTimeline:repeat`-count
     /// property to 0.
     ///
     /// **loop is deprecated:**
@@ -1596,11 +1591,11 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// The name of the property of a `ClutterAnimatable` to animate.
     case notifyPropertyName = "notify::property-name"
     /// Whether the `ClutterTransition` should be automatically detached
-    /// from the `ClutterTransition`:animatable instance whenever the
-    /// `ClutterTimeline`::stopped signal is emitted.
+    /// from the `ClutterTransition:animatable` instance whenever the
+    /// `ClutterTimeline::stopped` signal is emitted.
     /// 
-    /// The `ClutterTransition`:remove-on-complete property takes into
-    /// account the value of the `ClutterTimeline`:repeat-count property,
+    /// The `ClutterTransition:remove`-on-complete property takes into
+    /// account the value of the `ClutterTimeline:repeat`-count property,
     /// and it only detaches the transition if the transition is not
     /// repeating.
     case notifyRemoveOnComplete = "notify::remove-on-complete"

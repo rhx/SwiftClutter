@@ -140,17 +140,17 @@ public enum CanvasPropertyName: String, PropertyNameProtocol {
     /// The scaling factor to be applied to the Cairo surface used for
     /// drawing.
     /// 
-    /// If `ClutterCanvas`:scale-factor is set to a negative value, the
-    /// value of the `ClutterSettings`:window-scaling-factor property is
+    /// If `ClutterCanvas:scale`-factor is set to a negative value, the
+    /// value of the `ClutterSettings:window`-scaling-factor property is
     /// used instead.
     /// 
-    /// Use `ClutterCanvas`:scale-factor-set to check if the scale factor
+    /// Use `ClutterCanvas:scale`-factor-set to check if the scale factor
     /// is set.
     case scaleFactor = "scale-factor"
-    /// Whether the `ClutterCanvas`:scale-factor property is set.
+    /// Whether the `ClutterCanvas:scale`-factor property is set.
     /// 
-    /// If the `ClutterCanvas`:scale-factor-set property is `false`
-    /// then `ClutterCanvas` will use the `ClutterSettings`:window-scaling-factor
+    /// If the `ClutterCanvas:scale`-factor-set property is `false`
+    /// then `ClutterCanvas` will use the `ClutterSettings:window`-scaling-factor
     /// property.
     case scaleFactorSet = "scale-factor-set"
     /// The width of the canvas.
@@ -194,37 +194,36 @@ public extension CanvasProtocol {
 }
 
 public enum CanvasSignalName: String, SignalNameProtocol {
-    /// The `ClutterCanvas`::draw signal is emitted each time a canvas is
+    /// The `ClutterCanvas::draw` signal is emitted each time a canvas is
     /// invalidated.
     /// 
     /// It is safe to connect multiple handlers to this signal: each
-    /// handler invocation will be automatically protected by cairo_save()
-    /// and cairo_restore() pairs.
+    /// handler invocation will be automatically protected by `cairo_save()`
+    /// and `cairo_restore()` pairs.
     case draw = "draw"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The height of the canvas.
@@ -232,17 +231,17 @@ public enum CanvasSignalName: String, SignalNameProtocol {
     /// The scaling factor to be applied to the Cairo surface used for
     /// drawing.
     /// 
-    /// If `ClutterCanvas`:scale-factor is set to a negative value, the
-    /// value of the `ClutterSettings`:window-scaling-factor property is
+    /// If `ClutterCanvas:scale`-factor is set to a negative value, the
+    /// value of the `ClutterSettings:window`-scaling-factor property is
     /// used instead.
     /// 
-    /// Use `ClutterCanvas`:scale-factor-set to check if the scale factor
+    /// Use `ClutterCanvas:scale`-factor-set to check if the scale factor
     /// is set.
     case notifyScaleFactor = "notify::scale-factor"
-    /// Whether the `ClutterCanvas`:scale-factor property is set.
+    /// Whether the `ClutterCanvas:scale`-factor property is set.
     /// 
-    /// If the `ClutterCanvas`:scale-factor-set property is `false`
-    /// then `ClutterCanvas` will use the `ClutterSettings`:window-scaling-factor
+    /// If the `ClutterCanvas:scale`-factor-set property is `false`
+    /// then `ClutterCanvas` will use the `ClutterSettings:window`-scaling-factor
     /// property.
     case notifyScaleFactorSet = "notify::scale-factor-set"
     /// The width of the canvas.
@@ -282,7 +281,7 @@ public extension CanvasProtocol {
     var canvas_ptr: UnsafeMutablePointer<ClutterCanvas> { return ptr.assumingMemoryBound(to: ClutterCanvas.self) }
 
     /// Retrieves the scaling factor of `canvas`, as set using
-    /// clutter_canvas_set_scale_factor().
+    /// `clutter_canvas_set_scale_factor()`.
     func getScaleFactor() -> CInt {
         let rv = clutter_canvas_get_scale_factor(cast(canvas_ptr))
         return rv
@@ -293,7 +292,7 @@ public extension CanvasProtocol {
     /// This function should rarely be used.
     /// 
     /// The default scaling factor of a `ClutterCanvas` content uses the
-    /// `ClutterSettings`:window-scaling-factor property, which is set by
+    /// `ClutterSettings:window`-scaling-factor property, which is set by
     /// the windowing system. By using this function it is possible to
     /// override that setting.
     /// 
@@ -310,7 +309,7 @@ public extension CanvasProtocol {
     /// 
     /// If you want to invalidate the contents of the `canvas` when setting
     /// the size, you can use the return value of the function to conditionally
-    /// call clutter_content_invalidate():
+    /// call `clutter_content_invalidate()`:
     /// 
     /// ```
     ///   if (!clutter_canvas_set_size (canvas, width, height))
@@ -322,10 +321,10 @@ public extension CanvasProtocol {
         return Bool(rv != 0)
     }
     /// Retrieves the scaling factor of `canvas`, as set using
-    /// clutter_canvas_set_scale_factor().
+    /// `clutter_canvas_set_scale_factor()`.
     var scaleFactor: CInt {
         /// Retrieves the scaling factor of `canvas`, as set using
-        /// clutter_canvas_set_scale_factor().
+        /// `clutter_canvas_set_scale_factor()`.
         get {
             let rv = clutter_canvas_get_scale_factor(cast(canvas_ptr))
             return rv
@@ -335,7 +334,7 @@ public extension CanvasProtocol {
         /// This function should rarely be used.
         /// 
         /// The default scaling factor of a `ClutterCanvas` content uses the
-        /// `ClutterSettings`:window-scaling-factor property, which is set by
+        /// `ClutterSettings:window`-scaling-factor property, which is set by
         /// the windowing system. By using this function it is possible to
         /// override that setting.
         /// 
@@ -367,27 +366,26 @@ public extension CanvasProtocol {
 /// static void
 /// my_container_iface_init (ClutterContainerIface *iface)
 /// {
-///   // set the rest of the `ClutterContainer` vtable
+///   // set the rest of the #ClutterContainer vtable
 /// 
 ///   container_iface->child_meta_type  = MY_TYPE_CHILD_META;
 /// }
 /// ```
 /// 
-/// 
 /// This will automatically create a `ClutterChildMeta` of type
 /// `MY_TYPE_CHILD_META` for every actor that is added to the container.
 /// 
 /// The child data for an actor can be retrieved using the
-/// clutter_container_get_child_meta() function.
+/// `clutter_container_get_child_meta()` function.
 /// 
 /// The properties of the data and your subclass can be manipulated with
-/// clutter_container_child_set() and clutter_container_child_get() which
-/// act like g_object_set() and g_object_get().
+/// `clutter_container_child_set()` and `clutter_container_child_get()` which
+/// act like `g_object_set()` and `g_object_get()`.
 /// 
 /// You can provide hooks for your own storage as well as control the
 /// instantiation by overriding the `ClutterContainerIface` virtual functions
-/// `ClutterContainerIface`.create_child_meta(), `ClutterContainerIface`.destroy_child_meta(),
-/// and `ClutterContainerIface`.get_child_meta().
+/// `ClutterContainerIface.create_child_meta``()`, `ClutterContainerIface.destroy_child_meta``()`,
+/// and `ClutterContainerIface.get_child_meta``()`.
 public protocol ChildMetaProtocol: GLibObject.ObjectProtocol {
     /// Untyped pointer to the underlying `ClutterChildMeta` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -412,27 +410,26 @@ public protocol ChildMetaProtocol: GLibObject.ObjectProtocol {
 /// static void
 /// my_container_iface_init (ClutterContainerIface *iface)
 /// {
-///   // set the rest of the `ClutterContainer` vtable
+///   // set the rest of the #ClutterContainer vtable
 /// 
 ///   container_iface->child_meta_type  = MY_TYPE_CHILD_META;
 /// }
 /// ```
 /// 
-/// 
 /// This will automatically create a `ClutterChildMeta` of type
 /// `MY_TYPE_CHILD_META` for every actor that is added to the container.
 /// 
 /// The child data for an actor can be retrieved using the
-/// clutter_container_get_child_meta() function.
+/// `clutter_container_get_child_meta()` function.
 /// 
 /// The properties of the data and your subclass can be manipulated with
-/// clutter_container_child_set() and clutter_container_child_get() which
-/// act like g_object_set() and g_object_get().
+/// `clutter_container_child_set()` and `clutter_container_child_get()` which
+/// act like `g_object_set()` and `g_object_get()`.
 /// 
 /// You can provide hooks for your own storage as well as control the
 /// instantiation by overriding the `ClutterContainerIface` virtual functions
-/// `ClutterContainerIface`.create_child_meta(), `ClutterContainerIface`.destroy_child_meta(),
-/// and `ClutterContainerIface`.get_child_meta().
+/// `ClutterContainerIface.create_child_meta``()`, `ClutterContainerIface.destroy_child_meta``()`,
+/// and `ClutterContainerIface.get_child_meta``()`.
 public struct ChildMetaRef: ChildMetaProtocol {
     /// Untyped pointer to the underlying `ClutterChildMeta` instance.
     /// For type-safe access, use the generated, typed pointer `child_meta_ptr` property instead.
@@ -497,27 +494,26 @@ public extension ChildMetaRef {
 /// static void
 /// my_container_iface_init (ClutterContainerIface *iface)
 /// {
-///   // set the rest of the `ClutterContainer` vtable
+///   // set the rest of the #ClutterContainer vtable
 /// 
 ///   container_iface->child_meta_type  = MY_TYPE_CHILD_META;
 /// }
 /// ```
 /// 
-/// 
 /// This will automatically create a `ClutterChildMeta` of type
 /// `MY_TYPE_CHILD_META` for every actor that is added to the container.
 /// 
 /// The child data for an actor can be retrieved using the
-/// clutter_container_get_child_meta() function.
+/// `clutter_container_get_child_meta()` function.
 /// 
 /// The properties of the data and your subclass can be manipulated with
-/// clutter_container_child_set() and clutter_container_child_get() which
-/// act like g_object_set() and g_object_get().
+/// `clutter_container_child_set()` and `clutter_container_child_get()` which
+/// act like `g_object_set()` and `g_object_get()`.
 /// 
 /// You can provide hooks for your own storage as well as control the
 /// instantiation by overriding the `ClutterContainerIface` virtual functions
-/// `ClutterContainerIface`.create_child_meta(), `ClutterContainerIface`.destroy_child_meta(),
-/// and `ClutterContainerIface`.get_child_meta().
+/// `ClutterContainerIface.create_child_meta``()`, `ClutterContainerIface.destroy_child_meta``()`,
+/// and `ClutterContainerIface.get_child_meta``()`.
 open class ChildMeta: GLibObject.Object, ChildMetaProtocol {
     /// Designated initialiser from the underlying `C` data type.
     /// Ownership is transferred to the `ChildMeta` instance.
@@ -605,29 +601,28 @@ public extension ChildMetaProtocol {
 
 public enum ChildMetaSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `ClutterActor` being wrapped by this `ClutterChildMeta`
@@ -885,13 +880,13 @@ public enum ClickActionPropertyName: String, PropertyNameProtocol {
     /// press gesture, in milliseconds.
     /// 
     /// A value of -1 will make the `ClutterClickAction` use the value of
-    /// the `ClutterSettings`:long-press-duration property.
+    /// the `ClutterSettings:long`-press-duration property.
     case longPressDuration = "long-press-duration"
     /// The maximum allowed distance that can be covered (on both axes) before
     /// a long press gesture is cancelled, in pixels.
     /// 
     /// A value of -1 will make the `ClutterClickAction` use the value of
-    /// the `ClutterSettings`:dnd-drag-threshold property.
+    /// the `ClutterSettings:dnd`-drag-threshold property.
     case longPressThreshold = "long-press-threshold"
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
@@ -945,7 +940,7 @@ public enum ClickActionSignalName: String, SignalNameProtocol {
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::clicked signal is emitted when the `ClutterActor` to which
+    /// The `clicked` signal is emitted when the `ClutterActor` to which
     /// a `ClutterClickAction` has been applied should respond to a
     /// pointer button press and release events
     case clicked = "clicked"
@@ -955,7 +950,7 @@ public enum ClickActionSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::long-press signal is emitted during the long press gesture
+    /// The `long`-press signal is emitted during the long press gesture
     /// handling.
     /// 
     /// This signal can be emitted multiple times with different states.
@@ -969,32 +964,31 @@ public enum ClickActionSignalName: String, SignalNameProtocol {
     /// `CLUTTER_LONG_PRESS_CANCEL` state if the long press was cancelled.
     /// 
     /// It is possible to forcibly cancel a long press detection using
-    /// clutter_click_action_release().
+    /// `clutter_click_action_release()`.
     case longPress = "long-press"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -1006,9 +1000,9 @@ public enum ClickActionSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -1073,13 +1067,13 @@ public enum ClickActionSignalName: String, SignalNameProtocol {
     /// press gesture, in milliseconds.
     /// 
     /// A value of -1 will make the `ClutterClickAction` use the value of
-    /// the `ClutterSettings`:long-press-duration property.
+    /// the `ClutterSettings:long`-press-duration property.
     case notifyLongPressDuration = "notify::long-press-duration"
     /// The maximum allowed distance that can be covered (on both axes) before
     /// a long press gesture is cancelled, in pixels.
     /// 
     /// A value of -1 will make the `ClutterClickAction` use the value of
-    /// the `ClutterSettings`:dnd-drag-threshold property.
+    /// the `ClutterSettings:dnd`-drag-threshold property.
     case notifyLongPressThreshold = "notify::long-press-threshold"
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
@@ -1138,7 +1132,7 @@ public extension ClickActionProtocol {
     }
 
     /// Emulates a release of the pointer button, which ungrabs the pointer
-    /// and unsets the `ClutterClickAction`:pressed state.
+    /// and unsets the `ClutterClickAction:pressed` state.
     /// 
     /// This function will also cancel the long press gesture if one was
     /// initiated.
@@ -1498,13 +1492,13 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     case allocation = "allocation"
     /// The anchor point expressed as a `ClutterGravity`
     /// 
-    /// It is highly recommended not to use `ClutterActor`:anchor-x,
-    /// `ClutterActor`:anchor-y, and `ClutterActor`:anchor-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor`-x,
+    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor`:pivot-point property instead,
+    /// recommended to use the `ClutterActor:pivot`-point property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-gravity is deprecated:**
@@ -1513,13 +1507,13 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// The X coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels.
     /// 
-    /// It is highly recommended not to use `ClutterActor`:anchor-x,
-    /// `ClutterActor`:anchor-y, and `ClutterActor`:anchor-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor`-x,
+    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor`:pivot-point property instead,
+    /// recommended to use the `ClutterActor:pivot`-point property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-x is deprecated:**
@@ -1528,13 +1522,13 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// The Y coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels
     /// 
-    /// It is highly recommended not to use `ClutterActor`:anchor-x,
-    /// `ClutterActor`:anchor-y, and `ClutterActor`:anchor-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor`-x,
+    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor`:pivot-point property instead,
+    /// recommended to use the `ClutterActor:pivot`-point property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-y is deprecated:**
@@ -1543,20 +1537,20 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// Paints a solid fill of the actor's allocation using the specified
     /// color.
     /// 
-    /// The `ClutterActor`:background-color property is animatable.
+    /// The `ClutterActor:background`-color property is animatable.
     case backgroundColor = "background-color"
-    /// Whether the `ClutterActor`:background-color property has been set.
+    /// Whether the `ClutterActor:background`-color property has been set.
     case backgroundColorSet = "background-color-set"
     /// Applies a transformation matrix on each child of an actor.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor`:child-transform-set property to `true` as a side effect;
+    /// `ClutterActor:child`-transform-set property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor`:child-transform-set property to `false`.
+    /// `ClutterActor:child`-transform-set property to `false`.
     /// 
-    /// The `ClutterActor`:child-transform property is animatable.
+    /// The `ClutterActor:child`-transform property is animatable.
     case childTransform = "child-transform"
-    /// Whether the `ClutterActor`:child-transform property is set.
+    /// Whether the `ClutterActor:child`-transform property is set.
     case childTransformSet = "child-transform-set"
     /// The visible region of the actor, in actor-relative coordinates
     ///
@@ -1568,14 +1562,14 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// 
     /// Setting this property to `nil` will unset the existing clip.
     /// 
-    /// Setting this property will change the `ClutterActor`:has-clip
+    /// Setting this property will change the `ClutterActor:has`-clip
     /// property as a side effect.
     case clipRect = "clip-rect"
     /// Whether the clip region should track the allocated area
     /// of the actor.
     /// 
     /// This property is ignored if a clip area has been explicitly
-    /// set using clutter_actor_set_clip().
+    /// set using `clutter_actor_set_clip()`.
     case clipToAllocation = "clip-to-allocation"
     /// Adds a `ClutterConstraint` to the actor
     case constraints = "constraints"
@@ -1584,17 +1578,17 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     case content = "content"
     /// The bounding box for the `ClutterContent` used by the actor.
     /// 
-    /// The value of this property is controlled by the `ClutterActor`:allocation
-    /// and `ClutterActor`:content-gravity properties of `ClutterActor`.
+    /// The value of this property is controlled by the `ClutterActor:allocation`
+    /// and `ClutterActor:content`-gravity properties of `ClutterActor`.
     /// 
     /// The bounding box for the content is guaranteed to never exceed the
     /// allocation's of the actor.
     case contentBox = "content-box"
     /// The alignment that should be honoured by the `ClutterContent`
-    /// set with the `ClutterActor`:content property.
+    /// set with the `ClutterActor:content` property.
     /// 
     /// Changing the value of this property will change the bounding box of
-    /// the content; you can use the `ClutterActor`:content-box property to
+    /// the content; you can use the `ClutterActor:content`-box property to
     /// get the position and size of the content within the actor's
     /// allocation.
     /// 
@@ -1602,19 +1596,19 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// that have a preferred size, and if the preferred size is smaller than
     /// the actor's allocation.
     /// 
-    /// The `ClutterActor`:content-gravity property is animatable.
+    /// The `ClutterActor:content`-gravity property is animatable.
     case contentGravity = "content-gravity"
-    /// The repeat policy for the actor's `ClutterActor`:content.
+    /// The repeat policy for the actor's `ClutterActor:content`.
     case contentRepeat = "content-repeat"
     /// The position of the actor on the Z axis.
     /// 
-    /// The `ClutterActor`:depth property is relative to the parent's
+    /// The `ClutterActor:depth` property is relative to the parent's
     /// modelview matrix.
     /// 
-    /// Setting this property will call `ClutterContainerIface`.sort_depth_order()
+    /// Setting this property will call `ClutterContainerIface.sort_depth_order``()`
     /// which is usually a no-op, and it's most likely not what you want.
     /// 
-    /// The `ClutterActor`:depth property is animatable.
+    /// The `ClutterActor:depth` property is animatable.
     ///
     /// **depth is deprecated:**
     /// Use #ClutterActor:z-position instead.
@@ -1623,20 +1617,20 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     case effect = "effect"
     /// The actor's first child.
     case firstChild = "first-child"
-    /// This flag controls whether the `ClutterActor`:fixed-x and
-    /// `ClutterActor`:fixed-y properties are used
+    /// This flag controls whether the `ClutterActor:fixed`-x and
+    /// `ClutterActor:fixed`-y properties are used
     case fixedPositionSet = "fixed-position-set"
     /// The fixed X position of the actor in pixels.
     /// 
-    /// Writing this property sets `ClutterActor`:fixed-position-set
+    /// Writing this property sets `ClutterActor:fixed`-position-set
     /// property as well, as a side effect
     case fixedX = "fixed-x"
     /// The fixed Y position of the actor in pixels.
     /// 
-    /// Writing this property sets the `ClutterActor`:fixed-position-set
+    /// Writing this property sets the `ClutterActor:fixed`-position-set
     /// property as well, as a side effect
     case fixedY = "fixed-y"
-    /// Whether the actor has the `ClutterActor`:clip property set or not
+    /// Whether the actor has the `ClutterActor:clip` property set or not
     case hasClip = "has-clip"
     /// Whether the actor contains the pointer of a `ClutterInputDevice`
     /// or not.
@@ -1645,7 +1639,7 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// natural size request of the actor to the given height. If read, returns
     /// the allocated height if available, otherwise the height request.
     /// 
-    /// The `ClutterActor`:height property is animatable.
+    /// The `ClutterActor:height` property is animatable.
     case height = "height"
     /// The actor's last child.
     case lastChild = "last-child"
@@ -1661,46 +1655,46 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-bottom property is animatable.
+    /// The `ClutterActor:margin`-bottom property is animatable.
     case marginBottom = "margin-bottom"
     /// The margin (in pixels) from the left of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-left property is animatable.
+    /// The `ClutterActor:margin`-left property is animatable.
     case marginLeft = "margin-left"
     /// The margin (in pixels) from the right of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-right property is animatable.
+    /// The `ClutterActor:margin`-right property is animatable.
     case marginRight = "margin-right"
     /// The margin (in pixels) from the top of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-top property is animatable.
+    /// The `ClutterActor:margin`-top property is animatable.
     case marginTop = "margin-top"
     /// A forced minimum height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:min-height-set property
+    /// Writing this property sets the `ClutterActor:min`-height-set property
     /// as well, as a side effect. This property overrides the usual height
     /// request of the actor.
     case minHeight = "min-height"
-    /// This flag controls whether the `ClutterActor`:min-height property
+    /// This flag controls whether the `ClutterActor:min`-height property
     /// is used
     case minHeightSet = "min-height-set"
     /// A forced minimum width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:min-width-set property
+    /// Writing this property sets the `ClutterActor:min`-width-set property
     /// as well, as a side effect.
     /// 
     /// This property overrides the usual width request of the actor.
     case minWidth = "min-width"
-    /// This flag controls whether the `ClutterActor`:min-width property
+    /// This flag controls whether the `ClutterActor:min`-width property
     /// is used
     case minWidthSet = "min-width-set"
     case minificationFilter = "minification-filter"
@@ -1708,32 +1702,32 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     case name = "name"
     /// A forced natural height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:natural-height-set
+    /// Writing this property sets the `ClutterActor:natural`-height-set
     /// property as well, as a side effect. This property overrides the
     /// usual height request of the actor
     case naturalHeight = "natural-height"
-    /// This flag controls whether the `ClutterActor`:natural-height property
+    /// This flag controls whether the `ClutterActor:natural`-height property
     /// is used
     case naturalHeightSet = "natural-height-set"
     /// A forced natural width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:natural-width-set
+    /// Writing this property sets the `ClutterActor:natural`-width-set
     /// property as well, as a side effect. This property overrides the
     /// usual width request of the actor
     case naturalWidth = "natural-width"
-    /// This flag controls whether the `ClutterActor`:natural-width property
+    /// This flag controls whether the `ClutterActor:natural`-width property
     /// is used
     case naturalWidthSet = "natural-width-set"
     /// Determines the conditions in which the actor will be redirected
     /// to an offscreen framebuffer while being painted. For example this
     /// can be used to cache an actor in a framebuffer or for improved
     /// handling of transparent actors. See
-    /// clutter_actor_set_offscreen_redirect() for details.
+    /// `clutter_actor_set_offscreen_redirect()` for details.
     case offscreenRedirect = "offscreen-redirect"
     /// Opacity of an actor, between 0 (fully transparent) and
     /// 255 (fully opaque)
     /// 
-    /// The `ClutterActor`:opacity property is animatable.
+    /// The `ClutterActor:opacity` property is animatable.
     case opacity = "opacity"
     /// The point around which the scaling and rotation transformations occur.
     /// 
@@ -1743,20 +1737,20 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// 
     /// The default pivot point is located at (0, 0).
     /// 
-    /// The `ClutterActor`:pivot-point property is animatable.
+    /// The `ClutterActor:pivot`-point property is animatable.
     case pivotPoint = "pivot-point"
-    /// The Z component of the `ClutterActor`:pivot-point, expressed as a value
+    /// The Z component of the `ClutterActor:pivot`-point, expressed as a value
     /// along the Z axis.
     /// 
-    /// The `ClutterActor`:pivot-point-z property is animatable.
+    /// The `ClutterActor:pivot`-point-z property is animatable.
     case pivotPointZ = "pivot-point-z"
     /// The position of the origin of the actor.
     /// 
     /// This property is a shorthand for setting and getting the
-    /// `ClutterActor`:x and `ClutterActor`:y properties at the same
+    /// `ClutterActor:x` and `ClutterActor:y` properties at the same
     /// time.
     /// 
-    /// The `ClutterActor`:position property is animatable.
+    /// The `ClutterActor:position` property is animatable.
     case position = "position"
     /// Whether the actor is reactive to events or not
     /// 
@@ -1813,24 +1807,23 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     ///     }
     /// ```
     /// 
-    /// 
     /// will retrieve the minimum and natural width and height depending on the
     /// preferred request mode of the `ClutterActor` "child".
     /// 
-    /// The clutter_actor_get_preferred_size() function will implement this
+    /// The `clutter_actor_get_preferred_size()` function will implement this
     /// check for you.
     case requestMode = "request-mode"
     /// The rotation angle on the X axis.
     /// 
-    /// The `ClutterActor`:rotation-angle-x property is animatable.
+    /// The `ClutterActor:rotation`-angle-x property is animatable.
     case rotationAngleX = "rotation-angle-x"
     /// The rotation angle on the Y axis
     /// 
-    /// The `ClutterActor`:rotation-angle-y property is animatable.
+    /// The `ClutterActor:rotation`-angle-y property is animatable.
     case rotationAngleY = "rotation-angle-y"
     /// The rotation angle on the Z axis
     /// 
-    /// The `ClutterActor`:rotation-angle-z property is animatable.
+    /// The `ClutterActor:rotation`-angle-z property is animatable.
     case rotationAngleZ = "rotation-angle-z"
     /// The rotation center on the X axis.
     ///
@@ -1869,27 +1862,27 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     case scaleGravity = "scale-gravity"
     /// The horizontal scale of the actor.
     /// 
-    /// The `ClutterActor`:scale-x property is animatable.
+    /// The `ClutterActor:scale`-x property is animatable.
     case scaleX = "scale-x"
     /// The vertical scale of the actor.
     /// 
-    /// The `ClutterActor`:scale-y property is animatable.
+    /// The `ClutterActor:scale`-y property is animatable.
     case scaleY = "scale-y"
     /// The scale factor of the actor along the Z axis.
     /// 
-    /// The `ClutterActor`:scale-y property is animatable.
+    /// The `ClutterActor:scale`-y property is animatable.
     case scaleZ = "scale-z"
     /// If `true`, the actor is automatically shown when parented.
     /// 
-    /// Calling clutter_actor_hide() on an actor which has not been
+    /// Calling `clutter_actor_hide()` on an actor which has not been
     /// parented will set this property to `false` as a side effect.
     case showOnSetParent = "show-on-set-parent"
     /// The size of the actor.
     /// 
     /// This property is a shorthand for setting and getting the
-    /// `ClutterActor`:width and `ClutterActor`:height at the same time.
+    /// `ClutterActor:width` and `ClutterActor:height` at the same time.
     /// 
-    /// The `ClutterActor`:size property is animatable.
+    /// The `ClutterActor:size` property is animatable.
     case size = "size"
     /// This property specifies the source actor being cloned.
     case source = "source"
@@ -1898,54 +1891,54 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// Overrides the transformations of a `ClutterActor` with a custom
     /// matrix.
     /// 
-    /// The matrix specified by the `ClutterActor`:transform property is
+    /// The matrix specified by the `ClutterActor:transform` property is
     /// applied to the actor and its children relative to the actor's
-    /// `ClutterActor`:allocation and `ClutterActor`:pivot-point.
+    /// `ClutterActor:allocation` and `ClutterActor:pivot`-point.
     /// 
     /// Application code should rarely need to use this function directly.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor`:transform-set property to `true` as a side effect;
+    /// `ClutterActor:transform`-set property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor`:transform-set property to `false`.
+    /// `ClutterActor:transform`-set property to `false`.
     /// 
-    /// The `ClutterActor`:transform property is animatable.
+    /// The `ClutterActor:transform` property is animatable.
     case transform = "transform"
-    /// Whether the `ClutterActor`:transform property is set.
+    /// Whether the `ClutterActor:transform` property is set.
     case transformSet = "transform-set"
     /// An additional translation applied along the X axis, relative
-    /// to the actor's `ClutterActor`:pivot-point.
+    /// to the actor's `ClutterActor:pivot`-point.
     /// 
-    /// The `ClutterActor`:translation-x property is animatable.
+    /// The `ClutterActor:translation`-x property is animatable.
     case translationX = "translation-x"
     /// An additional translation applied along the Y axis, relative
-    /// to the actor's `ClutterActor`:pivot-point.
+    /// to the actor's `ClutterActor:pivot`-point.
     /// 
-    /// The `ClutterActor`:translation-y property is animatable.
+    /// The `ClutterActor:translation`-y property is animatable.
     case translationY = "translation-y"
     /// An additional translation applied along the Z axis, relative
-    /// to the actor's `ClutterActor`:pivot-point.
+    /// to the actor's `ClutterActor:pivot`-point.
     /// 
-    /// The `ClutterActor`:translation-z property is animatable.
+    /// The `ClutterActor:translation`-z property is animatable.
     case translationZ = "translation-z"
     /// Whether the actor is set to be visible or not
     /// 
-    /// See also `ClutterActor`:mapped
+    /// See also `ClutterActor:mapped`
     case visible = "visible"
     /// Width of the actor (in pixels). If written, forces the minimum and
     /// natural size request of the actor to the given width. If read, returns
     /// the allocated width if available, otherwise the width request.
     /// 
-    /// The `ClutterActor`:width property is animatable.
+    /// The `ClutterActor:width` property is animatable.
     case width = "width"
     /// X coordinate of the actor in pixels. If written, forces a fixed
     /// position for the actor. If read, returns the fixed position if any,
     /// otherwise the allocation if available, otherwise 0.
     /// 
-    /// The `ClutterActor`:x property is animatable.
+    /// The `ClutterActor:x` property is animatable.
     case x = "x"
     /// The alignment of an actor on the X axis, if the actor has been given
-    /// extra space for its allocation. See also the `ClutterActor`:x-expand
+    /// extra space for its allocation. See also the `ClutterActor:x`-expand
     /// property.
     case xAlign = "x-align"
     /// Whether a layout manager should assign more space to the actor on
@@ -1955,7 +1948,7 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// position for the actor.  If read, returns the fixed position if
     /// any, otherwise the allocation if available, otherwise 0.
     /// 
-    /// The `ClutterActor`:y property is animatable.
+    /// The `ClutterActor:y` property is animatable.
     case y = "y"
     /// The alignment of an actor on the Y axis, if the actor has been given
     /// extra space for its allocation.
@@ -1970,10 +1963,10 @@ public enum ClonePropertyName: String, PropertyNameProtocol {
     /// whereas negative values will bring the actor's position farther from
     /// the user.
     /// 
-    /// The `ClutterActor`:z-position does not affect the paint or allocation
+    /// The `ClutterActor:z`-position does not affect the paint or allocation
     /// order.
     /// 
-    /// The `ClutterActor`:z-position property is animatable.
+    /// The `ClutterActor:z`-position property is animatable.
     case zPosition = "z-position"
 }
 
@@ -2019,35 +2012,35 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// object in the object changes. For instance, a table will emit the
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
-    /// The ::allocation-changed signal is emitted when the
-    /// `ClutterActor`:allocation property changes. Usually, application
+    /// The `allocation`-changed signal is emitted when the
+    /// `ClutterActor:allocation` property changes. Usually, application
     /// code should just use the notifications for the :allocation property
     /// but if you want to track the allocation flags as well, for instance
     /// to know whether the absolute origin of `actor` changed, then you might
     /// want use this signal instead.
     case allocationChanged = "allocation-changed"
-    /// The ::button-press-event signal is emitted each time a mouse button
+    /// The `button`-press-event signal is emitted each time a mouse button
     /// is pressed on `actor`.
     case buttonPressEvent = "button-press-event"
-    /// The ::button-release-event signal is emitted each time a mouse button
+    /// The `button`-release-event signal is emitted each time a mouse button
     /// is released on `actor`.
     case buttonReleaseEvent = "button-release-event"
-    /// The ::captured-event signal is emitted when an event is captured
+    /// The `captured`-event signal is emitted when an event is captured
     /// by Clutter. This signal will be emitted starting from the top-level
     /// container (the `ClutterStage`) to the actor which received the event
     /// going down the hierarchy. This signal can be used to intercept every
     /// event before the specialized events (like
-    /// ClutterActor::button-press-event or ::key-released-event) are
+    /// ClutterActor`button`-press-event or `key`-released-event) are
     /// emitted.
     case capturedEvent = "captured-event"
     /// The signal "children-changed" is emitted when a child is added or
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::destroy signal notifies that all references held on the
+    /// The `destroy` signal notifies that all references held on the
     /// actor which emitted it should be released.
     /// 
-    /// The ::destroy signal should be used by all holders of a reference
+    /// The `destroy` signal should be used by all holders of a reference
     /// on `actor`.
     /// 
     /// This signal might result in the finalization of the `ClutterActor`
@@ -2055,13 +2048,13 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// 
     /// Composite actors and actors implementing the `ClutterContainer`
     /// interface should override the default implementation of the
-    /// class handler of this signal and call clutter_actor_destroy() on
+    /// class handler of this signal and call `clutter_actor_destroy()` on
     /// their children. When overriding the default class handler, it is
     /// required to chain up to the parent's implementation.
     case destroy = "destroy"
-    /// The ::enter-event signal is emitted when the pointer enters the `actor`
+    /// The `enter`-event signal is emitted when the pointer enters the `actor`
     case enterEvent = "enter-event"
-    /// The ::event signal is emitted each time an event is received
+    /// The `event` signal is emitted each time an event is received
     /// by the `actor`. This signal will be emitted on every actor,
     /// following the hierarchy chain, until it reaches the top-level
     /// container (the `ClutterStage`).
@@ -2072,61 +2065,60 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::hide signal is emitted when an actor is no longer rendered
+    /// The `hide` signal is emitted when an actor is no longer rendered
     /// on the stage.
     case hide = "hide"
-    /// The ::key-focus-in signal is emitted when `actor` receives key focus.
+    /// The `key`-focus-in signal is emitted when `actor` receives key focus.
     case keyFocusIn = "key-focus-in"
-    /// The ::key-focus-out signal is emitted when `actor` loses key focus.
+    /// The `key`-focus-out signal is emitted when `actor` loses key focus.
     case keyFocusOut = "key-focus-out"
-    /// The ::key-press-event signal is emitted each time a keyboard button
-    /// is pressed while `actor` has key focus (see clutter_stage_set_key_focus()).
+    /// The `key`-press-event signal is emitted each time a keyboard button
+    /// is pressed while `actor` has key focus (see `clutter_stage_set_key_focus()`).
     case keyPressEvent = "key-press-event"
-    /// The ::key-release-event signal is emitted each time a keyboard button
+    /// The `key`-release-event signal is emitted each time a keyboard button
     /// is released while `actor` has key focus (see
-    /// clutter_stage_set_key_focus()).
+    /// `clutter_stage_set_key_focus()`).
     case keyReleaseEvent = "key-release-event"
-    /// The ::leave-event signal is emitted when the pointer leaves the `actor`.
+    /// The `leave`-event signal is emitted when the pointer leaves the `actor`.
     case leaveEvent = "leave-event"
-    /// The ::motion-event signal is emitted each time the mouse pointer is
+    /// The `motion`-event signal is emitted each time the mouse pointer is
     /// moved over `actor`.
     case motionEvent = "motion-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::paint signal is emitted each time an actor is being painted.
+    /// The `paint` signal is emitted each time an actor is being painted.
     /// 
-    /// Subclasses of `ClutterActor` should override the `ClutterActorClass`.paint
+    /// Subclasses of `ClutterActor` should override the `ClutterActorClass.paint`
     /// virtual function paint themselves in that function.
     /// 
     /// It is strongly discouraged to connect a signal handler to
-    /// the `ClutterActor`::paint signal; if you want to change the paint
+    /// the `ClutterActor::paint` signal; if you want to change the paint
     /// sequence of an existing `ClutterActor` instance, either create a new
-    /// `ClutterActor` class and override the `ClutterActorClass`.paint virtual
-    /// function, or use a `ClutterEffect`. The `ClutterActor`::paint signal
+    /// `ClutterActor` class and override the `ClutterActorClass.paint` virtual
+    /// function, or use a `ClutterEffect`. The `ClutterActor::paint` signal
     /// will be removed in a future version of Clutter.
     ///
     /// **paint is deprecated:**
@@ -2136,15 +2128,15 @@ public enum CloneSignalName: String, SignalNameProtocol {
     case paint = "paint"
     /// This signal is emitted when the parent of the actor changes.
     case parentSet = "parent-set"
-    /// The ::pick signal is emitted each time an actor is being painted
+    /// The `pick` signal is emitted each time an actor is being painted
     /// in "pick mode". The pick mode is used to identify the actor during
-    /// the event handling phase, or by clutter_stage_get_actor_at_pos().
+    /// the event handling phase, or by `clutter_stage_get_actor_at_pos()`.
     /// The actor should paint its shape using the passed `pick_color`.
     /// 
     /// Subclasses of `ClutterActor` should override the class signal handler
     /// and paint themselves in that function.
     /// 
-    /// It is possible to connect a handler to the ::pick signal in order
+    /// It is possible to connect a handler to the `pick` signal in order
     /// to set up some custom aspect of a paint in pick mode.
     ///
     /// **pick is deprecated:**
@@ -2160,18 +2152,18 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::queue_redraw signal is emitted when clutter_actor_queue_redraw()
+    /// The `queue_redraw` signal is emitted when `clutter_actor_queue_redraw()`
     /// is called on `origin`.
     /// 
     /// The default implementation for `ClutterActor` chains up to the
     /// parent actor and queues a redraw on the parent, thus "bubbling"
     /// the redraw queue up through the actor graph. The default
-    /// implementation for `ClutterStage` queues a clutter_stage_ensure_redraw()
+    /// implementation for `ClutterStage` queues a `clutter_stage_ensure_redraw()`
     /// in a main loop idle handler.
     /// 
     /// Note that the `origin` actor may be the stage, or a container; it
@@ -2179,7 +2171,7 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// 
     /// Toolkits embedding a `ClutterStage` which require a redraw and
     /// relayout cycle can stop the emission of this signal using the
-    /// GSignal API, redraw the UI and then call clutter_stage_ensure_redraw()
+    /// GSignal API, redraw the UI and then call `clutter_stage_ensure_redraw()`
     /// themselves, like:
     /// 
     /// (C Language Example):
@@ -2205,13 +2197,12 @@ public enum CloneSignalName: String, SignalNameProtocol {
     ///   }
     /// ```
     /// 
-    /// 
     /// Note: This signal is emitted before the Clutter paint
     /// pipeline is executed. If you want to know when the pipeline has
-    /// been completed you should use clutter_threads_add_repaint_func()
-    /// or clutter_threads_add_repaint_func_full().
+    /// been completed you should use `clutter_threads_add_repaint_func()`
+    /// or `clutter_threads_add_repaint_func_full()`.
     case queueRedraw = "queue-redraw"
-    /// The ::queue_layout signal is emitted when clutter_actor_queue_relayout()
+    /// The `queue_layout` signal is emitted when `clutter_actor_queue_relayout()`
     /// is called on an actor.
     /// 
     /// The default implementation for `ClutterActor` chains up to the
@@ -2222,36 +2213,36 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// properly in the presence of `ClutterClone` actors. Applications will
     /// not normally need to connect to this signal.
     case queueRelayout = "queue-relayout"
-    /// The ::realize signal is emitted each time an actor is being
+    /// The `realize` signal is emitted each time an actor is being
     /// realized.
     ///
     /// **realize is deprecated:**
     /// The signal should not be used in newly
     ///   written code
     case realize = "realize"
-    /// The ::scroll-event signal is emitted each time the mouse is
+    /// The `scroll`-event signal is emitted each time the mouse is
     /// scrolled on `actor`
     case scrollEvent = "scroll-event"
-    /// The ::show signal is emitted when an actor is visible and
+    /// The `show` signal is emitted when an actor is visible and
     /// rendered on the stage.
     case show = "show"
     /// The "state-change" signal is emitted when an object's state
     /// changes.  The detail value identifies the state type which has
     /// changed.
     case stateChange = "state-change"
-    /// The ::touch-event signal is emitted each time a touch
+    /// The `touch`-event signal is emitted each time a touch
     /// begin/end/update/cancel event.
     case touchEvent = "touch-event"
-    /// The ::transition-stopped signal is emitted once a transition
+    /// The `transition`-stopped signal is emitted once a transition
     /// is stopped; a transition is stopped once it reached its total
     /// duration (including eventual repeats), it has been stopped
-    /// using clutter_timeline_stop(), or it has been removed from the
-    /// transitions applied on `actor`, using clutter_actor_remove_transition().
+    /// using `clutter_timeline_stop()`, or it has been removed from the
+    /// transitions applied on `actor`, using `clutter_actor_remove_transition()`.
     case transitionStopped = "transition-stopped"
-    /// The ::transitions-completed signal is emitted once all transitions
+    /// The `transitions`-completed signal is emitted once all transitions
     /// involving `actor` are complete.
     case transitionsCompleted = "transitions-completed"
-    /// The ::unrealize signal is emitted each time an actor is being
+    /// The `unrealize` signal is emitted each time an actor is being
     /// unrealized.
     ///
     /// **unrealize is deprecated:**
@@ -2315,13 +2306,13 @@ public enum CloneSignalName: String, SignalNameProtocol {
     case notifyAllocation = "notify::allocation"
     /// The anchor point expressed as a `ClutterGravity`
     /// 
-    /// It is highly recommended not to use `ClutterActor`:anchor-x,
-    /// `ClutterActor`:anchor-y, and `ClutterActor`:anchor-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor`-x,
+    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor`:pivot-point property instead,
+    /// recommended to use the `ClutterActor:pivot`-point property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-gravity is deprecated:**
@@ -2330,13 +2321,13 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// The X coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels.
     /// 
-    /// It is highly recommended not to use `ClutterActor`:anchor-x,
-    /// `ClutterActor`:anchor-y, and `ClutterActor`:anchor-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor`-x,
+    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor`:pivot-point property instead,
+    /// recommended to use the `ClutterActor:pivot`-point property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-x is deprecated:**
@@ -2345,13 +2336,13 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// The Y coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels
     /// 
-    /// It is highly recommended not to use `ClutterActor`:anchor-x,
-    /// `ClutterActor`:anchor-y, and `ClutterActor`:anchor-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor`-x,
+    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor`:pivot-point property instead,
+    /// recommended to use the `ClutterActor:pivot`-point property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-y is deprecated:**
@@ -2360,20 +2351,20 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// Paints a solid fill of the actor's allocation using the specified
     /// color.
     /// 
-    /// The `ClutterActor`:background-color property is animatable.
+    /// The `ClutterActor:background`-color property is animatable.
     case notifyBackgroundColor = "notify::background-color"
-    /// Whether the `ClutterActor`:background-color property has been set.
+    /// Whether the `ClutterActor:background`-color property has been set.
     case notifyBackgroundColorSet = "notify::background-color-set"
     /// Applies a transformation matrix on each child of an actor.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor`:child-transform-set property to `true` as a side effect;
+    /// `ClutterActor:child`-transform-set property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor`:child-transform-set property to `false`.
+    /// `ClutterActor:child`-transform-set property to `false`.
     /// 
-    /// The `ClutterActor`:child-transform property is animatable.
+    /// The `ClutterActor:child`-transform property is animatable.
     case notifyChildTransform = "notify::child-transform"
-    /// Whether the `ClutterActor`:child-transform property is set.
+    /// Whether the `ClutterActor:child`-transform property is set.
     case notifyChildTransformSet = "notify::child-transform-set"
     /// The visible region of the actor, in actor-relative coordinates
     ///
@@ -2385,14 +2376,14 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// 
     /// Setting this property to `nil` will unset the existing clip.
     /// 
-    /// Setting this property will change the `ClutterActor`:has-clip
+    /// Setting this property will change the `ClutterActor:has`-clip
     /// property as a side effect.
     case notifyClipRect = "notify::clip-rect"
     /// Whether the clip region should track the allocated area
     /// of the actor.
     /// 
     /// This property is ignored if a clip area has been explicitly
-    /// set using clutter_actor_set_clip().
+    /// set using `clutter_actor_set_clip()`.
     case notifyClipToAllocation = "notify::clip-to-allocation"
     /// Adds a `ClutterConstraint` to the actor
     case notifyConstraints = "notify::constraints"
@@ -2401,17 +2392,17 @@ public enum CloneSignalName: String, SignalNameProtocol {
     case notifyContent = "notify::content"
     /// The bounding box for the `ClutterContent` used by the actor.
     /// 
-    /// The value of this property is controlled by the `ClutterActor`:allocation
-    /// and `ClutterActor`:content-gravity properties of `ClutterActor`.
+    /// The value of this property is controlled by the `ClutterActor:allocation`
+    /// and `ClutterActor:content`-gravity properties of `ClutterActor`.
     /// 
     /// The bounding box for the content is guaranteed to never exceed the
     /// allocation's of the actor.
     case notifyContentBox = "notify::content-box"
     /// The alignment that should be honoured by the `ClutterContent`
-    /// set with the `ClutterActor`:content property.
+    /// set with the `ClutterActor:content` property.
     /// 
     /// Changing the value of this property will change the bounding box of
-    /// the content; you can use the `ClutterActor`:content-box property to
+    /// the content; you can use the `ClutterActor:content`-box property to
     /// get the position and size of the content within the actor's
     /// allocation.
     /// 
@@ -2419,19 +2410,19 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// that have a preferred size, and if the preferred size is smaller than
     /// the actor's allocation.
     /// 
-    /// The `ClutterActor`:content-gravity property is animatable.
+    /// The `ClutterActor:content`-gravity property is animatable.
     case notifyContentGravity = "notify::content-gravity"
-    /// The repeat policy for the actor's `ClutterActor`:content.
+    /// The repeat policy for the actor's `ClutterActor:content`.
     case notifyContentRepeat = "notify::content-repeat"
     /// The position of the actor on the Z axis.
     /// 
-    /// The `ClutterActor`:depth property is relative to the parent's
+    /// The `ClutterActor:depth` property is relative to the parent's
     /// modelview matrix.
     /// 
-    /// Setting this property will call `ClutterContainerIface`.sort_depth_order()
+    /// Setting this property will call `ClutterContainerIface.sort_depth_order``()`
     /// which is usually a no-op, and it's most likely not what you want.
     /// 
-    /// The `ClutterActor`:depth property is animatable.
+    /// The `ClutterActor:depth` property is animatable.
     ///
     /// **depth is deprecated:**
     /// Use #ClutterActor:z-position instead.
@@ -2440,20 +2431,20 @@ public enum CloneSignalName: String, SignalNameProtocol {
     case notifyEffect = "notify::effect"
     /// The actor's first child.
     case notifyFirstChild = "notify::first-child"
-    /// This flag controls whether the `ClutterActor`:fixed-x and
-    /// `ClutterActor`:fixed-y properties are used
+    /// This flag controls whether the `ClutterActor:fixed`-x and
+    /// `ClutterActor:fixed`-y properties are used
     case notifyFixedPositionSet = "notify::fixed-position-set"
     /// The fixed X position of the actor in pixels.
     /// 
-    /// Writing this property sets `ClutterActor`:fixed-position-set
+    /// Writing this property sets `ClutterActor:fixed`-position-set
     /// property as well, as a side effect
     case notifyFixedX = "notify::fixed-x"
     /// The fixed Y position of the actor in pixels.
     /// 
-    /// Writing this property sets the `ClutterActor`:fixed-position-set
+    /// Writing this property sets the `ClutterActor:fixed`-position-set
     /// property as well, as a side effect
     case notifyFixedY = "notify::fixed-y"
-    /// Whether the actor has the `ClutterActor`:clip property set or not
+    /// Whether the actor has the `ClutterActor:clip` property set or not
     case notifyHasClip = "notify::has-clip"
     /// Whether the actor contains the pointer of a `ClutterInputDevice`
     /// or not.
@@ -2462,7 +2453,7 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// natural size request of the actor to the given height. If read, returns
     /// the allocated height if available, otherwise the height request.
     /// 
-    /// The `ClutterActor`:height property is animatable.
+    /// The `ClutterActor:height` property is animatable.
     case notifyHeight = "notify::height"
     /// The actor's last child.
     case notifyLastChild = "notify::last-child"
@@ -2478,46 +2469,46 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-bottom property is animatable.
+    /// The `ClutterActor:margin`-bottom property is animatable.
     case notifyMarginBottom = "notify::margin-bottom"
     /// The margin (in pixels) from the left of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-left property is animatable.
+    /// The `ClutterActor:margin`-left property is animatable.
     case notifyMarginLeft = "notify::margin-left"
     /// The margin (in pixels) from the right of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-right property is animatable.
+    /// The `ClutterActor:margin`-right property is animatable.
     case notifyMarginRight = "notify::margin-right"
     /// The margin (in pixels) from the top of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor`:margin-top property is animatable.
+    /// The `ClutterActor:margin`-top property is animatable.
     case notifyMarginTop = "notify::margin-top"
     /// A forced minimum height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:min-height-set property
+    /// Writing this property sets the `ClutterActor:min`-height-set property
     /// as well, as a side effect. This property overrides the usual height
     /// request of the actor.
     case notifyMinHeight = "notify::min-height"
-    /// This flag controls whether the `ClutterActor`:min-height property
+    /// This flag controls whether the `ClutterActor:min`-height property
     /// is used
     case notifyMinHeightSet = "notify::min-height-set"
     /// A forced minimum width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:min-width-set property
+    /// Writing this property sets the `ClutterActor:min`-width-set property
     /// as well, as a side effect.
     /// 
     /// This property overrides the usual width request of the actor.
     case notifyMinWidth = "notify::min-width"
-    /// This flag controls whether the `ClutterActor`:min-width property
+    /// This flag controls whether the `ClutterActor:min`-width property
     /// is used
     case notifyMinWidthSet = "notify::min-width-set"
     case notifyMinificationFilter = "notify::minification-filter"
@@ -2525,32 +2516,32 @@ public enum CloneSignalName: String, SignalNameProtocol {
     case notifyName = "notify::name"
     /// A forced natural height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:natural-height-set
+    /// Writing this property sets the `ClutterActor:natural`-height-set
     /// property as well, as a side effect. This property overrides the
     /// usual height request of the actor
     case notifyNaturalHeight = "notify::natural-height"
-    /// This flag controls whether the `ClutterActor`:natural-height property
+    /// This flag controls whether the `ClutterActor:natural`-height property
     /// is used
     case notifyNaturalHeightSet = "notify::natural-height-set"
     /// A forced natural width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor`:natural-width-set
+    /// Writing this property sets the `ClutterActor:natural`-width-set
     /// property as well, as a side effect. This property overrides the
     /// usual width request of the actor
     case notifyNaturalWidth = "notify::natural-width"
-    /// This flag controls whether the `ClutterActor`:natural-width property
+    /// This flag controls whether the `ClutterActor:natural`-width property
     /// is used
     case notifyNaturalWidthSet = "notify::natural-width-set"
     /// Determines the conditions in which the actor will be redirected
     /// to an offscreen framebuffer while being painted. For example this
     /// can be used to cache an actor in a framebuffer or for improved
     /// handling of transparent actors. See
-    /// clutter_actor_set_offscreen_redirect() for details.
+    /// `clutter_actor_set_offscreen_redirect()` for details.
     case notifyOffscreenRedirect = "notify::offscreen-redirect"
     /// Opacity of an actor, between 0 (fully transparent) and
     /// 255 (fully opaque)
     /// 
-    /// The `ClutterActor`:opacity property is animatable.
+    /// The `ClutterActor:opacity` property is animatable.
     case notifyOpacity = "notify::opacity"
     /// The point around which the scaling and rotation transformations occur.
     /// 
@@ -2560,20 +2551,20 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// 
     /// The default pivot point is located at (0, 0).
     /// 
-    /// The `ClutterActor`:pivot-point property is animatable.
+    /// The `ClutterActor:pivot`-point property is animatable.
     case notifyPivotPoint = "notify::pivot-point"
-    /// The Z component of the `ClutterActor`:pivot-point, expressed as a value
+    /// The Z component of the `ClutterActor:pivot`-point, expressed as a value
     /// along the Z axis.
     /// 
-    /// The `ClutterActor`:pivot-point-z property is animatable.
+    /// The `ClutterActor:pivot`-point-z property is animatable.
     case notifyPivotPointZ = "notify::pivot-point-z"
     /// The position of the origin of the actor.
     /// 
     /// This property is a shorthand for setting and getting the
-    /// `ClutterActor`:x and `ClutterActor`:y properties at the same
+    /// `ClutterActor:x` and `ClutterActor:y` properties at the same
     /// time.
     /// 
-    /// The `ClutterActor`:position property is animatable.
+    /// The `ClutterActor:position` property is animatable.
     case notifyPosition = "notify::position"
     /// Whether the actor is reactive to events or not
     /// 
@@ -2630,24 +2621,23 @@ public enum CloneSignalName: String, SignalNameProtocol {
     ///     }
     /// ```
     /// 
-    /// 
     /// will retrieve the minimum and natural width and height depending on the
     /// preferred request mode of the `ClutterActor` "child".
     /// 
-    /// The clutter_actor_get_preferred_size() function will implement this
+    /// The `clutter_actor_get_preferred_size()` function will implement this
     /// check for you.
     case notifyRequestMode = "notify::request-mode"
     /// The rotation angle on the X axis.
     /// 
-    /// The `ClutterActor`:rotation-angle-x property is animatable.
+    /// The `ClutterActor:rotation`-angle-x property is animatable.
     case notifyRotationAngleX = "notify::rotation-angle-x"
     /// The rotation angle on the Y axis
     /// 
-    /// The `ClutterActor`:rotation-angle-y property is animatable.
+    /// The `ClutterActor:rotation`-angle-y property is animatable.
     case notifyRotationAngleY = "notify::rotation-angle-y"
     /// The rotation angle on the Z axis
     /// 
-    /// The `ClutterActor`:rotation-angle-z property is animatable.
+    /// The `ClutterActor:rotation`-angle-z property is animatable.
     case notifyRotationAngleZ = "notify::rotation-angle-z"
     /// The rotation center on the X axis.
     ///
@@ -2686,27 +2676,27 @@ public enum CloneSignalName: String, SignalNameProtocol {
     case notifyScaleGravity = "notify::scale-gravity"
     /// The horizontal scale of the actor.
     /// 
-    /// The `ClutterActor`:scale-x property is animatable.
+    /// The `ClutterActor:scale`-x property is animatable.
     case notifyScaleX = "notify::scale-x"
     /// The vertical scale of the actor.
     /// 
-    /// The `ClutterActor`:scale-y property is animatable.
+    /// The `ClutterActor:scale`-y property is animatable.
     case notifyScaleY = "notify::scale-y"
     /// The scale factor of the actor along the Z axis.
     /// 
-    /// The `ClutterActor`:scale-y property is animatable.
+    /// The `ClutterActor:scale`-y property is animatable.
     case notifyScaleZ = "notify::scale-z"
     /// If `true`, the actor is automatically shown when parented.
     /// 
-    /// Calling clutter_actor_hide() on an actor which has not been
+    /// Calling `clutter_actor_hide()` on an actor which has not been
     /// parented will set this property to `false` as a side effect.
     case notifyShowOnSetParent = "notify::show-on-set-parent"
     /// The size of the actor.
     /// 
     /// This property is a shorthand for setting and getting the
-    /// `ClutterActor`:width and `ClutterActor`:height at the same time.
+    /// `ClutterActor:width` and `ClutterActor:height` at the same time.
     /// 
-    /// The `ClutterActor`:size property is animatable.
+    /// The `ClutterActor:size` property is animatable.
     case notifySize = "notify::size"
     /// This property specifies the source actor being cloned.
     case notifySource = "notify::source"
@@ -2715,54 +2705,54 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// Overrides the transformations of a `ClutterActor` with a custom
     /// matrix.
     /// 
-    /// The matrix specified by the `ClutterActor`:transform property is
+    /// The matrix specified by the `ClutterActor:transform` property is
     /// applied to the actor and its children relative to the actor's
-    /// `ClutterActor`:allocation and `ClutterActor`:pivot-point.
+    /// `ClutterActor:allocation` and `ClutterActor:pivot`-point.
     /// 
     /// Application code should rarely need to use this function directly.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor`:transform-set property to `true` as a side effect;
+    /// `ClutterActor:transform`-set property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor`:transform-set property to `false`.
+    /// `ClutterActor:transform`-set property to `false`.
     /// 
-    /// The `ClutterActor`:transform property is animatable.
+    /// The `ClutterActor:transform` property is animatable.
     case notifyTransform = "notify::transform"
-    /// Whether the `ClutterActor`:transform property is set.
+    /// Whether the `ClutterActor:transform` property is set.
     case notifyTransformSet = "notify::transform-set"
     /// An additional translation applied along the X axis, relative
-    /// to the actor's `ClutterActor`:pivot-point.
+    /// to the actor's `ClutterActor:pivot`-point.
     /// 
-    /// The `ClutterActor`:translation-x property is animatable.
+    /// The `ClutterActor:translation`-x property is animatable.
     case notifyTranslationX = "notify::translation-x"
     /// An additional translation applied along the Y axis, relative
-    /// to the actor's `ClutterActor`:pivot-point.
+    /// to the actor's `ClutterActor:pivot`-point.
     /// 
-    /// The `ClutterActor`:translation-y property is animatable.
+    /// The `ClutterActor:translation`-y property is animatable.
     case notifyTranslationY = "notify::translation-y"
     /// An additional translation applied along the Z axis, relative
-    /// to the actor's `ClutterActor`:pivot-point.
+    /// to the actor's `ClutterActor:pivot`-point.
     /// 
-    /// The `ClutterActor`:translation-z property is animatable.
+    /// The `ClutterActor:translation`-z property is animatable.
     case notifyTranslationZ = "notify::translation-z"
     /// Whether the actor is set to be visible or not
     /// 
-    /// See also `ClutterActor`:mapped
+    /// See also `ClutterActor:mapped`
     case notifyVisible = "notify::visible"
     /// Width of the actor (in pixels). If written, forces the minimum and
     /// natural size request of the actor to the given width. If read, returns
     /// the allocated width if available, otherwise the width request.
     /// 
-    /// The `ClutterActor`:width property is animatable.
+    /// The `ClutterActor:width` property is animatable.
     case notifyWidth = "notify::width"
     /// X coordinate of the actor in pixels. If written, forces a fixed
     /// position for the actor. If read, returns the fixed position if any,
     /// otherwise the allocation if available, otherwise 0.
     /// 
-    /// The `ClutterActor`:x property is animatable.
+    /// The `ClutterActor:x` property is animatable.
     case notifyX = "notify::x"
     /// The alignment of an actor on the X axis, if the actor has been given
-    /// extra space for its allocation. See also the `ClutterActor`:x-expand
+    /// extra space for its allocation. See also the `ClutterActor:x`-expand
     /// property.
     case notifyXAlign = "notify::x-align"
     /// Whether a layout manager should assign more space to the actor on
@@ -2772,7 +2762,7 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// position for the actor.  If read, returns the fixed position if
     /// any, otherwise the allocation if available, otherwise 0.
     /// 
-    /// The `ClutterActor`:y property is animatable.
+    /// The `ClutterActor:y` property is animatable.
     case notifyY = "notify::y"
     /// The alignment of an actor on the Y axis, if the actor has been given
     /// extra space for its allocation.
@@ -2787,10 +2777,10 @@ public enum CloneSignalName: String, SignalNameProtocol {
     /// whereas negative values will bring the actor's position farther from
     /// the user.
     /// 
-    /// The `ClutterActor`:z-position does not affect the paint or allocation
+    /// The `ClutterActor:z`-position does not affect the paint or allocation
     /// order.
     /// 
-    /// The `ClutterActor`:z-position property is animatable.
+    /// The `ClutterActor:z`-position property is animatable.
     case notifyZPosition = "notify::z-position"
 }
 
@@ -3067,7 +3057,7 @@ public extension ColorizeEffectRef {
     }
 
         /// Creates a new `ClutterColorizeEffect` to be used with
-    /// clutter_actor_add_effect()
+    /// `clutter_actor_add_effect()`
     init( tint: ColorProtocol) {
         let rv = clutter_colorize_effect_new(cast(tint.ptr))
         self.init(cast(rv))
@@ -3119,7 +3109,7 @@ open class ColorizeEffect: OffscreenEffect, ColorizeEffectProtocol {
     }
 
     /// Creates a new `ClutterColorizeEffect` to be used with
-    /// clutter_actor_add_effect()
+    /// `clutter_actor_add_effect()`
     public convenience init( tint: ColorProtocol) {
         let rv = clutter_colorize_effect_new(cast(tint.ptr))
         self.init(cast(rv))
@@ -3237,29 +3227,28 @@ public enum ColorizeEffectSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -3271,9 +3260,9 @@ public enum ColorizeEffectSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -3611,29 +3600,28 @@ public enum ConstraintSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -3645,9 +3633,9 @@ public enum ConstraintSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -3983,29 +3971,28 @@ public enum DeformEffectSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -4017,9 +4004,9 @@ public enum DeformEffectSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state

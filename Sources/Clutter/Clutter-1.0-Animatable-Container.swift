@@ -149,7 +149,7 @@ public extension AnimatableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAnimatable` instance.
     var animatable_ptr: UnsafeMutablePointer<ClutterAnimatable> { return ptr.assumingMemoryBound(to: ClutterAnimatable.self) }
 
-    /// Calls the animate_property() virtual function for `animatable`.
+    /// Calls the `animate_property()` virtual function for `animatable`.
     /// 
     /// The `initial_value` and `final_value` `GValue`<!-- -->s must contain
     /// the same type; `value` must have been initialized to the same
@@ -186,7 +186,7 @@ public extension AnimatableProtocol {
     /// This function should be used for every property animation
     /// involving `ClutterAnimatable`<!-- -->s.
     /// 
-    /// This function replaces clutter_animatable_animate_property().
+    /// This function replaces `clutter_animatable_animate_property()`.
     func interpolateValue(propertyName property_name: UnsafePointer<gchar>, interval: IntervalProtocol, progress: gdouble, value: GLibObject.ValueProtocol) -> Bool {
         let rv = clutter_animatable_interpolate_value(cast(animatable_ptr), property_name, cast(interval.ptr), progress, cast(value.ptr))
         return Bool(rv != 0)
@@ -332,15 +332,15 @@ open class Container: ContainerProtocol {
 // MARK: - no Container properties
 
 public enum ContainerSignalName: String, SignalNameProtocol {
-    /// The ::actor-added signal is emitted each time an actor
+    /// The `actor`-added signal is emitted each time an actor
     /// has been added to `container`.
     case actorAdded = "actor-added"
-    /// The ::actor-removed signal is emitted each time an actor
+    /// The `actor`-removed signal is emitted each time an actor
     /// is removed from `container`.
     case actorRemoved = "actor-removed"
-    /// The ::child-notify signal is emitted each time a property is
-    /// being set through the clutter_container_child_set() and
-    /// clutter_container_child_set_property() calls.
+    /// The `child`-notify signal is emitted each time a property is
+    /// being set through the `clutter_container_child_set()` and
+    /// `clutter_container_child_set_property()` calls.
     case childNotify = "child-notify"
 
 }
@@ -386,9 +386,9 @@ public extension ContainerProtocol {
     /// `container`. You cannot add a `ClutterActor` to more than one
     /// `ClutterContainer`.
     /// 
-    /// This function will call `ClutterContainerIface`.add(), which is a
+    /// This function will call `ClutterContainerIface.add``()`, which is a
     /// deprecated virtual function. The default implementation will
-    /// call clutter_actor_add_child().
+    /// call `clutter_actor_add_child()`.
     ///
     /// **add_actor is deprecated:**
     /// Use clutter_actor_add_child() instead.
@@ -397,11 +397,11 @@ public extension ContainerProtocol {
     
     }
 
-    /// Alternative va_list version of clutter_container_add().
+    /// Alternative va_list version of `clutter_container_add()`.
     /// 
-    /// This function will call `ClutterContainerIface`.add(), which is a
+    /// This function will call `ClutterContainerIface.add``()`, which is a
     /// deprecated virtual function. The default implementation will
-    /// call clutter_actor_add_child().
+    /// call `clutter_actor_add_child()`.
     ///
     /// **add_valist is deprecated:**
     /// Use clutter_actor_add_child() instead.
@@ -416,19 +416,19 @@ public extension ContainerProtocol {
 
     /// Gets a container specific property of a child of `container`, In general,
     /// a copy is made of the property contents and the caller is responsible for
-    /// freeing the memory by calling g_value_unset().
+    /// freeing the memory by calling `g_value_unset()`.
     /// 
-    /// Note that clutter_container_child_set_property() is really intended for
-    /// language bindings, clutter_container_child_set() is much more convenient
+    /// Note that `clutter_container_child_set_property()` is really intended for
+    /// language bindings, `clutter_container_child_set()` is much more convenient
     /// for C programming.
     func childGetProperty(child: ActorProtocol, property: UnsafePointer<gchar>, value: GLibObject.ValueProtocol) {
         clutter_container_child_get_property(cast(container_ptr), cast(child.ptr), property, cast(value.ptr))
     
     }
 
-    /// Calls the `ClutterContainerIface`.child_notify() virtual function
+    /// Calls the `ClutterContainerIface.child_notify``()` virtual function
     /// of `ClutterContainer`. The default implementation will emit the
-    /// `ClutterContainer`::child-notify signal.
+    /// `ClutterContainer::child`-notify signal.
     func childNotify(child: ActorProtocol, pspec: ParamSpecProtocol) {
         clutter_container_child_notify(cast(container_ptr), cast(child.ptr), cast(pspec.ptr))
     
@@ -445,12 +445,12 @@ public extension ContainerProtocol {
     }
 
     /// Creates the `ClutterChildMeta` wrapping `actor` inside the
-    /// `container`, if the `ClutterContainerIface`::child_meta_type
+    /// `container`, if the `ClutterContainerIface::child_meta_type`
     /// class member is not set to `G_TYPE_INVALID`.
     /// 
     /// This function is only useful when adding a `ClutterActor` to
     /// a `ClutterContainer` implementation outside of the
-    /// `ClutterContainer`::add() virtual function implementation.
+    /// `ClutterContainer::add``()` virtual function implementation.
     /// 
     /// Applications should not call this function.
     func createChildMeta(actor: ActorProtocol) {
@@ -463,7 +463,7 @@ public extension ContainerProtocol {
     /// 
     /// This function is only useful when removing a `ClutterActor` to
     /// a `ClutterContainer` implementation outside of the
-    /// `ClutterContainer`::add() virtual function implementation.
+    /// `ClutterContainer::add``()` virtual function implementation.
     /// 
     /// Applications should not call this function.
     func destroyChildMeta(actor: ActorProtocol) {
@@ -479,11 +479,11 @@ public extension ContainerProtocol {
     }
 
     /// Calls `callback` for each child of `container` that was added
-    /// by the application (with clutter_container_add_actor()). Does
+    /// by the application (with `clutter_container_add_actor()`). Does
     /// not iterate over "internal" children that are part of the
     /// container's own implementation, if any.
     /// 
-    /// This function calls the `ClutterContainerIface`.foreach()
+    /// This function calls the `ClutterContainerIface.foreach``()`
     /// virtual function, which has been deprecated.
     ///
     /// **foreach is deprecated:**
@@ -501,7 +501,7 @@ public extension ContainerProtocol {
     /// children built in to the container itself that were never added
     /// by the application.
     /// 
-    /// This function calls the `ClutterContainerIface`.foreach_with_internals()
+    /// This function calls the `ClutterContainerIface.foreach_with_internals``()`
     /// virtual function, which has been deprecated.
     ///
     /// **foreach_with_internals is deprecated:**
@@ -529,9 +529,9 @@ public extension ContainerProtocol {
 
     /// Lowers `actor` to `sibling` level, in the depth ordering.
     /// 
-    /// This function calls the `ClutterContainerIface`.lower() virtual function,
+    /// This function calls the `ClutterContainerIface.lower``()` virtual function,
     /// which has been deprecated. The default implementation will call
-    /// clutter_actor_set_child_below_sibling().
+    /// `clutter_actor_set_child_below_sibling()`.
     ///
     /// **lower_child is deprecated:**
     /// Use clutter_actor_set_child_below_sibling() instead.
@@ -542,9 +542,9 @@ public extension ContainerProtocol {
 
     /// Raises `actor` to `sibling` level, in the depth ordering.
     /// 
-    /// This function calls the `ClutterContainerIface`.raise() virtual function,
+    /// This function calls the `ClutterContainerIface.raise``()` virtual function,
     /// which has been deprecated. The default implementation will call
-    /// clutter_actor_set_child_above_sibling().
+    /// `clutter_actor_set_child_above_sibling()`.
     ///
     /// **raise_child is deprecated:**
     /// Use clutter_actor_set_child_above_sibling() instead.
@@ -559,12 +559,12 @@ public extension ContainerProtocol {
 
     /// Removes `actor` from `container`. The actor should be unparented, so
     /// if you want to keep it around you must hold a reference to it
-    /// yourself, using g_object_ref(). When the actor has been removed,
+    /// yourself, using `g_object_ref()`. When the actor has been removed,
     /// the "actor-removed" signal is emitted by `container`.
     /// 
-    /// This function will call `ClutterContainerIface`.remove(), which is a
+    /// This function will call `ClutterContainerIface.remove``()`, which is a
     /// deprecated virtual function. The default implementation will call
-    /// clutter_actor_remove_child().
+    /// `clutter_actor_remove_child()`.
     ///
     /// **remove_actor is deprecated:**
     /// Use clutter_actor_remove_child() instead.
@@ -573,11 +573,11 @@ public extension ContainerProtocol {
     
     }
 
-    /// Alternative va_list version of clutter_container_remove().
+    /// Alternative va_list version of `clutter_container_remove()`.
     /// 
-    /// This function will call `ClutterContainerIface`.remove(), which is a
+    /// This function will call `ClutterContainerIface.remove``()`, which is a
     /// deprecated virtual function. The default implementation will call
-    /// clutter_actor_remove_child().
+    /// `clutter_actor_remove_child()`.
     ///
     /// **remove_valist is deprecated:**
     /// Use clutter_actor_remove_child() instead.

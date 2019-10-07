@@ -16,8 +16,8 @@ import Atk
 /// assigned to it during the allocation.
 /// 
 /// Alignment only matters if the allocated space given to an actor is
-/// bigger than its natural size; for example, when the `ClutterActor`:x-expand
-/// or the `ClutterActor`:y-expand properties of `ClutterActor` are set to `true`.
+/// bigger than its natural size; for example, when the `ClutterActor:x`-expand
+/// or the `ClutterActor:y`-expand properties of `ClutterActor` are set to `true`.
 public typealias ActorAlign = ClutterActorAlign
 
 public extension ActorAlign {
@@ -56,8 +56,8 @@ public extension AlignAxis {
 ///   <graphic fileref="easing-modes.png" format="PNG"/>
 /// </figure>
 /// 
-/// Every global alpha function registered using clutter_alpha_register_func()
-/// or clutter_alpha_register_closure() will have a logical id greater than
+/// Every global alpha function registered using `clutter_alpha_register_func()`
+/// or `clutter_alpha_register_closure()` will have a logical id greater than
 /// `CLUTTER_ANIMATION_LAST`.
 public typealias AnimationMode = ClutterAnimationMode
 
@@ -146,7 +146,7 @@ public extension AnimationMode {
     /// exponentially decaying parabolic (bounce)
     ///   tweening, with bounce on both ends
     static let ease_in_out_bounce = CLUTTER_EASE_IN_OUT_BOUNCE /* 31 */
-    /// parametrized step function; see clutter_timeline_set_step_progress()
+    /// parametrized step function; see `clutter_timeline_set_step_progress()`
     ///   for further details. (Since 1.12)
     static let steps = CLUTTER_STEPS /* 32 */
     /// equivalent to `CLUTTER_STEPS` with a number of steps
@@ -156,7 +156,7 @@ public extension AnimationMode {
     ///   equal to 1, and a step mode of `CLUTTER_STEP_MODE_END`. (Since 1.12)
     static let step_end = CLUTTER_STEP_END /* 34 */
     /// cubic bezier between (0, 0) and (1, 1) with two
-    ///   control points; see clutter_timeline_set_cubic_bezier_progress(). (Since 1.12)
+    ///   control points; see `clutter_timeline_set_cubic_bezier_progress()`. (Since 1.12)
     static let cubic_bezier = CLUTTER_CUBIC_BEZIER /* 35 */
     /// equivalent to `CLUTTER_CUBIC_BEZIER` with control points
     ///   in (0.25, 0.1) and (0.25, 1.0). (Since 1.12)
@@ -345,7 +345,7 @@ public extension FlowOrientation {
     static let vertical = CLUTTER_FLOW_VERTICAL /* 1 */
 }
 
-/// Enum passed to the clutter_gesture_action_set_threshold_trigger_edge()
+/// Enum passed to the `clutter_gesture_action_set_threshold_trigger_edge()`
 /// function.
 public typealias GestureTriggerEdge = ClutterGestureTriggerEdge
 
@@ -414,11 +414,11 @@ public typealias ImageError = ClutterImageError
 
 public extension ImageError {
     /// Invalid data passed to the
-    ///   clutter_image_set_data() function.
+    ///   `clutter_image_set_data()` function.
     static let data = CLUTTER_IMAGE_ERROR_INVALID_DATA /* 0 */
 }
 
-/// Error conditions returned by clutter_init() and clutter_init_with_args().
+/// Error conditions returned by `clutter_init()` and `clutter_init_with_args()`.
 public typealias InitError = ClutterInitError
 
 public extension InitError {
@@ -517,7 +517,7 @@ public extension Interpolation {
     static let cubic = CLUTTER_INTERPOLATION_CUBIC /* 1 */
 }
 
-/// The states for the `ClutterClickAction`::long-press signal.
+/// The states for the `ClutterClickAction::long`-press signal.
 public typealias LongPressState = ClutterLongPressState
 
 public extension LongPressState {
@@ -632,8 +632,8 @@ public extension RotateDirection {
     static let ccw = CLUTTER_ROTATE_CCW /* 1 */
 }
 
-/// The scaling filters to be used with the `ClutterActor`:minification-filter
-/// and `ClutterActor`:magnification-filter properties.
+/// The scaling filters to be used with the `ClutterActor:minification`-filter
+/// and `ClutterActor:magnification`-filter properties.
 public typealias ScalingFilter = ClutterScalingFilter
 
 public extension ScalingFilter {
@@ -834,7 +834,7 @@ public extension StaticColor {
 
 /// Change the value transition of a step function.
 /// 
-/// See clutter_timeline_set_step_progress().
+/// See `clutter_timeline_set_step_progress()`.
 public typealias StepMode = ClutterStepMode
 
 public extension StepMode {
@@ -871,7 +871,7 @@ public typealias TextDirection = ClutterTextDirection
 
 public extension TextDirection {
     /// Use the default setting, as returned
-    ///   by clutter_get_default_text_direction()
+    ///   by `clutter_get_default_text_direction()`
     static let default_ = CLUTTER_TEXT_DIRECTION_DEFAULT /* 0 */
     /// Use left-to-right text direction
     static let ltr = CLUTTER_TEXT_DIRECTION_LTR /* 1 */

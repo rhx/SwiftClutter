@@ -241,9 +241,9 @@ public enum FixedLayoutSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::layout-changed signal is emitted each time a layout manager
+    /// The `layout`-changed signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the ::layout-changed
+    /// as a layout manager should connect a handler to the `layout`-changed
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -259,36 +259,34 @@ public enum FixedLayoutSignalName: String, SignalNameProtocol {
     ///                       self);
     /// ```
     /// 
-    /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// ::layout-changed signal whenever one of the parameters changes,
-    /// by using clutter_layout_manager_layout_changed().
+    /// `layout`-changed signal whenever one of the parameters changes,
+    /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -300,9 +298,9 @@ public enum FixedLayoutSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -653,9 +651,9 @@ public enum FlowLayoutSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::layout-changed signal is emitted each time a layout manager
+    /// The `layout`-changed signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the ::layout-changed
+    /// as a layout manager should connect a handler to the `layout`-changed
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -671,36 +669,34 @@ public enum FlowLayoutSignalName: String, SignalNameProtocol {
     ///                       self);
     /// ```
     /// 
-    /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// ::layout-changed signal whenever one of the parameters changes,
-    /// by using clutter_layout_manager_layout_changed().
+    /// `layout`-changed signal whenever one of the parameters changes,
+    /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -712,9 +708,9 @@ public enum FlowLayoutSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -868,7 +864,7 @@ public extension FlowLayoutProtocol {
         return rv
     }
 
-    /// Retrieves the value of `ClutterFlowLayout`:snap-to-grid property
+    /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
     func getSnapToGrid() -> Bool {
         let rv = clutter_flow_layout_get_snap_to_grid(cast(flow_layout_ptr))
         return Bool(rv != 0)
@@ -981,9 +977,9 @@ public extension FlowLayoutProtocol {
         }
     }
 
-    /// Retrieves the value of `ClutterFlowLayout`:snap-to-grid property
+    /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
     var snapToGrid: Bool {
-        /// Retrieves the value of `ClutterFlowLayout`:snap-to-grid property
+        /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
         get {
             let rv = clutter_flow_layout_get_snap_to_grid(cast(flow_layout_ptr))
             return Bool(rv != 0)
@@ -1181,20 +1177,20 @@ public enum GestureActionPropertyName: String, PropertyNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceX = "threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceY = "threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction`::gesture-begin signal or to emit the
-    /// `ClutterGestureAction`::gesture-cancel signal.
+    /// `ClutterGestureAction::gesture`-begin signal or to emit the
+    /// `ClutterGestureAction::gesture`-cancel signal.
     case thresholdTriggerEdge = "threshold-trigger-edge"
 }
 
@@ -1250,48 +1246,47 @@ public enum GestureActionSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::gesture_begin signal is emitted when the `ClutterActor` to which
+    /// The `gesture_begin` signal is emitted when the `ClutterActor` to which
     /// a `ClutterGestureAction` has been applied starts receiving a gesture.
     case gestureBegin = "gesture-begin"
-    /// The ::gesture-cancel signal is emitted when the ongoing gesture gets
-    /// cancelled from the `ClutterGestureAction`::gesture-progress signal handler.
+    /// The `gesture`-cancel signal is emitted when the ongoing gesture gets
+    /// cancelled from the `ClutterGestureAction::gesture`-progress signal handler.
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction`::gesture-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
     /// signal has been emitted first.
     case gestureCancel = "gesture-cancel"
-    /// The ::gesture-end signal is emitted at the end of the gesture gesture,
+    /// The `gesture`-end signal is emitted at the end of the gesture gesture,
     /// when the pointer's button is released
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction`::gesture-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
     /// signal has been emitted first.
     case gestureEnd = "gesture-end"
-    /// The ::gesture-progress signal is emitted for each motion event after
-    /// the `ClutterGestureAction`::gesture-begin signal has been emitted.
+    /// The `gesture`-progress signal is emitted for each motion event after
+    /// the `ClutterGestureAction::gesture`-begin signal has been emitted.
     case gestureProgress = "gesture-progress"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -1303,9 +1298,9 @@ public enum GestureActionSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -1369,20 +1364,20 @@ public enum GestureActionSignalName: String, SignalNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceX = "notify::threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceY = "notify::threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction`::gesture-begin signal or to emit the
-    /// `ClutterGestureAction`::gesture-cancel signal.
+    /// `ClutterGestureAction::gesture`-begin signal or to emit the
+    /// `ClutterGestureAction::gesture`-cancel signal.
     case notifyThresholdTriggerEdge = "notify::threshold-trigger-edge"
 }
 
@@ -1431,7 +1426,7 @@ public extension GestureActionProtocol {
     }
 
     /// Retrieves a reference to the last `ClutterEvent` for a touch point. Call
-    /// clutter_event_copy() if you need to store the reference somewhere.
+    /// `clutter_event_copy()` if you need to store the reference somewhere.
     func getLastEvent(point: CUnsignedInt) -> UnsafePointer<ClutterEvent>! {
         let rv = clutter_gesture_action_get_last_event(cast(gesture_action_ptr), guint(point))
         return cast(rv)
@@ -1484,21 +1479,21 @@ public extension GestureActionProtocol {
     }
 
     /// Retrieves the threshold trigger distance of the gesture `action`,
-    /// as set using clutter_gesture_action_set_threshold_trigger_distance().
+    /// as set using `clutter_gesture_action_set_threshold_trigger_distance()`.
     func getThresholdTriggerDistance(x x_: UnsafeMutablePointer<CFloat>, y y_: UnsafeMutablePointer<CFloat>) {
         clutter_gesture_action_get_threshold_trigger_distance(cast(gesture_action_ptr), cast(x_), cast(y_))
     
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
-    /// clutter_gesture_action_set_threshold_trigger_edge().
+    /// `clutter_gesture_action_set_threshold_trigger_edge()`.
     func getThresholdTriggerEdge() -> ClutterGestureTriggerEdge {
         let rv = clutter_gesture_action_get_threshold_trigger_edge(cast(gesture_action_ptr))
         return rv
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
-    /// clutter_gesture_action_set_threshold_trigger_edge().
+    /// `clutter_gesture_action_set_threshold_trigger_edge()`.
     ///
     /// **get_threshold_trigger_egde is deprecated:**
     /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
@@ -1560,10 +1555,10 @@ public extension GestureActionProtocol {
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
-    /// clutter_gesture_action_set_threshold_trigger_edge().
+    /// `clutter_gesture_action_set_threshold_trigger_edge()`.
     var thresholdTriggerEdge: ClutterGestureTriggerEdge {
         /// Retrieves the edge trigger of the gesture `action`, as set using
-        /// clutter_gesture_action_set_threshold_trigger_edge().
+        /// `clutter_gesture_action_set_threshold_trigger_edge()`.
         get {
             let rv = clutter_gesture_action_get_threshold_trigger_edge(cast(gesture_action_ptr))
             return rv
@@ -1578,13 +1573,13 @@ public extension GestureActionProtocol {
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
-    /// clutter_gesture_action_set_threshold_trigger_edge().
+    /// `clutter_gesture_action_set_threshold_trigger_edge()`.
     ///
     /// **get_threshold_trigger_egde is deprecated:**
     /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
     var thresholdTriggerEgde: ClutterGestureTriggerEdge {
         /// Retrieves the edge trigger of the gesture `action`, as set using
-        /// clutter_gesture_action_set_threshold_trigger_edge().
+        /// `clutter_gesture_action_set_threshold_trigger_edge()`.
         ///
         /// **get_threshold_trigger_egde is deprecated:**
         /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.

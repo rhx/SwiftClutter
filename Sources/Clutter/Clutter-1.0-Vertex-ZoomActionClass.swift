@@ -194,8 +194,8 @@ public extension VertexProtocol {
         return Bool(rv != 0)
     }
 
-    /// Frees a `ClutterVertex` allocated using clutter_vertex_alloc() or
-    /// clutter_vertex_copy().
+    /// Frees a `ClutterVertex` allocated using `clutter_vertex_alloc()` or
+    /// `clutter_vertex_copy()`.
     func free() {
         clutter_vertex_free(cast(vertex_ptr))
     

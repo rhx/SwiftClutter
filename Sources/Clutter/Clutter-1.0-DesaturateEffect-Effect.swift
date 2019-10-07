@@ -82,7 +82,7 @@ public extension DesaturateEffectRef {
     }
 
         /// Creates a new `ClutterDesaturateEffect` to be used with
-    /// clutter_actor_add_effect()
+    /// `clutter_actor_add_effect()`
     init( factor: gdouble) {
         let rv = clutter_desaturate_effect_new(factor)
         self.init(cast(rv))
@@ -134,7 +134,7 @@ open class DesaturateEffect: OffscreenEffect, DesaturateEffectProtocol {
     }
 
     /// Creates a new `ClutterDesaturateEffect` to be used with
-    /// clutter_actor_add_effect()
+    /// `clutter_actor_add_effect()`
     public convenience init( factor: gdouble) {
         let rv = clutter_desaturate_effect_new(factor)
         self.init(cast(rv))
@@ -253,29 +253,28 @@ public enum DesaturateEffectSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -287,9 +286,9 @@ public enum DesaturateEffectSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -584,36 +583,35 @@ public extension DeviceManagerProtocol {
 }
 
 public enum DeviceManagerSignalName: String, SignalNameProtocol {
-    /// The ::device-added signal is emitted each time a device has been
+    /// The `device`-added signal is emitted each time a device has been
     /// added to the `ClutterDeviceManager`
     case deviceAdded = "device-added"
-    /// The ::device-removed signal is emitted each time a device has been
+    /// The `device`-removed signal is emitted each time a device has been
     /// removed from the `ClutterDeviceManager`
     case deviceRemoved = "device-removed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     case notifyBackend = "notify::backend"
@@ -862,7 +860,7 @@ public enum DragActionPropertyName: String, PropertyNameProtocol {
     /// actor position) to the specified `ClutterRect`, in parent's
     /// coordinates.
     case dragArea = "drag-area"
-    /// Whether the `ClutterDragAction`:drag-area property has been set.
+    /// Whether the `ClutterDragAction:drag`-area property has been set.
     case dragAreaSet = "drag-area-set"
     /// Constraints the dragging action to the specified axis
     case dragAxis = "drag-axis"
@@ -883,12 +881,12 @@ public enum DragActionPropertyName: String, PropertyNameProtocol {
     /// in order to begin a drag action.
     /// 
     /// When set to a positive value, `ClutterDragAction` will only emit
-    /// `ClutterDragAction`::drag-begin if the pointer has moved
+    /// `ClutterDragAction::drag`-begin if the pointer has moved
     /// horizontally at least of the given amount of pixels since
     /// the button press event.
     /// 
     /// When set to -1, `ClutterDragAction` will use the default threshold
-    /// stored in the `ClutterSettings`:dnd-drag-threshold property of
+    /// stored in the `ClutterSettings:dnd`-drag-threshold property of
     /// `ClutterSettings`.
     /// 
     /// When read, this property will always return a valid drag
@@ -898,12 +896,12 @@ public enum DragActionPropertyName: String, PropertyNameProtocol {
     /// in order to begin a drag action.
     /// 
     /// When set to a positive value, `ClutterDragAction` will only emit
-    /// `ClutterDragAction`::drag-begin if the pointer has moved
+    /// `ClutterDragAction::drag`-begin if the pointer has moved
     /// vertically at least of the given amount of pixels since
     /// the button press event.
     /// 
     /// When set to -1, `ClutterDragAction` will use the value stored
-    /// in the `ClutterSettings`:dnd-drag-threshold property of
+    /// in the `ClutterSettings:dnd`-drag-threshold property of
     /// `ClutterSettings`.
     /// 
     /// When read, this property will always return a valid drag
@@ -957,46 +955,46 @@ public enum DragActionSignalName: String, SignalNameProtocol {
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::drag-begin signal is emitted when the `ClutterDragAction`
+    /// The `drag`-begin signal is emitted when the `ClutterDragAction`
     /// starts the dragging
     /// 
     /// The emission of this signal can be delayed by using the
-    /// `ClutterDragAction`:x-drag-threshold and
-    /// `ClutterDragAction`:y-drag-threshold properties
+    /// `ClutterDragAction:x`-drag-threshold and
+    /// `ClutterDragAction:y`-drag-threshold properties
     case dragBegin = "drag-begin"
-    /// The ::drag-end signal is emitted at the end of the dragging,
+    /// The `drag`-end signal is emitted at the end of the dragging,
     /// when the pointer button's is released
     /// 
-    /// This signal is emitted if and only if the `ClutterDragAction`::drag-begin
+    /// This signal is emitted if and only if the `ClutterDragAction::drag`-begin
     /// signal has been emitted first
     case dragEnd = "drag-end"
-    /// The ::drag-motion signal is emitted for each motion event after
-    /// the `ClutterDragAction`::drag-begin signal has been emitted.
+    /// The `drag`-motion signal is emitted for each motion event after
+    /// the `ClutterDragAction::drag`-begin signal has been emitted.
     /// 
     /// The components of the distance between the press event and the
     /// latest motion event are computed in the actor's coordinate space,
     /// to take into account eventual transformations. If you want the
     /// stage coordinates of the latest motion event you can use
-    /// clutter_drag_action_get_motion_coords().
+    /// `clutter_drag_action_get_motion_coords()`.
     /// 
-    /// The default handler of the signal will call clutter_actor_move_by()
-    /// either on `actor` or, if set, of `ClutterDragAction`:drag-handle using
+    /// The default handler of the signal will call `clutter_actor_move_by()`
+    /// either on `actor` or, if set, of `ClutterDragAction:drag`-handle using
     /// the `delta_x` and `delta_y` components of the dragging motion. If you
     /// want to override the default behaviour, you can connect to the
-    /// `ClutterDragAction`::drag-progress signal and return `false` from the
+    /// `ClutterDragAction::drag`-progress signal and return `false` from the
     /// handler.
     case dragMotion = "drag-motion"
-    /// The ::drag-progress signal is emitted for each motion event after
-    /// the `ClutterDragAction`::drag-begin signal has been emitted.
+    /// The `drag`-progress signal is emitted for each motion event after
+    /// the `ClutterDragAction::drag`-begin signal has been emitted.
     /// 
     /// The components of the distance between the press event and the
     /// latest motion event are computed in the actor's coordinate space,
     /// to take into account eventual transformations. If you want the
     /// stage coordinates of the latest motion event you can use
-    /// clutter_drag_action_get_motion_coords().
+    /// `clutter_drag_action_get_motion_coords()`.
     /// 
-    /// The default handler will emit `ClutterDragAction`::drag-motion,
-    /// if `ClutterDragAction`::drag-progress emission returns `true`.
+    /// The default handler will emit `ClutterDragAction::drag`-motion,
+    /// if `ClutterDragAction::drag`-progress emission returns `true`.
     case dragProgress = "drag-progress"
     /// The signal "focus-event" is emitted when an object gained or lost
     /// focus.
@@ -1005,29 +1003,28 @@ public enum DragActionSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -1039,9 +1036,9 @@ public enum DragActionSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -1102,7 +1099,7 @@ public enum DragActionSignalName: String, SignalNameProtocol {
     /// actor position) to the specified `ClutterRect`, in parent's
     /// coordinates.
     case notifyDragArea = "notify::drag-area"
-    /// Whether the `ClutterDragAction`:drag-area property has been set.
+    /// Whether the `ClutterDragAction:drag`-area property has been set.
     case notifyDragAreaSet = "notify::drag-area-set"
     /// Constraints the dragging action to the specified axis
     case notifyDragAxis = "notify::drag-axis"
@@ -1123,12 +1120,12 @@ public enum DragActionSignalName: String, SignalNameProtocol {
     /// in order to begin a drag action.
     /// 
     /// When set to a positive value, `ClutterDragAction` will only emit
-    /// `ClutterDragAction`::drag-begin if the pointer has moved
+    /// `ClutterDragAction::drag`-begin if the pointer has moved
     /// horizontally at least of the given amount of pixels since
     /// the button press event.
     /// 
     /// When set to -1, `ClutterDragAction` will use the default threshold
-    /// stored in the `ClutterSettings`:dnd-drag-threshold property of
+    /// stored in the `ClutterSettings:dnd`-drag-threshold property of
     /// `ClutterSettings`.
     /// 
     /// When read, this property will always return a valid drag
@@ -1138,12 +1135,12 @@ public enum DragActionSignalName: String, SignalNameProtocol {
     /// in order to begin a drag action.
     /// 
     /// When set to a positive value, `ClutterDragAction` will only emit
-    /// `ClutterDragAction`::drag-begin if the pointer has moved
+    /// `ClutterDragAction::drag`-begin if the pointer has moved
     /// vertically at least of the given amount of pixels since
     /// the button press event.
     /// 
     /// When set to -1, `ClutterDragAction` will use the value stored
-    /// in the `ClutterSettings`:dnd-drag-threshold property of
+    /// in the `ClutterSettings:dnd`-drag-threshold property of
     /// `ClutterSettings`.
     /// 
     /// When read, this property will always return a valid drag
@@ -1191,24 +1188,24 @@ public extension DragActionProtocol {
         return Bool(rv != 0)
     }
 
-    /// Retrieves the axis constraint set by clutter_drag_action_set_drag_axis()
+    /// Retrieves the axis constraint set by `clutter_drag_action_set_drag_axis()`
     func getDragAxis() -> ClutterDragAxis {
         let rv = clutter_drag_action_get_drag_axis(cast(drag_action_ptr))
         return rv
     }
 
-    /// Retrieves the drag handle set by clutter_drag_action_set_drag_handle()
+    /// Retrieves the drag handle set by `clutter_drag_action_set_drag_handle()`
     func getDragHandle() -> UnsafeMutablePointer<ClutterActor>! {
         let rv = clutter_drag_action_get_drag_handle(cast(drag_action_ptr))
         return cast(rv)
     }
 
-    /// Retrieves the values set by clutter_drag_action_set_drag_threshold().
+    /// Retrieves the values set by `clutter_drag_action_set_drag_threshold()`.
     /// 
-    /// If the `ClutterDragAction`:x-drag-threshold property or the
-    /// `ClutterDragAction`:y-drag-threshold property have been set to -1 then
+    /// If the `ClutterDragAction:x`-drag-threshold property or the
+    /// `ClutterDragAction:y`-drag-threshold property have been set to -1 then
     /// this function will return the default drag threshold value as stored
-    /// by the `ClutterSettings`:dnd-drag-threshold property of `ClutterSettings`.
+    /// by the `ClutterSettings:dnd`-drag-threshold property of `ClutterSettings`.
     func getDragThreshold(xThreshold x_threshold: UnsafeMutablePointer<CUnsignedInt>, yThreshold y_threshold: UnsafeMutablePointer<CUnsignedInt>) {
         clutter_drag_action_get_drag_threshold(cast(drag_action_ptr), cast(x_threshold), cast(y_threshold))
     
@@ -1253,15 +1250,15 @@ public extension DragActionProtocol {
     /// cleared by the pointer before `action` can begin the dragging.
     /// 
     /// If `x_threshold` or `y_threshold` are set to -1 then the default
-    /// drag threshold stored in the `ClutterSettings`:dnd-drag-threshold
+    /// drag threshold stored in the `ClutterSettings:dnd`-drag-threshold
     /// property of `ClutterSettings` will be used.
     func setDragThreshold(xThreshold x_threshold: CInt, yThreshold y_threshold: CInt) {
         clutter_drag_action_set_drag_threshold(cast(drag_action_ptr), gint(x_threshold), gint(y_threshold))
     
     }
-    /// Retrieves the axis constraint set by clutter_drag_action_set_drag_axis()
+    /// Retrieves the axis constraint set by `clutter_drag_action_set_drag_axis()`
     var dragAxis: ClutterDragAxis {
-        /// Retrieves the axis constraint set by clutter_drag_action_set_drag_axis()
+        /// Retrieves the axis constraint set by `clutter_drag_action_set_drag_axis()`
         get {
             let rv = clutter_drag_action_get_drag_axis(cast(drag_action_ptr))
             return rv
@@ -1272,9 +1269,9 @@ public extension DragActionProtocol {
         }
     }
 
-    /// Retrieves the drag handle set by clutter_drag_action_set_drag_handle()
+    /// Retrieves the drag handle set by `clutter_drag_action_set_drag_handle()`
     var dragHandle: UnsafeMutablePointer<ClutterActor>! {
-        /// Retrieves the drag handle set by clutter_drag_action_set_drag_handle()
+        /// Retrieves the drag handle set by `clutter_drag_action_set_drag_handle()`
         get {
             let rv = clutter_drag_action_get_drag_handle(cast(drag_action_ptr))
             return cast(rv)
@@ -1359,7 +1356,7 @@ public extension DropActionRef {
 
         /// Creates a new `ClutterDropAction`.
     /// 
-    /// Use clutter_actor_add_action() to add the action to a `ClutterActor`.
+    /// Use `clutter_actor_add_action()` to add the action to a `ClutterActor`.
     init() {
         let rv = clutter_drop_action_new()
         self.init(cast(rv))
@@ -1412,7 +1409,7 @@ open class DropAction: Action, DropActionProtocol {
 
     /// Creates a new `ClutterDropAction`.
     /// 
-    /// Use clutter_actor_add_action() to add the action to a `ClutterActor`.
+    /// Use `clutter_actor_add_action()` to add the action to a `ClutterActor`.
     public convenience init() {
         let rv = clutter_drop_action_new()
         self.init(cast(rv))
@@ -1517,9 +1514,9 @@ public enum DropActionSignalName: String, SignalNameProtocol {
     /// object in the object changes. For instance, a table will emit the
     /// signal when the cell in the table which has focus changes.
     case activeDescendantChanged = "active-descendant-changed"
-    /// The ::can-drop signal is emitted when the dragged actor is dropped
-    /// on `actor`. The return value of the ::can-drop signal will determine
-    /// whether or not the `ClutterDropAction`::drop signal is going to be
+    /// The `can`-drop signal is emitted when the dragged actor is dropped
+    /// on `actor`. The return value of the `can`-drop signal will determine
+    /// whether or not the `ClutterDropAction::drop` signal is going to be
     /// emitted on `action`.
     /// 
     /// The default implementation of `ClutterDropAction` returns `true` for
@@ -1529,14 +1526,14 @@ public enum DropActionSignalName: String, SignalNameProtocol {
     /// removed form an object. It supports two details: "add" and
     /// "remove"
     case childrenChanged = "children-changed"
-    /// The ::drop signal is emitted when the dragged actor is dropped
+    /// The `drop` signal is emitted when the dragged actor is dropped
     /// on `actor`. This signal is only emitted if at least an handler of
-    /// `ClutterDropAction`::can-drop returns `true`.
+    /// `ClutterDropAction::can`-drop returns `true`.
     case drop = "drop"
-    /// The ::drop-cancel signal is emitted when the drop is refused
-    /// by an emission of the `ClutterDropAction`::can-drop signal.
+    /// The `drop`-cancel signal is emitted when the drop is refused
+    /// by an emission of the `ClutterDropAction::can`-drop signal.
     /// 
-    /// After the ::drop-cancel signal is fired the active drag is
+    /// After the `drop`-cancel signal is fired the active drag is
     /// terminated.
     case dropCancel = "drop-cancel"
     /// The signal "focus-event" is emitted when an object gained or lost
@@ -1546,35 +1543,34 @@ public enum DropActionSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::over-in signal is emitted when the dragged actor crosses
+    /// The `over`-in signal is emitted when the dragged actor crosses
     /// into `actor`.
     case overIn = "over-in"
-    /// The ::over-out signal is emitted when the dragged actor crosses
+    /// The `over`-out signal is emitted when the dragged actor crosses
     /// outside `actor`.
     case overOut = "over-out"
     /// The signal "property-change" is emitted when an object's property
@@ -1586,9 +1582,9 @@ public enum DropActionSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -1913,29 +1909,28 @@ public enum EffectSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -1947,9 +1942,9 @@ public enum EffectSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -2049,7 +2044,7 @@ public extension EffectProtocol {
     /// have the `CLUTTER_EFFECT_PAINT_ACTOR_DIRTY` flag set. In that case the
     /// effect is free to assume that the actor has not changed its
     /// appearance since the last time it was painted so it doesn't need to
-    /// call clutter_actor_continue_paint() if it can draw a cached
+    /// call `clutter_actor_continue_paint()` if it can draw a cached
     /// image. This is mostly intended for effects that are using a
     /// `CoglOffscreen` to redirect the actor (such as
     /// `ClutterOffscreenEffect`). In that case the effect can save a bit of
@@ -2061,7 +2056,7 @@ public extension EffectProtocol {
     /// red tint to an actor by redirecting it through a CoglOffscreen
     /// might have a property to specify the level of tint. When this value
     /// changes, the underlying actor doesn't need to be redrawn so the
-    /// effect can call clutter_effect_queue_repaint() to make sure the
+    /// effect can call `clutter_effect_queue_repaint()` to make sure the
     /// effect is repainted.
     /// 
     /// Note however that modifying the position of the parent of an actor

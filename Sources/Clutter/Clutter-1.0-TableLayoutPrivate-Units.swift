@@ -1979,7 +1979,7 @@ public extension TimeoutPoolProtocol {
 
     /// Removes a timeout function with `id_` from the timeout pool. The id
     /// is the same returned when adding a function to the timeout pool with
-    /// clutter_timeout_pool_add().
+    /// `clutter_timeout_pool_add()`.
     ///
     /// **remove is deprecated:**
     /// There is no direct replacement for this API
@@ -3163,7 +3163,7 @@ public extension UnitsProtocol {
     /// Frees the resources allocated by `units`
     /// 
     /// You should only call this function on a `ClutterUnits`
-    /// created using clutter_units_copy()
+    /// created using `clutter_units_copy()`
     func free() {
         clutter_units_free(cast(units_ptr))
     
@@ -3189,7 +3189,7 @@ public extension UnitsProtocol {
 
     /// Converts `units` into a string
     /// 
-    /// See clutter_units_from_string() for the units syntax and for
+    /// See `clutter_units_from_string()` for the units syntax and for
     /// examples of output
     /// 
     /// Fractional values are truncated to the second decimal
@@ -3207,7 +3207,7 @@ public extension UnitsProtocol {
     }
 
     /// Stores a value in em inside `units`, using the default font
-    /// name as returned by clutter_backend_get_font_name()
+    /// name as returned by `clutter_backend_get_font_name()`
     func from(em: gfloat) {
         clutter_units_from_em(cast(units_ptr), em)
     
@@ -3249,9 +3249,8 @@ public extension UnitsProtocol {
     ///           | digit* sep digit+
     ///   sep: '.' | ','
     ///   digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-    ///   wsp: (`0x20` | `0x9` | `0xA` | `0xB` | `0xC` | `0xD`)+
+    ///   wsp: (#0x20 | #0x9 | #0xA | #0xB | #0xC | #0xD)+
     /// ```
-    /// 
     /// 
     /// For instance, these are valid strings:
     /// 
@@ -3263,14 +3262,12 @@ public extension UnitsProtocol {
     ///   .3 cm
     /// ```
     /// 
-    /// 
     /// While these are not:
     /// 
     /// ```
     ///   42 cats
     ///   omg!1!ponies
     /// ```
-    /// 
     /// 
     /// If no unit is specified, pixels are assumed.
     func fromString(str: UnsafePointer<gchar>) -> Bool {
@@ -3285,7 +3282,7 @@ public extension UnitsProtocol {
     }
 
     /// Stores a value in em inside `units`, using the default font
-    /// name as returned by clutter_backend_get_font_name()
+    /// name as returned by `clutter_backend_get_font_name()`
     func unitsFrom(em: gfloat) {
         clutter_units_from_em(cast(units_ptr), em)
     
@@ -3327,9 +3324,8 @@ public extension UnitsProtocol {
     ///           | digit* sep digit+
     ///   sep: '.' | ','
     ///   digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-    ///   wsp: (`0x20` | `0x9` | `0xA` | `0xB` | `0xC` | `0xD`)+
+    ///   wsp: (#0x20 | #0x9 | #0xA | #0xB | #0xC | #0xD)+
     /// ```
-    /// 
     /// 
     /// For instance, these are valid strings:
     /// 
@@ -3341,14 +3337,12 @@ public extension UnitsProtocol {
     ///   .3 cm
     /// ```
     /// 
-    /// 
     /// While these are not:
     /// 
     /// ```
     ///   42 cats
     ///   omg!1!ponies
     /// ```
-    /// 
     /// 
     /// If no unit is specified, pixels are assumed.
     func unitsFromString(str: UnsafePointer<gchar>) -> Bool {

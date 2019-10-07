@@ -2877,7 +2877,7 @@ public extension StateKeyProtocol {
     /// Retrieves the `GType` of the property a key applies to
     /// 
     /// You can use this type to initialize the `GValue` to pass to
-    /// clutter_state_key_get_value()
+    /// `clutter_state_key_get_value()`
     ///
     /// **get_property_type is deprecated:**
     /// Use #ClutterKeyframeTransition and
@@ -2915,7 +2915,7 @@ public extension StateKeyProtocol {
     /// of the property or to a type that allow transformation from the value
     /// type of the key.
     /// 
-    /// Use g_value_unset() when done.
+    /// Use `g_value_unset()` when done.
     ///
     /// **get_value is deprecated:**
     /// Use #ClutterKeyframeTransition and
@@ -3016,7 +3016,7 @@ public extension StateKeyProtocol {
     /// Retrieves the `GType` of the property a key applies to
     /// 
     /// You can use this type to initialize the `GValue` to pass to
-    /// clutter_state_key_get_value()
+    /// `clutter_state_key_get_value()`
     ///
     /// **get_property_type is deprecated:**
     /// Use #ClutterKeyframeTransition and
@@ -3025,7 +3025,7 @@ public extension StateKeyProtocol {
         /// Retrieves the `GType` of the property a key applies to
         /// 
         /// You can use this type to initialize the `GValue` to pass to
-        /// clutter_state_key_get_value()
+        /// `clutter_state_key_get_value()`
         ///
         /// **get_property_type is deprecated:**
         /// Use #ClutterKeyframeTransition and

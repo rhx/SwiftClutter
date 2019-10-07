@@ -1459,7 +1459,7 @@ public extension ColorProtocol {
     }
 
     /// Makes a copy of the color structure.  The result must be
-    /// freed using clutter_color_free().
+    /// freed using `clutter_color_free()`.
     func copy() -> UnsafeMutablePointer<ClutterColor>! {
         let rv = clutter_color_copy(cast(color_ptr))
         return cast(rv)
@@ -1474,14 +1474,14 @@ public extension ColorProtocol {
 
     /// Compares two `ClutterColor`<!-- -->s and checks if they are the same.
     /// 
-    /// This function can be passed to g_hash_table_new() as the `key_equal_func`
+    /// This function can be passed to `g_hash_table_new()` as the `key_equal_func`
     /// parameter, when using `ClutterColor`<!-- -->s as keys in a `GHashTable`.
     func equal(v2: ColorProtocol) -> Bool {
         let rv = clutter_color_equal(cast(color_ptr), cast(v2.ptr))
         return Bool(rv != 0)
     }
 
-    /// Frees a color structure created with clutter_color_copy().
+    /// Frees a color structure created with `clutter_color_copy()`.
     func free() {
         clutter_color_free(cast(color_ptr))
     
@@ -1489,7 +1489,7 @@ public extension ColorProtocol {
 
     /// Converts a `ClutterColor` to a hash value.
     /// 
-    /// This function can be passed to g_hash_table_new() as the `hash_func`
+    /// This function can be passed to `g_hash_table_new()` as the `hash_func`
     /// parameter, when using `ClutterColor`<!-- -->s as keys in a `GHashTable`.
     func hash() -> CUnsignedInt {
         let rv = clutter_color_hash(cast(color_ptr))
@@ -1574,8 +1574,8 @@ public extension ColorProtocol {
     
     }
 
-    /// Parses a string definition of a color, filling the `ClutterColor`.red,
-    /// `ClutterColor`.green, `ClutterColor`.blue and `ClutterColor`.alpha fields
+    /// Parses a string definition of a color, filling the `ClutterColor.red`,
+    /// `ClutterColor.green`, `ClutterColor.blue` and `ClutterColor.alpha` fields
     /// of `color`.
     /// 
     /// The `color` is not allocated.
@@ -1584,23 +1584,23 @@ public extension ColorProtocol {
     /// 
     ///   - a standard name (as taken from the X11 rgb.txt file)
     ///   - an hexadecimal value in the form: ``rgb``, ``rrggbb``, ``rgba``, or ``rrggbbaa``
-    ///   - a RGB color in the form: `rgb(r, g, b)`
-    ///   - a RGB color in the form: `rgba(r, g, b, a)`
-    ///   - a HSL color in the form: `hsl(h, s, l)`
-    ///    -a HSL color in the form: `hsla(h, s, l, a)`
+    ///   - a RGB color in the form: ``rgb(r, g, b)``
+    ///   - a RGB color in the form: ``rgba(r, g, b, a)``
+    ///   - a HSL color in the form: ``hsl(h, s, l)``
+    ///    -a HSL color in the form: ``hsla(h, s, l, a)``
     /// 
     /// where 'r', 'g', 'b' and 'a' are (respectively) the red, green, blue color
     /// intensities and the opacity. The 'h', 's' and 'l' are (respectively) the
     /// hue, saturation and luminance values.
     /// 
-    /// In the rgb() and rgba() formats, the 'r', 'g', and 'b' values are either
-    /// integers between 0 and 255, or percentage values in the range between 0``
+    /// In the `rgb()` and `rgba()` formats, the 'r', 'g', and 'b' values are either
+    /// integers between 0 and 255, or percentage values in the range between 0%
     /// and 100``; the percentages require the '``' character. The 'a' value, if
     /// specified, can only be a floating point value between 0.0 and 1.0.
     /// 
-    /// In the hls() and hlsa() formats, the 'h' value (hue) is an angle between
+    /// In the `hls()` and `hlsa()` formats, the 'h' value (hue) is an angle between
     /// 0 and 360.0 degrees; the 'l' and 's' values (luminance and saturation) are
-    /// percentage values in the range between 0`` and 100``. The 'a' value, if specified,
+    /// percentage values in the range between 0% and 100%. The 'a' value, if specified,
     /// can only be a floating point value between 0.0 and 1.0.
     /// 
     /// Whitespace inside the definitions is ignored; no leading whitespace
@@ -1643,8 +1643,8 @@ public extension ColorProtocol {
     
     }
 
-    /// Parses a string definition of a color, filling the `ClutterColor`.red,
-    /// `ClutterColor`.green, `ClutterColor`.blue and `ClutterColor`.alpha fields
+    /// Parses a string definition of a color, filling the `ClutterColor.red`,
+    /// `ClutterColor.green`, `ClutterColor.blue` and `ClutterColor.alpha` fields
     /// of `color`.
     /// 
     /// The `color` is not allocated.
@@ -1653,23 +1653,23 @@ public extension ColorProtocol {
     /// 
     ///   - a standard name (as taken from the X11 rgb.txt file)
     ///   - an hexadecimal value in the form: ``rgb``, ``rrggbb``, ``rgba``, or ``rrggbbaa``
-    ///   - a RGB color in the form: `rgb(r, g, b)`
-    ///   - a RGB color in the form: `rgba(r, g, b, a)`
-    ///   - a HSL color in the form: `hsl(h, s, l)`
-    ///    -a HSL color in the form: `hsla(h, s, l, a)`
+    ///   - a RGB color in the form: ``rgb(r, g, b)``
+    ///   - a RGB color in the form: ``rgba(r, g, b, a)``
+    ///   - a HSL color in the form: ``hsl(h, s, l)``
+    ///    -a HSL color in the form: ``hsla(h, s, l, a)``
     /// 
     /// where 'r', 'g', 'b' and 'a' are (respectively) the red, green, blue color
     /// intensities and the opacity. The 'h', 's' and 'l' are (respectively) the
     /// hue, saturation and luminance values.
     /// 
-    /// In the rgb() and rgba() formats, the 'r', 'g', and 'b' values are either
-    /// integers between 0 and 255, or percentage values in the range between 0``
+    /// In the `rgb()` and `rgba()` formats, the 'r', 'g', and 'b' values are either
+    /// integers between 0 and 255, or percentage values in the range between 0%
     /// and 100``; the percentages require the '``' character. The 'a' value, if
     /// specified, can only be a floating point value between 0.0 and 1.0.
     /// 
-    /// In the hls() and hlsa() formats, the 'h' value (hue) is an angle between
+    /// In the `hls()` and `hlsa()` formats, the 'h' value (hue) is an angle between
     /// 0 and 360.0 degrees; the 'l' and 's' values (luminance and saturation) are
-    /// percentage values in the range between 0`` and 100``. The 'a' value, if specified,
+    /// percentage values in the range between 0% and 100%. The 'a' value, if specified,
     /// can only be a floating point value between 0.0 and 1.0.
     /// 
     /// Whitespace inside the definitions is ignored; no leading whitespace

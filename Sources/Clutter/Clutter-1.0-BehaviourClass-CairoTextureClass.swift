@@ -3341,7 +3341,7 @@ public extension BrightnessContrastEffectClassProtocol {
 /// 
 /// The event coordinates are relative to the stage that received the
 /// event, and can be transformed into actor-relative coordinates by
-/// using clutter_actor_transform_stage_point().
+/// using `clutter_actor_transform_stage_point()`.
 public protocol ButtonEventProtocol {
     /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -3358,7 +3358,7 @@ public protocol ButtonEventProtocol {
 /// 
 /// The event coordinates are relative to the stage that received the
 /// event, and can be transformed into actor-relative coordinates by
-/// using clutter_actor_transform_stage_point().
+/// using `clutter_actor_transform_stage_point()`.
 public struct ButtonEventRef: ButtonEventProtocol {
     /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
@@ -3415,7 +3415,7 @@ public extension ButtonEventRef {
 /// 
 /// The event coordinates are relative to the stage that received the
 /// event, and can be transformed into actor-relative coordinates by
-/// using clutter_actor_transform_stage_point().
+/// using `clutter_actor_transform_stage_point()`.
 open class ButtonEvent: ButtonEventProtocol {
     /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.

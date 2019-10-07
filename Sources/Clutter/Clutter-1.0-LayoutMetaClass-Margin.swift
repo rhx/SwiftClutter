@@ -580,8 +580,8 @@ public extension MarginProtocol {
         return cast(rv)
     }
 
-    /// Frees the resources allocated by clutter_margin_new() and
-    /// clutter_margin_copy().
+    /// Frees the resources allocated by `clutter_margin_new()` and
+    /// `clutter_margin_copy()`.
     func free() {
         clutter_margin_free(cast(margin_ptr))
     

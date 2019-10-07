@@ -196,20 +196,20 @@ public enum RotateActionPropertyName: String, PropertyNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceX = "threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceY = "threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction`::gesture-begin signal or to emit the
-    /// `ClutterGestureAction`::gesture-cancel signal.
+    /// `ClutterGestureAction::gesture`-begin signal or to emit the
+    /// `ClutterGestureAction::gesture`-cancel signal.
     case thresholdTriggerEdge = "threshold-trigger-edge"
 }
 
@@ -265,48 +265,47 @@ public enum RotateActionSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::gesture_begin signal is emitted when the `ClutterActor` to which
+    /// The `gesture_begin` signal is emitted when the `ClutterActor` to which
     /// a `ClutterGestureAction` has been applied starts receiving a gesture.
     case gestureBegin = "gesture-begin"
-    /// The ::gesture-cancel signal is emitted when the ongoing gesture gets
-    /// cancelled from the `ClutterGestureAction`::gesture-progress signal handler.
+    /// The `gesture`-cancel signal is emitted when the ongoing gesture gets
+    /// cancelled from the `ClutterGestureAction::gesture`-progress signal handler.
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction`::gesture-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
     /// signal has been emitted first.
     case gestureCancel = "gesture-cancel"
-    /// The ::gesture-end signal is emitted at the end of the gesture gesture,
+    /// The `gesture`-end signal is emitted at the end of the gesture gesture,
     /// when the pointer's button is released
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction`::gesture-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
     /// signal has been emitted first.
     case gestureEnd = "gesture-end"
-    /// The ::gesture-progress signal is emitted for each motion event after
-    /// the `ClutterGestureAction`::gesture-begin signal has been emitted.
+    /// The `gesture`-progress signal is emitted for each motion event after
+    /// the `ClutterGestureAction::gesture`-begin signal has been emitted.
     case gestureProgress = "gesture-progress"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -318,12 +317,12 @@ public enum RotateActionSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
-    /// The ::rotate signal is emitted when a rotate gesture is
+    /// The `rotate` signal is emitted when a rotate gesture is
     /// recognized on the attached actor and when the gesture is
     /// cancelled (in this case with an angle value of 0).
     case rotate = "rotate"
@@ -388,20 +387,20 @@ public enum RotateActionSignalName: String, SignalNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceX = "notify::threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction`::gesture-begin signal or to emit
-    /// the `ClutterGestureAction`::gesture-cancel signal.
+    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
+    /// the `ClutterGestureAction::gesture`-cancel signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceY = "notify::threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction`::gesture-begin signal or to emit the
-    /// `ClutterGestureAction`::gesture-cancel signal.
+    /// `ClutterGestureAction::gesture`-begin signal or to emit the
+    /// `ClutterGestureAction::gesture`-cancel signal.
     case notifyThresholdTriggerEdge = "notify::threshold-trigger-edge"
 }
 
@@ -623,55 +622,54 @@ public extension ScoreProtocol {
 }
 
 public enum ScoreSignalName: String, SignalNameProtocol {
-    /// The ::completed signal is emitted each time a `ClutterScore` terminates.
+    /// The `completed` signal is emitted each time a `ClutterScore` terminates.
     ///
     /// **completed is deprecated:**
     /// This method is deprecated.
     case completed = "completed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::paused signal is emitted each time a `ClutterScore`
+    /// The `paused` signal is emitted each time a `ClutterScore`
     /// is paused.
     ///
     /// **paused is deprecated:**
     /// This method is deprecated.
     case paused = "paused"
-    /// The ::started signal is emitted each time a `ClutterScore` starts playing.
+    /// The `started` signal is emitted each time a `ClutterScore` starts playing.
     ///
     /// **started is deprecated:**
     /// This method is deprecated.
     case started = "started"
-    /// The ::timeline-completed signal is emitted each time a timeline
+    /// The `timeline`-completed signal is emitted each time a timeline
     /// inside a `ClutterScore` terminates.
     ///
     /// **timeline-completed is deprecated:**
     /// This method is deprecated.
     case timelineCompleted = "timeline-completed"
-    /// The ::timeline-started signal is emitted each time a new timeline
+    /// The `timeline`-started signal is emitted each time a new timeline
     /// inside a `ClutterScore` starts playing.
     ///
     /// **timeline-started is deprecated:**
@@ -720,7 +718,7 @@ public extension ScoreProtocol {
     /// appended timeline will be started when `parent` is complete.
     /// 
     /// If `parent` is `nil`, the new `ClutterTimeline` will be started when
-    /// clutter_score_start() is called.
+    /// `clutter_score_start()` is called.
     /// 
     /// `ClutterScore` will take a reference on `timeline`.
     ///
@@ -735,7 +733,7 @@ public extension ScoreProtocol {
     /// `ClutterTimeline`.
     /// 
     /// If you want to append `timeline` at the end of `parent`, use
-    /// clutter_score_append().
+    /// `clutter_score_append()`.
     /// 
     /// The `ClutterScore` will take a reference on `timeline`.
     ///
@@ -812,7 +810,7 @@ public extension ScoreProtocol {
     }
 
     /// Sets whether `score` should loop. A looping `ClutterScore` will start
-    /// from its initial state after the ::complete signal has been fired.
+    /// from its initial state after the `complete` signal has been fired.
     ///
     /// **set_loop is deprecated:**
     /// This method is deprecated.
@@ -867,7 +865,7 @@ public extension ScoreProtocol {
             return Bool(rv != 0)
         }
         /// Sets whether `score` should loop. A looping `ClutterScore` will start
-        /// from its initial state after the ::complete signal has been fired.
+        /// from its initial state after the `complete` signal has been fired.
         ///
         /// **set_loop is deprecated:**
         /// This method is deprecated.

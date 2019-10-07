@@ -355,15 +355,15 @@ public extension ActorBoxProtocol {
         return Bool(rv != 0)
     }
 
-    /// Frees a `ClutterActorBox` allocated using clutter_actor_box_new()
-    /// or clutter_actor_box_copy()
+    /// Frees a `ClutterActorBox` allocated using `clutter_actor_box_new()`
+    /// or `clutter_actor_box_copy()`
     func free() {
         clutter_actor_box_free(cast(actor_box_ptr))
     
     }
 
     /// Calculates the bounding box represented by the four vertices; for details
-    /// of the vertex array see clutter_actor_get_abs_allocation_vertices().
+    /// of the vertex array see `clutter_actor_get_abs_allocation_vertices()`.
     func fromVertices(verts: UnsafePointer<ClutterVertex>) {
         clutter_actor_box_from_vertices(cast(actor_box_ptr), cast(verts))
     
@@ -782,11 +782,11 @@ public extension ActorIterProtocol {
     /// Safely destroys the `ClutterActor` currently pointer to by the iterator
     /// from its parent.
     /// 
-    /// This function can only be called after clutter_actor_iter_next() or
-    /// clutter_actor_iter_prev() returned `true`, and cannot be called more
+    /// This function can only be called after `clutter_actor_iter_next()` or
+    /// `clutter_actor_iter_prev()` returned `true`, and cannot be called more
     /// than once for the same actor.
     /// 
-    /// This function will call clutter_actor_destroy() internally.
+    /// This function will call `clutter_actor_destroy()` internally.
     func destroy() {
         clutter_actor_iter_destroy(cast(_ptr))
     
@@ -845,11 +845,11 @@ public extension ActorIterProtocol {
     /// Safely removes the `ClutterActor` currently pointer to by the iterator
     /// from its parent.
     /// 
-    /// This function can only be called after clutter_actor_iter_next() or
-    /// clutter_actor_iter_prev() returned `true`, and cannot be called more
+    /// This function can only be called after `clutter_actor_iter_next()` or
+    /// `clutter_actor_iter_prev()` returned `true`, and cannot be called more
     /// than once for the same actor.
     /// 
-    /// This function will call clutter_actor_remove_child() internally.
+    /// This function will call `clutter_actor_remove_child()` internally.
     func remove() {
         clutter_actor_iter_remove(cast(_ptr))
     
@@ -2439,7 +2439,7 @@ public extension AnimatorKeyProtocol {
     /// Retrieves the `GType` of the property a key applies to
     /// 
     /// You can use this type to initialize the `GValue` to pass to
-    /// clutter_animator_key_get_value()
+    /// `clutter_animator_key_get_value()`
     ///
     /// **get_property_type is deprecated:**
     /// Use #ClutterKeyframeTransition instead
@@ -2454,7 +2454,7 @@ public extension AnimatorKeyProtocol {
     /// type of the key or to a type that allow transformation from the value
     /// type of the key.
     /// 
-    /// Use g_value_unset() when done.
+    /// Use `g_value_unset()` when done.
     ///
     /// **get_value is deprecated:**
     /// Use #ClutterKeyframeTransition instead
@@ -2531,7 +2531,7 @@ public extension AnimatorKeyProtocol {
     /// Retrieves the `GType` of the property a key applies to
     /// 
     /// You can use this type to initialize the `GValue` to pass to
-    /// clutter_animator_key_get_value()
+    /// `clutter_animator_key_get_value()`
     ///
     /// **get_property_type is deprecated:**
     /// Use #ClutterKeyframeTransition instead
@@ -2539,7 +2539,7 @@ public extension AnimatorKeyProtocol {
         /// Retrieves the `GType` of the property a key applies to
         /// 
         /// You can use this type to initialize the `GValue` to pass to
-        /// clutter_animator_key_get_value()
+        /// `clutter_animator_key_get_value()`
         ///
         /// **get_property_type is deprecated:**
         /// Use #ClutterKeyframeTransition instead

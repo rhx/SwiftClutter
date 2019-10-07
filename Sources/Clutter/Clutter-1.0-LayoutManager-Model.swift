@@ -231,9 +231,9 @@ public enum LayoutManagerSignalName: String, SignalNameProtocol {
     /// **focus-event is deprecated:**
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
-    /// The ::layout-changed signal is emitted each time a layout manager
+    /// The `layout`-changed signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the ::layout-changed
+    /// as a layout manager should connect a handler to the `layout`-changed
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -249,36 +249,34 @@ public enum LayoutManagerSignalName: String, SignalNameProtocol {
     ///                       self);
     /// ```
     /// 
-    /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// ::layout-changed signal whenever one of the parameters changes,
-    /// by using clutter_layout_manager_layout_changed().
+    /// `layout`-changed signal whenever one of the parameters changes,
+    /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -290,9 +288,9 @@ public enum LayoutManagerSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -383,7 +381,7 @@ public extension LayoutManagerProtocol {
 
     /// Allocates the children of `container` given an area
     /// 
-    /// See also clutter_actor_allocate()
+    /// See also `clutter_actor_allocate()`
     func allocate(container: ContainerProtocol, allocation: ActorBoxProtocol, flags: AllocationFlags) {
         clutter_layout_manager_allocate(cast(layout_manager_ptr), cast(container.ptr), cast(allocation.ptr), flags)
     
@@ -393,7 +391,7 @@ public extension LayoutManagerProtocol {
     /// easing `mode`
     /// 
     /// The easing mode can be specified either as a `ClutterAnimationMode`
-    /// or as a logical id returned by clutter_alpha_register_func()
+    /// or as a logical id returned by `clutter_alpha_register_func()`
     /// 
     /// The result of this function depends on the `manager` implementation
     ///
@@ -412,7 +410,7 @@ public extension LayoutManagerProtocol {
     /// attached to a child of `container`
     /// 
     /// The `GValue` must already be initialized to the type of the property
-    /// and has to be unset with g_value_unset() after extracting the real
+    /// and has to be unset with `g_value_unset()` after extracting the real
     /// value out of it
     func childGetProperty(container: ContainerProtocol, actor: ActorProtocol, propertyName property_name: UnsafePointer<gchar>, value: GLibObject.ValueProtocol) {
         clutter_layout_manager_child_get_property(cast(layout_manager_ptr), cast(container.ptr), cast(actor.ptr), property_name, cast(value.ptr))
@@ -430,7 +428,7 @@ public extension LayoutManagerProtocol {
     
     }
 
-    /// Ends an animation started by clutter_layout_manager_begin_animation()
+    /// Ends an animation started by `clutter_layout_manager_begin_animation()`
     /// 
     /// The result of this call depends on the `manager` implementation
     ///
@@ -449,9 +447,9 @@ public extension LayoutManagerProtocol {
     }
 
     /// Retrieves the progress of the animation, if one has been started by
-    /// clutter_layout_manager_begin_animation()
+    /// `clutter_layout_manager_begin_animation()`
     /// 
-    /// The returned value has the same semantics of the `ClutterAlpha`:alpha
+    /// The returned value has the same semantics of the `ClutterAlpha:alpha`
     /// value
     ///
     /// **get_animation_progress is deprecated:**
@@ -472,7 +470,7 @@ public extension LayoutManagerProtocol {
     /// Computes the minimum and natural heights of the `container` according
     /// to `manager`.
     /// 
-    /// See also clutter_actor_get_preferred_height()
+    /// See also `clutter_actor_get_preferred_height()`
     func getPreferredHeight(container: ContainerProtocol, forWidth for_width: gfloat, minHeightP min_height_p: UnsafeMutablePointer<gfloat>, natHeightP nat_height_p: UnsafeMutablePointer<gfloat>) {
         clutter_layout_manager_get_preferred_height(cast(layout_manager_ptr), cast(container.ptr), for_width, cast(min_height_p), cast(nat_height_p))
     
@@ -481,13 +479,13 @@ public extension LayoutManagerProtocol {
     /// Computes the minimum and natural widths of the `container` according
     /// to `manager`.
     /// 
-    /// See also clutter_actor_get_preferred_width()
+    /// See also `clutter_actor_get_preferred_width()`
     func getPreferredWidth(container: ContainerProtocol, forHeight for_height: gfloat, minWidthP min_width_p: UnsafeMutablePointer<gfloat>, natWidthP nat_width_p: UnsafeMutablePointer<gfloat>) {
         clutter_layout_manager_get_preferred_width(cast(layout_manager_ptr), cast(container.ptr), for_height, cast(min_width_p), cast(nat_width_p))
     
     }
 
-    /// Emits the `ClutterLayoutManager`::layout-changed signal on `manager`
+    /// Emits the `ClutterLayoutManager::layout`-changed signal on `manager`
     /// 
     /// This function should only be called by implementations of the
     /// `ClutterLayoutManager` class
@@ -514,18 +512,18 @@ public extension LayoutManagerProtocol {
     
     }
     /// Retrieves the progress of the animation, if one has been started by
-    /// clutter_layout_manager_begin_animation()
+    /// `clutter_layout_manager_begin_animation()`
     /// 
-    /// The returned value has the same semantics of the `ClutterAlpha`:alpha
+    /// The returned value has the same semantics of the `ClutterAlpha:alpha`
     /// value
     ///
     /// **get_animation_progress is deprecated:**
     /// This method is deprecated.
     var animationProgress: gdouble {
         /// Retrieves the progress of the animation, if one has been started by
-        /// clutter_layout_manager_begin_animation()
+        /// `clutter_layout_manager_begin_animation()`
         /// 
-        /// The returned value has the same semantics of the `ClutterAlpha`:alpha
+        /// The returned value has the same semantics of the `ClutterAlpha:alpha`
         /// value
         ///
         /// **get_animation_progress is deprecated:**
@@ -549,7 +547,7 @@ public extension LayoutManagerProtocol {
 /// Sub-class of `ClutterChildMeta` specific for layout managers
 /// 
 /// A `ClutterLayoutManager` sub-class should create a `ClutterLayoutMeta`
-/// instance by overriding the `ClutterLayoutManager`::create_child_meta()
+/// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
 public protocol LayoutMetaProtocol: ChildMetaProtocol {
     /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
@@ -566,7 +564,7 @@ public protocol LayoutMetaProtocol: ChildMetaProtocol {
 /// Sub-class of `ClutterChildMeta` specific for layout managers
 /// 
 /// A `ClutterLayoutManager` sub-class should create a `ClutterLayoutMeta`
-/// instance by overriding the `ClutterLayoutManager`::create_child_meta()
+/// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
 public struct LayoutMetaRef: LayoutMetaProtocol {
     /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
@@ -623,7 +621,7 @@ public extension LayoutMetaRef {
 /// Sub-class of `ClutterChildMeta` specific for layout managers
 /// 
 /// A `ClutterLayoutManager` sub-class should create a `ClutterLayoutMeta`
-/// instance by overriding the `ClutterLayoutManager`::create_child_meta()
+/// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
 open class LayoutMeta: ChildMeta, LayoutMetaProtocol {
     /// Designated initialiser from the underlying `C` data type.
@@ -714,29 +712,28 @@ public extension LayoutMetaProtocol {
 
 public enum LayoutMetaSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The `ClutterActor` being wrapped by this `ClutterChildMeta`
@@ -867,7 +864,7 @@ public extension ListModelRef {
     // *** new() is not available because it has a varargs (...) parameter!
 
 
-    /// Non-vararg version of clutter_list_model_new(). This function is
+    /// Non-vararg version of `clutter_list_model_new()`. This function is
     /// useful for language bindings.
     ///
     /// **newv is deprecated:**
@@ -876,7 +873,7 @@ public extension ListModelRef {
         let rv = clutter_list_model_newv(guint(n_columns), cast(types), cast(names))
         self.init(cast(rv))
     }
-    /// Non-vararg version of clutter_list_model_new(). This function is
+    /// Non-vararg version of `clutter_list_model_new()`. This function is
     /// useful for language bindings.
     ///
     /// **newv is deprecated:**
@@ -934,7 +931,7 @@ open class ListModel: Model, ListModelProtocol {
     // *** new() is not available because it has a varargs (...) parameter!
 
 
-    /// Non-vararg version of clutter_list_model_new(). This function is
+    /// Non-vararg version of `clutter_list_model_new()`. This function is
     /// useful for language bindings.
     ///
     /// **newv is deprecated:**
@@ -944,7 +941,7 @@ open class ListModel: Model, ListModelProtocol {
         self.init(cast(rv))
     }
 
-    /// Non-vararg version of clutter_list_model_new(). This function is
+    /// Non-vararg version of `clutter_list_model_new()`. This function is
     /// useful for language bindings.
     ///
     /// **newv is deprecated:**
@@ -960,7 +957,7 @@ public enum ListModelPropertyName: String, PropertyNameProtocol {
     /// Whether the `ClutterModel` has a filter set
     /// 
     /// This property is set to `true` if a filter function has been
-    /// set using clutter_model_set_filter()
+    /// set using `clutter_model_set_filter()`
     ///
     /// **filter-set is deprecated:**
     /// Use #GListModel instead
@@ -1004,59 +1001,58 @@ public extension ListModelProtocol {
 }
 
 public enum ListModelSignalName: String, SignalNameProtocol {
-    /// The ::filter-changed signal is emitted when a new filter has been applied
+    /// The `filter`-changed signal is emitted when a new filter has been applied
     ///
     /// **filter-changed is deprecated:**
     /// Use #GListModel instead
     case filterChanged = "filter-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::row-added signal is emitted when a new row has been added.
-    /// The data on the row has already been set when the ::row-added signal
+    /// The `row`-added signal is emitted when a new row has been added.
+    /// The data on the row has already been set when the `row`-added signal
     /// has been emitted.
     ///
     /// **row-added is deprecated:**
     /// Use #GListModel instead
     case rowAdded = "row-added"
-    /// The ::row-removed signal is emitted when a row has been changed.
-    /// The data on the row has already been updated when the ::row-changed
+    /// The `row`-removed signal is emitted when a row has been changed.
+    /// The data on the row has already been updated when the `row`-changed
     /// signal has been emitted.
     ///
     /// **row-changed is deprecated:**
     /// Use #GListModel instead
     case rowChanged = "row-changed"
-    /// The ::row-removed signal is emitted when a row has been removed.
+    /// The `row`-removed signal is emitted when a row has been removed.
     /// The data on the row pointed by the passed iterator is still valid
-    /// when the ::row-removed signal has been emitted.
+    /// when the `row`-removed signal has been emitted.
     ///
     /// **row-removed is deprecated:**
     /// Use #GListModel instead
     case rowRemoved = "row-removed"
-    /// The ::sort-changed signal is emitted after the model has been sorted
+    /// The `sort`-changed signal is emitted after the model has been sorted
     ///
     /// **sort-changed is deprecated:**
     /// Use #GListModel instead
@@ -1064,7 +1060,7 @@ public enum ListModelSignalName: String, SignalNameProtocol {
     /// Whether the `ClutterModel` has a filter set
     /// 
     /// This property is set to `true` if a filter function has been
-    /// set using clutter_model_set_filter()
+    /// set using `clutter_model_set_filter()`
     ///
     /// **filter-set is deprecated:**
     /// Use #GListModel instead
@@ -1233,7 +1229,7 @@ public enum ModelPropertyName: String, PropertyNameProtocol {
     /// Whether the `ClutterModel` has a filter set
     /// 
     /// This property is set to `true` if a filter function has been
-    /// set using clutter_model_set_filter()
+    /// set using `clutter_model_set_filter()`
     ///
     /// **filter-set is deprecated:**
     /// Use #GListModel instead
@@ -1277,59 +1273,58 @@ public extension ModelProtocol {
 }
 
 public enum ModelSignalName: String, SignalNameProtocol {
-    /// The ::filter-changed signal is emitted when a new filter has been applied
+    /// The `filter`-changed signal is emitted when a new filter has been applied
     ///
     /// **filter-changed is deprecated:**
     /// Use #GListModel instead
     case filterChanged = "filter-changed"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The ::row-added signal is emitted when a new row has been added.
-    /// The data on the row has already been set when the ::row-added signal
+    /// The `row`-added signal is emitted when a new row has been added.
+    /// The data on the row has already been set when the `row`-added signal
     /// has been emitted.
     ///
     /// **row-added is deprecated:**
     /// Use #GListModel instead
     case rowAdded = "row-added"
-    /// The ::row-removed signal is emitted when a row has been changed.
-    /// The data on the row has already been updated when the ::row-changed
+    /// The `row`-removed signal is emitted when a row has been changed.
+    /// The data on the row has already been updated when the `row`-changed
     /// signal has been emitted.
     ///
     /// **row-changed is deprecated:**
     /// Use #GListModel instead
     case rowChanged = "row-changed"
-    /// The ::row-removed signal is emitted when a row has been removed.
+    /// The `row`-removed signal is emitted when a row has been removed.
     /// The data on the row pointed by the passed iterator is still valid
-    /// when the ::row-removed signal has been emitted.
+    /// when the `row`-removed signal has been emitted.
     ///
     /// **row-removed is deprecated:**
     /// Use #GListModel instead
     case rowRemoved = "row-removed"
-    /// The ::sort-changed signal is emitted after the model has been sorted
+    /// The `sort`-changed signal is emitted after the model has been sorted
     ///
     /// **sort-changed is deprecated:**
     /// Use #GListModel instead
@@ -1337,7 +1332,7 @@ public enum ModelSignalName: String, SignalNameProtocol {
     /// Whether the `ClutterModel` has a filter set
     /// 
     /// This property is set to `true` if a filter function has been
-    /// set using clutter_model_set_filter()
+    /// set using `clutter_model_set_filter()`
     ///
     /// **filter-set is deprecated:**
     /// Use #GListModel instead
@@ -1442,7 +1437,7 @@ public extension ModelProtocol {
     }
 
     /// Returns whether the `model` has a filter in place, set
-    /// using clutter_model_set_filter()
+    /// using `clutter_model_set_filter()`
     ///
     /// **get_filter_set is deprecated:**
     /// Use #GListModel instead
@@ -1463,7 +1458,7 @@ public extension ModelProtocol {
 
     /// Retrieves a `ClutterModelIter` representing the row at the given index.
     /// 
-    /// If a filter function has been set using clutter_model_set_filter()
+    /// If a filter function has been set using `clutter_model_set_filter()`
     /// then the `model` implementation will return the first non filtered
     /// row.
     ///
@@ -1494,7 +1489,7 @@ public extension ModelProtocol {
     }
 
     /// Retrieves the number of rows inside `model`, eventually taking
-    /// into account any filtering function set using clutter_model_set_filter().
+    /// into account any filtering function set using `clutter_model_set_filter()`.
     ///
     /// **get_n_rows is deprecated:**
     /// Use #GListModel instead
@@ -1624,13 +1619,13 @@ public extension ModelProtocol {
     
     }
     /// Returns whether the `model` has a filter in place, set
-    /// using clutter_model_set_filter()
+    /// using `clutter_model_set_filter()`
     ///
     /// **get_filter_set is deprecated:**
     /// Use #GListModel instead
     var filterSet: Bool {
         /// Returns whether the `model` has a filter in place, set
-        /// using clutter_model_set_filter()
+        /// using `clutter_model_set_filter()`
         ///
         /// **get_filter_set is deprecated:**
         /// Use #GListModel instead
@@ -1690,13 +1685,13 @@ public extension ModelProtocol {
     }
 
     /// Retrieves the number of rows inside `model`, eventually taking
-    /// into account any filtering function set using clutter_model_set_filter().
+    /// into account any filtering function set using `clutter_model_set_filter()`.
     ///
     /// **get_n_rows is deprecated:**
     /// Use #GListModel instead
     var nRows: CUnsignedInt {
         /// Retrieves the number of rows inside `model`, eventually taking
-        /// into account any filtering function set using clutter_model_set_filter().
+        /// into account any filtering function set using `clutter_model_set_filter()`.
         ///
         /// **get_n_rows is deprecated:**
         /// Use #GListModel instead

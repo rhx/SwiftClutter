@@ -185,29 +185,28 @@ public extension ModelIterProtocol {
 
 public enum ModelIterSignalName: String, SignalNameProtocol {
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// A reference to the `ClutterModel` that this iter belongs to.
@@ -285,7 +284,7 @@ public extension ModelIterProtocol {
         return CUnsignedInt(rv)
     }
 
-    /// See clutter_model_iter_get(). This version takes a va_list for language
+    /// See `clutter_model_iter_get()`. This version takes a va_list for language
     /// bindings.
     ///
     /// **get_valist is deprecated:**
@@ -296,7 +295,7 @@ public extension ModelIterProtocol {
     }
 
     /// Sets an initializes `value` to that at `column`. When done with `value`,
-    /// g_value_unset() needs to be called to free any allocated memory.
+    /// `g_value_unset()` needs to be called to free any allocated memory.
     ///
     /// **get_value is deprecated:**
     /// Use #GListModel instead
@@ -331,7 +330,7 @@ public extension ModelIterProtocol {
     // *** set() is not available because it has a varargs (...) parameter!
 
 
-    /// See clutter_model_iter_set(); this version takes a va_list for language
+    /// See `clutter_model_iter_set()`; this version takes a va_list for language
     /// bindings.
     ///
     /// **set_valist is deprecated:**
@@ -643,29 +642,28 @@ public enum OffscreenEffectSignalName: String, SignalNameProtocol {
     /// Use the #AtkObject::state-change signal instead.
     case focusEvent = "focus-event"
     /// The notify signal is emitted on an object when one of its properties has
-    /// its value set through g_object_set_property(), g_object_set(), et al.
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
     /// 
     /// Note that getting this signal doesn’t itself guarantee that the value of
     /// the property has actually changed. When it is emitted is determined by the
     /// derived GObject class. If the implementor did not create the property with
-    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to g_object_set_property() results
-    /// in ::notify being emitted, even if the new value is the same as the old.
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
     /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
-    /// when they explicitly call g_object_notify() or g_object_notify_by_pspec(),
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
     /// and common practice is to do that only when the value has actually changed.
     /// 
     /// This signal is typically used to obtain change notification for a
     /// single property, by specifying the property name as a detail in the
-    /// g_signal_connect() call, like this:
+    /// `g_signal_connect()` call, like this:
     /// (C Language Example):
     /// ```C
     /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
     ///                   G_CALLBACK (gtk_text_view_target_list_notify),
     ///                   text_view)
     /// ```
-    /// 
     /// It is important to note that you must use
-    /// [canonical parameter names][canonical-parameter-names] as
+    /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
     /// The signal "property-change" is emitted when an object's property
@@ -677,9 +675,9 @@ public enum OffscreenEffectSignalName: String, SignalNameProtocol {
     /// reinstate the previous value.
     /// 
     /// Toolkit implementor note: ATK implementors should use
-    /// g_object_notify() to emit property-changed
-    /// notifications. `AtkObject`::property-changed is needed by the
-    /// implementation of atk_add_global_event_listener() because GObject
+    /// `g_object_notify()` to emit property-changed
+    /// notifications. `AtkObject::property`-changed is needed by the
+    /// implementation of `atk_add_global_event_listener()` because GObject
     /// notify doesn't support emission hooks.
     case propertyChange = "property-change"
     /// The "state-change" signal is emitted when an object's state
@@ -774,7 +772,7 @@ public extension OffscreenEffectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterOffscreenEffect` instance.
     var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect> { return ptr.assumingMemoryBound(to: ClutterOffscreenEffect.self) }
 
-    /// Calls the create_texture() virtual function of the `effect`
+    /// Calls the `create_texture()` virtual function of the `effect`
     func createTexture(width: gfloat, height: gfloat) -> CoglHandle! {
         let rv = clutter_offscreen_effect_create_texture(cast(offscreen_effect_ptr), width, height)
         return rv
@@ -794,7 +792,7 @@ public extension OffscreenEffectProtocol {
     /// paint the actor to which it has been applied.
     /// 
     /// This function should only be called by `ClutterOffscreenEffect`
-    /// implementations, from within the `ClutterOffscreenEffectClass`.paint_target()
+    /// implementations, from within the `ClutterOffscreenEffectClass.paint_target``()`
     /// virtual function.
     func getTarget(rect: RectProtocol) -> Bool {
         let rv = clutter_offscreen_effect_get_target_rect(cast(offscreen_effect_ptr), cast(rect.ptr))
@@ -805,7 +803,7 @@ public extension OffscreenEffectProtocol {
     /// paint the actor to which it has been applied.
     /// 
     /// This function should only be called by `ClutterOffscreenEffect`
-    /// implementations, from within the `ClutterOffscreenEffectClass`.paint_target()
+    /// implementations, from within the `ClutterOffscreenEffectClass.paint_target``()`
     /// virtual function.
     ///
     /// **get_target_size is deprecated:**
@@ -819,17 +817,17 @@ public extension OffscreenEffectProtocol {
     /// buffer created by `effect`
     /// 
     /// You should only use the returned texture when painting. The texture
-    /// may change after ClutterEffect::pre_paint is called so the effect
+    /// may change after ClutterEffect`pre_paint` is called so the effect
     /// implementation should update any references to the texture after
     /// chaining-up to the parent's pre_paint implementation. This can be
-    /// used instead of clutter_offscreen_effect_get_target() when the
+    /// used instead of `clutter_offscreen_effect_get_target()` when the
     /// effect subclass wants to paint using its own material.
     func getTexture() -> CoglHandle! {
         let rv = clutter_offscreen_effect_get_texture(cast(offscreen_effect_ptr))
         return rv
     }
 
-    /// Calls the paint_target() virtual function of the `effect`
+    /// Calls the `paint_target()` virtual function of the `effect`
     func paintTarget() {
         clutter_offscreen_effect_paint_target(cast(offscreen_effect_ptr))
     
@@ -855,20 +853,20 @@ public extension OffscreenEffectProtocol {
     /// buffer created by `effect`
     /// 
     /// You should only use the returned texture when painting. The texture
-    /// may change after ClutterEffect::pre_paint is called so the effect
+    /// may change after ClutterEffect`pre_paint` is called so the effect
     /// implementation should update any references to the texture after
     /// chaining-up to the parent's pre_paint implementation. This can be
-    /// used instead of clutter_offscreen_effect_get_target() when the
+    /// used instead of `clutter_offscreen_effect_get_target()` when the
     /// effect subclass wants to paint using its own material.
     var texture: CoglHandle! {
         /// Retrieves the texture used as a render target for the offscreen
         /// buffer created by `effect`
         /// 
         /// You should only use the returned texture when painting. The texture
-        /// may change after ClutterEffect::pre_paint is called so the effect
+        /// may change after ClutterEffect`pre_paint` is called so the effect
         /// implementation should update any references to the texture after
         /// chaining-up to the parent's pre_paint implementation. This can be
-        /// used instead of clutter_offscreen_effect_get_target() when the
+        /// used instead of `clutter_offscreen_effect_get_target()` when the
         /// effect subclass wants to paint using its own material.
         get {
             let rv = clutter_offscreen_effect_get_texture(cast(offscreen_effect_ptr))

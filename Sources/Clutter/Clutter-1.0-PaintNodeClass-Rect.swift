@@ -474,13 +474,13 @@ public extension PaintVolumeProtocol {
     /// around the volume. It returns the size of that bounding box as
     /// measured along the z-axis.
     /// 
-    /// If, for example, clutter_actor_get_transformed_paint_volume()
+    /// If, for example, `clutter_actor_get_transformed_paint_volume()`
     /// is used to transform a 2D child actor that is 100px wide, 100px
     /// high and 0px deep into container coordinates then the depth might
     /// not simply be 0px if the child actor has a 3D rotation applied to
     /// it.
     /// 
-    /// Remember: if clutter_actor_get_transformed_paint_volume() is
+    /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
     /// used then the transformed volume will be defined relative to the
     /// container actor and in container coordinates a 2D child actor
     /// can have a 3D bounding volume.
@@ -501,13 +501,13 @@ public extension PaintVolumeProtocol {
     /// around the volume. It returns the size of that bounding box as
     /// measured along the y-axis.
     /// 
-    /// If, for example, clutter_actor_get_transformed_paint_volume()
+    /// If, for example, `clutter_actor_get_transformed_paint_volume()`
     /// is used to transform a 2D child actor that is 100px wide, 100px
     /// high and 0px deep into container coordinates then the height might
     /// not simply be 100px if the child actor has a 3D rotation applied to
     /// it.
     /// 
-    /// Remember: if clutter_actor_get_transformed_paint_volume() is
+    /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
     /// used then a transformed child volume will be defined relative to the
     /// ancestor container actor and so a 2D child actor
     /// can have a 3D bounding volume.
@@ -534,13 +534,13 @@ public extension PaintVolumeProtocol {
     /// around the volume. It returns the size of that bounding box as
     /// measured along the x-axis.
     /// 
-    /// If, for example, clutter_actor_get_transformed_paint_volume()
+    /// If, for example, `clutter_actor_get_transformed_paint_volume()`
     /// is used to transform a 2D child actor that is 100px wide, 100px
     /// high and 0px deep into container coordinates then the width might
     /// not simply be 100px if the child actor has a 3D rotation applied to
     /// it.
     /// 
-    /// Remember: if clutter_actor_get_transformed_paint_volume() is
+    /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
     /// used then a transformed child volume will be defined relative to the
     /// ancestor container actor and so a 2D child actor can have a 3D
     /// bounding volume.
@@ -564,7 +564,7 @@ public extension PaintVolumeProtocol {
     /// Sets the `ClutterPaintVolume` from the allocation of `actor`.
     /// 
     /// This function should be used when overriding the
-    /// `ClutterActorClass`.get_paint_volume() by `ClutterActor` sub-classes
+    /// `ClutterActorClass.get_paint_volume``()` by `ClutterActor` sub-classes
     /// that do not paint outside their allocation.
     /// 
     /// A typical example is:
@@ -619,7 +619,7 @@ public extension PaintVolumeProtocol {
 
     /// Unions the 2D region represented by `box` to a `ClutterPaintVolume`.
     /// 
-    /// This function is similar to clutter_paint_volume_union(), but it is
+    /// This function is similar to `clutter_paint_volume_union()`, but it is
     /// specific for 2D regions.
     func union(box: ActorBoxProtocol) {
         clutter_paint_volume_union_box(cast(paint_volume_ptr), cast(box.ptr))
@@ -632,13 +632,13 @@ public extension PaintVolumeProtocol {
     /// around the volume. It returns the size of that bounding box as
     /// measured along the z-axis.
     /// 
-    /// If, for example, clutter_actor_get_transformed_paint_volume()
+    /// If, for example, `clutter_actor_get_transformed_paint_volume()`
     /// is used to transform a 2D child actor that is 100px wide, 100px
     /// high and 0px deep into container coordinates then the depth might
     /// not simply be 0px if the child actor has a 3D rotation applied to
     /// it.
     /// 
-    /// Remember: if clutter_actor_get_transformed_paint_volume() is
+    /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
     /// used then the transformed volume will be defined relative to the
     /// container actor and in container coordinates a 2D child actor
     /// can have a 3D bounding volume.
@@ -655,13 +655,13 @@ public extension PaintVolumeProtocol {
         /// around the volume. It returns the size of that bounding box as
         /// measured along the z-axis.
         /// 
-        /// If, for example, clutter_actor_get_transformed_paint_volume()
+        /// If, for example, `clutter_actor_get_transformed_paint_volume()`
         /// is used to transform a 2D child actor that is 100px wide, 100px
         /// high and 0px deep into container coordinates then the depth might
         /// not simply be 0px if the child actor has a 3D rotation applied to
         /// it.
         /// 
-        /// Remember: if clutter_actor_get_transformed_paint_volume() is
+        /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
         /// used then the transformed volume will be defined relative to the
         /// container actor and in container coordinates a 2D child actor
         /// can have a 3D bounding volume.
@@ -688,13 +688,13 @@ public extension PaintVolumeProtocol {
     /// around the volume. It returns the size of that bounding box as
     /// measured along the y-axis.
     /// 
-    /// If, for example, clutter_actor_get_transformed_paint_volume()
+    /// If, for example, `clutter_actor_get_transformed_paint_volume()`
     /// is used to transform a 2D child actor that is 100px wide, 100px
     /// high and 0px deep into container coordinates then the height might
     /// not simply be 100px if the child actor has a 3D rotation applied to
     /// it.
     /// 
-    /// Remember: if clutter_actor_get_transformed_paint_volume() is
+    /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
     /// used then a transformed child volume will be defined relative to the
     /// ancestor container actor and so a 2D child actor
     /// can have a 3D bounding volume.
@@ -711,13 +711,13 @@ public extension PaintVolumeProtocol {
         /// around the volume. It returns the size of that bounding box as
         /// measured along the y-axis.
         /// 
-        /// If, for example, clutter_actor_get_transformed_paint_volume()
+        /// If, for example, `clutter_actor_get_transformed_paint_volume()`
         /// is used to transform a 2D child actor that is 100px wide, 100px
         /// high and 0px deep into container coordinates then the height might
         /// not simply be 100px if the child actor has a 3D rotation applied to
         /// it.
         /// 
-        /// Remember: if clutter_actor_get_transformed_paint_volume() is
+        /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
         /// used then a transformed child volume will be defined relative to the
         /// ancestor container actor and so a 2D child actor
         /// can have a 3D bounding volume.
@@ -744,13 +744,13 @@ public extension PaintVolumeProtocol {
     /// around the volume. It returns the size of that bounding box as
     /// measured along the x-axis.
     /// 
-    /// If, for example, clutter_actor_get_transformed_paint_volume()
+    /// If, for example, `clutter_actor_get_transformed_paint_volume()`
     /// is used to transform a 2D child actor that is 100px wide, 100px
     /// high and 0px deep into container coordinates then the width might
     /// not simply be 100px if the child actor has a 3D rotation applied to
     /// it.
     /// 
-    /// Remember: if clutter_actor_get_transformed_paint_volume() is
+    /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
     /// used then a transformed child volume will be defined relative to the
     /// ancestor container actor and so a 2D child actor can have a 3D
     /// bounding volume.
@@ -767,13 +767,13 @@ public extension PaintVolumeProtocol {
         /// around the volume. It returns the size of that bounding box as
         /// measured along the x-axis.
         /// 
-        /// If, for example, clutter_actor_get_transformed_paint_volume()
+        /// If, for example, `clutter_actor_get_transformed_paint_volume()`
         /// is used to transform a 2D child actor that is 100px wide, 100px
         /// high and 0px deep into container coordinates then the width might
         /// not simply be 100px if the child actor has a 3D rotation applied to
         /// it.
         /// 
-        /// Remember: if clutter_actor_get_transformed_paint_volume() is
+        /// Remember: if `clutter_actor_get_transformed_paint_volume()` is
         /// used then a transformed child volume will be defined relative to the
         /// ancestor container actor and so a 2D child actor can have a 3D
         /// bounding volume.
@@ -1806,7 +1806,7 @@ public extension PathPrivateProtocol {
 /// Alternatively, use `PerspectiveRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Stage perspective definition. `ClutterPerspective` is only used by
-/// the fixed point version of clutter_stage_set_perspective().
+/// the fixed point version of `clutter_stage_set_perspective()`.
 public protocol PerspectiveProtocol {
     /// Untyped pointer to the underlying `ClutterPerspective` instance.
     var ptr: UnsafeMutableRawPointer { get }
@@ -1820,7 +1820,7 @@ public protocol PerspectiveProtocol {
 /// Use `PerspectiveRef` only as an `unowned` reference to an existing `ClutterPerspective` instance.
 ///
 /// Stage perspective definition. `ClutterPerspective` is only used by
-/// the fixed point version of clutter_stage_set_perspective().
+/// the fixed point version of `clutter_stage_set_perspective()`.
 public struct PerspectiveRef: PerspectiveProtocol {
     /// Untyped pointer to the underlying `ClutterPerspective` instance.
     /// For type-safe access, use the generated, typed pointer `perspective_ptr` property instead.
@@ -1874,7 +1874,7 @@ public extension PerspectiveRef {
 /// Use `Perspective` as a strong reference or owner of a `ClutterPerspective` instance.
 ///
 /// Stage perspective definition. `ClutterPerspective` is only used by
-/// the fixed point version of clutter_stage_set_perspective().
+/// the fixed point version of `clutter_stage_set_perspective()`.
 open class Perspective: PerspectiveProtocol {
     /// Untyped pointer to the underlying `ClutterPerspective` instance.
     /// For type-safe access, use the generated, typed pointer `perspective_ptr` property instead.
@@ -2581,7 +2581,7 @@ public extension PropertyTransitionPrivateProtocol {
 /// be equivalent to a rectangle with origin of [ 10.0, 10.0 ] and size of
 /// [ -10.0, -10.0 ].
 /// 
-/// Application code can normalize rectangles using clutter_rect_normalize():
+/// Application code can normalize rectangles using `clutter_rect_normalize()`:
 /// this function will ensure that the width and height of a `ClutterRect` are
 /// positive values. All functions taking a `ClutterRect` as an argument will
 /// implicitly normalize it before computing eventual results. For this reason
@@ -2606,7 +2606,7 @@ public protocol RectProtocol {
 /// be equivalent to a rectangle with origin of [ 10.0, 10.0 ] and size of
 /// [ -10.0, -10.0 ].
 /// 
-/// Application code can normalize rectangles using clutter_rect_normalize():
+/// Application code can normalize rectangles using `clutter_rect_normalize()`:
 /// this function will ensure that the width and height of a `ClutterRect` are
 /// positive values. All functions taking a `ClutterRect` as an argument will
 /// implicitly normalize it before computing eventual results. For this reason
@@ -2660,7 +2660,7 @@ public extension RectRef {
 
         /// Creates a new, empty `ClutterRect`.
     /// 
-    /// You can use clutter_rect_init() to initialize the returned rectangle,
+    /// You can use `clutter_rect_init()` to initialize the returned rectangle,
     /// for instance:
     /// 
     /// ```
@@ -2672,7 +2672,7 @@ public extension RectRef {
         return rv.map { RectRef(cast($0)) }
     }
 
-    /// A `ClutterRect` with `ClutterRect`.origin set at (0, 0) and a size
+    /// A `ClutterRect` with `ClutterRect.origin` set at (0, 0) and a size
     /// of 0.
     /// 
     /// The returned value can be used as a guard.
@@ -2693,7 +2693,7 @@ public extension RectRef {
 /// be equivalent to a rectangle with origin of [ 10.0, 10.0 ] and size of
 /// [ -10.0, -10.0 ].
 /// 
-/// Application code can normalize rectangles using clutter_rect_normalize():
+/// Application code can normalize rectangles using `clutter_rect_normalize()`:
 /// this function will ensure that the width and height of a `ClutterRect` are
 /// positive values. All functions taking a `ClutterRect` as an argument will
 /// implicitly normalize it before computing eventual results. For this reason
@@ -2749,7 +2749,7 @@ open class Rect: RectProtocol {
 
     /// Creates a new, empty `ClutterRect`.
     /// 
-    /// You can use clutter_rect_init() to initialize the returned rectangle,
+    /// You can use `clutter_rect_init()` to initialize the returned rectangle,
     /// for instance:
     /// 
     /// ```
@@ -2761,7 +2761,7 @@ open class Rect: RectProtocol {
         return rv.map { Rect(cast($0)) }
     }
 
-    /// A `ClutterRect` with `ClutterRect`.origin set at (0, 0) and a size
+    /// A `ClutterRect` with `ClutterRect.origin` set at (0, 0) and a size
     /// of 0.
     /// 
     /// The returned value can be used as a guard.
@@ -2893,9 +2893,9 @@ public extension RectProtocol {
     /// Normalizes a `ClutterRect`.
     /// 
     /// A `ClutterRect` is defined by the area covered by its size; this means
-    /// that a `ClutterRect` with `ClutterRect`.origin in [ 0, 0 ] and a
-    /// `ClutterRect`.size of [ 10, 10 ] is equivalent to a `ClutterRect` with
-    /// `ClutterRect`.origin in [ 10, 10 ] and a `ClutterRect`.size of [ -10, -10 ].
+    /// that a `ClutterRect` with `ClutterRect.origin` in [ 0, 0 ] and a
+    /// `ClutterRect.size` of [ 10, 10 ] is equivalent to a `ClutterRect` with
+    /// `ClutterRect.origin` in [ 10, 10 ] and a `ClutterRect.size` of [ -10, -10 ].
     /// 
     /// This function is useful to ensure that a rectangle has positive width
     /// and height; it will modify the passed `rect` and normalize its size.

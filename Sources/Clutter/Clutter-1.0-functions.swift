@@ -44,7 +44,7 @@ public func peek() -> UnsafeMutablePointer<ClutterEvent>! {
 
 
 /// Removes an event filter that was previously added with
-/// clutter_event_add_filter().
+/// `clutter_event_add_filter()`.
 public func removeFilter(id: CUnsignedInt) {
     clutter_event_remove_filter(guint(id))
 
@@ -108,20 +108,20 @@ public func cairoSetSourceColor(cr_: Cairo.ContextProtocol, color: ColorProtocol
 /// windowing system; for instance:
 /// 
 /// ```
-/// `ifdef` CLUTTER_WINDOWING_X11
+/// #ifdef CLUTTER_WINDOWING_X11
 ///   if (clutter_check_windowing_backend (CLUTTER_WINDOWING_X11))
 ///     {
 ///       // it is safe to use the clutter_x11_* API
 ///     }
 ///   else
-/// `endif`
-/// `ifdef` CLUTTER_WINDOWING_WIN32
+/// #endif
+/// #ifdef CLUTTER_WINDOWING_WIN32
 ///   if (clutter_check_windowing_backend (CLUTTER_WINDOWING_WIN32))
 ///     {
 ///       // it is safe to use the clutter_win32_* API
 ///     }
 ///   else
-/// `endif`
+/// #endif
 ///     g_error ("Unknown Clutter backend.");
 /// ```
 /// 
@@ -169,8 +169,8 @@ public func colorFromPixel(color: ColorProtocol, pixel: UInt32) {
 
 
 
-/// Parses a string definition of a color, filling the `ClutterColor`.red,
-/// `ClutterColor`.green, `ClutterColor`.blue and `ClutterColor`.alpha fields
+/// Parses a string definition of a color, filling the `ClutterColor.red`,
+/// `ClutterColor.green`, `ClutterColor.blue` and `ClutterColor.alpha` fields
 /// of `color`.
 /// 
 /// The `color` is not allocated.
@@ -179,23 +179,23 @@ public func colorFromPixel(color: ColorProtocol, pixel: UInt32) {
 /// 
 ///   - a standard name (as taken from the X11 rgb.txt file)
 ///   - an hexadecimal value in the form: ``rgb``, ``rrggbb``, ``rgba``, or ``rrggbbaa``
-///   - a RGB color in the form: `rgb(r, g, b)`
-///   - a RGB color in the form: `rgba(r, g, b, a)`
-///   - a HSL color in the form: `hsl(h, s, l)`
-///    -a HSL color in the form: `hsla(h, s, l, a)`
+///   - a RGB color in the form: ``rgb(r, g, b)``
+///   - a RGB color in the form: ``rgba(r, g, b, a)``
+///   - a HSL color in the form: ``hsl(h, s, l)``
+///    -a HSL color in the form: ``hsla(h, s, l, a)``
 /// 
 /// where 'r', 'g', 'b' and 'a' are (respectively) the red, green, blue color
 /// intensities and the opacity. The 'h', 's' and 'l' are (respectively) the
 /// hue, saturation and luminance values.
 /// 
-/// In the rgb() and rgba() formats, the 'r', 'g', and 'b' values are either
-/// integers between 0 and 255, or percentage values in the range between 0``
+/// In the `rgb()` and `rgba()` formats, the 'r', 'g', and 'b' values are either
+/// integers between 0 and 255, or percentage values in the range between 0%
 /// and 100``; the percentages require the '``' character. The 'a' value, if
 /// specified, can only be a floating point value between 0.0 and 1.0.
 /// 
-/// In the hls() and hlsa() formats, the 'h' value (hue) is an angle between
+/// In the `hls()` and `hlsa()` formats, the 'h' value (hue) is an angle between
 /// 0 and 360.0 degrees; the 'l' and 's' values (luminance and saturation) are
-/// percentage values in the range between 0`` and 100``. The 'a' value, if specified,
+/// percentage values in the range between 0% and 100%. The 'a' value, if specified,
 /// can only be a floating point value between 0.0 and 1.0.
 /// 
 /// Whitespace inside the definitions is ignored; no leading whitespace
@@ -244,7 +244,7 @@ public func containerClassListChildProperties(klass: GLibObject.ObjectClassProto
 /// Disable loading the accessibility support. It has the same effect
 /// as setting the environment variable
 /// CLUTTER_DISABLE_ACCESSIBILITY. For the same reason, this method
-/// should be called before clutter_init().
+/// should be called before `clutter_init()`.
 public func disableAccessibility() {
     clutter_disable_accessibility()
 
@@ -300,7 +300,7 @@ public func eventPeek() -> UnsafeMutablePointer<ClutterEvent>! {
 
 
 /// Removes an event filter that was previously added with
-/// clutter_event_add_filter().
+/// `clutter_event_add_filter()`.
 public func eventRemoveFilter(id: CUnsignedInt) {
     clutter_event_remove_filter(guint(id))
 
@@ -337,7 +337,7 @@ public func featureGetAll() -> ClutterFeatureFlags {
 
 
 
-/// Simple wrapper around clutter_frame_source_add_full().
+/// Simple wrapper around `clutter_frame_source_add_full()`.
 ///
 /// **frame_source_add is deprecated:**
 /// There is no direct replacement for this API
@@ -356,11 +356,11 @@ public func featureGetAll() -> ClutterFeatureFlags {
 /// called when the timeout is destroyed.  The first call to the
 /// function will be at the end of the first `interval`.
 /// 
-/// This function is similar to g_timeout_add_full() except that it
+/// This function is similar to `g_timeout_add_full()` except that it
 /// will try to compensate for delays. For example, if `func` takes half
 /// the interval time to execute then the function will be called again
 /// half the interval time after it finished. In contrast
-/// g_timeout_add_full() would not fire until a full interval after the
+/// `g_timeout_add_full()` would not fire until a full interval after the
 /// function completes so the delay between calls would be 1.0 / `fps` *
 /// 1.5. This function does not however try to invoke the function
 /// multiple times to catch up missing frames if `func` takes more than
@@ -446,7 +446,7 @@ public func getDefaultBackend() -> UnsafeMutablePointer<ClutterBackend>! {
 
 
 
-/// Retrieves the default frame rate. See clutter_set_default_frame_rate().
+/// Retrieves the default frame rate. See `clutter_set_default_frame_rate()`.
 public func getDefaultFrameRate() -> CUnsignedInt {
     let rv = clutter_get_default_frame_rate()
     return CUnsignedInt(rv)
@@ -460,7 +460,7 @@ public func getDefaultFrameRate() -> CUnsignedInt {
 /// environment variable.
 /// 
 /// The default text direction can be overridden on a per-actor basis by using
-/// clutter_actor_set_text_direction().
+/// `clutter_actor_set_text_direction()`.
 public func getDefaultTextDirection() -> ClutterTextDirection {
     let rv = clutter_get_default_text_direction()
     return rv
@@ -470,7 +470,7 @@ public func getDefaultTextDirection() -> ClutterTextDirection {
 
 
 /// Gets the current font flags for rendering text. See
-/// clutter_set_font_flags().
+/// `clutter_set_font_flags()`.
 ///
 /// **get_font_flags is deprecated:**
 /// Use clutter_backend_get_font_options() and the
@@ -495,7 +495,7 @@ public func getFontMap() -> UnsafeMutablePointer<PangoFontMap>! {
 
 
 /// Retrieves the `ClutterInputDevice` from its `id_`. This is a convenience
-/// wrapper for clutter_device_manager_get_device() and it is functionally
+/// wrapper for `clutter_device_manager_get_device()` and it is functionally
 /// equivalent to:
 /// 
 /// ```
@@ -540,14 +540,14 @@ public func getKeyboardGrab() -> UnsafeMutablePointer<ClutterActor>! {
 
 /// Returns a `GOptionGroup` for the command line arguments recognized
 /// by Clutter. You should add this group to your `GOptionContext` with
-/// g_option_context_add_group(), if you are using g_option_context_parse()
+/// `g_option_context_add_group()`, if you are using `g_option_context_parse()`
 /// to parse your commandline arguments.
 /// 
-/// Unlike clutter_get_option_group(), calling g_option_context_parse() with
+/// Unlike `clutter_get_option_group()`, calling `g_option_context_parse()` with
 /// the `GOptionGroup` returned by this function requires a subsequent explicit
-/// call to clutter_init(); use this function when needing to set foreign
-/// display connection with clutter_x11_set_display(), or with
-/// `gtk_clutter_init()`.
+/// call to `clutter_init()`; use this function when needing to set foreign
+/// display connection with `clutter_x11_set_display()`, or with
+/// ``gtk_clutter_init()``.
 public func getOptionGroupWithoutInit() -> UnsafeMutablePointer<GOptionGroup>! {
     let rv = clutter_get_option_group_without_init()
     return cast(rv)
@@ -599,7 +599,7 @@ public func getScriptId(gobject: GLibObject.ObjectProtocol) -> String! {
 /// The output of this function depends on whether Clutter was configured to
 /// enable its debugging code paths, so it's less useful than intended.
 /// 
-/// Since Clutter 1.10, this function is an alias to g_get_monotonic_time()
+/// Since Clutter 1.10, this function is an alias to `g_get_monotonic_time()`
 /// if Clutter was configured to enable the debugging code paths.
 ///
 /// **get_timestamp is deprecated:**
@@ -614,7 +614,7 @@ public func getScriptId(gobject: GLibObject.ObjectProtocol) -> String! {
 
 
 /// Grabs keyboard events, after the grab is done keyboard
-/// events (`ClutterActor`::key-press-event and `ClutterActor`::key-release-event)
+/// events (`ClutterActor::key`-press-event and `ClutterActor::key`-release-event)
 /// are delivered to this actor directly. The source set in the event will be
 /// the actor that would have received the event if the keyboard grab was not
 /// in effect.
@@ -622,7 +622,7 @@ public func getScriptId(gobject: GLibObject.ObjectProtocol) -> String! {
 /// Like pointer grabs, keyboard grabs should only be used as a last
 /// resource.
 /// 
-/// See also clutter_stage_set_key_focus() and clutter_actor_grab_key_focus()
+/// See also `clutter_stage_set_key_focus()` and `clutter_actor_grab_key_focus()`
 /// to perform a "soft" key grab and assign key focus to a specific actor.
 public func grabKeyboard(actor: ActorProtocol) {
     clutter_grab_keyboard(cast(actor.ptr))
@@ -640,13 +640,13 @@ public func grabKeyboard(actor: ActorProtocol) {
 /// 
 /// Grabs completely override the entire event delivery chain
 /// done by Clutter. Pointer grabs should only be used as a last resource;
-/// using the `ClutterActor`::captured-event signal should always be the
+/// using the `ClutterActor::captured`-event signal should always be the
 /// preferred way to intercept event delivery to reactive actors.
 /// 
 /// This function should rarely be used.
 /// 
 /// If a grab is required, you are strongly encouraged to use a specific
-/// input device by calling clutter_input_device_grab().
+/// input device by calling `clutter_input_device_grab()`.
 public func grabPointer(actor: ActorProtocol) {
     clutter_grab_pointer(cast(actor.ptr))
 
@@ -657,7 +657,7 @@ public func grabPointer(actor: ActorProtocol) {
 
 /// Grabs all the pointer events coming from the device `id` for `actor`.
 /// 
-/// If `id` is -1 then this function is equivalent to clutter_grab_pointer().
+/// If `id` is -1 then this function is equivalent to `clutter_grab_pointer()`.
 ///
 /// **grab_pointer_for_device is deprecated:**
 /// Use clutter_input_device_grab() instead.
@@ -684,10 +684,10 @@ public func imageErrorQuark() -> GQuark {
 /// It is safe to call this function multiple times.
 /// 
 /// This function will not abort in case of errors during
-/// initialization; clutter_init() will print out the error message on
+/// initialization; `clutter_init()` will print out the error message on
 /// stderr, and will return an error code. It is up to the application
 /// code to handle this case. If you need to display the error message
-/// yourself, you can use clutter_init_with_args(), which takes a `GError`
+/// yourself, you can use `clutter_init_with_args()`, which takes a `GError`
 /// pointer.
 /// 
 /// If this function fails, and returns an error code, any subsequent
@@ -710,7 +710,7 @@ public func initErrorQuark() -> GQuark {
 
 
 
-/// This function does the same work as clutter_init(). Additionally,
+/// This function does the same work as `clutter_init()`. Additionally,
 /// it allows you to add your own command line options, and it
 /// automatically generates nicely formatted <option>--help</option>
 /// output. Note that your program will be terminated after writing
@@ -718,7 +718,7 @@ public func initErrorQuark() -> GQuark {
 /// error message will be placed inside `error` instead of being
 /// printed on the display.
 /// 
-/// Just like clutter_init(), if this function returns an error code then
+/// Just like `clutter_init()`, if this function returns an error code then
 /// any subsequent call to any other Clutter API will result in undefined
 /// behaviour - including segmentation faults.
 public func initWithArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<CChar>>>, parameterString parameter_string: UnsafePointer<CChar>, entries: UnsafeMutablePointer<GOptionEntry>, translationDomain translation_domain: UnsafePointer<CChar>) throws -> ClutterInitError {
@@ -779,7 +779,7 @@ public func matrixAlloc() -> UnsafeMutablePointer<ClutterMatrix>! {
 
 
 
-/// Frees the memory allocated by clutter_matrix_alloc().
+/// Frees the memory allocated by `clutter_matrix_alloc()`.
 public func matrixFree(matrix: MatrixProtocol) {
     clutter_matrix_free(cast(matrix.ptr))
 
@@ -874,7 +874,7 @@ public func pointZero() -> UnsafePointer<ClutterPoint>! {
 
 
 
-/// A `ClutterRect` with `ClutterRect`.origin set at (0, 0) and a size
+/// A `ClutterRect` with `ClutterRect.origin` set at (0, 0) and a size
 /// of 0.
 /// 
 /// The returned value can be used as a guard.
@@ -887,7 +887,7 @@ public func rectZero() -> UnsafePointer<ClutterRect>! {
 
 
 /// Forces a redraw of the entire stage. Applications should never use this
-/// function, but queue a redraw using clutter_actor_queue_redraw().
+/// function, but queue a redraw using `clutter_actor_queue_redraw()`.
 /// 
 /// This function should only be used by libraries integrating Clutter from
 /// within another toolkit.
@@ -950,9 +950,9 @@ public func scriptErrorQuark() -> GQuark {
 /// 
 /// If `enable` is `false` the following events will not work:
 /// 
-///  - ClutterActor::motion-event, except on the `ClutterStage`
-///  - ClutterActor::enter-event
-///  - ClutterActor::leave-event
+///  - ClutterActor`motion`-event, except on the `ClutterStage`
+///  - ClutterActor`enter`-event
+///  - ClutterActor`leave`-event
 ///
 /// **set_motion_events_enabled is deprecated:**
 /// Use clutter_stage_set_motion_events_enabled() instead.
@@ -973,7 +973,6 @@ public func scriptErrorQuark() -> GQuark {
 ///   clutter_set_windowing_backend (CLUTTER_WINDOWING_X11);
 /// ```
 /// 
-/// 
 /// Will force Clutter to use the X11 windowing and input backend, and terminate
 /// if the X11 backend could not be initialized successfully.
 /// 
@@ -986,7 +985,6 @@ public func scriptErrorQuark() -> GQuark {
 ///   clutter_set_windowing_backend ("gdk,wayland,x11");
 /// ```
 /// 
-/// 
 /// Will make Clutter test for the GDK, Wayland, and X11 backends in that order.
 /// 
 /// You can use the `*` special value to ask Clutter to use the internally
@@ -997,12 +995,11 @@ public func scriptErrorQuark() -> GQuark {
 ///   clutter_set_windowing_backend ("x11,wayland,*");
 /// ```
 /// 
-/// 
 /// Will make Clutter test the X11 and Wayland backends, and then fall back
 /// to the internal list of available backends.
 /// 
 /// This function must be called before the first API call to Clutter, including
-/// clutter_get_option_context()
+/// `clutter_get_option_context()`
 public func setWindowingBackend(backendType backend_type: UnsafePointer<CChar>) {
     clutter_set_windowing_backend(backend_type)
 
@@ -1021,7 +1018,7 @@ public func setWindowingBackend(backendType backend_type: UnsafePointer<CChar>) 
 
 /// Adds a test unit to the Clutter test environment.
 /// 
-/// See also: g_test_add()
+/// See also: `g_test_add()`
 public func testAdd(testPath test_path: UnsafePointer<CChar>, testFunc test_func: @escaping GLib.TestFunc) {
     clutter_test_add(test_path, test_func)
 
@@ -1032,7 +1029,7 @@ public func testAdd(testPath test_path: UnsafePointer<CChar>, testFunc test_func
 
 /// Adds a test unit to the Clutter test environment.
 /// 
-/// See also: g_test_add_data_func()
+/// See also: `g_test_add_data_func()`
 public func testAddData(testPath test_path: UnsafePointer<CChar>, testFunc test_func: @escaping GLib.TestDataFunc, testData test_data: UnsafeMutableRawPointer) {
     clutter_test_add_data(test_path, test_func, cast(test_data))
 
@@ -1043,7 +1040,7 @@ public func testAddData(testPath test_path: UnsafePointer<CChar>, testFunc test_
 
 /// Adds a test unit to the Clutter test environment.
 /// 
-/// See also: g_test_add_data_func_full()
+/// See also: `g_test_add_data_func_full()`
 public func testAddDataFull(testPath test_path: UnsafePointer<CChar>, testFunc test_func: @escaping GLib.TestDataFunc, testData test_data: UnsafeMutableRawPointer, testNotify test_notify: @escaping GLib.DestroyNotify) {
     clutter_test_add_data_full(test_path, test_func, cast(test_data), test_notify)
 
@@ -1082,7 +1079,7 @@ public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
 
 
 
-/// Simple wrapper around clutter_threads_add_frame_source_full().
+/// Simple wrapper around `clutter_threads_add_frame_source_full()`.
 ///
 /// **threads_add_frame_source is deprecated:**
 /// There is no direct replacement for this API
@@ -1100,17 +1097,17 @@ public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
 /// removed and the function will not be called again. The `notify` function
 /// is called when the timeout is removed.
 /// 
-/// This function is similar to clutter_threads_add_timeout_full()
+/// This function is similar to `clutter_threads_add_timeout_full()`
 /// except that it will try to compensate for delays. For example, if
 /// `func` takes half the interval time to execute then the function
 /// will be called again half the interval time after it finished. In
-/// contrast clutter_threads_add_timeout_full() would not fire until a
+/// contrast `clutter_threads_add_timeout_full()` would not fire until a
 /// full interval after the function completes so the delay between
 /// calls would be `interval` * 1.5. This function does not however try
 /// to invoke the function multiple times to catch up missing frames if
 /// `func` takes more than `interval` ms to execute.
 /// 
-/// See also clutter_threads_add_idle_full().
+/// See also `clutter_threads_add_idle_full()`.
 ///
 /// **threads_add_frame_source_full is deprecated:**
 /// There is no direct replacement for this API
@@ -1122,7 +1119,7 @@ public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
 
 
 
-/// Simple wrapper around clutter_threads_add_idle_full() using the
+/// Simple wrapper around `clutter_threads_add_idle_full()` using the
 /// default priority.
 public func threadsAddIdle(func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = clutter_threads_add_idle(func_, cast(data))
@@ -1136,7 +1133,7 @@ public func threadsAddIdle(func_: @escaping GLib.SourceFunc, data: UnsafeMutable
 /// events pending. If the function returns `false` it is automatically
 /// removed from the list of event sources and will not be called again.
 /// 
-/// This function can be considered a thread-safe variant of g_idle_add_full():
+/// This function can be considered a thread-safe variant of `g_idle_add_full()`:
 /// it will call `function` while holding the Clutter lock. It is logically
 /// equivalent to the following implementation:
 /// 
@@ -1175,7 +1172,6 @@ public func threadsAddIdle(func_: @escaping GLib.SourceFunc, data: UnsafeMutable
 ///                           g_free)
 /// }
 /// ```
-/// 
 /// 
 /// This function should be used by threaded applications to make sure
 /// that `func` is emitted under the Clutter threads lock and invoked
@@ -1229,7 +1225,7 @@ public func threadsAddIdleFull(priority: CInt, func_: @escaping GLib.SourceFunc,
 /// list of repaint functions and will not be called again.
 /// 
 /// This function is guaranteed to be called from within the same thread
-/// that called clutter_main(), and while the Clutter lock is being held;
+/// that called `clutter_main()`, and while the Clutter lock is being held;
 /// the function will be called within the main loop, so it is imperative
 /// that it does not block, otherwise the frame time budget may be lost.
 /// 
@@ -1243,10 +1239,10 @@ public func threadsAddIdleFull(priority: CInt, func_: @escaping GLib.SourceFunc,
 /// frame will be queued.
 /// 
 /// When the repaint function is removed (either because it returned `false`
-/// or because clutter_threads_remove_repaint_func() has been called) the
+/// or because `clutter_threads_remove_repaint_func()` has been called) the
 /// `notify` function will be called, if any is set.
 /// 
-/// See also: clutter_threads_add_repaint_func_full()
+/// See also: `clutter_threads_add_repaint_func_full()`
 public func threadsAddRepaintFunc(func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
     let rv = clutter_threads_add_repaint_func(func_, cast(data), notify)
     return CUnsignedInt(rv)
@@ -1262,7 +1258,7 @@ public func threadsAddRepaintFunc(func_: @escaping GLib.SourceFunc, data: Unsafe
 /// list of repaint functions and will not be called again.
 /// 
 /// This function is guaranteed to be called from within the same thread
-/// that called clutter_main(), and while the Clutter lock is being held;
+/// that called `clutter_main()`, and while the Clutter lock is being held;
 /// the function will be called within the main loop, so it is imperative
 /// that it does not block, otherwise the frame time budget may be lost.
 /// 
@@ -1276,7 +1272,7 @@ public func threadsAddRepaintFunc(func_: @escaping GLib.SourceFunc, data: Unsafe
 /// frame will be queued.
 /// 
 /// When the repaint function is removed (either because it returned `false`
-/// or because clutter_threads_remove_repaint_func() has been called) the
+/// or because `clutter_threads_remove_repaint_func()` has been called) the
 /// `notify` function will be called, if any is set.
 public func threadsAddRepaintFuncFull(flags: RepaintFlags, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
     let rv = clutter_threads_add_repaint_func_full(flags, func_, cast(data), notify)
@@ -1286,7 +1282,7 @@ public func threadsAddRepaintFuncFull(flags: RepaintFlags, func_: @escaping GLib
 
 
 
-/// Simple wrapper around clutter_threads_add_timeout_full().
+/// Simple wrapper around `clutter_threads_add_timeout_full()`.
 public func threadsAddTimeout(interval: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
     let rv = clutter_threads_add_timeout(guint(interval), func_, cast(data))
     return CUnsignedInt(rv)
@@ -1307,7 +1303,7 @@ public func threadsAddTimeout(interval: CUnsignedInt, func_: @escaping GLib.Sour
 /// implemented, the timing will not be accurate and it will not try to
 /// "keep up" with the interval.
 /// 
-/// See also clutter_threads_add_idle_full().
+/// See also `clutter_threads_add_idle_full()`.
 public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
     let rv = clutter_threads_add_timeout_full(gint(priority), guint(interval), func_, cast(data), notify)
     return CUnsignedInt(rv)
@@ -1333,12 +1329,12 @@ public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, func_:
 
 
 /// Initialises the Clutter threading mechanism, so that Clutter API can be
-/// called by multiple threads, using clutter_threads_enter() and
-/// clutter_threads_leave() to mark the critical sections.
+/// called by multiple threads, using `clutter_threads_enter()` and
+/// `clutter_threads_leave()` to mark the critical sections.
 /// 
-/// You must call g_thread_init() before this function.
+/// You must call `g_thread_init()` before this function.
 /// 
-/// This function must be called before clutter_init().
+/// This function must be called before `clutter_init()`.
 /// 
 /// It is safe to call this function multiple times.
 ///
@@ -1380,11 +1376,11 @@ public func threadsRemoveRepaintFunc(handleId handle_id: CUnsignedInt) {
 
 /// Allows the application to replace the standard method that
 /// Clutter uses to protect its data structures. Normally, Clutter
-/// creates a single `GMutex` that is locked by clutter_threads_enter(),
-/// and released by clutter_threads_leave(); using this function an
+/// creates a single `GMutex` that is locked by `clutter_threads_enter()`,
+/// and released by `clutter_threads_leave()`; using this function an
 /// application provides, instead, a function `enter_fn` that is
-/// called by clutter_threads_enter() and a function `leave_fn` that is
-/// called by clutter_threads_leave().
+/// called by `clutter_threads_enter()` and a function `leave_fn` that is
+/// called by `clutter_threads_leave()`.
 /// 
 /// The functions must provide at least same locking functionality
 /// as the default implementation, but can also do extra application
@@ -1397,7 +1393,7 @@ public func threadsRemoveRepaintFunc(handleId handle_id: CUnsignedInt) {
 /// 
 /// Most threaded Clutter apps won't need to use this method.
 /// 
-/// This method must be called before clutter_init(), and cannot
+/// This method must be called before `clutter_init()`, and cannot
 /// be called multiple times.
 public func threadsSetLockFunctions(enterFn enter_fn: @escaping GLibObject.Callback, leaveFn leave_fn: @escaping GLibObject.Callback) {
     clutter_threads_set_lock_functions(enter_fn, leave_fn)
@@ -1409,7 +1405,7 @@ public func threadsSetLockFunctions(enterFn enter_fn: @escaping GLibObject.Callb
 
 /// Creates a new timeout pool source. A timeout pool should be used when
 /// multiple timeout functions, running at the same priority, are needed and
-/// the g_timeout_add() API might lead to starvation of the time slice of
+/// the `g_timeout_add()` API might lead to starvation of the time slice of
 /// the main loop. A timeout pool allocates a single time slice of the main
 /// loop and runs every timeout function inside it. The timeout pool is
 /// always sorted, so that the extraction of the next timeout function is
@@ -1474,7 +1470,7 @@ public func unitsFromCm(units: UnitsProtocol, cm: gfloat) {
 
 
 /// Stores a value in em inside `units`, using the default font
-/// name as returned by clutter_backend_get_font_name()
+/// name as returned by `clutter_backend_get_font_name()`
 public func unitsFromEm(units: UnitsProtocol, em: gfloat) {
     clutter_units_from_em(cast(units.ptr), em)
 
@@ -1531,9 +1527,8 @@ public func unitsFromPt(units: UnitsProtocol, pt: gfloat) {
 ///           | digit* sep digit+
 ///   sep: '.' | ','
 ///   digit: '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'
-///   wsp: (`0x20` | `0x9` | `0xA` | `0xB` | `0xC` | `0xD`)+
+///   wsp: (#0x20 | #0x9 | #0xA | #0xB | #0xC | #0xD)+
 /// ```
-/// 
 /// 
 /// For instance, these are valid strings:
 /// 
@@ -1545,14 +1540,12 @@ public func unitsFromPt(units: UnitsProtocol, pt: gfloat) {
 ///   .3 cm
 /// ```
 /// 
-/// 
 /// While these are not:
 /// 
 /// ```
 ///   42 cats
 ///   omg!1!ponies
 /// ```
-/// 
 /// 
 /// If no unit is specified, pixels are assumed.
 public func unitsFromString(units: UnitsProtocol, str: UnsafePointer<gchar>) -> Bool {
@@ -1683,8 +1676,8 @@ public func valueSetColor(value: GLibObject.ValueProtocol, color: ColorProtocol)
 /// Sets the contents of a `GValue` initialized with `CLUTTER_TYPE_PAINT_NODE`.
 /// 
 /// This function increased the reference count of `node`; if you do not wish
-/// to increase the reference count, use clutter_value_take_paint_node()
-/// instead. The reference count will be released by g_value_unset().
+/// to increase the reference count, use `clutter_value_take_paint_node()`
+/// instead. The reference count will be released by `g_value_unset()`.
 public func valueSetPaintNode(value: GLibObject.ValueProtocol, node: PaintNodeProtocol) {
     clutter_value_set_paint_node(cast(value.ptr), cast(node.ptr))
 
@@ -1734,8 +1727,8 @@ public func valueSetUnits(value: GLibObject.ValueProtocol, units: UnitsProtocol)
 
 /// Sets the contents of a `GValue` initialized with `CLUTTER_TYPE_PAINT_NODE`.
 /// 
-/// Unlike clutter_value_set_paint_node(), this function will not take a
-/// reference on the passed `node`: instead, it will take ownership of the
+/// Unlike `clutter_value_set_paint_node()`, this function will not take a
+/// reference on the passed `node:` instead, it will take ownership of the
 /// current reference count.
 public func valueTakePaintNode(value: GLibObject.ValueProtocol, node: PaintNodeProtocol) {
     clutter_value_take_paint_node(cast(value.ptr), cast(node.ptr))

@@ -16,7 +16,7 @@ import Atk
 /// 
 /// The usual way to implement this function is to create a `ClutterActor`
 /// instance and then bind the `GObject` properties to the actor properties
-/// of interest, using g_object_bind_property(). This way, when the `item`
+/// of interest, using `g_object_bind_property()`. This way, when the `item`
 /// in the `GListModel` changes, the `ClutterActor` changes as well.
 public typealias ActorCreateChildFunc = ClutterActorCreateChildFunc
 
@@ -27,7 +27,7 @@ public typealias ActorCreateChildFunc = ClutterActorCreateChildFunc
 /// Use #ClutterTimelineProgressFunc instead.
 public typealias AlphaFunc = ClutterAlphaFunc
 
-/// This function is passed to clutter_behaviour_actors_foreach() and
+/// This function is passed to `clutter_behaviour_actors_foreach()` and
 /// will be called for each actor driven by `behaviour`.
 ///
 /// **BehaviourForeachFunc is deprecated:**
@@ -35,15 +35,15 @@ public typealias AlphaFunc = ClutterAlphaFunc
 public typealias BehaviourForeachFunc = ClutterBehaviourForeachFunc
 
 /// The prototype for the callback function registered with
-/// clutter_binding_pool_install_action() and invoked by
-/// clutter_binding_pool_activate().
+/// `clutter_binding_pool_install_action()` and invoked by
+/// `clutter_binding_pool_activate()`.
 public typealias BindingActionFunc = ClutterBindingActionFunc
 
 /// Generic callback
 public typealias Callback = ClutterCallback
 
 /// A function pointer type used by event filters that are added with
-/// clutter_event_add_filter().
+/// `clutter_event_add_filter()`.
 public typealias EventFilterFunc = ClutterEventFilterFunc
 
 /// Filters the content of a row in the model.
@@ -64,7 +64,7 @@ public typealias ModelForeachFunc = ClutterModelForeachFunc
 /// Implement sorting using a custom #GListModel instead
 public typealias ModelSortFunc = ClutterModelSortFunc
 
-/// This function is passed to clutter_path_foreach() and will be
+/// This function is passed to `clutter_path_foreach()` and will be
 /// called for each node contained in the path.
 public typealias PathCallback = ClutterPathCallback
 
@@ -77,11 +77,11 @@ public typealias PathCallback = ClutterPathCallback
 /// 
 /// This function will be called by `ClutterInterval` if the
 /// type of the values of the interval was registered using
-/// clutter_interval_register_progress_func().
+/// `clutter_interval_register_progress_func()`.
 public typealias ProgressFunc = ClutterProgressFunc
 
 /// This is the signature of a function used to connect signals.  It is used
-/// by the clutter_script_connect_signals_full() function.  It is mainly
+/// by the `clutter_script_connect_signals_full()` function.  It is mainly
 /// intended for interpreted language bindings, but could be useful where the
 /// programmer wants more control over the signal connection process.
 public typealias ScriptConnectFunc = ClutterScriptConnectFunc

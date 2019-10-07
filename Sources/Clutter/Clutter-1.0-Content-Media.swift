@@ -371,7 +371,7 @@ public enum MediaPropertyName: String, PropertyNameProtocol {
     case progress = "progress"
     /// The font used to display subtitles. The font description has to
     /// follow the same grammar as the one recognized by
-    /// pango_font_description_from_string().
+    /// `pango_font_description_from_string()`.
     ///
     /// **subtitle-font-name is deprecated:**
     /// This method is deprecated.
@@ -425,12 +425,12 @@ public extension MediaProtocol {
 }
 
 public enum MediaSignalName: String, SignalNameProtocol {
-    /// The ::eos signal is emitted each time the media stream ends.
+    /// The `eos` signal is emitted each time the media stream ends.
     ///
     /// **eos is deprecated:**
     /// This method is deprecated.
     case eos = "eos"
-    /// The ::error signal is emitted each time an error occurred.
+    /// The `error` signal is emitted each time an error occurred.
     ///
     /// **error is deprecated:**
     /// This method is deprecated.
@@ -470,7 +470,7 @@ public enum MediaSignalName: String, SignalNameProtocol {
     case notifyProgress = "notify::progress"
     /// The font used to display subtitles. The font description has to
     /// follow the same grammar as the one recognized by
-    /// pango_font_description_from_string().
+    /// `pango_font_description_from_string()`.
     ///
     /// **subtitle-font-name is deprecated:**
     /// This method is deprecated.
@@ -621,9 +621,9 @@ public extension MediaProtocol {
     /// Starts or stops playing of `media`.
     ///  
     /// The implementation might be asynchronous, so the way to know whether
-    /// the actual playing state of the `media` is to use the `GObject`::notify
-    /// signal on the `ClutterMedia`:playing property and then retrieve the
-    /// current state with clutter_media_get_playing(). ClutterGstVideoTexture
+    /// the actual playing state of the `media` is to use the `GObject::notify`
+    /// signal on the `ClutterMedia:playing` property and then retrieve the
+    /// current state with `clutter_media_get_playing()`. ClutterGstVideoTexture
     /// in clutter-gst is an example of such an asynchronous implementation.
     ///
     /// **set_playing is deprecated:**
@@ -646,7 +646,7 @@ public extension MediaProtocol {
     /// Sets the font used by the subtitle renderer. The `font_name` string must be
     /// either `nil`, which means that the default font name of the underlying
     /// implementation will be used; or must follow the grammar recognized by
-    /// pango_font_description_from_string() like:
+    /// `pango_font_description_from_string()` like:
     /// 
     /// ```
     ///   clutter_media_set_subtitle_font_name (media, "Sans 24pt");
@@ -760,9 +760,9 @@ public extension MediaProtocol {
         /// Starts or stops playing of `media`.
         ///  
         /// The implementation might be asynchronous, so the way to know whether
-        /// the actual playing state of the `media` is to use the `GObject`::notify
-        /// signal on the `ClutterMedia`:playing property and then retrieve the
-        /// current state with clutter_media_get_playing(). ClutterGstVideoTexture
+        /// the actual playing state of the `media` is to use the `GObject::notify`
+        /// signal on the `ClutterMedia:playing` property and then retrieve the
+        /// current state with `clutter_media_get_playing()`. ClutterGstVideoTexture
         /// in clutter-gst is an example of such an asynchronous implementation.
         ///
         /// **set_playing is deprecated:**
@@ -812,7 +812,7 @@ public extension MediaProtocol {
         /// Sets the font used by the subtitle renderer. The `font_name` string must be
         /// either `nil`, which means that the default font name of the underlying
         /// implementation will be used; or must follow the grammar recognized by
-        /// pango_font_description_from_string() like:
+        /// `pango_font_description_from_string()` like:
         /// 
         /// ```
         ///   clutter_media_set_subtitle_font_name (media, "Sans 24pt");

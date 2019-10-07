@@ -149,14 +149,14 @@ public extension ScriptableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScriptable` instance.
     var scriptable_ptr: UnsafeMutablePointer<ClutterScriptable> { return ptr.assumingMemoryBound(to: ClutterScriptable.self) }
 
-    /// Retrieves the id of `scriptable` set using clutter_scriptable_set_id().
+    /// Retrieves the id of `scriptable` set using `clutter_scriptable_set_id()`.
     func getId() -> String! {
         let rv = clutter_scriptable_get_id(cast(scriptable_ptr))
         return rv.map { String(cString: UnsafePointer<CChar>($0)) }
     }
 
     /// Parses the passed JSON node. The implementation must set the type
-    /// of the passed `GValue` pointer using g_value_init().
+    /// of the passed `GValue` pointer using `g_value_init()`.
     func parseCustomNode(script: ScriptProtocol, value: GLibObject.ValueProtocol, name: UnsafePointer<gchar>, node: UnsafeMutablePointer<JsonNode>) -> Bool {
         let rv = clutter_scriptable_parse_custom_node(cast(scriptable_ptr), cast(script.ptr), cast(value.ptr), name, cast(node))
         return Bool(rv != 0)
@@ -179,9 +179,9 @@ public extension ScriptableProtocol {
         clutter_scriptable_set_id(cast(scriptable_ptr), id_)
     
     }
-    /// Retrieves the id of `scriptable` set using clutter_scriptable_set_id().
+    /// Retrieves the id of `scriptable` set using `clutter_scriptable_set_id()`.
     var id: String! {
-        /// Retrieves the id of `scriptable` set using clutter_scriptable_set_id().
+        /// Retrieves the id of `scriptable` set using `clutter_scriptable_set_id()`.
         get {
             let rv = clutter_scriptable_get_id(cast(scriptable_ptr))
             return rv.map { String(cString: UnsafePointer<CChar>($0)) }

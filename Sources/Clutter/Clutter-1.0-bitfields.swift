@@ -33,8 +33,8 @@ public extension ActorFlags {
     static let no_layout = CLUTTER_ACTOR_NO_LAYOUT /* 32 */
 }
 
-/// Flags passed to the `ClutterActorClass`.allocate() virtual function
-/// and to the clutter_actor_allocate() function.
+/// Flags passed to the `ClutterActorClass.allocate``()` virtual function
+/// and to the `clutter_actor_allocate()` function.
 public typealias AllocationFlags = ClutterAllocationFlags
 
 public extension AllocationFlags {
@@ -46,9 +46,9 @@ public extension AllocationFlags {
     static let absolute_origin_changed = CLUTTER_ABSOLUTE_ORIGIN_CHANGED /* 2 */
     /// Whether the allocation should be delegated
     ///   to the `ClutterLayoutManager` instance stored inside the
-    ///   `ClutterActor`:layout-manager property of `ClutterActor`. This flag
+    ///   `ClutterActor:layout`-manager property of `ClutterActor`. This flag
     ///   should only be used if you are subclassing `ClutterActor` and
-    ///   overriding the `ClutterActorClass`.allocate() virtual function, but
+    ///   overriding the `ClutterActorClass.allocate``()` virtual function, but
     ///   you wish to use the default implementation of the virtual function
     ///   inside `ClutterActor`. Added in Clutter 1.10.
     static let delegate_layout = CLUTTER_DELEGATE_LAYOUT /* 4 */
@@ -74,7 +74,7 @@ public typealias EffectPaintFlags = ClutterEffectPaintFlags
 public extension EffectPaintFlags {
     /// The actor or one of its children
     ///   has queued a redraw before this paint. This implies that the effect
-    ///   should call clutter_actor_continue_paint() to chain to the next
+    ///   should call `clutter_actor_continue_paint()` to chain to the next
     ///   effect and can not cache any results from a previous paint.
     static let actor_dirty = CLUTTER_EFFECT_PAINT_ACTOR_DIRTY /* 1 */
 }
@@ -119,7 +119,7 @@ public extension FeatureFlags {
 }
 
 /// Runtime flags to change the font quality. To be used with
-/// clutter_set_font_flags().
+/// `clutter_set_font_flags()`.
 ///
 /// **FontFlags is deprecated:**
 /// Use #cairo_font_options_t instead
@@ -193,12 +193,12 @@ public extension ModifierType {
     static let modifier_mask = CLUTTER_MODIFIER_MASK /* 1543512063 */
 }
 
-/// Possible flags to pass to clutter_actor_set_offscreen_redirect().
+/// Possible flags to pass to `clutter_actor_set_offscreen_redirect()`.
 public typealias OffscreenRedirect = ClutterOffscreenRedirect
 
 public extension OffscreenRedirect {
     /// Only redirect
-    ///   the actor if it is semi-transparent and its has_overlaps()
+    ///   the actor if it is semi-transparent and its `has_overlaps()`
     ///   virtual returns `true`. This is the default.
     static let automatic_for_opacity = CLUTTER_OFFSCREEN_REDIRECT_AUTOMATIC_FOR_OPACITY /* 1 */
     /// Always redirect the actor to an
@@ -206,7 +206,7 @@ public extension OffscreenRedirect {
     static let always = CLUTTER_OFFSCREEN_REDIRECT_ALWAYS /* 2 */
 }
 
-/// Flags to pass to clutter_threads_add_repaint_func_full().
+/// Flags to pass to `clutter_threads_add_repaint_func_full()`.
 public typealias RepaintFlags = ClutterRepaintFlags
 
 public extension RepaintFlags {
@@ -274,8 +274,8 @@ public extension SwipeDirection {
     static let right_ = CLUTTER_SWIPE_DIRECTION_RIGHT /* 8 */
 }
 
-/// Flags for clutter_texture_set_from_rgb_data() and
-/// clutter_texture_set_from_yuv_data().
+/// Flags for `clutter_texture_set_from_rgb_data()` and
+/// `clutter_texture_set_from_yuv_data()`.
 ///
 /// **TextureFlags is deprecated:**
 /// The #ClutterTexture class was the only user of
