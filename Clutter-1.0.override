@@ -1,0 +1,13 @@
+# The following constructors override designated parent initialisers
+clutter_group_new
+clutter_keyframe_transition_new
+clutter_rotate_action_new
+clutter_pan_action_new
+clutter_rectangle_new
+clutter_scroll_actor_new
+clutter_stage_new
+clutter_swipe_action_new
+clutter_tap_action_new
+clutter_text_new
+clutter_texture_new
+clutter_zoom_action_new
