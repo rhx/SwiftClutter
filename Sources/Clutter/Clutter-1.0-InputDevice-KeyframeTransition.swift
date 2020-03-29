@@ -91,40 +91,81 @@ public extension InputDeviceRef {
 /// structure depend on the backend used.
 open class InputDevice: GLibObject.Object, InputDeviceProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `InputDevice` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterInputDevice>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `InputDeviceProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterInputDevice`.
-    public convenience init<T: InputDeviceProtocol>(_ other: T) {
-        self.init(cast(other.input_device_ptr))
-        g_object_ref(cast(input_device_ptr))
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterInputDevice>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `InputDeviceProtocol`
+    /// Will retain `ClutterInputDevice`.
+    /// - Parameter other: an instance of a related type that implements `InputDeviceProtocol`
+    public init<T: InputDeviceProtocol>(inputDevice other: T) {
+        super.init(retaining: cast(other.input_device_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterInputDevice.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterInputDevice.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterInputDevice.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterInputDevice>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -824,7 +865,7 @@ public extension IntervalRef {
     /// This function is useful for language bindings.
     init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
         let rv = clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `ClutterInterval` of type `gtype`, between `initial`
     /// and `final`.
@@ -844,40 +885,81 @@ public extension IntervalRef {
 /// be accessed using the provided functions.
 open class Interval: InitiallyUnowned, IntervalProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Interval` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterInterval>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `IntervalProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterInterval`.
-    public convenience init<T: IntervalProtocol>(_ other: T) {
-        self.init(cast(other.interval_ptr))
-        g_object_ref(cast(interval_ptr))
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterInterval>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `IntervalProtocol`
+    /// Will retain `ClutterInterval`.
+    /// - Parameter other: an instance of a related type that implements `IntervalProtocol`
+    public init<T: IntervalProtocol>(interval other: T) {
+        super.init(retaining: cast(other.interval_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterInterval.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterInterval.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterInterval.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterInterval>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -888,9 +970,9 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    public convenience init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
+    public init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
         let rv = clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `ClutterInterval` of type `gtype`, between `initial`
@@ -1335,7 +1417,7 @@ public extension KeyframeTransitionRef {
         /// Creates a new `ClutterKeyframeTransition` for `property_name`.
     init( property_name: UnsafePointer<CChar>) {
         let rv = clutter_keyframe_transition_new(property_name)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -1347,46 +1429,87 @@ public extension KeyframeTransitionRef {
 /// data and should be accessed using the provided API.
 open class KeyframeTransition: PropertyTransition, KeyframeTransitionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `KeyframeTransition` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterKeyframeTransition>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `KeyframeTransitionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterKeyframeTransition`.
-    public convenience init<T: KeyframeTransitionProtocol>(_ other: T) {
-        self.init(cast(other.keyframe_transition_ptr))
-        g_object_ref(cast(keyframe_transition_ptr))
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterKeyframeTransition>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `KeyframeTransitionProtocol`
+    /// Will retain `ClutterKeyframeTransition`.
+    /// - Parameter other: an instance of a related type that implements `KeyframeTransitionProtocol`
+    public init<T: KeyframeTransitionProtocol>(keyframeTransition other: T) {
+        super.init(retaining: cast(other.keyframe_transition_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterKeyframeTransition.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterKeyframeTransition.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterKeyframeTransition.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterKeyframeTransition>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterKeyframeTransition` for `property_name`.
-    public convenience init( property_name: UnsafePointer<CChar>) {
+    public override init( property_name: UnsafePointer<CChar>) {
         let rv = clutter_keyframe_transition_new(property_name)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 

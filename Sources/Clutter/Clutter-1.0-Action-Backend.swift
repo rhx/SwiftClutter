@@ -91,40 +91,81 @@ public extension ActionRef {
 /// should be accessed using the provided API.
 open class Action: ActorMeta, ActionProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Action` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterAction>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ActionProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterAction`.
-    public convenience init<T: ActionProtocol>(_ other: T) {
-        self.init(cast(other.action_ptr))
-        g_object_ref(cast(action_ptr))
+    /// i.e., ownership is transferred to the `Action` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterAction>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ActionProtocol`
+    /// Will retain `ClutterAction`.
+    /// - Parameter other: an instance of a related type that implements `ActionProtocol`
+    public init<T: ActionProtocol>(action other: T) {
+        super.init(retaining: cast(other.action_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterAction.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterAction.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterAction.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterAction>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -445,7 +486,7 @@ public extension ActorRef {
     /// when it is added to another actor.
     init() {
         let rv = clutter_actor_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -456,49 +497,90 @@ public extension ActorRef {
 /// Base class for actors.
 open class Actor: InitiallyUnowned, ActorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Actor` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Actor` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterActor>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ActorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterActor`.
-    public convenience init<T: ActorProtocol>(_ other: T) {
-        self.init(cast(other.actor_ptr))
-        g_object_ref(cast(actor_ptr))
+    /// i.e., ownership is transferred to the `Actor` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterActor>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ActorProtocol`
+    /// Will retain `ClutterActor`.
+    /// - Parameter other: an instance of a related type that implements `ActorProtocol`
+    public init<T: ActorProtocol>(actor other: T) {
+        super.init(retaining: cast(other.actor_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterActor.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterActor.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterActor.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterActor>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterActor`.
     /// 
     /// A newly created actor has a floating reference, which will be sunk
     /// when it is added to another actor.
-    public convenience init() {
+    public init() {
         let rv = clutter_actor_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -6080,40 +6162,81 @@ public extension ActorMetaRef {
 /// private data and should be accessed using the provided API
 open class ActorMeta: InitiallyUnowned, ActorMetaProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `ActorMeta` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ActorMeta` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterActorMeta>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `ActorMetaProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterActorMeta`.
-    public convenience init<T: ActorMetaProtocol>(_ other: T) {
-        self.init(cast(other.actor_meta_ptr))
-        g_object_ref(cast(actor_meta_ptr))
+    /// i.e., ownership is transferred to the `ActorMeta` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterActorMeta>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `ActorMetaProtocol`
+    /// Will retain `ClutterActorMeta`.
+    /// - Parameter other: an instance of a related type that implements `ActorMetaProtocol`
+    public init<T: ActorMetaProtocol>(actorMeta other: T) {
+        super.init(retaining: cast(other.actor_meta_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterActorMeta.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterActorMeta.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterActorMeta.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterActorMeta>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
@@ -6502,7 +6625,7 @@ public extension AlignConstraintRef {
     /// alignment `factor`
     init( source: ActorProtocol, axis: AlignAxis, factor: gfloat) {
         let rv = clutter_align_constraint_new(cast(source.ptr), axis, factor)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -6514,48 +6637,89 @@ public extension AlignConstraintRef {
 /// whose members cannot be directly accesses
 open class AlignConstraint: Constraint, AlignConstraintProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `AlignConstraint` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `AlignConstraint` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterAlignConstraint>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `AlignConstraintProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterAlignConstraint`.
-    public convenience init<T: AlignConstraintProtocol>(_ other: T) {
-        self.init(cast(other.align_constraint_ptr))
-        g_object_ref(cast(align_constraint_ptr))
+    /// i.e., ownership is transferred to the `AlignConstraint` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterAlignConstraint>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `AlignConstraintProtocol`
+    /// Will retain `ClutterAlignConstraint`.
+    /// - Parameter other: an instance of a related type that implements `AlignConstraintProtocol`
+    public init<T: AlignConstraintProtocol>(alignConstraint other: T) {
+        super.init(retaining: cast(other.align_constraint_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterAlignConstraint.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterAlignConstraint.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterAlignConstraint.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterAlignConstraint>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new constraint, aligning a `ClutterActor`'s position with
     /// regards of the size of the actor to `source`, with the given
     /// alignment `factor`
-    public convenience init( source: ActorProtocol, axis: AlignAxis, factor: gfloat) {
+    public init( source: ActorProtocol, axis: AlignAxis, factor: gfloat) {
         let rv = clutter_align_constraint_new(cast(source.ptr), axis, factor)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -7014,7 +7178,7 @@ public extension AlphaRef {
     /// Use #ClutterTimeline instead
     @available(*, deprecated) init() {
         let rv = clutter_alpha_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `ClutterAlpha` instance and sets the timeline
@@ -7026,7 +7190,7 @@ public extension AlphaRef {
     /// Use #ClutterTimeline instead
     @available(*, deprecated) init(full timeline: TimelineProtocol, mode: CUnsignedLong) {
         let rv = clutter_alpha_new_full(cast(timeline.ptr), gulong(mode))
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Creates a new `ClutterAlpha` instances and sets the timeline
@@ -7040,7 +7204,7 @@ public extension AlphaRef {
     /// Use #ClutterTimeline instead
     @available(*, deprecated) init(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         let rv = clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy)
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `ClutterAlpha` instance and sets the timeline
     /// and animation mode.
@@ -7078,40 +7242,81 @@ public extension AlphaRef {
 /// only be accessed using the provided API.
 open class Alpha: InitiallyUnowned, AlphaProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Alpha` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Alpha` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterAlpha>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `AlphaProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterAlpha`.
-    public convenience init<T: AlphaProtocol>(_ other: T) {
-        self.init(cast(other.alpha_ptr))
-        g_object_ref(cast(alpha_ptr))
+    /// i.e., ownership is transferred to the `Alpha` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterAlpha>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `AlphaProtocol`
+    /// Will retain `ClutterAlpha`.
+    /// - Parameter other: an instance of a related type that implements `AlphaProtocol`
+    public init<T: AlphaProtocol>(alpha other: T) {
+        super.init(retaining: cast(other.alpha_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterAlpha.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterAlpha.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterAlpha.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterAlpha>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterAlpha` instance.  You must set a function
@@ -7124,9 +7329,9 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     ///
     /// **new is deprecated:**
     /// Use #ClutterTimeline instead
-    @available(*, deprecated) public convenience init() {
+    @available(*, deprecated) public init() {
         let rv = clutter_alpha_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `ClutterAlpha` instance and sets the timeline
@@ -7136,9 +7341,9 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     ///
     /// **new_full is deprecated:**
     /// Use #ClutterTimeline instead
-    @available(*, deprecated) public convenience init(full timeline: TimelineProtocol, mode: CUnsignedLong) {
+    @available(*, deprecated) public init(full timeline: TimelineProtocol, mode: CUnsignedLong) {
         let rv = clutter_alpha_new_full(cast(timeline.ptr), gulong(mode))
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `ClutterAlpha` instances and sets the timeline
@@ -7150,9 +7355,9 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     ///
     /// **new_with_func is deprecated:**
     /// Use #ClutterTimeline instead
-    @available(*, deprecated) public convenience init(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
+    @available(*, deprecated) public init(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
         let rv = clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy)
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
     /// Creates a new `ClutterAlpha` instance and sets the timeline
@@ -7687,7 +7892,7 @@ public extension AnimationRef {
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) init() {
         let rv = clutter_animation_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -7699,40 +7904,81 @@ public extension AnimationRef {
 /// be accessed using the provided functions.
 open class Animation: GLibObject.Object, AnimationProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Animation` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Animation` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterAnimation>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `AnimationProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterAnimation`.
-    public convenience init<T: AnimationProtocol>(_ other: T) {
-        self.init(cast(other.animation_ptr))
-        g_object_ref(cast(animation_ptr))
+    /// i.e., ownership is transferred to the `Animation` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterAnimation>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `AnimationProtocol`
+    /// Will retain `ClutterAnimation`.
+    /// - Parameter other: an instance of a related type that implements `AnimationProtocol`
+    public init<T: AnimationProtocol>(animation other: T) {
+        super.init(retaining: cast(other.animation_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterAnimation.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterAnimation.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterAnimation.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterAnimation>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterAnimation` instance. You should set the
@@ -7751,9 +7997,9 @@ open class Animation: GLibObject.Object, AnimationProtocol {
     ///
     /// **new is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) public convenience init() {
+    @available(*, deprecated) public init() {
         let rv = clutter_animation_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -8395,7 +8641,7 @@ public extension AnimatorRef {
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) init() {
         let rv = clutter_animator_new()
-        self.init(cast(rv))
+        ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
 
@@ -8407,49 +8653,90 @@ public extension AnimatorRef {
 /// should be accessed using the provided API
 open class Animator: GLibObject.Object, AnimatorProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Animator` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Animator` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterAnimator>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `AnimatorProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterAnimator`.
-    public convenience init<T: AnimatorProtocol>(_ other: T) {
-        self.init(cast(other.animator_ptr))
-        g_object_ref(cast(animator_ptr))
+    /// i.e., ownership is transferred to the `Animator` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterAnimator>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `AnimatorProtocol`
+    /// Will retain `ClutterAnimator`.
+    /// - Parameter other: an instance of a related type that implements `AnimatorProtocol`
+    public init<T: AnimatorProtocol>(animator other: T) {
+        super.init(retaining: cast(other.animator_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterAnimator.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterAnimator.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterAnimator.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterAnimator>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterAnimator` instance
     ///
     /// **new is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) public convenience init() {
+    @available(*, deprecated) public init() {
         let rv = clutter_animator_new()
-        self.init(cast(rv))
+        super.init(cast(rv))
     }
 
 
@@ -8840,40 +9127,81 @@ public extension BackendRef {
 /// members cannot be directly accessed.
 open class Backend: GLibObject.Object, BackendProtocol {
     /// Designated initialiser from the underlying `C` data type.
-    /// Ownership is transferred to the `Backend` instance.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Backend` instance.
+    /// - Parameter op: pointer to the underlying object
     public init(_ op: UnsafeMutablePointer<ClutterBackend>) {
         super.init(cast(op))
     }
 
-    /// Reference convenience intialiser for a related type that implements `BackendProtocol`
+    /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterBackend`.
-    public convenience init<T: BackendProtocol>(_ other: T) {
-        self.init(cast(other.backend_ptr))
-        g_object_ref(cast(backend_ptr))
+    /// i.e., ownership is transferred to the `Backend` instance.
+    /// - Parameter op: pointer to the underlying object
+    public init(retaining op: UnsafeMutablePointer<ClutterBackend>) {
+        super.init(retaining: cast(op))
+    }
+
+    /// Reference intialiser for a related type that implements `BackendProtocol`
+    /// Will retain `ClutterBackend`.
+    /// - Parameter other: an instance of a related type that implements `BackendProtocol`
+    public init<T: BackendProtocol>(backend other: T) {
+        super.init(retaining: cast(other.backend_ptr))
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
-        self.init(cPointer.withMemoryRebound(to: ClutterBackend.self, capacity: 1) { $0 })
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+        super.init(cPointer: p)
+    }
+
+    /// Unsafe typed, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
+    /// - Parameter cPointer: pointer to the underlying object
+    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+        super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
-    public convenience init(raw: UnsafeRawPointer) {
-        self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterBackend.self))
+    /// - Parameter p: raw pointer to the underlying object
+    override public init(raw p: UnsafeRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
+    override public init(retainingRaw raw: UnsafeRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
-    public convenience init(raw: UnsafeMutableRawPointer) {
-        self.init(raw.assumingMemoryBound(to: ClutterBackend.self))
+    /// - Parameter p: mutable raw pointer to the underlying object
+    override public init(raw p: UnsafeMutableRawPointer) {
+        super.init(raw: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
+    /// - Parameter raw: mutable raw pointer to the underlying object
+    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+        super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
-    public convenience init(opaquePointer: OpaquePointer) {
-        self.init(UnsafeMutablePointer<ClutterBackend>(opaquePointer))
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(opaquePointer p: OpaquePointer) {
+        super.init(opaquePointer: p)
+    }
+
+    /// Unsafe untyped, retaining initialiser.
+    /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
+    /// - Parameter p: opaque pointer to the underlying object
+    override public init(retainingOpaquePointer p: OpaquePointer) {
+        super.init(retainingOpaquePointer: p)
     }
 
 
