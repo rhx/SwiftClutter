@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>PropertyTransitionSignalName</h1>
               <div class="declaration">
                 <div class="language">
@@ -17423,7 +17423,7 @@ you should use the <code>ClutterTimeline::stopped</code> signal instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3564">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17449,20 +17449,20 @@ a callback to the <code><a href="../Global%20Variables.html#/s:7Clutter6markers5
 with:</p>
 
 <p><informalexample><programlisting>
-  clutter_timeline_add_marker_at_time (timeline, <q>foo</q>, 500);
-  clutter_timeline_add_marker_at_time (timeline, <q>bar</q>, 750);</p>
+  clutter_timeline_add_marker_at_time (timeline, &ldquo;foo&rdquo;, 500);
+  clutter_timeline_add_marker_at_time (timeline, &ldquo;bar&rdquo;, 750);</p>
 
-<p>g_signal_connect (timeline, <q>marker-reached</q>,
+<p>g_signal_connect (timeline, &ldquo;marker-reached&rdquo;,
                     G_CALLBACK (each_marker_reached), NULL);
-  g_signal_connect (timeline, <q>marker-reached`foo`</q>,
+  g_signal_connect (timeline, &ldquo;marker-reached<code>foo</code>&rdquo;,
                     G_CALLBACK (foo_marker_reached), NULL);
-  g_signal_connect (timeline, <q>marker-reached`bar`</q>,
+  g_signal_connect (timeline, &ldquo;marker-reached<code><a href="../Global%20Variables.html#/s:7Clutter3bars5Int32Vvp">bar</a></code>&rdquo;,
                     G_CALLBACK (bar_marker_reached), NULL);
 </programlisting></informalexample></p>
 
 <p>In the example, the first callback will be invoked for both
-the <q>foo</q> and <q>bar</q> marker, while the second and third callbacks
-will be invoked for the <q>foo</q> or <q>bar</q> markers, respectively.</p>
+the &ldquo;foo&rdquo; and &ldquo;bar&rdquo; marker, while the second and third callbacks
+will be invoked for the &ldquo;foo&rdquo; or &ldquo;bar&rdquo; markers, respectively.</p>
 
                       </div>
                       <div class="declaration">
@@ -17474,7 +17474,7 @@ will be invoked for the <q>foo</q> or <q>bar</q> markers, respectively.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3171">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3587">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17506,7 +17506,7 @@ to update the scene.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3175">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3591">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17559,7 +17559,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3200">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3616">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17589,7 +17589,7 @@ detail strings for the notify signal.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3202">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3618">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17622,7 +17622,7 @@ expired.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3207">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17660,7 +17660,7 @@ this signal will never be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3217">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3633">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17690,7 +17690,7 @@ this signal will never be emitted.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3219">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3635">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17721,7 +17721,7 @@ when reaching the end.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3638">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17752,7 +17752,7 @@ timeline before actually starting.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3641">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17783,7 +17783,7 @@ timeline before actually starting.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3228">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17814,7 +17814,7 @@ ClutterTimeline:fps value.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3231">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3647">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17845,7 +17845,7 @@ of the transition.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17883,7 +17883,7 @@ Use the #ClutterTimeline:repeat-count property instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3244">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3660">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17913,7 +17913,7 @@ Use the #ClutterTimeline:repeat-count property instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3246">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17943,7 +17943,7 @@ Use the #ClutterTimeline:repeat-count property instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3248">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3664">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17980,7 +17980,7 @@ repeating.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3257">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3673">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18015,7 +18015,7 @@ stopped.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3264">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-PageTurnEffect-Rectangle.swift#L3680">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18028,8 +18028,8 @@ stopped.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

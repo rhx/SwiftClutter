@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ModelIterProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -17470,9 +17470,11 @@ provided API.</p>
               <div class="task-name-container">
                 <a name="/ModelIter%20Class"></a>
                 <a name="//apple_ref/swift/Section/ModelIter Class" class="dashAnchor"></a>
-                <a href="#/ModelIter%20Class">
-                  <h3 class="section-name">ModelIter Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/ModelIter%20Class"></a>
+                  <h3 class="section-name"><p>ModelIter Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -17499,7 +17501,7 @@ provided API.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/ModelIterPropertyName.html">ModelIterPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/ModelIterPropertyName.html">ModelIterPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -17587,22 +17589,11 @@ provided API.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L159-L183">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L200-L224">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/ModelIter%20Class2"></a>
-                <a name="//apple_ref/swift/Section/ModelIter Class" class="dashAnchor"></a>
-                <a href="#/ModelIter%20Class2">
-                  <h3 class="section-name">ModelIter Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17679,22 +17670,11 @@ provided API.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L230-L249">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L271-L290">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/ModelIter%20Class3"></a>
-                <a name="//apple_ref/swift/Section/ModelIter Class" class="dashAnchor"></a>
-                <a href="#/ModelIter%20Class3">
-                  <h3 class="section-name">ModelIter Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17721,13 +17701,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">copy</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModelIter</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L260-L263">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L301-L304">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17758,13 +17738,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getModel</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModel</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L273-L276">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L314-L317">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17795,13 +17775,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getRow</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L282-L285">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L323-L326">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17833,13 +17813,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getValist</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="kt">CVaListPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L292-L295">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L333-L336">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17871,13 +17851,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getValue</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L302-L305">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L343-L346">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17910,13 +17890,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">next</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModelIter</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L313-L316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L354-L357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17949,13 +17929,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">prev</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModelIter</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L324-L327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L365-L368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17987,13 +17967,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setValist</span><span class="p">(</span><span class="nv">args</span><span class="p">:</span> <span class="kt">CVaListPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L338-L341">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L379-L382">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18025,13 +18005,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setValue</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L348-L351">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L389-L392">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18068,7 +18048,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L357-L367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L398-L408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18105,7 +18085,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L374-L384">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L415-L425">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18141,7 +18121,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L390-L399">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L431-L440">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18177,7 +18157,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L405-L414">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-ModelIter-OffscreenEffect.swift#L446-L455">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18190,8 +18170,8 @@ Use #GListModel instead</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

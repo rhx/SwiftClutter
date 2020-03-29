@@ -9,18 +9,18 @@ A Swift wrapper around clutter that is largely auto-generated from gobject-intro
 To build, you need at least Swift 4.2 (Swift 5.x should work fine), download from https://swift.org/download/ -- if you are using macOS, make sure you have the command line tools installed as well).  Test that your compiler works using `swift --version`, which should give you something like
 
 	$ swift --version
-	Apple Swift version 5.0.1 (swiftlang-1001.0.82.4 clang-1001.0.46.5)
-	Target: x86_64-apple-darwin18.6.0
+	Apple Swift version 5.2 (swiftlang-1103.0.32.1 clang-1103.0.32.29)
+	Target: x86_64-apple-darwin19.4.0
 
 on macOS, or on Linux you should get something like:
 
 	$ swift --version
-	Swift version 5.0.2 (swift-5.0.2-RELEASE)
+	Swift version 5.2 (swift-5.2-RELEASE)
 	Target: x86_64-unknown-linux-gnu
 
 ### GLib 2.46 or higher
 
-These Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58, 2.60, and 2.62.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.46, 2.48, 2.52, 2.56, 2.58, 2.60, 2.62, and 2.64.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -49,7 +49,7 @@ On Fedora 29, you can use the gtk that comes with the distribution.  Just instal
 On macOS, you can install glib and Clutter using HomeBrew (for setup instructions, see http://brew.sh).  Once you have a running HomeBrew installation, you can use it to install a native version of Clutter:
 
 	brew update
-	brew install clutter gobject-introspection
+	brew install clutter glib glib-networking gobject-introspection pkg-config
 
 
 ## Building

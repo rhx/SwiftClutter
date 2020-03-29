@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>BehaviourProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -17469,9 +17469,11 @@ be accessed with the functions below.</p>
               <div class="task-name-container">
                 <a name="/Behaviour%20Class"></a>
                 <a name="//apple_ref/swift/Section/Behaviour Class" class="dashAnchor"></a>
-                <a href="#/Behaviour%20Class">
-                  <h3 class="section-name">Behaviour Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Behaviour%20Class"></a>
+                  <h3 class="section-name"><p>Behaviour Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -17498,7 +17500,7 @@ be accessed with the functions below.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/BehaviourPropertyName.html">BehaviourPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/BehaviourPropertyName.html">BehaviourPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -17586,22 +17588,11 @@ be accessed with the functions below.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L154-L178">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L195-L219">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Behaviour%20Class2"></a>
-                <a name="//apple_ref/swift/Section/Behaviour Class" class="dashAnchor"></a>
-                <a href="#/Behaviour%20Class2">
-                  <h3 class="section-name">Behaviour Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17678,22 +17669,11 @@ be accessed with the functions below.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L235-L254">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L276-L295">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Behaviour%20Class3"></a>
-                <a name="//apple_ref/swift/Section/Behaviour Class" class="dashAnchor"></a>
-                <a href="#/Behaviour%20Class3">
-                  <h3 class="section-name">Behaviour Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17720,13 +17700,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">actorsForeach</span><span class="p">(</span><span class="nv">func_</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:7Clutter20BehaviourForeachFunca">BehaviourForeachFunc</a></span><span class="p">,</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L265-L268">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L306-L309">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17758,13 +17738,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">apply</span><span class="p">(</span><span class="nv">actor</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActorProtocol.html">ActorProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L275-L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L316-L319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17797,13 +17777,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getActors</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GSList</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L286-L289">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L327-L330">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17834,13 +17814,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAlpha</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterAlpha</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L295-L298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L336-L339">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17871,13 +17851,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getNActors</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L304-L307">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L345-L348">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17908,13 +17888,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getNthActor</span><span class="p">(</span><span class="nv">index_</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterActor</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L313-L316">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L354-L357">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17945,13 +17925,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">isApplied</span><span class="p">(</span><span class="nv">actor</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActorProtocol.html">ActorProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L322-L325">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L363-L366">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17983,13 +17963,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">actor</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ActorProtocol.html">ActorProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L332-L335">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L373-L376">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18020,13 +18000,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">removeAll</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L341-L344">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L382-L385">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18065,13 +18045,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">alpha</span><span class="p">:</span> <span class="kt"><a href="../Protocols/AlphaProtocol.html">AlphaProtocol</a></span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L358-L361">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L399-L402">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18109,7 +18089,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L368-L379">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L409-L420">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18132,7 +18112,7 @@ This method is deprecated.</p>
                       <div class="abstract">
                         <p>The <code>ClutterAlpha</code> object used to drive this behaviour. A <code>ClutterAlpha</code>
 object binds a <code>ClutterTimeline</code> and a function which computes a value
-(the <q>alpha</q>) depending on the time. Each time the alpha value changes
+(the &ldquo;alpha&rdquo;) depending on the time. Each time the alpha value changes
 the alpha-notify virtual function is called.</p>
 
 <p><strong>alpha is deprecated:</strong>
@@ -18148,7 +18128,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L388-L412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L429-L453">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18184,7 +18164,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L418-L427">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Behaviour-CairoTexture.swift#L459-L468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18197,8 +18177,8 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

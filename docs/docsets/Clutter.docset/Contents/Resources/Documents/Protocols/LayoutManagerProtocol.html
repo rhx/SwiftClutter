@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>LayoutManagerProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -17469,9 +17469,11 @@ and should be accessed using the provided API</p>
               <div class="task-name-container">
                 <a name="/LayoutManager%20Class"></a>
                 <a name="//apple_ref/swift/Section/LayoutManager Class" class="dashAnchor"></a>
-                <a href="#/LayoutManager%20Class">
-                  <h3 class="section-name">LayoutManager Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/LayoutManager%20Class"></a>
+                  <h3 class="section-name"><p>LayoutManager Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -17498,7 +17500,7 @@ and should be accessed using the provided API</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/LayoutManagerPropertyName.html">LayoutManagerPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/LayoutManagerPropertyName.html">LayoutManagerPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -17586,22 +17588,11 @@ and should be accessed using the provided API</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L191-L215">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L232-L256">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/LayoutManager%20Class2"></a>
-                <a name="//apple_ref/swift/Section/LayoutManager Class" class="dashAnchor"></a>
-                <a href="#/LayoutManager%20Class2">
-                  <h3 class="section-name">LayoutManager Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17678,22 +17669,11 @@ and should be accessed using the provided API</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L356-L375">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L397-L416">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/LayoutManager%20Class3"></a>
-                <a name="//apple_ref/swift/Section/LayoutManager Class" class="dashAnchor"></a>
-                <a href="#/LayoutManager%20Class3">
-                  <h3 class="section-name">LayoutManager Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17724,7 +17704,7 @@ and should be accessed using the provided API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L385-L388">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L426-L429">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17761,13 +17741,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">beginAnimation</span><span class="p">(</span><span class="nv">duration</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">mode</span><span class="p">:</span> <span class="kt">CUnsignedLong</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterAlpha</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L400-L403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L441-L444">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17805,7 +17785,7 @@ value out of it</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L415-L418">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L456-L459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17839,7 +17819,7 @@ attached to a child of <code>container</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L426-L429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L467-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17872,13 +17852,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">endAnimation</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L437-L440">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L478-L481">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17912,7 +17892,7 @@ the <code>ClutterLayoutMeta</code> sub-class used by <code>manager</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L444-L447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L485-L488">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17947,13 +17927,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAnimationProgress</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">gdouble</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L457-L460">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L498-L501">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17988,7 +17968,7 @@ to the <code>actor</code> child of <code>container</code>, eventually by creatin
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L465-L468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L506-L509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18024,7 +18004,7 @@ to <code>manager</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L474-L477">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L515-L518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18060,7 +18040,7 @@ to <code>manager</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L483-L486">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L524-L527">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18096,7 +18076,7 @@ to <code>manager</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L492-L495">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L533-L536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18130,7 +18110,7 @@ stored inside the <code>ClutterLayoutMeta</code> sub-class used by <code>manager
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L499-L502">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L540-L543">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18168,7 +18148,7 @@ count of the <code>container</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L510-L513">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L551-L554">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18208,7 +18188,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L522-L535">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L563-L576">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18221,8 +18201,8 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

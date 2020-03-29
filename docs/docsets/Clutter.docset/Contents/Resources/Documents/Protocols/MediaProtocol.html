@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>MediaProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -17420,7 +17420,7 @@ accessed</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L221">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L268">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17458,7 +17458,7 @@ accessed</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L224">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L271">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17469,9 +17469,11 @@ accessed</p>
               <div class="task-name-container">
                 <a name="/Media%20Interface"></a>
                 <a name="//apple_ref/swift/Section/Media Interface" class="dashAnchor"></a>
-                <a href="#/Media%20Interface">
-                  <h3 class="section-name">Media Interface</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Media%20Interface"></a>
+                  <h3 class="section-name"><p>Media Interface</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -17498,7 +17500,7 @@ accessed</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/MediaPropertyName.html">MediaPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/MediaPropertyName.html">MediaPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -17586,22 +17588,11 @@ accessed</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L400-L424">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L494-L518">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Media%20Interface2"></a>
-                <a name="//apple_ref/swift/Section/Media Interface" class="dashAnchor"></a>
-                <a href="#/Media%20Interface2">
-                  <h3 class="section-name">Media Interface</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17678,22 +17669,11 @@ accessed</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L496-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L590-L609">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Media%20Interface3"></a>
-                <a name="//apple_ref/swift/Section/Media Interface" class="dashAnchor"></a>
-                <a href="#/Media%20Interface3">
-                  <h3 class="section-name">Media Interface</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17720,13 +17700,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getAudioVolume</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">gdouble</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L526-L529">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L620-L623">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17757,13 +17737,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getBufferFill</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">gdouble</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L535-L538">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L629-L632">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17794,13 +17774,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getCanSeek</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L544-L547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L638-L641">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17831,13 +17811,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getDuration</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">gdouble</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L553-L556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L647-L650">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17868,13 +17848,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getPlaying</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L562-L565">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L656-L659">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17905,13 +17885,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getProgress</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">gdouble</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L571-L574">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L665-L668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17942,13 +17922,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getSubtitleFontName</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L580-L583">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L674-L677">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17979,13 +17959,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getSubtitleUri</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L589-L592">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L683-L686">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18016,13 +17996,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getUri</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L598-L601">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L692-L695">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18053,13 +18033,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setAudio</span><span class="p">(</span><span class="nv">volume</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L607-L610">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L701-L704">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18090,13 +18070,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setFilename</span><span class="p">(</span><span class="kt">String_</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L616-L619">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L710-L713">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18133,13 +18113,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">playing</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L631-L634">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L725-L728">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18171,13 +18151,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">progress</span><span class="p">:</span> <span class="n">gdouble</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L641-L644">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L735-L738">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18213,13 +18193,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setSubtitle</span><span class="p">(</span><span class="n">fontName</span> <span class="nv">font_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L658-L661">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L752-L755">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18250,13 +18230,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setSubtitle</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L667-L670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L761-L764">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18287,13 +18267,13 @@ This method is deprecated.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">set</span><span class="p">(</span><span class="nv">uri</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L676-L679">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L770-L773">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18329,7 +18309,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L684-L700">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L778-L794">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18365,7 +18345,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L706-L715">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L800-L809">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18401,7 +18381,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L721-L730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L815-L824">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18437,7 +18417,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L736-L745">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L830-L839">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18473,7 +18453,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L751-L773">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L845-L867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18510,7 +18490,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L780-L797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L874-L891">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18546,7 +18526,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L803-L827">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L897-L921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18582,7 +18562,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L833-L849">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L927-L943">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18618,7 +18598,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L855-L871">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-Content-Media.swift#L949-L965">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18631,8 +18611,8 @@ This method is deprecated.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>

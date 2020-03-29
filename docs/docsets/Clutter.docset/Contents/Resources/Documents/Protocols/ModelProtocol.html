@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>ModelProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -17421,7 +17421,7 @@ API.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1118">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1241">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17459,7 +17459,7 @@ API.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1121">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1244">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17470,9 +17470,11 @@ API.</p>
               <div class="task-name-container">
                 <a name="/Model%20Class"></a>
                 <a name="//apple_ref/swift/Section/Model Class" class="dashAnchor"></a>
-                <a href="#/Model%20Class">
-                  <h3 class="section-name">Model Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/Model%20Class"></a>
+                  <h3 class="section-name"><p>Model Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -17499,7 +17501,7 @@ API.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/ModelPropertyName.html">ModelPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/ModelPropertyName.html">ModelPropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -17587,22 +17589,11 @@ API.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1248-L1272">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1412-L1436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Model%20Class2"></a>
-                <a name="//apple_ref/swift/Section/Model Class" class="dashAnchor"></a>
-                <a href="#/Model%20Class2">
-                  <h3 class="section-name">Model Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17679,22 +17670,11 @@ API.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1348-L1367">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1512-L1531">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/Model%20Class3"></a>
-                <a name="//apple_ref/swift/Section/Model Class" class="dashAnchor"></a>
-                <a href="#/Model%20Class3">
-                  <h3 class="section-name">Model Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17722,13 +17702,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">appendv</span><span class="p">(</span><span class="n"><a href="../Protocols/ModelProtocol.html#/s:7Clutter13ModelProtocolPAAE8nColumnss6UInt32Vvp">nColumns</a></span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">columns</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CUnsignedInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">values</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GValue</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1383-L1386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1547-L1550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17762,13 +17742,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">filter</span><span class="p">(</span><span class="nv">iter</span><span class="p">:</span> <span class="kt"><a href="../Protocols/ModelIterProtocol.html">ModelIterProtocol</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1395-L1398">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1559-L1562">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17802,13 +17782,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">filter</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1407-L1410">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1571-L1574">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17839,13 +17819,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">foreach</span><span class="p">(</span><span class="nv">func_</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:7Clutter16ModelForeachFunca">ModelForeachFunc</a></span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1416-L1419">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1580-L1583">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17876,13 +17856,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getColumnName</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1425-L1428">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1589-L1592">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17913,13 +17893,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getColumnType</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GType</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1434-L1437">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1598-L1601">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17951,13 +17931,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getFilterSet</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1444-L1447">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1608-L1611">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17989,13 +17969,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getFirstIter</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModelIter</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1454-L1457">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1618-L1621">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18030,13 +18010,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getIterAt</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModelIter</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1467-L1470">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1631-L1634">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18068,13 +18048,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getLastIter</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">ClutterModelIter</span><span class="o">&gt;!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1477-L1480">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1641-L1644">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18105,13 +18085,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getNColumns</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1486-L1489">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1650-L1653">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18143,13 +18123,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getNRows</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CUnsignedInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1496-L1499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1660-L1663">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18180,13 +18160,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getSortingColumn</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">CInt</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1505-L1508">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1669-L1672">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18219,13 +18199,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">insertValue</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">column</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueProtocol</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1520-L1523">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1684-L1687">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18257,13 +18237,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">insertv</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="n"><a href="../Protocols/ModelProtocol.html#/s:7Clutter13ModelProtocolPAAE8nColumnss6UInt32Vvp">nColumns</a></span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">columns</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CUnsignedInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">values</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GValue</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1530-L1533">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1694-L1697">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18295,13 +18275,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">prependv</span><span class="p">(</span><span class="n"><a href="../Protocols/ModelProtocol.html#/s:7Clutter13ModelProtocolPAAE8nColumnss6UInt32Vvp">nColumns</a></span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">columns</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CUnsignedInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="nv">values</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GValue</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1544-L1547">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1708-L1711">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18332,13 +18312,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">remove</span><span class="p">(</span><span class="nv">row</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1553-L1556">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1717-L1720">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18370,13 +18350,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">resort</span><span class="p">()</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1563-L1566">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1727-L1730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18407,13 +18387,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setFilter</span><span class="p">(</span><span class="nv">func_</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:7Clutter15ModelFilterFunca">ModelFilterFunc</a></span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">DestroyNotify</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1572-L1575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1736-L1739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18448,13 +18428,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setNames</span><span class="p">(</span><span class="n"><a href="../Protocols/ModelProtocol.html#/s:7Clutter13ModelProtocolPAAE8nColumnss6UInt32Vvp">nColumns</a></span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">names</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1585-L1588">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1749-L1752">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18485,13 +18465,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setSort</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">,</span> <span class="nv">func_</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Typealiases.html#/s:7Clutter13ModelSortFunca">ModelSortFunc</a></span><span class="p">,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="kt">UnsafeMutableRawPointer</span><span class="p">,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">DestroyNotify</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1594-L1597">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1758-L1761">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18523,13 +18503,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setSorting</span><span class="p">(</span><span class="nv">column</span><span class="p">:</span> <span class="kt">CInt</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1604-L1607">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1768-L1771">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18564,13 +18544,13 @@ Use #GListModel instead</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">setTypes</span><span class="p">(</span><span class="n"><a href="../Protocols/ModelProtocol.html#/s:7Clutter13ModelProtocolPAAE8nColumnss6UInt32Vvp">nColumns</a></span> <span class="nv">n_columns</span><span class="p">:</span> <span class="kt">CUnsignedInt</span><span class="p">,</span> <span class="nv">types</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GType</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1617-L1620">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1781-L1784">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18607,7 +18587,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1626-L1636">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1790-L1800">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18644,7 +18624,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1643-L1653">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1807-L1817">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18681,7 +18661,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1660-L1670">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1824-L1834">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18717,7 +18697,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1676-L1685">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1840-L1849">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18754,7 +18734,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1692-L1702">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1856-L1866">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18790,7 +18770,7 @@ Use #GListModel instead</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1708-L1725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-LayoutManager-Model.swift#L1872-L1889">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18803,8 +18783,8 @@ Use #GListModel instead</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
