@@ -23,7 +23,7 @@
         <a class="header-link" href="../index.html">
           Clutter 2.62.0 Docs
         </a>
-         (68% documented)
+         (70% documented)
       </p>
     
       <p class="header-col--secondary">
@@ -17372,7 +17372,7 @@
       <article class="main-content">
 
         <section class="section">
-          <div class="section-content">
+          <div class="section-content top-matter">
             <h1>InputDeviceProtocol</h1>
               <div class="declaration">
                 <div class="language">
@@ -17469,9 +17469,11 @@ structure depend on the backend used.</p>
               <div class="task-name-container">
                 <a name="/InputDevice%20Class"></a>
                 <a name="//apple_ref/swift/Section/InputDevice Class" class="dashAnchor"></a>
-                <a href="#/InputDevice%20Class">
-                  <h3 class="section-name">InputDevice Class</h3>
-                </a>
+                <div class="section-name-container">
+                  <a class="section-name-link" href="#/InputDevice%20Class"></a>
+                  <h3 class="section-name"><p>InputDevice Class</p>
+</h3>
+                </div>
               </div>
               <ul class="item-container">
                 <li class="item">
@@ -17498,7 +17500,7 @@ structure depend on the backend used.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@discardableResult</span>
-<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ObjectProtocol</span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/InputDevicePropertyName.html">InputDevicePropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span></code></pre>
+<span class="kd">func</span> <span class="n">bind</span><span class="o">&lt;</span><span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">property</span> <span class="nv">source_property</span><span class="p">:</span> <span class="kt"><a href="../Enums/InputDevicePropertyName.html">InputDevicePropertyName</a></span><span class="p">,</span> <span class="n">to</span> <span class="nv">target</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span><span class="p">,</span> <span class="n">_</span> <span class="nv">target_property</span><span class="p">:</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span><span class="p">,</span> <span class="n">flags</span> <span class="nv">f</span><span class="p">:</span> <span class="kt">BindingFlags</span> <span class="o">=</span> <span class="o">.</span><span class="n">default_</span><span class="p">,</span> <span class="n">transformFrom</span> <span class="nv">transform_from</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">},</span> <span class="n">transformTo</span> <span class="nv">transform_to</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ValueTransformer</span> <span class="o">=</span> <span class="p">{</span> <span class="nv">$0</span><span class="o">.</span><span class="nf">transform</span><span class="p">(</span><span class="nv">destValue</span><span class="p">:</span> <span class="nv">$1</span><span class="p">)</span> <span class="p">})</span> <span class="o">-&gt;</span> <span class="kt">BindingRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Qs5Int32Vvp">Q</a></span> <span class="p">:</span> <span class="kt">PropertyNameProtocol</span><span class="p">,</span> <span class="kt"><a href="../Global%20Variables.html#/s:7Clutter1Ts5Int32Vvp">T</a></span> <span class="p">:</span> <span class="kt">ObjectProtocol</span></code></pre>
 
                         </div>
                       </div>
@@ -17586,22 +17588,11 @@ structure depend on the backend used.</p>
                         <p>binding reference or <code>nil</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L172-L196">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L213-L237">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/InputDevice%20Class2"></a>
-                <a name="//apple_ref/swift/Section/InputDevice Class" class="dashAnchor"></a>
-                <a href="#/InputDevice%20Class2">
-                  <h3 class="section-name">InputDevice Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17678,22 +17669,11 @@ structure depend on the backend used.</p>
                         <p>positive handler ID, or a value less than or equal to <code>0</code> in case of an error</p>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L259-L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L300-L319">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/InputDevice%20Class3"></a>
-                <a name="//apple_ref/swift/Section/InputDevice Class" class="dashAnchor"></a>
-                <a href="#/InputDevice%20Class3">
-                  <h3 class="section-name">InputDevice Class</h3>
-                </a>
-              </div>
-              <ul class="item-container">
                 <li class="item">
                   <div>
                     <code>
@@ -17727,7 +17707,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L291-L294">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L332-L335">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17760,7 +17740,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L297-L300">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L338-L341">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17804,7 +17784,7 @@ an array of axis values.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L317-L320">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L358-L361">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17838,7 +17818,7 @@ an array of axis values.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L324-L327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L365-L368">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17869,13 +17849,13 @@ Use clutter_input_device_get_coords() instead.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">@available(*, deprecated)</span>
+                          <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">func</span> <span class="nf">getDeviceCoords</span><span class="p">(</span><span class="n"><a href="../Global%20Variables.html#/s:7Clutter1xs5Int32Vvp">x</a></span> <span class="nv">x_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">,</span> <span class="n"><a href="../Global%20Variables.html#/s:7Clutter1ys5Int32Vvp">y</a></span> <span class="nv">y_</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CInt</span><span class="o">&gt;</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L333-L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L374-L377">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17908,7 +17888,7 @@ Use clutter_input_device_get_coords() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L339-L342">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L380-L383">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17941,7 +17921,7 @@ Use clutter_input_device_get_coords() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L345-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L386-L389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17974,7 +17954,7 @@ Use clutter_input_device_get_coords() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L351-L354">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L392-L395">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18007,7 +17987,7 @@ Use clutter_input_device_get_coords() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L357-L360">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L398-L401">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18040,7 +18020,7 @@ Use clutter_input_device_get_coords() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L363-L366">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L404-L407">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18074,7 +18054,7 @@ the events coming from <code>device</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L370-L373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L411-L414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18108,7 +18088,7 @@ device motion.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L377-L380">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L418-L421">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18141,7 +18121,7 @@ device motion.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L383-L386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18175,7 +18155,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L390-L393">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L431-L434">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18208,7 +18188,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L396-L399">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L437-L440">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18241,7 +18221,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L402-L405">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L443-L446">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18274,7 +18254,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L408-L411">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L449-L452">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18307,7 +18287,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L414-L417">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L455-L458">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18340,7 +18320,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L420-L423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L461-L464">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18373,7 +18353,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L426-L429">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L467-L470">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18406,7 +18386,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L432-L435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L473-L476">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18434,7 +18414,7 @@ the usual event delivery mechanism, until the grab is released by
 calling <code>clutter_input_device_ungrab()</code>.</p>
 
 <p>The grab is client-side: even if the windowing system used by the Clutter
-backend has the concept of <q>device grabs</q>, Clutter will not use them.</p>
+backend has the concept of &ldquo;device grabs&rdquo;, Clutter will not use them.</p>
 
 <p>Only <code>ClutterInputDevice</code> of types <code>CLUTTER_POINTER_DEVICE</code> and
 <code>CLUTTER_KEYBOARD_DEVICE</code> can hold a grab.</p>
@@ -18449,7 +18429,7 @@ backend has the concept of <q>device grabs</q>, Clutter will not use them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L448-L451">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L489-L492">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18486,7 +18466,7 @@ from the <code>ClutterKeyEvent.hardware_keycode</code> member of <code>ClutterKe
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L458-L461">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L499-L502">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18520,7 +18500,7 @@ touch events coming from <code>device</code> given the <code>sequence</code>.</p
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L465-L468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L506-L509">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18550,7 +18530,7 @@ until the grab is released by calling
 <code>clutter_input_device_sequence_ungrab()</code>.</p>
 
 <p>The grab is client-side: even if the windowing system used by the Clutter
-backend has the concept of <q>device grabs</q>, Clutter will not use them.</p>
+backend has the concept of &ldquo;device grabs&rdquo;, Clutter will not use them.</p>
 
                       </div>
                       <div class="declaration">
@@ -18562,7 +18542,7 @@ backend has the concept of <q>device grabs</q>, Clutter will not use them.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L480-L483">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L521-L524">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18596,7 +18576,7 @@ in place.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L487-L490">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L528-L531">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18633,7 +18613,7 @@ be disabled.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L497-L500">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L538-L541">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18669,7 +18649,7 @@ an event coming from the same input device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L506-L509">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L547-L550">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18702,7 +18682,7 @@ an event coming from the same input device.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L512-L515">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L553-L556">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18781,7 +18761,7 @@ of the passed <code>event</code> to update the stage associated to the input dev
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L568-L571">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L609-L612">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18819,7 +18799,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L578-L589">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L619-L630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18852,7 +18832,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L592-L598">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L633-L639">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18885,7 +18865,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L601-L607">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L642-L648">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18918,7 +18898,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L610-L616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L651-L657">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18951,7 +18931,7 @@ set to <code>CLUTTER_INPUT_MODE_MASTER</code>, this function will return
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L619-L625">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L660-L666">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18989,7 +18969,7 @@ to <code>CLUTTER_INPUT_MODE_MASTER</code> cannot be disabled.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L633-L647">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L674-L688">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19023,7 +19003,7 @@ the events coming from <code>device</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L651-L658">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L692-L699">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19057,7 +19037,7 @@ device motion.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L662-L669">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L703-L710">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19091,7 +19071,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L673-L680">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L714-L721">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19124,7 +19104,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L683-L689">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L724-L730">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19157,7 +19137,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L692-L698">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L733-L739">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19190,7 +19170,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L701-L707">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L742-L748">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19223,7 +19203,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L710-L716">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L751-L757">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19256,7 +19236,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L719-L725">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L760-L766">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19289,7 +19269,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L728-L734">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L769-L775">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19322,7 +19302,7 @@ by the last event Clutter processed.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L737-L743">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-InputDevice-KeyframeTransition.swift#L778-L784">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19335,8 +19315,8 @@ by the last event Clutter processed.</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2019 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2019-10-07)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.11.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-03-29)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
