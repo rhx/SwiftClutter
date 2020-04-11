@@ -215,7 +215,7 @@ public extension ActorProtocol {
 
 }
 
-
+#if NEED_CLUTTER_MATRIX
 public protocol MatrixProtocol {
     var ptr: UnsafeMutablePointer<ClutterMatrix> { get }
 }
@@ -287,7 +287,7 @@ open class MatrixClass: MatrixProtocol {
         self.init(UnsafeMutablePointer<ClutterMatrix>(opaquePointer))
     }
 }
-
+#endif
 
 func cast(_ f: @convention(c) @escaping (UnsafeMutablePointer<GObject>?, UnsafePointer<gchar>?, guint, ClutterModifierType, gpointer?) -> gboolean) -> GCallback {
     return unsafeBitCast(f, to: GCallback.self)
