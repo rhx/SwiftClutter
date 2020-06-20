@@ -6396,7 +6396,7 @@ public let M: CInt = 77 /* CLUTTER_M */
 public let MAJOR_VERSION = CLUTTER_MAJOR_VERSION /* gint 1 */
 
 /// The micro version of the Clutter library (3, if `CLUTTER_VERSION` is 1.2.3)
-public let MICRO_VERSION = CLUTTER_MICRO_VERSION /* gint 2 */
+public let MICRO_VERSION = CLUTTER_MICRO_VERSION /* gint 4 */
 
 /// The minor version of the Clutter library (2, if `CLUTTER_VERSION` is 1.2.3)
 public let MINOR_VERSION = CLUTTER_MINOR_VERSION /* gint 26 */

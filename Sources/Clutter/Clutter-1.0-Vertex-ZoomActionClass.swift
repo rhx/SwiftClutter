@@ -21,7 +21,7 @@ import Atk
 ///
 /// A point in 3D space, expressed in pixels
 public protocol VertexProtocol {
-    /// Untyped pointer to the underlying `ClutterVertex` instance.
+        /// Untyped pointer to the underlying `ClutterVertex` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterVertex` instance.
@@ -34,7 +34,7 @@ public protocol VertexProtocol {
 ///
 /// A point in 3D space, expressed in pixels
 public struct VertexRef: VertexProtocol {
-    /// Untyped pointer to the underlying `ClutterVertex` instance.
+        /// Untyped pointer to the underlying `ClutterVertex` instance.
     /// For type-safe access, use the generated, typed pointer `vertex_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -89,12 +89,12 @@ public extension VertexRef {
     /// ```
     /// 
     init( x_: gfloat, y y_: gfloat, z_: gfloat) {
-        let rv = clutter_vertex_new(x_, y_, z_)
+        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_new(x_, y_, z_))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Allocates a new, empty `ClutterVertex`.
     static func alloc() -> VertexRef! {
-        let rv = clutter_vertex_alloc()
+        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_alloc())
         return rv.map { VertexRef(cast($0)) }
     }
 }
@@ -105,7 +105,7 @@ public extension VertexRef {
 ///
 /// A point in 3D space, expressed in pixels
 open class Vertex: VertexProtocol {
-    /// Untyped pointer to the underlying `ClutterVertex` instance.
+        /// Untyped pointer to the underlying `ClutterVertex` instance.
     /// For type-safe access, use the generated, typed pointer `vertex_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -134,7 +134,7 @@ open class Vertex: VertexProtocol {
         // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterVertex`.
+    /// Do-nothing destructor for `ClutterVertex`.
     deinit {
         // no reference counting for ClutterVertex, cannot unref(cast(vertex_ptr))
     }
@@ -208,30 +208,31 @@ open class Vertex: VertexProtocol {
     /// ```
     /// 
     public init( x_: gfloat, y y_: gfloat, z_: gfloat) {
-        let rv = clutter_vertex_new(x_, y_, z_)
+        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_new(x_, y_, z_))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
     /// Allocates a new, empty `ClutterVertex`.
     public static func alloc() -> Vertex! {
-        let rv = clutter_vertex_alloc()
+        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_alloc())
         return rv.map { Vertex(cast($0)) }
     }
 
 }
 
-// MARK: - no Vertex properties
+// MARK: no Vertex properties
 
-// MARK: - no signals
+// MARK: no Vertex signals
 
 
+// MARK: Vertex Record: VertexProtocol extension (methods and fields)
 public extension VertexProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterVertex` instance.
     var vertex_ptr: UnsafeMutablePointer<ClutterVertex> { return ptr.assumingMemoryBound(to: ClutterVertex.self) }
 
     /// Copies `vertex`
     func copy() -> UnsafeMutablePointer<ClutterVertex>! {
-        let rv = clutter_vertex_copy(cast(vertex_ptr))
+        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_copy(cast(vertex_ptr)))
         return cast(rv)
     }
 
@@ -250,9 +251,49 @@ public extension VertexProtocol {
 
     /// Initializes `vertex` with the given coordinates.
     func init_(x x_: gfloat, y y_: gfloat, z_: gfloat) -> UnsafeMutablePointer<ClutterVertex>! {
-        let rv = clutter_vertex_init(cast(vertex_ptr), x_, y_, z_)
+        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_init(cast(vertex_ptr), x_, y_, z_))
         return cast(rv)
     }
+
+    /// X coordinate of the vertex
+    var x: Float {
+        /// X coordinate of the vertex
+        get {
+            let rv: Float = cast(vertex_ptr.pointee.x)
+            return rv
+        }
+        /// X coordinate of the vertex
+         set {
+            vertex_ptr.pointee.x = cast(newValue)
+        }
+    }
+
+    /// Y coordinate of the vertex
+    var y: Float {
+        /// Y coordinate of the vertex
+        get {
+            let rv: Float = cast(vertex_ptr.pointee.y)
+            return rv
+        }
+        /// Y coordinate of the vertex
+         set {
+            vertex_ptr.pointee.y = cast(newValue)
+        }
+    }
+
+    /// Z coordinate of the vertex
+    var z: Float {
+        /// Z coordinate of the vertex
+        get {
+            let rv: Float = cast(vertex_ptr.pointee.z)
+            return rv
+        }
+        /// Z coordinate of the vertex
+         set {
+            vertex_ptr.pointee.z = cast(newValue)
+        }
+    }
+
 }
 
 
@@ -267,7 +308,7 @@ public extension VertexProtocol {
 /// The `ClutterZoomActionClass` structure contains
 /// only private data
 public protocol ZoomActionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
+        /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterZoomActionClass` instance.
@@ -281,7 +322,7 @@ public protocol ZoomActionClassProtocol {
 /// The `ClutterZoomActionClass` structure contains
 /// only private data
 public struct ZoomActionClassRef: ZoomActionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
+        /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -335,7 +376,7 @@ public extension ZoomActionClassRef {
 /// The `ClutterZoomActionClass` structure contains
 /// only private data
 open class ZoomActionClass: ZoomActionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
+        /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -364,7 +405,7 @@ open class ZoomActionClass: ZoomActionClassProtocol {
         // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterZoomActionClass`.
+    /// Do-nothing destructor for `ClutterZoomActionClass`.
     deinit {
         // no reference counting for ClutterZoomActionClass, cannot unref(cast(_ptr))
     }
@@ -432,14 +473,30 @@ open class ZoomActionClass: ZoomActionClassProtocol {
 
 }
 
-// MARK: - no ZoomActionClass properties
+// MARK: no ZoomActionClass properties
 
-// MARK: - no signals
+// MARK: no ZoomActionClass signals
 
 
+// MARK: ZoomActionClass Record: ZoomActionClassProtocol extension (methods and fields)
 public extension ZoomActionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterZoomActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterZoomActionClass> { return ptr.assumingMemoryBound(to: ClutterZoomActionClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var zoom is unavailable because zoom is void
+
+    // var ClutterZoomAction1 is unavailable because _clutter_zoom_action1 is void
+
+    // var ClutterZoomAction2 is unavailable because _clutter_zoom_action2 is void
+
+    // var ClutterZoomAction3 is unavailable because _clutter_zoom_action3 is void
+
+    // var ClutterZoomAction4 is unavailable because _clutter_zoom_action4 is void
+
+    // var ClutterZoomAction5 is unavailable because _clutter_zoom_action5 is void
 
 }
 

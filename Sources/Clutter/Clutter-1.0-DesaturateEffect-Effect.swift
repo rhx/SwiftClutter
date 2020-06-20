@@ -22,7 +22,7 @@ import Atk
 /// `ClutterDesaturateEffect` is an opaque structure
 /// whose members cannot be directly accessed
 public protocol DesaturateEffectProtocol: OffscreenEffectProtocol {
-    /// Untyped pointer to the underlying `ClutterDesaturateEffect` instance.
+        /// Untyped pointer to the underlying `ClutterDesaturateEffect` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterDesaturateEffect` instance.
@@ -36,7 +36,7 @@ public protocol DesaturateEffectProtocol: OffscreenEffectProtocol {
 /// `ClutterDesaturateEffect` is an opaque structure
 /// whose members cannot be directly accessed
 public struct DesaturateEffectRef: DesaturateEffectProtocol {
-    /// Untyped pointer to the underlying `ClutterDesaturateEffect` instance.
+        /// Untyped pointer to the underlying `ClutterDesaturateEffect` instance.
     /// For type-safe access, use the generated, typed pointer `desaturate_effect_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -84,7 +84,7 @@ public extension DesaturateEffectRef {
         /// Creates a new `ClutterDesaturateEffect` to be used with
     /// `clutter_actor_add_effect()`
     init( factor: gdouble) {
-        let rv = clutter_desaturate_effect_new(factor)
+        let rv: UnsafeMutablePointer<ClutterEffect>! = cast(clutter_desaturate_effect_new(factor))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -96,7 +96,7 @@ public extension DesaturateEffectRef {
 /// `ClutterDesaturateEffect` is an opaque structure
 /// whose members cannot be directly accessed
 open class DesaturateEffect: OffscreenEffect, DesaturateEffectProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DesaturateEffect` instance.
     /// - Parameter op: pointer to the underlying object
@@ -177,7 +177,7 @@ open class DesaturateEffect: OffscreenEffect, DesaturateEffectProtocol {
     /// Creates a new `ClutterDesaturateEffect` to be used with
     /// `clutter_actor_add_effect()`
     public init( factor: gdouble) {
-        let rv = clutter_desaturate_effect_new(factor)
+        let rv: UnsafeMutablePointer<ClutterEffect>! = cast(clutter_desaturate_effect_new(factor))
         super.init(cast(rv))
     }
 
@@ -250,8 +250,8 @@ public extension DesaturateEffectProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DesaturateEffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DesaturateEffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -274,6 +274,23 @@ public extension DesaturateEffectProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DesaturateEffect property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DesaturateEffectPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DesaturateEffect property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DesaturateEffectPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -401,8 +418,8 @@ public extension DesaturateEffectProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DesaturateEffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DesaturateEffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(desaturate_effect_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -423,14 +440,15 @@ public extension DesaturateEffectProtocol {
     }
 }
 
+// MARK: DesaturateEffect Class: DesaturateEffectProtocol extension (methods and fields)
 public extension DesaturateEffectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterDesaturateEffect` instance.
     var desaturate_effect_ptr: UnsafeMutablePointer<ClutterDesaturateEffect> { return ptr.assumingMemoryBound(to: ClutterDesaturateEffect.self) }
 
     /// Retrieves the desaturation factor of `effect`
-    func getFactor() -> gdouble {
-        let rv = clutter_desaturate_effect_get_factor(cast(desaturate_effect_ptr))
-        return rv
+    func getFactor() -> Double {
+        let rv: Double = cast(clutter_desaturate_effect_get_factor(cast(desaturate_effect_ptr)))
+        return cast(rv)
     }
 
     /// Sets the desaturation factor for `effect`, with 0.0 being "do not desaturate"
@@ -441,18 +459,20 @@ public extension DesaturateEffectProtocol {
     }
     /// The desaturation factor, between 0.0 (no desaturation) and 1.0 (full
     /// desaturation).
-    var factor: gdouble {
+    var factor: Double {
         /// Retrieves the desaturation factor of `effect`
         get {
-            let rv = clutter_desaturate_effect_get_factor(cast(desaturate_effect_ptr))
-            return rv
+            let rv: Double = cast(clutter_desaturate_effect_get_factor(cast(desaturate_effect_ptr)))
+            return cast(rv)
         }
         /// Sets the desaturation factor for `effect`, with 0.0 being "do not desaturate"
         /// and 1.0 being "fully desaturate"
         nonmutating set {
-            clutter_desaturate_effect_set_factor(cast(desaturate_effect_ptr), newValue)
+            clutter_desaturate_effect_set_factor(cast(desaturate_effect_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -466,7 +486,7 @@ public extension DesaturateEffectProtocol {
 ///
 /// The `ClutterDeviceManager` structure contains only private data
 public protocol DeviceManagerProtocol: GLibObject.ObjectProtocol {
-    /// Untyped pointer to the underlying `ClutterDeviceManager` instance.
+        /// Untyped pointer to the underlying `ClutterDeviceManager` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterDeviceManager` instance.
@@ -479,7 +499,7 @@ public protocol DeviceManagerProtocol: GLibObject.ObjectProtocol {
 ///
 /// The `ClutterDeviceManager` structure contains only private data
 public struct DeviceManagerRef: DeviceManagerProtocol {
-    /// Untyped pointer to the underlying `ClutterDeviceManager` instance.
+        /// Untyped pointer to the underlying `ClutterDeviceManager` instance.
     /// For type-safe access, use the generated, typed pointer `device_manager_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -526,7 +546,7 @@ public extension DeviceManagerRef {
 
         /// Retrieves the device manager singleton
     static func getDefault() -> DeviceManagerRef! {
-        let rv = clutter_device_manager_get_default()
+        let rv: UnsafeMutablePointer<ClutterDeviceManager>! = cast(clutter_device_manager_get_default())
         return rv.map { DeviceManagerRef(cast($0)) }
     }
 }
@@ -537,7 +557,7 @@ public extension DeviceManagerRef {
 ///
 /// The `ClutterDeviceManager` structure contains only private data
 open class DeviceManager: GLibObject.Object, DeviceManagerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DeviceManager` instance.
     /// - Parameter op: pointer to the underlying object
@@ -618,7 +638,7 @@ open class DeviceManager: GLibObject.Object, DeviceManagerProtocol {
 
     /// Retrieves the device manager singleton
     public static func getDefault() -> DeviceManager! {
-        let rv = clutter_device_manager_get_default()
+        let rv: UnsafeMutablePointer<ClutterDeviceManager>! = cast(clutter_device_manager_get_default())
         return rv.map { DeviceManager(cast($0)) }
     }
 
@@ -637,8 +657,8 @@ public extension DeviceManagerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DeviceManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DeviceManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -661,6 +681,23 @@ public extension DeviceManagerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DeviceManager property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DeviceManagerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DeviceManager property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DeviceManagerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -705,8 +742,8 @@ public extension DeviceManagerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DeviceManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DeviceManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(device_manager_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -727,6 +764,7 @@ public extension DeviceManagerProtocol {
     }
 }
 
+// MARK: DeviceManager Class: DeviceManagerProtocol extension (methods and fields)
 public extension DeviceManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterDeviceManager` instance.
     var device_manager_ptr: UnsafeMutablePointer<ClutterDeviceManager> { return ptr.assumingMemoryBound(to: ClutterDeviceManager.self) }
@@ -736,27 +774,32 @@ public extension DeviceManagerProtocol {
     /// Core devices are devices created automatically by the default
     /// Clutter backend
     func getCoreDevice(deviceType device_type: InputDeviceType) -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv = clutter_device_manager_get_core_device(cast(device_manager_ptr), device_type)
+        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_device_manager_get_core_device(cast(device_manager_ptr), device_type))
         return cast(rv)
     }
 
     /// Retrieves the `ClutterInputDevice` with the given `device_id`
     func getDevice(deviceId device_id: CInt) -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv = clutter_device_manager_get_device(cast(device_manager_ptr), gint(device_id))
+        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_device_manager_get_device(cast(device_manager_ptr), gint(device_id)))
         return cast(rv)
     }
 
     /// Lists all currently registered input devices
     func listDevices() -> UnsafeMutablePointer<GSList>! {
-        let rv = clutter_device_manager_list_devices(cast(device_manager_ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(clutter_device_manager_list_devices(cast(device_manager_ptr)))
         return cast(rv)
     }
 
     /// Lists all currently registered input devices
     func peekDevices() -> UnsafePointer<GSList>! {
-        let rv = clutter_device_manager_peek_devices(cast(device_manager_ptr))
+        let rv: UnsafePointer<GSList>! = cast(clutter_device_manager_peek_devices(cast(device_manager_ptr)))
         return cast(rv)
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -771,7 +814,7 @@ public extension DeviceManagerProtocol {
 /// The `ClutterDragAction` structure contains only
 /// private data and should be accessed using the provided API
 public protocol DragActionProtocol: ActionProtocol {
-    /// Untyped pointer to the underlying `ClutterDragAction` instance.
+        /// Untyped pointer to the underlying `ClutterDragAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterDragAction` instance.
@@ -785,7 +828,7 @@ public protocol DragActionProtocol: ActionProtocol {
 /// The `ClutterDragAction` structure contains only
 /// private data and should be accessed using the provided API
 public struct DragActionRef: DragActionProtocol {
-    /// Untyped pointer to the underlying `ClutterDragAction` instance.
+        /// Untyped pointer to the underlying `ClutterDragAction` instance.
     /// For type-safe access, use the generated, typed pointer `drag_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -832,7 +875,7 @@ public extension DragActionRef {
 
         /// Creates a new `ClutterDragAction` instance
     init() {
-        let rv = clutter_drag_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_drag_action_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -844,7 +887,7 @@ public extension DragActionRef {
 /// The `ClutterDragAction` structure contains only
 /// private data and should be accessed using the provided API
 open class DragAction: Action, DragActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DragAction` instance.
     /// - Parameter op: pointer to the underlying object
@@ -924,7 +967,7 @@ open class DragAction: Action, DragActionProtocol {
 
     /// Creates a new `ClutterDragAction` instance
     public init() {
-        let rv = clutter_drag_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_drag_action_new())
         super.init(cast(rv))
     }
 
@@ -1041,8 +1084,8 @@ public extension DragActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DragActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DragActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1065,6 +1108,23 @@ public extension DragActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DragAction property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DragActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DragAction property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DragActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1277,8 +1337,8 @@ public extension DragActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DragActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DragActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(drag_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1299,6 +1359,7 @@ public extension DragActionProtocol {
     }
 }
 
+// MARK: DragAction Class: DragActionProtocol extension (methods and fields)
 public extension DragActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterDragAction` instance.
     var drag_action_ptr: UnsafeMutablePointer<ClutterDragAction> { return ptr.assumingMemoryBound(to: ClutterDragAction.self) }
@@ -1314,12 +1375,12 @@ public extension DragActionProtocol {
     /// Retrieves the axis constraint set by `clutter_drag_action_set_drag_axis()`
     func getDragAxis() -> ClutterDragAxis {
         let rv = clutter_drag_action_get_drag_axis(cast(drag_action_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the drag handle set by `clutter_drag_action_set_drag_handle()`
     func getDragHandle() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_drag_action_get_drag_handle(cast(drag_action_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_drag_action_get_drag_handle(cast(drag_action_ptr)))
         return cast(rv)
     }
 
@@ -1384,11 +1445,11 @@ public extension DragActionProtocol {
         /// Retrieves the axis constraint set by `clutter_drag_action_set_drag_axis()`
         get {
             let rv = clutter_drag_action_get_drag_axis(cast(drag_action_ptr))
-            return rv
+            return cast(rv)
         }
         /// Restricts the dragging action to a specific axis
         nonmutating set {
-            clutter_drag_action_set_drag_axis(cast(drag_action_ptr), newValue)
+            clutter_drag_action_set_drag_axis(cast(drag_action_ptr), cast(newValue))
         }
     }
 
@@ -1396,7 +1457,7 @@ public extension DragActionProtocol {
     var dragHandle: UnsafeMutablePointer<ClutterActor>! {
         /// Retrieves the drag handle set by `clutter_drag_action_set_drag_handle()`
         get {
-            let rv = clutter_drag_action_get_drag_handle(cast(drag_action_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_drag_action_get_drag_handle(cast(drag_action_ptr)))
             return cast(rv)
         }
         /// Sets the actor to be used as the drag handle.
@@ -1404,6 +1465,11 @@ public extension DragActionProtocol {
             clutter_drag_action_set_drag_handle(cast(drag_action_ptr), cast(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1418,7 +1484,7 @@ public extension DragActionProtocol {
 /// The `ClutterDropAction` structure contains only
 /// private data and should be accessed using the provided API.
 public protocol DropActionProtocol: ActionProtocol {
-    /// Untyped pointer to the underlying `ClutterDropAction` instance.
+        /// Untyped pointer to the underlying `ClutterDropAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterDropAction` instance.
@@ -1432,7 +1498,7 @@ public protocol DropActionProtocol: ActionProtocol {
 /// The `ClutterDropAction` structure contains only
 /// private data and should be accessed using the provided API.
 public struct DropActionRef: DropActionProtocol {
-    /// Untyped pointer to the underlying `ClutterDropAction` instance.
+        /// Untyped pointer to the underlying `ClutterDropAction` instance.
     /// For type-safe access, use the generated, typed pointer `drop_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1481,7 +1547,7 @@ public extension DropActionRef {
     /// 
     /// Use `clutter_actor_add_action()` to add the action to a `ClutterActor`.
     init() {
-        let rv = clutter_drop_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_drop_action_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -1493,7 +1559,7 @@ public extension DropActionRef {
 /// The `ClutterDropAction` structure contains only
 /// private data and should be accessed using the provided API.
 open class DropAction: Action, DropActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `DropAction` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1575,7 +1641,7 @@ open class DropAction: Action, DropActionProtocol {
     /// 
     /// Use `clutter_actor_add_action()` to add the action to a `ClutterActor`.
     public init() {
-        let rv = clutter_drop_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_drop_action_new())
         super.init(cast(rv))
     }
 
@@ -1645,8 +1711,8 @@ public extension DropActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DropActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: DropActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1669,6 +1735,23 @@ public extension DropActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a DropAction property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: DropActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a DropAction property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: DropActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1817,8 +1900,8 @@ public extension DropActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: DropActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: DropActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(drop_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1839,9 +1922,15 @@ public extension DropActionProtocol {
     }
 }
 
+// MARK: DropAction Class: DropActionProtocol extension (methods and fields)
 public extension DropActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterDropAction` instance.
     var drop_action_ptr: UnsafeMutablePointer<ClutterDropAction> { return ptr.assumingMemoryBound(to: ClutterDropAction.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
 
 }
 
@@ -1857,7 +1946,7 @@ public extension DropActionProtocol {
 /// The `ClutterEffect` structure contains only private data and should
 /// be accessed using the provided API
 public protocol EffectProtocol: ActorMetaProtocol {
-    /// Untyped pointer to the underlying `ClutterEffect` instance.
+        /// Untyped pointer to the underlying `ClutterEffect` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterEffect` instance.
@@ -1871,7 +1960,7 @@ public protocol EffectProtocol: ActorMetaProtocol {
 /// The `ClutterEffect` structure contains only private data and should
 /// be accessed using the provided API
 public struct EffectRef: EffectProtocol {
-    /// Untyped pointer to the underlying `ClutterEffect` instance.
+        /// Untyped pointer to the underlying `ClutterEffect` instance.
     /// For type-safe access, use the generated, typed pointer `effect_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1925,7 +2014,7 @@ public extension EffectRef {
 /// The `ClutterEffect` structure contains only private data and should
 /// be accessed using the provided API
 open class Effect: ActorMeta, EffectProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Effect` instance.
     /// - Parameter op: pointer to the underlying object
@@ -2070,8 +2159,8 @@ public extension EffectProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: EffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: EffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -2094,6 +2183,23 @@ public extension EffectProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Effect property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: EffectPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Effect property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: EffectPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -2218,8 +2324,8 @@ public extension EffectProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: EffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: EffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(effect_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -2240,6 +2346,7 @@ public extension EffectProtocol {
     }
 }
 
+// MARK: Effect Class: EffectProtocol extension (methods and fields)
 public extension EffectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterEffect` instance.
     var effect_ptr: UnsafeMutablePointer<ClutterEffect> { return ptr.assumingMemoryBound(to: ClutterEffect.self) }
@@ -2283,6 +2390,9 @@ public extension EffectProtocol {
         clutter_effect_queue_repaint(cast(effect_ptr))
     
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
 }
 
 

@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterFlowLayoutClass` structure contains only private data
 /// and should be accessed using the provided API
 public protocol FlowLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterFlowLayoutClass` instance.
@@ -36,7 +36,7 @@ public protocol FlowLayoutClassProtocol {
 /// The `ClutterFlowLayoutClass` structure contains only private data
 /// and should be accessed using the provided API
 public struct FlowLayoutClassRef: FlowLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension FlowLayoutClassRef {
 /// The `ClutterFlowLayoutClass` structure contains only private data
 /// and should be accessed using the provided API
 open class FlowLayoutClass: FlowLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class FlowLayoutClass: FlowLayoutClassProtocol {
         // no reference counting for ClutterFlowLayoutClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterFlowLayoutClass`.
+    /// Do-nothing destructor for `ClutterFlowLayoutClass`.
     deinit {
         // no reference counting for ClutterFlowLayoutClass, cannot unref(cast(_ptr))
     }
@@ -187,14 +187,18 @@ open class FlowLayoutClass: FlowLayoutClassProtocol {
 
 }
 
-// MARK: - no FlowLayoutClass properties
+// MARK: no FlowLayoutClass properties
 
-// MARK: - no signals
+// MARK: no FlowLayoutClass signals
 
 
+// MARK: FlowLayoutClass Record: FlowLayoutClassProtocol extension (methods and fields)
 public extension FlowLayoutClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFlowLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterFlowLayoutClass> { return ptr.assumingMemoryBound(to: ClutterFlowLayoutClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -209,7 +213,7 @@ public extension FlowLayoutClassProtocol {
 ///
 
 public protocol FlowLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterFlowLayoutPrivate` instance.
@@ -222,7 +226,7 @@ public protocol FlowLayoutPrivateProtocol {
 ///
 
 public struct FlowLayoutPrivateRef: FlowLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -275,7 +279,7 @@ public extension FlowLayoutPrivateRef {
 ///
 
 open class FlowLayoutPrivate: FlowLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -304,7 +308,7 @@ open class FlowLayoutPrivate: FlowLayoutPrivateProtocol {
         // no reference counting for ClutterFlowLayoutPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterFlowLayoutPrivate`.
+    /// Do-nothing destructor for `ClutterFlowLayoutPrivate`.
     deinit {
         // no reference counting for ClutterFlowLayoutPrivate, cannot unref(cast(_ptr))
     }
@@ -372,14 +376,17 @@ open class FlowLayoutPrivate: FlowLayoutPrivateProtocol {
 
 }
 
-// MARK: - no FlowLayoutPrivate properties
+// MARK: no FlowLayoutPrivate properties
 
-// MARK: - no signals
+// MARK: no FlowLayoutPrivate signals
 
 
+// MARK: FlowLayoutPrivate Record: FlowLayoutPrivateProtocol extension (methods and fields)
 public extension FlowLayoutPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFlowLayoutPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterFlowLayoutPrivate> { return ptr.assumingMemoryBound(to: ClutterFlowLayoutPrivate.self) }
+
+
 
 }
 
@@ -394,7 +401,7 @@ public extension FlowLayoutPrivateProtocol {
 ///
 /// Fog settings used to create the depth cueing effect.
 public protocol FogProtocol {
-    /// Untyped pointer to the underlying `ClutterFog` instance.
+        /// Untyped pointer to the underlying `ClutterFog` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterFog` instance.
@@ -407,7 +414,7 @@ public protocol FogProtocol {
 ///
 /// Fog settings used to create the depth cueing effect.
 public struct FogRef: FogProtocol {
-    /// Untyped pointer to the underlying `ClutterFog` instance.
+        /// Untyped pointer to the underlying `ClutterFog` instance.
     /// For type-safe access, use the generated, typed pointer `fog_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -460,7 +467,7 @@ public extension FogRef {
 ///
 /// Fog settings used to create the depth cueing effect.
 open class Fog: FogProtocol {
-    /// Untyped pointer to the underlying `ClutterFog` instance.
+        /// Untyped pointer to the underlying `ClutterFog` instance.
     /// For type-safe access, use the generated, typed pointer `fog_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -489,7 +496,7 @@ open class Fog: FogProtocol {
         // no reference counting for ClutterFog, cannot ref(cast(fog_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterFog`.
+    /// Do-nothing destructor for `ClutterFog`.
     deinit {
         // no reference counting for ClutterFog, cannot unref(cast(fog_ptr))
     }
@@ -557,14 +564,48 @@ open class Fog: FogProtocol {
 
 }
 
-// MARK: - no Fog properties
+// MARK: no Fog properties
 
-// MARK: - no signals
+// MARK: no Fog signals
 
 
+// MARK: Fog Record: FogProtocol extension (methods and fields)
 public extension FogProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFog` instance.
     var fog_ptr: UnsafeMutablePointer<ClutterFog> { return ptr.assumingMemoryBound(to: ClutterFog.self) }
+
+
+    /// starting distance from the viewer to the near clipping
+    ///   plane (always positive)
+    var zNear: Float {
+        /// starting distance from the viewer to the near clipping
+        ///   plane (always positive)
+        get {
+            let rv: Float = cast(fog_ptr.pointee.z_near)
+            return rv
+        }
+        /// starting distance from the viewer to the near clipping
+        ///   plane (always positive)
+         set {
+            fog_ptr.pointee.z_near = cast(newValue)
+        }
+    }
+
+    /// final distance from the viewer to the far clipping
+    ///   plane (always positive)
+    var zFar: Float {
+        /// final distance from the viewer to the far clipping
+        ///   plane (always positive)
+        get {
+            let rv: Float = cast(fog_ptr.pointee.z_far)
+            return rv
+        }
+        /// final distance from the viewer to the far clipping
+        ///   plane (always positive)
+         set {
+            fog_ptr.pointee.z_far = cast(newValue)
+        }
+    }
 
 }
 
@@ -583,7 +624,7 @@ public extension FogProtocol {
 /// directly; you should use `cairo_rectangle_int_t` or `ClutterRect` if you
 /// need a rectangle type, depending on the precision required.
 public protocol GeometryProtocol {
-    /// Untyped pointer to the underlying `ClutterGeometry` instance.
+        /// Untyped pointer to the underlying `ClutterGeometry` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterGeometry` instance.
@@ -600,7 +641,7 @@ public protocol GeometryProtocol {
 /// directly; you should use `cairo_rectangle_int_t` or `ClutterRect` if you
 /// need a rectangle type, depending on the precision required.
 public struct GeometryRef: GeometryProtocol {
-    /// Untyped pointer to the underlying `ClutterGeometry` instance.
+        /// Untyped pointer to the underlying `ClutterGeometry` instance.
     /// For type-safe access, use the generated, typed pointer `geometry_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -657,7 +698,7 @@ public extension GeometryRef {
 /// directly; you should use `cairo_rectangle_int_t` or `ClutterRect` if you
 /// need a rectangle type, depending on the precision required.
 open class Geometry: GeometryProtocol {
-    /// Untyped pointer to the underlying `ClutterGeometry` instance.
+        /// Untyped pointer to the underlying `ClutterGeometry` instance.
     /// For type-safe access, use the generated, typed pointer `geometry_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -686,7 +727,7 @@ open class Geometry: GeometryProtocol {
         // no reference counting for ClutterGeometry, cannot ref(cast(geometry_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterGeometry`.
+    /// Do-nothing destructor for `ClutterGeometry`.
     deinit {
         // no reference counting for ClutterGeometry, cannot unref(cast(geometry_ptr))
     }
@@ -754,11 +795,12 @@ open class Geometry: GeometryProtocol {
 
 }
 
-// MARK: - no Geometry properties
+// MARK: no Geometry properties
 
-// MARK: - no signals
+// MARK: no Geometry signals
 
 
+// MARK: Geometry Record: GeometryProtocol extension (methods and fields)
 public extension GeometryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterGeometry` instance.
     var geometry_ptr: UnsafeMutablePointer<ClutterGeometry> { return ptr.assumingMemoryBound(to: ClutterGeometry.self) }
@@ -781,6 +823,59 @@ public extension GeometryProtocol {
         clutter_geometry_union(cast(geometry_ptr), cast(geometry_b.ptr), cast(result.ptr))
     
     }
+
+    /// X coordinate of the top left corner of an actor
+    var x: Int {
+        /// X coordinate of the top left corner of an actor
+        get {
+            let rv: Int = cast(geometry_ptr.pointee.x)
+            return rv
+        }
+        /// X coordinate of the top left corner of an actor
+         set {
+            geometry_ptr.pointee.x = gint(newValue)
+        }
+    }
+
+    /// Y coordinate of the top left corner of an actor
+    var y: Int {
+        /// Y coordinate of the top left corner of an actor
+        get {
+            let rv: Int = cast(geometry_ptr.pointee.y)
+            return rv
+        }
+        /// Y coordinate of the top left corner of an actor
+         set {
+            geometry_ptr.pointee.y = gint(newValue)
+        }
+    }
+
+    /// width of an actor
+    var width: Int {
+        /// width of an actor
+        get {
+            let rv: Int = cast(geometry_ptr.pointee.width)
+            return rv
+        }
+        /// width of an actor
+         set {
+            geometry_ptr.pointee.width = guint(newValue)
+        }
+    }
+
+    /// height of an actor
+    var height: Int {
+        /// height of an actor
+        get {
+            let rv: Int = cast(geometry_ptr.pointee.height)
+            return rv
+        }
+        /// height of an actor
+         set {
+            geometry_ptr.pointee.height = guint(newValue)
+        }
+    }
+
 }
 
 

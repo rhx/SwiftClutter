@@ -15,9 +15,9 @@ import Atk
 /// Adds a function which will be called for all events that Clutter
 /// processes. The function will be called before any signals are
 /// emitted for the event and it will take precedence over any grabs.
-public func addFilter(stage: StageProtocol, func_: @escaping EventFilterFunc, notify: @escaping GLib.DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = clutter_event_add_filter(cast(stage.ptr), func_, notify, cast(user_data))
-    return CUnsignedInt(rv)
+public func addFilter(stage: StageProtocol, func_: @escaping EventFilterFunc, notify: @escaping GLib.DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(clutter_event_add_filter(cast(stage.ptr), func_, notify, cast(user_data)))
+    return Int(rv)
 }
 
 
@@ -26,7 +26,7 @@ public func addFilter(stage: StageProtocol, func_: @escaping EventFilterFunc, no
 /// Pops an event off the event queue. Applications should not need to call
 /// this.
 public func get() -> UnsafeMutablePointer<ClutterEvent>! {
-    let rv = clutter_event_get()
+    let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_get())
     return cast(rv)
 }
 
@@ -36,7 +36,7 @@ public func get() -> UnsafeMutablePointer<ClutterEvent>! {
 /// Returns a pointer to the first event from the event queue but
 /// does not remove it.
 public func peek() -> UnsafeMutablePointer<ClutterEvent>! {
-    let rv = clutter_event_peek()
+    let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_peek())
     return cast(rv)
 }
 
@@ -55,7 +55,7 @@ public func removeFilter(id: CUnsignedInt) {
 
 /// Allocates a new `ClutterActorBox`.
 public func actorBoxAlloc() -> UnsafeMutablePointer<ClutterActorBox>! {
-    let rv = clutter_actor_box_alloc()
+    let rv: UnsafeMutablePointer<ClutterActorBox>! = cast(clutter_actor_box_alloc())
     return cast(rv)
 }
 
@@ -216,7 +216,7 @@ public func colorFromString(color: ColorProtocol, str: UnsafePointer<gchar>) -> 
 /// Static colors are created by Clutter and are guaranteed to always be
 /// available and valid
 public func colorGetStatic(color: StaticColor) -> UnsafePointer<ClutterColor>! {
-    let rv = clutter_color_get_static(color)
+    let rv: UnsafePointer<ClutterColor>! = cast(clutter_color_get_static(color))
     return cast(rv)
 }
 
@@ -225,7 +225,7 @@ public func colorGetStatic(color: StaticColor) -> UnsafePointer<ClutterColor>! {
 
 /// Looks up the `GParamSpec` for a child property of `klass`.
 public func containerClassFindChildProperty(klass: GLibObject.ObjectClassProtocol, propertyName property_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = clutter_container_class_find_child_property(cast(klass.ptr), property_name)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(clutter_container_class_find_child_property(cast(klass.ptr), property_name))
     return cast(rv)
 }
 
@@ -234,7 +234,7 @@ public func containerClassFindChildProperty(klass: GLibObject.ObjectClassProtoco
 
 /// Returns an array of `GParamSpec` for all child properties.
 public func containerClassListChildProperties(klass: GLibObject.ObjectClassProtocol, nProperties n_properties: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! {
-    let rv = clutter_container_class_list_child_properties(cast(klass.ptr), cast(n_properties))
+    let rv: UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! = cast(clutter_container_class_list_child_properties(cast(klass.ptr), cast(n_properties)))
     return cast(rv)
 }
 
@@ -260,8 +260,8 @@ public func disableAccessibility() {
 /// 
 /// This function is only useful when embedding Clutter inside another
 /// toolkit, and it should never be called by applications.
-public func do_(event: UnsafeMutablePointer<ClutterEvent>) {
-    clutter_do_event(cast(event))
+public func do_(event: EventProtocol) {
+    clutter_do_event(cast(event.ptr))
 
 }
 
@@ -271,9 +271,9 @@ public func do_(event: UnsafeMutablePointer<ClutterEvent>) {
 /// Adds a function which will be called for all events that Clutter
 /// processes. The function will be called before any signals are
 /// emitted for the event and it will take precedence over any grabs.
-public func eventAddFilter(stage: StageProtocol, func_: @escaping EventFilterFunc, notify: @escaping GLib.DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = clutter_event_add_filter(cast(stage.ptr), func_, notify, cast(user_data))
-    return CUnsignedInt(rv)
+public func eventAddFilter(stage: StageProtocol, func_: @escaping EventFilterFunc, notify: @escaping GLib.DestroyNotify, userData user_data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(clutter_event_add_filter(cast(stage.ptr), func_, notify, cast(user_data)))
+    return Int(rv)
 }
 
 
@@ -282,7 +282,7 @@ public func eventAddFilter(stage: StageProtocol, func_: @escaping EventFilterFun
 /// Pops an event off the event queue. Applications should not need to call
 /// this.
 public func eventGet() -> UnsafeMutablePointer<ClutterEvent>! {
-    let rv = clutter_event_get()
+    let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_get())
     return cast(rv)
 }
 
@@ -292,7 +292,7 @@ public func eventGet() -> UnsafeMutablePointer<ClutterEvent>! {
 /// Returns a pointer to the first event from the event queue but
 /// does not remove it.
 public func eventPeek() -> UnsafeMutablePointer<ClutterEvent>! {
-    let rv = clutter_event_peek()
+    let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_peek())
     return cast(rv)
 }
 
@@ -321,7 +321,7 @@ public func eventsPending() -> Bool {
 /// Checks whether `feature` is available.  `feature` can be a logical
 /// OR of `ClutterFeatureFlags`.
 public func featureAvailable(feature: FeatureFlags) -> Bool {
-    let rv = clutter_feature_available(feature)
+    let rv = clutter_feature_available(feature.value)
     return Bool(rv != 0)
 }
 
@@ -331,7 +331,7 @@ public func featureAvailable(feature: FeatureFlags) -> Bool {
 /// Returns all the supported features.
 public func featureGetAll() -> ClutterFeatureFlags {
     let rv = clutter_feature_get_all()
-    return rv
+    return cast(rv)
 }
 
 
@@ -341,9 +341,9 @@ public func featureGetAll() -> ClutterFeatureFlags {
 ///
 /// **frame_source_add is deprecated:**
 /// There is no direct replacement for this API
-@available(*, deprecated) public func frameSourceAdd(fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = clutter_frame_source_add(guint(fps), func_, cast(data))
-    return CUnsignedInt(rv)
+@available(*, deprecated) public func frameSourceAdd(fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(clutter_frame_source_add(guint(fps), func_, cast(data)))
+    return Int(rv)
 }
 
 
@@ -368,9 +368,9 @@ public func featureGetAll() -> ClutterFeatureFlags {
 ///
 /// **frame_source_add_full is deprecated:**
 /// There is no direct replacement for this API.
-@available(*, deprecated) public func frameSourceAddFull(priority: CInt, fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = clutter_frame_source_add_full(gint(priority), guint(fps), func_, cast(data), notify)
-    return CUnsignedInt(rv)
+@available(*, deprecated) public func frameSourceAddFull(priority: CInt, fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(clutter_frame_source_add_full(gint(priority), guint(fps), func_, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -394,7 +394,7 @@ public func getAccessibilityEnabled() -> Bool {
 ///   %NULL. Use the proper scene graph API in #ClutterActor to find a child
 ///   of the stage.
 @available(*, deprecated) public func getActorByGid(id_: UInt32) -> UnsafeMutablePointer<ClutterActor>! {
-    let rv = clutter_get_actor_by_gid(guint32(id_))
+    let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_get_actor_by_gid(guint32(id_)))
     return cast(rv)
 }
 
@@ -407,7 +407,7 @@ public func getAccessibilityEnabled() -> Bool {
 /// example, to get the key modifier state from a Button 'clicked'
 /// event.
 public func getCurrentEvent() -> UnsafePointer<ClutterEvent>! {
-    let rv = clutter_get_current_event()
+    let rv: UnsafePointer<ClutterEvent>! = cast(clutter_get_current_event())
     return cast(rv)
 }
 
@@ -439,7 +439,7 @@ public func getCurrentEventTime() -> UInt32 {
 /// Retrieves the default `ClutterBackend` used by Clutter. The
 /// `ClutterBackend` holds backend-specific configuration options.
 public func getDefaultBackend() -> UnsafeMutablePointer<ClutterBackend>! {
-    let rv = clutter_get_default_backend()
+    let rv: UnsafeMutablePointer<ClutterBackend>! = cast(clutter_get_default_backend())
     return cast(rv)
 }
 
@@ -447,9 +447,9 @@ public func getDefaultBackend() -> UnsafeMutablePointer<ClutterBackend>! {
 
 
 /// Retrieves the default frame rate. See `clutter_set_default_frame_rate()`.
-public func getDefaultFrameRate() -> CUnsignedInt {
-    let rv = clutter_get_default_frame_rate()
-    return CUnsignedInt(rv)
+public func getDefaultFrameRate() -> Int {
+    let rv: Int = cast(clutter_get_default_frame_rate())
+    return Int(rv)
 }
 
 
@@ -463,7 +463,7 @@ public func getDefaultFrameRate() -> CUnsignedInt {
 /// `clutter_actor_set_text_direction()`.
 public func getDefaultTextDirection() -> ClutterTextDirection {
     let rv = clutter_get_default_text_direction()
-    return rv
+    return cast(rv)
 }
 
 
@@ -477,7 +477,7 @@ public func getDefaultTextDirection() -> ClutterTextDirection {
 ///   #cairo_font_options_t API.
 @available(*, deprecated) public func getFontFlags() -> ClutterFontFlags {
     let rv = clutter_get_font_flags()
-    return rv
+    return cast(rv)
 }
 
 
@@ -487,7 +487,7 @@ public func getDefaultTextDirection() -> ClutterTextDirection {
 /// You can use the global font map object with the COGL
 /// Pango API.
 public func getFontMap() -> UnsafeMutablePointer<PangoFontMap>! {
-    let rv = clutter_get_font_map()
+    let rv: UnsafeMutablePointer<PangoFontMap>! = cast(clutter_get_font_map())
     return cast(rv)
 }
 
@@ -510,7 +510,7 @@ public func getFontMap() -> UnsafeMutablePointer<PangoFontMap>! {
 /// **get_input_device_for_id is deprecated:**
 /// Use clutter_device_manager_get_device() instead.
 @available(*, deprecated) public func getInputDeviceForId(id_: CInt) -> UnsafeMutablePointer<ClutterInputDevice>! {
-    let rv = clutter_get_input_device_for_id(gint(id_))
+    let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_get_input_device_for_id(gint(id_)))
     return cast(rv)
 }
 
@@ -519,7 +519,7 @@ public func getFontMap() -> UnsafeMutablePointer<PangoFontMap>! {
 
 /// Queries the current keyboard grab of clutter.
 public func getKeyboardGrab() -> UnsafeMutablePointer<ClutterActor>! {
-    let rv = clutter_get_keyboard_grab()
+    let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_get_keyboard_grab())
     return cast(rv)
 }
 
@@ -549,7 +549,7 @@ public func getKeyboardGrab() -> UnsafeMutablePointer<ClutterActor>! {
 /// display connection with `clutter_x11_set_display()`, or with
 /// ``gtk_clutter_init()``.
 public func getOptionGroupWithoutInit() -> UnsafeMutablePointer<GOptionGroup>! {
-    let rv = clutter_get_option_group_without_init()
+    let rv: UnsafeMutablePointer<GOptionGroup>! = cast(clutter_get_option_group_without_init())
     return cast(rv)
 }
 
@@ -558,7 +558,7 @@ public func getOptionGroupWithoutInit() -> UnsafeMutablePointer<GOptionGroup>! {
 
 /// Queries the current pointer grab of clutter.
 public func getPointerGrab() -> UnsafeMutablePointer<ClutterActor>! {
-    let rv = clutter_get_pointer_grab()
+    let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_get_pointer_grab())
     return cast(rv)
 }
 
@@ -567,8 +567,8 @@ public func getPointerGrab() -> UnsafeMutablePointer<ClutterActor>! {
 
 /// Retrieves the Clutter script id, if any.
 public func getScriptId(gobject: GLibObject.ObjectProtocol) -> String! {
-    let rv = clutter_get_script_id(cast(gobject.ptr))
-    return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+    let rv: String! = cast(clutter_get_script_id(cast(gobject.ptr)))
+    return cast(rv)
 }
 
 
@@ -605,9 +605,9 @@ public func getScriptId(gobject: GLibObject.ObjectProtocol) -> String! {
 /// **get_timestamp is deprecated:**
 /// Use #GTimer or g_get_monotonic_time() for a proper
 ///   timing source
-@available(*, deprecated) public func getTimestamp() -> CUnsignedLong {
-    let rv = clutter_get_timestamp()
-    return CUnsignedLong(rv)
+@available(*, deprecated) public func getTimestamp() -> Int {
+    let rv: Int = cast(clutter_get_timestamp())
+    return Int(rv)
 }
 
 
@@ -671,7 +671,7 @@ public func grabPointer(actor: ActorProtocol) {
 
 public func imageErrorQuark() -> GQuark {
     let rv = clutter_image_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -696,7 +696,7 @@ public func imageErrorQuark() -> GQuark {
 /// `ClutterInitError` enumeration value.
 public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<CChar>>>) -> ClutterInitError {
     let rv = clutter_init(cast(argc), cast(argv))
-    return rv
+    return cast(rv)
 }
 
 
@@ -704,7 +704,7 @@ public func init_(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<U
 
 public func initErrorQuark() -> GQuark {
     let rv = clutter_init_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -722,12 +722,10 @@ public func initErrorQuark() -> GQuark {
 /// any subsequent call to any other Clutter API will result in undefined
 /// behaviour - including segmentation faults.
 public func initWithArgs(argc: UnsafeMutablePointer<CInt>, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<CChar>>>, parameterString parameter_string: UnsafePointer<CChar>, entries: UnsafeMutablePointer<GOptionEntry>, translationDomain translation_domain: UnsafePointer<CChar>) throws -> ClutterInitError {
-    var error: Optional<UnsafeMutablePointer<GError>> = nil
+    var error: UnsafeMutablePointer<GError>?
     let rv = clutter_init_with_args(cast(argc), cast(argv), parameter_string, cast(entries), translation_domain, &error)
-    if let error = error {
-        throw ErrorType(error)
-    }
-    return rv
+    if let error = error { throw ErrorType(error) }
+    return cast(rv)
 }
 
 
@@ -753,9 +751,9 @@ public func main() {
 
 
 /// Retrieves the depth of the Clutter mainloop.
-public func mainLevel() -> CInt {
-    let rv = clutter_main_level()
-    return CInt(rv)
+public func mainLevel() -> Int {
+    let rv: Int = cast(clutter_main_level())
+    return Int(rv)
 }
 
 
@@ -772,61 +770,7 @@ public func mainQuit() {
 
 /// Allocates enough memory to hold a `ClutterMatrix`.
 public func matrixAlloc() -> UnsafeMutablePointer<ClutterMatrix>! {
-    let rv = clutter_matrix_alloc()
-    return cast(rv)
-}
-
-
-
-
-/// Frees the memory allocated by `clutter_matrix_alloc()`.
-public func matrixFree(matrix: MatrixProtocol) {
-    clutter_matrix_free(cast(matrix.ptr))
-
-}
-
-
-
-
-public func matrixGetType() -> GType {
-    let rv = clutter_matrix_get_type()
-    return rv
-}
-
-
-
-
-/// Initializes `matrix` with the contents of a C array of floating point
-/// values.
-public func matrixInitFromArray(matrix: MatrixProtocol, values: UnsafePointer<CFloat>) -> UnsafeMutablePointer<ClutterMatrix>! {
-    let rv = clutter_matrix_init_from_array(cast(matrix.ptr), cast(values))
-    return cast(rv)
-}
-
-
-
-
-/// Initializes the `ClutterMatrix` `a` with the contents of the
-/// `ClutterMatrix` `b`.
-public func matrixInitFromMatrix(a_: MatrixProtocol, b_: MatrixProtocol) -> UnsafeMutablePointer<ClutterMatrix>! {
-    let rv = clutter_matrix_init_from_matrix(cast(a_.ptr), cast(b_.ptr))
-    return cast(rv)
-}
-
-
-
-
-/// Initializes `matrix` with the identity matrix, i.e.:
-/// 
-/// ```
-///   .xx = 1.0, .xy = 0.0, .xz = 0.0, .xw = 0.0
-///   .yx = 0.0, .yy = 1.0, .yz = 0.0, .yw = 0.0
-///   .zx = 0.0, .zy = 0.0, .zz = 1.0, .zw = 0.0
-///   .wx = 0.0, .wy = 0.0, .wz = 0.0, .ww = 1.0
-/// ```
-/// 
-public func matrixInitIdentity(matrix: MatrixProtocol) -> UnsafeMutablePointer<ClutterMatrix>! {
-    let rv = clutter_matrix_init_identity(cast(matrix.ptr))
+    let rv: UnsafeMutablePointer<ClutterMatrix>! = cast(clutter_matrix_alloc())
     return cast(rv)
 }
 
@@ -835,7 +779,7 @@ public func matrixInitIdentity(matrix: MatrixProtocol) -> UnsafeMutablePointer<C
 
 /// Creates a `GParamSpec` for properties using `ClutterColor`.
 public func paramSpecColor(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, defaultValue default_value: ColorProtocol, flags: GLibObject.ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = clutter_param_spec_color(name, nick, blurb, cast(default_value.ptr), flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(clutter_param_spec_color(name, nick, blurb, cast(default_value.ptr), flags.value))
     return cast(rv)
 }
 
@@ -847,7 +791,7 @@ public func paramSpecColor(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// **param_spec_fixed is deprecated:**
 /// Use #GParamSpecInt instead.
 @available(*, deprecated) public func paramSpecFixed(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, minimum: Cogl.Fixed, maximum: Cogl.Fixed, defaultValue default_value: Cogl.Fixed, flags: GLibObject.ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = clutter_param_spec_fixed(name, nick, blurb, minimum, maximum, default_value, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(clutter_param_spec_fixed(name, nick, blurb, minimum, maximum, default_value, flags.value))
     return cast(rv)
 }
 
@@ -856,7 +800,7 @@ public func paramSpecColor(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 
 /// Creates a `GParamSpec` for properties using `ClutterUnits`.
 public func paramSpecUnits(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar>, blurb: UnsafePointer<gchar>, defaultType default_type: UnitType, minimum: gfloat, maximum: gfloat, defaultValue default_value: gfloat, flags: GLibObject.ParamFlags) -> UnsafeMutablePointer<GParamSpec>! {
-    let rv = clutter_param_spec_units(name, nick, blurb, default_type, minimum, maximum, default_value, flags)
+    let rv: UnsafeMutablePointer<GParamSpec>! = cast(clutter_param_spec_units(name, nick, blurb, default_type, minimum, maximum, default_value, flags.value))
     return cast(rv)
 }
 
@@ -867,7 +811,7 @@ public func paramSpecUnits(name: UnsafePointer<gchar>, nick: UnsafePointer<gchar
 /// 
 /// The returned value can be used as a guard.
 public func pointZero() -> UnsafePointer<ClutterPoint>! {
-    let rv = clutter_point_zero()
+    let rv: UnsafePointer<ClutterPoint>! = cast(clutter_point_zero())
     return cast(rv)
 }
 
@@ -879,7 +823,7 @@ public func pointZero() -> UnsafePointer<ClutterPoint>! {
 /// 
 /// The returned value can be used as a guard.
 public func rectZero() -> UnsafePointer<ClutterRect>! {
-    let rv = clutter_rect_zero()
+    let rv: UnsafePointer<ClutterRect>! = cast(clutter_rect_zero())
     return cast(rv)
 }
 
@@ -904,7 +848,7 @@ public func rectZero() -> UnsafePointer<ClutterRect>! {
 
 public func scriptErrorQuark() -> GQuark {
     let rv = clutter_script_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -938,7 +882,7 @@ public func scriptErrorQuark() -> GQuark {
 /// Use clutter_backend_set_font_options() and the
 ///   #cairo_font_option_t API.
 @available(*, deprecated) public func setFont(flags: FontFlags) {
-    clutter_set_font_flags(flags)
+    clutter_set_font_flags(flags.value)
 
 }
 
@@ -1010,7 +954,7 @@ public func setWindowingBackend(backendType backend_type: UnsafePointer<CChar>) 
 
 @available(*, deprecated) public func shaderErrorQuark() -> GQuark {
     let rv = clutter_shader_error_quark()
-    return rv
+    return cast(rv)
 }
 
 
@@ -1072,7 +1016,7 @@ public func testCheckColorAtPoint(stage: ActorProtocol, point: PointProtocol, co
 
 /// Retrieves the `ClutterStage` used for testing.
 public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
-    let rv = clutter_test_get_stage()
+    let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_test_get_stage())
     return cast(rv)
 }
 
@@ -1083,9 +1027,9 @@ public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
 ///
 /// **threads_add_frame_source is deprecated:**
 /// There is no direct replacement for this API
-@available(*, deprecated) public func threadsAddFrameSource(fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = clutter_threads_add_frame_source(guint(fps), func_, cast(data))
-    return CUnsignedInt(rv)
+@available(*, deprecated) public func threadsAddFrameSource(fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(clutter_threads_add_frame_source(guint(fps), func_, cast(data)))
+    return Int(rv)
 }
 
 
@@ -1111,9 +1055,9 @@ public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
 ///
 /// **threads_add_frame_source_full is deprecated:**
 /// There is no direct replacement for this API
-@available(*, deprecated) public func threadsAddFrameSourceFull(priority: CInt, fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = clutter_threads_add_frame_source_full(gint(priority), guint(fps), func_, cast(data), notify)
-    return CUnsignedInt(rv)
+@available(*, deprecated) public func threadsAddFrameSourceFull(priority: CInt, fps: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(clutter_threads_add_frame_source_full(gint(priority), guint(fps), func_, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -1121,9 +1065,9 @@ public func testGetStage() -> UnsafeMutablePointer<ClutterActor>! {
 
 /// Simple wrapper around `clutter_threads_add_idle_full()` using the
 /// default priority.
-public func threadsAddIdle(func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = clutter_threads_add_idle(func_, cast(data))
-    return CUnsignedInt(rv)
+public func threadsAddIdle(func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(clutter_threads_add_idle(func_, cast(data)))
+    return Int(rv)
 }
 
 
@@ -1210,9 +1154,9 @@ public func threadsAddIdle(func_: @escaping GLib.SourceFunc, data: UnsafeMutable
 ///                                  NULL);
 /// ```
 /// 
-public func threadsAddIdleFull(priority: CInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = clutter_threads_add_idle_full(gint(priority), func_, cast(data), notify)
-    return CUnsignedInt(rv)
+public func threadsAddIdleFull(priority: CInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(clutter_threads_add_idle_full(gint(priority), func_, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -1243,9 +1187,9 @@ public func threadsAddIdleFull(priority: CInt, func_: @escaping GLib.SourceFunc,
 /// `notify` function will be called, if any is set.
 /// 
 /// See also: `clutter_threads_add_repaint_func_full()`
-public func threadsAddRepaintFunc(func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = clutter_threads_add_repaint_func(func_, cast(data), notify)
-    return CUnsignedInt(rv)
+public func threadsAddRepaintFunc(func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(clutter_threads_add_repaint_func(func_, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -1274,18 +1218,18 @@ public func threadsAddRepaintFunc(func_: @escaping GLib.SourceFunc, data: Unsafe
 /// When the repaint function is removed (either because it returned `false`
 /// or because `clutter_threads_remove_repaint_func()` has been called) the
 /// `notify` function will be called, if any is set.
-public func threadsAddRepaintFuncFull(flags: RepaintFlags, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = clutter_threads_add_repaint_func_full(flags, func_, cast(data), notify)
-    return CUnsignedInt(rv)
+public func threadsAddRepaintFuncFull(flags: RepaintFlags, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(clutter_threads_add_repaint_func_full(flags.value, func_, cast(data), notify))
+    return Int(rv)
 }
 
 
 
 
 /// Simple wrapper around `clutter_threads_add_timeout_full()`.
-public func threadsAddTimeout(interval: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> CUnsignedInt {
-    let rv = clutter_threads_add_timeout(guint(interval), func_, cast(data))
-    return CUnsignedInt(rv)
+public func threadsAddTimeout(interval: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer) -> Int {
+    let rv: Int = cast(clutter_threads_add_timeout(guint(interval), func_, cast(data)))
+    return Int(rv)
 }
 
 
@@ -1304,9 +1248,9 @@ public func threadsAddTimeout(interval: CUnsignedInt, func_: @escaping GLib.Sour
 /// "keep up" with the interval.
 /// 
 /// See also `clutter_threads_add_idle_full()`.
-public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> CUnsignedInt {
-    let rv = clutter_threads_add_timeout_full(gint(priority), guint(interval), func_, cast(data), notify)
-    return CUnsignedInt(rv)
+public func threadsAddTimeoutFull(priority: CInt, interval: CUnsignedInt, func_: @escaping GLib.SourceFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) -> Int {
+    let rv: Int = cast(clutter_threads_add_timeout_full(gint(priority), guint(interval), func_, cast(data), notify))
+    return Int(rv)
 }
 
 
@@ -1414,7 +1358,7 @@ public func threadsSetLockFunctions(enterFn enter_fn: @escaping GLibObject.Callb
 /// **timeout_pool_new is deprecated:**
 /// There is no direct replacement for this API
 @available(*, deprecated) public func timeoutPoolNew(priority: CInt) -> UnsafeMutablePointer<ClutterTimeoutPool>! {
-    let rv = clutter_timeout_pool_new(gint(priority))
+    let rv: UnsafeMutablePointer<ClutterTimeoutPool>! = cast(clutter_timeout_pool_new(gint(priority)))
     return cast(rv)
 }
 
@@ -1452,9 +1396,9 @@ public func ungrabPointer() {
 
 
 /// Convert from a ISO10646 character to a key symbol.
-public func unicodeToKeysym(wc: UInt32) -> CUnsignedInt {
-    let rv = clutter_unicode_to_keysym(guint32(wc))
-    return CUnsignedInt(rv)
+public func unicodeToKeysym(wc: UInt32) -> Int {
+    let rv: Int = cast(clutter_unicode_to_keysym(guint32(wc)))
+    return Int(rv)
 }
 
 
@@ -1560,9 +1504,9 @@ public func unitsFromString(units: UnitsProtocol, str: UnsafePointer<gchar>) -> 
 ///
 /// **util_next_p2 is deprecated:**
 /// This method is deprecated.
-@available(*, deprecated) public func utilNextP2(a_: CInt) -> CInt {
-    let rv = clutter_util_next_p2(gint(a_))
-    return CInt(rv)
+@available(*, deprecated) public func utilNextP2(a_: CInt) -> Int {
+    let rv: Int = cast(clutter_util_next_p2(gint(a_)))
+    return Int(rv)
 }
 
 
@@ -1572,7 +1516,7 @@ public func unitsFromString(units: UnitsProtocol, str: UnsafePointer<gchar>) -> 
 /// the passed `GValue`, and if not `nil` it will increase the
 /// reference count.
 public func valueDupPaintNode(value: GLibObject.ValueProtocol) -> UnsafeMutableRawPointer! {
-    let rv = clutter_value_dup_paint_node(cast(value.ptr))
+    let rv: UnsafeMutableRawPointer! = cast(clutter_value_dup_paint_node(cast(value.ptr)))
     return cast(rv)
 }
 
@@ -1581,7 +1525,7 @@ public func valueDupPaintNode(value: GLibObject.ValueProtocol) -> UnsafeMutableR
 
 /// Gets the `ClutterColor` contained in `value`.
 public func valueGetColor(value: GLibObject.ValueProtocol) -> UnsafePointer<ClutterColor>! {
-    let rv = clutter_value_get_color(cast(value.ptr))
+    let rv: UnsafePointer<ClutterColor>! = cast(clutter_value_get_color(cast(value.ptr)))
     return cast(rv)
 }
 
@@ -1594,7 +1538,7 @@ public func valueGetColor(value: GLibObject.ValueProtocol) -> UnsafePointer<Clut
 /// Use g_value_get_int() instead.
 @available(*, deprecated) public func valueGetFixed(value: GLibObject.ValueProtocol) -> CoglFixed {
     let rv = clutter_value_get_fixed(cast(value.ptr))
-    return rv
+    return cast(rv)
 }
 
 
@@ -1603,7 +1547,7 @@ public func valueGetColor(value: GLibObject.ValueProtocol) -> UnsafePointer<Clut
 /// Retrieves a pointer to the `ClutterPaintNode` contained inside
 /// the passed `GValue`.
 public func valueGetPaintNode(value: GLibObject.ValueProtocol) -> UnsafeMutableRawPointer! {
-    let rv = clutter_value_get_paint_node(cast(value.ptr))
+    let rv: UnsafeMutableRawPointer! = cast(clutter_value_get_paint_node(cast(value.ptr)))
     return cast(rv)
 }
 
@@ -1614,7 +1558,7 @@ public func valueGetPaintNode(value: GLibObject.ValueProtocol) -> UnsafeMutableR
 /// the passed `GValue`. `value` must have been initialized with
 /// `CLUTTER_TYPE_SHADER_FLOAT`.
 public func valueGetShaderFloat(value: GLibObject.ValueProtocol, length: UnsafeMutablePointer<Int>) -> UnsafePointer<gfloat>! {
-    let rv = clutter_value_get_shader_float(cast(value.ptr), cast(length))
+    let rv: UnsafePointer<gfloat>! = cast(clutter_value_get_shader_float(cast(value.ptr), cast(length)))
     return cast(rv)
 }
 
@@ -1625,7 +1569,7 @@ public func valueGetShaderFloat(value: GLibObject.ValueProtocol, length: UnsafeM
 /// `GValue`. `value` must have been initialized with
 /// `CLUTTER_TYPE_SHADER_INT`.
 public func valueGetShaderInt(value: GLibObject.ValueProtocol, length: UnsafeMutablePointer<Int>) -> UnsafePointer<CInt>! {
-    let rv = clutter_value_get_shader_int(cast(value.ptr), cast(length))
+    let rv: UnsafePointer<CInt>! = cast(clutter_value_get_shader_int(cast(value.ptr), cast(length)))
     return cast(rv)
 }
 
@@ -1636,7 +1580,7 @@ public func valueGetShaderInt(value: GLibObject.ValueProtocol, length: UnsafeMut
 /// the passed `GValue`. `value` must have been initialized with
 /// `CLUTTER_TYPE_SHADER_MATRIX`.
 public func valueGetShaderMatrix(value: GLibObject.ValueProtocol, length: UnsafeMutablePointer<Int>) -> UnsafePointer<gfloat>! {
-    let rv = clutter_value_get_shader_matrix(cast(value.ptr), cast(length))
+    let rv: UnsafePointer<gfloat>! = cast(clutter_value_get_shader_matrix(cast(value.ptr), cast(length)))
     return cast(rv)
 }
 
@@ -1645,7 +1589,7 @@ public func valueGetShaderMatrix(value: GLibObject.ValueProtocol, length: Unsafe
 
 /// Gets the `ClutterUnits` contained in `value`.
 public func valueGetUnits(value: GLibObject.ValueProtocol) -> UnsafePointer<ClutterUnits>! {
-    let rv = clutter_value_get_units(cast(value.ptr))
+    let rv: UnsafePointer<ClutterUnits>! = cast(clutter_value_get_units(cast(value.ptr)))
     return cast(rv)
 }
 

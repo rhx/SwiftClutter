@@ -21,7 +21,7 @@ import Atk
 ///
 
 public protocol ZoomActionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterZoomActionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterZoomActionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterZoomActionPrivate` instance.
@@ -34,7 +34,7 @@ public protocol ZoomActionPrivateProtocol {
 ///
 
 public struct ZoomActionPrivateRef: ZoomActionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterZoomActionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterZoomActionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -87,7 +87,7 @@ public extension ZoomActionPrivateRef {
 ///
 
 open class ZoomActionPrivate: ZoomActionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterZoomActionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterZoomActionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -116,7 +116,7 @@ open class ZoomActionPrivate: ZoomActionPrivateProtocol {
         // no reference counting for ClutterZoomActionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterZoomActionPrivate`.
+    /// Do-nothing destructor for `ClutterZoomActionPrivate`.
     deinit {
         // no reference counting for ClutterZoomActionPrivate, cannot unref(cast(_ptr))
     }
@@ -184,14 +184,17 @@ open class ZoomActionPrivate: ZoomActionPrivateProtocol {
 
 }
 
-// MARK: - no ZoomActionPrivate properties
+// MARK: no ZoomActionPrivate properties
 
-// MARK: - no signals
+// MARK: no ZoomActionPrivate signals
 
 
+// MARK: ZoomActionPrivate Record: ZoomActionPrivateProtocol extension (methods and fields)
 public extension ZoomActionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterZoomActionPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterZoomActionPrivate> { return ptr.assumingMemoryBound(to: ClutterZoomActionPrivate.self) }
+
+
 
 }
 

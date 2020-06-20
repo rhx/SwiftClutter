@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterContent` structure is an opaque type
 /// whose members cannot be acccessed directly.
 public protocol ContentProtocol {
-    /// Untyped pointer to the underlying `ClutterContent` instance.
+        /// Untyped pointer to the underlying `ClutterContent` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterContent` instance.
@@ -36,7 +36,7 @@ public protocol ContentProtocol {
 /// The `ClutterContent` structure is an opaque type
 /// whose members cannot be acccessed directly.
 public struct ContentRef: ContentProtocol {
-    /// Untyped pointer to the underlying `ClutterContent` instance.
+        /// Untyped pointer to the underlying `ClutterContent` instance.
     /// For type-safe access, use the generated, typed pointer `content_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension ContentRef {
 /// The `ClutterContent` structure is an opaque type
 /// whose members cannot be acccessed directly.
 open class Content: ContentProtocol {
-    /// Untyped pointer to the underlying `ClutterContent` instance.
+        /// Untyped pointer to the underlying `ClutterContent` instance.
     /// For type-safe access, use the generated, typed pointer `content_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class Content: ContentProtocol {
         // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterContent`.
+    /// Do-nothing destructor for `ClutterContent`.
     deinit {
         // no reference counting for ClutterContent, cannot unref(cast(content_ptr))
     }
@@ -187,7 +187,7 @@ open class Content: ContentProtocol {
 
 }
 
-// MARK: - no Content properties
+// MARK: no Content properties
 
 public enum ContentSignalName: String, SignalNameProtocol {
     /// This signal is emitted each time a `ClutterContent` implementation is
@@ -205,8 +205,8 @@ public extension ContentProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ContentSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ContentSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(content_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -227,6 +227,7 @@ public extension ContentProtocol {
     }
 }
 
+// MARK: Content Interface: ContentProtocol extension (methods and fields)
 public extension ContentProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterContent` instance.
     var content_ptr: UnsafeMutablePointer<ClutterContent> { return ptr.assumingMemoryBound(to: ClutterContent.self) }
@@ -250,6 +251,8 @@ public extension ContentProtocol {
         clutter_content_invalidate(cast(content_ptr))
     
     }
+
+
 }
 
 
@@ -264,7 +267,7 @@ public extension ContentProtocol {
 /// `ClutterMedia` is an opaque structure whose members cannot be directly
 /// accessed
 public protocol MediaProtocol {
-    /// Untyped pointer to the underlying `ClutterMedia` instance.
+        /// Untyped pointer to the underlying `ClutterMedia` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterMedia` instance.
@@ -278,7 +281,7 @@ public protocol MediaProtocol {
 /// `ClutterMedia` is an opaque structure whose members cannot be directly
 /// accessed
 public struct MediaRef: MediaProtocol {
-    /// Untyped pointer to the underlying `ClutterMedia` instance.
+        /// Untyped pointer to the underlying `ClutterMedia` instance.
     /// For type-safe access, use the generated, typed pointer `media_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -332,7 +335,7 @@ public extension MediaRef {
 /// `ClutterMedia` is an opaque structure whose members cannot be directly
 /// accessed
 open class Media: MediaProtocol {
-    /// Untyped pointer to the underlying `ClutterMedia` instance.
+        /// Untyped pointer to the underlying `ClutterMedia` instance.
     /// For type-safe access, use the generated, typed pointer `media_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -361,7 +364,7 @@ open class Media: MediaProtocol {
         // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterMedia`.
+    /// Do-nothing destructor for `ClutterMedia`.
     deinit {
         // no reference counting for ClutterMedia, cannot unref(cast(media_ptr))
     }
@@ -491,8 +494,8 @@ public extension MediaProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: MediaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: MediaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -515,6 +518,23 @@ public extension MediaProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Media property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: MediaPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Media property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: MediaPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -587,8 +607,8 @@ public extension MediaProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MediaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: MediaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(media_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -609,6 +629,7 @@ public extension MediaProtocol {
     }
 }
 
+// MARK: Media Interface: MediaProtocol extension (methods and fields)
 public extension MediaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterMedia` instance.
     var media_ptr: UnsafeMutablePointer<ClutterMedia> { return ptr.assumingMemoryBound(to: ClutterMedia.self) }
@@ -617,18 +638,18 @@ public extension MediaProtocol {
     ///
     /// **get_audio_volume is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getAudioVolume() -> gdouble {
-        let rv = clutter_media_get_audio_volume(cast(media_ptr))
-        return rv
+    @available(*, deprecated) func getAudioVolume() -> Double {
+        let rv: Double = cast(clutter_media_get_audio_volume(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the amount of the stream that is buffered.
     ///
     /// **get_buffer_fill is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getBufferFill() -> gdouble {
-        let rv = clutter_media_get_buffer_fill(cast(media_ptr))
-        return rv
+    @available(*, deprecated) func getBufferFill() -> Double {
+        let rv: Double = cast(clutter_media_get_buffer_fill(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves whether `media` is seekable or not.
@@ -644,9 +665,9 @@ public extension MediaProtocol {
     ///
     /// **get_duration is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getDuration() -> gdouble {
-        let rv = clutter_media_get_duration(cast(media_ptr))
-        return rv
+    @available(*, deprecated) func getDuration() -> Double {
+        let rv: Double = cast(clutter_media_get_duration(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the playing status of `media`.
@@ -662,9 +683,9 @@ public extension MediaProtocol {
     ///
     /// **get_progress is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getProgress() -> gdouble {
-        let rv = clutter_media_get_progress(cast(media_ptr))
-        return rv
+    @available(*, deprecated) func getProgress() -> Double {
+        let rv: Double = cast(clutter_media_get_progress(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the font name currently used.
@@ -672,8 +693,8 @@ public extension MediaProtocol {
     /// **get_subtitle_font_name is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func getSubtitleFontName() -> String! {
-        let rv = clutter_media_get_subtitle_font_name(cast(media_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_media_get_subtitle_font_name(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the URI of the subtitle file in use.
@@ -681,8 +702,8 @@ public extension MediaProtocol {
     /// **get_subtitle_uri is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func getSubtitleUri() -> String! {
-        let rv = clutter_media_get_subtitle_uri(cast(media_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_media_get_subtitle_uri(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the URI from `media`.
@@ -690,8 +711,8 @@ public extension MediaProtocol {
     /// **get_uri is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func getUri() -> String! {
-        let rv = clutter_media_get_uri(cast(media_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_media_get_uri(cast(media_ptr)))
+        return cast(rv)
     }
 
     /// Sets the playback volume of `media` to `volume`.
@@ -775,21 +796,21 @@ public extension MediaProtocol {
     ///
     /// **get_audio_volume is deprecated:**
     /// This method is deprecated.
-    var audioVolume: gdouble {
+    var audioVolume: Double {
         /// Retrieves the playback volume of `media`.
         ///
         /// **get_audio_volume is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_audio_volume(cast(media_ptr))
-            return rv
+            let rv: Double = cast(clutter_media_get_audio_volume(cast(media_ptr)))
+            return cast(rv)
         }
         /// Sets the playback volume of `media` to `volume`.
         ///
         /// **set_audio_volume is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_audio_volume(cast(media_ptr), newValue)
+            clutter_media_set_audio_volume(cast(media_ptr), cast(newValue))
         }
     }
 
@@ -797,14 +818,14 @@ public extension MediaProtocol {
     ///
     /// **get_buffer_fill is deprecated:**
     /// This method is deprecated.
-    var bufferFill: gdouble {
+    var bufferFill: Double {
         /// Retrieves the amount of the stream that is buffered.
         ///
         /// **get_buffer_fill is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_buffer_fill(cast(media_ptr))
-            return rv
+            let rv: Double = cast(clutter_media_get_buffer_fill(cast(media_ptr)))
+            return cast(rv)
         }
     }
 
@@ -827,14 +848,14 @@ public extension MediaProtocol {
     ///
     /// **duration is deprecated:**
     /// This method is deprecated.
-    var duration: gdouble {
+    var duration: Double {
         /// Retrieves the duration of the media stream that `media` represents.
         ///
         /// **get_duration is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_duration(cast(media_ptr))
-            return rv
+            let rv: Double = cast(clutter_media_get_duration(cast(media_ptr)))
+            return cast(rv)
         }
     }
 
@@ -871,14 +892,14 @@ public extension MediaProtocol {
     ///
     /// **progress is deprecated:**
     /// This method is deprecated.
-    var progress: gdouble {
+    var progress: Double {
         /// Retrieves the playback progress of `media`.
         ///
         /// **get_progress is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_progress(cast(media_ptr))
-            return rv
+            let rv: Double = cast(clutter_media_get_progress(cast(media_ptr)))
+            return cast(rv)
         }
         /// Sets the playback progress of `media`. The `progress` is
         /// a normalized value between 0.0 (begin) and 1.0 (end).
@@ -886,7 +907,7 @@ public extension MediaProtocol {
         /// **set_progress is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_progress(cast(media_ptr), newValue)
+            clutter_media_set_progress(cast(media_ptr), cast(newValue))
         }
     }
 
@@ -900,8 +921,8 @@ public extension MediaProtocol {
         /// **get_subtitle_font_name is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_subtitle_font_name(cast(media_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_media_get_subtitle_font_name(cast(media_ptr)))
+            return cast(rv)
         }
         /// Sets the font used by the subtitle renderer. The `font_name` string must be
         /// either `nil`, which means that the default font name of the underlying
@@ -916,7 +937,7 @@ public extension MediaProtocol {
         /// **set_subtitle_font_name is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_subtitle_font_name(cast(media_ptr), newValue)
+            clutter_media_set_subtitle_font_name(cast(media_ptr), cast(newValue))
         }
     }
 
@@ -930,15 +951,15 @@ public extension MediaProtocol {
         /// **get_subtitle_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_subtitle_uri(cast(media_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_media_get_subtitle_uri(cast(media_ptr)))
+            return cast(rv)
         }
         /// Sets the location of a subtitle file to display while playing `media`.
         ///
         /// **set_subtitle_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_subtitle_uri(cast(media_ptr), newValue)
+            clutter_media_set_subtitle_uri(cast(media_ptr), cast(newValue))
         }
     }
 
@@ -952,17 +973,19 @@ public extension MediaProtocol {
         /// **get_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_uri(cast(media_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_media_get_uri(cast(media_ptr)))
+            return cast(rv)
         }
         /// Sets the URI of `media` to `uri`.
         ///
         /// **set_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_uri(cast(media_ptr), newValue)
+            clutter_media_set_uri(cast(media_ptr), cast(newValue))
         }
     }
+
+
 }
 
 

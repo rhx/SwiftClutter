@@ -22,7 +22,7 @@ import Atk
 /// `ClutterScriptable` is an opaque structure whose members cannot be directly
 /// accessed
 public protocol ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterScriptable` instance.
+        /// Untyped pointer to the underlying `ClutterScriptable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterScriptable` instance.
@@ -36,7 +36,7 @@ public protocol ScriptableProtocol {
 /// `ClutterScriptable` is an opaque structure whose members cannot be directly
 /// accessed
 public struct ScriptableRef: ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterScriptable` instance.
+        /// Untyped pointer to the underlying `ClutterScriptable` instance.
     /// For type-safe access, use the generated, typed pointer `scriptable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension ScriptableRef {
 /// `ClutterScriptable` is an opaque structure whose members cannot be directly
 /// accessed
 open class Scriptable: ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterScriptable` instance.
+        /// Untyped pointer to the underlying `ClutterScriptable` instance.
     /// For type-safe access, use the generated, typed pointer `scriptable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class Scriptable: ScriptableProtocol {
         // no reference counting for ClutterScriptable, cannot ref(cast(scriptable_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterScriptable`.
+    /// Do-nothing destructor for `ClutterScriptable`.
     deinit {
         // no reference counting for ClutterScriptable, cannot unref(cast(scriptable_ptr))
     }
@@ -187,19 +187,20 @@ open class Scriptable: ScriptableProtocol {
 
 }
 
-// MARK: - no Scriptable properties
+// MARK: no Scriptable properties
 
-// MARK: - no signals
+// MARK: no Scriptable signals
 
 
+// MARK: Scriptable Interface: ScriptableProtocol extension (methods and fields)
 public extension ScriptableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScriptable` instance.
     var scriptable_ptr: UnsafeMutablePointer<ClutterScriptable> { return ptr.assumingMemoryBound(to: ClutterScriptable.self) }
 
     /// Retrieves the id of `scriptable` set using `clutter_scriptable_set_id()`.
     func getId() -> String! {
-        let rv = clutter_scriptable_get_id(cast(scriptable_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_scriptable_get_id(cast(scriptable_ptr)))
+        return cast(rv)
     }
 
     /// Parses the passed JSON node. The implementation must set the type
@@ -230,8 +231,8 @@ public extension ScriptableProtocol {
     var id: String! {
         /// Retrieves the id of `scriptable` set using `clutter_scriptable_set_id()`.
         get {
-            let rv = clutter_scriptable_get_id(cast(scriptable_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_scriptable_get_id(cast(scriptable_ptr)))
+            return cast(rv)
         }
         /// Sets `id_` as the unique Clutter script it for this instance of
         /// `ClutterScriptableIface`.
@@ -240,9 +241,11 @@ public extension ScriptableProtocol {
         /// define a unique name for an object constructable using the UI
         /// definition language parsed by `ClutterScript`.
         nonmutating set {
-            clutter_scriptable_set_id(cast(scriptable_ptr), newValue)
+            clutter_scriptable_set_id(cast(scriptable_ptr), cast(newValue))
         }
     }
+
+
 }
 
 

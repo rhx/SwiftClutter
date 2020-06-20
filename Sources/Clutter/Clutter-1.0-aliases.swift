@@ -12,7 +12,3 @@ import Cogl
 import CoglPango
 import Atk
 
-/// A type representing a 4x4 matrix.
-/// 
-/// It is identicaly to `CoglMatrix`.
-public typealias Matrix = ClutterMatrix

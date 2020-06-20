@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterLayoutMetaClass` contains only private data and
 /// should never be accessed directly
 public protocol LayoutMetaClassProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutMetaClass` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutMetaClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterLayoutMetaClass` instance.
@@ -36,7 +36,7 @@ public protocol LayoutMetaClassProtocol {
 /// The `ClutterLayoutMetaClass` contains only private data and
 /// should never be accessed directly
 public struct LayoutMetaClassRef: LayoutMetaClassProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutMetaClass` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutMetaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension LayoutMetaClassRef {
 /// The `ClutterLayoutMetaClass` contains only private data and
 /// should never be accessed directly
 open class LayoutMetaClass: LayoutMetaClassProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutMetaClass` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutMetaClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class LayoutMetaClass: LayoutMetaClassProtocol {
         // no reference counting for ClutterLayoutMetaClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterLayoutMetaClass`.
+    /// Do-nothing destructor for `ClutterLayoutMetaClass`.
     deinit {
         // no reference counting for ClutterLayoutMetaClass, cannot unref(cast(_ptr))
     }
@@ -187,14 +187,26 @@ open class LayoutMetaClass: LayoutMetaClassProtocol {
 
 }
 
-// MARK: - no LayoutMetaClass properties
+// MARK: no LayoutMetaClass properties
 
-// MARK: - no signals
+// MARK: no LayoutMetaClass signals
 
 
+// MARK: LayoutMetaClass Record: LayoutMetaClassProtocol extension (methods and fields)
 public extension LayoutMetaClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterLayoutMetaClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterLayoutMetaClass> { return ptr.assumingMemoryBound(to: ClutterLayoutMetaClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var ClutterPadding1 is unavailable because _clutter_padding1 is void
+
+    // var ClutterPadding2 is unavailable because _clutter_padding2 is void
+
+    // var ClutterPadding3 is unavailable because _clutter_padding3 is void
+
+    // var ClutterPadding4 is unavailable because _clutter_padding4 is void
 
 }
 
@@ -209,7 +221,7 @@ public extension LayoutMetaClassProtocol {
 ///
 /// The `ClutterListModelClass` struct contains only private data.
 public protocol ListModelClassProtocol {
-    /// Untyped pointer to the underlying `ClutterListModelClass` instance.
+        /// Untyped pointer to the underlying `ClutterListModelClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterListModelClass` instance.
@@ -222,7 +234,7 @@ public protocol ListModelClassProtocol {
 ///
 /// The `ClutterListModelClass` struct contains only private data.
 public struct ListModelClassRef: ListModelClassProtocol {
-    /// Untyped pointer to the underlying `ClutterListModelClass` instance.
+        /// Untyped pointer to the underlying `ClutterListModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -275,7 +287,7 @@ public extension ListModelClassRef {
 ///
 /// The `ClutterListModelClass` struct contains only private data.
 open class ListModelClass: ListModelClassProtocol {
-    /// Untyped pointer to the underlying `ClutterListModelClass` instance.
+        /// Untyped pointer to the underlying `ClutterListModelClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -304,7 +316,7 @@ open class ListModelClass: ListModelClassProtocol {
         // no reference counting for ClutterListModelClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterListModelClass`.
+    /// Do-nothing destructor for `ClutterListModelClass`.
     deinit {
         // no reference counting for ClutterListModelClass, cannot unref(cast(_ptr))
     }
@@ -372,14 +384,18 @@ open class ListModelClass: ListModelClassProtocol {
 
 }
 
-// MARK: - no ListModelClass properties
+// MARK: no ListModelClass properties
 
-// MARK: - no signals
+// MARK: no ListModelClass signals
 
 
+// MARK: ListModelClass Record: ListModelClassProtocol extension (methods and fields)
 public extension ListModelClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterListModelClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterListModelClass> { return ptr.assumingMemoryBound(to: ClutterListModelClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -394,7 +410,7 @@ public extension ListModelClassProtocol {
 ///
 
 public protocol ListModelPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterListModelPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterListModelPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterListModelPrivate` instance.
@@ -407,7 +423,7 @@ public protocol ListModelPrivateProtocol {
 ///
 
 public struct ListModelPrivateRef: ListModelPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterListModelPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterListModelPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -460,7 +476,7 @@ public extension ListModelPrivateRef {
 ///
 
 open class ListModelPrivate: ListModelPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterListModelPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterListModelPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -489,7 +505,7 @@ open class ListModelPrivate: ListModelPrivateProtocol {
         // no reference counting for ClutterListModelPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterListModelPrivate`.
+    /// Do-nothing destructor for `ClutterListModelPrivate`.
     deinit {
         // no reference counting for ClutterListModelPrivate, cannot unref(cast(_ptr))
     }
@@ -557,14 +573,17 @@ open class ListModelPrivate: ListModelPrivateProtocol {
 
 }
 
-// MARK: - no ListModelPrivate properties
+// MARK: no ListModelPrivate properties
 
-// MARK: - no signals
+// MARK: no ListModelPrivate signals
 
 
+// MARK: ListModelPrivate Record: ListModelPrivateProtocol extension (methods and fields)
 public extension ListModelPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterListModelPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterListModelPrivate> { return ptr.assumingMemoryBound(to: ClutterListModelPrivate.self) }
+
+
 
 }
 
@@ -579,7 +598,7 @@ public extension ListModelPrivateProtocol {
 ///
 /// A representation of the components of a margin.
 public protocol MarginProtocol {
-    /// Untyped pointer to the underlying `ClutterMargin` instance.
+        /// Untyped pointer to the underlying `ClutterMargin` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterMargin` instance.
@@ -592,7 +611,7 @@ public protocol MarginProtocol {
 ///
 /// A representation of the components of a margin.
 public struct MarginRef: MarginProtocol {
-    /// Untyped pointer to the underlying `ClutterMargin` instance.
+        /// Untyped pointer to the underlying `ClutterMargin` instance.
     /// For type-safe access, use the generated, typed pointer `margin_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -639,7 +658,7 @@ public extension MarginRef {
 
         /// Creates a new `ClutterMargin`.
     init() {
-        let rv = clutter_margin_new()
+        let rv: UnsafeMutablePointer<ClutterMargin>! = cast(clutter_margin_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -650,7 +669,7 @@ public extension MarginRef {
 ///
 /// A representation of the components of a margin.
 open class Margin: MarginProtocol {
-    /// Untyped pointer to the underlying `ClutterMargin` instance.
+        /// Untyped pointer to the underlying `ClutterMargin` instance.
     /// For type-safe access, use the generated, typed pointer `margin_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -679,7 +698,7 @@ open class Margin: MarginProtocol {
         // no reference counting for ClutterMargin, cannot ref(cast(margin_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterMargin`.
+    /// Do-nothing destructor for `ClutterMargin`.
     deinit {
         // no reference counting for ClutterMargin, cannot unref(cast(margin_ptr))
     }
@@ -745,18 +764,19 @@ open class Margin: MarginProtocol {
 
     /// Creates a new `ClutterMargin`.
     public init() {
-        let rv = clutter_margin_new()
+        let rv: UnsafeMutablePointer<ClutterMargin>! = cast(clutter_margin_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
 
 }
 
-// MARK: - no Margin properties
+// MARK: no Margin properties
 
-// MARK: - no signals
+// MARK: no Margin signals
 
 
+// MARK: Margin Record: MarginProtocol extension (methods and fields)
 public extension MarginProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterMargin` instance.
     var margin_ptr: UnsafeMutablePointer<ClutterMargin> { return ptr.assumingMemoryBound(to: ClutterMargin.self) }
@@ -764,7 +784,7 @@ public extension MarginProtocol {
     /// Creates a new `ClutterMargin` and copies the contents of `margin_` into
     /// the newly created structure.
     func copy() -> UnsafeMutablePointer<ClutterMargin>! {
-        let rv = clutter_margin_copy(cast(margin_ptr))
+        let rv: UnsafeMutablePointer<ClutterMargin>! = cast(clutter_margin_copy(cast(margin_ptr)))
         return cast(rv)
     }
 
@@ -774,6 +794,59 @@ public extension MarginProtocol {
         clutter_margin_free(cast(margin_ptr))
     
     }
+
+    /// the margin from the left
+    var `left`: Double {
+        /// the margin from the left
+        get {
+            let rv: Double = cast(margin_ptr.pointee.left)
+            return rv
+        }
+        /// the margin from the left
+         set {
+            margin_ptr.pointee.left = cast(newValue)
+        }
+    }
+
+    /// the margin from the right
+    var `right`: Double {
+        /// the margin from the right
+        get {
+            let rv: Double = cast(margin_ptr.pointee.right)
+            return rv
+        }
+        /// the margin from the right
+         set {
+            margin_ptr.pointee.right = cast(newValue)
+        }
+    }
+
+    /// the margin from the top
+    var top: Double {
+        /// the margin from the top
+        get {
+            let rv: Double = cast(margin_ptr.pointee.top)
+            return rv
+        }
+        /// the margin from the top
+         set {
+            margin_ptr.pointee.top = cast(newValue)
+        }
+    }
+
+    /// the margin from the bottom
+    var bottom: Double {
+        /// the margin from the bottom
+        get {
+            let rv: Double = cast(margin_ptr.pointee.bottom)
+            return rv
+        }
+        /// the margin from the bottom
+         set {
+            margin_ptr.pointee.bottom = cast(newValue)
+        }
+    }
+
 }
 
 

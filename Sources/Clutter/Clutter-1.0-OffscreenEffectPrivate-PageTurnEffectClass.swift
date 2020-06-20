@@ -21,7 +21,7 @@ import Atk
 ///
 
 public protocol OffscreenEffectPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
@@ -34,7 +34,7 @@ public protocol OffscreenEffectPrivateProtocol {
 ///
 
 public struct OffscreenEffectPrivateRef: OffscreenEffectPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -87,7 +87,7 @@ public extension OffscreenEffectPrivateRef {
 ///
 
 open class OffscreenEffectPrivate: OffscreenEffectPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterOffscreenEffectPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -116,7 +116,7 @@ open class OffscreenEffectPrivate: OffscreenEffectPrivateProtocol {
         // no reference counting for ClutterOffscreenEffectPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterOffscreenEffectPrivate`.
+    /// Do-nothing destructor for `ClutterOffscreenEffectPrivate`.
     deinit {
         // no reference counting for ClutterOffscreenEffectPrivate, cannot unref(cast(_ptr))
     }
@@ -184,14 +184,17 @@ open class OffscreenEffectPrivate: OffscreenEffectPrivateProtocol {
 
 }
 
-// MARK: - no OffscreenEffectPrivate properties
+// MARK: no OffscreenEffectPrivate properties
 
-// MARK: - no signals
+// MARK: no OffscreenEffectPrivate signals
 
 
+// MARK: OffscreenEffectPrivate Record: OffscreenEffectPrivateProtocol extension (methods and fields)
 public extension OffscreenEffectPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterOffscreenEffectPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterOffscreenEffectPrivate> { return ptr.assumingMemoryBound(to: ClutterOffscreenEffectPrivate.self) }
+
+
 
 }
 
@@ -206,7 +209,7 @@ public extension OffscreenEffectPrivateProtocol {
 ///
 
 public protocol PageTurnEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterPageTurnEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterPageTurnEffectClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterPageTurnEffectClass` instance.
@@ -219,7 +222,7 @@ public protocol PageTurnEffectClassProtocol {
 ///
 
 public struct PageTurnEffectClassRef: PageTurnEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterPageTurnEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterPageTurnEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -272,7 +275,7 @@ public extension PageTurnEffectClassRef {
 ///
 
 open class PageTurnEffectClass: PageTurnEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterPageTurnEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterPageTurnEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -301,7 +304,7 @@ open class PageTurnEffectClass: PageTurnEffectClassProtocol {
         // no reference counting for ClutterPageTurnEffectClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterPageTurnEffectClass`.
+    /// Do-nothing destructor for `ClutterPageTurnEffectClass`.
     deinit {
         // no reference counting for ClutterPageTurnEffectClass, cannot unref(cast(_ptr))
     }
@@ -369,14 +372,17 @@ open class PageTurnEffectClass: PageTurnEffectClassProtocol {
 
 }
 
-// MARK: - no PageTurnEffectClass properties
+// MARK: no PageTurnEffectClass properties
 
-// MARK: - no signals
+// MARK: no PageTurnEffectClass signals
 
 
+// MARK: PageTurnEffectClass Record: PageTurnEffectClassProtocol extension (methods and fields)
 public extension PageTurnEffectClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterPageTurnEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPageTurnEffectClass> { return ptr.assumingMemoryBound(to: ClutterPageTurnEffectClass.self) }
+
+
 
 }
 

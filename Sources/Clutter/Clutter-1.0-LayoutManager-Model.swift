@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterLayoutManager` structure contains only private data
 /// and should be accessed using the provided API
 public protocol LayoutManagerProtocol: InitiallyUnownedProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutManager` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutManager` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterLayoutManager` instance.
@@ -36,7 +36,7 @@ public protocol LayoutManagerProtocol: InitiallyUnownedProtocol {
 /// The `ClutterLayoutManager` structure contains only private data
 /// and should be accessed using the provided API
 public struct LayoutManagerRef: LayoutManagerProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutManager` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutManager` instance.
     /// For type-safe access, use the generated, typed pointer `layout_manager_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension LayoutManagerRef {
 /// The `ClutterLayoutManager` structure contains only private data
 /// and should be accessed using the provided API
 open class LayoutManager: InitiallyUnowned, LayoutManagerProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `LayoutManager` instance.
     /// - Parameter op: pointer to the underlying object
@@ -229,8 +229,8 @@ public extension LayoutManagerProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: LayoutManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: LayoutManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -253,6 +253,23 @@ public extension LayoutManagerProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a LayoutManager property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: LayoutManagerPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a LayoutManager property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: LayoutManagerPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -394,8 +411,8 @@ public extension LayoutManagerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: LayoutManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: LayoutManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(layout_manager_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -416,6 +433,7 @@ public extension LayoutManagerProtocol {
     }
 }
 
+// MARK: LayoutManager Class: LayoutManagerProtocol extension (methods and fields)
 public extension LayoutManagerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterLayoutManager` instance.
     var layout_manager_ptr: UnsafeMutablePointer<ClutterLayoutManager> { return ptr.assumingMemoryBound(to: ClutterLayoutManager.self) }
@@ -424,7 +442,7 @@ public extension LayoutManagerProtocol {
     /// 
     /// See also `clutter_actor_allocate()`
     func allocate(container: ContainerProtocol, allocation: ActorBoxProtocol, flags: AllocationFlags) {
-        clutter_layout_manager_allocate(cast(layout_manager_ptr), cast(container.ptr), cast(allocation.ptr), flags)
+        clutter_layout_manager_allocate(cast(layout_manager_ptr), cast(container.ptr), cast(allocation.ptr), flags.value)
     
     }
 
@@ -439,7 +457,7 @@ public extension LayoutManagerProtocol {
     /// **begin_animation is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func beginAnimation(duration: CUnsignedInt, mode: CUnsignedLong) -> UnsafeMutablePointer<ClutterAlpha>! {
-        let rv = clutter_layout_manager_begin_animation(cast(layout_manager_ptr), guint(duration), gulong(mode))
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_layout_manager_begin_animation(cast(layout_manager_ptr), guint(duration), gulong(mode)))
         return cast(rv)
     }
 
@@ -483,7 +501,7 @@ public extension LayoutManagerProtocol {
     /// Retrieves the `GParamSpec` for the layout property `name` inside
     /// the `ClutterLayoutMeta` sub-class used by `manager`
     func findChildProperty(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = clutter_layout_manager_find_child_property(cast(layout_manager_ptr), name)
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(clutter_layout_manager_find_child_property(cast(layout_manager_ptr), name))
         return cast(rv)
     }
 
@@ -495,16 +513,16 @@ public extension LayoutManagerProtocol {
     ///
     /// **get_animation_progress is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getAnimationProgress() -> gdouble {
-        let rv = clutter_layout_manager_get_animation_progress(cast(layout_manager_ptr))
-        return rv
+    @available(*, deprecated) func getAnimationProgress() -> Double {
+        let rv: Double = cast(clutter_layout_manager_get_animation_progress(cast(layout_manager_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the `ClutterLayoutMeta` that the layout `manager` associated
     /// to the `actor` child of `container`, eventually by creating one if the
     /// `ClutterLayoutManager` supports layout properties
     func getChildMeta(container: ContainerProtocol, actor: ActorProtocol) -> UnsafeMutablePointer<ClutterLayoutMeta>! {
-        let rv = clutter_layout_manager_get_child_meta(cast(layout_manager_ptr), cast(container.ptr), cast(actor.ptr))
+        let rv: UnsafeMutablePointer<ClutterLayoutMeta>! = cast(clutter_layout_manager_get_child_meta(cast(layout_manager_ptr), cast(container.ptr), cast(actor.ptr)))
         return cast(rv)
     }
 
@@ -538,7 +556,7 @@ public extension LayoutManagerProtocol {
     /// Retrieves all the `GParamSpec`<!-- -->s for the layout properties
     /// stored inside the `ClutterLayoutMeta` sub-class used by `manager`
     func listChildProperties(nPspecs n_pspecs: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! {
-        let rv = clutter_layout_manager_list_child_properties(cast(layout_manager_ptr), cast(n_pspecs))
+        let rv: UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>>! = cast(clutter_layout_manager_list_child_properties(cast(layout_manager_ptr), cast(n_pspecs)))
         return cast(rv)
     }
 
@@ -560,7 +578,7 @@ public extension LayoutManagerProtocol {
     ///
     /// **get_animation_progress is deprecated:**
     /// This method is deprecated.
-    var animationProgress: gdouble {
+    var animationProgress: Double {
         /// Retrieves the progress of the animation, if one has been started by
         /// `clutter_layout_manager_begin_animation()`
         /// 
@@ -570,10 +588,15 @@ public extension LayoutManagerProtocol {
         /// **get_animation_progress is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_layout_manager_get_animation_progress(cast(layout_manager_ptr))
-            return rv
+            let rv: Double = cast(clutter_layout_manager_get_animation_progress(cast(layout_manager_ptr)))
+            return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var dummy is unavailable because dummy is private
+
 }
 
 
@@ -591,7 +614,7 @@ public extension LayoutManagerProtocol {
 /// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
 public protocol LayoutMetaProtocol: ChildMetaProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterLayoutMeta` instance.
@@ -608,7 +631,7 @@ public protocol LayoutMetaProtocol: ChildMetaProtocol {
 /// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
 public struct LayoutMetaRef: LayoutMetaProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
     /// For type-safe access, use the generated, typed pointer `layout_meta_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -665,7 +688,7 @@ public extension LayoutMetaRef {
 /// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
 open class LayoutMeta: ChildMeta, LayoutMetaProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `LayoutMeta` instance.
     /// - Parameter op: pointer to the underlying object
@@ -765,8 +788,8 @@ public extension LayoutMetaProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: LayoutMetaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: LayoutMetaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -789,6 +812,23 @@ public extension LayoutMetaProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a LayoutMeta property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: LayoutMetaPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a LayoutMeta property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: LayoutMetaPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -832,8 +872,8 @@ public extension LayoutMetaProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: LayoutMetaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: LayoutMetaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(layout_meta_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -854,23 +894,40 @@ public extension LayoutMetaProtocol {
     }
 }
 
+// MARK: LayoutMeta Class: LayoutMetaProtocol extension (methods and fields)
 public extension LayoutMetaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterLayoutMeta` instance.
     var layout_meta_ptr: UnsafeMutablePointer<ClutterLayoutMeta> { return ptr.assumingMemoryBound(to: ClutterLayoutMeta.self) }
 
     /// Retrieves the actor wrapped by `data`
     func getManager() -> UnsafeMutablePointer<ClutterLayoutManager>! {
-        let rv = clutter_layout_meta_get_manager(cast(layout_meta_ptr))
+        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_layout_meta_get_manager(cast(layout_meta_ptr)))
         return cast(rv)
     }
     /// The `ClutterLayoutManager` that created this `ClutterLayoutMeta`.
     var manager: UnsafeMutablePointer<ClutterLayoutManager>! {
         /// Retrieves the actor wrapped by `data`
         get {
-            let rv = clutter_layout_meta_get_manager(cast(layout_meta_ptr))
+            let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_layout_meta_get_manager(cast(layout_meta_ptr)))
             return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    /// the layout manager handling this data
+    var _manager: UnsafeMutablePointer<ClutterLayoutManager> {
+        /// the layout manager handling this data
+        get {
+            let rv: UnsafeMutablePointer<ClutterLayoutManager> = cast(layout_meta_ptr.pointee.manager)
+            return rv
+        }
+    }
+
+    // var dummy0 is unavailable because dummy0 is private
+
+    // var dummy1 is unavailable because dummy1 is private
+
 }
 
 
@@ -884,7 +941,7 @@ public extension LayoutMetaProtocol {
 ///
 /// The `ClutterListModel` struct contains only private data.
 public protocol ListModelProtocol: ModelProtocol {
-    /// Untyped pointer to the underlying `ClutterListModel` instance.
+        /// Untyped pointer to the underlying `ClutterListModel` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterListModel` instance.
@@ -897,7 +954,7 @@ public protocol ListModelProtocol: ModelProtocol {
 ///
 /// The `ClutterListModel` struct contains only private data.
 public struct ListModelRef: ListModelProtocol {
-    /// Untyped pointer to the underlying `ClutterListModel` instance.
+        /// Untyped pointer to the underlying `ClutterListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -952,7 +1009,7 @@ public extension ListModelRef {
     /// **newv is deprecated:**
     /// Use #GListStore instead
     @available(*, deprecated) init(nColumns n_columns: CUnsignedInt, types: UnsafeMutablePointer<GType>, names: UnsafePointer<UnsafePointer<gchar>>) {
-        let rv = clutter_list_model_newv(guint(n_columns), cast(types), cast(names))
+        let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_list_model_newv(guint(n_columns), cast(types), cast(names)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Non-vararg version of `clutter_list_model_new()`. This function is
@@ -961,7 +1018,7 @@ public extension ListModelRef {
     /// **newv is deprecated:**
     /// Use #GListStore instead
     @available(*, deprecated) static func listModelNewv(nColumns n_columns: CUnsignedInt, types: UnsafeMutablePointer<GType>, names: UnsafePointer<UnsafePointer<gchar>>) -> ListModelRef! {
-        let rv = clutter_list_model_newv(guint(n_columns), cast(types), cast(names))
+        let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_list_model_newv(guint(n_columns), cast(types), cast(names)))
         return rv.map { ListModelRef(cast($0)) }
     }
 }
@@ -972,7 +1029,7 @@ public extension ListModelRef {
 ///
 /// The `ClutterListModel` struct contains only private data.
 open class ListModel: Model, ListModelProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ListModel` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1060,7 +1117,7 @@ open class ListModel: Model, ListModelProtocol {
     /// **newv is deprecated:**
     /// Use #GListStore instead
     @available(*, deprecated) public init(nColumns n_columns: CUnsignedInt, types: UnsafeMutablePointer<GType>, names: UnsafePointer<UnsafePointer<gchar>>) {
-        let rv = clutter_list_model_newv(guint(n_columns), cast(types), cast(names))
+        let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_list_model_newv(guint(n_columns), cast(types), cast(names)))
         super.init(cast(rv))
     }
 
@@ -1070,7 +1127,7 @@ open class ListModel: Model, ListModelProtocol {
     /// **newv is deprecated:**
     /// Use #GListStore instead
     @available(*, deprecated) public static func listModelNewv(nColumns n_columns: CUnsignedInt, types: UnsafeMutablePointer<GType>, names: UnsafePointer<UnsafePointer<gchar>>) -> ListModel! {
-        let rv = clutter_list_model_newv(guint(n_columns), cast(types), cast(names))
+        let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_list_model_newv(guint(n_columns), cast(types), cast(names)))
         return rv.map { ListModel(cast($0)) }
     }
 
@@ -1096,8 +1153,8 @@ public extension ListModelProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ListModelPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ListModelPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1120,6 +1177,23 @@ public extension ListModelProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ListModel property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ListModelPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ListModel property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ListModelPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1196,8 +1270,8 @@ public extension ListModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(list_model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1218,9 +1292,15 @@ public extension ListModelProtocol {
     }
 }
 
+// MARK: ListModel Class: ListModelProtocol extension (methods and fields)
 public extension ListModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterListModel` instance.
     var list_model_ptr: UnsafeMutablePointer<ClutterListModel> { return ptr.assumingMemoryBound(to: ClutterListModel.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
 
 }
 
@@ -1237,7 +1317,7 @@ public extension ListModelProtocol {
 /// only private data and should be manipulated using the provided
 /// API.
 public protocol ModelProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterModel` instance.
+        /// Untyped pointer to the underlying `ClutterModel` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterModel` instance.
@@ -1252,7 +1332,7 @@ public protocol ModelProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
 /// only private data and should be manipulated using the provided
 /// API.
 public struct ModelRef: ModelProtocol {
-    /// Untyped pointer to the underlying `ClutterModel` instance.
+        /// Untyped pointer to the underlying `ClutterModel` instance.
     /// For type-safe access, use the generated, typed pointer `model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1307,7 +1387,7 @@ public extension ModelRef {
 /// only private data and should be manipulated using the provided
 /// API.
 open class Model: GLibObject.Object, ModelProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Model` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1409,8 +1489,8 @@ public extension ModelProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ModelPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ModelPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1433,6 +1513,23 @@ public extension ModelProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Model property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ModelPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Model property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ModelPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1509,8 +1606,8 @@ public extension ModelProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(model_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1531,6 +1628,7 @@ public extension ModelProtocol {
     }
 }
 
+// MARK: Model Class: ModelProtocol extension (methods and fields)
 public extension ModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterModel` instance.
     var model_ptr: UnsafeMutablePointer<ClutterModel> { return ptr.assumingMemoryBound(to: ClutterModel.self) }
@@ -1587,8 +1685,8 @@ public extension ModelProtocol {
     /// **get_column_name is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func getColumnName(column: CUnsignedInt) -> String! {
-        let rv = clutter_model_get_column_name(cast(model_ptr), guint(column))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_model_get_column_name(cast(model_ptr), guint(column)))
+        return cast(rv)
     }
 
     /// Retrieves the type of the `column`.
@@ -1597,7 +1695,7 @@ public extension ModelProtocol {
     /// Use #GListModel instead
     @available(*, deprecated) func getColumnType(column: CUnsignedInt) -> GType {
         let rv = clutter_model_get_column_type(cast(model_ptr), guint(column))
-        return rv
+        return cast(rv)
     }
 
     /// Returns whether the `model` has a filter in place, set
@@ -1616,7 +1714,7 @@ public extension ModelProtocol {
     /// **get_first_iter is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func getFirstIter() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv = clutter_model_get_first_iter(cast(model_ptr))
+        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_get_first_iter(cast(model_ptr)))
         return cast(rv)
     }
 
@@ -1629,7 +1727,7 @@ public extension ModelProtocol {
     /// **get_iter_at_row is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func getIterAt(row: CUnsignedInt) -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv = clutter_model_get_iter_at_row(cast(model_ptr), guint(row))
+        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_get_iter_at_row(cast(model_ptr), guint(row)))
         return cast(rv)
     }
 
@@ -1639,7 +1737,7 @@ public extension ModelProtocol {
     /// **get_last_iter is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func getLastIter() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv = clutter_model_get_last_iter(cast(model_ptr))
+        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_get_last_iter(cast(model_ptr)))
         return cast(rv)
     }
 
@@ -1647,9 +1745,9 @@ public extension ModelProtocol {
     ///
     /// **get_n_columns is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getNColumns() -> CUnsignedInt {
-        let rv = clutter_model_get_n_columns(cast(model_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getNColumns() -> Int {
+        let rv: Int = cast(clutter_model_get_n_columns(cast(model_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the number of rows inside `model`, eventually taking
@@ -1657,18 +1755,18 @@ public extension ModelProtocol {
     ///
     /// **get_n_rows is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getNRows() -> CUnsignedInt {
-        let rv = clutter_model_get_n_rows(cast(model_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getNRows() -> Int {
+        let rv: Int = cast(clutter_model_get_n_rows(cast(model_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the number of column used for sorting the `model`.
     ///
     /// **get_sorting_column is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getSortingColumn() -> CInt {
-        let rv = clutter_model_get_sorting_column(cast(model_ptr))
-        return CInt(rv)
+    @available(*, deprecated) func getSortingColumn() -> Int {
+        let rv: Int = cast(clutter_model_get_sorting_column(cast(model_ptr)))
+        return Int(rv)
     }
 
 
@@ -1811,7 +1909,7 @@ public extension ModelProtocol {
         /// **get_first_iter is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_get_first_iter(cast(model_ptr))
+            let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_get_first_iter(cast(model_ptr)))
             return cast(rv)
         }
     }
@@ -1828,7 +1926,7 @@ public extension ModelProtocol {
         /// **get_last_iter is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_get_last_iter(cast(model_ptr))
+            let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_get_last_iter(cast(model_ptr)))
             return cast(rv)
         }
     }
@@ -1837,14 +1935,14 @@ public extension ModelProtocol {
     ///
     /// **get_n_columns is deprecated:**
     /// Use #GListModel instead
-    var nColumns: CUnsignedInt {
+    var nColumns: Int {
         /// Retrieves the number of columns inside `model`.
         ///
         /// **get_n_columns is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_get_n_columns(cast(model_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_model_get_n_columns(cast(model_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1853,15 +1951,15 @@ public extension ModelProtocol {
     ///
     /// **get_n_rows is deprecated:**
     /// Use #GListModel instead
-    var nRows: CUnsignedInt {
+    var nRows: Int {
         /// Retrieves the number of rows inside `model`, eventually taking
         /// into account any filtering function set using `clutter_model_set_filter()`.
         ///
         /// **get_n_rows is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_get_n_rows(cast(model_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_model_get_n_rows(cast(model_ptr)))
+            return Int(rv)
         }
     }
 
@@ -1869,14 +1967,14 @@ public extension ModelProtocol {
     ///
     /// **get_sorting_column is deprecated:**
     /// Use #GListModel instead
-    var sortingColumn: CInt {
+    var sortingColumn: Int {
         /// Retrieves the number of column used for sorting the `model`.
         ///
         /// **get_sorting_column is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_get_sorting_column(cast(model_ptr))
-            return CInt(rv)
+            let rv: Int = cast(clutter_model_get_sorting_column(cast(model_ptr)))
+            return Int(rv)
         }
         /// Sets the model to sort by `column`. If `column` is a negative value
         /// the sorting column will be unset.
@@ -1887,6 +1985,11 @@ public extension ModelProtocol {
             clutter_model_set_sorting_column(cast(model_ptr), gint(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 

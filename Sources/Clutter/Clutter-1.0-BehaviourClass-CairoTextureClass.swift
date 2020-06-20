@@ -21,7 +21,7 @@ import Atk
 ///
 /// Base class for behaviours.
 public protocol BehaviourClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourClass` instance.
@@ -34,7 +34,7 @@ public protocol BehaviourClassProtocol {
 ///
 /// Base class for behaviours.
 public struct BehaviourClassRef: BehaviourClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -87,7 +87,7 @@ public extension BehaviourClassRef {
 ///
 /// Base class for behaviours.
 open class BehaviourClass: BehaviourClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -116,7 +116,7 @@ open class BehaviourClass: BehaviourClassProtocol {
         // no reference counting for ClutterBehaviourClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourClass`.
+    /// Do-nothing destructor for `ClutterBehaviourClass`.
     deinit {
         // no reference counting for ClutterBehaviourClass, cannot unref(cast(_ptr))
     }
@@ -184,14 +184,36 @@ open class BehaviourClass: BehaviourClassProtocol {
 
 }
 
-// MARK: - no BehaviourClass properties
+// MARK: no BehaviourClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourClass signals
 
 
+// MARK: BehaviourClass Record: BehaviourClassProtocol extension (methods and fields)
 public extension BehaviourClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var alphaNotify is unavailable because alpha_notify is void
+
+    // var applied is unavailable because applied is void
+
+    // var removed is unavailable because removed is void
+
+    // var ClutterBehaviour1 is unavailable because _clutter_behaviour1 is void
+
+    // var ClutterBehaviour2 is unavailable because _clutter_behaviour2 is void
+
+    // var ClutterBehaviour3 is unavailable because _clutter_behaviour3 is void
+
+    // var ClutterBehaviour4 is unavailable because _clutter_behaviour4 is void
+
+    // var ClutterBehaviour5 is unavailable because _clutter_behaviour5 is void
+
+    // var ClutterBehaviour6 is unavailable because _clutter_behaviour6 is void
 
 }
 
@@ -206,7 +228,7 @@ public extension BehaviourClassProtocol {
 ///
 /// The `ClutterBehaviourDepthClass` structure contains only private data
 public protocol BehaviourDepthClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourDepthClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourDepthClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourDepthClass` instance.
@@ -219,7 +241,7 @@ public protocol BehaviourDepthClassProtocol {
 ///
 /// The `ClutterBehaviourDepthClass` structure contains only private data
 public struct BehaviourDepthClassRef: BehaviourDepthClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourDepthClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourDepthClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -272,7 +294,7 @@ public extension BehaviourDepthClassRef {
 ///
 /// The `ClutterBehaviourDepthClass` structure contains only private data
 open class BehaviourDepthClass: BehaviourDepthClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourDepthClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourDepthClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -301,7 +323,7 @@ open class BehaviourDepthClass: BehaviourDepthClassProtocol {
         // no reference counting for ClutterBehaviourDepthClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourDepthClass`.
+    /// Do-nothing destructor for `ClutterBehaviourDepthClass`.
     deinit {
         // no reference counting for ClutterBehaviourDepthClass, cannot unref(cast(_ptr))
     }
@@ -369,14 +391,18 @@ open class BehaviourDepthClass: BehaviourDepthClassProtocol {
 
 }
 
-// MARK: - no BehaviourDepthClass properties
+// MARK: no BehaviourDepthClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourDepthClass signals
 
 
+// MARK: BehaviourDepthClass Record: BehaviourDepthClassProtocol extension (methods and fields)
 public extension BehaviourDepthClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourDepthClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourDepthClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourDepthClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -391,7 +417,7 @@ public extension BehaviourDepthClassProtocol {
 ///
 
 public protocol BehaviourDepthPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
@@ -404,7 +430,7 @@ public protocol BehaviourDepthPrivateProtocol {
 ///
 
 public struct BehaviourDepthPrivateRef: BehaviourDepthPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -457,7 +483,7 @@ public extension BehaviourDepthPrivateRef {
 ///
 
 open class BehaviourDepthPrivate: BehaviourDepthPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourDepthPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -486,7 +512,7 @@ open class BehaviourDepthPrivate: BehaviourDepthPrivateProtocol {
         // no reference counting for ClutterBehaviourDepthPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourDepthPrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourDepthPrivate`.
     deinit {
         // no reference counting for ClutterBehaviourDepthPrivate, cannot unref(cast(_ptr))
     }
@@ -554,14 +580,17 @@ open class BehaviourDepthPrivate: BehaviourDepthPrivateProtocol {
 
 }
 
-// MARK: - no BehaviourDepthPrivate properties
+// MARK: no BehaviourDepthPrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourDepthPrivate signals
 
 
+// MARK: BehaviourDepthPrivate Record: BehaviourDepthPrivateProtocol extension (methods and fields)
 public extension BehaviourDepthPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourDepthPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourDepthPrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourDepthPrivate.self) }
+
+
 
 }
 
@@ -576,7 +605,7 @@ public extension BehaviourDepthPrivateProtocol {
 ///
 /// The `ClutterBehaviourEllipseClass` struct contains only private data
 public protocol BehaviourEllipseClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourEllipseClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourEllipseClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourEllipseClass` instance.
@@ -589,7 +618,7 @@ public protocol BehaviourEllipseClassProtocol {
 ///
 /// The `ClutterBehaviourEllipseClass` struct contains only private data
 public struct BehaviourEllipseClassRef: BehaviourEllipseClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourEllipseClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourEllipseClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -642,7 +671,7 @@ public extension BehaviourEllipseClassRef {
 ///
 /// The `ClutterBehaviourEllipseClass` struct contains only private data
 open class BehaviourEllipseClass: BehaviourEllipseClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourEllipseClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourEllipseClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -671,7 +700,7 @@ open class BehaviourEllipseClass: BehaviourEllipseClassProtocol {
         // no reference counting for ClutterBehaviourEllipseClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourEllipseClass`.
+    /// Do-nothing destructor for `ClutterBehaviourEllipseClass`.
     deinit {
         // no reference counting for ClutterBehaviourEllipseClass, cannot unref(cast(_ptr))
     }
@@ -739,14 +768,18 @@ open class BehaviourEllipseClass: BehaviourEllipseClassProtocol {
 
 }
 
-// MARK: - no BehaviourEllipseClass properties
+// MARK: no BehaviourEllipseClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourEllipseClass signals
 
 
+// MARK: BehaviourEllipseClass Record: BehaviourEllipseClassProtocol extension (methods and fields)
 public extension BehaviourEllipseClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourEllipseClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourEllipseClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourEllipseClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -761,7 +794,7 @@ public extension BehaviourEllipseClassProtocol {
 ///
 
 public protocol BehaviourEllipsePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
@@ -774,7 +807,7 @@ public protocol BehaviourEllipsePrivateProtocol {
 ///
 
 public struct BehaviourEllipsePrivateRef: BehaviourEllipsePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -827,7 +860,7 @@ public extension BehaviourEllipsePrivateRef {
 ///
 
 open class BehaviourEllipsePrivate: BehaviourEllipsePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourEllipsePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -856,7 +889,7 @@ open class BehaviourEllipsePrivate: BehaviourEllipsePrivateProtocol {
         // no reference counting for ClutterBehaviourEllipsePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourEllipsePrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourEllipsePrivate`.
     deinit {
         // no reference counting for ClutterBehaviourEllipsePrivate, cannot unref(cast(_ptr))
     }
@@ -924,14 +957,17 @@ open class BehaviourEllipsePrivate: BehaviourEllipsePrivateProtocol {
 
 }
 
-// MARK: - no BehaviourEllipsePrivate properties
+// MARK: no BehaviourEllipsePrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourEllipsePrivate signals
 
 
+// MARK: BehaviourEllipsePrivate Record: BehaviourEllipsePrivateProtocol extension (methods and fields)
 public extension BehaviourEllipsePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourEllipsePrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourEllipsePrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourEllipsePrivate.self) }
+
+
 
 }
 
@@ -946,7 +982,7 @@ public extension BehaviourEllipsePrivateProtocol {
 ///
 /// The `ClutterBehaviourOpacityClass` structure contains only private data
 public protocol BehaviourOpacityClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourOpacityClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourOpacityClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourOpacityClass` instance.
@@ -959,7 +995,7 @@ public protocol BehaviourOpacityClassProtocol {
 ///
 /// The `ClutterBehaviourOpacityClass` structure contains only private data
 public struct BehaviourOpacityClassRef: BehaviourOpacityClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourOpacityClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourOpacityClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1012,7 +1048,7 @@ public extension BehaviourOpacityClassRef {
 ///
 /// The `ClutterBehaviourOpacityClass` structure contains only private data
 open class BehaviourOpacityClass: BehaviourOpacityClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourOpacityClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourOpacityClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1041,7 +1077,7 @@ open class BehaviourOpacityClass: BehaviourOpacityClassProtocol {
         // no reference counting for ClutterBehaviourOpacityClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourOpacityClass`.
+    /// Do-nothing destructor for `ClutterBehaviourOpacityClass`.
     deinit {
         // no reference counting for ClutterBehaviourOpacityClass, cannot unref(cast(_ptr))
     }
@@ -1109,14 +1145,18 @@ open class BehaviourOpacityClass: BehaviourOpacityClassProtocol {
 
 }
 
-// MARK: - no BehaviourOpacityClass properties
+// MARK: no BehaviourOpacityClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourOpacityClass signals
 
 
+// MARK: BehaviourOpacityClass Record: BehaviourOpacityClassProtocol extension (methods and fields)
 public extension BehaviourOpacityClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourOpacityClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourOpacityClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourOpacityClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -1131,7 +1171,7 @@ public extension BehaviourOpacityClassProtocol {
 ///
 
 public protocol BehaviourOpacityPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
@@ -1144,7 +1184,7 @@ public protocol BehaviourOpacityPrivateProtocol {
 ///
 
 public struct BehaviourOpacityPrivateRef: BehaviourOpacityPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1197,7 +1237,7 @@ public extension BehaviourOpacityPrivateRef {
 ///
 
 open class BehaviourOpacityPrivate: BehaviourOpacityPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourOpacityPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1226,7 +1266,7 @@ open class BehaviourOpacityPrivate: BehaviourOpacityPrivateProtocol {
         // no reference counting for ClutterBehaviourOpacityPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourOpacityPrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourOpacityPrivate`.
     deinit {
         // no reference counting for ClutterBehaviourOpacityPrivate, cannot unref(cast(_ptr))
     }
@@ -1294,14 +1334,17 @@ open class BehaviourOpacityPrivate: BehaviourOpacityPrivateProtocol {
 
 }
 
-// MARK: - no BehaviourOpacityPrivate properties
+// MARK: no BehaviourOpacityPrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourOpacityPrivate signals
 
 
+// MARK: BehaviourOpacityPrivate Record: BehaviourOpacityPrivateProtocol extension (methods and fields)
 public extension BehaviourOpacityPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourOpacityPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourOpacityPrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourOpacityPrivate.self) }
+
+
 
 }
 
@@ -1316,7 +1359,7 @@ public extension BehaviourOpacityPrivateProtocol {
 ///
 /// The `ClutterBehaviourPathClass` struct contains only private data
 public protocol BehaviourPathClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPathClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPathClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourPathClass` instance.
@@ -1329,7 +1372,7 @@ public protocol BehaviourPathClassProtocol {
 ///
 /// The `ClutterBehaviourPathClass` struct contains only private data
 public struct BehaviourPathClassRef: BehaviourPathClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPathClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPathClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1382,7 +1425,7 @@ public extension BehaviourPathClassRef {
 ///
 /// The `ClutterBehaviourPathClass` struct contains only private data
 open class BehaviourPathClass: BehaviourPathClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPathClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPathClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1411,7 +1454,7 @@ open class BehaviourPathClass: BehaviourPathClassProtocol {
         // no reference counting for ClutterBehaviourPathClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourPathClass`.
+    /// Do-nothing destructor for `ClutterBehaviourPathClass`.
     deinit {
         // no reference counting for ClutterBehaviourPathClass, cannot unref(cast(_ptr))
     }
@@ -1479,14 +1522,28 @@ open class BehaviourPathClass: BehaviourPathClassProtocol {
 
 }
 
-// MARK: - no BehaviourPathClass properties
+// MARK: no BehaviourPathClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourPathClass signals
 
 
+// MARK: BehaviourPathClass Record: BehaviourPathClassProtocol extension (methods and fields)
 public extension BehaviourPathClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourPathClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourPathClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourPathClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var knotReached is unavailable because knot_reached is void
+
+    // var ClutterPath1 is unavailable because _clutter_path_1 is void
+
+    // var ClutterPath2 is unavailable because _clutter_path_2 is void
+
+    // var ClutterPath3 is unavailable because _clutter_path_3 is void
+
+    // var ClutterPath4 is unavailable because _clutter_path_4 is void
 
 }
 
@@ -1501,7 +1558,7 @@ public extension BehaviourPathClassProtocol {
 ///
 
 public protocol BehaviourPathPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPathPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPathPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourPathPrivate` instance.
@@ -1514,7 +1571,7 @@ public protocol BehaviourPathPrivateProtocol {
 ///
 
 public struct BehaviourPathPrivateRef: BehaviourPathPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPathPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPathPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1567,7 +1624,7 @@ public extension BehaviourPathPrivateRef {
 ///
 
 open class BehaviourPathPrivate: BehaviourPathPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPathPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPathPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1596,7 +1653,7 @@ open class BehaviourPathPrivate: BehaviourPathPrivateProtocol {
         // no reference counting for ClutterBehaviourPathPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourPathPrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourPathPrivate`.
     deinit {
         // no reference counting for ClutterBehaviourPathPrivate, cannot unref(cast(_ptr))
     }
@@ -1664,14 +1721,17 @@ open class BehaviourPathPrivate: BehaviourPathPrivateProtocol {
 
 }
 
-// MARK: - no BehaviourPathPrivate properties
+// MARK: no BehaviourPathPrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourPathPrivate signals
 
 
+// MARK: BehaviourPathPrivate Record: BehaviourPathPrivateProtocol extension (methods and fields)
 public extension BehaviourPathPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourPathPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourPathPrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourPathPrivate.self) }
+
+
 
 }
 
@@ -1686,7 +1746,7 @@ public extension BehaviourPathPrivateProtocol {
 ///
 
 public protocol BehaviourPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourPrivate` instance.
@@ -1699,7 +1759,7 @@ public protocol BehaviourPrivateProtocol {
 ///
 
 public struct BehaviourPrivateRef: BehaviourPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1752,7 +1812,7 @@ public extension BehaviourPrivateRef {
 ///
 
 open class BehaviourPrivate: BehaviourPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1781,7 +1841,7 @@ open class BehaviourPrivate: BehaviourPrivateProtocol {
         // no reference counting for ClutterBehaviourPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourPrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourPrivate`.
     deinit {
         // no reference counting for ClutterBehaviourPrivate, cannot unref(cast(_ptr))
     }
@@ -1849,14 +1909,17 @@ open class BehaviourPrivate: BehaviourPrivateProtocol {
 
 }
 
-// MARK: - no BehaviourPrivate properties
+// MARK: no BehaviourPrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourPrivate signals
 
 
+// MARK: BehaviourPrivate Record: BehaviourPrivateProtocol extension (methods and fields)
 public extension BehaviourPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourPrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourPrivate.self) }
+
+
 
 }
 
@@ -1871,7 +1934,7 @@ public extension BehaviourPrivateProtocol {
 ///
 /// The `ClutterBehaviourRotateClass` struct contains only private data
 public protocol BehaviourRotateClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourRotateClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourRotateClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourRotateClass` instance.
@@ -1884,7 +1947,7 @@ public protocol BehaviourRotateClassProtocol {
 ///
 /// The `ClutterBehaviourRotateClass` struct contains only private data
 public struct BehaviourRotateClassRef: BehaviourRotateClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourRotateClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourRotateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1937,7 +2000,7 @@ public extension BehaviourRotateClassRef {
 ///
 /// The `ClutterBehaviourRotateClass` struct contains only private data
 open class BehaviourRotateClass: BehaviourRotateClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourRotateClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourRotateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -1966,7 +2029,7 @@ open class BehaviourRotateClass: BehaviourRotateClassProtocol {
         // no reference counting for ClutterBehaviourRotateClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourRotateClass`.
+    /// Do-nothing destructor for `ClutterBehaviourRotateClass`.
     deinit {
         // no reference counting for ClutterBehaviourRotateClass, cannot unref(cast(_ptr))
     }
@@ -2034,14 +2097,18 @@ open class BehaviourRotateClass: BehaviourRotateClassProtocol {
 
 }
 
-// MARK: - no BehaviourRotateClass properties
+// MARK: no BehaviourRotateClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourRotateClass signals
 
 
+// MARK: BehaviourRotateClass Record: BehaviourRotateClassProtocol extension (methods and fields)
 public extension BehaviourRotateClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourRotateClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourRotateClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourRotateClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -2056,7 +2123,7 @@ public extension BehaviourRotateClassProtocol {
 ///
 
 public protocol BehaviourRotatePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
@@ -2069,7 +2136,7 @@ public protocol BehaviourRotatePrivateProtocol {
 ///
 
 public struct BehaviourRotatePrivateRef: BehaviourRotatePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2122,7 +2189,7 @@ public extension BehaviourRotatePrivateRef {
 ///
 
 open class BehaviourRotatePrivate: BehaviourRotatePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourRotatePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2151,7 +2218,7 @@ open class BehaviourRotatePrivate: BehaviourRotatePrivateProtocol {
         // no reference counting for ClutterBehaviourRotatePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourRotatePrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourRotatePrivate`.
     deinit {
         // no reference counting for ClutterBehaviourRotatePrivate, cannot unref(cast(_ptr))
     }
@@ -2219,14 +2286,17 @@ open class BehaviourRotatePrivate: BehaviourRotatePrivateProtocol {
 
 }
 
-// MARK: - no BehaviourRotatePrivate properties
+// MARK: no BehaviourRotatePrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourRotatePrivate signals
 
 
+// MARK: BehaviourRotatePrivate Record: BehaviourRotatePrivateProtocol extension (methods and fields)
 public extension BehaviourRotatePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourRotatePrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourRotatePrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourRotatePrivate.self) }
+
+
 
 }
 
@@ -2241,7 +2311,7 @@ public extension BehaviourRotatePrivateProtocol {
 ///
 /// The `ClutterBehaviourScaleClass` struct contains only private data
 public protocol BehaviourScaleClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourScaleClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourScaleClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourScaleClass` instance.
@@ -2254,7 +2324,7 @@ public protocol BehaviourScaleClassProtocol {
 ///
 /// The `ClutterBehaviourScaleClass` struct contains only private data
 public struct BehaviourScaleClassRef: BehaviourScaleClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourScaleClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourScaleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2307,7 +2377,7 @@ public extension BehaviourScaleClassRef {
 ///
 /// The `ClutterBehaviourScaleClass` struct contains only private data
 open class BehaviourScaleClass: BehaviourScaleClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourScaleClass` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourScaleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2336,7 +2406,7 @@ open class BehaviourScaleClass: BehaviourScaleClassProtocol {
         // no reference counting for ClutterBehaviourScaleClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourScaleClass`.
+    /// Do-nothing destructor for `ClutterBehaviourScaleClass`.
     deinit {
         // no reference counting for ClutterBehaviourScaleClass, cannot unref(cast(_ptr))
     }
@@ -2404,14 +2474,18 @@ open class BehaviourScaleClass: BehaviourScaleClassProtocol {
 
 }
 
-// MARK: - no BehaviourScaleClass properties
+// MARK: no BehaviourScaleClass properties
 
-// MARK: - no signals
+// MARK: no BehaviourScaleClass signals
 
 
+// MARK: BehaviourScaleClass Record: BehaviourScaleClassProtocol extension (methods and fields)
 public extension BehaviourScaleClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourScaleClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourScaleClass> { return ptr.assumingMemoryBound(to: ClutterBehaviourScaleClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -2426,7 +2500,7 @@ public extension BehaviourScaleClassProtocol {
 ///
 
 public protocol BehaviourScalePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourScalePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourScalePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBehaviourScalePrivate` instance.
@@ -2439,7 +2513,7 @@ public protocol BehaviourScalePrivateProtocol {
 ///
 
 public struct BehaviourScalePrivateRef: BehaviourScalePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourScalePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourScalePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2492,7 +2566,7 @@ public extension BehaviourScalePrivateRef {
 ///
 
 open class BehaviourScalePrivate: BehaviourScalePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBehaviourScalePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBehaviourScalePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2521,7 +2595,7 @@ open class BehaviourScalePrivate: BehaviourScalePrivateProtocol {
         // no reference counting for ClutterBehaviourScalePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBehaviourScalePrivate`.
+    /// Do-nothing destructor for `ClutterBehaviourScalePrivate`.
     deinit {
         // no reference counting for ClutterBehaviourScalePrivate, cannot unref(cast(_ptr))
     }
@@ -2589,14 +2663,17 @@ open class BehaviourScalePrivate: BehaviourScalePrivateProtocol {
 
 }
 
-// MARK: - no BehaviourScalePrivate properties
+// MARK: no BehaviourScalePrivate properties
 
-// MARK: - no signals
+// MARK: no BehaviourScalePrivate signals
 
 
+// MARK: BehaviourScalePrivate Record: BehaviourScalePrivateProtocol extension (methods and fields)
 public extension BehaviourScalePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBehaviourScalePrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourScalePrivate> { return ptr.assumingMemoryBound(to: ClutterBehaviourScalePrivate.self) }
+
+
 
 }
 
@@ -2612,7 +2689,7 @@ public extension BehaviourScalePrivateProtocol {
 /// The `ClutterBinLayoutClass` structure contains only private
 /// data and should be accessed using the provided API
 public protocol BinLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBinLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterBinLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBinLayoutClass` instance.
@@ -2626,7 +2703,7 @@ public protocol BinLayoutClassProtocol {
 /// The `ClutterBinLayoutClass` structure contains only private
 /// data and should be accessed using the provided API
 public struct BinLayoutClassRef: BinLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBinLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterBinLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2680,7 +2757,7 @@ public extension BinLayoutClassRef {
 /// The `ClutterBinLayoutClass` structure contains only private
 /// data and should be accessed using the provided API
 open class BinLayoutClass: BinLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBinLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterBinLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2709,7 +2786,7 @@ open class BinLayoutClass: BinLayoutClassProtocol {
         // no reference counting for ClutterBinLayoutClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBinLayoutClass`.
+    /// Do-nothing destructor for `ClutterBinLayoutClass`.
     deinit {
         // no reference counting for ClutterBinLayoutClass, cannot unref(cast(_ptr))
     }
@@ -2777,14 +2854,18 @@ open class BinLayoutClass: BinLayoutClassProtocol {
 
 }
 
-// MARK: - no BinLayoutClass properties
+// MARK: no BinLayoutClass properties
 
-// MARK: - no signals
+// MARK: no BinLayoutClass signals
 
 
+// MARK: BinLayoutClass Record: BinLayoutClassProtocol extension (methods and fields)
 public extension BinLayoutClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBinLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBinLayoutClass> { return ptr.assumingMemoryBound(to: ClutterBinLayoutClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -2799,7 +2880,7 @@ public extension BinLayoutClassProtocol {
 ///
 
 public protocol BinLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBinLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBinLayoutPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBinLayoutPrivate` instance.
@@ -2812,7 +2893,7 @@ public protocol BinLayoutPrivateProtocol {
 ///
 
 public struct BinLayoutPrivateRef: BinLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBinLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBinLayoutPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -2865,7 +2946,7 @@ public extension BinLayoutPrivateRef {
 ///
 
 open class BinLayoutPrivate: BinLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBinLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBinLayoutPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -2894,7 +2975,7 @@ open class BinLayoutPrivate: BinLayoutPrivateProtocol {
         // no reference counting for ClutterBinLayoutPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBinLayoutPrivate`.
+    /// Do-nothing destructor for `ClutterBinLayoutPrivate`.
     deinit {
         // no reference counting for ClutterBinLayoutPrivate, cannot unref(cast(_ptr))
     }
@@ -2962,14 +3043,17 @@ open class BinLayoutPrivate: BinLayoutPrivateProtocol {
 
 }
 
-// MARK: - no BinLayoutPrivate properties
+// MARK: no BinLayoutPrivate properties
 
-// MARK: - no signals
+// MARK: no BinLayoutPrivate signals
 
 
+// MARK: BinLayoutPrivate Record: BinLayoutPrivateProtocol extension (methods and fields)
 public extension BinLayoutPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBinLayoutPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBinLayoutPrivate> { return ptr.assumingMemoryBound(to: ClutterBinLayoutPrivate.self) }
+
+
 
 }
 
@@ -2984,7 +3068,7 @@ public extension BinLayoutPrivateProtocol {
 ///
 
 public protocol BindConstraintClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBindConstraintClass` instance.
+        /// Untyped pointer to the underlying `ClutterBindConstraintClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBindConstraintClass` instance.
@@ -2997,7 +3081,7 @@ public protocol BindConstraintClassProtocol {
 ///
 
 public struct BindConstraintClassRef: BindConstraintClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBindConstraintClass` instance.
+        /// Untyped pointer to the underlying `ClutterBindConstraintClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3050,7 +3134,7 @@ public extension BindConstraintClassRef {
 ///
 
 open class BindConstraintClass: BindConstraintClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBindConstraintClass` instance.
+        /// Untyped pointer to the underlying `ClutterBindConstraintClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3079,7 +3163,7 @@ open class BindConstraintClass: BindConstraintClassProtocol {
         // no reference counting for ClutterBindConstraintClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBindConstraintClass`.
+    /// Do-nothing destructor for `ClutterBindConstraintClass`.
     deinit {
         // no reference counting for ClutterBindConstraintClass, cannot unref(cast(_ptr))
     }
@@ -3147,14 +3231,17 @@ open class BindConstraintClass: BindConstraintClassProtocol {
 
 }
 
-// MARK: - no BindConstraintClass properties
+// MARK: no BindConstraintClass properties
 
-// MARK: - no signals
+// MARK: no BindConstraintClass signals
 
 
+// MARK: BindConstraintClass Record: BindConstraintClassProtocol extension (methods and fields)
 public extension BindConstraintClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBindConstraintClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBindConstraintClass> { return ptr.assumingMemoryBound(to: ClutterBindConstraintClass.self) }
+
+
 
 }
 
@@ -3169,7 +3256,7 @@ public extension BindConstraintClassProtocol {
 ///
 
 public protocol BindingPoolClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBindingPoolClass` instance.
+        /// Untyped pointer to the underlying `ClutterBindingPoolClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBindingPoolClass` instance.
@@ -3182,7 +3269,7 @@ public protocol BindingPoolClassProtocol {
 ///
 
 public struct BindingPoolClassRef: BindingPoolClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBindingPoolClass` instance.
+        /// Untyped pointer to the underlying `ClutterBindingPoolClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3235,7 +3322,7 @@ public extension BindingPoolClassRef {
 ///
 
 open class BindingPoolClass: BindingPoolClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBindingPoolClass` instance.
+        /// Untyped pointer to the underlying `ClutterBindingPoolClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3264,7 +3351,7 @@ open class BindingPoolClass: BindingPoolClassProtocol {
         // no reference counting for ClutterBindingPoolClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBindingPoolClass`.
+    /// Do-nothing destructor for `ClutterBindingPoolClass`.
     deinit {
         // no reference counting for ClutterBindingPoolClass, cannot unref(cast(_ptr))
     }
@@ -3332,14 +3419,17 @@ open class BindingPoolClass: BindingPoolClassProtocol {
 
 }
 
-// MARK: - no BindingPoolClass properties
+// MARK: no BindingPoolClass properties
 
-// MARK: - no signals
+// MARK: no BindingPoolClass signals
 
 
+// MARK: BindingPoolClass Record: BindingPoolClassProtocol extension (methods and fields)
 public extension BindingPoolClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBindingPoolClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBindingPoolClass> { return ptr.assumingMemoryBound(to: ClutterBindingPoolClass.self) }
+
+
 
 }
 
@@ -3354,7 +3444,7 @@ public extension BindingPoolClassProtocol {
 ///
 
 public protocol BlurEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBlurEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterBlurEffectClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBlurEffectClass` instance.
@@ -3367,7 +3457,7 @@ public protocol BlurEffectClassProtocol {
 ///
 
 public struct BlurEffectClassRef: BlurEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBlurEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterBlurEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3420,7 +3510,7 @@ public extension BlurEffectClassRef {
 ///
 
 open class BlurEffectClass: BlurEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBlurEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterBlurEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3449,7 +3539,7 @@ open class BlurEffectClass: BlurEffectClassProtocol {
         // no reference counting for ClutterBlurEffectClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBlurEffectClass`.
+    /// Do-nothing destructor for `ClutterBlurEffectClass`.
     deinit {
         // no reference counting for ClutterBlurEffectClass, cannot unref(cast(_ptr))
     }
@@ -3517,14 +3607,17 @@ open class BlurEffectClass: BlurEffectClassProtocol {
 
 }
 
-// MARK: - no BlurEffectClass properties
+// MARK: no BlurEffectClass properties
 
-// MARK: - no signals
+// MARK: no BlurEffectClass signals
 
 
+// MARK: BlurEffectClass Record: BlurEffectClassProtocol extension (methods and fields)
 public extension BlurEffectClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBlurEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBlurEffectClass> { return ptr.assumingMemoryBound(to: ClutterBlurEffectClass.self) }
+
+
 
 }
 
@@ -3539,7 +3632,7 @@ public extension BlurEffectClassProtocol {
 ///
 /// The `ClutterBoxClass` structure contains only private data
 public protocol BoxClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxClass` instance.
+        /// Untyped pointer to the underlying `ClutterBoxClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBoxClass` instance.
@@ -3552,7 +3645,7 @@ public protocol BoxClassProtocol {
 ///
 /// The `ClutterBoxClass` structure contains only private data
 public struct BoxClassRef: BoxClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxClass` instance.
+        /// Untyped pointer to the underlying `ClutterBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3605,7 +3698,7 @@ public extension BoxClassRef {
 ///
 /// The `ClutterBoxClass` structure contains only private data
 open class BoxClass: BoxClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxClass` instance.
+        /// Untyped pointer to the underlying `ClutterBoxClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3634,7 +3727,7 @@ open class BoxClass: BoxClassProtocol {
         // no reference counting for ClutterBoxClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBoxClass`.
+    /// Do-nothing destructor for `ClutterBoxClass`.
     deinit {
         // no reference counting for ClutterBoxClass, cannot unref(cast(_ptr))
     }
@@ -3702,14 +3795,30 @@ open class BoxClass: BoxClassProtocol {
 
 }
 
-// MARK: - no BoxClass properties
+// MARK: no BoxClass properties
 
-// MARK: - no signals
+// MARK: no BoxClass signals
 
 
+// MARK: BoxClass Record: BoxClassProtocol extension (methods and fields)
 public extension BoxClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBoxClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBoxClass> { return ptr.assumingMemoryBound(to: ClutterBoxClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var clutterPadding1 is unavailable because clutter_padding_1 is void
+
+    // var clutterPadding2 is unavailable because clutter_padding_2 is void
+
+    // var clutterPadding3 is unavailable because clutter_padding_3 is void
+
+    // var clutterPadding4 is unavailable because clutter_padding_4 is void
+
+    // var clutterPadding5 is unavailable because clutter_padding_5 is void
+
+    // var clutterPadding6 is unavailable because clutter_padding_6 is void
 
 }
 
@@ -3725,7 +3834,7 @@ public extension BoxClassProtocol {
 /// The `ClutterBoxLayoutClass` structure contains only private
 /// data and should be accessed using the provided API
 public protocol BoxLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterBoxLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBoxLayoutClass` instance.
@@ -3739,7 +3848,7 @@ public protocol BoxLayoutClassProtocol {
 /// The `ClutterBoxLayoutClass` structure contains only private
 /// data and should be accessed using the provided API
 public struct BoxLayoutClassRef: BoxLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterBoxLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3793,7 +3902,7 @@ public extension BoxLayoutClassRef {
 /// The `ClutterBoxLayoutClass` structure contains only private
 /// data and should be accessed using the provided API
 open class BoxLayoutClass: BoxLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterBoxLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -3822,7 +3931,7 @@ open class BoxLayoutClass: BoxLayoutClassProtocol {
         // no reference counting for ClutterBoxLayoutClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBoxLayoutClass`.
+    /// Do-nothing destructor for `ClutterBoxLayoutClass`.
     deinit {
         // no reference counting for ClutterBoxLayoutClass, cannot unref(cast(_ptr))
     }
@@ -3890,14 +3999,18 @@ open class BoxLayoutClass: BoxLayoutClassProtocol {
 
 }
 
-// MARK: - no BoxLayoutClass properties
+// MARK: no BoxLayoutClass properties
 
-// MARK: - no signals
+// MARK: no BoxLayoutClass signals
 
 
+// MARK: BoxLayoutClass Record: BoxLayoutClassProtocol extension (methods and fields)
 public extension BoxLayoutClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBoxLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBoxLayoutClass> { return ptr.assumingMemoryBound(to: ClutterBoxLayoutClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 
@@ -3912,7 +4025,7 @@ public extension BoxLayoutClassProtocol {
 ///
 
 public protocol BoxLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBoxLayoutPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBoxLayoutPrivate` instance.
@@ -3925,7 +4038,7 @@ public protocol BoxLayoutPrivateProtocol {
 ///
 
 public struct BoxLayoutPrivateRef: BoxLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBoxLayoutPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -3978,7 +4091,7 @@ public extension BoxLayoutPrivateRef {
 ///
 
 open class BoxLayoutPrivate: BoxLayoutPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxLayoutPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBoxLayoutPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4007,7 +4120,7 @@ open class BoxLayoutPrivate: BoxLayoutPrivateProtocol {
         // no reference counting for ClutterBoxLayoutPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBoxLayoutPrivate`.
+    /// Do-nothing destructor for `ClutterBoxLayoutPrivate`.
     deinit {
         // no reference counting for ClutterBoxLayoutPrivate, cannot unref(cast(_ptr))
     }
@@ -4075,14 +4188,17 @@ open class BoxLayoutPrivate: BoxLayoutPrivateProtocol {
 
 }
 
-// MARK: - no BoxLayoutPrivate properties
+// MARK: no BoxLayoutPrivate properties
 
-// MARK: - no signals
+// MARK: no BoxLayoutPrivate signals
 
 
+// MARK: BoxLayoutPrivate Record: BoxLayoutPrivateProtocol extension (methods and fields)
 public extension BoxLayoutPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBoxLayoutPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBoxLayoutPrivate> { return ptr.assumingMemoryBound(to: ClutterBoxLayoutPrivate.self) }
+
+
 
 }
 
@@ -4097,7 +4213,7 @@ public extension BoxLayoutPrivateProtocol {
 ///
 
 public protocol BoxPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBoxPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBoxPrivate` instance.
@@ -4110,7 +4226,7 @@ public protocol BoxPrivateProtocol {
 ///
 
 public struct BoxPrivateRef: BoxPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBoxPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4163,7 +4279,7 @@ public extension BoxPrivateRef {
 ///
 
 open class BoxPrivate: BoxPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterBoxPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterBoxPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4192,7 +4308,7 @@ open class BoxPrivate: BoxPrivateProtocol {
         // no reference counting for ClutterBoxPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBoxPrivate`.
+    /// Do-nothing destructor for `ClutterBoxPrivate`.
     deinit {
         // no reference counting for ClutterBoxPrivate, cannot unref(cast(_ptr))
     }
@@ -4260,14 +4376,17 @@ open class BoxPrivate: BoxPrivateProtocol {
 
 }
 
-// MARK: - no BoxPrivate properties
+// MARK: no BoxPrivate properties
 
-// MARK: - no signals
+// MARK: no BoxPrivate signals
 
 
+// MARK: BoxPrivate Record: BoxPrivateProtocol extension (methods and fields)
 public extension BoxPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBoxPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterBoxPrivate> { return ptr.assumingMemoryBound(to: ClutterBoxPrivate.self) }
+
+
 
 }
 
@@ -4282,7 +4401,7 @@ public extension BoxPrivateProtocol {
 ///
 
 public protocol BrightnessContrastEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
@@ -4295,7 +4414,7 @@ public protocol BrightnessContrastEffectClassProtocol {
 ///
 
 public struct BrightnessContrastEffectClassRef: BrightnessContrastEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4348,7 +4467,7 @@ public extension BrightnessContrastEffectClassRef {
 ///
 
 open class BrightnessContrastEffectClass: BrightnessContrastEffectClassProtocol {
-    /// Untyped pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
+        /// Untyped pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4377,7 +4496,7 @@ open class BrightnessContrastEffectClass: BrightnessContrastEffectClassProtocol 
         // no reference counting for ClutterBrightnessContrastEffectClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterBrightnessContrastEffectClass`.
+    /// Do-nothing destructor for `ClutterBrightnessContrastEffectClass`.
     deinit {
         // no reference counting for ClutterBrightnessContrastEffectClass, cannot unref(cast(_ptr))
     }
@@ -4445,14 +4564,17 @@ open class BrightnessContrastEffectClass: BrightnessContrastEffectClassProtocol 
 
 }
 
-// MARK: - no BrightnessContrastEffectClass properties
+// MARK: no BrightnessContrastEffectClass properties
 
-// MARK: - no signals
+// MARK: no BrightnessContrastEffectClass signals
 
 
+// MARK: BrightnessContrastEffectClass Record: BrightnessContrastEffectClassProtocol extension (methods and fields)
 public extension BrightnessContrastEffectClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBrightnessContrastEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBrightnessContrastEffectClass> { return ptr.assumingMemoryBound(to: ClutterBrightnessContrastEffectClass.self) }
+
+
 
 }
 
@@ -4471,7 +4593,7 @@ public extension BrightnessContrastEffectClassProtocol {
 /// event, and can be transformed into actor-relative coordinates by
 /// using `clutter_actor_transform_stage_point()`.
 public protocol ButtonEventProtocol {
-    /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
+        /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterButtonEvent` instance.
@@ -4488,7 +4610,7 @@ public protocol ButtonEventProtocol {
 /// event, and can be transformed into actor-relative coordinates by
 /// using `clutter_actor_transform_stage_point()`.
 public struct ButtonEventRef: ButtonEventProtocol {
-    /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
+        /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4545,7 +4667,7 @@ public extension ButtonEventRef {
 /// event, and can be transformed into actor-relative coordinates by
 /// using `clutter_actor_transform_stage_point()`.
 open class ButtonEvent: ButtonEventProtocol {
-    /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
+        /// Untyped pointer to the underlying `ClutterButtonEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4574,7 +4696,7 @@ open class ButtonEvent: ButtonEventProtocol {
         // no reference counting for ClutterButtonEvent, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterButtonEvent`.
+    /// Do-nothing destructor for `ClutterButtonEvent`.
     deinit {
         // no reference counting for ClutterButtonEvent, cannot unref(cast(_ptr))
     }
@@ -4642,14 +4764,178 @@ open class ButtonEvent: ButtonEventProtocol {
 
 }
 
-// MARK: - no ButtonEvent properties
+// MARK: no ButtonEvent properties
 
-// MARK: - no signals
+// MARK: no ButtonEvent signals
 
 
+// MARK: ButtonEvent Record: ButtonEventProtocol extension (methods and fields)
 public extension ButtonEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterButtonEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterButtonEvent> { return ptr.assumingMemoryBound(to: ClutterButtonEvent.self) }
+
+
+    /// event type
+    var type: ClutterEventType {
+        /// event type
+        get {
+            let rv: ClutterEventType = cast(_ptr.pointee.type)
+            return rv
+        }
+        /// event type
+         set {
+            _ptr.pointee.type = cast(newValue)
+        }
+    }
+
+    /// event time
+    var time: UInt32 {
+        /// event time
+        get {
+            let rv: UInt32 = cast(_ptr.pointee.time)
+            return rv
+        }
+        /// event time
+         set {
+            _ptr.pointee.time = guint32(newValue)
+        }
+    }
+
+    /// event flags
+    var flags: ClutterEventFlags {
+        /// event flags
+        get {
+            let rv: ClutterEventFlags = cast(_ptr.pointee.flags)
+            return rv
+        }
+        /// event flags
+         set {
+            _ptr.pointee.flags = cast(newValue)
+        }
+    }
+
+    /// event source stage
+    var stage: UnsafeMutablePointer<ClutterStage> {
+        /// event source stage
+        get {
+            let rv: UnsafeMutablePointer<ClutterStage> = cast(_ptr.pointee.stage)
+            return rv
+        }
+        /// event source stage
+         set {
+            _ptr.pointee.stage = cast(newValue)
+        }
+    }
+
+    /// event source actor
+    var source: UnsafeMutablePointer<ClutterActor> {
+        /// event source actor
+        get {
+            let rv: UnsafeMutablePointer<ClutterActor> = cast(_ptr.pointee.source)
+            return rv
+        }
+        /// event source actor
+         set {
+            _ptr.pointee.source = cast(newValue)
+        }
+    }
+
+    /// event X coordinate, relative to the stage
+    var x: Float {
+        /// event X coordinate, relative to the stage
+        get {
+            let rv: Float = cast(_ptr.pointee.x)
+            return rv
+        }
+        /// event X coordinate, relative to the stage
+         set {
+            _ptr.pointee.x = cast(newValue)
+        }
+    }
+
+    /// event Y coordinate, relative to the stage
+    var y: Float {
+        /// event Y coordinate, relative to the stage
+        get {
+            let rv: Float = cast(_ptr.pointee.y)
+            return rv
+        }
+        /// event Y coordinate, relative to the stage
+         set {
+            _ptr.pointee.y = cast(newValue)
+        }
+    }
+
+    /// button modifiers
+    var modifierState: ModifierType {
+        /// button modifiers
+        get {
+            let rv: ModifierType = cast(_ptr.pointee.modifier_state)
+            return rv
+        }
+        /// button modifiers
+         set {
+            _ptr.pointee.modifier_state = cast(newValue.value)
+        }
+    }
+
+    /// event button
+    var button: UInt32 {
+        /// event button
+        get {
+            let rv: UInt32 = cast(_ptr.pointee.button)
+            return rv
+        }
+        /// event button
+         set {
+            _ptr.pointee.button = guint32(newValue)
+        }
+    }
+
+    /// number of button presses within the default time
+    ///   and radius
+    var clickCount: Int {
+        /// number of button presses within the default time
+        ///   and radius
+        get {
+            let rv: Int = cast(_ptr.pointee.click_count)
+            return rv
+        }
+        /// number of button presses within the default time
+        ///   and radius
+         set {
+            _ptr.pointee.click_count = guint(newValue)
+        }
+    }
+
+    /// reserved for future use
+    var axes: UnsafeMutablePointer<gdouble> {
+        /// reserved for future use
+        get {
+            let rv: UnsafeMutablePointer<gdouble> = cast(_ptr.pointee.axes)
+            return rv
+        }
+        /// reserved for future use
+         set {
+            _ptr.pointee.axes = cast(newValue)
+        }
+    }
+
+    /// the device that originated the event. If you want the physical
+    /// device the event originated from, use `clutter_event_get_source_device()`
+    var device: UnsafeMutablePointer<ClutterInputDevice> {
+        /// the device that originated the event. If you want the physical
+        /// device the event originated from, use `clutter_event_get_source_device()`
+        get {
+            let rv: UnsafeMutablePointer<ClutterInputDevice> = cast(_ptr.pointee.device)
+            return rv
+        }
+        /// the device that originated the event. If you want the physical
+        /// device the event originated from, use `clutter_event_get_source_device()`
+         set {
+            _ptr.pointee.device = cast(newValue)
+        }
+    }
 
 }
 
@@ -4664,7 +4950,7 @@ public extension ButtonEventProtocol {
 ///
 /// The `ClutterCairoTextureClass` struct contains only private data.
 public protocol CairoTextureClassProtocol {
-    /// Untyped pointer to the underlying `ClutterCairoTextureClass` instance.
+        /// Untyped pointer to the underlying `ClutterCairoTextureClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterCairoTextureClass` instance.
@@ -4677,7 +4963,7 @@ public protocol CairoTextureClassProtocol {
 ///
 /// The `ClutterCairoTextureClass` struct contains only private data.
 public struct CairoTextureClassRef: CairoTextureClassProtocol {
-    /// Untyped pointer to the underlying `ClutterCairoTextureClass` instance.
+        /// Untyped pointer to the underlying `ClutterCairoTextureClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -4730,7 +5016,7 @@ public extension CairoTextureClassRef {
 ///
 /// The `ClutterCairoTextureClass` struct contains only private data.
 open class CairoTextureClass: CairoTextureClassProtocol {
-    /// Untyped pointer to the underlying `ClutterCairoTextureClass` instance.
+        /// Untyped pointer to the underlying `ClutterCairoTextureClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -4759,7 +5045,7 @@ open class CairoTextureClass: CairoTextureClassProtocol {
         // no reference counting for ClutterCairoTextureClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterCairoTextureClass`.
+    /// Do-nothing destructor for `ClutterCairoTextureClass`.
     deinit {
         // no reference counting for ClutterCairoTextureClass, cannot unref(cast(_ptr))
     }
@@ -4827,14 +5113,26 @@ open class CairoTextureClass: CairoTextureClassProtocol {
 
 }
 
-// MARK: - no CairoTextureClass properties
+// MARK: no CairoTextureClass properties
 
-// MARK: - no signals
+// MARK: no CairoTextureClass signals
 
 
+// MARK: CairoTextureClass Record: CairoTextureClassProtocol extension (methods and fields)
 public extension CairoTextureClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterCairoTextureClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterCairoTextureClass> { return ptr.assumingMemoryBound(to: ClutterCairoTextureClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var createSurface is unavailable because create_surface is void
+
+    // var draw is unavailable because draw is void
+
+    // var ClutterCairo3 is unavailable because _clutter_cairo_3 is void
+
+    // var ClutterCairo4 is unavailable because _clutter_cairo_4 is void
 
 }
 

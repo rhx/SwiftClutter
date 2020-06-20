@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterEventSequence` structure is an opaque
 /// type used to denote the event sequence of a touch event.
 public protocol EventSequenceProtocol {
-    /// Untyped pointer to the underlying `ClutterEventSequence` instance.
+        /// Untyped pointer to the underlying `ClutterEventSequence` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterEventSequence` instance.
@@ -36,7 +36,7 @@ public protocol EventSequenceProtocol {
 /// The `ClutterEventSequence` structure is an opaque
 /// type used to denote the event sequence of a touch event.
 public struct EventSequenceRef: EventSequenceProtocol {
-    /// Untyped pointer to the underlying `ClutterEventSequence` instance.
+        /// Untyped pointer to the underlying `ClutterEventSequence` instance.
     /// For type-safe access, use the generated, typed pointer `event_sequence_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension EventSequenceRef {
 /// The `ClutterEventSequence` structure is an opaque
 /// type used to denote the event sequence of a touch event.
 open class EventSequence: EventSequenceProtocol {
-    /// Untyped pointer to the underlying `ClutterEventSequence` instance.
+        /// Untyped pointer to the underlying `ClutterEventSequence` instance.
     /// For type-safe access, use the generated, typed pointer `event_sequence_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class EventSequence: EventSequenceProtocol {
         // no reference counting for ClutterEventSequence, cannot ref(cast(event_sequence_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterEventSequence`.
+    /// Do-nothing destructor for `ClutterEventSequence`.
     deinit {
         // no reference counting for ClutterEventSequence, cannot unref(cast(event_sequence_ptr))
     }
@@ -187,14 +187,17 @@ open class EventSequence: EventSequenceProtocol {
 
 }
 
-// MARK: - no EventSequence properties
+// MARK: no EventSequence properties
 
-// MARK: - no signals
+// MARK: no EventSequence signals
 
 
+// MARK: EventSequence Record: EventSequenceProtocol extension (methods and fields)
 public extension EventSequenceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterEventSequence` instance.
     var event_sequence_ptr: UnsafeMutablePointer<ClutterEventSequence> { return ptr.assumingMemoryBound(to: ClutterEventSequence.self) }
+
+
 
 }
 
@@ -210,7 +213,7 @@ public extension EventSequenceProtocol {
 /// The `ClutterFixedLayoutClass` structure contains only private data
 /// and it should be accessed using the provided API
 public protocol FixedLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterFixedLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterFixedLayoutClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterFixedLayoutClass` instance.
@@ -224,7 +227,7 @@ public protocol FixedLayoutClassProtocol {
 /// The `ClutterFixedLayoutClass` structure contains only private data
 /// and it should be accessed using the provided API
 public struct FixedLayoutClassRef: FixedLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterFixedLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterFixedLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -278,7 +281,7 @@ public extension FixedLayoutClassRef {
 /// The `ClutterFixedLayoutClass` structure contains only private data
 /// and it should be accessed using the provided API
 open class FixedLayoutClass: FixedLayoutClassProtocol {
-    /// Untyped pointer to the underlying `ClutterFixedLayoutClass` instance.
+        /// Untyped pointer to the underlying `ClutterFixedLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -307,7 +310,7 @@ open class FixedLayoutClass: FixedLayoutClassProtocol {
         // no reference counting for ClutterFixedLayoutClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterFixedLayoutClass`.
+    /// Do-nothing destructor for `ClutterFixedLayoutClass`.
     deinit {
         // no reference counting for ClutterFixedLayoutClass, cannot unref(cast(_ptr))
     }
@@ -375,14 +378,18 @@ open class FixedLayoutClass: FixedLayoutClassProtocol {
 
 }
 
-// MARK: - no FixedLayoutClass properties
+// MARK: no FixedLayoutClass properties
 
-// MARK: - no signals
+// MARK: no FixedLayoutClass signals
 
 
+// MARK: FixedLayoutClass Record: FixedLayoutClassProtocol extension (methods and fields)
 public extension FixedLayoutClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFixedLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterFixedLayoutClass> { return ptr.assumingMemoryBound(to: ClutterFixedLayoutClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
 
 }
 

@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterRotateAction` structure contains
 /// only private data and should be accessed using the provided API
 public protocol RotateActionProtocol: GestureActionProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateAction` instance.
+        /// Untyped pointer to the underlying `ClutterRotateAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterRotateAction` instance.
@@ -36,7 +36,7 @@ public protocol RotateActionProtocol: GestureActionProtocol {
 /// The `ClutterRotateAction` structure contains
 /// only private data and should be accessed using the provided API
 public struct RotateActionRef: RotateActionProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateAction` instance.
+        /// Untyped pointer to the underlying `ClutterRotateAction` instance.
     /// For type-safe access, use the generated, typed pointer `rotate_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -83,7 +83,7 @@ public extension RotateActionRef {
 
         /// Creates a new `ClutterRotateAction` instance
     init() {
-        let rv = clutter_rotate_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_rotate_action_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -95,7 +95,7 @@ public extension RotateActionRef {
 /// The `ClutterRotateAction` structure contains
 /// only private data and should be accessed using the provided API
 open class RotateAction: GestureAction, RotateActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `RotateAction` instance.
     /// - Parameter op: pointer to the underlying object
@@ -175,7 +175,7 @@ open class RotateAction: GestureAction, RotateActionProtocol {
 
     /// Creates a new `ClutterRotateAction` instance
     public override init() {
-        let rv = clutter_rotate_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_rotate_action_new())
         super.init(cast(rv))
     }
 
@@ -263,8 +263,8 @@ public extension RotateActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: RotateActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: RotateActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -287,6 +287,23 @@ public extension RotateActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a RotateAction property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: RotateActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a RotateAction property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: RotateActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -451,8 +468,8 @@ public extension RotateActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: RotateActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: RotateActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(rotate_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -473,9 +490,15 @@ public extension RotateActionProtocol {
     }
 }
 
+// MARK: RotateAction Class: RotateActionProtocol extension (methods and fields)
 public extension RotateActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterRotateAction` instance.
     var rotate_action_ptr: UnsafeMutablePointer<ClutterRotateAction> { return ptr.assumingMemoryBound(to: ClutterRotateAction.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
 
 }
 
@@ -491,7 +514,7 @@ public extension RotateActionProtocol {
 /// The `ClutterScore` structure contains only private data
 /// and should be accessed using the provided API
 public protocol ScoreProtocol: GLibObject.ObjectProtocol {
-    /// Untyped pointer to the underlying `ClutterScore` instance.
+        /// Untyped pointer to the underlying `ClutterScore` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterScore` instance.
@@ -505,7 +528,7 @@ public protocol ScoreProtocol: GLibObject.ObjectProtocol {
 /// The `ClutterScore` structure contains only private data
 /// and should be accessed using the provided API
 public struct ScoreRef: ScoreProtocol {
-    /// Untyped pointer to the underlying `ClutterScore` instance.
+        /// Untyped pointer to the underlying `ClutterScore` instance.
     /// For type-safe access, use the generated, typed pointer `score_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -556,7 +579,7 @@ public extension ScoreRef {
     /// **new is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) init() {
-        let rv = clutter_score_new()
+        let rv: UnsafeMutablePointer<ClutterScore>! = cast(clutter_score_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -568,7 +591,7 @@ public extension ScoreRef {
 /// The `ClutterScore` structure contains only private data
 /// and should be accessed using the provided API
 open class Score: GLibObject.Object, ScoreProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Score` instance.
     /// - Parameter op: pointer to the underlying object
@@ -652,7 +675,7 @@ open class Score: GLibObject.Object, ScoreProtocol {
     /// **new is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) public init() {
-        let rv = clutter_score_new()
+        let rv: UnsafeMutablePointer<ClutterScore>! = cast(clutter_score_new())
         super.init(cast(rv))
     }
 
@@ -676,8 +699,8 @@ public extension ScoreProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ScorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ScorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -700,6 +723,23 @@ public extension ScoreProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Score property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ScorePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Score property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ScorePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -770,8 +810,8 @@ public extension ScoreProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ScoreSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ScoreSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(score_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -792,6 +832,7 @@ public extension ScoreProtocol {
     }
 }
 
+// MARK: Score Class: ScoreProtocol extension (methods and fields)
 public extension ScoreProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScore` instance.
     var score_ptr: UnsafeMutablePointer<ClutterScore> { return ptr.assumingMemoryBound(to: ClutterScore.self) }
@@ -806,9 +847,9 @@ public extension ScoreProtocol {
     ///
     /// **append is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func append(parent: TimelineProtocol, timeline: TimelineProtocol) -> CUnsignedLong {
-        let rv = clutter_score_append(cast(score_ptr), cast(parent.ptr), cast(timeline.ptr))
-        return CUnsignedLong(rv)
+    @available(*, deprecated) func append(parent: TimelineProtocol, timeline: TimelineProtocol) -> Int {
+        let rv: Int = cast(clutter_score_append(cast(score_ptr), cast(parent.ptr), cast(timeline.ptr)))
+        return Int(rv)
     }
 
     /// Appends `timeline` at the given `marker_name` on the `parent`
@@ -821,9 +862,9 @@ public extension ScoreProtocol {
     ///
     /// **append_at_marker is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func appendAtMarker(parent: TimelineProtocol, markerName marker_name: UnsafePointer<gchar>, timeline: TimelineProtocol) -> CUnsignedLong {
-        let rv = clutter_score_append_at_marker(cast(score_ptr), cast(parent.ptr), marker_name, cast(timeline.ptr))
-        return CUnsignedLong(rv)
+    @available(*, deprecated) func appendAtMarker(parent: TimelineProtocol, markerName marker_name: UnsafePointer<gchar>, timeline: TimelineProtocol) -> Int {
+        let rv: Int = cast(clutter_score_append_at_marker(cast(score_ptr), cast(parent.ptr), marker_name, cast(timeline.ptr)))
+        return Int(rv)
     }
 
     /// Gets whether `score` is looping
@@ -840,7 +881,7 @@ public extension ScoreProtocol {
     /// **get_timeline is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func getTimeline(id_: CUnsignedLong) -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv = clutter_score_get_timeline(cast(score_ptr), gulong(id_))
+        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_score_get_timeline(cast(score_ptr), gulong(id_)))
         return cast(rv)
     }
 
@@ -849,7 +890,7 @@ public extension ScoreProtocol {
     /// **list_timelines is deprecated:**
     /// This method is deprecated.
     @available(*, deprecated) func listTimelines() -> UnsafeMutablePointer<GSList>! {
-        let rv = clutter_score_list_timelines(cast(score_ptr))
+        let rv: UnsafeMutablePointer<GSList>! = cast(clutter_score_list_timelines(cast(score_ptr)))
         return cast(rv)
     }
 
@@ -955,6 +996,11 @@ public extension ScoreProtocol {
             clutter_score_set_loop(cast(score_ptr), gboolean(newValue ? 1 : 0))
         }
     }
+
+    // var parent is unavailable because parent is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 

@@ -21,7 +21,7 @@ import Atk
 ///
 /// The `ClutterRectangleClass` structure contains only private data
 public protocol RectangleClassProtocol {
-    /// Untyped pointer to the underlying `ClutterRectangleClass` instance.
+        /// Untyped pointer to the underlying `ClutterRectangleClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterRectangleClass` instance.
@@ -34,7 +34,7 @@ public protocol RectangleClassProtocol {
 ///
 /// The `ClutterRectangleClass` structure contains only private data
 public struct RectangleClassRef: RectangleClassProtocol {
-    /// Untyped pointer to the underlying `ClutterRectangleClass` instance.
+        /// Untyped pointer to the underlying `ClutterRectangleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -87,7 +87,7 @@ public extension RectangleClassRef {
 ///
 /// The `ClutterRectangleClass` structure contains only private data
 open class RectangleClass: RectangleClassProtocol {
-    /// Untyped pointer to the underlying `ClutterRectangleClass` instance.
+        /// Untyped pointer to the underlying `ClutterRectangleClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -116,7 +116,7 @@ open class RectangleClass: RectangleClassProtocol {
         // no reference counting for ClutterRectangleClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterRectangleClass`.
+    /// Do-nothing destructor for `ClutterRectangleClass`.
     deinit {
         // no reference counting for ClutterRectangleClass, cannot unref(cast(_ptr))
     }
@@ -184,14 +184,26 @@ open class RectangleClass: RectangleClassProtocol {
 
 }
 
-// MARK: - no RectangleClass properties
+// MARK: no RectangleClass properties
 
-// MARK: - no signals
+// MARK: no RectangleClass signals
 
 
+// MARK: RectangleClass Record: RectangleClassProtocol extension (methods and fields)
 public extension RectangleClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterRectangleClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterRectangleClass> { return ptr.assumingMemoryBound(to: ClutterRectangleClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var ClutterRectangle1 is unavailable because _clutter_rectangle1 is void
+
+    // var ClutterRectangle2 is unavailable because _clutter_rectangle2 is void
+
+    // var ClutterRectangle3 is unavailable because _clutter_rectangle3 is void
+
+    // var ClutterRectangle4 is unavailable because _clutter_rectangle4 is void
 
 }
 
@@ -206,7 +218,7 @@ public extension RectangleClassProtocol {
 ///
 
 public protocol RectanglePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterRectanglePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterRectanglePrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterRectanglePrivate` instance.
@@ -219,7 +231,7 @@ public protocol RectanglePrivateProtocol {
 ///
 
 public struct RectanglePrivateRef: RectanglePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterRectanglePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterRectanglePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -272,7 +284,7 @@ public extension RectanglePrivateRef {
 ///
 
 open class RectanglePrivate: RectanglePrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterRectanglePrivate` instance.
+        /// Untyped pointer to the underlying `ClutterRectanglePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -301,7 +313,7 @@ open class RectanglePrivate: RectanglePrivateProtocol {
         // no reference counting for ClutterRectanglePrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterRectanglePrivate`.
+    /// Do-nothing destructor for `ClutterRectanglePrivate`.
     deinit {
         // no reference counting for ClutterRectanglePrivate, cannot unref(cast(_ptr))
     }
@@ -369,14 +381,17 @@ open class RectanglePrivate: RectanglePrivateProtocol {
 
 }
 
-// MARK: - no RectanglePrivate properties
+// MARK: no RectanglePrivate properties
 
-// MARK: - no signals
+// MARK: no RectanglePrivate signals
 
 
+// MARK: RectanglePrivate Record: RectanglePrivateProtocol extension (methods and fields)
 public extension RectanglePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterRectanglePrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterRectanglePrivate> { return ptr.assumingMemoryBound(to: ClutterRectanglePrivate.self) }
+
+
 
 }
 
@@ -392,7 +407,7 @@ public extension RectanglePrivateProtocol {
 /// The `ClutterRotateActionClass` structure contains
 /// only private data.
 public protocol RotateActionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateActionClass` instance.
+        /// Untyped pointer to the underlying `ClutterRotateActionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterRotateActionClass` instance.
@@ -406,7 +421,7 @@ public protocol RotateActionClassProtocol {
 /// The `ClutterRotateActionClass` structure contains
 /// only private data.
 public struct RotateActionClassRef: RotateActionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateActionClass` instance.
+        /// Untyped pointer to the underlying `ClutterRotateActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -460,7 +475,7 @@ public extension RotateActionClassRef {
 /// The `ClutterRotateActionClass` structure contains
 /// only private data.
 open class RotateActionClass: RotateActionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateActionClass` instance.
+        /// Untyped pointer to the underlying `ClutterRotateActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -489,7 +504,7 @@ open class RotateActionClass: RotateActionClassProtocol {
         // no reference counting for ClutterRotateActionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterRotateActionClass`.
+    /// Do-nothing destructor for `ClutterRotateActionClass`.
     deinit {
         // no reference counting for ClutterRotateActionClass, cannot unref(cast(_ptr))
     }
@@ -557,14 +572,34 @@ open class RotateActionClass: RotateActionClassProtocol {
 
 }
 
-// MARK: - no RotateActionClass properties
+// MARK: no RotateActionClass properties
 
-// MARK: - no signals
+// MARK: no RotateActionClass signals
 
 
+// MARK: RotateActionClass Record: RotateActionClassProtocol extension (methods and fields)
 public extension RotateActionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterRotateActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterRotateActionClass> { return ptr.assumingMemoryBound(to: ClutterRotateActionClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var rotate is unavailable because rotate is void
+
+    // var ClutterRotateAction1 is unavailable because _clutter_rotate_action1 is void
+
+    // var ClutterRotateAction2 is unavailable because _clutter_rotate_action2 is void
+
+    // var ClutterRotateAction3 is unavailable because _clutter_rotate_action3 is void
+
+    // var ClutterRotateAction4 is unavailable because _clutter_rotate_action4 is void
+
+    // var ClutterRotateAction5 is unavailable because _clutter_rotate_action5 is void
+
+    // var ClutterRotateAction6 is unavailable because _clutter_rotate_action6 is void
+
+    // var ClutterRotateAction7 is unavailable because _clutter_rotate_action7 is void
 
 }
 
@@ -579,7 +614,7 @@ public extension RotateActionClassProtocol {
 ///
 
 public protocol RotateActionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateActionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterRotateActionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterRotateActionPrivate` instance.
@@ -592,7 +627,7 @@ public protocol RotateActionPrivateProtocol {
 ///
 
 public struct RotateActionPrivateRef: RotateActionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateActionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterRotateActionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -645,7 +680,7 @@ public extension RotateActionPrivateRef {
 ///
 
 open class RotateActionPrivate: RotateActionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterRotateActionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterRotateActionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -674,7 +709,7 @@ open class RotateActionPrivate: RotateActionPrivateProtocol {
         // no reference counting for ClutterRotateActionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterRotateActionPrivate`.
+    /// Do-nothing destructor for `ClutterRotateActionPrivate`.
     deinit {
         // no reference counting for ClutterRotateActionPrivate, cannot unref(cast(_ptr))
     }
@@ -742,14 +777,17 @@ open class RotateActionPrivate: RotateActionPrivateProtocol {
 
 }
 
-// MARK: - no RotateActionPrivate properties
+// MARK: no RotateActionPrivate properties
 
-// MARK: - no signals
+// MARK: no RotateActionPrivate signals
 
 
+// MARK: RotateActionPrivate Record: RotateActionPrivateProtocol extension (methods and fields)
 public extension RotateActionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterRotateActionPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterRotateActionPrivate> { return ptr.assumingMemoryBound(to: ClutterRotateActionPrivate.self) }
+
+
 
 }
 
@@ -764,7 +802,7 @@ public extension RotateActionPrivateProtocol {
 ///
 /// The `ClutterScoreClass` structure contains only private data
 public protocol ScoreClassProtocol {
-    /// Untyped pointer to the underlying `ClutterScoreClass` instance.
+        /// Untyped pointer to the underlying `ClutterScoreClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterScoreClass` instance.
@@ -777,7 +815,7 @@ public protocol ScoreClassProtocol {
 ///
 /// The `ClutterScoreClass` structure contains only private data
 public struct ScoreClassRef: ScoreClassProtocol {
-    /// Untyped pointer to the underlying `ClutterScoreClass` instance.
+        /// Untyped pointer to the underlying `ClutterScoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -830,7 +868,7 @@ public extension ScoreClassRef {
 ///
 /// The `ClutterScoreClass` structure contains only private data
 open class ScoreClass: ScoreClassProtocol {
-    /// Untyped pointer to the underlying `ClutterScoreClass` instance.
+        /// Untyped pointer to the underlying `ClutterScoreClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -859,7 +897,7 @@ open class ScoreClass: ScoreClassProtocol {
         // no reference counting for ClutterScoreClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterScoreClass`.
+    /// Do-nothing destructor for `ClutterScoreClass`.
     deinit {
         // no reference counting for ClutterScoreClass, cannot unref(cast(_ptr))
     }
@@ -927,14 +965,38 @@ open class ScoreClass: ScoreClassProtocol {
 
 }
 
-// MARK: - no ScoreClass properties
+// MARK: no ScoreClass properties
 
-// MARK: - no signals
+// MARK: no ScoreClass signals
 
 
+// MARK: ScoreClass Record: ScoreClassProtocol extension (methods and fields)
 public extension ScoreClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScoreClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterScoreClass> { return ptr.assumingMemoryBound(to: ClutterScoreClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var timelineStarted is unavailable because timeline_started is void
+
+    // var timelineCompleted is unavailable because timeline_completed is void
+
+    // var started is unavailable because started is void
+
+    // var completed is unavailable because completed is void
+
+    // var paused is unavailable because paused is void
+
+    // var ClutterScore1 is unavailable because _clutter_score_1 is void
+
+    // var ClutterScore2 is unavailable because _clutter_score_2 is void
+
+    // var ClutterScore3 is unavailable because _clutter_score_3 is void
+
+    // var ClutterScore4 is unavailable because _clutter_score_4 is void
+
+    // var ClutterScore5 is unavailable because _clutter_score_5 is void
 
 }
 

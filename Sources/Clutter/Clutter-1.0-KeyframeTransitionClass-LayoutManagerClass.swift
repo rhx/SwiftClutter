@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterKeyframeTransitionClass` structure contains only
 /// private data.
 public protocol KeyframeTransitionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterKeyframeTransitionClass` instance.
@@ -36,7 +36,7 @@ public protocol KeyframeTransitionClassProtocol {
 /// The `ClutterKeyframeTransitionClass` structure contains only
 /// private data.
 public struct KeyframeTransitionClassRef: KeyframeTransitionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension KeyframeTransitionClassRef {
 /// The `ClutterKeyframeTransitionClass` structure contains only
 /// private data.
 open class KeyframeTransitionClass: KeyframeTransitionClassProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class KeyframeTransitionClass: KeyframeTransitionClassProtocol {
         // no reference counting for ClutterKeyframeTransitionClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterKeyframeTransitionClass`.
+    /// Do-nothing destructor for `ClutterKeyframeTransitionClass`.
     deinit {
         // no reference counting for ClutterKeyframeTransitionClass, cannot unref(cast(_ptr))
     }
@@ -187,14 +187,20 @@ open class KeyframeTransitionClass: KeyframeTransitionClassProtocol {
 
 }
 
-// MARK: - no KeyframeTransitionClass properties
+// MARK: no KeyframeTransitionClass properties
 
-// MARK: - no signals
+// MARK: no KeyframeTransitionClass signals
 
 
+// MARK: KeyframeTransitionClass Record: KeyframeTransitionClassProtocol extension (methods and fields)
 public extension KeyframeTransitionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKeyframeTransitionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterKeyframeTransitionClass> { return ptr.assumingMemoryBound(to: ClutterKeyframeTransitionClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var Padding is unavailable because _padding is private
 
 }
 
@@ -209,7 +215,7 @@ public extension KeyframeTransitionClassProtocol {
 ///
 
 public protocol KeyframeTransitionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
@@ -222,7 +228,7 @@ public protocol KeyframeTransitionPrivateProtocol {
 ///
 
 public struct KeyframeTransitionPrivateRef: KeyframeTransitionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -275,7 +281,7 @@ public extension KeyframeTransitionPrivateRef {
 ///
 
 open class KeyframeTransitionPrivate: KeyframeTransitionPrivateProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -304,7 +310,7 @@ open class KeyframeTransitionPrivate: KeyframeTransitionPrivateProtocol {
         // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterKeyframeTransitionPrivate`.
+    /// Do-nothing destructor for `ClutterKeyframeTransitionPrivate`.
     deinit {
         // no reference counting for ClutterKeyframeTransitionPrivate, cannot unref(cast(_ptr))
     }
@@ -372,14 +378,17 @@ open class KeyframeTransitionPrivate: KeyframeTransitionPrivateProtocol {
 
 }
 
-// MARK: - no KeyframeTransitionPrivate properties
+// MARK: no KeyframeTransitionPrivate properties
 
-// MARK: - no signals
+// MARK: no KeyframeTransitionPrivate signals
 
 
+// MARK: KeyframeTransitionPrivate Record: KeyframeTransitionPrivateProtocol extension (methods and fields)
 public extension KeyframeTransitionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKeyframeTransitionPrivate` instance.
     var _ptr: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate> { return ptr.assumingMemoryBound(to: ClutterKeyframeTransitionPrivate.self) }
+
+
 
 }
 
@@ -394,7 +403,7 @@ public extension KeyframeTransitionPrivateProtocol {
 ///
 /// Point in a path behaviour.
 public protocol KnotProtocol {
-    /// Untyped pointer to the underlying `ClutterKnot` instance.
+        /// Untyped pointer to the underlying `ClutterKnot` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterKnot` instance.
@@ -407,7 +416,7 @@ public protocol KnotProtocol {
 ///
 /// Point in a path behaviour.
 public struct KnotRef: KnotProtocol {
-    /// Untyped pointer to the underlying `ClutterKnot` instance.
+        /// Untyped pointer to the underlying `ClutterKnot` instance.
     /// For type-safe access, use the generated, typed pointer `knot_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -460,7 +469,7 @@ public extension KnotRef {
 ///
 /// Point in a path behaviour.
 open class Knot: KnotProtocol {
-    /// Untyped pointer to the underlying `ClutterKnot` instance.
+        /// Untyped pointer to the underlying `ClutterKnot` instance.
     /// For type-safe access, use the generated, typed pointer `knot_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -489,7 +498,7 @@ open class Knot: KnotProtocol {
         // no reference counting for ClutterKnot, cannot ref(cast(knot_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterKnot`.
+    /// Do-nothing destructor for `ClutterKnot`.
     deinit {
         // no reference counting for ClutterKnot, cannot unref(cast(knot_ptr))
     }
@@ -557,18 +566,19 @@ open class Knot: KnotProtocol {
 
 }
 
-// MARK: - no Knot properties
+// MARK: no Knot properties
 
-// MARK: - no signals
+// MARK: no Knot signals
 
 
+// MARK: Knot Record: KnotProtocol extension (methods and fields)
 public extension KnotProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKnot` instance.
     var knot_ptr: UnsafeMutablePointer<ClutterKnot> { return ptr.assumingMemoryBound(to: ClutterKnot.self) }
 
     /// Makes an allocated copy of a knot.
     func copy() -> UnsafeMutablePointer<ClutterKnot>! {
-        let rv = clutter_knot_copy(cast(knot_ptr))
+        let rv: UnsafeMutablePointer<ClutterKnot>! = cast(clutter_knot_copy(cast(knot_ptr)))
         return cast(rv)
     }
 
@@ -583,6 +593,33 @@ public extension KnotProtocol {
         clutter_knot_free(cast(knot_ptr))
     
     }
+
+    /// X coordinate of the knot
+    var x: Int {
+        /// X coordinate of the knot
+        get {
+            let rv: Int = cast(knot_ptr.pointee.x)
+            return rv
+        }
+        /// X coordinate of the knot
+         set {
+            knot_ptr.pointee.x = gint(newValue)
+        }
+    }
+
+    /// Y coordinate of the knot
+    var y: Int {
+        /// Y coordinate of the knot
+        get {
+            let rv: Int = cast(knot_ptr.pointee.y)
+            return rv
+        }
+        /// Y coordinate of the knot
+         set {
+            knot_ptr.pointee.y = gint(newValue)
+        }
+    }
+
 }
 
 
@@ -597,7 +634,7 @@ public extension KnotProtocol {
 /// The `ClutterLayoutManagerClass` structure contains only private
 /// data and should be accessed using the provided API
 public protocol LayoutManagerClassProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterLayoutManagerClass` instance.
@@ -611,7 +648,7 @@ public protocol LayoutManagerClassProtocol {
 /// The `ClutterLayoutManagerClass` structure contains only private
 /// data and should be accessed using the provided API
 public struct LayoutManagerClassRef: LayoutManagerClassProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -665,7 +702,7 @@ public extension LayoutManagerClassRef {
 /// The `ClutterLayoutManagerClass` structure contains only private
 /// data and should be accessed using the provided API
 open class LayoutManagerClass: LayoutManagerClassProtocol {
-    /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
+        /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -694,7 +731,7 @@ open class LayoutManagerClass: LayoutManagerClassProtocol {
         // no reference counting for ClutterLayoutManagerClass, cannot ref(cast(_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterLayoutManagerClass`.
+    /// Do-nothing destructor for `ClutterLayoutManagerClass`.
     deinit {
         // no reference counting for ClutterLayoutManagerClass, cannot unref(cast(_ptr))
     }
@@ -762,14 +799,54 @@ open class LayoutManagerClass: LayoutManagerClassProtocol {
 
 }
 
-// MARK: - no LayoutManagerClass properties
+// MARK: no LayoutManagerClass properties
 
-// MARK: - no signals
+// MARK: no LayoutManagerClass signals
 
 
+// MARK: LayoutManagerClass Record: LayoutManagerClassProtocol extension (methods and fields)
 public extension LayoutManagerClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterLayoutManagerClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterLayoutManagerClass> { return ptr.assumingMemoryBound(to: ClutterLayoutManagerClass.self) }
+
+
+    // var parentClass is unavailable because parent_class is private
+
+    // var getPreferredWidth is unavailable because get_preferred_width is void
+
+    // var getPreferredHeight is unavailable because get_preferred_height is void
+
+    // var allocate is unavailable because allocate is void
+
+    // var setContainer is unavailable because set_container is void
+
+    // var getChildMetaType is unavailable because get_child_meta_type is void
+
+    // var createChildMeta is unavailable because create_child_meta is void
+
+    // var beginAnimation is unavailable because begin_animation is void
+
+    // var getAnimationProgress is unavailable because get_animation_progress is void
+
+    // var endAnimation is unavailable because end_animation is void
+
+    // var layoutChanged is unavailable because layout_changed is void
+
+    // var ClutterPadding1 is unavailable because _clutter_padding_1 is void
+
+    // var ClutterPadding2 is unavailable because _clutter_padding_2 is void
+
+    // var ClutterPadding3 is unavailable because _clutter_padding_3 is void
+
+    // var ClutterPadding4 is unavailable because _clutter_padding_4 is void
+
+    // var ClutterPadding5 is unavailable because _clutter_padding_5 is void
+
+    // var ClutterPadding6 is unavailable because _clutter_padding_6 is void
+
+    // var ClutterPadding7 is unavailable because _clutter_padding_7 is void
+
+    // var ClutterPadding8 is unavailable because _clutter_padding_8 is void
 
 }
 

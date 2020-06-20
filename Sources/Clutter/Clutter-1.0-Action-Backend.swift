@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterAction` structure contains only private data and
 /// should be accessed using the provided API.
 public protocol ActionProtocol: ActorMetaProtocol {
-    /// Untyped pointer to the underlying `ClutterAction` instance.
+        /// Untyped pointer to the underlying `ClutterAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterAction` instance.
@@ -36,7 +36,7 @@ public protocol ActionProtocol: ActorMetaProtocol {
 /// The `ClutterAction` structure contains only private data and
 /// should be accessed using the provided API.
 public struct ActionRef: ActionProtocol {
-    /// Untyped pointer to the underlying `ClutterAction` instance.
+        /// Untyped pointer to the underlying `ClutterAction` instance.
     /// For type-safe access, use the generated, typed pointer `action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension ActionRef {
 /// The `ClutterAction` structure contains only private data and
 /// should be accessed using the provided API.
 open class Action: ActorMeta, ActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Action` instance.
     /// - Parameter op: pointer to the underlying object
@@ -235,8 +235,8 @@ public extension ActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -259,6 +259,23 @@ public extension ActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Action property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Action property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -383,8 +400,8 @@ public extension ActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -405,9 +422,13 @@ public extension ActionProtocol {
     }
 }
 
+// MARK: Action Class: ActionProtocol extension (methods and fields)
 public extension ActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAction` instance.
     var action_ptr: UnsafeMutablePointer<ClutterAction> { return ptr.assumingMemoryBound(to: ClutterAction.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
 
 }
 
@@ -422,7 +443,7 @@ public extension ActionProtocol {
 ///
 /// Base class for actors.
 public protocol ActorProtocol: InitiallyUnownedProtocol, Atk.ImplementorIfaceProtocol, AnimatableProtocol, ContainerProtocol, ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterActor` instance.
+        /// Untyped pointer to the underlying `ClutterActor` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterActor` instance.
@@ -435,7 +456,7 @@ public protocol ActorProtocol: InitiallyUnownedProtocol, Atk.ImplementorIfacePro
 ///
 /// Base class for actors.
 public struct ActorRef: ActorProtocol {
-    /// Untyped pointer to the underlying `ClutterActor` instance.
+        /// Untyped pointer to the underlying `ClutterActor` instance.
     /// For type-safe access, use the generated, typed pointer `actor_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -485,7 +506,7 @@ public extension ActorRef {
     /// A newly created actor has a floating reference, which will be sunk
     /// when it is added to another actor.
     init() {
-        let rv = clutter_actor_new()
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -496,7 +517,7 @@ public extension ActorRef {
 ///
 /// Base class for actors.
 open class Actor: InitiallyUnowned, ActorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Actor` instance.
     /// - Parameter op: pointer to the underlying object
@@ -579,7 +600,7 @@ open class Actor: InitiallyUnowned, ActorProtocol {
     /// A newly created actor has a floating reference, which will be sunk
     /// when it is added to another actor.
     public init() {
-        let rv = clutter_actor_new()
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_new())
         super.init(cast(rv))
     }
 
@@ -1126,8 +1147,8 @@ public extension ActorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1150,6 +1171,23 @@ public extension ActorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Actor property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ActorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Actor property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ActorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1935,8 +1973,8 @@ public extension ActorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ActorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(actor_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1957,6 +1995,7 @@ public extension ActorProtocol {
     }
 }
 
+// MARK: Actor Class: ActorProtocol extension (methods and fields)
 public extension ActorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterActor` instance.
     var actor_ptr: UnsafeMutablePointer<ClutterActor> { return ptr.assumingMemoryBound(to: ClutterActor.self) }
@@ -2101,7 +2140,7 @@ public extension ActorProtocol {
     /// the parent has moved with respect to the stage, for example because
     /// a grandparent's origin has moved.
     func allocate(box: ActorBoxProtocol, flags: AllocationFlags) {
-        clutter_actor_allocate(cast(actor_ptr), cast(box.ptr), flags)
+        clutter_actor_allocate(cast(actor_ptr), cast(box.ptr), flags.value)
     
     }
 
@@ -2122,7 +2161,7 @@ public extension ActorProtocol {
     /// `clutter_actor_allocate()` inside their `ClutterActorClass.allocate``()`
     /// implementation.
     func allocateAlignFill(box: ActorBoxProtocol, xAlign x_align: gdouble, yAlign y_align: gdouble, xFill x_fill: Bool, yFill y_fill: Bool, flags: AllocationFlags) {
-        clutter_actor_allocate_align_fill(cast(actor_ptr), cast(box.ptr), x_align, y_align, gboolean(x_fill ? 1 : 0), gboolean(y_fill ? 1 : 0), flags)
+        clutter_actor_allocate_align_fill(cast(actor_ptr), cast(box.ptr), x_align, y_align, gboolean(x_fill ? 1 : 0), gboolean(y_fill ? 1 : 0), flags.value)
     
     }
 
@@ -2179,7 +2218,7 @@ public extension ActorProtocol {
     /// an actor's preferred size without making it bigger than the area
     /// available for the container.
     func allocateAvailableSize(x x_: gfloat, y y_: gfloat, availableWidth available_width: gfloat, availableHeight available_height: gfloat, flags: AllocationFlags) {
-        clutter_actor_allocate_available_size(cast(actor_ptr), x_, y_, available_width, available_height, flags)
+        clutter_actor_allocate_available_size(cast(actor_ptr), x_, y_, available_width, available_height, flags.value)
     
     }
 
@@ -2196,7 +2235,7 @@ public extension ActorProtocol {
     /// not meant to be used outside the implementation of the
     /// `ClutterActorClass.allocate` virtual function.
     func allocatePreferredSize(flags: AllocationFlags) {
-        clutter_actor_allocate_preferred_size(cast(actor_ptr), flags)
+        clutter_actor_allocate_preferred_size(cast(actor_ptr), flags.value)
     
     }
 
@@ -2229,7 +2268,7 @@ public extension ActorProtocol {
     ///   clutter_actor_set_easing_mode(), clutter_actor_set_easing_duration(),
     ///   clutter_actor_set_easing_delay(), and clutter_actor_restore_easing_state().
     @available(*, deprecated) func animateWithAlphav(alpha: AlphaProtocol, nProperties n_properties: CInt, properties: UnsafePointer<UnsafePointer<gchar>>, values: UnsafePointer<GValue>) -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_actor_animate_with_alphav(cast(actor_ptr), cast(alpha.ptr), gint(n_properties), cast(properties), cast(values))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_actor_animate_with_alphav(cast(actor_ptr), cast(alpha.ptr), gint(n_properties), cast(properties), cast(values)))
         return cast(rv)
     }
 
@@ -2258,7 +2297,7 @@ public extension ActorProtocol {
     ///   clutter_actor_set_easing_mode(), clutter_actor_set_easing_duration(),
     ///   clutter_actor_set_easing_delay(), and clutter_actor_restore_easing_state().
     @available(*, deprecated) func animateWithTimelinev(mode: CUnsignedLong, timeline: TimelineProtocol, nProperties n_properties: CInt, properties: UnsafePointer<UnsafePointer<gchar>>, values: UnsafePointer<GValue>) -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_actor_animate_with_timelinev(cast(actor_ptr), gulong(mode), cast(timeline.ptr), gint(n_properties), cast(properties), cast(values))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_actor_animate_with_timelinev(cast(actor_ptr), gulong(mode), cast(timeline.ptr), gint(n_properties), cast(properties), cast(values)))
         return cast(rv)
     }
 
@@ -2278,7 +2317,7 @@ public extension ActorProtocol {
     ///   clutter_actor_set_easing_mode(), clutter_actor_set_easing_duration(),
     ///   clutter_actor_set_easing_delay(), and clutter_actor_restore_easing_state().
     @available(*, deprecated) func animatev(mode: CUnsignedLong, duration: CUnsignedInt, nProperties n_properties: CInt, properties: UnsafePointer<UnsafePointer<gchar>>, values: UnsafePointer<GValue>) -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_actor_animatev(cast(actor_ptr), gulong(mode), guint(duration), gint(n_properties), cast(properties), cast(values))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_actor_animatev(cast(actor_ptr), gulong(mode), guint(duration), gint(n_properties), cast(properties), cast(values)))
         return cast(rv)
     }
 
@@ -2366,7 +2405,7 @@ public extension ActorProtocol {
     /// 
     /// See also `clutter_actor_get_pango_context()`.
     func createPangoContext() -> UnsafeMutablePointer<PangoContext>! {
-        let rv = clutter_actor_create_pango_context(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<PangoContext>! = cast(clutter_actor_create_pango_context(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2380,7 +2419,7 @@ public extension ActorProtocol {
     /// and `ClutterBackend::resolution`-changed signals, and call
     /// `pango_layout_context_changed()` in response to them.
     func createPangoLayout(text: UnsafePointer<gchar>) -> UnsafeMutablePointer<PangoLayout>! {
-        let rv = clutter_actor_create_pango_layout(cast(actor_ptr), text)
+        let rv: UnsafeMutablePointer<PangoLayout>! = cast(clutter_actor_create_pango_layout(cast(actor_ptr), text))
         return cast(rv)
     }
 
@@ -2442,8 +2481,8 @@ public extension ActorProtocol {
     /// This function is used to emit an event on the main stage.
     /// You should rarely need to use this function, except for
     /// synthetising events.
-    func event(event: UnsafePointer<ClutterEvent>, capture: Bool) -> Bool {
-        let rv = clutter_actor_event(cast(actor_ptr), cast(event), gboolean(capture ? 1 : 0))
+    func event(event: EventProtocol, capture: Bool) -> Bool {
+        let rv = clutter_actor_event(cast(actor_ptr), cast(event.ptr), gboolean(capture ? 1 : 0))
         return Bool(rv != 0)
     }
 
@@ -2473,20 +2512,20 @@ public extension ActorProtocol {
     /// library contains more information about accessible objects and
     /// their uses.
     func getAccessible() -> UnsafeMutablePointer<AtkObject>! {
-        let rv = clutter_actor_get_accessible(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<AtkObject>! = cast(clutter_actor_get_accessible(cast(actor_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the `ClutterAction` with the given name in the list
     /// of actions applied to `self`
     func getAction(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<ClutterAction>! {
-        let rv = clutter_actor_get_action(cast(actor_ptr), name)
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_actor_get_action(cast(actor_ptr), name))
         return cast(rv)
     }
 
     /// Retrieves the list of actions applied to `self`
     func getActions() -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_actor_get_actions(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_actions(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2556,7 +2595,7 @@ public extension ActorProtocol {
     /// Use #ClutterActor:pivot-point instead.
     @available(*, deprecated) func getAnchorPointGravity() -> ClutterGravity {
         let rv = clutter_actor_get_anchor_point_gravity(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the `ClutterAnimation` used by `actor`, if `clutter_actor_animate()`
@@ -2567,7 +2606,7 @@ public extension ActorProtocol {
     ///   in #ClutterActor instead, and clutter_actor_get_transition() to retrieve
     ///   the transition.
     @available(*, deprecated) func getAnimation() -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_actor_get_animation(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_actor_get_animation(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2580,7 +2619,7 @@ public extension ActorProtocol {
     /// Retrieves the actor at the given `index_` inside the list of
     /// children of `self`.
     func getChildAtIndex(index_: CInt) -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_child_at_index(cast(actor_ptr), gint(index_))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_child_at_index(cast(actor_ptr), gint(index_)))
         return cast(rv)
     }
 
@@ -2594,7 +2633,7 @@ public extension ActorProtocol {
 
     /// Retrieves the list of children of `self`.
     func getChildren() -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_actor_get_children(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_children(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2613,19 +2652,19 @@ public extension ActorProtocol {
     /// Retrieves the `ClutterConstraint` with the given name in the list
     /// of constraints applied to `self`
     func getConstraint(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<ClutterConstraint>! {
-        let rv = clutter_actor_get_constraint(cast(actor_ptr), name)
+        let rv: UnsafeMutablePointer<ClutterConstraint>! = cast(clutter_actor_get_constraint(cast(actor_ptr), name))
         return cast(rv)
     }
 
     /// Retrieves the list of constraints applied to `self`
     func getConstraints() -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_actor_get_constraints(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_constraints(cast(actor_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the contents of `self`.
     func getContent() -> UnsafeMutablePointer<ClutterContent>! {
-        let rv = clutter_actor_get_content(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterContent>! = cast(clutter_actor_get_content(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2651,14 +2690,14 @@ public extension ActorProtocol {
     /// `clutter_actor_set_content_gravity()`.
     func getContentGravity() -> ClutterContentGravity {
         let rv = clutter_actor_get_content_gravity(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the repeat policy for a `ClutterActor` set by
     /// `clutter_actor_set_content_repeat()`.
     func getContentRepeat() -> ClutterContentRepeat {
         let rv = clutter_actor_get_content_repeat(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the values set using `clutter_actor_set_content_scaling_filters()`.
@@ -2677,7 +2716,7 @@ public extension ActorProtocol {
     /// cannot chain up to the parent implementation when computing their
     /// paint volume.
     func getDefaultPaintVolume() -> UnsafePointer<ClutterPaintVolume>! {
-        let rv = clutter_actor_get_default_paint_volume(cast(actor_ptr))
+        let rv: UnsafePointer<ClutterPaintVolume>! = cast(clutter_actor_get_default_paint_volume(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2685,42 +2724,42 @@ public extension ActorProtocol {
     ///
     /// **get_depth is deprecated:**
     /// Use clutter_actor_get_z_position() instead.
-    @available(*, deprecated) func getDepth() -> gfloat {
-        let rv = clutter_actor_get_depth(cast(actor_ptr))
-        return rv
+    @available(*, deprecated) func getDepth() -> Float {
+        let rv: Float = cast(clutter_actor_get_depth(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the delay that should be applied when tweening animatable
     /// properties.
-    func getEasingDelay() -> CUnsignedInt {
-        let rv = clutter_actor_get_easing_delay(cast(actor_ptr))
-        return CUnsignedInt(rv)
+    func getEasingDelay() -> Int {
+        let rv: Int = cast(clutter_actor_get_easing_delay(cast(actor_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the duration of the tweening for animatable
     /// properties of `self` for the current easing state.
-    func getEasingDuration() -> CUnsignedInt {
-        let rv = clutter_actor_get_easing_duration(cast(actor_ptr))
-        return CUnsignedInt(rv)
+    func getEasingDuration() -> Int {
+        let rv: Int = cast(clutter_actor_get_easing_duration(cast(actor_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the easing mode for the tweening of animatable properties
     /// of `self` for the current easing state.
     func getEasingMode() -> ClutterAnimationMode {
         let rv = clutter_actor_get_easing_mode(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the `ClutterEffect` with the given name in the list
     /// of effects applied to `self`
     func getEffect(name: UnsafePointer<gchar>) -> UnsafeMutablePointer<ClutterEffect>! {
-        let rv = clutter_actor_get_effect(cast(actor_ptr), name)
+        let rv: UnsafeMutablePointer<ClutterEffect>! = cast(clutter_actor_get_effect(cast(actor_ptr), name))
         return cast(rv)
     }
 
     /// Retrieves the `ClutterEffect`<!-- -->s applied on `self`, if any
     func getEffects() -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_actor_get_effects(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_effects(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2730,7 +2769,7 @@ public extension ActorProtocol {
     /// is not safe to modify the list of children of `self` while iterating
     /// it.
     func getFirstChild() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_first_child(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_first_child(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2744,7 +2783,7 @@ public extension ActorProtocol {
     /// Retrieves the flags set on `self`
     func getFlags() -> ClutterActorFlags {
         let rv = clutter_actor_get_flags(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the size and position of an actor relative to its parent
@@ -2789,9 +2828,9 @@ public extension ActorProtocol {
     /// If an actor has a fixed height, for instance a height that has been
     /// assigned using `clutter_actor_set_height()`, the height returned will
     /// be the same value.
-    func getHeight() -> gfloat {
-        let rv = clutter_actor_get_height(cast(actor_ptr))
-        return rv
+    func getHeight() -> Float {
+        let rv: Float = cast(clutter_actor_get_height(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the last child of `self`.
@@ -2800,13 +2839,13 @@ public extension ActorProtocol {
     /// is not safe to modify the list of children of `self` while iterating
     /// it.
     func getLastChild() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_last_child(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_last_child(cast(actor_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the `ClutterLayoutManager` used by `self`.
     func getLayoutManager() -> UnsafeMutablePointer<ClutterLayoutManager>! {
-        let rv = clutter_actor_get_layout_manager(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_actor_get_layout_manager(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2817,39 +2856,39 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the bottom margin of a `ClutterActor`.
-    func getMarginBottom() -> gfloat {
-        let rv = clutter_actor_get_margin_bottom(cast(actor_ptr))
-        return rv
+    func getMarginBottom() -> Float {
+        let rv: Float = cast(clutter_actor_get_margin_bottom(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the left margin of a `ClutterActor`.
-    func getMarginLeft() -> gfloat {
-        let rv = clutter_actor_get_margin_left(cast(actor_ptr))
-        return rv
+    func getMarginLeft() -> Float {
+        let rv: Float = cast(clutter_actor_get_margin_left(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the right margin of a `ClutterActor`.
-    func getMarginRight() -> gfloat {
-        let rv = clutter_actor_get_margin_right(cast(actor_ptr))
-        return rv
+    func getMarginRight() -> Float {
+        let rv: Float = cast(clutter_actor_get_margin_right(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the top margin of a `ClutterActor`.
-    func getMarginTop() -> gfloat {
-        let rv = clutter_actor_get_margin_top(cast(actor_ptr))
-        return rv
+    func getMarginTop() -> Float {
+        let rv: Float = cast(clutter_actor_get_margin_top(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the number of children of `self`.
-    func getNChildren() -> CInt {
-        let rv = clutter_actor_get_n_children(cast(actor_ptr))
-        return CInt(rv)
+    func getNChildren() -> Int {
+        let rv: Int = cast(clutter_actor_get_n_children(cast(actor_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the name of `self`.
     func getName() -> String! {
-        let rv = clutter_actor_get_name(cast(actor_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_actor_get_name(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the sibling of `self` that comes after it in the list
@@ -2859,7 +2898,7 @@ public extension ActorProtocol {
     /// is not safe to modify the list of children of `self` while iterating
     /// it.
     func getNextSibling() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_next_sibling(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_next_sibling(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2867,7 +2906,7 @@ public extension ActorProtocol {
     /// set by `clutter_actor_set_offscreen_redirect()`.
     func getOffscreenRedirect() -> ClutterOffscreenRedirect {
         let rv = clutter_actor_get_offscreen_redirect(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the opacity value of an actor, as set by
@@ -2935,7 +2974,7 @@ public extension ActorProtocol {
     /// should ensure that their volume has a depth of 0. (This will be true
     /// as long as you don't call `clutter_paint_volume_set_depth()`.)
     func getPaintVolume() -> UnsafePointer<ClutterPaintVolume>! {
-        let rv = clutter_actor_get_paint_volume(cast(actor_ptr))
+        let rv: UnsafePointer<ClutterPaintVolume>! = cast(clutter_actor_get_paint_volume(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2951,13 +2990,13 @@ public extension ActorProtocol {
     /// and render text using `cogl_pango_render_layout()` to reuse the
     /// glyphs cache also used by Clutter.
     func getPangoContext() -> UnsafeMutablePointer<PangoContext>! {
-        let rv = clutter_actor_get_pango_context(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<PangoContext>! = cast(clutter_actor_get_pango_context(cast(actor_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the parent of `self`.
     func getParent() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_parent(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_parent(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -2968,9 +3007,9 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the Z component of the `ClutterActor:pivot`-point.
-    func getPivotPointZ() -> gfloat {
-        let rv = clutter_actor_get_pivot_point_z(cast(actor_ptr))
-        return rv
+    func getPivotPointZ() -> Float {
+        let rv: Float = cast(clutter_actor_get_pivot_point_z(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// This function tries to "do what you mean" and tell you where the
@@ -3035,7 +3074,7 @@ public extension ActorProtocol {
     /// is not safe to modify the list of children of `self` while iterating
     /// it.
     func getPreviousSibling() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_previous_sibling(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_previous_sibling(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -3048,7 +3087,7 @@ public extension ActorProtocol {
     /// Retrieves the geometry request mode of `self`
     func getRequestMode() -> ClutterRequestMode {
         let rv = clutter_actor_get_request_mode(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the angle and center of rotation on the given axis,
@@ -3057,15 +3096,15 @@ public extension ActorProtocol {
     /// **get_rotation is deprecated:**
     /// Use clutter_actor_get_rotation_angle() and
     ///   clutter_actor_get_pivot_point() instead.
-    @available(*, deprecated) func getRotation(axis: RotateAxis, x x_: UnsafeMutablePointer<gfloat>, y y_: UnsafeMutablePointer<gfloat>, z_: UnsafeMutablePointer<gfloat>) -> gdouble {
-        let rv = clutter_actor_get_rotation(cast(actor_ptr), axis, cast(x_), cast(y_), cast(z_))
-        return rv
+    @available(*, deprecated) func getRotation(axis: RotateAxis, x x_: UnsafeMutablePointer<gfloat>, y y_: UnsafeMutablePointer<gfloat>, z_: UnsafeMutablePointer<gfloat>) -> Double {
+        let rv: Double = cast(clutter_actor_get_rotation(cast(actor_ptr), axis, cast(x_), cast(y_), cast(z_)))
+        return cast(rv)
     }
 
     /// Retrieves the angle of rotation set by `clutter_actor_set_rotation_angle()`.
-    func getRotationAngle(axis: RotateAxis) -> gdouble {
-        let rv = clutter_actor_get_rotation_angle(cast(actor_ptr), axis)
-        return rv
+    func getRotationAngle(axis: RotateAxis) -> Double {
+        let rv: Double = cast(clutter_actor_get_rotation_angle(cast(actor_ptr), axis))
+        return cast(rv)
     }
 
     /// Retrieves an actors scale factors.
@@ -3094,14 +3133,14 @@ public extension ActorProtocol {
     /// Use clutter_actor_get_pivot_point() instead.
     @available(*, deprecated) func getScaleGravity() -> ClutterGravity {
         let rv = clutter_actor_get_scale_gravity(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the scaling factor along the Z axis, as set using
     /// `clutter_actor_set_scale_z()`.
-    func getScaleZ() -> gdouble {
-        let rv = clutter_actor_get_scale_z(cast(actor_ptr))
-        return rv
+    func getScaleZ() -> Double {
+        let rv: Double = cast(clutter_actor_get_scale_z(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Queries the currently set `ClutterShader` on `self`.
@@ -3109,7 +3148,7 @@ public extension ActorProtocol {
     /// **get_shader is deprecated:**
     /// Use clutter_actor_get_effect() instead.
     @available(*, deprecated) func getShader() -> UnsafeMutablePointer<ClutterShader>! {
-        let rv = clutter_actor_get_shader(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterShader>! = cast(clutter_actor_get_shader(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -3129,7 +3168,7 @@ public extension ActorProtocol {
 
     /// Retrieves the `ClutterStage` where `actor` is contained.
     func getStage() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_get_stage(cast(actor_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_stage(cast(actor_ptr)))
         return cast(rv)
     }
 
@@ -3140,7 +3179,7 @@ public extension ActorProtocol {
     /// be returned instead
     func getTextDirection() -> ClutterTextDirection {
         let rv = clutter_actor_get_text_direction(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the current transformation matrix of a `ClutterActor`.
@@ -3171,7 +3210,7 @@ public extension ActorProtocol {
     /// transformed paint volume of all of its children and union them
     /// together using `clutter_paint_volume_union()`.
     func getTransformedPaintVolume(relativeToAncestor relative_to_ancestor: ActorProtocol) -> UnsafePointer<ClutterPaintVolume>! {
-        let rv = clutter_actor_get_transformed_paint_volume(cast(actor_ptr), cast(relative_to_ancestor.ptr))
+        let rv: UnsafePointer<ClutterPaintVolume>! = cast(clutter_actor_get_transformed_paint_volume(cast(actor_ptr), cast(relative_to_ancestor.ptr)))
         return cast(rv)
     }
 
@@ -3229,7 +3268,7 @@ public extension ActorProtocol {
     /// you should use the `ClutterActor::transition`-stopped signal, using the
     /// transition name as the signal detail.
     func getTransition(name: UnsafePointer<CChar>) -> UnsafeMutablePointer<ClutterTransition>! {
-        let rv = clutter_actor_get_transition(cast(actor_ptr), name)
+        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_actor_get_transition(cast(actor_ptr), name))
         return cast(rv)
     }
 
@@ -3257,9 +3296,9 @@ public extension ActorProtocol {
     /// If an actor has a fixed width, for instance a width that has been
     /// assigned using `clutter_actor_set_width()`, the width returned will
     /// be the same value.
-    func getWidth() -> gfloat {
-        let rv = clutter_actor_get_width(cast(actor_ptr))
-        return rv
+    func getWidth() -> Float {
+        let rv: Float = cast(clutter_actor_get_width(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the X coordinate of a `ClutterActor`.
@@ -3276,16 +3315,16 @@ public extension ActorProtocol {
     /// 
     /// If both the allocation and a fixed position are missing, this function
     /// will return 0.
-    func getX() -> gfloat {
-        let rv = clutter_actor_get_x(cast(actor_ptr))
-        return rv
+    func getX() -> Float {
+        let rv: Float = cast(clutter_actor_get_x(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the horizontal alignment policy set using
     /// `clutter_actor_set_x_align()`.
     func getXAlign() -> ClutterActorAlign {
         let rv = clutter_actor_get_x_align(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the value set with `clutter_actor_set_x_expand()`.
@@ -3310,16 +3349,16 @@ public extension ActorProtocol {
     /// 
     /// If both the allocation and a fixed position are missing, this function
     /// will return 0.
-    func getY() -> gfloat {
-        let rv = clutter_actor_get_y(cast(actor_ptr))
-        return rv
+    func getY() -> Float {
+        let rv: Float = cast(clutter_actor_get_y(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the vertical alignment policy set using
     /// `clutter_actor_set_y_align()`.
     func getYAlign() -> ClutterActorAlign {
         let rv = clutter_actor_get_y_align(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the value set with `clutter_actor_set_y_expand()`.
@@ -3331,9 +3370,9 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the actor's position on the Z axis.
-    func getZPosition() -> gfloat {
-        let rv = clutter_actor_get_z_position(cast(actor_ptr))
-        return rv
+    func getZPosition() -> Float {
+        let rv: Float = cast(clutter_actor_get_z_position(cast(actor_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the center for the rotation around the Z axis as a
@@ -3345,7 +3384,7 @@ public extension ActorProtocol {
     ///   a #ClutterGravity
     @available(*, deprecated) func getZRotationGravity() -> ClutterGravity {
         let rv = clutter_actor_get_z_rotation_gravity(cast(actor_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Sets the key focus of the `ClutterStage` including `self`
@@ -3984,7 +4023,7 @@ public extension ActorProtocol {
     /// ```
     /// 
     func setAllocation(box: ActorBoxProtocol, flags: AllocationFlags) {
-        clutter_actor_set_allocation(cast(actor_ptr), cast(box.ptr), flags)
+        clutter_actor_set_allocation(cast(actor_ptr), cast(box.ptr), flags.value)
     
     }
 
@@ -4114,7 +4153,7 @@ public extension ActorProtocol {
     /// `ClutterActor`. The behaviour is deferred to the `ClutterContent`
     /// implementation.
     func setContentRepeat(repeat_: ContentRepeat) {
-        clutter_actor_set_content_repeat(cast(actor_ptr), repeat_)
+        clutter_actor_set_content_repeat(cast(actor_ptr), repeat_.value)
     
     }
 
@@ -4173,7 +4212,7 @@ public extension ActorProtocol {
     /// 
     /// This function will emit notifications for the changed properties
     func set(flags: ActorFlags) {
-        clutter_actor_set_flags(cast(actor_ptr), flags)
+        clutter_actor_set_flags(cast(actor_ptr), flags.value)
     
     }
 
@@ -4316,7 +4355,7 @@ public extension ActorProtocol {
     /// recommended to override the `has_overlaps()` virtual to return `false`
     /// for maximum efficiency.
     func setOffscreen(redirect: OffscreenRedirect) {
-        clutter_actor_set_offscreen_redirect(cast(actor_ptr), redirect)
+        clutter_actor_set_offscreen_redirect(cast(actor_ptr), redirect.value)
     
     }
 
@@ -4795,7 +4834,7 @@ public extension ActorProtocol {
     /// 
     /// This function will emit notifications for the changed properties
     func unset(flags: ActorFlags) {
-        clutter_actor_unset_flags(cast(actor_ptr), flags)
+        clutter_actor_unset_flags(cast(actor_ptr), flags.value)
     
     }
 
@@ -4886,7 +4925,7 @@ public extension ActorProtocol {
         /// library contains more information about accessible objects and
         /// their uses.
         get {
-            let rv = clutter_actor_get_accessible(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<AtkObject>! = cast(clutter_actor_get_accessible(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -4895,7 +4934,7 @@ public extension ActorProtocol {
     var actions: UnsafeMutablePointer<GList>! {
         /// Retrieves the list of actions applied to `self`
         get {
-            let rv = clutter_actor_get_actions(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_actions(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -4915,7 +4954,7 @@ public extension ActorProtocol {
         /// Use #ClutterActor:pivot-point instead.
         @available(*, deprecated) get {
             let rv = clutter_actor_get_anchor_point_gravity(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -4935,7 +4974,7 @@ public extension ActorProtocol {
         ///   in #ClutterActor instead, and clutter_actor_get_transition() to retrieve
         ///   the transition.
         @available(*, deprecated) get {
-            let rv = clutter_actor_get_animation(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_actor_get_animation(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -4944,7 +4983,7 @@ public extension ActorProtocol {
     var children: UnsafeMutablePointer<GList>! {
         /// Retrieves the list of children of `self`.
         get {
-            let rv = clutter_actor_get_children(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_children(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -4967,7 +5006,7 @@ public extension ActorProtocol {
     var constraints: UnsafeMutablePointer<GList>! {
         /// Retrieves the list of constraints applied to `self`
         get {
-            let rv = clutter_actor_get_constraints(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_constraints(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -4977,7 +5016,7 @@ public extension ActorProtocol {
     var content: UnsafeMutablePointer<ClutterContent>! {
         /// Retrieves the contents of `self`.
         get {
-            let rv = clutter_actor_get_content(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterContent>! = cast(clutter_actor_get_content(cast(actor_ptr)))
             return cast(rv)
         }
         /// Sets the contents of a `ClutterActor`.
@@ -4993,7 +5032,7 @@ public extension ActorProtocol {
         /// `clutter_actor_set_content_gravity()`.
         get {
             let rv = clutter_actor_get_content_gravity(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the gravity of the `ClutterContent` used by `self`.
         /// 
@@ -5002,7 +5041,7 @@ public extension ActorProtocol {
         /// 
         /// The `ClutterActor:content`-gravity property is animatable.
         nonmutating set {
-            clutter_actor_set_content_gravity(cast(actor_ptr), newValue)
+            clutter_actor_set_content_gravity(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5013,13 +5052,13 @@ public extension ActorProtocol {
         /// `clutter_actor_set_content_repeat()`.
         get {
             let rv = clutter_actor_get_content_repeat(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the policy for repeating the `ClutterActor:content` of a
         /// `ClutterActor`. The behaviour is deferred to the `ClutterContent`
         /// implementation.
         nonmutating set {
-            clutter_actor_set_content_repeat(cast(actor_ptr), newValue)
+            clutter_actor_set_content_repeat(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5043,7 +5082,7 @@ public extension ActorProtocol {
         /// cannot chain up to the parent implementation when computing their
         /// paint volume.
         get {
-            let rv = clutter_actor_get_default_paint_volume(cast(actor_ptr))
+            let rv: UnsafePointer<ClutterPaintVolume>! = cast(clutter_actor_get_default_paint_volume(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5060,14 +5099,14 @@ public extension ActorProtocol {
     ///
     /// **depth is deprecated:**
     /// Use #ClutterActor:z-position instead.
-    var depth: gfloat {
+    var depth: Float {
         /// Retrieves the depth of `self`.
         ///
         /// **get_depth is deprecated:**
         /// Use clutter_actor_get_z_position() instead.
         @available(*, deprecated) get {
-            let rv = clutter_actor_get_depth(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_depth(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the Z coordinate of `self` to `depth`.
         /// 
@@ -5077,18 +5116,18 @@ public extension ActorProtocol {
         /// **set_depth is deprecated:**
         /// Use clutter_actor_set_z_position() instead.
         @available(*, deprecated) nonmutating set {
-            clutter_actor_set_depth(cast(actor_ptr), newValue)
+            clutter_actor_set_depth(cast(actor_ptr), cast(newValue))
         }
     }
 
     /// Retrieves the delay that should be applied when tweening animatable
     /// properties.
-    var easingDelay: CUnsignedInt {
+    var easingDelay: Int {
         /// Retrieves the delay that should be applied when tweening animatable
         /// properties.
         get {
-            let rv = clutter_actor_get_easing_delay(cast(actor_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_actor_get_easing_delay(cast(actor_ptr)))
+            return Int(rv)
         }
         /// Sets the delay that should be applied before tweening animatable
         /// properties.
@@ -5099,12 +5138,12 @@ public extension ActorProtocol {
 
     /// Retrieves the duration of the tweening for animatable
     /// properties of `self` for the current easing state.
-    var easingDuration: CUnsignedInt {
+    var easingDuration: Int {
         /// Retrieves the duration of the tweening for animatable
         /// properties of `self` for the current easing state.
         get {
-            let rv = clutter_actor_get_easing_duration(cast(actor_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_actor_get_easing_duration(cast(actor_ptr)))
+            return Int(rv)
         }
         /// Sets the duration of the tweening for animatable properties
         /// of `self` for the current easing state.
@@ -5120,12 +5159,12 @@ public extension ActorProtocol {
         /// of `self` for the current easing state.
         get {
             let rv = clutter_actor_get_easing_mode(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the easing mode for the tweening of animatable properties
         /// of `self`.
         nonmutating set {
-            clutter_actor_set_easing_mode(cast(actor_ptr), newValue)
+            clutter_actor_set_easing_mode(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5133,7 +5172,7 @@ public extension ActorProtocol {
     var effects: UnsafeMutablePointer<GList>! {
         /// Retrieves the `ClutterEffect`<!-- -->s applied on `self`, if any
         get {
-            let rv = clutter_actor_get_effects(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(clutter_actor_get_effects(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5150,7 +5189,7 @@ public extension ActorProtocol {
         /// is not safe to modify the list of children of `self` while iterating
         /// it.
         get {
-            let rv = clutter_actor_get_first_child(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_first_child(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5176,13 +5215,13 @@ public extension ActorProtocol {
         /// Retrieves the flags set on `self`
         get {
             let rv = clutter_actor_get_flags(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets `flags` on `self`
         /// 
         /// This function will emit notifications for the changed properties
         nonmutating set {
-            clutter_actor_set_flags(cast(actor_ptr), newValue)
+            clutter_actor_set_flags(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5208,7 +5247,7 @@ public extension ActorProtocol {
     /// the allocated height if available, otherwise the height request.
     /// 
     /// The `ClutterActor:height` property is animatable.
-    var height: gfloat {
+    var height: Float {
         /// Retrieves the height of a `ClutterActor`.
         /// 
         /// If the actor has a valid allocation, this function will return the
@@ -5228,8 +5267,8 @@ public extension ActorProtocol {
         /// assigned using `clutter_actor_set_height()`, the height returned will
         /// be the same value.
         get {
-            let rv = clutter_actor_get_height(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_height(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Forces a height on an actor, causing the actor's preferred width
         /// and height (if any) to be ignored.
@@ -5239,7 +5278,7 @@ public extension ActorProtocol {
         /// 
         /// This function sets both the minimum and natural size of the actor.
         nonmutating set {
-            clutter_actor_set_height(cast(actor_ptr), newValue)
+            clutter_actor_set_height(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5333,7 +5372,7 @@ public extension ActorProtocol {
         /// is not safe to modify the list of children of `self` while iterating
         /// it.
         get {
-            let rv = clutter_actor_get_last_child(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_last_child(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5342,7 +5381,7 @@ public extension ActorProtocol {
     var layoutManager: UnsafeMutablePointer<ClutterLayoutManager>! {
         /// Retrieves the `ClutterLayoutManager` used by `self`.
         get {
-            let rv = clutter_actor_get_layout_manager(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_actor_get_layout_manager(cast(actor_ptr)))
             return cast(rv)
         }
         /// Sets the `ClutterLayoutManager` delegate object that will be used to
@@ -5357,71 +5396,71 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the bottom margin of a `ClutterActor`.
-    var marginBottom: gfloat {
+    var marginBottom: Float {
         /// Retrieves the bottom margin of a `ClutterActor`.
         get {
-            let rv = clutter_actor_get_margin_bottom(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_margin_bottom(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the margin from the bottom of a `ClutterActor`.
         /// 
         /// The `ClutterActor:margin`-bottom property is animatable.
         nonmutating set {
-            clutter_actor_set_margin_bottom(cast(actor_ptr), newValue)
+            clutter_actor_set_margin_bottom(cast(actor_ptr), cast(newValue))
         }
     }
 
     /// Retrieves the left margin of a `ClutterActor`.
-    var marginLeft: gfloat {
+    var marginLeft: Float {
         /// Retrieves the left margin of a `ClutterActor`.
         get {
-            let rv = clutter_actor_get_margin_left(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_margin_left(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the margin from the left of a `ClutterActor`.
         /// 
         /// The `ClutterActor:margin`-left property is animatable.
         nonmutating set {
-            clutter_actor_set_margin_left(cast(actor_ptr), newValue)
+            clutter_actor_set_margin_left(cast(actor_ptr), cast(newValue))
         }
     }
 
     /// Retrieves the right margin of a `ClutterActor`.
-    var marginRight: gfloat {
+    var marginRight: Float {
         /// Retrieves the right margin of a `ClutterActor`.
         get {
-            let rv = clutter_actor_get_margin_right(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_margin_right(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the margin from the right of a `ClutterActor`.
         /// 
         /// The `ClutterActor:margin`-right property is animatable.
         nonmutating set {
-            clutter_actor_set_margin_right(cast(actor_ptr), newValue)
+            clutter_actor_set_margin_right(cast(actor_ptr), cast(newValue))
         }
     }
 
     /// Retrieves the top margin of a `ClutterActor`.
-    var marginTop: gfloat {
+    var marginTop: Float {
         /// Retrieves the top margin of a `ClutterActor`.
         get {
-            let rv = clutter_actor_get_margin_top(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_margin_top(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the margin from the top of a `ClutterActor`.
         /// 
         /// The `ClutterActor:margin`-top property is animatable.
         nonmutating set {
-            clutter_actor_set_margin_top(cast(actor_ptr), newValue)
+            clutter_actor_set_margin_top(cast(actor_ptr), cast(newValue))
         }
     }
 
     /// Retrieves the number of children of `self`.
-    var nChildren: CInt {
+    var nChildren: Int {
         /// Retrieves the number of children of `self`.
         get {
-            let rv = clutter_actor_get_n_children(cast(actor_ptr))
-            return CInt(rv)
+            let rv: Int = cast(clutter_actor_get_n_children(cast(actor_ptr)))
+            return Int(rv)
         }
     }
 
@@ -5429,13 +5468,13 @@ public extension ActorProtocol {
     var name: String! {
         /// Retrieves the name of `self`.
         get {
-            let rv = clutter_actor_get_name(cast(actor_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_actor_get_name(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the given name to `self`. The name can be used to identify
         /// a `ClutterActor`.
         nonmutating set {
-            clutter_actor_set_name(cast(actor_ptr), newValue)
+            clutter_actor_set_name(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5453,7 +5492,7 @@ public extension ActorProtocol {
         /// is not safe to modify the list of children of `self` while iterating
         /// it.
         get {
-            let rv = clutter_actor_get_next_sibling(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_next_sibling(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5465,7 +5504,7 @@ public extension ActorProtocol {
         /// set by `clutter_actor_set_offscreen_redirect()`.
         get {
             let rv = clutter_actor_get_offscreen_redirect(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Defines the circumstances where the actor should be redirected into
         /// an offscreen image. The offscreen image is used to flatten the
@@ -5525,7 +5564,7 @@ public extension ActorProtocol {
         /// recommended to override the `has_overlaps()` virtual to return `false`
         /// for maximum efficiency.
         nonmutating set {
-            clutter_actor_set_offscreen_redirect(cast(actor_ptr), newValue)
+            clutter_actor_set_offscreen_redirect(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5622,7 +5661,7 @@ public extension ActorProtocol {
         /// should ensure that their volume has a depth of 0. (This will be true
         /// as long as you don't call `clutter_paint_volume_set_depth()`.)
         get {
-            let rv = clutter_actor_get_paint_volume(cast(actor_ptr))
+            let rv: UnsafePointer<ClutterPaintVolume>! = cast(clutter_actor_get_paint_volume(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5651,7 +5690,7 @@ public extension ActorProtocol {
         /// and render text using `cogl_pango_render_layout()` to reuse the
         /// glyphs cache also used by Clutter.
         get {
-            let rv = clutter_actor_get_pango_context(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<PangoContext>! = cast(clutter_actor_get_pango_context(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5660,7 +5699,7 @@ public extension ActorProtocol {
     var parent: UnsafeMutablePointer<ClutterActor>! {
         /// Retrieves the parent of `self`.
         get {
-            let rv = clutter_actor_get_parent(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_parent(cast(actor_ptr)))
             return cast(rv)
         }
         /// Sets the parent of `self` to `parent`.
@@ -5680,18 +5719,18 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the Z component of the `ClutterActor:pivot`-point.
-    var pivotPointZ: gfloat {
+    var pivotPointZ: Float {
         /// Retrieves the Z component of the `ClutterActor:pivot`-point.
         get {
-            let rv = clutter_actor_get_pivot_point_z(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_pivot_point_z(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the component on the Z axis of the `ClutterActor:pivot`-point around
         /// which the scaling and rotation transformations occur.
         /// 
         /// The `pivot_z` value is expressed as a distance along the Z axis.
         nonmutating set {
-            clutter_actor_set_pivot_point_z(cast(actor_ptr), newValue)
+            clutter_actor_set_pivot_point_z(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5709,7 +5748,7 @@ public extension ActorProtocol {
         /// is not safe to modify the list of children of `self` while iterating
         /// it.
         get {
-            let rv = clutter_actor_get_previous_sibling(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_previous_sibling(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5734,7 +5773,7 @@ public extension ActorProtocol {
         /// Retrieves the geometry request mode of `self`
         get {
             let rv = clutter_actor_get_request_mode(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the geometry request mode of `self`.
         /// 
@@ -5742,7 +5781,7 @@ public extension ActorProtocol {
         /// `clutter_actor_get_preferred_width()` and
         /// `clutter_actor_get_preferred_height()`
         nonmutating set {
-            clutter_actor_set_request_mode(cast(actor_ptr), newValue)
+            clutter_actor_set_request_mode(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5761,18 +5800,18 @@ public extension ActorProtocol {
         /// Use clutter_actor_get_pivot_point() instead.
         @available(*, deprecated) get {
             let rv = clutter_actor_get_scale_gravity(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
     /// Retrieves the scaling factor along the Z axis, as set using
     /// `clutter_actor_set_scale_z()`.
-    var scaleZ: gdouble {
+    var scaleZ: Double {
         /// Retrieves the scaling factor along the Z axis, as set using
         /// `clutter_actor_set_scale_z()`.
         get {
-            let rv = clutter_actor_get_scale_z(cast(actor_ptr))
-            return rv
+            let rv: Double = cast(clutter_actor_get_scale_z(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Scales an actor on the Z axis by the given `scale_z` factor.
         /// 
@@ -5780,7 +5819,7 @@ public extension ActorProtocol {
         /// 
         /// The `ClutterActor:scale`-z property is animatable.
         nonmutating set {
-            clutter_actor_set_scale_z(cast(actor_ptr), newValue)
+            clutter_actor_set_scale_z(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5794,7 +5833,7 @@ public extension ActorProtocol {
         /// **get_shader is deprecated:**
         /// Use clutter_actor_get_effect() instead.
         @available(*, deprecated) get {
-            let rv = clutter_actor_get_shader(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterShader>! = cast(clutter_actor_get_shader(cast(actor_ptr)))
             return cast(rv)
         }
         /// Sets the `ClutterShader` to be used when rendering `self`.
@@ -5809,7 +5848,7 @@ public extension ActorProtocol {
         /// Use #ClutterShaderEffect and
         ///   clutter_actor_add_effect() instead.
         @available(*, deprecated) nonmutating set {
-            let _ = clutter_actor_set_shader(cast(actor_ptr), cast(newValue))
+            _ = clutter_actor_set_shader(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5817,7 +5856,7 @@ public extension ActorProtocol {
     var stage: UnsafeMutablePointer<ClutterActor>! {
         /// Retrieves the `ClutterStage` where `actor` is contained.
         get {
-            let rv = clutter_actor_get_stage(cast(actor_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_get_stage(cast(actor_ptr)))
             return cast(rv)
         }
     }
@@ -5835,7 +5874,7 @@ public extension ActorProtocol {
         /// be returned instead
         get {
             let rv = clutter_actor_get_text_direction(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the `ClutterTextDirection` for an actor
         /// 
@@ -5848,7 +5887,7 @@ public extension ActorProtocol {
         /// special handling when the text direction changes, should connect to
         /// the `GObject::notify` signal for the `ClutterActor:text`-direction property
         nonmutating set {
-            clutter_actor_set_text_direction(cast(actor_ptr), newValue)
+            clutter_actor_set_text_direction(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5857,7 +5896,7 @@ public extension ActorProtocol {
     /// the allocated width if available, otherwise the width request.
     /// 
     /// The `ClutterActor:width` property is animatable.
-    var width: gfloat {
+    var width: Float {
         /// Retrieves the width of a `ClutterActor`.
         /// 
         /// If the actor has a valid allocation, this function will return the
@@ -5877,8 +5916,8 @@ public extension ActorProtocol {
         /// assigned using `clutter_actor_set_width()`, the width returned will
         /// be the same value.
         get {
-            let rv = clutter_actor_get_width(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_width(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Forces a width on an actor, causing the actor's preferred width
         /// and height (if any) to be ignored.
@@ -5888,7 +5927,7 @@ public extension ActorProtocol {
         /// 
         /// This function sets both the minimum and natural size of the actor.
         nonmutating set {
-            clutter_actor_set_width(cast(actor_ptr), newValue)
+            clutter_actor_set_width(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5897,7 +5936,7 @@ public extension ActorProtocol {
     /// otherwise the allocation if available, otherwise 0.
     /// 
     /// The `ClutterActor:x` property is animatable.
-    var x: gfloat {
+    var x: Float {
         /// Retrieves the X coordinate of a `ClutterActor`.
         /// 
         /// This function tries to "do what you mean", by returning the
@@ -5913,8 +5952,8 @@ public extension ActorProtocol {
         /// If both the allocation and a fixed position are missing, this function
         /// will return 0.
         get {
-            let rv = clutter_actor_get_x(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_x(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the actor's X coordinate, relative to its parent, in pixels.
         /// 
@@ -5923,7 +5962,7 @@ public extension ActorProtocol {
         /// 
         /// The `ClutterActor:x` property is animatable.
         nonmutating set {
-            clutter_actor_set_x(cast(actor_ptr), newValue)
+            clutter_actor_set_x(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5934,14 +5973,14 @@ public extension ActorProtocol {
         /// `clutter_actor_set_x_align()`.
         get {
             let rv = clutter_actor_get_x_align(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the horizontal alignment policy of a `ClutterActor`, in case the
         /// actor received extra horizontal space.
         /// 
         /// See also the `ClutterActor:x`-align property.
         nonmutating set {
-            clutter_actor_set_x_align(cast(actor_ptr), newValue)
+            clutter_actor_set_x_align(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -5973,7 +6012,7 @@ public extension ActorProtocol {
     /// any, otherwise the allocation if available, otherwise 0.
     /// 
     /// The `ClutterActor:y` property is animatable.
-    var y: gfloat {
+    var y: Float {
         /// Retrieves the Y coordinate of a `ClutterActor`.
         /// 
         /// This function tries to "do what you mean", by returning the
@@ -5989,8 +6028,8 @@ public extension ActorProtocol {
         /// If both the allocation and a fixed position are missing, this function
         /// will return 0.
         get {
-            let rv = clutter_actor_get_y(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_y(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the actor's Y coordinate, relative to its parent, in pixels.#
         /// 
@@ -5999,7 +6038,7 @@ public extension ActorProtocol {
         /// 
         /// The `ClutterActor:y` property is animatable.
         nonmutating set {
-            clutter_actor_set_y(cast(actor_ptr), newValue)
+            clutter_actor_set_y(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -6010,14 +6049,14 @@ public extension ActorProtocol {
         /// `clutter_actor_set_y_align()`.
         get {
             let rv = clutter_actor_get_y_align(cast(actor_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the vertical alignment policy of a `ClutterActor`, in case the
         /// actor received extra vertical space.
         /// 
         /// See also the `ClutterActor:y`-align property.
         nonmutating set {
-            clutter_actor_set_y_align(cast(actor_ptr), newValue)
+            clutter_actor_set_y_align(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -6045,17 +6084,17 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the actor's position on the Z axis.
-    var zPosition: gfloat {
+    var zPosition: Float {
         /// Retrieves the actor's position on the Z axis.
         get {
-            let rv = clutter_actor_get_z_position(cast(actor_ptr))
-            return rv
+            let rv: Float = cast(clutter_actor_get_z_position(cast(actor_ptr)))
+            return cast(rv)
         }
         /// Sets the actor's position on the Z axis.
         /// 
         /// See `ClutterActor:z`-position.
         nonmutating set {
-            clutter_actor_set_z_position(cast(actor_ptr), newValue)
+            clutter_actor_set_z_position(cast(actor_ptr), cast(newValue))
         }
     }
 
@@ -6076,9 +6115,25 @@ public extension ActorProtocol {
         ///   a #ClutterGravity
         @available(*, deprecated) get {
             let rv = clutter_actor_get_z_rotation_gravity(cast(actor_ptr))
+            return cast(rv)
+        }
+    }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    /// `ClutterActorFlags`
+    var _flags: UInt32 {
+        /// `ClutterActorFlags`
+        get {
+            let rv: UInt32 = cast(actor_ptr.pointee.flags)
             return rv
         }
     }
+
+    // var privateFlags is unavailable because private_flags is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -6093,7 +6148,7 @@ public extension ActorProtocol {
 /// The `ClutterActorMeta` structure contains only
 /// private data and should be accessed using the provided API
 public protocol ActorMetaProtocol: InitiallyUnownedProtocol {
-    /// Untyped pointer to the underlying `ClutterActorMeta` instance.
+        /// Untyped pointer to the underlying `ClutterActorMeta` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterActorMeta` instance.
@@ -6107,7 +6162,7 @@ public protocol ActorMetaProtocol: InitiallyUnownedProtocol {
 /// The `ClutterActorMeta` structure contains only
 /// private data and should be accessed using the provided API
 public struct ActorMetaRef: ActorMetaProtocol {
-    /// Untyped pointer to the underlying `ClutterActorMeta` instance.
+        /// Untyped pointer to the underlying `ClutterActorMeta` instance.
     /// For type-safe access, use the generated, typed pointer `actor_meta_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6161,7 +6216,7 @@ public extension ActorMetaRef {
 /// The `ClutterActorMeta` structure contains only
 /// private data and should be accessed using the provided API
 open class ActorMeta: InitiallyUnowned, ActorMetaProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ActorMeta` instance.
     /// - Parameter op: pointer to the underlying object
@@ -6306,8 +6361,8 @@ public extension ActorMetaProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActorMetaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ActorMetaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -6330,6 +6385,23 @@ public extension ActorMetaProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ActorMeta property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ActorMetaPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ActorMeta property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ActorMetaPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -6454,8 +6526,8 @@ public extension ActorMetaProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ActorMetaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ActorMetaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(actor_meta_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -6476,13 +6548,14 @@ public extension ActorMetaProtocol {
     }
 }
 
+// MARK: ActorMeta Class: ActorMetaProtocol extension (methods and fields)
 public extension ActorMetaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterActorMeta` instance.
     var actor_meta_ptr: UnsafeMutablePointer<ClutterActorMeta> { return ptr.assumingMemoryBound(to: ClutterActorMeta.self) }
 
     /// Retrieves a pointer to the `ClutterActor` that owns `meta`
     func getActor() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_actor_meta_get_actor(cast(actor_meta_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_meta_get_actor(cast(actor_meta_ptr)))
         return cast(rv)
     }
 
@@ -6494,8 +6567,8 @@ public extension ActorMetaProtocol {
 
     /// Retrieves the name set using `clutter_actor_meta_set_name()`
     func getName() -> String! {
-        let rv = clutter_actor_meta_get_name(cast(actor_meta_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_actor_meta_get_name(cast(actor_meta_ptr)))
+        return cast(rv)
     }
 
     /// Sets whether `meta` should be enabled or not
@@ -6515,7 +6588,7 @@ public extension ActorMetaProtocol {
     var actor: UnsafeMutablePointer<ClutterActor>! {
         /// Retrieves a pointer to the `ClutterActor` that owns `meta`
         get {
-            let rv = clutter_actor_meta_get_actor(cast(actor_meta_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_actor_meta_get_actor(cast(actor_meta_ptr)))
             return cast(rv)
         }
     }
@@ -6537,16 +6610,21 @@ public extension ActorMetaProtocol {
     var name: String! {
         /// Retrieves the name set using `clutter_actor_meta_set_name()`
         get {
-            let rv = clutter_actor_meta_get_name(cast(actor_meta_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_actor_meta_get_name(cast(actor_meta_ptr)))
+            return cast(rv)
         }
         /// Sets the name of `meta`
         /// 
         /// The name can be used to identify the `ClutterActorMeta` instance
         nonmutating set {
-            clutter_actor_meta_set_name(cast(actor_meta_ptr), newValue)
+            clutter_actor_meta_set_name(cast(actor_meta_ptr), cast(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -6561,7 +6639,7 @@ public extension ActorMetaProtocol {
 /// `ClutterAlignConstraint` is an opaque structure
 /// whose members cannot be directly accesses
 public protocol AlignConstraintProtocol: ConstraintProtocol {
-    /// Untyped pointer to the underlying `ClutterAlignConstraint` instance.
+        /// Untyped pointer to the underlying `ClutterAlignConstraint` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterAlignConstraint` instance.
@@ -6575,7 +6653,7 @@ public protocol AlignConstraintProtocol: ConstraintProtocol {
 /// `ClutterAlignConstraint` is an opaque structure
 /// whose members cannot be directly accesses
 public struct AlignConstraintRef: AlignConstraintProtocol {
-    /// Untyped pointer to the underlying `ClutterAlignConstraint` instance.
+        /// Untyped pointer to the underlying `ClutterAlignConstraint` instance.
     /// For type-safe access, use the generated, typed pointer `align_constraint_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -6624,7 +6702,7 @@ public extension AlignConstraintRef {
     /// regards of the size of the actor to `source`, with the given
     /// alignment `factor`
     init( source: ActorProtocol, axis: AlignAxis, factor: gfloat) {
-        let rv = clutter_align_constraint_new(cast(source.ptr), axis, factor)
+        let rv: UnsafeMutablePointer<ClutterConstraint>! = cast(clutter_align_constraint_new(cast(source.ptr), axis, factor))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -6636,7 +6714,7 @@ public extension AlignConstraintRef {
 /// `ClutterAlignConstraint` is an opaque structure
 /// whose members cannot be directly accesses
 open class AlignConstraint: Constraint, AlignConstraintProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `AlignConstraint` instance.
     /// - Parameter op: pointer to the underlying object
@@ -6718,7 +6796,7 @@ open class AlignConstraint: Constraint, AlignConstraintProtocol {
     /// regards of the size of the actor to `source`, with the given
     /// alignment `factor`
     public init( source: ActorProtocol, axis: AlignAxis, factor: gfloat) {
-        let rv = clutter_align_constraint_new(cast(source.ptr), axis, factor)
+        let rv: UnsafeMutablePointer<ClutterConstraint>! = cast(clutter_align_constraint_new(cast(source.ptr), axis, factor))
         super.init(cast(rv))
     }
 
@@ -6802,8 +6880,8 @@ public extension AlignConstraintProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AlignConstraintPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AlignConstraintPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -6826,6 +6904,23 @@ public extension AlignConstraintProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a AlignConstraint property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: AlignConstraintPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a AlignConstraint property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: AlignConstraintPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -6964,8 +7059,8 @@ public extension AlignConstraintProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AlignConstraintSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: AlignConstraintSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(align_constraint_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -6986,6 +7081,7 @@ public extension AlignConstraintProtocol {
     }
 }
 
+// MARK: AlignConstraint Class: AlignConstraintProtocol extension (methods and fields)
 public extension AlignConstraintProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAlignConstraint` instance.
     var align_constraint_ptr: UnsafeMutablePointer<ClutterAlignConstraint> { return ptr.assumingMemoryBound(to: ClutterAlignConstraint.self) }
@@ -6993,18 +7089,18 @@ public extension AlignConstraintProtocol {
     /// Retrieves the value set using `clutter_align_constraint_set_align_axis()`
     func getAlignAxis() -> ClutterAlignAxis {
         let rv = clutter_align_constraint_get_align_axis(cast(align_constraint_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the factor set using `clutter_align_constraint_set_factor()`
-    func getFactor() -> gfloat {
-        let rv = clutter_align_constraint_get_factor(cast(align_constraint_ptr))
-        return rv
+    func getFactor() -> Float {
+        let rv: Float = cast(clutter_align_constraint_get_factor(cast(align_constraint_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the source of the alignment
     func getSource() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_align_constraint_get_source(cast(align_constraint_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_align_constraint_get_source(cast(align_constraint_ptr)))
         return cast(rv)
     }
 
@@ -7040,11 +7136,11 @@ public extension AlignConstraintProtocol {
         /// Retrieves the value set using `clutter_align_constraint_set_align_axis()`
         get {
             let rv = clutter_align_constraint_get_align_axis(cast(align_constraint_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the axis to which the alignment refers to
         nonmutating set {
-            clutter_align_constraint_set_align_axis(cast(align_constraint_ptr), newValue)
+            clutter_align_constraint_set_align_axis(cast(align_constraint_ptr), cast(newValue))
         }
     }
 
@@ -7054,11 +7150,11 @@ public extension AlignConstraintProtocol {
     /// with an align-axis value of `CLUTTER_ALIGN_X_AXIS`, 0.0 means left and
     /// 1.0 means right; with a value of `CLUTTER_ALIGN_Y_AXIS`, 0.0 means top
     /// and 1.0 means bottom.
-    var factor: gfloat {
+    var factor: Float {
         /// Retrieves the factor set using `clutter_align_constraint_set_factor()`
         get {
-            let rv = clutter_align_constraint_get_factor(cast(align_constraint_ptr))
-            return rv
+            let rv: Float = cast(clutter_align_constraint_get_factor(cast(align_constraint_ptr)))
+            return cast(rv)
         }
         /// Sets the alignment factor of the constraint
         /// 
@@ -7072,7 +7168,7 @@ public extension AlignConstraintProtocol {
         /// `CLUTTER_ALIGN_Y_AXIS`). A value of 0.5 aligns in the middle in either
         /// cases
         nonmutating set {
-            clutter_align_constraint_set_factor(cast(align_constraint_ptr), newValue)
+            clutter_align_constraint_set_factor(cast(align_constraint_ptr), cast(newValue))
         }
     }
 
@@ -7083,7 +7179,7 @@ public extension AlignConstraintProtocol {
     var source: UnsafeMutablePointer<ClutterActor>! {
         /// Retrieves the source of the alignment
         get {
-            let rv = clutter_align_constraint_get_source(cast(align_constraint_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_align_constraint_get_source(cast(align_constraint_ptr)))
             return cast(rv)
         }
         /// Sets the source of the alignment constraint
@@ -7091,6 +7187,8 @@ public extension AlignConstraintProtocol {
             clutter_align_constraint_set_source(cast(align_constraint_ptr), cast(newValue))
         }
     }
+
+
 }
 
 
@@ -7106,7 +7204,7 @@ public extension AlignConstraintProtocol {
 /// The contents of the `ClutterAlpha` structure are private and should
 /// only be accessed using the provided API.
 public protocol AlphaProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterAlpha` instance.
+        /// Untyped pointer to the underlying `ClutterAlpha` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterAlpha` instance.
@@ -7121,7 +7219,7 @@ public protocol AlphaProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
 /// The contents of the `ClutterAlpha` structure are private and should
 /// only be accessed using the provided API.
 public struct AlphaRef: AlphaProtocol {
-    /// Untyped pointer to the underlying `ClutterAlpha` instance.
+        /// Untyped pointer to the underlying `ClutterAlpha` instance.
     /// For type-safe access, use the generated, typed pointer `alpha_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -7177,7 +7275,7 @@ public extension AlphaRef {
     /// **new is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) init() {
-        let rv = clutter_alpha_new()
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -7189,7 +7287,7 @@ public extension AlphaRef {
     /// **new_full is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) init(full timeline: TimelineProtocol, mode: CUnsignedLong) {
-        let rv = clutter_alpha_new_full(cast(timeline.ptr), gulong(mode))
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_full(cast(timeline.ptr), gulong(mode)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 
@@ -7203,7 +7301,7 @@ public extension AlphaRef {
     /// **new_with_func is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) init(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
-        let rv = clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy)
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `ClutterAlpha` instance and sets the timeline
@@ -7214,7 +7312,7 @@ public extension AlphaRef {
     /// **new_full is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) static func new(full timeline: TimelineProtocol, mode: CUnsignedLong) -> AlphaRef! {
-        let rv = clutter_alpha_new_full(cast(timeline.ptr), gulong(mode))
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_full(cast(timeline.ptr), gulong(mode)))
         return rv.map { AlphaRef(cast($0)) }
     }
 
@@ -7228,7 +7326,7 @@ public extension AlphaRef {
     /// **new_with_func is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) static func newWithFunc(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) -> AlphaRef! {
-        let rv = clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy)
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy))
         return rv.map { AlphaRef(cast($0)) }
     }
 }
@@ -7241,7 +7339,7 @@ public extension AlphaRef {
 /// The contents of the `ClutterAlpha` structure are private and should
 /// only be accessed using the provided API.
 open class Alpha: InitiallyUnowned, AlphaProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Alpha` instance.
     /// - Parameter op: pointer to the underlying object
@@ -7330,7 +7428,7 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     /// **new is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) public init() {
-        let rv = clutter_alpha_new()
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new())
         super.init(cast(rv))
     }
 
@@ -7342,7 +7440,7 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     /// **new_full is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) public init(full timeline: TimelineProtocol, mode: CUnsignedLong) {
-        let rv = clutter_alpha_new_full(cast(timeline.ptr), gulong(mode))
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_full(cast(timeline.ptr), gulong(mode)))
         super.init(cast(rv))
     }
 
@@ -7356,7 +7454,7 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     /// **new_with_func is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) public init(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) {
-        let rv = clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy)
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy))
         super.init(cast(rv))
     }
 
@@ -7368,7 +7466,7 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     /// **new_full is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) public static func new(full timeline: TimelineProtocol, mode: CUnsignedLong) -> Alpha! {
-        let rv = clutter_alpha_new_full(cast(timeline.ptr), gulong(mode))
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_full(cast(timeline.ptr), gulong(mode)))
         return rv.map { Alpha(cast($0)) }
     }
 
@@ -7382,7 +7480,7 @@ open class Alpha: InitiallyUnowned, AlphaProtocol {
     /// **new_with_func is deprecated:**
     /// Use #ClutterTimeline instead
     @available(*, deprecated) public static func newWithFunc(func_ timeline: TimelineProtocol, func_: @escaping AlphaFunc, data: UnsafeMutableRawPointer, destroy: @escaping GLib.DestroyNotify) -> Alpha! {
-        let rv = clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy)
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_alpha_new_with_func(cast(timeline.ptr), func_, cast(data), destroy))
         return rv.map { Alpha(cast($0)) }
     }
 
@@ -7469,8 +7567,8 @@ public extension AlphaProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AlphaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AlphaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -7493,6 +7591,23 @@ public extension AlphaProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Alpha property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: AlphaPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Alpha property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: AlphaPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -7635,8 +7750,8 @@ public extension AlphaProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AlphaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: AlphaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(alpha_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -7657,6 +7772,7 @@ public extension AlphaProtocol {
     }
 }
 
+// MARK: Alpha Class: AlphaProtocol extension (methods and fields)
 public extension AlphaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAlpha` instance.
     var alpha_ptr: UnsafeMutablePointer<ClutterAlpha> { return ptr.assumingMemoryBound(to: ClutterAlpha.self) }
@@ -7665,18 +7781,18 @@ public extension AlphaProtocol {
     ///
     /// **get_alpha is deprecated:**
     /// Use clutter_timeline_get_progress()
-    @available(*, deprecated) func getAlpha() -> gdouble {
-        let rv = clutter_alpha_get_alpha(cast(alpha_ptr))
-        return rv
+    @available(*, deprecated) func getAlpha() -> Double {
+        let rv: Double = cast(clutter_alpha_get_alpha(cast(alpha_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the `ClutterAnimationMode` used by `alpha`.
     ///
     /// **get_mode is deprecated:**
     /// Use #ClutterTimeline instead
-    @available(*, deprecated) func getMode() -> CUnsignedLong {
-        let rv = clutter_alpha_get_mode(cast(alpha_ptr))
-        return CUnsignedLong(rv)
+    @available(*, deprecated) func getMode() -> Int {
+        let rv: Int = cast(clutter_alpha_get_mode(cast(alpha_ptr)))
+        return Int(rv)
     }
 
     /// Gets the `ClutterTimeline` bound to `alpha`.
@@ -7684,7 +7800,7 @@ public extension AlphaProtocol {
     /// **get_timeline is deprecated:**
     /// Use #ClutterTimeline directlry
     @available(*, deprecated) func getTimeline() -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv = clutter_alpha_get_timeline(cast(alpha_ptr))
+        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_alpha_get_timeline(cast(alpha_ptr)))
         return cast(rv)
     }
 
@@ -7738,14 +7854,14 @@ public extension AlphaProtocol {
     /// **alpha is deprecated:**
     /// Use #ClutterTimeline::new-frame and
     ///   clutter_timeline_get_progress() instead
-    var alpha: gdouble {
+    var alpha: Double {
         /// Query the current alpha value.
         ///
         /// **get_alpha is deprecated:**
         /// Use clutter_timeline_get_progress()
         @available(*, deprecated) get {
-            let rv = clutter_alpha_get_alpha(cast(alpha_ptr))
-            return rv
+            let rv: Double = cast(clutter_alpha_get_alpha(cast(alpha_ptr)))
+            return cast(rv)
         }
     }
 
@@ -7759,14 +7875,14 @@ public extension AlphaProtocol {
     ///
     /// **mode is deprecated:**
     /// Use #ClutterTimeline:progress-mode
-    var mode: CUnsignedLong {
+    var mode: Int {
         /// Retrieves the `ClutterAnimationMode` used by `alpha`.
         ///
         /// **get_mode is deprecated:**
         /// Use #ClutterTimeline instead
         @available(*, deprecated) get {
-            let rv = clutter_alpha_get_mode(cast(alpha_ptr))
-            return CUnsignedLong(rv)
+            let rv: Int = cast(clutter_alpha_get_mode(cast(alpha_ptr)))
+            return Int(rv)
         }
         /// Sets the progress function of `alpha` using the symbolic value
         /// of `mode`, as taken by the `ClutterAnimationMode` enumeration or
@@ -7790,7 +7906,7 @@ public extension AlphaProtocol {
         /// **get_timeline is deprecated:**
         /// Use #ClutterTimeline directlry
         @available(*, deprecated) get {
-            let rv = clutter_alpha_get_timeline(cast(alpha_ptr))
+            let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_alpha_get_timeline(cast(alpha_ptr)))
             return cast(rv)
         }
         /// Binds `alpha` to `timeline`.
@@ -7801,6 +7917,11 @@ public extension AlphaProtocol {
             clutter_alpha_set_timeline(cast(alpha_ptr), cast(newValue))
         }
     }
+
+    // var parent is unavailable because parent is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -7815,7 +7936,7 @@ public extension AlphaProtocol {
 /// The `ClutterAnimation` structure contains only private data and should
 /// be accessed using the provided functions.
 public protocol AnimationProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimation` instance.
+        /// Untyped pointer to the underlying `ClutterAnimation` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterAnimation` instance.
@@ -7829,7 +7950,7 @@ public protocol AnimationProtocol: GLibObject.ObjectProtocol, ScriptableProtocol
 /// The `ClutterAnimation` structure contains only private data and should
 /// be accessed using the provided functions.
 public struct AnimationRef: AnimationProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimation` instance.
+        /// Untyped pointer to the underlying `ClutterAnimation` instance.
     /// For type-safe access, use the generated, typed pointer `animation_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -7891,7 +8012,7 @@ public extension AnimationRef {
     /// **new is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) init() {
-        let rv = clutter_animation_new()
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_animation_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -7903,7 +8024,7 @@ public extension AnimationRef {
 /// The `ClutterAnimation` structure contains only private data and should
 /// be accessed using the provided functions.
 open class Animation: GLibObject.Object, AnimationProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Animation` instance.
     /// - Parameter op: pointer to the underlying object
@@ -7998,7 +8119,7 @@ open class Animation: GLibObject.Object, AnimationProtocol {
     /// **new is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) public init() {
-        let rv = clutter_animation_new()
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_animation_new())
         super.init(cast(rv))
     }
 
@@ -8050,8 +8171,8 @@ public extension AnimationProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AnimationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AnimationPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -8074,6 +8195,23 @@ public extension AnimationProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Animation property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: AnimationPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Animation property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: AnimationPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -8159,8 +8297,8 @@ public extension AnimationProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AnimationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: AnimationSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(animation_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -8181,6 +8319,7 @@ public extension AnimationProtocol {
     }
 }
 
+// MARK: Animation Class: AnimationProtocol extension (methods and fields)
 public extension AnimationProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAnimation` instance.
     var animation_ptr: UnsafeMutablePointer<ClutterAnimation> { return ptr.assumingMemoryBound(to: ClutterAnimation.self) }
@@ -8195,7 +8334,7 @@ public extension AnimationProtocol {
     /// **bind is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) func bind(propertyName property_name: UnsafePointer<gchar>, final_: GLibObject.ValueProtocol) -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_animation_bind(cast(animation_ptr), property_name, cast(final_.ptr))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_animation_bind(cast(animation_ptr), property_name, cast(final_.ptr)))
         return cast(rv)
     }
 
@@ -8210,7 +8349,7 @@ public extension AnimationProtocol {
     /// **bind_interval is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) func bindInterval(propertyName property_name: UnsafePointer<gchar>, interval: IntervalProtocol) -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_animation_bind_interval(cast(animation_ptr), property_name, cast(interval.ptr))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_animation_bind_interval(cast(animation_ptr), property_name, cast(interval.ptr)))
         return cast(rv)
     }
 
@@ -8236,7 +8375,7 @@ public extension AnimationProtocol {
     /// Use clutter_animation_get_timeline() and
     ///   clutter_timeline_get_progress_mode() instead.
     @available(*, deprecated) func getAlpha() -> UnsafeMutablePointer<ClutterAlpha>! {
-        let rv = clutter_animation_get_alpha(cast(animation_ptr))
+        let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_animation_get_alpha(cast(animation_ptr)))
         return cast(rv)
     }
 
@@ -8244,9 +8383,9 @@ public extension AnimationProtocol {
     ///
     /// **get_duration is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) func getDuration() -> CUnsignedInt {
-        let rv = clutter_animation_get_duration(cast(animation_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getDuration() -> Int {
+        let rv: Int = cast(clutter_animation_get_duration(cast(animation_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the `ClutterInterval` associated to `property_name`
@@ -8255,7 +8394,7 @@ public extension AnimationProtocol {
     /// **get_interval is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) func getInterval(propertyName property_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<ClutterInterval>! {
-        let rv = clutter_animation_get_interval(cast(animation_ptr), property_name)
+        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_animation_get_interval(cast(animation_ptr), property_name))
         return cast(rv)
     }
 
@@ -8273,9 +8412,9 @@ public extension AnimationProtocol {
     ///
     /// **get_mode is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) func getMode() -> CUnsignedLong {
-        let rv = clutter_animation_get_mode(cast(animation_ptr))
-        return CUnsignedLong(rv)
+    @available(*, deprecated) func getMode() -> Int {
+        let rv: Int = cast(clutter_animation_get_mode(cast(animation_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the `GObject` attached to `animation`.
@@ -8283,7 +8422,7 @@ public extension AnimationProtocol {
     /// **get_object is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) func getObject() -> UnsafeMutablePointer<GObject>! {
-        let rv = clutter_animation_get_object(cast(animation_ptr))
+        let rv: UnsafeMutablePointer<GObject>! = cast(clutter_animation_get_object(cast(animation_ptr)))
         return cast(rv)
     }
 
@@ -8292,7 +8431,7 @@ public extension AnimationProtocol {
     /// **get_timeline is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) func getTimeline() -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv = clutter_animation_get_timeline(cast(animation_ptr))
+        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_animation_get_timeline(cast(animation_ptr)))
         return cast(rv)
     }
 
@@ -8393,7 +8532,7 @@ public extension AnimationProtocol {
     /// **update is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) func update(propertyName property_name: UnsafePointer<gchar>, final_: GLibObject.ValueProtocol) -> UnsafeMutablePointer<ClutterAnimation>! {
-        let rv = clutter_animation_update(cast(animation_ptr), property_name, cast(final_.ptr))
+        let rv: UnsafeMutablePointer<ClutterAnimation>! = cast(clutter_animation_update(cast(animation_ptr), property_name, cast(final_.ptr)))
         return cast(rv)
     }
 
@@ -8418,7 +8557,7 @@ public extension AnimationProtocol {
         /// Use clutter_animation_get_timeline() and
         ///   clutter_timeline_get_progress_mode() instead.
         @available(*, deprecated) get {
-            let rv = clutter_animation_get_alpha(cast(animation_ptr))
+            let rv: UnsafeMutablePointer<ClutterAlpha>! = cast(clutter_animation_get_alpha(cast(animation_ptr)))
             return cast(rv)
         }
         /// Sets `alpha` as the `ClutterAlpha` used by `animation`.
@@ -8438,14 +8577,14 @@ public extension AnimationProtocol {
     ///
     /// **duration is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    var duration: CUnsignedInt {
+    var duration: Int {
         /// Retrieves the duration of `animation`, in milliseconds.
         ///
         /// **get_duration is deprecated:**
         /// Use #ClutterPropertyTransition instead
         @available(*, deprecated) get {
-            let rv = clutter_animation_get_duration(cast(animation_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_animation_get_duration(cast(animation_ptr)))
+            return Int(rv)
         }
         /// Sets the duration of `animation` in milliseconds.
         /// 
@@ -8493,15 +8632,15 @@ public extension AnimationProtocol {
     ///
     /// **mode is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    var mode: CUnsignedLong {
+    var mode: Int {
         /// Retrieves the animation mode of `animation`, as set by
         /// `clutter_animation_set_mode()`.
         ///
         /// **get_mode is deprecated:**
         /// Use #ClutterPropertyTransition instead
         @available(*, deprecated) get {
-            let rv = clutter_animation_get_mode(cast(animation_ptr))
-            return CUnsignedLong(rv)
+            let rv: Int = cast(clutter_animation_get_mode(cast(animation_ptr)))
+            return Int(rv)
         }
         /// Sets the animation `mode` of `animation`. The animation `mode` is
         /// a logical id, either coming from the `ClutterAnimationMode` enumeration
@@ -8526,7 +8665,7 @@ public extension AnimationProtocol {
         /// **get_object is deprecated:**
         /// Use #ClutterPropertyTransition instead
         @available(*, deprecated) get {
-            let rv = clutter_animation_get_object(cast(animation_ptr))
+            let rv: UnsafeMutablePointer<GObject>! = cast(clutter_animation_get_object(cast(animation_ptr)))
             return cast(rv)
         }
         /// Attaches `animation` to `object`. The `ClutterAnimation` will take a
@@ -8549,7 +8688,7 @@ public extension AnimationProtocol {
         /// **get_timeline is deprecated:**
         /// Use #ClutterPropertyTransition instead
         @available(*, deprecated) get {
-            let rv = clutter_animation_get_timeline(cast(animation_ptr))
+            let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_animation_get_timeline(cast(animation_ptr)))
             return cast(rv)
         }
         /// Sets the `ClutterTimeline` used by `animation`.
@@ -8562,6 +8701,11 @@ public extension AnimationProtocol {
             clutter_animation_set_timeline(cast(animation_ptr), cast(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -8576,7 +8720,7 @@ public extension AnimationProtocol {
 /// The `ClutterAnimator` structure contains only private data and
 /// should be accessed using the provided API
 public protocol AnimatorProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimator` instance.
+        /// Untyped pointer to the underlying `ClutterAnimator` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterAnimator` instance.
@@ -8590,7 +8734,7 @@ public protocol AnimatorProtocol: GLibObject.ObjectProtocol, ScriptableProtocol 
 /// The `ClutterAnimator` structure contains only private data and
 /// should be accessed using the provided API
 public struct AnimatorRef: AnimatorProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimator` instance.
+        /// Untyped pointer to the underlying `ClutterAnimator` instance.
     /// For type-safe access, use the generated, typed pointer `animator_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -8640,7 +8784,7 @@ public extension AnimatorRef {
     /// **new is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) init() {
-        let rv = clutter_animator_new()
+        let rv: UnsafeMutablePointer<ClutterAnimator>! = cast(clutter_animator_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -8652,7 +8796,7 @@ public extension AnimatorRef {
 /// The `ClutterAnimator` structure contains only private data and
 /// should be accessed using the provided API
 open class Animator: GLibObject.Object, AnimatorProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Animator` instance.
     /// - Parameter op: pointer to the underlying object
@@ -8735,7 +8879,7 @@ open class Animator: GLibObject.Object, AnimatorProtocol {
     /// **new is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) public init() {
-        let rv = clutter_animator_new()
+        let rv: UnsafeMutablePointer<ClutterAnimator>! = cast(clutter_animator_new())
         super.init(cast(rv))
     }
 
@@ -8766,8 +8910,8 @@ public extension AnimatorProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AnimatorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: AnimatorPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -8790,6 +8934,23 @@ public extension AnimatorProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Animator property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: AnimatorPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Animator property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: AnimatorPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -8839,8 +9000,8 @@ public extension AnimatorProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: AnimatorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: AnimatorSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(animator_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -8861,6 +9022,7 @@ public extension AnimatorProtocol {
     }
 }
 
+// MARK: Animator Class: AnimatorProtocol extension (methods and fields)
 public extension AnimatorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAnimator` instance.
     var animator_ptr: UnsafeMutablePointer<ClutterAnimator> { return ptr.assumingMemoryBound(to: ClutterAnimator.self) }
@@ -8881,9 +9043,9 @@ public extension AnimatorProtocol {
     ///
     /// **get_duration is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) func getDuration() -> CUnsignedInt {
-        let rv = clutter_animator_get_duration(cast(animator_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getDuration() -> Int {
+        let rv: Int = cast(clutter_animator_get_duration(cast(animator_ptr)))
+        return Int(rv)
     }
 
     /// Returns a list of pointers to opaque structures with accessor functions
@@ -8892,7 +9054,7 @@ public extension AnimatorProtocol {
     /// **get_keys is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) func getKeys(object: GLibObject.ObjectProtocol, propertyName property_name: UnsafePointer<gchar>, progress: gdouble) -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_animator_get_keys(cast(animator_ptr), cast(object.ptr), property_name, progress)
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_animator_get_keys(cast(animator_ptr), cast(object.ptr), property_name, progress))
         return cast(rv)
     }
 
@@ -8901,7 +9063,7 @@ public extension AnimatorProtocol {
     /// **get_timeline is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) func getTimeline() -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv = clutter_animator_get_timeline(cast(animator_ptr))
+        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_animator_get_timeline(cast(animator_ptr)))
         return cast(rv)
     }
 
@@ -8921,7 +9083,7 @@ public extension AnimatorProtocol {
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) func propertyGetInterpolation(object: GLibObject.ObjectProtocol, propertyName property_name: UnsafePointer<gchar>) -> ClutterInterpolation {
         let rv = clutter_animator_property_get_interpolation(cast(animator_ptr), cast(object.ptr), property_name)
-        return rv
+        return cast(rv)
     }
 
     /// Sets whether a property value is to be eased into the animation.
@@ -8976,7 +9138,7 @@ public extension AnimatorProtocol {
     /// **set_key is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) func setKey(object: GLibObject.ObjectProtocol, propertyName property_name: UnsafePointer<gchar>, mode: CUnsignedInt, progress: gdouble, value: GLibObject.ValueProtocol) -> UnsafeMutablePointer<ClutterAnimator>! {
-        let rv = clutter_animator_set_key(cast(animator_ptr), cast(object.ptr), property_name, guint(mode), progress, cast(value.ptr))
+        let rv: UnsafeMutablePointer<ClutterAnimator>! = cast(clutter_animator_set_key(cast(animator_ptr), cast(object.ptr), property_name, guint(mode), progress, cast(value.ptr)))
         return cast(rv)
     }
 
@@ -8995,7 +9157,7 @@ public extension AnimatorProtocol {
     /// **start is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) func start() -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv = clutter_animator_start(cast(animator_ptr))
+        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_animator_start(cast(animator_ptr)))
         return cast(rv)
     }
     /// The duration of the `ClutterTimeline` used by the `ClutterAnimator`
@@ -9003,14 +9165,14 @@ public extension AnimatorProtocol {
     ///
     /// **duration is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    var duration: CUnsignedInt {
+    var duration: Int {
         /// Retrieves the current duration of an animator
         ///
         /// **get_duration is deprecated:**
         /// Use #ClutterKeyframeTransition instead
         @available(*, deprecated) get {
-            let rv = clutter_animator_get_duration(cast(animator_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_animator_get_duration(cast(animator_ptr)))
+            return Int(rv)
         }
         /// Runs the timeline of the `ClutterAnimator` with a duration in msecs
         /// as specified.
@@ -9033,7 +9195,7 @@ public extension AnimatorProtocol {
         /// **get_timeline is deprecated:**
         /// Use #ClutterKeyframeTransition instead
         @available(*, deprecated) get {
-            let rv = clutter_animator_get_timeline(cast(animator_ptr))
+            let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_animator_get_timeline(cast(animator_ptr)))
             return cast(rv)
         }
         /// Sets an external timeline that will be used for driving the animation
@@ -9044,6 +9206,11 @@ public extension AnimatorProtocol {
             clutter_animator_set_timeline(cast(animator_ptr), cast(newValue))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -9058,7 +9225,7 @@ public extension AnimatorProtocol {
 /// `ClutterBackend` is an opaque structure whose
 /// members cannot be directly accessed.
 public protocol BackendProtocol: GLibObject.ObjectProtocol {
-    /// Untyped pointer to the underlying `ClutterBackend` instance.
+        /// Untyped pointer to the underlying `ClutterBackend` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterBackend` instance.
@@ -9072,7 +9239,7 @@ public protocol BackendProtocol: GLibObject.ObjectProtocol {
 /// `ClutterBackend` is an opaque structure whose
 /// members cannot be directly accessed.
 public struct BackendRef: BackendProtocol {
-    /// Untyped pointer to the underlying `ClutterBackend` instance.
+        /// Untyped pointer to the underlying `ClutterBackend` instance.
     /// For type-safe access, use the generated, typed pointer `backend_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -9126,7 +9293,7 @@ public extension BackendRef {
 /// `ClutterBackend` is an opaque structure whose
 /// members cannot be directly accessed.
 open class Backend: GLibObject.Object, BackendProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Backend` instance.
     /// - Parameter op: pointer to the underlying object
@@ -9208,7 +9375,7 @@ open class Backend: GLibObject.Object, BackendProtocol {
 
 }
 
-// MARK: - no Backend properties
+// MARK: no Backend properties
 
 public enum BackendSignalName: String, SignalNameProtocol {
     /// The `font`-changed signal is emitted each time the font options
@@ -9254,8 +9421,8 @@ public extension BackendProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: BackendSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: BackendSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(backend_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -9276,6 +9443,7 @@ public extension BackendProtocol {
     }
 }
 
+// MARK: Backend Class: BackendProtocol extension (methods and fields)
 public extension BackendProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterBackend` instance.
     var backend_ptr: UnsafeMutablePointer<ClutterBackend> { return ptr.assumingMemoryBound(to: ClutterBackend.self) }
@@ -9284,9 +9452,9 @@ public extension BackendProtocol {
     ///
     /// **get_double_click_distance is deprecated:**
     /// Use #ClutterSettings:double-click-distance instead
-    @available(*, deprecated) func getDoubleClickDistance() -> CUnsignedInt {
-        let rv = clutter_backend_get_double_click_distance(cast(backend_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getDoubleClickDistance() -> Int {
+        let rv: Int = cast(clutter_backend_get_double_click_distance(cast(backend_ptr)))
+        return Int(rv)
     }
 
     /// Gets the maximum time between two button press events, as set
@@ -9294,9 +9462,9 @@ public extension BackendProtocol {
     ///
     /// **get_double_click_time is deprecated:**
     /// Use #ClutterSettings:double-click-time instead
-    @available(*, deprecated) func getDoubleClickTime() -> CUnsignedInt {
-        let rv = clutter_backend_get_double_click_time(cast(backend_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getDoubleClickTime() -> Int {
+        let rv: Int = cast(clutter_backend_get_double_click_time(cast(backend_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the default font name as set by
@@ -9305,13 +9473,13 @@ public extension BackendProtocol {
     /// **get_font_name is deprecated:**
     /// Use #ClutterSettings:font-name instead
     @available(*, deprecated) func getFontName() -> String! {
-        let rv = clutter_backend_get_font_name(cast(backend_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_backend_get_font_name(cast(backend_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the font options for `backend`.
     func getFontOptions() -> UnsafePointer<cairo_font_options_t>! {
-        let rv = clutter_backend_get_font_options(cast(backend_ptr))
+        let rv: UnsafePointer<cairo_font_options_t>! = cast(clutter_backend_get_font_options(cast(backend_ptr)))
         return cast(rv)
     }
 
@@ -9325,9 +9493,9 @@ public extension BackendProtocol {
     /// Clutter will set the resolution using the current backend when
     /// initializing; the resolution is also stored in the
     /// `ClutterSettings:font`-dpi property.
-    func getResolution() -> gdouble {
-        let rv = clutter_backend_get_resolution(cast(backend_ptr))
-        return rv
+    func getResolution() -> Double {
+        let rv: Double = cast(clutter_backend_get_resolution(cast(backend_ptr)))
+        return cast(rv)
     }
 
     /// Sets the maximum distance used to verify a double click event.
@@ -9392,14 +9560,14 @@ public extension BackendProtocol {
     ///
     /// **get_double_click_distance is deprecated:**
     /// Use #ClutterSettings:double-click-distance instead
-    var doubleClickDistance: CUnsignedInt {
+    var doubleClickDistance: Int {
         /// Retrieves the distance used to verify a double click event
         ///
         /// **get_double_click_distance is deprecated:**
         /// Use #ClutterSettings:double-click-distance instead
         @available(*, deprecated) get {
-            let rv = clutter_backend_get_double_click_distance(cast(backend_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_backend_get_double_click_distance(cast(backend_ptr)))
+            return Int(rv)
         }
         /// Sets the maximum distance used to verify a double click event.
         ///
@@ -9415,15 +9583,15 @@ public extension BackendProtocol {
     ///
     /// **get_double_click_time is deprecated:**
     /// Use #ClutterSettings:double-click-time instead
-    var doubleClickTime: CUnsignedInt {
+    var doubleClickTime: Int {
         /// Gets the maximum time between two button press events, as set
         /// by `clutter_backend_set_double_click_time()`.
         ///
         /// **get_double_click_time is deprecated:**
         /// Use #ClutterSettings:double-click-time instead
         @available(*, deprecated) get {
-            let rv = clutter_backend_get_double_click_time(cast(backend_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_backend_get_double_click_time(cast(backend_ptr)))
+            return Int(rv)
         }
         /// Sets the maximum time between two button press events, used to
         /// verify whether it's a double click event or not.
@@ -9447,8 +9615,8 @@ public extension BackendProtocol {
         /// **get_font_name is deprecated:**
         /// Use #ClutterSettings:font-name instead
         @available(*, deprecated) get {
-            let rv = clutter_backend_get_font_name(cast(backend_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_backend_get_font_name(cast(backend_ptr)))
+            return cast(rv)
         }
         /// Sets the default font to be used by Clutter. The `font_name` string
         /// must either be `nil`, which means that the font name from the
@@ -9458,7 +9626,7 @@ public extension BackendProtocol {
         /// **set_font_name is deprecated:**
         /// Use #ClutterSettings:font-name instead
         @available(*, deprecated) nonmutating set {
-            clutter_backend_set_font_name(cast(backend_ptr), newValue)
+            clutter_backend_set_font_name(cast(backend_ptr), cast(newValue))
         }
     }
 
@@ -9466,7 +9634,7 @@ public extension BackendProtocol {
     var fontOptions: UnsafePointer<cairo_font_options_t>! {
         /// Retrieves the font options for `backend`.
         get {
-            let rv = clutter_backend_get_font_options(cast(backend_ptr))
+            let rv: UnsafePointer<cairo_font_options_t>! = cast(clutter_backend_get_font_options(cast(backend_ptr)))
             return cast(rv)
         }
         /// Sets the new font options for `backend`. The `ClutterBackend` will
@@ -9493,7 +9661,7 @@ public extension BackendProtocol {
     /// Clutter will set the resolution using the current backend when
     /// initializing; the resolution is also stored in the
     /// `ClutterSettings:font`-dpi property.
-    var resolution: gdouble {
+    var resolution: Double {
         /// Gets the resolution for font handling on the screen.
         /// 
         /// The resolution is a scale factor between points specified in a
@@ -9505,8 +9673,8 @@ public extension BackendProtocol {
         /// initializing; the resolution is also stored in the
         /// `ClutterSettings:font`-dpi property.
         get {
-            let rv = clutter_backend_get_resolution(cast(backend_ptr))
-            return rv
+            let rv: Double = cast(clutter_backend_get_resolution(cast(backend_ptr)))
+            return cast(rv)
         }
         /// Sets the resolution for font handling on the screen. This is a
         /// scale factor between points specified in a `PangoFontDescription`
@@ -9518,9 +9686,11 @@ public extension BackendProtocol {
         /// **set_resolution is deprecated:**
         /// Use #ClutterSettings:font-dpi instead
         @available(*, deprecated) nonmutating set {
-            clutter_backend_set_resolution(cast(backend_ptr), newValue)
+            clutter_backend_set_resolution(cast(backend_ptr), cast(newValue))
         }
     }
+
+
 }
 
 

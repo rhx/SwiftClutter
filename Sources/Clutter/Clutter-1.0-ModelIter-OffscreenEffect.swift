@@ -23,7 +23,7 @@ import Atk
 /// contains only private data and should be manipulated using the
 /// provided API.
 public protocol ModelIterProtocol: GLibObject.ObjectProtocol {
-    /// Untyped pointer to the underlying `ClutterModelIter` instance.
+        /// Untyped pointer to the underlying `ClutterModelIter` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterModelIter` instance.
@@ -38,7 +38,7 @@ public protocol ModelIterProtocol: GLibObject.ObjectProtocol {
 /// contains only private data and should be manipulated using the
 /// provided API.
 public struct ModelIterRef: ModelIterProtocol {
-    /// Untyped pointer to the underlying `ClutterModelIter` instance.
+        /// Untyped pointer to the underlying `ClutterModelIter` instance.
     /// For type-safe access, use the generated, typed pointer `model_iter_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -93,7 +93,7 @@ public extension ModelIterRef {
 /// contains only private data and should be manipulated using the
 /// provided API.
 open class ModelIter: GLibObject.Object, ModelIterProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ModelIter` instance.
     /// - Parameter op: pointer to the underlying object
@@ -197,8 +197,8 @@ public extension ModelIterProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ModelIterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ModelIterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -221,6 +221,23 @@ public extension ModelIterProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a ModelIter property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: ModelIterPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a ModelIter property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: ModelIterPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -268,8 +285,8 @@ public extension ModelIterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ModelIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ModelIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(model_iter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -290,6 +307,7 @@ public extension ModelIterProtocol {
     }
 }
 
+// MARK: ModelIter Class: ModelIterProtocol extension (methods and fields)
 public extension ModelIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterModelIter` instance.
     var model_iter_ptr: UnsafeMutablePointer<ClutterModelIter> { return ptr.assumingMemoryBound(to: ClutterModelIter.self) }
@@ -299,7 +317,7 @@ public extension ModelIterProtocol {
     /// **copy is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func copy() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv = clutter_model_iter_copy(cast(model_iter_ptr))
+        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_iter_copy(cast(model_iter_ptr)))
         return cast(rv)
     }
 
@@ -312,7 +330,7 @@ public extension ModelIterProtocol {
     /// **get_model is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func getModel() -> UnsafeMutablePointer<ClutterModel>! {
-        let rv = clutter_model_iter_get_model(cast(model_iter_ptr))
+        let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_model_iter_get_model(cast(model_iter_ptr)))
         return cast(rv)
     }
 
@@ -320,9 +338,9 @@ public extension ModelIterProtocol {
     ///
     /// **get_row is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getRow() -> CUnsignedInt {
-        let rv = clutter_model_iter_get_row(cast(model_iter_ptr))
-        return CUnsignedInt(rv)
+    @available(*, deprecated) func getRow() -> Int {
+        let rv: Int = cast(clutter_model_iter_get_row(cast(model_iter_ptr)))
+        return Int(rv)
     }
 
     /// See `clutter_model_iter_get()`. This version takes a va_list for language
@@ -352,7 +370,7 @@ public extension ModelIterProtocol {
     /// **next is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func next() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv = clutter_model_iter_next(cast(model_iter_ptr))
+        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_iter_next(cast(model_iter_ptr)))
         return cast(rv)
     }
 
@@ -363,7 +381,7 @@ public extension ModelIterProtocol {
     /// **prev is deprecated:**
     /// Use #GListModel instead
     @available(*, deprecated) func prev() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv = clutter_model_iter_prev(cast(model_iter_ptr))
+        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_iter_prev(cast(model_iter_ptr)))
         return cast(rv)
     }
 
@@ -434,7 +452,7 @@ public extension ModelIterProtocol {
         /// **get_model is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_iter_get_model(cast(model_iter_ptr))
+            let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_model_iter_get_model(cast(model_iter_ptr)))
             return cast(rv)
         }
     }
@@ -443,16 +461,21 @@ public extension ModelIterProtocol {
     ///
     /// **row is deprecated:**
     /// Use #GListModel instead
-    var row: CUnsignedInt {
+    var row: Int {
         /// Retrieves the position of the row that the `iter` points to.
         ///
         /// **get_row is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_iter_get_row(cast(model_iter_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_model_iter_get_row(cast(model_iter_ptr)))
+            return Int(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -467,7 +490,7 @@ public extension ModelIterProtocol {
 /// The `ClutterOffscreenEffect` structure contains only private data
 /// and should be accessed using the provided API
 public protocol OffscreenEffectProtocol: EffectProtocol {
-    /// Untyped pointer to the underlying `ClutterOffscreenEffect` instance.
+        /// Untyped pointer to the underlying `ClutterOffscreenEffect` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterOffscreenEffect` instance.
@@ -481,7 +504,7 @@ public protocol OffscreenEffectProtocol: EffectProtocol {
 /// The `ClutterOffscreenEffect` structure contains only private data
 /// and should be accessed using the provided API
 public struct OffscreenEffectRef: OffscreenEffectProtocol {
-    /// Untyped pointer to the underlying `ClutterOffscreenEffect` instance.
+        /// Untyped pointer to the underlying `ClutterOffscreenEffect` instance.
     /// For type-safe access, use the generated, typed pointer `offscreen_effect_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -535,7 +558,7 @@ public extension OffscreenEffectRef {
 /// The `ClutterOffscreenEffect` structure contains only private data
 /// and should be accessed using the provided API
 open class OffscreenEffect: Effect, OffscreenEffectProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OffscreenEffect` instance.
     /// - Parameter op: pointer to the underlying object
@@ -680,8 +703,8 @@ public extension OffscreenEffectProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: OffscreenEffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: OffscreenEffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -704,6 +727,23 @@ public extension OffscreenEffectProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a OffscreenEffect property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: OffscreenEffectPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a OffscreenEffect property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: OffscreenEffectPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -828,8 +868,8 @@ public extension OffscreenEffectProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: OffscreenEffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: OffscreenEffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(offscreen_effect_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -850,6 +890,7 @@ public extension OffscreenEffectProtocol {
     }
 }
 
+// MARK: OffscreenEffect Class: OffscreenEffectProtocol extension (methods and fields)
 public extension OffscreenEffectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterOffscreenEffect` instance.
     var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect> { return ptr.assumingMemoryBound(to: ClutterOffscreenEffect.self) }
@@ -857,7 +898,7 @@ public extension OffscreenEffectProtocol {
     /// Calls the `create_texture()` virtual function of the `effect`
     func createTexture(width: gfloat, height: gfloat) -> CoglHandle! {
         let rv = clutter_offscreen_effect_create_texture(cast(offscreen_effect_ptr), width, height)
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the material used as a render target for the offscreen
@@ -866,7 +907,7 @@ public extension OffscreenEffectProtocol {
     /// You should only use the returned `CoglMaterial` when painting. The
     /// returned material might change between different frames.
     func getTarget() -> UnsafeMutablePointer<CoglMaterial>! {
-        let rv = clutter_offscreen_effect_get_target(cast(offscreen_effect_ptr))
+        let rv: UnsafeMutablePointer<CoglMaterial>! = cast(clutter_offscreen_effect_get_target(cast(offscreen_effect_ptr)))
         return cast(rv)
     }
 
@@ -906,7 +947,7 @@ public extension OffscreenEffectProtocol {
     /// effect subclass wants to paint using its own material.
     func getTexture() -> CoglHandle! {
         let rv = clutter_offscreen_effect_get_texture(cast(offscreen_effect_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Calls the `paint_target()` virtual function of the `effect`
@@ -926,7 +967,7 @@ public extension OffscreenEffectProtocol {
         /// You should only use the returned `CoglMaterial` when painting. The
         /// returned material might change between different frames.
         get {
-            let rv = clutter_offscreen_effect_get_target(cast(offscreen_effect_ptr))
+            let rv: UnsafeMutablePointer<CoglMaterial>! = cast(clutter_offscreen_effect_get_target(cast(offscreen_effect_ptr)))
             return cast(rv)
         }
     }
@@ -952,9 +993,14 @@ public extension OffscreenEffectProtocol {
         /// effect subclass wants to paint using its own material.
         get {
             let rv = clutter_offscreen_effect_get_texture(cast(offscreen_effect_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 

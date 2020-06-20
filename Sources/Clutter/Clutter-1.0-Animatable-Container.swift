@@ -22,7 +22,7 @@ import Atk
 /// `ClutterAnimatable` is an opaque structure whose members cannot be directly
 /// accessed
 public protocol AnimatableProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimatable` instance.
+        /// Untyped pointer to the underlying `ClutterAnimatable` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterAnimatable` instance.
@@ -36,7 +36,7 @@ public protocol AnimatableProtocol {
 /// `ClutterAnimatable` is an opaque structure whose members cannot be directly
 /// accessed
 public struct AnimatableRef: AnimatableProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimatable` instance.
+        /// Untyped pointer to the underlying `ClutterAnimatable` instance.
     /// For type-safe access, use the generated, typed pointer `animatable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension AnimatableRef {
 /// `ClutterAnimatable` is an opaque structure whose members cannot be directly
 /// accessed
 open class Animatable: AnimatableProtocol {
-    /// Untyped pointer to the underlying `ClutterAnimatable` instance.
+        /// Untyped pointer to the underlying `ClutterAnimatable` instance.
     /// For type-safe access, use the generated, typed pointer `animatable_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -119,7 +119,7 @@ open class Animatable: AnimatableProtocol {
         // no reference counting for ClutterAnimatable, cannot ref(cast(animatable_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterAnimatable`.
+    /// Do-nothing destructor for `ClutterAnimatable`.
     deinit {
         // no reference counting for ClutterAnimatable, cannot unref(cast(animatable_ptr))
     }
@@ -187,11 +187,12 @@ open class Animatable: AnimatableProtocol {
 
 }
 
-// MARK: - no Animatable properties
+// MARK: no Animatable properties
 
-// MARK: - no signals
+// MARK: no Animatable signals
 
 
+// MARK: Animatable Interface: AnimatableProtocol extension (methods and fields)
 public extension AnimatableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAnimatable` instance.
     var animatable_ptr: UnsafeMutablePointer<ClutterAnimatable> { return ptr.assumingMemoryBound(to: ClutterAnimatable.self) }
@@ -215,7 +216,7 @@ public extension AnimatableProtocol {
 
     /// Finds the `GParamSpec` for `property_name`
     func findProperty(propertyName property_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<GParamSpec>! {
-        let rv = clutter_animatable_find_property(cast(animatable_ptr), property_name)
+        let rv: UnsafeMutablePointer<GParamSpec>! = cast(clutter_animatable_find_property(cast(animatable_ptr), property_name))
         return cast(rv)
     }
 
@@ -244,6 +245,8 @@ public extension AnimatableProtocol {
         clutter_animatable_set_final_state(cast(animatable_ptr), property_name, cast(value.ptr))
     
     }
+
+
 }
 
 
@@ -258,7 +261,7 @@ public extension AnimatableProtocol {
 /// `ClutterContainer` is an opaque structure whose members cannot be directly
 /// accessed
 public protocol ContainerProtocol {
-    /// Untyped pointer to the underlying `ClutterContainer` instance.
+        /// Untyped pointer to the underlying `ClutterContainer` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterContainer` instance.
@@ -272,7 +275,7 @@ public protocol ContainerProtocol {
 /// `ClutterContainer` is an opaque structure whose members cannot be directly
 /// accessed
 public struct ContainerRef: ContainerProtocol {
-    /// Untyped pointer to the underlying `ClutterContainer` instance.
+        /// Untyped pointer to the underlying `ClutterContainer` instance.
     /// For type-safe access, use the generated, typed pointer `container_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -326,7 +329,7 @@ public extension ContainerRef {
 /// `ClutterContainer` is an opaque structure whose members cannot be directly
 /// accessed
 open class Container: ContainerProtocol {
-    /// Untyped pointer to the underlying `ClutterContainer` instance.
+        /// Untyped pointer to the underlying `ClutterContainer` instance.
     /// For type-safe access, use the generated, typed pointer `container_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 
@@ -355,7 +358,7 @@ open class Container: ContainerProtocol {
         // no reference counting for ClutterContainer, cannot ref(cast(container_ptr))
     }
 
-    /// Do-nothing destructor for`ClutterContainer`.
+    /// Do-nothing destructor for `ClutterContainer`.
     deinit {
         // no reference counting for ClutterContainer, cannot unref(cast(container_ptr))
     }
@@ -423,7 +426,7 @@ open class Container: ContainerProtocol {
 
 }
 
-// MARK: - no Container properties
+// MARK: no Container properties
 
 public enum ContainerSignalName: String, SignalNameProtocol {
     /// The `actor`-added signal is emitted each time an actor
@@ -445,8 +448,8 @@ public extension ContainerProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ContainerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: ContainerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(container_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -467,6 +470,7 @@ public extension ContainerProtocol {
     }
 }
 
+// MARK: Container Interface: ContainerProtocol extension (methods and fields)
 public extension ContainerProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterContainer` instance.
     var container_ptr: UnsafeMutablePointer<ClutterContainer> { return ptr.assumingMemoryBound(to: ClutterContainer.self) }
@@ -568,7 +572,7 @@ public extension ContainerProtocol {
     /// Finds a child actor of a container by its name. Search recurses
     /// into any child container.
     func findChildByName(childName child_name: UnsafePointer<gchar>) -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_container_find_child_by_name(cast(container_ptr), child_name)
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_container_find_child_by_name(cast(container_ptr), child_name))
         return cast(rv)
     }
 
@@ -608,7 +612,7 @@ public extension ContainerProtocol {
     /// Retrieves the `ClutterChildMeta` which contains the data about the
     /// `container` specific state for `actor`.
     func getChildMeta(actor: ActorProtocol) -> UnsafeMutablePointer<ClutterChildMeta>! {
-        let rv = clutter_container_get_child_meta(cast(container_ptr), cast(actor.ptr))
+        let rv: UnsafeMutablePointer<ClutterChildMeta>! = cast(clutter_container_get_child_meta(cast(container_ptr), cast(actor.ptr)))
         return cast(rv)
     }
 
@@ -617,7 +621,7 @@ public extension ContainerProtocol {
     /// **get_children is deprecated:**
     /// Use clutter_actor_get_children() instead.
     @available(*, deprecated) func getChildren() -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_container_get_children(cast(container_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_container_get_children(cast(container_ptr)))
         return cast(rv)
     }
 
@@ -701,10 +705,12 @@ public extension ContainerProtocol {
         /// **get_children is deprecated:**
         /// Use clutter_actor_get_children() instead.
         @available(*, deprecated) get {
-            let rv = clutter_container_get_children(cast(container_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(clutter_container_get_children(cast(container_ptr)))
             return cast(rv)
         }
     }
+
+
 }
 
 

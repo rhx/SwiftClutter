@@ -22,7 +22,7 @@ import Atk
 /// Generic representation of an input device. The actual contents of this
 /// structure depend on the backend used.
 public protocol InputDeviceProtocol: GLibObject.ObjectProtocol {
-    /// Untyped pointer to the underlying `ClutterInputDevice` instance.
+        /// Untyped pointer to the underlying `ClutterInputDevice` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterInputDevice` instance.
@@ -36,7 +36,7 @@ public protocol InputDeviceProtocol: GLibObject.ObjectProtocol {
 /// Generic representation of an input device. The actual contents of this
 /// structure depend on the backend used.
 public struct InputDeviceRef: InputDeviceProtocol {
-    /// Untyped pointer to the underlying `ClutterInputDevice` instance.
+        /// Untyped pointer to the underlying `ClutterInputDevice` instance.
     /// For type-safe access, use the generated, typed pointer `input_device_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -90,7 +90,7 @@ public extension InputDeviceRef {
 /// Generic representation of an input device. The actual contents of this
 /// structure depend on the backend used.
 open class InputDevice: GLibObject.Object, InputDeviceProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InputDevice` instance.
     /// - Parameter op: pointer to the underlying object
@@ -210,8 +210,8 @@ public extension InputDeviceProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InputDevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InputDevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -234,6 +234,23 @@ public extension InputDeviceProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a InputDevice property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: InputDevicePropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a InputDevice property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: InputDevicePropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -297,8 +314,8 @@ public extension InputDeviceProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InputDeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: InputDeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(input_device_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -319,6 +336,7 @@ public extension InputDeviceProtocol {
     }
 }
 
+// MARK: InputDevice Class: InputDeviceProtocol extension (methods and fields)
 public extension InputDeviceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterInputDevice` instance.
     var input_device_ptr: UnsafeMutablePointer<ClutterInputDevice> { return ptr.assumingMemoryBound(to: ClutterInputDevice.self) }
@@ -330,14 +348,14 @@ public extension InputDeviceProtocol {
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
     func getAssociatedDevice() -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv = clutter_input_device_get_associated_device(cast(input_device_ptr))
+        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_input_device_get_associated_device(cast(input_device_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the type of axis on `device` at the given index.
     func getAxis(index_: CUnsignedInt) -> ClutterInputAxis {
         let rv = clutter_input_device_get_axis(cast(input_device_ptr), guint(index_))
-        return rv
+        return cast(rv)
     }
 
     /// Extracts the value of the given `axis` of a `ClutterInputDevice` from
@@ -377,27 +395,27 @@ public extension InputDeviceProtocol {
     }
 
     /// Retrieves the unique identifier of `device`
-    func getDeviceId() -> CInt {
-        let rv = clutter_input_device_get_device_id(cast(input_device_ptr))
-        return CInt(rv)
+    func getDeviceId() -> Int {
+        let rv: Int = cast(clutter_input_device_get_device_id(cast(input_device_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the `ClutterInputMode` of `device`.
     func getDeviceMode() -> ClutterInputMode {
         let rv = clutter_input_device_get_device_mode(cast(input_device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the name of the `device`
     func getDeviceName() -> String! {
-        let rv = clutter_input_device_get_device_name(cast(input_device_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_input_device_get_device_name(cast(input_device_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the type of `device`
     func getDeviceType() -> ClutterInputDeviceType {
         let rv = clutter_input_device_get_device_type(cast(input_device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves whether `device` is enabled.
@@ -409,7 +427,7 @@ public extension InputDeviceProtocol {
     /// Retrieves a pointer to the `ClutterActor` currently grabbing all
     /// the events coming from `device`.
     func getGrabbedActor() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_input_device_get_grabbed_actor(cast(input_device_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_grabbed_actor(cast(input_device_ptr)))
         return cast(rv)
     }
 
@@ -430,49 +448,49 @@ public extension InputDeviceProtocol {
     /// by the last event Clutter processed.
     func getModifierState() -> ClutterModifierType {
         let rv = clutter_input_device_get_modifier_state(cast(input_device_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the number of axes available on `device`.
-    func getNAxes() -> CUnsignedInt {
-        let rv = clutter_input_device_get_n_axes(cast(input_device_ptr))
-        return CUnsignedInt(rv)
+    func getNAxes() -> Int {
+        let rv: Int = cast(clutter_input_device_get_n_axes(cast(input_device_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the number of keys registered for `device`.
-    func getNKeys() -> CUnsignedInt {
-        let rv = clutter_input_device_get_n_keys(cast(input_device_ptr))
-        return CUnsignedInt(rv)
+    func getNKeys() -> Int {
+        let rv: Int = cast(clutter_input_device_get_n_keys(cast(input_device_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the `ClutterActor` underneath the pointer of `device`
     func getPointerActor() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_input_device_get_pointer_actor(cast(input_device_ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_pointer_actor(cast(input_device_ptr)))
         return cast(rv)
     }
 
     /// Retrieves the `ClutterStage` underneath the pointer of `device`
     func getPointerStage() -> UnsafeMutablePointer<ClutterStage>! {
-        let rv = clutter_input_device_get_pointer_stage(cast(input_device_ptr))
+        let rv: UnsafeMutablePointer<ClutterStage>! = cast(clutter_input_device_get_pointer_stage(cast(input_device_ptr)))
         return cast(rv)
     }
 
     /// Gets the product ID of this device.
     func getProductId() -> String! {
-        let rv = clutter_input_device_get_product_id(cast(input_device_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_input_device_get_product_id(cast(input_device_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the slave devices attached to `device`.
     func getSlaveDevices() -> UnsafeMutablePointer<GList>! {
-        let rv = clutter_input_device_get_slave_devices(cast(input_device_ptr))
+        let rv: UnsafeMutablePointer<GList>! = cast(clutter_input_device_get_slave_devices(cast(input_device_ptr)))
         return cast(rv)
     }
 
     /// Gets the vendor ID of this device.
     func getVendorId() -> String! {
-        let rv = clutter_input_device_get_vendor_id(cast(input_device_ptr))
-        return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+        let rv: String! = cast(clutter_input_device_get_vendor_id(cast(input_device_ptr)))
+        return cast(rv)
     }
 
     /// Acquires a grab on `actor` for the given `device`.
@@ -504,7 +522,7 @@ public extension InputDeviceProtocol {
     /// Retrieves a pointer to the `ClutterActor` currently grabbing the
     /// touch events coming from `device` given the `sequence`.
     func sequenceGetGrabbedActor(sequence: EventSequenceProtocol) -> UnsafeMutablePointer<ClutterActor>! {
-        let rv = clutter_input_device_sequence_get_grabbed_actor(cast(input_device_ptr), cast(sequence.ptr))
+        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_sequence_get_grabbed_actor(cast(input_device_ptr), cast(sequence.ptr)))
         return cast(rv)
     }
 
@@ -545,7 +563,7 @@ public extension InputDeviceProtocol {
     /// Clutter will use the keyval and modifiers set when filling out
     /// an event coming from the same input device.
     func setKey(index_: CUnsignedInt, keyval: CUnsignedInt, modifiers: ModifierType) {
-        clutter_input_device_set_key(cast(input_device_ptr), guint(index_), guint(keyval), modifiers)
+        clutter_input_device_set_key(cast(input_device_ptr), guint(index_), guint(keyval), modifiers.value)
     
     }
 
@@ -606,8 +624,8 @@ public extension InputDeviceProtocol {
     /// The `update_stage` boolean argument should be used when the input device
     /// enters and leaves a `ClutterStage`; it will use the `ClutterStage` field
     /// of the passed `event` to update the stage associated to the input device.
-    func updateFrom(event: UnsafeMutablePointer<ClutterEvent>, updateStage update_stage: Bool) {
-        clutter_input_device_update_from_event(cast(input_device_ptr), cast(event), gboolean(update_stage ? 1 : 0))
+    func updateFrom(event: EventProtocol, updateStage update_stage: Bool) {
+        clutter_input_device_update_from_event(cast(input_device_ptr), cast(event.ptr), gboolean(update_stage ? 1 : 0))
     
     }
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
@@ -624,17 +642,17 @@ public extension InputDeviceProtocol {
         /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
         /// `nil`.
         get {
-            let rv = clutter_input_device_get_associated_device(cast(input_device_ptr))
+            let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_input_device_get_associated_device(cast(input_device_ptr)))
             return cast(rv)
         }
     }
 
     /// Retrieves the unique identifier of `device`
-    var deviceId: CInt {
+    var deviceId: Int {
         /// Retrieves the unique identifier of `device`
         get {
-            let rv = clutter_input_device_get_device_id(cast(input_device_ptr))
-            return CInt(rv)
+            let rv: Int = cast(clutter_input_device_get_device_id(cast(input_device_ptr)))
+            return Int(rv)
         }
     }
 
@@ -643,7 +661,7 @@ public extension InputDeviceProtocol {
         /// Retrieves the `ClutterInputMode` of `device`.
         get {
             let rv = clutter_input_device_get_device_mode(cast(input_device_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -651,8 +669,8 @@ public extension InputDeviceProtocol {
     var deviceName: String! {
         /// Retrieves the name of the `device`
         get {
-            let rv = clutter_input_device_get_device_name(cast(input_device_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_input_device_get_device_name(cast(input_device_ptr)))
+            return cast(rv)
         }
     }
 
@@ -661,7 +679,7 @@ public extension InputDeviceProtocol {
         /// Retrieves the type of `device`
         get {
             let rv = clutter_input_device_get_device_type(cast(input_device_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
@@ -693,7 +711,7 @@ public extension InputDeviceProtocol {
         /// Retrieves a pointer to the `ClutterActor` currently grabbing all
         /// the events coming from `device`.
         get {
-            let rv = clutter_input_device_get_grabbed_actor(cast(input_device_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_grabbed_actor(cast(input_device_ptr)))
             return cast(rv)
         }
     }
@@ -711,30 +729,30 @@ public extension InputDeviceProtocol {
 
     /// Retrieves the current modifiers state of the device, as seen
     /// by the last event Clutter processed.
-    var modifierState: ClutterModifierType {
+    var modifierState: ModifierType {
         /// Retrieves the current modifiers state of the device, as seen
         /// by the last event Clutter processed.
         get {
             let rv = clutter_input_device_get_modifier_state(cast(input_device_ptr))
-            return rv
+            return cast(rv)
         }
     }
 
     /// Retrieves the number of axes available on `device`.
-    var nAxes: CUnsignedInt {
+    var nAxes: Int {
         /// Retrieves the number of axes available on `device`.
         get {
-            let rv = clutter_input_device_get_n_axes(cast(input_device_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_input_device_get_n_axes(cast(input_device_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the number of keys registered for `device`.
-    var nKeys: CUnsignedInt {
+    var nKeys: Int {
         /// Retrieves the number of keys registered for `device`.
         get {
-            let rv = clutter_input_device_get_n_keys(cast(input_device_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_input_device_get_n_keys(cast(input_device_ptr)))
+            return Int(rv)
         }
     }
 
@@ -742,7 +760,7 @@ public extension InputDeviceProtocol {
     var pointerActor: UnsafeMutablePointer<ClutterActor>! {
         /// Retrieves the `ClutterActor` underneath the pointer of `device`
         get {
-            let rv = clutter_input_device_get_pointer_actor(cast(input_device_ptr))
+            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_pointer_actor(cast(input_device_ptr)))
             return cast(rv)
         }
     }
@@ -751,7 +769,7 @@ public extension InputDeviceProtocol {
     var pointerStage: UnsafeMutablePointer<ClutterStage>! {
         /// Retrieves the `ClutterStage` underneath the pointer of `device`
         get {
-            let rv = clutter_input_device_get_pointer_stage(cast(input_device_ptr))
+            let rv: UnsafeMutablePointer<ClutterStage>! = cast(clutter_input_device_get_pointer_stage(cast(input_device_ptr)))
             return cast(rv)
         }
     }
@@ -760,8 +778,8 @@ public extension InputDeviceProtocol {
     var productId: String! {
         /// Gets the product ID of this device.
         get {
-            let rv = clutter_input_device_get_product_id(cast(input_device_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_input_device_get_product_id(cast(input_device_ptr)))
+            return cast(rv)
         }
     }
 
@@ -769,7 +787,7 @@ public extension InputDeviceProtocol {
     var slaveDevices: UnsafeMutablePointer<GList>! {
         /// Retrieves the slave devices attached to `device`.
         get {
-            let rv = clutter_input_device_get_slave_devices(cast(input_device_ptr))
+            let rv: UnsafeMutablePointer<GList>! = cast(clutter_input_device_get_slave_devices(cast(input_device_ptr)))
             return cast(rv)
         }
     }
@@ -778,10 +796,12 @@ public extension InputDeviceProtocol {
     var vendorId: String! {
         /// Gets the vendor ID of this device.
         get {
-            let rv = clutter_input_device_get_vendor_id(cast(input_device_ptr))
-            return rv.map { String(cString: UnsafePointer<CChar>($0)) }
+            let rv: String! = cast(clutter_input_device_get_vendor_id(cast(input_device_ptr)))
+            return cast(rv)
         }
     }
+
+
 }
 
 
@@ -796,7 +816,7 @@ public extension InputDeviceProtocol {
 /// The `ClutterInterval` structure contains only private data and should
 /// be accessed using the provided functions.
 public protocol IntervalProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
-    /// Untyped pointer to the underlying `ClutterInterval` instance.
+        /// Untyped pointer to the underlying `ClutterInterval` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterInterval` instance.
@@ -810,7 +830,7 @@ public protocol IntervalProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
 /// The `ClutterInterval` structure contains only private data and should
 /// be accessed using the provided functions.
 public struct IntervalRef: IntervalProtocol {
-    /// Untyped pointer to the underlying `ClutterInterval` instance.
+        /// Untyped pointer to the underlying `ClutterInterval` instance.
     /// For type-safe access, use the generated, typed pointer `interval_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -864,7 +884,7 @@ public extension IntervalRef {
     /// 
     /// This function is useful for language bindings.
     init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
-        let rv = clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr))
+        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
     /// Creates a new `ClutterInterval` of type `gtype`, between `initial`
@@ -872,7 +892,7 @@ public extension IntervalRef {
     /// 
     /// This function is useful for language bindings.
     static func newWith(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) -> IntervalRef! {
-        let rv = clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr))
+        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
         return rv.map { IntervalRef(cast($0)) }
     }
 }
@@ -884,7 +904,7 @@ public extension IntervalRef {
 /// The `ClutterInterval` structure contains only private data and should
 /// be accessed using the provided functions.
 open class Interval: InitiallyUnowned, IntervalProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Interval` instance.
     /// - Parameter op: pointer to the underlying object
@@ -971,7 +991,7 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// 
     /// This function is useful for language bindings.
     public init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
-        let rv = clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr))
+        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
         super.init(cast(rv))
     }
 
@@ -980,7 +1000,7 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// 
     /// This function is useful for language bindings.
     public static func newWith(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) -> Interval! {
-        let rv = clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr))
+        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
         return rv.map { Interval(cast($0)) }
     }
 
@@ -1049,8 +1069,8 @@ public extension IntervalProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: IntervalPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: IntervalPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1073,6 +1093,23 @@ public extension IntervalProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a Interval property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: IntervalPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a Interval property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: IntervalPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1197,8 +1234,8 @@ public extension IntervalProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: IntervalSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: IntervalSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(interval_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1219,13 +1256,14 @@ public extension IntervalProtocol {
     }
 }
 
+// MARK: Interval Class: IntervalProtocol extension (methods and fields)
 public extension IntervalProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterInterval` instance.
     var interval_ptr: UnsafeMutablePointer<ClutterInterval> { return ptr.assumingMemoryBound(to: ClutterInterval.self) }
 
     /// Creates a copy of `interval`.
     func clone() -> UnsafeMutablePointer<ClutterInterval>! {
-        let rv = clutter_interval_clone(cast(interval_ptr))
+        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_clone(cast(interval_ptr)))
         return cast(rv)
     }
 
@@ -1239,7 +1277,7 @@ public extension IntervalProtocol {
     /// value to another function that makes a copy of it, like
     /// `g_object_set_property()`
     func compute(factor: gdouble) -> UnsafePointer<GValue>! {
-        let rv = clutter_interval_compute(cast(interval_ptr), factor)
+        let rv: UnsafePointer<GValue>! = cast(clutter_interval_compute(cast(interval_ptr), factor))
         return cast(rv)
     }
 
@@ -1277,18 +1315,18 @@ public extension IntervalProtocol {
     /// Retrieves the `GType` of the values inside `interval`.
     func getValueType() -> GType {
         let rv = clutter_interval_get_value_type(cast(interval_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Gets the pointer to the final value of `interval`
     func peekFinalValue() -> UnsafeMutablePointer<GValue>! {
-        let rv = clutter_interval_peek_final_value(cast(interval_ptr))
+        let rv: UnsafeMutablePointer<GValue>! = cast(clutter_interval_peek_final_value(cast(interval_ptr)))
         return cast(rv)
     }
 
     /// Gets the pointer to the initial value of `interval`
     func peekInitialValue() -> UnsafeMutablePointer<GValue>! {
-        let rv = clutter_interval_peek_initial_value(cast(interval_ptr))
+        let rv: UnsafeMutablePointer<GValue>! = cast(clutter_interval_peek_initial_value(cast(interval_ptr)))
         return cast(rv)
     }
 
@@ -1338,9 +1376,14 @@ public extension IntervalProtocol {
         /// Retrieves the `GType` of the values inside `interval`.
         get {
             let rv = clutter_interval_get_value_type(cast(interval_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1355,7 +1398,7 @@ public extension IntervalProtocol {
 /// The `ClutterKeyframeTransition` structure contains only private
 /// data and should be accessed using the provided API.
 public protocol KeyframeTransitionProtocol: PropertyTransitionProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransition` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransition` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterKeyframeTransition` instance.
@@ -1369,7 +1412,7 @@ public protocol KeyframeTransitionProtocol: PropertyTransitionProtocol {
 /// The `ClutterKeyframeTransition` structure contains only private
 /// data and should be accessed using the provided API.
 public struct KeyframeTransitionRef: KeyframeTransitionProtocol {
-    /// Untyped pointer to the underlying `ClutterKeyframeTransition` instance.
+        /// Untyped pointer to the underlying `ClutterKeyframeTransition` instance.
     /// For type-safe access, use the generated, typed pointer `keyframe_transition_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1416,7 +1459,7 @@ public extension KeyframeTransitionRef {
 
         /// Creates a new `ClutterKeyframeTransition` for `property_name`.
     init( property_name: UnsafePointer<CChar>) {
-        let rv = clutter_keyframe_transition_new(property_name)
+        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_keyframe_transition_new(property_name))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -1428,7 +1471,7 @@ public extension KeyframeTransitionRef {
 /// The `ClutterKeyframeTransition` structure contains only private
 /// data and should be accessed using the provided API.
 open class KeyframeTransition: PropertyTransition, KeyframeTransitionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `KeyframeTransition` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1508,7 +1551,7 @@ open class KeyframeTransition: PropertyTransition, KeyframeTransitionProtocol {
 
     /// Creates a new `ClutterKeyframeTransition` for `property_name`.
     public override init( property_name: UnsafePointer<CChar>) {
-        let rv = clutter_keyframe_transition_new(property_name)
+        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_keyframe_transition_new(property_name))
         super.init(cast(rv))
     }
 
@@ -1574,8 +1617,8 @@ public extension KeyframeTransitionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: KeyframeTransitionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: KeyframeTransitionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1598,6 +1641,23 @@ public extension KeyframeTransitionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a KeyframeTransition property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: KeyframeTransitionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a KeyframeTransition property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: KeyframeTransitionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1737,8 +1797,8 @@ public extension KeyframeTransitionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: KeyframeTransitionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: KeyframeTransitionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(keyframe_transition_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1759,6 +1819,7 @@ public extension KeyframeTransitionProtocol {
     }
 }
 
+// MARK: KeyframeTransition Class: KeyframeTransitionProtocol extension (methods and fields)
 public extension KeyframeTransitionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKeyframeTransition` instance.
     var keyframe_transition_ptr: UnsafeMutablePointer<ClutterKeyframeTransition> { return ptr.assumingMemoryBound(to: ClutterKeyframeTransition.self) }
@@ -1779,9 +1840,9 @@ public extension KeyframeTransitionProtocol {
     }
 
     /// Retrieves the number of key frames inside `transition`.
-    func getNKeyFrames() -> CUnsignedInt {
-        let rv = clutter_keyframe_transition_get_n_key_frames(cast(keyframe_transition_ptr))
-        return CUnsignedInt(rv)
+    func getNKeyFrames() -> Int {
+        let rv: Int = cast(clutter_keyframe_transition_get_n_key_frames(cast(keyframe_transition_ptr)))
+        return Int(rv)
     }
 
 
@@ -1827,13 +1888,18 @@ public extension KeyframeTransitionProtocol {
     
     }
     /// Retrieves the number of key frames inside `transition`.
-    var nKeyFrames: CUnsignedInt {
+    var nKeyFrames: Int {
         /// Retrieves the number of key frames inside `transition`.
         get {
-            let rv = clutter_keyframe_transition_get_n_key_frames(cast(keyframe_transition_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_keyframe_transition_get_n_key_frames(cast(keyframe_transition_ptr)))
+            return Int(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 

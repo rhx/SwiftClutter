@@ -22,7 +22,7 @@ import Atk
 /// The `ClutterFixedLayout` structure contains only private data and
 /// it should be accessed using the provided API
 public protocol FixedLayoutProtocol: LayoutManagerProtocol {
-    /// Untyped pointer to the underlying `ClutterFixedLayout` instance.
+        /// Untyped pointer to the underlying `ClutterFixedLayout` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterFixedLayout` instance.
@@ -36,7 +36,7 @@ public protocol FixedLayoutProtocol: LayoutManagerProtocol {
 /// The `ClutterFixedLayout` structure contains only private data and
 /// it should be accessed using the provided API
 public struct FixedLayoutRef: FixedLayoutProtocol {
-    /// Untyped pointer to the underlying `ClutterFixedLayout` instance.
+        /// Untyped pointer to the underlying `ClutterFixedLayout` instance.
     /// For type-safe access, use the generated, typed pointer `fixed_layout_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -83,7 +83,7 @@ public extension FixedLayoutRef {
 
         /// Creates a new `ClutterFixedLayout`
     init() {
-        let rv = clutter_fixed_layout_new()
+        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_fixed_layout_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -95,7 +95,7 @@ public extension FixedLayoutRef {
 /// The `ClutterFixedLayout` structure contains only private data and
 /// it should be accessed using the provided API
 open class FixedLayout: LayoutManager, FixedLayoutProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FixedLayout` instance.
     /// - Parameter op: pointer to the underlying object
@@ -175,7 +175,7 @@ open class FixedLayout: LayoutManager, FixedLayoutProtocol {
 
     /// Creates a new `ClutterFixedLayout`
     public init() {
-        let rv = clutter_fixed_layout_new()
+        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_fixed_layout_new())
         super.init(cast(rv))
     }
 
@@ -239,8 +239,8 @@ public extension FixedLayoutProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FixedLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FixedLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -263,6 +263,23 @@ public extension FixedLayoutProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FixedLayout property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FixedLayoutPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FixedLayout property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FixedLayoutPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -404,8 +421,8 @@ public extension FixedLayoutProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FixedLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FixedLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(fixed_layout_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -426,9 +443,13 @@ public extension FixedLayoutProtocol {
     }
 }
 
+// MARK: FixedLayout Class: FixedLayoutProtocol extension (methods and fields)
 public extension FixedLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFixedLayout` instance.
     var fixed_layout_ptr: UnsafeMutablePointer<ClutterFixedLayout> { return ptr.assumingMemoryBound(to: ClutterFixedLayout.self) }
+
+
+    // var parentInstance is unavailable because parent_instance is private
 
 }
 
@@ -444,7 +465,7 @@ public extension FixedLayoutProtocol {
 /// The `ClutterFlowLayout` structure contains only private data
 /// and should be accessed using the provided API
 public protocol FlowLayoutProtocol: LayoutManagerProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayout` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayout` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterFlowLayout` instance.
@@ -458,7 +479,7 @@ public protocol FlowLayoutProtocol: LayoutManagerProtocol {
 /// The `ClutterFlowLayout` structure contains only private data
 /// and should be accessed using the provided API
 public struct FlowLayoutRef: FlowLayoutProtocol {
-    /// Untyped pointer to the underlying `ClutterFlowLayout` instance.
+        /// Untyped pointer to the underlying `ClutterFlowLayout` instance.
     /// For type-safe access, use the generated, typed pointer `flow_layout_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -505,7 +526,7 @@ public extension FlowLayoutRef {
 
         /// Creates a new `ClutterFlowLayout` with the given `orientation`
     init( orientation: FlowOrientation) {
-        let rv = clutter_flow_layout_new(orientation)
+        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_flow_layout_new(orientation))
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -517,7 +538,7 @@ public extension FlowLayoutRef {
 /// The `ClutterFlowLayout` structure contains only private data
 /// and should be accessed using the provided API
 open class FlowLayout: LayoutManager, FlowLayoutProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FlowLayout` instance.
     /// - Parameter op: pointer to the underlying object
@@ -597,7 +618,7 @@ open class FlowLayout: LayoutManager, FlowLayoutProtocol {
 
     /// Creates a new `ClutterFlowLayout` with the given `orientation`
     public init( orientation: FlowOrientation) {
-        let rv = clutter_flow_layout_new(orientation)
+        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_flow_layout_new(orientation))
         super.init(cast(rv))
     }
 
@@ -690,8 +711,8 @@ public extension FlowLayoutProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FlowLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FlowLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -714,6 +735,23 @@ public extension FlowLayoutProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a FlowLayout property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: FlowLayoutPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a FlowLayout property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: FlowLayoutPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -884,8 +922,8 @@ public extension FlowLayoutProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FlowLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: FlowLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(flow_layout_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -906,14 +944,15 @@ public extension FlowLayoutProtocol {
     }
 }
 
+// MARK: FlowLayout Class: FlowLayoutProtocol extension (methods and fields)
 public extension FlowLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFlowLayout` instance.
     var flow_layout_ptr: UnsafeMutablePointer<ClutterFlowLayout> { return ptr.assumingMemoryBound(to: ClutterFlowLayout.self) }
 
     /// Retrieves the spacing between columns
-    func getColumnSpacing() -> gfloat {
-        let rv = clutter_flow_layout_get_column_spacing(cast(flow_layout_ptr))
-        return rv
+    func getColumnSpacing() -> Float {
+        let rv: Float = cast(clutter_flow_layout_get_column_spacing(cast(flow_layout_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the minimum and maximum column widths
@@ -931,7 +970,7 @@ public extension FlowLayoutProtocol {
     /// Retrieves the orientation of the `layout`
     func getOrientation() -> ClutterFlowOrientation {
         let rv = clutter_flow_layout_get_orientation(cast(flow_layout_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the minimum and maximum row heights
@@ -941,9 +980,9 @@ public extension FlowLayoutProtocol {
     }
 
     /// Retrieves the spacing between rows
-    func getRowSpacing() -> gfloat {
-        let rv = clutter_flow_layout_get_row_spacing(cast(flow_layout_ptr))
-        return rv
+    func getRowSpacing() -> Float {
+        let rv: Float = cast(clutter_flow_layout_get_row_spacing(cast(flow_layout_ptr)))
+        return cast(rv)
     }
 
     /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
@@ -999,15 +1038,15 @@ public extension FlowLayoutProtocol {
     
     }
     /// Retrieves the spacing between columns
-    var columnSpacing: gfloat {
+    var columnSpacing: Float {
         /// Retrieves the spacing between columns
         get {
-            let rv = clutter_flow_layout_get_column_spacing(cast(flow_layout_ptr))
-            return rv
+            let rv: Float = cast(clutter_flow_layout_get_column_spacing(cast(flow_layout_ptr)))
+            return cast(rv)
         }
         /// Sets the space between columns, in pixels
         nonmutating set {
-            clutter_flow_layout_set_column_spacing(cast(flow_layout_ptr), newValue)
+            clutter_flow_layout_set_column_spacing(cast(flow_layout_ptr), cast(newValue))
         }
     }
 
@@ -1034,7 +1073,7 @@ public extension FlowLayoutProtocol {
         /// Retrieves the orientation of the `layout`
         get {
             let rv = clutter_flow_layout_get_orientation(cast(flow_layout_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the orientation of the flow layout
         /// 
@@ -1042,20 +1081,20 @@ public extension FlowLayoutProtocol {
         /// the children: either horizontally or vertically. The
         /// orientation also controls the direction of the overflowing
         nonmutating set {
-            clutter_flow_layout_set_orientation(cast(flow_layout_ptr), newValue)
+            clutter_flow_layout_set_orientation(cast(flow_layout_ptr), cast(newValue))
         }
     }
 
     /// Retrieves the spacing between rows
-    var rowSpacing: gfloat {
+    var rowSpacing: Float {
         /// Retrieves the spacing between rows
         get {
-            let rv = clutter_flow_layout_get_row_spacing(cast(flow_layout_ptr))
-            return rv
+            let rv: Float = cast(clutter_flow_layout_get_row_spacing(cast(flow_layout_ptr)))
+            return cast(rv)
         }
         /// Sets the spacing between rows, in pixels
         nonmutating set {
-            clutter_flow_layout_set_row_spacing(cast(flow_layout_ptr), newValue)
+            clutter_flow_layout_set_row_spacing(cast(flow_layout_ptr), cast(newValue))
         }
     }
 
@@ -1071,6 +1110,11 @@ public extension FlowLayoutProtocol {
             clutter_flow_layout_set_snap_to_grid(cast(flow_layout_ptr), gboolean(newValue ? 1 : 0))
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
@@ -1085,7 +1129,7 @@ public extension FlowLayoutProtocol {
 /// The `ClutterGestureAction` structure contains
 /// only private data and should be accessed using the provided API
 public protocol GestureActionProtocol: ActionProtocol {
-    /// Untyped pointer to the underlying `ClutterGestureAction` instance.
+        /// Untyped pointer to the underlying `ClutterGestureAction` instance.
     var ptr: UnsafeMutableRawPointer { get }
 
     /// Typed pointer to the underlying `ClutterGestureAction` instance.
@@ -1099,7 +1143,7 @@ public protocol GestureActionProtocol: ActionProtocol {
 /// The `ClutterGestureAction` structure contains
 /// only private data and should be accessed using the provided API
 public struct GestureActionRef: GestureActionProtocol {
-    /// Untyped pointer to the underlying `ClutterGestureAction` instance.
+        /// Untyped pointer to the underlying `ClutterGestureAction` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_action_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer
 }
@@ -1146,7 +1190,7 @@ public extension GestureActionRef {
 
         /// Creates a new `ClutterGestureAction` instance.
     init() {
-        let rv = clutter_gesture_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_gesture_action_new())
         ptr = UnsafeMutableRawPointer(cast(rv))
     }
 }
@@ -1158,7 +1202,7 @@ public extension GestureActionRef {
 /// The `ClutterGestureAction` structure contains
 /// only private data and should be accessed using the provided API
 open class GestureAction: Action, GestureActionProtocol {
-    /// Designated initialiser from the underlying `C` data type.
+        /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `GestureAction` instance.
     /// - Parameter op: pointer to the underlying object
@@ -1238,7 +1282,7 @@ open class GestureAction: Action, GestureActionProtocol {
 
     /// Creates a new `ClutterGestureAction` instance.
     public init() {
-        let rv = clutter_gesture_action_new()
+        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_gesture_action_new())
         super.init(cast(rv))
     }
 
@@ -1326,8 +1370,8 @@ public extension GestureActionProtocol {
     /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
     /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GestureActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default_, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default_, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
+    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GestureActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
@@ -1350,6 +1394,23 @@ public extension GestureActionProtocol {
             return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
         }
         return rv
+    }
+
+    /// Get the value of a GestureAction property
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func get(property: GestureActionPropertyName) -> GLibObject.Value {
+        let v = GLibObject.Value()
+        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
+        return v
+    }
+
+    /// Set the value of a GestureAction property.
+    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
+    /// - Parameter property: the property to get the value for
+    /// - Returns: the value of the named property
+    func set(property: GestureActionPropertyName, value v: GLibObject.Value) {
+        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
 
@@ -1510,8 +1571,8 @@ public extension GestureActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: GestureActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> CUnsignedLong {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> CUnsignedLong {
+    @discardableResult func connect(signal kind: GestureActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
             let rv = GLibObject.ObjectRef(cast(gesture_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
@@ -1532,6 +1593,7 @@ public extension GestureActionProtocol {
     }
 }
 
+// MARK: GestureAction Class: GestureActionProtocol extension (methods and fields)
 public extension GestureActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterGestureAction` instance.
     var gesture_action_ptr: UnsafeMutablePointer<ClutterGestureAction> { return ptr.assumingMemoryBound(to: ClutterGestureAction.self) }
@@ -1544,14 +1606,14 @@ public extension GestureActionProtocol {
 
     /// Retrieves the `ClutterInputDevice` of a touch point.
     func getDevice(point: CUnsignedInt) -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv = clutter_gesture_action_get_device(cast(gesture_action_ptr), guint(point))
+        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_gesture_action_get_device(cast(gesture_action_ptr), guint(point)))
         return cast(rv)
     }
 
     /// Retrieves a reference to the last `ClutterEvent` for a touch point. Call
     /// `clutter_event_copy()` if you need to store the reference somewhere.
     func getLastEvent(point: CUnsignedInt) -> UnsafePointer<ClutterEvent>! {
-        let rv = clutter_gesture_action_get_last_event(cast(gesture_action_ptr), guint(point))
+        let rv: UnsafePointer<ClutterEvent>! = cast(clutter_gesture_action_get_last_event(cast(gesture_action_ptr), guint(point)))
         return cast(rv)
     }
 
@@ -1564,21 +1626,21 @@ public extension GestureActionProtocol {
 
     /// Retrieves the incremental delta since the last motion event
     /// during the dragging.
-    func getMotionDelta(point: CUnsignedInt, deltaX delta_x: UnsafeMutablePointer<gfloat>, deltaY delta_y: UnsafeMutablePointer<gfloat>) -> gfloat {
-        let rv = clutter_gesture_action_get_motion_delta(cast(gesture_action_ptr), guint(point), cast(delta_x), cast(delta_y))
-        return rv
+    func getMotionDelta(point: CUnsignedInt, deltaX delta_x: UnsafeMutablePointer<gfloat>, deltaY delta_y: UnsafeMutablePointer<gfloat>) -> Float {
+        let rv: Float = cast(clutter_gesture_action_get_motion_delta(cast(gesture_action_ptr), guint(point), cast(delta_x), cast(delta_y)))
+        return cast(rv)
     }
 
     /// Retrieves the number of points currently active.
-    func getNCurrentPoints() -> CUnsignedInt {
-        let rv = clutter_gesture_action_get_n_current_points(cast(gesture_action_ptr))
-        return CUnsignedInt(rv)
+    func getNCurrentPoints() -> Int {
+        let rv: Int = cast(clutter_gesture_action_get_n_current_points(cast(gesture_action_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the number of requested points to trigger the gesture.
-    func getNTouchPoints() -> CInt {
-        let rv = clutter_gesture_action_get_n_touch_points(cast(gesture_action_ptr))
-        return CInt(rv)
+    func getNTouchPoints() -> Int {
+        let rv: Int = cast(clutter_gesture_action_get_n_touch_points(cast(gesture_action_ptr)))
+        return Int(rv)
     }
 
     /// Retrieves the coordinates, in stage space, of the press event
@@ -1597,7 +1659,7 @@ public extension GestureActionProtocol {
 
     /// Retrieves the `ClutterEventSequence` of a touch point.
     func getSequence(point: CUnsignedInt) -> UnsafeMutablePointer<ClutterEventSequence>! {
-        let rv = clutter_gesture_action_get_sequence(cast(gesture_action_ptr), guint(point))
+        let rv: UnsafeMutablePointer<ClutterEventSequence>! = cast(clutter_gesture_action_get_sequence(cast(gesture_action_ptr), guint(point)))
         return cast(rv)
     }
 
@@ -1612,7 +1674,7 @@ public extension GestureActionProtocol {
     /// `clutter_gesture_action_set_threshold_trigger_edge()`.
     func getThresholdTriggerEdge() -> ClutterGestureTriggerEdge {
         let rv = clutter_gesture_action_get_threshold_trigger_edge(cast(gesture_action_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
@@ -1622,14 +1684,14 @@ public extension GestureActionProtocol {
     /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
     @available(*, deprecated) func getThresholdTriggerEgde() -> ClutterGestureTriggerEdge {
         let rv = clutter_gesture_action_get_threshold_trigger_egde(cast(gesture_action_ptr))
-        return rv
+        return cast(rv)
     }
 
     /// Retrieves the velocity, in stage pixels per millisecond, of the
     /// latest motion event during the dragging.
-    func getVelocity(point: CUnsignedInt, velocityX velocity_x: UnsafeMutablePointer<gfloat>, velocityY velocity_y: UnsafeMutablePointer<gfloat>) -> gfloat {
-        let rv = clutter_gesture_action_get_velocity(cast(gesture_action_ptr), guint(point), cast(velocity_x), cast(velocity_y))
-        return rv
+    func getVelocity(point: CUnsignedInt, velocityX velocity_x: UnsafeMutablePointer<gfloat>, velocityY velocity_y: UnsafeMutablePointer<gfloat>) -> Float {
+        let rv: Float = cast(clutter_gesture_action_get_velocity(cast(gesture_action_ptr), guint(point), cast(velocity_x), cast(velocity_y)))
+        return cast(rv)
     }
 
     /// Sets the number of points needed to trigger the gesture.
@@ -1656,20 +1718,20 @@ public extension GestureActionProtocol {
     
     }
     /// Retrieves the number of points currently active.
-    var nCurrentPoints: CUnsignedInt {
+    var nCurrentPoints: Int {
         /// Retrieves the number of points currently active.
         get {
-            let rv = clutter_gesture_action_get_n_current_points(cast(gesture_action_ptr))
-            return CUnsignedInt(rv)
+            let rv: Int = cast(clutter_gesture_action_get_n_current_points(cast(gesture_action_ptr)))
+            return Int(rv)
         }
     }
 
     /// Retrieves the number of requested points to trigger the gesture.
-    var nTouchPoints: CInt {
+    var nTouchPoints: Int {
         /// Retrieves the number of requested points to trigger the gesture.
         get {
-            let rv = clutter_gesture_action_get_n_touch_points(cast(gesture_action_ptr))
-            return CInt(rv)
+            let rv: Int = cast(clutter_gesture_action_get_n_touch_points(cast(gesture_action_ptr)))
+            return Int(rv)
         }
         /// Sets the number of points needed to trigger the gesture.
         nonmutating set {
@@ -1684,14 +1746,14 @@ public extension GestureActionProtocol {
         /// `clutter_gesture_action_set_threshold_trigger_edge()`.
         get {
             let rv = clutter_gesture_action_get_threshold_trigger_edge(cast(gesture_action_ptr))
-            return rv
+            return cast(rv)
         }
         /// Sets the edge trigger for the gesture drag threshold, if any.
         /// 
         /// This function should only be called by sub-classes of
         /// `ClutterGestureAction` during their construction phase.
         nonmutating set {
-            clutter_gesture_action_set_threshold_trigger_edge(cast(gesture_action_ptr), newValue)
+            clutter_gesture_action_set_threshold_trigger_edge(cast(gesture_action_ptr), cast(newValue))
         }
     }
 
@@ -1708,9 +1770,14 @@ public extension GestureActionProtocol {
         /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
         @available(*, deprecated) get {
             let rv = clutter_gesture_action_get_threshold_trigger_egde(cast(gesture_action_ptr))
-            return rv
+            return cast(rv)
         }
     }
+
+    // var parentInstance is unavailable because parent_instance is private
+
+    // var priv is unavailable because priv is private
+
 }
 
 
