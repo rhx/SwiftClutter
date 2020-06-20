@@ -57,3 +57,8 @@ s/\(public func setBounds.angleStart\)/@available(*, deprecated) \1/
 s/\(public func shaderErrorQuark\)/@available(*, deprecated) \1/
 s/GObject.Callback/GLibObject.Callback/g
 s/GObject.ParamFlags/GLibObject.ParamFlags/g
+s/\(var modifier.*:\) ClutterModifierType/\1 ModifierType/
+s/\(let rv: \)Clutter\(ModifierType \)/\1\2/
+s/\(_ptr.pointee.modifier_state = cast.newValue\)/\1.value/
+s/\(clutter_param_spec_fixed.name, nick, blurb, minimum, maximum,\) cast.default_value.ptr./\1 default_value/
+s/escaping BindingActionFunc/escaping GCallback/
