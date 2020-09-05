@@ -83,3 +83,7 @@ s/\(parseCustomNode<\)NodeT: NodeProtocol, \(.*>(script: ScriptT, value: ValueT,
 s/((clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node._ptr))/(clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node)/
 s/@available(., deprecated) @inlinable public init<ActorT: ActorProtocol>/@available(*, deprecated) @inlinable public override init<ActorT: ActorProtocol>/
 s/names: UnsafeMutablePointer<gchar>/names: UnsafePointer<UnsafePointer<gchar>?>/
+s/-> UnsafeMutablePointer<gfloat>/-> UnsafePointer<gfloat>/
+s/-> UnsafeMutablePointer<gint>/-> UnsafePointer<gint>/
+s/paths: UnsafeMutablePointer<gchar>/paths: UnsafePointer<UnsafePointer<gchar>?>/
+s/properties: UnsafeMutablePointer<gchar>/properties: UnsafePointer<UnsafePointer<gchar>?>/
