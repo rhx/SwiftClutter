@@ -82,3 +82,4 @@ s/\(parseCustomNode<.*\), NodeT: NodeProtocol\(,.*>(script: ScriptT, value: Valu
 s/\(parseCustomNode<\)NodeT: NodeProtocol, \(.*>(script: ScriptT, value: ValueT, name: UnsafePointer<gchar>!, node: \)NodeT)/\1\2UnsafeMutablePointer<JsonNode>!)/
 s/((clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node._ptr))/(clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node)/
 s/@available(., deprecated) @inlinable public init<ActorT: ActorProtocol>/@available(*, deprecated) @inlinable public override init<ActorT: ActorProtocol>/
+s/names: UnsafeMutablePointer<gchar>/names: UnsafePointer<UnsafePointer<gchar>?>/

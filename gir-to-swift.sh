@@ -24,6 +24,12 @@ fi
 gir2swift -o Sources/${Mod} -m ${Module}.module -p ${GIR_DIR}/GLib-2.0.gir -p ${GIR_DIR}/GObject-2.0.gir -p ${GIR_DIR}/cairo-1.0.gir -p ${GIR_DIR}/Pango-1.0.gir -p ${GIR_DIR}/Cogl-1.0.gir -p ${GIR_DIR}/CoglPango-1.0.gir -p ${GIR_DIR}/Atk-1.0.gir "${GIR}"
 for src in Sources/${Mod}/*-*.swift ; do
 	sed -f ${Module}.sed < ${src} > ${src}.out
-	mv ${src}.out ${src}
+	mv -f ${src}.out ${src}
+	for ver in 1.26.2 ; do
+		if pkg-config --max-version=$ver clutter-1.0 ; then
+			awk -f ${Module}-$ver.awk < ${src} > ${src}.out
+			mv -f ${src}.out ${src}
+		fi
+	done
 done
 touch Sources/${Mod}/${Module}.swift
