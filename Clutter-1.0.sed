@@ -8,12 +8,17 @@ s/: \([A-Z][A-Za-z.]*Callback[,)]\)/: @escaping \1/g
 s/CoglHandle {/CoglHandle! {/
 s/FixedRef!/CoglFixed/
 s/Fixed!/CoglFixed/
+s/ ListRef/ GLib.ListRef/
 s/ ObjectProtocol/ GLibObject.ObjectProtocol/g
 s/ ObjectClassProtocol/ GLibObject.ObjectClassProtocol/g
 s/ Object/ GLibObject.Object/g
+s/ GLibObject.ObjectT/ ObjectT/g
+s/ GLibObject.ObjectClassT/ ObjectClassT/g
 s/ ValueProtocol/ GLibObject.ValueProtocol/g
 s/ ValueClassProtocol/ GLibObject.ValueClassProtocol/g
 s/ Value/ GLibObject.Value/g
+s/ GLibObject.ValueT/ ValueT/g
+s/CairoPath<PathT: Path/CairoPath<PathT: cairo.Path/
 s/, modifiers, callback,/, modifiers, cast(callback),/
 s/rv.map { FixedRef(cast($0)) }/rv/
 s/rv.map { Fixed(cast($0)) }/rv/
@@ -62,3 +67,23 @@ s/\(let rv: \)Clutter\(ModifierType \)/\1\2/
 s/\(_ptr.pointee.modifier_state = cast.newValue\)/\1.value/
 s/\(clutter_param_spec_fixed.name, nick, blurb, minimum, maximum,\) cast.default_value.ptr./\1 default_value/
 s/escaping BindingActionFunc/escaping GCallback/
+s/ValueTransformer/GLibObject.ValueTransformer/g
+s/var _ptr: ClutterTimeoutPool/var _ptr: UnsafeMutablePointer<ClutterTimeoutPool>/
+s/return ClutterTimeoutPool(bitPattern: UInt(bitPattern: ptr))/ptr.assumingMemoryBound(to: ClutterTimeoutPool.self)/
+s/PangoContext() -> ContextRef/PangoContext() -> Pango.ContextRef/
+s/pangoContext: ContextRef/pangoContext: Pango.ContextRef/
+s/rv = \(ContextRef(.*_pango.*)\)/rv = Pango.\1/
+s/rv = \(ContextRef(.*_cairo.*)\)/rv = Cairo.\1/
+s/func create() -> ContextRef/func create() -> Cairo.ContextRef/
+s/\(deprecated.*func createRegion(.*) -> \)\(ContextRef\)/\1Cairo.\2/
+s/ListModelT: ListModelProtocol/ListModelT: GIO.ListModelProtocol/
+s/\(parseCustomNode<.*\), NodeT: NodeProtocol\(>(script: ScriptT, value: ValueT, name: UnsafePointer<gchar>!, node: \)NodeT)/\1\2UnsafeMutablePointer<JsonNode>!)/
+s/\(parseCustomNode<.*\), NodeT: NodeProtocol\(,.*>(script: ScriptT, value: ValueT, name: UnsafePointer<gchar>!, node: \)NodeT)/\1\2UnsafeMutablePointer<JsonNode>!)/
+s/\(parseCustomNode<\)NodeT: NodeProtocol, \(.*>(script: ScriptT, value: ValueT, name: UnsafePointer<gchar>!, node: \)NodeT)/\1\2UnsafeMutablePointer<JsonNode>!)/
+s/((clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node._ptr))/(clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node)/
+s/@available(., deprecated) @inlinable public init<ActorT: ActorProtocol>/@available(*, deprecated) @inlinable public override init<ActorT: ActorProtocol>/
+s/names: UnsafeMutablePointer<gchar>/names: UnsafePointer<UnsafePointer<gchar>?>/
+s/-> UnsafeMutablePointer<gfloat>/-> UnsafePointer<gfloat>/
+s/-> UnsafeMutablePointer<gint>/-> UnsafePointer<gint>/
+s/paths: UnsafeMutablePointer<gchar>/paths: UnsafePointer<UnsafePointer<gchar>?>/
+s/properties: UnsafeMutablePointer<gchar>/properties: UnsafePointer<UnsafePointer<gchar>?>/
