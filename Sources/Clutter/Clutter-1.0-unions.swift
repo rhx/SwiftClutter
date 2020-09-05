@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -22,10 +23,11 @@ import Atk
 /// Generic event wrapper.
 public protocol EventProtocol {
         /// Untyped pointer to the underlying `ClutterEvent` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterEvent` instance.
-    var event_ptr: UnsafeMutablePointer<ClutterEvent> { get }
+    var event_ptr: UnsafeMutablePointer<ClutterEvent>! { get }
+
 }
 
 /// The `EventRef` type acts as a lightweight Swift reference to an underlying `ClutterEvent` instance.
@@ -36,66 +38,96 @@ public protocol EventProtocol {
 public struct EventRef: EventProtocol {
         /// Untyped pointer to the underlying `ClutterEvent` instance.
     /// For type-safe access, use the generated, typed pointer `event_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension EventRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterEvent>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterEvent>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterEvent>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `EventProtocol`
-    init<T: EventProtocol>(_ other: T) {
+    @inlinable init<T: EventProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterEvent` of the specified type.
-    init( type: EventType) {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_new(type))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( type: ClutterEventType) {
+        let rv = clutter_event_new(type)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Pops an event off the event queue. Applications should not need to call
     /// this.
-    static func get() -> EventRef! {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_get())
-        return rv.map { EventRef(cast($0)) }
+    @inlinable static func get() -> EventRef! {
+        guard let rv = EventRef(gconstpointer: gconstpointer(clutter_event_get())) else { return nil }
+        return rv
     }
 
     /// Returns a pointer to the first event from the event queue but
     /// does not remove it.
-    static func peek() -> EventRef! {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_peek())
-        return rv.map { EventRef(cast($0)) }
+    @inlinable static func peek() -> EventRef! {
+        guard let rv = EventRef(gconstpointer: gconstpointer(clutter_event_peek())) else { return nil }
+        return rv
     }
 }
 
@@ -107,115 +139,161 @@ public extension EventRef {
 open class Event: EventProtocol {
         /// Untyped pointer to the underlying `ClutterEvent` instance.
     /// For type-safe access, use the generated, typed pointer `event_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Event` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterEvent>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterEvent>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Event` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterEvent>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterEvent` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Event` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterEvent>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterEvent>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterEvent, cannot ref(cast(event_ptr))
+        // no reference counting for ClutterEvent, cannot ref(event_ptr)
     }
 
     /// Reference intialiser for a related type that implements `EventProtocol`
     /// `ClutterEvent` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `EventProtocol`
-    public init<T: EventProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.event_ptr)
-        // no reference counting for ClutterEvent, cannot ref(cast(event_ptr))
+    @inlinable public init<T: EventProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterEvent, cannot ref(event_ptr)
     }
 
     /// Do-nothing destructor for `ClutterEvent`.
     deinit {
-        // no reference counting for ClutterEvent, cannot unref(cast(event_ptr))
+        // no reference counting for ClutterEvent, cannot unref(event_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterEvent, cannot ref(cast(event_ptr))
+        // no reference counting for ClutterEvent, cannot ref(event_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterEvent, cannot ref(cast(event_ptr))
+        // no reference counting for ClutterEvent, cannot ref(event_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterEvent, cannot ref(cast(event_ptr))
+        // no reference counting for ClutterEvent, cannot ref(event_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterEvent, cannot ref(cast(event_ptr))
+        // no reference counting for ClutterEvent, cannot ref(event_ptr)
     }
 
     /// Creates a new `ClutterEvent` of the specified type.
-    public init( type: EventType) {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_new(type))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init( type: ClutterEventType) {
+        let rv = clutter_event_new(type)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Pops an event off the event queue. Applications should not need to call
     /// this.
-    public static func get() -> Event! {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_get())
-        return rv.map { Event(cast($0)) }
+    @inlinable public static func get() -> Event! {
+        guard let rv = Event(gconstpointer: gconstpointer(clutter_event_get())) else { return nil }
+        return rv
     }
 
     /// Returns a pointer to the first event from the event queue but
     /// does not remove it.
-    public static func peek() -> Event! {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_peek())
-        return rv.map { Event(cast($0)) }
+    @inlinable public static func peek() -> Event! {
+        guard let rv = Event(gconstpointer: gconstpointer(clutter_event_peek())) else { return nil }
+        return rv
     }
 
 }
@@ -228,17 +306,17 @@ open class Event: EventProtocol {
 // MARK: Event Union: EventProtocol extension (methods and fields)
 public extension EventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterEvent` instance.
-    var event_ptr: UnsafeMutablePointer<ClutterEvent> { return ptr.assumingMemoryBound(to: ClutterEvent.self) }
+    @inlinable var event_ptr: UnsafeMutablePointer<ClutterEvent>! { return ptr?.assumingMemoryBound(to: ClutterEvent.self) }
 
     /// Copies `event`.
-    func copy() -> UnsafeMutablePointer<ClutterEvent>! {
-        let rv: UnsafeMutablePointer<ClutterEvent>! = cast(clutter_event_copy(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> EventRef! {
+        guard let rv = EventRef(gconstpointer: gconstpointer(clutter_event_copy(event_ptr))) else { return nil }
+        return rv
     }
 
     /// Frees all resources used by `event`.
-    func free() {
-        clutter_event_free(cast(event_ptr))
+    @inlinable func free() {
+        clutter_event_free(event_ptr)
     
     }
 
@@ -246,32 +324,32 @@ public extension EventProtocol {
     /// 
     /// The direction of the angle is from the position X axis towards
     /// the positive Y axis.
-    func getAngle(target: EventProtocol) -> Double {
-        let rv: Double = cast(clutter_event_get_angle(cast(event_ptr), cast(target.ptr)))
-        return cast(rv)
+    @inlinable func getAngle<EventT: EventProtocol>(target: EventT) -> CDouble {
+        let rv = clutter_event_get_angle(event_ptr, target.event_ptr)
+        return rv
     }
 
     /// Retrieves the array of axes values attached to the event.
-    func getAxes(nAxes n_axes: UnsafeMutablePointer<CUnsignedInt>) -> UnsafeMutablePointer<gdouble>! {
-        let rv: UnsafeMutablePointer<gdouble>! = cast(clutter_event_get_axes(cast(event_ptr), cast(n_axes)))
-        return cast(rv)
+    @inlinable func getAxes(nAxes n_axes: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<gdouble>! {
+        let rv = clutter_event_get_axes(event_ptr, n_axes)
+        return rv
     }
 
     /// Retrieves the button number of `event`
-    func getButton() -> UInt32 {
-        let rv = clutter_event_get_button(cast(event_ptr))
-        return UInt32(rv)
+    @inlinable func getButton() -> guint32 {
+        let rv = clutter_event_get_button(event_ptr)
+        return rv
     }
 
     /// Retrieves the number of clicks of `event`
-    func getClickCount() -> Int {
-        let rv: Int = cast(clutter_event_get_click_count(cast(event_ptr)))
-        return Int(rv)
+    @inlinable func getClickCount() -> Int {
+        let rv = Int(clutter_event_get_click_count(event_ptr))
+        return rv
     }
 
     /// Retrieves the coordinates of `event` and puts them into `x` and `y`.
-    func getCoords(x x_: UnsafeMutablePointer<gfloat>, y y_: UnsafeMutablePointer<gfloat>) {
-        clutter_event_get_coords(cast(event_ptr), cast(x_), cast(y_))
+    @inlinable func getCoords(x: UnsafeMutablePointer<gfloat>!, y: UnsafeMutablePointer<gfloat>!) {
+        clutter_event_get_coords(event_ptr, x, y)
     
     }
 
@@ -281,139 +359,139 @@ public extension EventProtocol {
     /// 
     /// The `ClutterInputDevice` structure is completely opaque and should
     /// be cast to the platform-specific implementation.
-    func getDevice() -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_event_get_device(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getDevice() -> InputDeviceRef! {
+        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_event_get_device(event_ptr)))
+        return rv
     }
 
     /// Retrieves the events device id if set.
-    func getDeviceId() -> Int {
-        let rv: Int = cast(clutter_event_get_device_id(cast(event_ptr)))
-        return Int(rv)
+    @inlinable func getDeviceId() -> Int {
+        let rv = Int(clutter_event_get_device_id(event_ptr))
+        return rv
     }
 
     /// Retrieves the type of the device for `event`
-    func getDeviceType() -> ClutterInputDeviceType {
-        let rv = clutter_event_get_device_type(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getDeviceType() -> ClutterInputDeviceType {
+        let rv = clutter_event_get_device_type(event_ptr)
+        return rv
     }
 
     /// Retrieves the distance between two events, a `source` and a `target`.
-    func getDistance(target: EventProtocol) -> Double {
-        let rv: Float = cast(clutter_event_get_distance(cast(event_ptr), cast(target.ptr)))
-        return cast(rv)
+    @inlinable func getDistance<EventT: EventProtocol>(target: EventT) -> CFloat {
+        let rv = clutter_event_get_distance(event_ptr, target.event_ptr)
+        return rv
     }
 
     /// Retrieves the `ClutterEventSequence` of `event`.
-    func getEventSequence() -> UnsafeMutablePointer<ClutterEventSequence>! {
-        let rv: UnsafeMutablePointer<ClutterEventSequence>! = cast(clutter_event_get_event_sequence(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getEventSequence() -> EventSequenceRef! {
+        let rv = EventSequenceRef(gconstpointer: gconstpointer(clutter_event_get_event_sequence(event_ptr)))
+        return rv
     }
 
     /// Retrieves the `ClutterEventFlags` of `event`
-    func getFlags() -> ClutterEventFlags {
-        let rv = clutter_event_get_flags(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getFlags() -> EventFlags {
+        let rv = EventFlags(clutter_event_get_flags(event_ptr))
+        return rv
     }
 
     /// Returns the gesture motion deltas relative to the current pointer
     /// position.
-    func getGestureMotionDelta(dx: UnsafeMutablePointer<gdouble>, dy: UnsafeMutablePointer<gdouble>) {
-        clutter_event_get_gesture_motion_delta(cast(event_ptr), cast(dx), cast(dy))
+    @inlinable func getGestureMotionDelta(dx: UnsafeMutablePointer<gdouble>! = nil, dy: UnsafeMutablePointer<gdouble>! = nil) {
+        clutter_event_get_gesture_motion_delta(event_ptr, dx, dy)
     
     }
 
     /// Returns the phase of the event, See `ClutterTouchpadGesturePhase`.
-    func getGesturePhase() -> ClutterTouchpadGesturePhase {
-        let rv = clutter_event_get_gesture_phase(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getGesturePhase() -> ClutterTouchpadGesturePhase {
+        let rv = clutter_event_get_gesture_phase(event_ptr)
+        return rv
     }
 
     /// Returns the angle delta reported by this specific event.
-    func getGesturePinchAngleDelta() -> Double {
-        let rv: Double = cast(clutter_event_get_gesture_pinch_angle_delta(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getGesturePinchAngleDelta() -> Double {
+        let rv = Double(clutter_event_get_gesture_pinch_angle_delta(event_ptr))
+        return rv
     }
 
     /// Returns the current scale as reported by `event`, 1.0 being the original
     /// distance at the time the corresponding event with phase
     /// `CLUTTER_TOUCHPAD_GESTURE_PHASE_BEGIN` is received.
     /// is received.
-    func getGesturePinchScale() -> Double {
-        let rv: Double = cast(clutter_event_get_gesture_pinch_scale(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getGesturePinchScale() -> Double {
+        let rv = Double(clutter_event_get_gesture_pinch_scale(event_ptr))
+        return rv
     }
 
     /// Returns the number of fingers that is triggering the touchpad gesture.
-    func getGestureSwipeFingerCount() -> Int {
-        let rv: Int = cast(clutter_event_get_gesture_swipe_finger_count(cast(event_ptr)))
-        return Int(rv)
+    @inlinable func getGestureSwipeFingerCount() -> Int {
+        let rv = Int(clutter_event_get_gesture_swipe_finger_count(event_ptr))
+        return rv
     }
 
     /// Retrieves the keycode of the key that caused `event`
-    func getKeyCode() -> UInt16 {
-        let rv = clutter_event_get_key_code(cast(event_ptr))
-        return UInt16(rv)
+    @inlinable func getKeyCode() -> guint16 {
+        let rv = clutter_event_get_key_code(event_ptr)
+        return rv
     }
 
     /// Retrieves the key symbol of `event`
-    func getKeySymbol() -> Int {
-        let rv: Int = cast(clutter_event_get_key_symbol(cast(event_ptr)))
-        return Int(rv)
+    @inlinable func getKeySymbol() -> Int {
+        let rv = Int(clutter_event_get_key_symbol(event_ptr))
+        return rv
     }
 
     /// Retrieves the unicode value for the key that caused `keyev`.
-    func getKeyUnicode() -> gunichar {
-        let rv = clutter_event_get_key_unicode(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getKeyUnicode() -> gunichar {
+        let rv = clutter_event_get_key_unicode(event_ptr)
+        return rv
     }
 
     /// Retrieves the event coordinates as a `ClutterPoint`.
-    func get(position: PointProtocol) {
-        clutter_event_get_position(cast(event_ptr), cast(position.ptr))
+    @inlinable func get<PointT: PointProtocol>(position: PointT) {
+        clutter_event_get_position(event_ptr, position.point_ptr)
     
     }
 
     /// Retrieves the related actor of a crossing event.
-    func getRelated() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_event_get_related(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getRelated() -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_event_get_related(event_ptr)))
+        return rv
     }
 
     /// Retrieves the precise scrolling information of `event`.
     /// 
     /// The `event` has to have a `ClutterScrollEvent.direction` value
     /// of `CLUTTER_SCROLL_SMOOTH`.
-    func getScrollDelta(dx: UnsafeMutablePointer<gdouble>, dy: UnsafeMutablePointer<gdouble>) {
-        clutter_event_get_scroll_delta(cast(event_ptr), cast(dx), cast(dy))
+    @inlinable func getScrollDelta(dx: UnsafeMutablePointer<gdouble>!, dy: UnsafeMutablePointer<gdouble>!) {
+        clutter_event_get_scroll_delta(event_ptr, dx, dy)
     
     }
 
     /// Retrieves the direction of the scrolling of `event`
-    func getScrollDirection() -> ClutterScrollDirection {
-        let rv = clutter_event_get_scroll_direction(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getScrollDirection() -> ClutterScrollDirection {
+        let rv = clutter_event_get_scroll_direction(event_ptr)
+        return rv
     }
 
     /// Returns the `ClutterScrollFinishFlags` of an scroll event. Those
     /// can be used to determine whether post-scroll effects like kinetic
     /// scrolling should be applied.
-    func getScrollFinishFlags() -> ClutterScrollFinishFlags {
-        let rv = clutter_event_get_scroll_finish_flags(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getScrollFinishFlags() -> ScrollFinishFlags {
+        let rv = ScrollFinishFlags(clutter_event_get_scroll_finish_flags(event_ptr))
+        return rv
     }
 
     /// Returns the `ClutterScrollSource` that applies to an scroll event.
-    func getScrollSource() -> ClutterScrollSource {
-        let rv = clutter_event_get_scroll_source(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getScrollSource() -> ClutterScrollSource {
+        let rv = clutter_event_get_scroll_source(event_ptr)
+        return rv
     }
 
     /// Retrieves the source `ClutterActor` the event originated from, or
     /// NULL if the event has no source.
-    func getSource() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_event_get_source(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getSource() -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_event_get_source(event_ptr)))
+        return rv
     }
 
     /// Retrieves the hardware device that originated the event.
@@ -422,50 +500,50 @@ public extension EventProtocol {
     /// 
     /// If no hardware device originated this event, this function will
     /// return the same device as `clutter_event_get_device()`.
-    func getSourceDevice() -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_event_get_source_device(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getSourceDevice() -> InputDeviceRef! {
+        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_event_get_source_device(event_ptr)))
+        return rv
     }
 
     /// Retrieves the source `ClutterStage` the event originated for, or
     /// `nil` if the event has no stage.
-    func getStage() -> UnsafeMutablePointer<ClutterStage>! {
-        let rv: UnsafeMutablePointer<ClutterStage>! = cast(clutter_event_get_stage(cast(event_ptr)))
-        return cast(rv)
+    @inlinable func getStage() -> StageRef! {
+        let rv = StageRef(gconstpointer: gconstpointer(clutter_event_get_stage(event_ptr)))
+        return rv
     }
 
     /// Retrieves the modifier state of the event. In case the window system
     /// supports reporting latched and locked modifiers, this function returns
     /// the effective state.
-    func getState() -> ClutterModifierType {
-        let rv = clutter_event_get_state(cast(event_ptr))
-        return cast(rv)
+    @inlinable func getState() -> ModifierType {
+        let rv = ModifierType(clutter_event_get_state(event_ptr))
+        return rv
     }
 
     /// Retrieves the decomposition of the keyboard state into button, base,
     /// latched, locked and effective. This can be used to transmit to other
     /// applications, for example when implementing a wayland compositor.
-    func getStateFull(buttonState button_state: UnsafeMutablePointer<ClutterModifierType>, baseState base_state: UnsafeMutablePointer<ClutterModifierType>, latchedState latched_state: UnsafeMutablePointer<ClutterModifierType>, lockedState locked_state: UnsafeMutablePointer<ClutterModifierType>, effectiveState effective_state: UnsafeMutablePointer<ClutterModifierType>) {
-        clutter_event_get_state_full(cast(event_ptr), cast(button_state), cast(base_state), cast(latched_state), cast(locked_state), cast(effective_state))
+    @inlinable func getStateFull(buttonState button_state: UnsafeMutablePointer<ClutterModifierType>! = nil, baseState base_state: UnsafeMutablePointer<ClutterModifierType>! = nil, latchedState latched_state: UnsafeMutablePointer<ClutterModifierType>! = nil, lockedState locked_state: UnsafeMutablePointer<ClutterModifierType>! = nil, effectiveState effective_state: UnsafeMutablePointer<ClutterModifierType>! = nil) {
+        clutter_event_get_state_full(event_ptr, button_state, base_state, latched_state, locked_state, effective_state)
     
     }
 
     /// Retrieves the time of the event.
-    func getTime() -> UInt32 {
-        let rv = clutter_event_get_time(cast(event_ptr))
-        return UInt32(rv)
+    @inlinable func getTime() -> guint32 {
+        let rv = clutter_event_get_time(event_ptr)
+        return rv
     }
 
     /// Checks whether `event` has the Control modifier mask set.
-    func hasControlModifier() -> Bool {
-        let rv = clutter_event_has_control_modifier(cast(event_ptr))
-        return Bool(rv != 0)
+    @inlinable func hasControlModifier() -> Bool {
+        let rv = ((clutter_event_has_control_modifier(event_ptr)) != 0)
+        return rv
     }
 
     /// Checks whether `event` has the Shift modifier mask set.
-    func hasShiftModifier() -> Bool {
-        let rv = clutter_event_has_shift_modifier(cast(event_ptr))
-        return Bool(rv != 0)
+    @inlinable func hasShiftModifier() -> Bool {
+        let rv = ((clutter_event_has_shift_modifier(event_ptr)) != 0)
+        return rv
     }
 
     /// Puts a copy of the event on the back of the event queue. The event will
@@ -473,107 +551,107 @@ public extension EventProtocol {
     /// event signals will be emitted for this source and capture/bubbling for
     /// its ancestors. If the source is not set it will be generated by picking
     /// or use the actor that currently has keyboard focus
-    func put() {
-        clutter_event_put(cast(event_ptr))
+    @inlinable func put() {
+        clutter_event_put(event_ptr)
     
     }
 
     /// Sets the button number of `event`
-    func set(button: UInt32) {
-        clutter_event_set_button(cast(event_ptr), guint32(button))
+    @inlinable func set(button: guint32) {
+        clutter_event_set_button(event_ptr, button)
     
     }
 
     /// Sets the coordinates of the `event`.
-    func setCoords(x x_: gfloat, y y_: gfloat) {
-        clutter_event_set_coords(cast(event_ptr), x_, y_)
+    @inlinable func setCoords(x: Double, y: Double) {
+        clutter_event_set_coords(event_ptr, gfloat(x), gfloat(y))
     
     }
 
     /// Sets the device for `event`.
-    func set(device: InputDeviceProtocol) {
-        clutter_event_set_device(cast(event_ptr), cast(device.ptr))
+    @inlinable func set<InputDeviceT: InputDeviceProtocol>(device: InputDeviceT? = nil) {
+        clutter_event_set_device(event_ptr, device?.input_device_ptr)
     
     }
 
     /// Sets the `ClutterEventFlags` of `event`
-    func set(flags: EventFlags) {
-        clutter_event_set_flags(cast(event_ptr), flags.value)
+    @inlinable func set(flags: EventFlags) {
+        clutter_event_set_flags(event_ptr, flags.value)
     
     }
 
     /// Sets the keycode of the `event`.
-    func set(keyCode key_code: UInt16) {
-        clutter_event_set_key_code(cast(event_ptr), guint16(key_code))
+    @inlinable func set(keyCode key_code: guint16) {
+        clutter_event_set_key_code(event_ptr, key_code)
     
     }
 
     /// Sets the key symbol of `event`.
-    func setKeySymbol(keySym key_sym: CUnsignedInt) {
-        clutter_event_set_key_symbol(cast(event_ptr), guint(key_sym))
+    @inlinable func setKeySymbol(keySym key_sym: Int) {
+        clutter_event_set_key_symbol(event_ptr, guint(key_sym))
     
     }
 
     /// Sets the Unicode value of `event`.
-    func set(keyUnicode key_unicode: gunichar) {
-        clutter_event_set_key_unicode(cast(event_ptr), key_unicode)
+    @inlinable func set(keyUnicode key_unicode: gunichar) {
+        clutter_event_set_key_unicode(event_ptr, key_unicode)
     
     }
 
     /// Sets the related actor of a crossing event
-    func setRelated(actor: ActorProtocol) {
-        clutter_event_set_related(cast(event_ptr), cast(actor.ptr))
+    @inlinable func setRelated<ActorT: ActorProtocol>(actor: ActorT? = nil) {
+        clutter_event_set_related(event_ptr, actor?.actor_ptr)
     
     }
 
     /// Sets the precise scrolling information of `event`.
-    func setScrollDelta(dx: gdouble, dy: gdouble) {
-        clutter_event_set_scroll_delta(cast(event_ptr), dx, dy)
+    @inlinable func setScrollDelta(dx: Double, dy: Double) {
+        clutter_event_set_scroll_delta(event_ptr, gdouble(dx), gdouble(dy))
     
     }
 
     /// Sets the direction of the scrolling of `event`
-    func setScroll(direction: ScrollDirection) {
-        clutter_event_set_scroll_direction(cast(event_ptr), direction)
+    @inlinable func setScroll(direction: ClutterScrollDirection) {
+        clutter_event_set_scroll_direction(event_ptr, direction)
     
     }
 
     /// Sets the source `ClutterActor` of `event`.
-    func setSource(actor: ActorProtocol) {
-        clutter_event_set_source(cast(event_ptr), cast(actor.ptr))
+    @inlinable func setSource<ActorT: ActorProtocol>(actor: ActorT? = nil) {
+        clutter_event_set_source(event_ptr, actor?.actor_ptr)
     
     }
 
     /// Sets the source `ClutterInputDevice` for `event`.
     /// 
     /// The `ClutterEvent` must have been created using `clutter_event_new()`.
-    func setSource(device: InputDeviceProtocol) {
-        clutter_event_set_source_device(cast(event_ptr), cast(device.ptr))
+    @inlinable func setSource<InputDeviceT: InputDeviceProtocol>(device: InputDeviceT? = nil) {
+        clutter_event_set_source_device(event_ptr, device?.input_device_ptr)
     
     }
 
     /// Sets the source `ClutterStage` of the event.
-    func set(stage: StageProtocol) {
-        clutter_event_set_stage(cast(event_ptr), cast(stage.ptr))
+    @inlinable func set<StageT: StageProtocol>(stage: StageT? = nil) {
+        clutter_event_set_stage(event_ptr, stage?.stage_ptr)
     
     }
 
     /// Sets the modifier state of the event.
-    func set(state: ModifierType) {
-        clutter_event_set_state(cast(event_ptr), state.value)
+    @inlinable func set(state: ModifierType) {
+        clutter_event_set_state(event_ptr, state.value)
     
     }
 
     /// Sets the time of the event.
-    func setTime(time_: UInt32) {
-        clutter_event_set_time(cast(event_ptr), guint32(time_))
+    @inlinable func setTime(time_: guint32) {
+        clutter_event_set_time(event_ptr, time_)
     
     }
 
     /// Retrieves the type of the event.
-    func type() -> ClutterEventType {
-        let rv = clutter_event_type(cast(event_ptr))
-        return cast(rv)
+    @inlinable func type() -> ClutterEventType {
+        let rv = clutter_event_type(event_ptr)
+        return rv
     }
 
     /// Processes an event.
@@ -583,29 +661,29 @@ public extension EventProtocol {
     /// 
     /// This function is only useful when embedding Clutter inside another
     /// toolkit, and it should never be called by applications.
-    func doEvent() {
-        clutter_do_event(cast(event_ptr))
+    @inlinable func doEvent() {
+        clutter_do_event(event_ptr)
     
     }
     /// Retrieves the button number of `event`
-    var button: UInt32 {
+    @inlinable var button: guint32 {
         /// Retrieves the button number of `event`
         get {
-            let rv = clutter_event_get_button(cast(event_ptr))
-            return UInt32(rv)
+            let rv = clutter_event_get_button(event_ptr)
+            return rv
         }
         /// Sets the button number of `event`
         nonmutating set {
-            clutter_event_set_button(cast(event_ptr), guint32(newValue))
+            clutter_event_set_button(event_ptr, newValue)
         }
     }
 
     /// Retrieves the number of clicks of `event`
-    var clickCount: Int {
+    @inlinable var clickCount: Int {
         /// Retrieves the number of clicks of `event`
         get {
-            let rv: Int = cast(clutter_event_get_click_count(cast(event_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_event_get_click_count(event_ptr))
+            return rv
         }
     }
 
@@ -615,7 +693,7 @@ public extension EventProtocol {
     /// 
     /// The `ClutterInputDevice` structure is completely opaque and should
     /// be cast to the platform-specific implementation.
-    var device: UnsafeMutablePointer<ClutterInputDevice>! {
+    @inlinable var device: InputDeviceRef! {
         /// Retrieves the `ClutterInputDevice` for the event.
         /// If you want the physical device the event originated from, use
         /// `clutter_event_get_source_device()`.
@@ -623,70 +701,70 @@ public extension EventProtocol {
         /// The `ClutterInputDevice` structure is completely opaque and should
         /// be cast to the platform-specific implementation.
         get {
-            let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_event_get_device(cast(event_ptr)))
-            return cast(rv)
+            let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_event_get_device(event_ptr)))
+            return rv
         }
         /// Sets the device for `event`.
         nonmutating set {
-            clutter_event_set_device(cast(event_ptr), cast(newValue))
+            clutter_event_set_device(event_ptr, UnsafeMutablePointer<ClutterInputDevice>(newValue?.input_device_ptr))
         }
     }
 
     /// Retrieves the events device id if set.
-    var deviceId: Int {
+    @inlinable var deviceId: Int {
         /// Retrieves the events device id if set.
         get {
-            let rv: Int = cast(clutter_event_get_device_id(cast(event_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_event_get_device_id(event_ptr))
+            return rv
         }
     }
 
     /// Retrieves the type of the device for `event`
-    var deviceType: ClutterInputDeviceType {
+    @inlinable var deviceType: ClutterInputDeviceType {
         /// Retrieves the type of the device for `event`
         get {
-            let rv = clutter_event_get_device_type(cast(event_ptr))
-            return cast(rv)
+            let rv = clutter_event_get_device_type(event_ptr)
+            return rv
         }
     }
 
     /// Retrieves the `ClutterEventSequence` of `event`.
-    var eventSequence: UnsafeMutablePointer<ClutterEventSequence>! {
+    @inlinable var eventSequence: EventSequenceRef! {
         /// Retrieves the `ClutterEventSequence` of `event`.
         get {
-            let rv: UnsafeMutablePointer<ClutterEventSequence>! = cast(clutter_event_get_event_sequence(cast(event_ptr)))
-            return cast(rv)
+            let rv = EventSequenceRef(gconstpointer: gconstpointer(clutter_event_get_event_sequence(event_ptr)))
+            return rv
         }
     }
 
     /// Retrieves the `ClutterEventFlags` of `event`
-    var flags: ClutterEventFlags {
+    @inlinable var flags: EventFlags {
         /// Retrieves the `ClutterEventFlags` of `event`
         get {
-            let rv = clutter_event_get_flags(cast(event_ptr))
-            return cast(rv)
+            let rv = EventFlags(clutter_event_get_flags(event_ptr))
+            return rv
         }
         /// Sets the `ClutterEventFlags` of `event`
         nonmutating set {
-            clutter_event_set_flags(cast(event_ptr), cast(newValue))
+            clutter_event_set_flags(event_ptr, newValue.value)
         }
     }
 
     /// Returns the phase of the event, See `ClutterTouchpadGesturePhase`.
-    var gesturePhase: ClutterTouchpadGesturePhase {
+    @inlinable var gesturePhase: ClutterTouchpadGesturePhase {
         /// Returns the phase of the event, See `ClutterTouchpadGesturePhase`.
         get {
-            let rv = clutter_event_get_gesture_phase(cast(event_ptr))
-            return cast(rv)
+            let rv = clutter_event_get_gesture_phase(event_ptr)
+            return rv
         }
     }
 
     /// Returns the angle delta reported by this specific event.
-    var gesturePinchAngleDelta: Double {
+    @inlinable var gesturePinchAngleDelta: Double {
         /// Returns the angle delta reported by this specific event.
         get {
-            let rv: Double = cast(clutter_event_get_gesture_pinch_angle_delta(cast(event_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_event_get_gesture_pinch_angle_delta(event_ptr))
+            return rv
         }
     }
 
@@ -694,138 +772,138 @@ public extension EventProtocol {
     /// distance at the time the corresponding event with phase
     /// `CLUTTER_TOUCHPAD_GESTURE_PHASE_BEGIN` is received.
     /// is received.
-    var gesturePinchScale: Double {
+    @inlinable var gesturePinchScale: Double {
         /// Returns the current scale as reported by `event`, 1.0 being the original
         /// distance at the time the corresponding event with phase
         /// `CLUTTER_TOUCHPAD_GESTURE_PHASE_BEGIN` is received.
         /// is received.
         get {
-            let rv: Double = cast(clutter_event_get_gesture_pinch_scale(cast(event_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_event_get_gesture_pinch_scale(event_ptr))
+            return rv
         }
     }
 
     /// Returns the number of fingers that is triggering the touchpad gesture.
-    var gestureSwipeFingerCount: Int {
+    @inlinable var gestureSwipeFingerCount: Int {
         /// Returns the number of fingers that is triggering the touchpad gesture.
         get {
-            let rv: Int = cast(clutter_event_get_gesture_swipe_finger_count(cast(event_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_event_get_gesture_swipe_finger_count(event_ptr))
+            return rv
         }
     }
 
     /// Checks whether a pointer `event` has been generated by the windowing
     /// system. The returned value can be used to distinguish between events
     /// synthesized by the windowing system itself (as opposed by Clutter).
-    var isPointerEmulated: Bool {
+    @inlinable var isPointerEmulated: Bool {
         /// Checks whether a pointer `event` has been generated by the windowing
         /// system. The returned value can be used to distinguish between events
         /// synthesized by the windowing system itself (as opposed by Clutter).
         get {
-            let rv = clutter_event_is_pointer_emulated(cast(event_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_event_is_pointer_emulated(event_ptr)) != 0)
+            return rv
         }
     }
 
     /// Retrieves the keycode of the key that caused `event`
-    var keyCode: UInt16 {
+    @inlinable var keyCode: guint16 {
         /// Retrieves the keycode of the key that caused `event`
         get {
-            let rv = clutter_event_get_key_code(cast(event_ptr))
-            return UInt16(rv)
+            let rv = clutter_event_get_key_code(event_ptr)
+            return rv
         }
         /// Sets the keycode of the `event`.
         nonmutating set {
-            clutter_event_set_key_code(cast(event_ptr), guint16(newValue))
+            clutter_event_set_key_code(event_ptr, newValue)
         }
     }
 
     /// Retrieves the key symbol of `event`
-    var keySymbol: Int {
+    @inlinable var keySymbol: Int {
         /// Retrieves the key symbol of `event`
         get {
-            let rv: Int = cast(clutter_event_get_key_symbol(cast(event_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_event_get_key_symbol(event_ptr))
+            return rv
         }
         /// Sets the key symbol of `event`.
         nonmutating set {
-            clutter_event_set_key_symbol(cast(event_ptr), guint(newValue))
+            clutter_event_set_key_symbol(event_ptr, guint(newValue))
         }
     }
 
     /// Retrieves the unicode value for the key that caused `keyev`.
-    var keyUnicode: gunichar {
+    @inlinable var keyUnicode: gunichar {
         /// Retrieves the unicode value for the key that caused `keyev`.
         get {
-            let rv = clutter_event_get_key_unicode(cast(event_ptr))
-            return cast(rv)
+            let rv = clutter_event_get_key_unicode(event_ptr)
+            return rv
         }
         /// Sets the Unicode value of `event`.
         nonmutating set {
-            clutter_event_set_key_unicode(cast(event_ptr), cast(newValue))
+            clutter_event_set_key_unicode(event_ptr, newValue)
         }
     }
 
     /// Retrieves the related actor of a crossing event.
-    var related: UnsafeMutablePointer<ClutterActor>! {
+    @inlinable var related: ActorRef! {
         /// Retrieves the related actor of a crossing event.
         get {
-            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_event_get_related(cast(event_ptr)))
-            return cast(rv)
+            let rv = ActorRef(gconstpointer: gconstpointer(clutter_event_get_related(event_ptr)))
+            return rv
         }
         /// Sets the related actor of a crossing event
         nonmutating set {
-            clutter_event_set_related(cast(event_ptr), cast(newValue))
+            clutter_event_set_related(event_ptr, UnsafeMutablePointer<ClutterActor>(newValue?.actor_ptr))
         }
     }
 
     /// Retrieves the direction of the scrolling of `event`
-    var scrollDirection: ClutterScrollDirection {
+    @inlinable var scrollDirection: ClutterScrollDirection {
         /// Retrieves the direction of the scrolling of `event`
         get {
-            let rv = clutter_event_get_scroll_direction(cast(event_ptr))
-            return cast(rv)
+            let rv = clutter_event_get_scroll_direction(event_ptr)
+            return rv
         }
         /// Sets the direction of the scrolling of `event`
         nonmutating set {
-            clutter_event_set_scroll_direction(cast(event_ptr), cast(newValue))
+            clutter_event_set_scroll_direction(event_ptr, newValue)
         }
     }
 
     /// Returns the `ClutterScrollFinishFlags` of an scroll event. Those
     /// can be used to determine whether post-scroll effects like kinetic
     /// scrolling should be applied.
-    var scrollFinishFlags: ClutterScrollFinishFlags {
+    @inlinable var scrollFinishFlags: ScrollFinishFlags {
         /// Returns the `ClutterScrollFinishFlags` of an scroll event. Those
         /// can be used to determine whether post-scroll effects like kinetic
         /// scrolling should be applied.
         get {
-            let rv = clutter_event_get_scroll_finish_flags(cast(event_ptr))
-            return cast(rv)
+            let rv = ScrollFinishFlags(clutter_event_get_scroll_finish_flags(event_ptr))
+            return rv
         }
     }
 
     /// Returns the `ClutterScrollSource` that applies to an scroll event.
-    var scrollSource: ClutterScrollSource {
+    @inlinable var scrollSource: ClutterScrollSource {
         /// Returns the `ClutterScrollSource` that applies to an scroll event.
         get {
-            let rv = clutter_event_get_scroll_source(cast(event_ptr))
-            return cast(rv)
+            let rv = clutter_event_get_scroll_source(event_ptr)
+            return rv
         }
     }
 
     /// Retrieves the source `ClutterActor` the event originated from, or
     /// NULL if the event has no source.
-    var source: UnsafeMutablePointer<ClutterActor>! {
+    @inlinable var source: ActorRef! {
         /// Retrieves the source `ClutterActor` the event originated from, or
         /// NULL if the event has no source.
         get {
-            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_event_get_source(cast(event_ptr)))
-            return cast(rv)
+            let rv = ActorRef(gconstpointer: gconstpointer(clutter_event_get_source(event_ptr)))
+            return rv
         }
         /// Sets the source `ClutterActor` of `event`.
         nonmutating set {
-            clutter_event_set_source(cast(event_ptr), cast(newValue))
+            clutter_event_set_source(event_ptr, UnsafeMutablePointer<ClutterActor>(newValue?.actor_ptr))
         }
     }
 
@@ -835,7 +913,7 @@ public extension EventProtocol {
     /// 
     /// If no hardware device originated this event, this function will
     /// return the same device as `clutter_event_get_device()`.
-    var sourceDevice: UnsafeMutablePointer<ClutterInputDevice>! {
+    @inlinable var sourceDevice: InputDeviceRef! {
         /// Retrieves the hardware device that originated the event.
         /// 
         /// If you need the virtual device, use `clutter_event_get_device()`.
@@ -843,59 +921,59 @@ public extension EventProtocol {
         /// If no hardware device originated this event, this function will
         /// return the same device as `clutter_event_get_device()`.
         get {
-            let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_event_get_source_device(cast(event_ptr)))
-            return cast(rv)
+            let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_event_get_source_device(event_ptr)))
+            return rv
         }
         /// Sets the source `ClutterInputDevice` for `event`.
         /// 
         /// The `ClutterEvent` must have been created using `clutter_event_new()`.
         nonmutating set {
-            clutter_event_set_source_device(cast(event_ptr), cast(newValue))
+            clutter_event_set_source_device(event_ptr, UnsafeMutablePointer<ClutterInputDevice>(newValue?.input_device_ptr))
         }
     }
 
     /// Retrieves the source `ClutterStage` the event originated for, or
     /// `nil` if the event has no stage.
-    var stage: UnsafeMutablePointer<ClutterStage>! {
+    @inlinable var stage: StageRef! {
         /// Retrieves the source `ClutterStage` the event originated for, or
         /// `nil` if the event has no stage.
         get {
-            let rv: UnsafeMutablePointer<ClutterStage>! = cast(clutter_event_get_stage(cast(event_ptr)))
-            return cast(rv)
+            let rv = StageRef(gconstpointer: gconstpointer(clutter_event_get_stage(event_ptr)))
+            return rv
         }
         /// Sets the source `ClutterStage` of the event.
         nonmutating set {
-            clutter_event_set_stage(cast(event_ptr), cast(newValue))
+            clutter_event_set_stage(event_ptr, UnsafeMutablePointer<ClutterStage>(newValue?.stage_ptr))
         }
     }
 
     /// Retrieves the modifier state of the event. In case the window system
     /// supports reporting latched and locked modifiers, this function returns
     /// the effective state.
-    var state: ClutterModifierType {
+    @inlinable var state: ModifierType {
         /// Retrieves the modifier state of the event. In case the window system
         /// supports reporting latched and locked modifiers, this function returns
         /// the effective state.
         get {
-            let rv = clutter_event_get_state(cast(event_ptr))
-            return cast(rv)
+            let rv = ModifierType(clutter_event_get_state(event_ptr))
+            return rv
         }
         /// Sets the modifier state of the event.
         nonmutating set {
-            clutter_event_set_state(cast(event_ptr), cast(newValue))
+            clutter_event_set_state(event_ptr, newValue.value)
         }
     }
 
     /// Retrieves the time of the event.
-    var time: UInt32 {
+    @inlinable var time: guint32 {
         /// Retrieves the time of the event.
         get {
-            let rv = clutter_event_get_time(cast(event_ptr))
-            return UInt32(rv)
+            let rv = clutter_event_get_time(event_ptr)
+            return rv
         }
         /// Sets the time of the event.
         nonmutating set {
-            clutter_event_set_time(cast(event_ptr), guint32(newValue))
+            clutter_event_set_time(event_ptr, newValue)
         }
     }
 

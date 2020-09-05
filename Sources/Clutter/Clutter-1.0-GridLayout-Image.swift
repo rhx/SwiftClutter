@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -23,10 +24,11 @@ import Atk
 /// and should be accessed using the provided API
 public protocol GridLayoutProtocol: LayoutManagerProtocol {
         /// Untyped pointer to the underlying `ClutterGridLayout` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterGridLayout` instance.
-    var grid_layout_ptr: UnsafeMutablePointer<ClutterGridLayout> { get }
+    var grid_layout_ptr: UnsafeMutablePointer<ClutterGridLayout>! { get }
+
 }
 
 /// The `GridLayoutRef` type acts as a lightweight Swift reference to an underlying `ClutterGridLayout` instance.
@@ -38,53 +40,83 @@ public protocol GridLayoutProtocol: LayoutManagerProtocol {
 public struct GridLayoutRef: GridLayoutProtocol {
         /// Untyped pointer to the underlying `ClutterGridLayout` instance.
     /// For type-safe access, use the generated, typed pointer `grid_layout_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension GridLayoutRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterGridLayout>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterGridLayout>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterGridLayout>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterGridLayout>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterGridLayout>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `GridLayoutProtocol`
-    init<T: GridLayoutProtocol>(_ other: T) {
+    @inlinable init<T: GridLayoutProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterGridLayout`
-    init() {
-        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_grid_layout_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_grid_layout_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -99,84 +131,130 @@ open class GridLayout: LayoutManager, GridLayoutProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `GridLayout` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterGridLayout>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterGridLayout>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GridLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterGridLayout>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GridLayout` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GridLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GridLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterGridLayout>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GridLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterGridLayout>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterGridLayout`.
     /// i.e., ownership is transferred to the `GridLayout` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterGridLayout>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterGridLayout>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `GridLayoutProtocol`
     /// Will retain `ClutterGridLayout`.
     /// - Parameter other: an instance of a related type that implements `GridLayoutProtocol`
-    public init<T: GridLayoutProtocol>(gridLayout other: T) {
-        super.init(retaining: cast(other.grid_layout_ptr))
+    @inlinable public init<T: GridLayoutProtocol>(gridLayout other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterGridLayout`
-    public init() {
-        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_grid_layout_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = clutter_grid_layout_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -246,21 +324,21 @@ public extension GridLayoutProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GridLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GridLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(grid_layout_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -278,7 +356,7 @@ public extension GridLayoutProtocol {
     /// Get the value of a GridLayout property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: GridLayoutPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: GridLayoutPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -288,7 +366,7 @@ public extension GridLayoutProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: GridLayoutPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: GridLayoutPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -441,11 +519,11 @@ public extension GridLayoutProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: GridLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: GridLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(grid_layout_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -466,15 +544,15 @@ public extension GridLayoutProtocol {
 // MARK: GridLayout Class: GridLayoutProtocol extension (methods and fields)
 public extension GridLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterGridLayout` instance.
-    var grid_layout_ptr: UnsafeMutablePointer<ClutterGridLayout> { return ptr.assumingMemoryBound(to: ClutterGridLayout.self) }
+    @inlinable var grid_layout_ptr: UnsafeMutablePointer<ClutterGridLayout>! { return ptr?.assumingMemoryBound(to: ClutterGridLayout.self) }
 
     /// Adds a widget to the grid.
     /// 
     /// The position of `child` is determined by `left` and `top`. The
     /// number of 'cells' that `child` will occupy is determined by
     /// `width` and `height`.
-    func attach(child: ActorProtocol, left_: CInt, top: CInt, width: CInt, height: CInt) {
-        clutter_grid_layout_attach(cast(grid_layout_ptr), cast(child.ptr), gint(left_), gint(top), gint(width), gint(height))
+    @inlinable func attach<ActorT: ActorProtocol>(child: ActorT, `left`: Int, top: Int, width: Int, height: Int) {
+        clutter_grid_layout_attach(grid_layout_ptr, child.actor_ptr, gint(`left`), gint(top), gint(width), gint(height))
     
     }
 
@@ -487,46 +565,46 @@ public extension GridLayoutProtocol {
     /// 
     /// Attaching widgets labeled [1], [2], [3] with `sibling` == `nil` and
     /// `side` == `CLUTTER_GRID_POSITION_LEFT` yields a layout of [3](#2)(#1).
-    func attachNextTo(child: ActorProtocol, sibling: ActorProtocol, side: GridPosition, width: CInt, height: CInt) {
-        clutter_grid_layout_attach_next_to(cast(grid_layout_ptr), cast(child.ptr), cast(sibling.ptr), side, gint(width), gint(height))
+    @inlinable func attachNextTo<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT? = nil, side: ClutterGridPosition, width: Int, height: Int) {
+        clutter_grid_layout_attach_next_to(grid_layout_ptr, child.actor_ptr, sibling?.actor_ptr, side, gint(width), gint(height))
     
     }
 
     /// Gets the child of `layout` whose area covers the grid
     /// cell whose upper left corner is at `left`, `top`.
-    func getChildAt(left_: CInt, top: CInt) -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_grid_layout_get_child_at(cast(grid_layout_ptr), gint(left_), gint(top)))
-        return cast(rv)
+    @inlinable func getChildAt(`left`: Int, top: Int) -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_grid_layout_get_child_at(grid_layout_ptr, gint(`left`), gint(top))))
+        return rv
     }
 
     /// Returns whether all columns of `layout` have the same width.
-    func getColumnHomogeneous() -> Bool {
-        let rv = clutter_grid_layout_get_column_homogeneous(cast(grid_layout_ptr))
-        return Bool(rv != 0)
+    @inlinable func getColumnHomogeneous() -> Bool {
+        let rv = ((clutter_grid_layout_get_column_homogeneous(grid_layout_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the spacing set using `clutter_grid_layout_set_column_spacing()`
-    func getColumnSpacing() -> Int {
-        let rv: Int = cast(clutter_grid_layout_get_column_spacing(cast(grid_layout_ptr)))
-        return Int(rv)
+    @inlinable func getColumnSpacing() -> Int {
+        let rv = Int(clutter_grid_layout_get_column_spacing(grid_layout_ptr))
+        return rv
     }
 
     /// Retrieves the orientation of the `layout`.
-    func getOrientation() -> ClutterOrientation {
-        let rv = clutter_grid_layout_get_orientation(cast(grid_layout_ptr))
-        return cast(rv)
+    @inlinable func getOrientation() -> ClutterOrientation {
+        let rv = clutter_grid_layout_get_orientation(grid_layout_ptr)
+        return rv
     }
 
     /// Returns whether all rows of `layout` have the same height.
-    func getRowHomogeneous() -> Bool {
-        let rv = clutter_grid_layout_get_row_homogeneous(cast(grid_layout_ptr))
-        return Bool(rv != 0)
+    @inlinable func getRowHomogeneous() -> Bool {
+        let rv = ((clutter_grid_layout_get_row_homogeneous(grid_layout_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the spacing set using `clutter_grid_layout_set_row_spacing()`
-    func getRowSpacing() -> Int {
-        let rv: Int = cast(clutter_grid_layout_get_row_spacing(cast(grid_layout_ptr)))
-        return Int(rv)
+    @inlinable func getRowSpacing() -> Int {
+        let rv = Int(clutter_grid_layout_get_row_spacing(grid_layout_ptr))
+        return rv
     }
 
     /// Inserts a column at the specified position.
@@ -534,8 +612,8 @@ public extension GridLayoutProtocol {
     /// Children which are attached at or to the right of this position
     /// are moved one column to the right. Children which span across this
     /// position are grown to span the new column.
-    func insertColumn(position: CInt) {
-        clutter_grid_layout_insert_column(cast(grid_layout_ptr), gint(position))
+    @inlinable func insertColumn(position: Int) {
+        clutter_grid_layout_insert_column(grid_layout_ptr, gint(position))
     
     }
 
@@ -546,8 +624,8 @@ public extension GridLayoutProtocol {
     /// `CLUTTER_GRID_POSITION_BOTTOM`, a row is inserted. If `side` is
     /// `CLUTTER_GRID_POSITION_LEFT` of `CLUTTER_GRID_POSITION_RIGHT`,
     /// a column is inserted.
-    func insertNextTo(sibling: ActorProtocol, side: GridPosition) {
-        clutter_grid_layout_insert_next_to(cast(grid_layout_ptr), cast(sibling.ptr), side)
+    @inlinable func insertNextTo<ActorT: ActorProtocol>(sibling: ActorT, side: ClutterGridPosition) {
+        clutter_grid_layout_insert_next_to(grid_layout_ptr, sibling.actor_ptr, side)
     
     }
 
@@ -556,20 +634,20 @@ public extension GridLayoutProtocol {
     /// Children which are attached at or below this position
     /// are moved one row down. Children which span across this
     /// position are grown to span the new row.
-    func insertRow(position: CInt) {
-        clutter_grid_layout_insert_row(cast(grid_layout_ptr), gint(position))
+    @inlinable func insertRow(position: Int) {
+        clutter_grid_layout_insert_row(grid_layout_ptr, gint(position))
     
     }
 
     /// Sets whether all columns of `layout` will have the same width.
-    func setColumn(homogeneous: Bool) {
-        clutter_grid_layout_set_column_homogeneous(cast(grid_layout_ptr), gboolean(homogeneous ? 1 : 0))
+    @inlinable func setColumn(homogeneous: Bool) {
+        clutter_grid_layout_set_column_homogeneous(grid_layout_ptr, gboolean((homogeneous) ? 1 : 0))
     
     }
 
     /// Sets the spacing between columns of `layout`
-    func setColumn(spacing: CUnsignedInt) {
-        clutter_grid_layout_set_column_spacing(cast(grid_layout_ptr), guint(spacing))
+    @inlinable func setColumn(spacing: Int) {
+        clutter_grid_layout_set_column_spacing(grid_layout_ptr, guint(spacing))
     
     }
 
@@ -579,54 +657,54 @@ public extension GridLayoutProtocol {
     /// children to the `ClutterActor` using it as a layout manager via
     /// `clutter_actor_add_child()`; changing this value will not have
     /// any effect on children that are already part of the layout.
-    func set(orientation: Orientation) {
-        clutter_grid_layout_set_orientation(cast(grid_layout_ptr), orientation)
+    @inlinable func set(orientation: ClutterOrientation) {
+        clutter_grid_layout_set_orientation(grid_layout_ptr, orientation)
     
     }
 
     /// Sets whether all rows of `layout` will have the same height.
-    func setRow(homogeneous: Bool) {
-        clutter_grid_layout_set_row_homogeneous(cast(grid_layout_ptr), gboolean(homogeneous ? 1 : 0))
+    @inlinable func setRow(homogeneous: Bool) {
+        clutter_grid_layout_set_row_homogeneous(grid_layout_ptr, gboolean((homogeneous) ? 1 : 0))
     
     }
 
     /// Sets the spacing between rows of `layout`
-    func setRow(spacing: CUnsignedInt) {
-        clutter_grid_layout_set_row_spacing(cast(grid_layout_ptr), guint(spacing))
+    @inlinable func setRow(spacing: Int) {
+        clutter_grid_layout_set_row_spacing(grid_layout_ptr, guint(spacing))
     
     }
     /// Returns whether all columns of `layout` have the same width.
-    var columnHomogeneous: Bool {
+    @inlinable var columnHomogeneous: Bool {
         /// Returns whether all columns of `layout` have the same width.
         get {
-            let rv = clutter_grid_layout_get_column_homogeneous(cast(grid_layout_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_grid_layout_get_column_homogeneous(grid_layout_ptr)) != 0)
+            return rv
         }
         /// Sets whether all columns of `layout` will have the same width.
         nonmutating set {
-            clutter_grid_layout_set_column_homogeneous(cast(grid_layout_ptr), gboolean(newValue ? 1 : 0))
+            clutter_grid_layout_set_column_homogeneous(grid_layout_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the spacing set using `clutter_grid_layout_set_column_spacing()`
-    var columnSpacing: Int {
+    @inlinable var columnSpacing: Int {
         /// Retrieves the spacing set using `clutter_grid_layout_set_column_spacing()`
         get {
-            let rv: Int = cast(clutter_grid_layout_get_column_spacing(cast(grid_layout_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_grid_layout_get_column_spacing(grid_layout_ptr))
+            return rv
         }
         /// Sets the spacing between columns of `layout`
         nonmutating set {
-            clutter_grid_layout_set_column_spacing(cast(grid_layout_ptr), guint(newValue))
+            clutter_grid_layout_set_column_spacing(grid_layout_ptr, guint(newValue))
         }
     }
 
     /// The orientation of the layout, either horizontal or vertical
-    var orientation: ClutterOrientation {
+    @inlinable var orientation: ClutterOrientation {
         /// Retrieves the orientation of the `layout`.
         get {
-            let rv = clutter_grid_layout_get_orientation(cast(grid_layout_ptr))
-            return cast(rv)
+            let rv = clutter_grid_layout_get_orientation(grid_layout_ptr)
+            return rv
         }
         /// Sets the orientation of the `layout`.
         /// 
@@ -635,33 +713,33 @@ public extension GridLayoutProtocol {
         /// `clutter_actor_add_child()`; changing this value will not have
         /// any effect on children that are already part of the layout.
         nonmutating set {
-            clutter_grid_layout_set_orientation(cast(grid_layout_ptr), cast(newValue))
+            clutter_grid_layout_set_orientation(grid_layout_ptr, newValue)
         }
     }
 
     /// Returns whether all rows of `layout` have the same height.
-    var rowHomogeneous: Bool {
+    @inlinable var rowHomogeneous: Bool {
         /// Returns whether all rows of `layout` have the same height.
         get {
-            let rv = clutter_grid_layout_get_row_homogeneous(cast(grid_layout_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_grid_layout_get_row_homogeneous(grid_layout_ptr)) != 0)
+            return rv
         }
         /// Sets whether all rows of `layout` will have the same height.
         nonmutating set {
-            clutter_grid_layout_set_row_homogeneous(cast(grid_layout_ptr), gboolean(newValue ? 1 : 0))
+            clutter_grid_layout_set_row_homogeneous(grid_layout_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the spacing set using `clutter_grid_layout_set_row_spacing()`
-    var rowSpacing: Int {
+    @inlinable var rowSpacing: Int {
         /// Retrieves the spacing set using `clutter_grid_layout_set_row_spacing()`
         get {
-            let rv: Int = cast(clutter_grid_layout_get_row_spacing(cast(grid_layout_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_grid_layout_get_row_spacing(grid_layout_ptr))
+            return rv
         }
         /// Sets the spacing between rows of `layout`
         nonmutating set {
-            clutter_grid_layout_set_row_spacing(cast(grid_layout_ptr), guint(newValue))
+            clutter_grid_layout_set_row_spacing(grid_layout_ptr, guint(newValue))
         }
     }
 
@@ -684,10 +762,11 @@ public extension GridLayoutProtocol {
 /// and should be accessed using the provided API
 public protocol GroupProtocol: ActorProtocol {
         /// Untyped pointer to the underlying `ClutterGroup` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterGroup` instance.
-    var group_ptr: UnsafeMutablePointer<ClutterGroup> { get }
+    var group_ptr: UnsafeMutablePointer<ClutterGroup>! { get }
+
 }
 
 /// The `GroupRef` type acts as a lightweight Swift reference to an underlying `ClutterGroup` instance.
@@ -699,46 +778,76 @@ public protocol GroupProtocol: ActorProtocol {
 public struct GroupRef: GroupProtocol {
         /// Untyped pointer to the underlying `ClutterGroup` instance.
     /// For type-safe access, use the generated, typed pointer `group_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension GroupRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterGroup>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterGroup>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterGroup>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterGroup>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `GroupProtocol`
-    init<T: GroupProtocol>(_ other: T) {
+    @inlinable init<T: GroupProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -746,9 +855,9 @@ public extension GroupRef {
     ///
     /// **new is deprecated:**
     /// Use clutter_actor_new() instead.
-    @available(*, deprecated) init() {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_group_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @available(*, deprecated) @inlinable init() {
+        let rv = clutter_group_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -763,77 +872,123 @@ open class Group: Actor, GroupProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Group` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterGroup>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterGroup>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Group` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterGroup>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Group` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Group` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Group` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Group` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterGroup>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterGroup`.
     /// i.e., ownership is transferred to the `Group` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterGroup>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterGroup>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `GroupProtocol`
     /// Will retain `ClutterGroup`.
     /// - Parameter other: an instance of a related type that implements `GroupProtocol`
-    public init<T: GroupProtocol>(group other: T) {
-        super.init(retaining: cast(other.group_ptr))
+    @inlinable public init<T: GroupProtocol>(group other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -841,9 +996,9 @@ open class Group: Actor, GroupProtocol {
     ///
     /// **new is deprecated:**
     /// Use clutter_actor_new() instead.
-    @available(*, deprecated) public override init() {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_group_new())
-        super.init(cast(rv))
+    @available(*, deprecated) @inlinable public override init() {
+        let rv = clutter_group_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -1386,21 +1541,21 @@ public extension GroupProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GroupPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GroupPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(group_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1418,7 +1573,7 @@ public extension GroupProtocol {
     /// Get the value of a Group property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: GroupPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: GroupPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1428,7 +1583,7 @@ public extension GroupProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: GroupPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: GroupPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2215,11 +2370,11 @@ public extension GroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: GroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: GroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2240,46 +2395,46 @@ public extension GroupProtocol {
 // MARK: Group Class: GroupProtocol extension (methods and fields)
 public extension GroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterGroup` instance.
-    var group_ptr: UnsafeMutablePointer<ClutterGroup> { return ptr.assumingMemoryBound(to: ClutterGroup.self) }
+    @inlinable var group_ptr: UnsafeMutablePointer<ClutterGroup>! { return ptr?.assumingMemoryBound(to: ClutterGroup.self) }
 
     /// Gets the number of actors held in the group.
     ///
     /// **get_n_children is deprecated:**
     /// Use clutter_actor_get_n_children() instead.
-    @available(*, deprecated) func getNChildren() -> Int {
-        let rv: Int = cast(clutter_group_get_n_children(cast(group_ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func getNChildren() -> Int {
+        let rv = Int(clutter_group_get_n_children(group_ptr))
+        return rv
     }
 
     /// Gets a groups child held at `index_` in stack.
     ///
     /// **get_nth_child is deprecated:**
     /// Use clutter_actor_get_child_at_index() instead.
-    @available(*, deprecated) func getNthChild(index_: CInt) -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_group_get_nth_child(cast(group_ptr), gint(index_)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getNthChild(index_: Int) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_group_get_nth_child(group_ptr, gint(index_)))) else { return nil }
+        return rv
     }
 
     /// Removes all children actors from the `ClutterGroup`.
     ///
     /// **remove_all is deprecated:**
     /// Use clutter_actor_remove_all_children() instead.
-    @available(*, deprecated) func removeAll() {
-        clutter_group_remove_all(cast(group_ptr))
+    @available(*, deprecated) @inlinable func removeAll() {
+        clutter_group_remove_all(group_ptr)
     
     }
     /// Gets the number of actors held in the group.
     ///
     /// **get_n_children is deprecated:**
     /// Use clutter_actor_get_n_children() instead.
-    var nChildren: Int {
+    @inlinable var nChildren: Int {
         /// Gets the number of actors held in the group.
         ///
         /// **get_n_children is deprecated:**
         /// Use clutter_actor_get_n_children() instead.
         @available(*, deprecated) get {
-            let rv: Int = cast(clutter_group_get_n_children(cast(group_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_group_get_n_children(group_ptr))
+            return rv
         }
     }
 
@@ -2303,10 +2458,11 @@ public extension GroupProtocol {
 /// API.
 public protocol ImageProtocol: GLibObject.ObjectProtocol, ContentProtocol {
         /// Untyped pointer to the underlying `ClutterImage` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterImage` instance.
-    var image_ptr: UnsafeMutablePointer<ClutterImage> { get }
+    var image_ptr: UnsafeMutablePointer<ClutterImage>! { get }
+
 }
 
 /// The `ImageRef` type acts as a lightweight Swift reference to an underlying `ClutterImage` instance.
@@ -2319,46 +2475,76 @@ public protocol ImageProtocol: GLibObject.ObjectProtocol, ContentProtocol {
 public struct ImageRef: ImageProtocol {
         /// Untyped pointer to the underlying `ClutterImage` instance.
     /// For type-safe access, use the generated, typed pointer `image_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ImageRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterImage>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterImage>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterImage>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterImage>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterImage>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ImageProtocol`
-    init<T: ImageProtocol>(_ other: T) {
+    @inlinable init<T: ImageProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2376,77 +2562,123 @@ open class Image: GLibObject.Object, ImageProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Image` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterImage>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterImage>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Image` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterImage>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Image` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Image` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Image` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterImage>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Image` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterImage>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterImage`.
     /// i.e., ownership is transferred to the `Image` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterImage>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterImage>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ImageProtocol`
     /// Will retain `ClutterImage`.
     /// - Parameter other: an instance of a related type that implements `ImageProtocol`
-    public init<T: ImageProtocol>(image other: T) {
-        super.init(retaining: cast(other.image_ptr))
+    @inlinable public init<T: ImageProtocol>(image other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -2491,11 +2723,11 @@ public extension ImageProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ImageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ImageSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(image_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2516,7 +2748,7 @@ public extension ImageProtocol {
 // MARK: Image Class: ImageProtocol extension (methods and fields)
 public extension ImageProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterImage` instance.
-    var image_ptr: UnsafeMutablePointer<ClutterImage> { return ptr.assumingMemoryBound(to: ClutterImage.self) }
+    @inlinable var image_ptr: UnsafeMutablePointer<ClutterImage>! { return ptr?.assumingMemoryBound(to: ClutterImage.self) }
 
     /// Sets the image data to be display by `image`, using `rect` to indicate
     /// the position and size of the image data to be set.
@@ -2532,11 +2764,11 @@ public extension ImageProtocol {
     /// return `false`.
     /// 
     /// The image data is copied in texture memory.
-    func setArea(data: UnsafePointer<UInt8>, pixelFormat pixel_format: Cogl.PixelFormat, rect: RectangleIntProtocol, rowStride row_stride: CUnsignedInt) throws -> Bool {
+    @inlinable func setArea<RectangleIntT: RectangleIntProtocol>(data: UnsafePointer<guint8>!, pixelFormat pixel_format: CoglPixelFormat, rect: RectangleIntT, rowStride row_stride: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_image_set_area(cast(image_ptr), cast(data), pixel_format, cast(rect.ptr), guint(row_stride), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_image_set_area(image_ptr, data, pixel_format, rect._ptr, guint(row_stride), &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the image data stored inside a `GBytes` to be displayed by `image`.
@@ -2548,11 +2780,11 @@ public extension ImageProtocol {
     /// 
     /// The image data contained inside the `GBytes` is copied in texture memory,
     /// and no additional reference is acquired on the `data`.
-    func setBytes(data: BytesProtocol, pixelFormat pixel_format: Cogl.PixelFormat, width: CUnsignedInt, height: CUnsignedInt, rowStride row_stride: CUnsignedInt) throws -> Bool {
+    @inlinable func setBytes<BytesT: BytesProtocol>(data: BytesT, pixelFormat pixel_format: CoglPixelFormat, width: Int, height: Int, rowStride row_stride: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_image_set_bytes(cast(image_ptr), cast(data.ptr), pixel_format, guint(width), guint(height), guint(row_stride), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_image_set_bytes(image_ptr, data.bytes_ptr, pixel_format, guint(width), guint(height), guint(row_stride), &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets the image data to be displayed by `image`.
@@ -2587,11 +2819,11 @@ public extension ImageProtocol {
     ///   g_object_unref (pixbuf);
     /// ```
     /// 
-    func set(data: UnsafePointer<UInt8>, pixelFormat pixel_format: Cogl.PixelFormat, width: CUnsignedInt, height: CUnsignedInt, rowStride row_stride: CUnsignedInt) throws -> Bool {
+    @inlinable func set(data: UnsafePointer<guint8>!, pixelFormat pixel_format: CoglPixelFormat, width: Int, height: Int, rowStride row_stride: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_image_set_data(cast(image_ptr), cast(data), pixel_format, guint(width), guint(height), guint(row_stride), &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_image_set_data(image_ptr, data, pixel_format, guint(width), guint(height), guint(row_stride), &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     // var parentInstance is unavailable because parent_instance is private

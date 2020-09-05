@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -23,10 +24,11 @@ import Atk
 /// it should be accessed using the provided API
 public protocol FixedLayoutProtocol: LayoutManagerProtocol {
         /// Untyped pointer to the underlying `ClutterFixedLayout` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterFixedLayout` instance.
-    var fixed_layout_ptr: UnsafeMutablePointer<ClutterFixedLayout> { get }
+    var fixed_layout_ptr: UnsafeMutablePointer<ClutterFixedLayout>! { get }
+
 }
 
 /// The `FixedLayoutRef` type acts as a lightweight Swift reference to an underlying `ClutterFixedLayout` instance.
@@ -38,53 +40,83 @@ public protocol FixedLayoutProtocol: LayoutManagerProtocol {
 public struct FixedLayoutRef: FixedLayoutProtocol {
         /// Untyped pointer to the underlying `ClutterFixedLayout` instance.
     /// For type-safe access, use the generated, typed pointer `fixed_layout_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FixedLayoutRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterFixedLayout>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterFixedLayout>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterFixedLayout>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterFixedLayout>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterFixedLayout>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FixedLayoutProtocol`
-    init<T: FixedLayoutProtocol>(_ other: T) {
+    @inlinable init<T: FixedLayoutProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterFixedLayout`
-    init() {
-        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_fixed_layout_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_fixed_layout_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -99,84 +131,130 @@ open class FixedLayout: LayoutManager, FixedLayoutProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FixedLayout` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterFixedLayout>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterFixedLayout>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FixedLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterFixedLayout>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FixedLayout` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FixedLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FixedLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterFixedLayout>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FixedLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterFixedLayout>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterFixedLayout`.
     /// i.e., ownership is transferred to the `FixedLayout` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterFixedLayout>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterFixedLayout>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `FixedLayoutProtocol`
     /// Will retain `ClutterFixedLayout`.
     /// - Parameter other: an instance of a related type that implements `FixedLayoutProtocol`
-    public init<T: FixedLayoutProtocol>(fixedLayout other: T) {
-        super.init(retaining: cast(other.fixed_layout_ptr))
+    @inlinable public init<T: FixedLayoutProtocol>(fixedLayout other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterFixedLayout`
-    public init() {
-        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_fixed_layout_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = clutter_fixed_layout_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -236,21 +314,21 @@ public extension FixedLayoutProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FixedLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FixedLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(fixed_layout_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -268,7 +346,7 @@ public extension FixedLayoutProtocol {
     /// Get the value of a FixedLayout property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: FixedLayoutPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: FixedLayoutPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -278,7 +356,7 @@ public extension FixedLayoutProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: FixedLayoutPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: FixedLayoutPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -421,11 +499,11 @@ public extension FixedLayoutProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FixedLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: FixedLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(fixed_layout_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -446,7 +524,7 @@ public extension FixedLayoutProtocol {
 // MARK: FixedLayout Class: FixedLayoutProtocol extension (methods and fields)
 public extension FixedLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFixedLayout` instance.
-    var fixed_layout_ptr: UnsafeMutablePointer<ClutterFixedLayout> { return ptr.assumingMemoryBound(to: ClutterFixedLayout.self) }
+    @inlinable var fixed_layout_ptr: UnsafeMutablePointer<ClutterFixedLayout>! { return ptr?.assumingMemoryBound(to: ClutterFixedLayout.self) }
 
 
     // var parentInstance is unavailable because parent_instance is private
@@ -466,10 +544,11 @@ public extension FixedLayoutProtocol {
 /// and should be accessed using the provided API
 public protocol FlowLayoutProtocol: LayoutManagerProtocol {
         /// Untyped pointer to the underlying `ClutterFlowLayout` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterFlowLayout` instance.
-    var flow_layout_ptr: UnsafeMutablePointer<ClutterFlowLayout> { get }
+    var flow_layout_ptr: UnsafeMutablePointer<ClutterFlowLayout>! { get }
+
 }
 
 /// The `FlowLayoutRef` type acts as a lightweight Swift reference to an underlying `ClutterFlowLayout` instance.
@@ -481,53 +560,83 @@ public protocol FlowLayoutProtocol: LayoutManagerProtocol {
 public struct FlowLayoutRef: FlowLayoutProtocol {
         /// Untyped pointer to the underlying `ClutterFlowLayout` instance.
     /// For type-safe access, use the generated, typed pointer `flow_layout_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension FlowLayoutRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterFlowLayout>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterFlowLayout>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterFlowLayout>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterFlowLayout>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterFlowLayout>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `FlowLayoutProtocol`
-    init<T: FlowLayoutProtocol>(_ other: T) {
+    @inlinable init<T: FlowLayoutProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterFlowLayout` with the given `orientation`
-    init( orientation: FlowOrientation) {
-        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_flow_layout_new(orientation))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( orientation: ClutterFlowOrientation) {
+        let rv = clutter_flow_layout_new(orientation)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -542,84 +651,130 @@ open class FlowLayout: LayoutManager, FlowLayoutProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `FlowLayout` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterFlowLayout>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterFlowLayout>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FlowLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterFlowLayout>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FlowLayout` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FlowLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FlowLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterFlowLayout>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `FlowLayout` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterFlowLayout>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterFlowLayout`.
     /// i.e., ownership is transferred to the `FlowLayout` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterFlowLayout>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterFlowLayout>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `FlowLayoutProtocol`
     /// Will retain `ClutterFlowLayout`.
     /// - Parameter other: an instance of a related type that implements `FlowLayoutProtocol`
-    public init<T: FlowLayoutProtocol>(flowLayout other: T) {
-        super.init(retaining: cast(other.flow_layout_ptr))
+    @inlinable public init<T: FlowLayoutProtocol>(flowLayout other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterFlowLayout` with the given `orientation`
-    public init( orientation: FlowOrientation) {
-        let rv: UnsafeMutablePointer<ClutterLayoutManager>! = cast(clutter_flow_layout_new(orientation))
-        super.init(cast(rv))
+    @inlinable public init( orientation: ClutterFlowOrientation) {
+        let rv = clutter_flow_layout_new(orientation)
+        super.init(gpointer: (rv))
     }
 
 
@@ -708,21 +863,21 @@ public extension FlowLayoutProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FlowLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: FlowLayoutPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(flow_layout_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -740,7 +895,7 @@ public extension FlowLayoutProtocol {
     /// Get the value of a FlowLayout property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: FlowLayoutPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: FlowLayoutPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -750,7 +905,7 @@ public extension FlowLayoutProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: FlowLayoutPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: FlowLayoutPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -922,11 +1077,11 @@ public extension FlowLayoutProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: FlowLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: FlowLayoutSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(flow_layout_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -947,66 +1102,66 @@ public extension FlowLayoutProtocol {
 // MARK: FlowLayout Class: FlowLayoutProtocol extension (methods and fields)
 public extension FlowLayoutProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFlowLayout` instance.
-    var flow_layout_ptr: UnsafeMutablePointer<ClutterFlowLayout> { return ptr.assumingMemoryBound(to: ClutterFlowLayout.self) }
+    @inlinable var flow_layout_ptr: UnsafeMutablePointer<ClutterFlowLayout>! { return ptr?.assumingMemoryBound(to: ClutterFlowLayout.self) }
 
     /// Retrieves the spacing between columns
-    func getColumnSpacing() -> Float {
-        let rv: Float = cast(clutter_flow_layout_get_column_spacing(cast(flow_layout_ptr)))
-        return cast(rv)
+    @inlinable func getColumnSpacing() -> Double {
+        let rv = Double(clutter_flow_layout_get_column_spacing(flow_layout_ptr))
+        return rv
     }
 
     /// Retrieves the minimum and maximum column widths
-    func getColumnWidth(minWidth min_width: UnsafeMutablePointer<gfloat>, maxWidth max_width: UnsafeMutablePointer<gfloat>) {
-        clutter_flow_layout_get_column_width(cast(flow_layout_ptr), cast(min_width), cast(max_width))
+    @inlinable func getColumnWidth(minWidth min_width: UnsafeMutablePointer<gfloat>!, maxWidth max_width: UnsafeMutablePointer<gfloat>!) {
+        clutter_flow_layout_get_column_width(flow_layout_ptr, min_width, max_width)
     
     }
 
     /// Retrieves whether the `layout` is homogeneous
-    func getHomogeneous() -> Bool {
-        let rv = clutter_flow_layout_get_homogeneous(cast(flow_layout_ptr))
-        return Bool(rv != 0)
+    @inlinable func getHomogeneous() -> Bool {
+        let rv = ((clutter_flow_layout_get_homogeneous(flow_layout_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the orientation of the `layout`
-    func getOrientation() -> ClutterFlowOrientation {
-        let rv = clutter_flow_layout_get_orientation(cast(flow_layout_ptr))
-        return cast(rv)
+    @inlinable func getOrientation() -> ClutterFlowOrientation {
+        let rv = clutter_flow_layout_get_orientation(flow_layout_ptr)
+        return rv
     }
 
     /// Retrieves the minimum and maximum row heights
-    func getRowHeight(minHeight min_height: UnsafeMutablePointer<gfloat>, maxHeight max_height: UnsafeMutablePointer<gfloat>) {
-        clutter_flow_layout_get_row_height(cast(flow_layout_ptr), cast(min_height), cast(max_height))
+    @inlinable func getRowHeight(minHeight min_height: UnsafeMutablePointer<gfloat>!, maxHeight max_height: UnsafeMutablePointer<gfloat>!) {
+        clutter_flow_layout_get_row_height(flow_layout_ptr, min_height, max_height)
     
     }
 
     /// Retrieves the spacing between rows
-    func getRowSpacing() -> Float {
-        let rv: Float = cast(clutter_flow_layout_get_row_spacing(cast(flow_layout_ptr)))
-        return cast(rv)
+    @inlinable func getRowSpacing() -> Double {
+        let rv = Double(clutter_flow_layout_get_row_spacing(flow_layout_ptr))
+        return rv
     }
 
     /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
-    func getSnapToGrid() -> Bool {
-        let rv = clutter_flow_layout_get_snap_to_grid(cast(flow_layout_ptr))
-        return Bool(rv != 0)
+    @inlinable func getSnapToGrid() -> Bool {
+        let rv = ((clutter_flow_layout_get_snap_to_grid(flow_layout_ptr)) != 0)
+        return rv
     }
 
     /// Sets the space between columns, in pixels
-    func setColumn(spacing: gfloat) {
-        clutter_flow_layout_set_column_spacing(cast(flow_layout_ptr), spacing)
+    @inlinable func setColumn(spacing: Double) {
+        clutter_flow_layout_set_column_spacing(flow_layout_ptr, gfloat(spacing))
     
     }
 
     /// Sets the minimum and maximum widths that a column can have
-    func setColumnWidth(minWidth min_width: gfloat, maxWidth max_width: gfloat) {
-        clutter_flow_layout_set_column_width(cast(flow_layout_ptr), min_width, max_width)
+    @inlinable func setColumnWidth(minWidth min_width: Double, maxWidth max_width: Double) {
+        clutter_flow_layout_set_column_width(flow_layout_ptr, gfloat(min_width), gfloat(max_width))
     
     }
 
     /// Sets whether the `layout` should allocate the same space for
     /// each child
-    func set(homogeneous: Bool) {
-        clutter_flow_layout_set_homogeneous(cast(flow_layout_ptr), gboolean(homogeneous ? 1 : 0))
+    @inlinable func set(homogeneous: Bool) {
+        clutter_flow_layout_set_homogeneous(flow_layout_ptr, gboolean((homogeneous) ? 1 : 0))
     
     }
 
@@ -1015,53 +1170,53 @@ public extension FlowLayoutProtocol {
     /// The orientation controls the direction used to allocate
     /// the children: either horizontally or vertically. The
     /// orientation also controls the direction of the overflowing
-    func set(orientation: FlowOrientation) {
-        clutter_flow_layout_set_orientation(cast(flow_layout_ptr), orientation)
+    @inlinable func set(orientation: ClutterFlowOrientation) {
+        clutter_flow_layout_set_orientation(flow_layout_ptr, orientation)
     
     }
 
     /// Sets the minimum and maximum heights that a row can have
-    func setRowHeight(minHeight min_height: gfloat, maxHeight max_height: gfloat) {
-        clutter_flow_layout_set_row_height(cast(flow_layout_ptr), min_height, max_height)
+    @inlinable func setRowHeight(minHeight min_height: Double, maxHeight max_height: Double) {
+        clutter_flow_layout_set_row_height(flow_layout_ptr, gfloat(min_height), gfloat(max_height))
     
     }
 
     /// Sets the spacing between rows, in pixels
-    func setRow(spacing: gfloat) {
-        clutter_flow_layout_set_row_spacing(cast(flow_layout_ptr), spacing)
+    @inlinable func setRow(spacing: Double) {
+        clutter_flow_layout_set_row_spacing(flow_layout_ptr, gfloat(spacing))
     
     }
 
     /// Whether the `layout` should place its children on a grid.
-    func set(snapToGrid snap_to_grid: Bool) {
-        clutter_flow_layout_set_snap_to_grid(cast(flow_layout_ptr), gboolean(snap_to_grid ? 1 : 0))
+    @inlinable func set(snapToGrid snap_to_grid: Bool) {
+        clutter_flow_layout_set_snap_to_grid(flow_layout_ptr, gboolean((snap_to_grid) ? 1 : 0))
     
     }
     /// Retrieves the spacing between columns
-    var columnSpacing: Float {
+    @inlinable var columnSpacing: Double {
         /// Retrieves the spacing between columns
         get {
-            let rv: Float = cast(clutter_flow_layout_get_column_spacing(cast(flow_layout_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_flow_layout_get_column_spacing(flow_layout_ptr))
+            return rv
         }
         /// Sets the space between columns, in pixels
         nonmutating set {
-            clutter_flow_layout_set_column_spacing(cast(flow_layout_ptr), cast(newValue))
+            clutter_flow_layout_set_column_spacing(flow_layout_ptr, gfloat(newValue))
         }
     }
 
     /// Whether each child inside the `ClutterFlowLayout` should receive
     /// the same allocation
-    var homogeneous: Bool {
+    @inlinable var homogeneous: Bool {
         /// Retrieves whether the `layout` is homogeneous
         get {
-            let rv = clutter_flow_layout_get_homogeneous(cast(flow_layout_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_flow_layout_get_homogeneous(flow_layout_ptr)) != 0)
+            return rv
         }
         /// Sets whether the `layout` should allocate the same space for
         /// each child
         nonmutating set {
-            clutter_flow_layout_set_homogeneous(cast(flow_layout_ptr), gboolean(newValue ? 1 : 0))
+            clutter_flow_layout_set_homogeneous(flow_layout_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -1069,11 +1224,11 @@ public extension FlowLayoutProtocol {
     /// of the layout will be layed out following the orientation.
     /// 
     /// This property also controls the overflowing directions
-    var orientation: ClutterFlowOrientation {
+    @inlinable var orientation: ClutterFlowOrientation {
         /// Retrieves the orientation of the `layout`
         get {
-            let rv = clutter_flow_layout_get_orientation(cast(flow_layout_ptr))
-            return cast(rv)
+            let rv = clutter_flow_layout_get_orientation(flow_layout_ptr)
+            return rv
         }
         /// Sets the orientation of the flow layout
         /// 
@@ -1081,33 +1236,33 @@ public extension FlowLayoutProtocol {
         /// the children: either horizontally or vertically. The
         /// orientation also controls the direction of the overflowing
         nonmutating set {
-            clutter_flow_layout_set_orientation(cast(flow_layout_ptr), cast(newValue))
+            clutter_flow_layout_set_orientation(flow_layout_ptr, newValue)
         }
     }
 
     /// Retrieves the spacing between rows
-    var rowSpacing: Float {
+    @inlinable var rowSpacing: Double {
         /// Retrieves the spacing between rows
         get {
-            let rv: Float = cast(clutter_flow_layout_get_row_spacing(cast(flow_layout_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_flow_layout_get_row_spacing(flow_layout_ptr))
+            return rv
         }
         /// Sets the spacing between rows, in pixels
         nonmutating set {
-            clutter_flow_layout_set_row_spacing(cast(flow_layout_ptr), cast(newValue))
+            clutter_flow_layout_set_row_spacing(flow_layout_ptr, gfloat(newValue))
         }
     }
 
     /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
-    var snapToGrid: Bool {
+    @inlinable var snapToGrid: Bool {
         /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
         get {
-            let rv = clutter_flow_layout_get_snap_to_grid(cast(flow_layout_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_flow_layout_get_snap_to_grid(flow_layout_ptr)) != 0)
+            return rv
         }
         /// Whether the `layout` should place its children on a grid.
         nonmutating set {
-            clutter_flow_layout_set_snap_to_grid(cast(flow_layout_ptr), gboolean(newValue ? 1 : 0))
+            clutter_flow_layout_set_snap_to_grid(flow_layout_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -1130,10 +1285,11 @@ public extension FlowLayoutProtocol {
 /// only private data and should be accessed using the provided API
 public protocol GestureActionProtocol: ActionProtocol {
         /// Untyped pointer to the underlying `ClutterGestureAction` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterGestureAction` instance.
-    var gesture_action_ptr: UnsafeMutablePointer<ClutterGestureAction> { get }
+    var gesture_action_ptr: UnsafeMutablePointer<ClutterGestureAction>! { get }
+
 }
 
 /// The `GestureActionRef` type acts as a lightweight Swift reference to an underlying `ClutterGestureAction` instance.
@@ -1145,53 +1301,83 @@ public protocol GestureActionProtocol: ActionProtocol {
 public struct GestureActionRef: GestureActionProtocol {
         /// Untyped pointer to the underlying `ClutterGestureAction` instance.
     /// For type-safe access, use the generated, typed pointer `gesture_action_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension GestureActionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterGestureAction>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterGestureAction>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterGestureAction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterGestureAction>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterGestureAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `GestureActionProtocol`
-    init<T: GestureActionProtocol>(_ other: T) {
+    @inlinable init<T: GestureActionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterGestureAction` instance.
-    init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_gesture_action_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_gesture_action_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1206,84 +1392,130 @@ open class GestureAction: Action, GestureActionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `GestureAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterGestureAction>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterGestureAction>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GestureAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterGestureAction>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GestureAction` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GestureAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GestureAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterGestureAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `GestureAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterGestureAction>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterGestureAction`.
     /// i.e., ownership is transferred to the `GestureAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterGestureAction>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterGestureAction>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `GestureActionProtocol`
     /// Will retain `ClutterGestureAction`.
     /// - Parameter other: an instance of a related type that implements `GestureActionProtocol`
-    public init<T: GestureActionProtocol>(gestureAction other: T) {
-        super.init(retaining: cast(other.gesture_action_ptr))
+    @inlinable public init<T: GestureActionProtocol>(gestureAction other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterGestureAction` instance.
-    public init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_gesture_action_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = clutter_gesture_action_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -1367,21 +1599,21 @@ public extension GestureActionProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GestureActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: GestureActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(gesture_action_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1399,7 +1631,7 @@ public extension GestureActionProtocol {
     /// Get the value of a GestureAction property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: GestureActionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: GestureActionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1409,7 +1641,7 @@ public extension GestureActionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: GestureActionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: GestureActionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1571,11 +1803,11 @@ public extension GestureActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: GestureActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: GestureActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(gesture_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1596,85 +1828,85 @@ public extension GestureActionProtocol {
 // MARK: GestureAction Class: GestureActionProtocol extension (methods and fields)
 public extension GestureActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterGestureAction` instance.
-    var gesture_action_ptr: UnsafeMutablePointer<ClutterGestureAction> { return ptr.assumingMemoryBound(to: ClutterGestureAction.self) }
+    @inlinable var gesture_action_ptr: UnsafeMutablePointer<ClutterGestureAction>! { return ptr?.assumingMemoryBound(to: ClutterGestureAction.self) }
 
     /// Cancel a `ClutterGestureAction` before it begins
-    func cancel() {
-        clutter_gesture_action_cancel(cast(gesture_action_ptr))
+    @inlinable func cancel() {
+        clutter_gesture_action_cancel(gesture_action_ptr)
     
     }
 
     /// Retrieves the `ClutterInputDevice` of a touch point.
-    func getDevice(point: CUnsignedInt) -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_gesture_action_get_device(cast(gesture_action_ptr), guint(point)))
-        return cast(rv)
+    @inlinable func getDevice(point: Int) -> InputDeviceRef! {
+        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_gesture_action_get_device(gesture_action_ptr, guint(point))))
+        return rv
     }
 
     /// Retrieves a reference to the last `ClutterEvent` for a touch point. Call
     /// `clutter_event_copy()` if you need to store the reference somewhere.
-    func getLastEvent(point: CUnsignedInt) -> UnsafePointer<ClutterEvent>! {
-        let rv: UnsafePointer<ClutterEvent>! = cast(clutter_gesture_action_get_last_event(cast(gesture_action_ptr), guint(point)))
-        return cast(rv)
+    @inlinable func getLastEvent(point: Int) -> EventRef! {
+        let rv = EventRef(gconstpointer: gconstpointer(clutter_gesture_action_get_last_event(gesture_action_ptr, guint(point))))
+        return rv
     }
 
     /// Retrieves the coordinates, in stage space, of the latest motion
     /// event during the dragging.
-    func getMotionCoords(point: CUnsignedInt, motionX motion_x: UnsafeMutablePointer<gfloat>, motionY motion_y: UnsafeMutablePointer<gfloat>) {
-        clutter_gesture_action_get_motion_coords(cast(gesture_action_ptr), guint(point), cast(motion_x), cast(motion_y))
+    @inlinable func getMotionCoords(point: Int, motionX motion_x: UnsafeMutablePointer<gfloat>! = nil, motionY motion_y: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_gesture_action_get_motion_coords(gesture_action_ptr, guint(point), motion_x, motion_y)
     
     }
 
     /// Retrieves the incremental delta since the last motion event
     /// during the dragging.
-    func getMotionDelta(point: CUnsignedInt, deltaX delta_x: UnsafeMutablePointer<gfloat>, deltaY delta_y: UnsafeMutablePointer<gfloat>) -> Float {
-        let rv: Float = cast(clutter_gesture_action_get_motion_delta(cast(gesture_action_ptr), guint(point), cast(delta_x), cast(delta_y)))
-        return cast(rv)
+    @inlinable func getMotionDelta(point: Int, deltaX delta_x: UnsafeMutablePointer<gfloat>! = nil, deltaY delta_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_gesture_action_get_motion_delta(gesture_action_ptr, guint(point), delta_x, delta_y))
+        return rv
     }
 
     /// Retrieves the number of points currently active.
-    func getNCurrentPoints() -> Int {
-        let rv: Int = cast(clutter_gesture_action_get_n_current_points(cast(gesture_action_ptr)))
-        return Int(rv)
+    @inlinable func getNCurrentPoints() -> Int {
+        let rv = Int(clutter_gesture_action_get_n_current_points(gesture_action_ptr))
+        return rv
     }
 
     /// Retrieves the number of requested points to trigger the gesture.
-    func getNTouchPoints() -> Int {
-        let rv: Int = cast(clutter_gesture_action_get_n_touch_points(cast(gesture_action_ptr)))
-        return Int(rv)
+    @inlinable func getNTouchPoints() -> Int {
+        let rv = Int(clutter_gesture_action_get_n_touch_points(gesture_action_ptr))
+        return rv
     }
 
     /// Retrieves the coordinates, in stage space, of the press event
     /// that started the dragging for a specific touch point.
-    func getPressCoords(point: CUnsignedInt, pressX press_x: UnsafeMutablePointer<gfloat>, pressY press_y: UnsafeMutablePointer<gfloat>) {
-        clutter_gesture_action_get_press_coords(cast(gesture_action_ptr), guint(point), cast(press_x), cast(press_y))
+    @inlinable func getPressCoords(point: Int, pressX press_x: UnsafeMutablePointer<gfloat>! = nil, pressY press_y: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_gesture_action_get_press_coords(gesture_action_ptr, guint(point), press_x, press_y)
     
     }
 
     /// Retrieves the coordinates, in stage space, where the touch point was
     /// last released.
-    func getReleaseCoords(point: CUnsignedInt, releaseX release_x: UnsafeMutablePointer<gfloat>, releaseY release_y: UnsafeMutablePointer<gfloat>) {
-        clutter_gesture_action_get_release_coords(cast(gesture_action_ptr), guint(point), cast(release_x), cast(release_y))
+    @inlinable func getReleaseCoords(point: Int, releaseX release_x: UnsafeMutablePointer<gfloat>! = nil, releaseY release_y: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_gesture_action_get_release_coords(gesture_action_ptr, guint(point), release_x, release_y)
     
     }
 
     /// Retrieves the `ClutterEventSequence` of a touch point.
-    func getSequence(point: CUnsignedInt) -> UnsafeMutablePointer<ClutterEventSequence>! {
-        let rv: UnsafeMutablePointer<ClutterEventSequence>! = cast(clutter_gesture_action_get_sequence(cast(gesture_action_ptr), guint(point)))
-        return cast(rv)
+    @inlinable func getSequence(point: Int) -> EventSequenceRef! {
+        let rv = EventSequenceRef(gconstpointer: gconstpointer(clutter_gesture_action_get_sequence(gesture_action_ptr, guint(point))))
+        return rv
     }
 
     /// Retrieves the threshold trigger distance of the gesture `action`,
     /// as set using `clutter_gesture_action_set_threshold_trigger_distance()`.
-    func getThresholdTriggerDistance(x x_: UnsafeMutablePointer<CFloat>, y y_: UnsafeMutablePointer<CFloat>) {
-        clutter_gesture_action_get_threshold_trigger_distance(cast(gesture_action_ptr), cast(x_), cast(y_))
+    @inlinable func getThresholdTriggerDistance(x: UnsafeMutablePointer<CFloat>! = nil, y: UnsafeMutablePointer<CFloat>! = nil) {
+        clutter_gesture_action_get_threshold_trigger_distance(gesture_action_ptr, x, y)
     
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
     /// `clutter_gesture_action_set_threshold_trigger_edge()`.
-    func getThresholdTriggerEdge() -> ClutterGestureTriggerEdge {
-        let rv = clutter_gesture_action_get_threshold_trigger_edge(cast(gesture_action_ptr))
-        return cast(rv)
+    @inlinable func getThresholdTriggerEdge() -> ClutterGestureTriggerEdge {
+        let rv = clutter_gesture_action_get_threshold_trigger_edge(gesture_action_ptr)
+        return rv
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
@@ -1682,21 +1914,21 @@ public extension GestureActionProtocol {
     ///
     /// **get_threshold_trigger_egde is deprecated:**
     /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
-    @available(*, deprecated) func getThresholdTriggerEgde() -> ClutterGestureTriggerEdge {
-        let rv = clutter_gesture_action_get_threshold_trigger_egde(cast(gesture_action_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getThresholdTriggerEgde() -> ClutterGestureTriggerEdge {
+        let rv = clutter_gesture_action_get_threshold_trigger_egde(gesture_action_ptr)
+        return rv
     }
 
     /// Retrieves the velocity, in stage pixels per millisecond, of the
     /// latest motion event during the dragging.
-    func getVelocity(point: CUnsignedInt, velocityX velocity_x: UnsafeMutablePointer<gfloat>, velocityY velocity_y: UnsafeMutablePointer<gfloat>) -> Float {
-        let rv: Float = cast(clutter_gesture_action_get_velocity(cast(gesture_action_ptr), guint(point), cast(velocity_x), cast(velocity_y)))
-        return cast(rv)
+    @inlinable func getVelocity(point: Int, velocityX velocity_x: UnsafeMutablePointer<gfloat>! = nil, velocityY velocity_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_gesture_action_get_velocity(gesture_action_ptr, guint(point), velocity_x, velocity_y))
+        return rv
     }
 
     /// Sets the number of points needed to trigger the gesture.
-    func setNTouchPoints(nbPoints nb_points: CInt) {
-        clutter_gesture_action_set_n_touch_points(cast(gesture_action_ptr), gint(nb_points))
+    @inlinable func setNTouchPoints(nbPoints nb_points: Int) {
+        clutter_gesture_action_set_n_touch_points(gesture_action_ptr, gint(nb_points))
     
     }
 
@@ -1704,8 +1936,8 @@ public extension GestureActionProtocol {
     /// 
     /// This function should only be called by sub-classes of
     /// `ClutterGestureAction` during their construction phase.
-    func setThresholdTriggerDistance(x x_: gfloat, y y_: gfloat) {
-        clutter_gesture_action_set_threshold_trigger_distance(cast(gesture_action_ptr), x_, y_)
+    @inlinable func setThresholdTriggerDistance(x: CFloat, y: CFloat) {
+        clutter_gesture_action_set_threshold_trigger_distance(gesture_action_ptr, x, y)
     
     }
 
@@ -1713,47 +1945,47 @@ public extension GestureActionProtocol {
     /// 
     /// This function should only be called by sub-classes of
     /// `ClutterGestureAction` during their construction phase.
-    func setThresholdTrigger(edge: GestureTriggerEdge) {
-        clutter_gesture_action_set_threshold_trigger_edge(cast(gesture_action_ptr), edge)
+    @inlinable func setThresholdTrigger(edge: ClutterGestureTriggerEdge) {
+        clutter_gesture_action_set_threshold_trigger_edge(gesture_action_ptr, edge)
     
     }
     /// Retrieves the number of points currently active.
-    var nCurrentPoints: Int {
+    @inlinable var nCurrentPoints: Int {
         /// Retrieves the number of points currently active.
         get {
-            let rv: Int = cast(clutter_gesture_action_get_n_current_points(cast(gesture_action_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_gesture_action_get_n_current_points(gesture_action_ptr))
+            return rv
         }
     }
 
     /// Retrieves the number of requested points to trigger the gesture.
-    var nTouchPoints: Int {
+    @inlinable var nTouchPoints: Int {
         /// Retrieves the number of requested points to trigger the gesture.
         get {
-            let rv: Int = cast(clutter_gesture_action_get_n_touch_points(cast(gesture_action_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_gesture_action_get_n_touch_points(gesture_action_ptr))
+            return rv
         }
         /// Sets the number of points needed to trigger the gesture.
         nonmutating set {
-            clutter_gesture_action_set_n_touch_points(cast(gesture_action_ptr), gint(newValue))
+            clutter_gesture_action_set_n_touch_points(gesture_action_ptr, gint(newValue))
         }
     }
 
     /// Retrieves the edge trigger of the gesture `action`, as set using
     /// `clutter_gesture_action_set_threshold_trigger_edge()`.
-    var thresholdTriggerEdge: ClutterGestureTriggerEdge {
+    @inlinable var thresholdTriggerEdge: ClutterGestureTriggerEdge {
         /// Retrieves the edge trigger of the gesture `action`, as set using
         /// `clutter_gesture_action_set_threshold_trigger_edge()`.
         get {
-            let rv = clutter_gesture_action_get_threshold_trigger_edge(cast(gesture_action_ptr))
-            return cast(rv)
+            let rv = clutter_gesture_action_get_threshold_trigger_edge(gesture_action_ptr)
+            return rv
         }
         /// Sets the edge trigger for the gesture drag threshold, if any.
         /// 
         /// This function should only be called by sub-classes of
         /// `ClutterGestureAction` during their construction phase.
         nonmutating set {
-            clutter_gesture_action_set_threshold_trigger_edge(cast(gesture_action_ptr), cast(newValue))
+            clutter_gesture_action_set_threshold_trigger_edge(gesture_action_ptr, newValue)
         }
     }
 
@@ -1762,15 +1994,15 @@ public extension GestureActionProtocol {
     ///
     /// **get_threshold_trigger_egde is deprecated:**
     /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
-    var thresholdTriggerEgde: ClutterGestureTriggerEdge {
+    @inlinable var thresholdTriggerEgde: ClutterGestureTriggerEdge {
         /// Retrieves the edge trigger of the gesture `action`, as set using
         /// `clutter_gesture_action_set_threshold_trigger_edge()`.
         ///
         /// **get_threshold_trigger_egde is deprecated:**
         /// Use clutter_gesture_action_get_threshold_trigger_edge() instead.
         @available(*, deprecated) get {
-            let rv = clutter_gesture_action_get_threshold_trigger_egde(cast(gesture_action_ptr))
-            return cast(rv)
+            let rv = clutter_gesture_action_get_threshold_trigger_egde(gesture_action_ptr)
+            return rv
         }
     }
 

@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -23,10 +24,11 @@ import Atk
 /// structure depend on the backend used.
 public protocol InputDeviceProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `ClutterInputDevice` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterInputDevice` instance.
-    var input_device_ptr: UnsafeMutablePointer<ClutterInputDevice> { get }
+    var input_device_ptr: UnsafeMutablePointer<ClutterInputDevice>! { get }
+
 }
 
 /// The `InputDeviceRef` type acts as a lightweight Swift reference to an underlying `ClutterInputDevice` instance.
@@ -38,46 +40,76 @@ public protocol InputDeviceProtocol: GLibObject.ObjectProtocol {
 public struct InputDeviceRef: InputDeviceProtocol {
         /// Untyped pointer to the underlying `ClutterInputDevice` instance.
     /// For type-safe access, use the generated, typed pointer `input_device_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension InputDeviceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterInputDevice>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterInputDevice>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterInputDevice>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterInputDevice>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterInputDevice>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `InputDeviceProtocol`
-    init<T: InputDeviceProtocol>(_ other: T) {
+    @inlinable init<T: InputDeviceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -94,77 +126,123 @@ open class InputDevice: GLibObject.Object, InputDeviceProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `InputDevice` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterInputDevice>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterInputDevice>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterInputDevice>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterInputDevice>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `InputDevice` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterInputDevice>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterInputDevice`.
     /// i.e., ownership is transferred to the `InputDevice` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterInputDevice>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterInputDevice>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `InputDeviceProtocol`
     /// Will retain `ClutterInputDevice`.
     /// - Parameter other: an instance of a related type that implements `InputDeviceProtocol`
-    public init<T: InputDeviceProtocol>(inputDevice other: T) {
-        super.init(retaining: cast(other.input_device_ptr))
+    @inlinable public init<T: InputDeviceProtocol>(inputDevice other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -207,21 +285,21 @@ public extension InputDeviceProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InputDevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: InputDevicePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(input_device_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -239,7 +317,7 @@ public extension InputDeviceProtocol {
     /// Get the value of a InputDevice property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: InputDevicePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: InputDevicePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -249,7 +327,7 @@ public extension InputDeviceProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: InputDevicePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: InputDevicePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -314,11 +392,11 @@ public extension InputDeviceProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: InputDeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: InputDeviceSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(input_device_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -339,7 +417,7 @@ public extension InputDeviceProtocol {
 // MARK: InputDevice Class: InputDeviceProtocol extension (methods and fields)
 public extension InputDeviceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterInputDevice` instance.
-    var input_device_ptr: UnsafeMutablePointer<ClutterInputDevice> { return ptr.assumingMemoryBound(to: ClutterInputDevice.self) }
+    @inlinable var input_device_ptr: UnsafeMutablePointer<ClutterInputDevice>! { return ptr?.assumingMemoryBound(to: ClutterInputDevice.self) }
 
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
     /// associated to `device`.
@@ -347,15 +425,15 @@ public extension InputDeviceProtocol {
     /// If the `ClutterInputDevice:device`-mode property of `device` is
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
-    func getAssociatedDevice() -> UnsafeMutablePointer<ClutterInputDevice>! {
-        let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_input_device_get_associated_device(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getAssociatedDevice() -> InputDeviceRef! {
+        guard let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_input_device_get_associated_device(input_device_ptr))) else { return nil }
+        return rv
     }
 
     /// Retrieves the type of axis on `device` at the given index.
-    func getAxis(index_: CUnsignedInt) -> ClutterInputAxis {
-        let rv = clutter_input_device_get_axis(cast(input_device_ptr), guint(index_))
-        return cast(rv)
+    @inlinable func getAxis(index_: Int) -> ClutterInputAxis {
+        let rv = clutter_input_device_get_axis(input_device_ptr, guint(index_))
+        return rv
     }
 
     /// Extracts the value of the given `axis` of a `ClutterInputDevice` from
@@ -373,124 +451,124 @@ public extension InputDeviceProtocol {
     ///                                        &pressure_value);
     /// ```
     /// 
-    func getAxisValue(axes: UnsafeMutablePointer<gdouble>, axis: InputAxis, value: UnsafeMutablePointer<gdouble>) -> Bool {
-        let rv = clutter_input_device_get_axis_value(cast(input_device_ptr), cast(axes), axis, cast(value))
-        return Bool(rv != 0)
+    @inlinable func getAxisValue(axes: UnsafeMutablePointer<gdouble>!, axis: ClutterInputAxis, value: UnsafeMutablePointer<gdouble>!) -> Bool {
+        let rv = ((clutter_input_device_get_axis_value(input_device_ptr, axes, axis, value)) != 0)
+        return rv
     }
 
     /// Retrieves the latest coordinates of a pointer or touch point of
     /// `device`.
-    func getCoords(sequence: EventSequenceProtocol, point: PointProtocol) -> Bool {
-        let rv = clutter_input_device_get_coords(cast(input_device_ptr), cast(sequence.ptr), cast(point.ptr))
-        return Bool(rv != 0)
+    @inlinable func getCoords<EventSequenceT: EventSequenceProtocol, PointT: PointProtocol>(sequence: EventSequenceT? = nil, point: PointT) -> Bool {
+        let rv = ((clutter_input_device_get_coords(input_device_ptr, sequence?.event_sequence_ptr, point.point_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the latest coordinates of the pointer of `device`
     ///
     /// **get_device_coords is deprecated:**
     /// Use clutter_input_device_get_coords() instead.
-    @available(*, deprecated) func getDeviceCoords(x x_: UnsafeMutablePointer<CInt>, y y_: UnsafeMutablePointer<CInt>) {
-        clutter_input_device_get_device_coords(cast(input_device_ptr), cast(x_), cast(y_))
+    @available(*, deprecated) @inlinable func getDeviceCoords(x: UnsafeMutablePointer<gint>!, y: UnsafeMutablePointer<gint>!) {
+        clutter_input_device_get_device_coords(input_device_ptr, x, y)
     
     }
 
     /// Retrieves the unique identifier of `device`
-    func getDeviceId() -> Int {
-        let rv: Int = cast(clutter_input_device_get_device_id(cast(input_device_ptr)))
-        return Int(rv)
+    @inlinable func getDeviceId() -> Int {
+        let rv = Int(clutter_input_device_get_device_id(input_device_ptr))
+        return rv
     }
 
     /// Retrieves the `ClutterInputMode` of `device`.
-    func getDeviceMode() -> ClutterInputMode {
-        let rv = clutter_input_device_get_device_mode(cast(input_device_ptr))
-        return cast(rv)
+    @inlinable func getDeviceMode() -> ClutterInputMode {
+        let rv = clutter_input_device_get_device_mode(input_device_ptr)
+        return rv
     }
 
     /// Retrieves the name of the `device`
-    func getDeviceName() -> String! {
-        let rv: String! = cast(clutter_input_device_get_device_name(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getDeviceName() -> String! {
+        let rv = clutter_input_device_get_device_name(input_device_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the type of `device`
-    func getDeviceType() -> ClutterInputDeviceType {
-        let rv = clutter_input_device_get_device_type(cast(input_device_ptr))
-        return cast(rv)
+    @inlinable func getDeviceType() -> ClutterInputDeviceType {
+        let rv = clutter_input_device_get_device_type(input_device_ptr)
+        return rv
     }
 
     /// Retrieves whether `device` is enabled.
-    func getEnabled() -> Bool {
-        let rv = clutter_input_device_get_enabled(cast(input_device_ptr))
-        return Bool(rv != 0)
+    @inlinable func getEnabled() -> Bool {
+        let rv = ((clutter_input_device_get_enabled(input_device_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves a pointer to the `ClutterActor` currently grabbing all
     /// the events coming from `device`.
-    func getGrabbedActor() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_grabbed_actor(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getGrabbedActor() -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_input_device_get_grabbed_actor(input_device_ptr)))
+        return rv
     }
 
     /// Retrieves whether `device` has a pointer that follows the
     /// device motion.
-    func getHasCursor() -> Bool {
-        let rv = clutter_input_device_get_has_cursor(cast(input_device_ptr))
-        return Bool(rv != 0)
+    @inlinable func getHasCursor() -> Bool {
+        let rv = ((clutter_input_device_get_has_cursor(input_device_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the key set using `clutter_input_device_set_key()`
-    func getKey(index_: CUnsignedInt, keyval: UnsafeMutablePointer<CUnsignedInt>, modifiers: UnsafeMutablePointer<ClutterModifierType>) -> Bool {
-        let rv = clutter_input_device_get_key(cast(input_device_ptr), guint(index_), cast(keyval), cast(modifiers))
-        return Bool(rv != 0)
+    @inlinable func getKey(index_: Int, keyval: UnsafeMutablePointer<guint>!, modifiers: UnsafeMutablePointer<ClutterModifierType>!) -> Bool {
+        let rv = ((clutter_input_device_get_key(input_device_ptr, guint(index_), keyval, modifiers)) != 0)
+        return rv
     }
 
     /// Retrieves the current modifiers state of the device, as seen
     /// by the last event Clutter processed.
-    func getModifierState() -> ClutterModifierType {
-        let rv = clutter_input_device_get_modifier_state(cast(input_device_ptr))
-        return cast(rv)
+    @inlinable func getModifierState() -> ModifierType {
+        let rv = ModifierType(clutter_input_device_get_modifier_state(input_device_ptr))
+        return rv
     }
 
     /// Retrieves the number of axes available on `device`.
-    func getNAxes() -> Int {
-        let rv: Int = cast(clutter_input_device_get_n_axes(cast(input_device_ptr)))
-        return Int(rv)
+    @inlinable func getNAxes() -> Int {
+        let rv = Int(clutter_input_device_get_n_axes(input_device_ptr))
+        return rv
     }
 
     /// Retrieves the number of keys registered for `device`.
-    func getNKeys() -> Int {
-        let rv: Int = cast(clutter_input_device_get_n_keys(cast(input_device_ptr)))
-        return Int(rv)
+    @inlinable func getNKeys() -> Int {
+        let rv = Int(clutter_input_device_get_n_keys(input_device_ptr))
+        return rv
     }
 
     /// Retrieves the `ClutterActor` underneath the pointer of `device`
-    func getPointerActor() -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_pointer_actor(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getPointerActor() -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_input_device_get_pointer_actor(input_device_ptr)))
+        return rv
     }
 
     /// Retrieves the `ClutterStage` underneath the pointer of `device`
-    func getPointerStage() -> UnsafeMutablePointer<ClutterStage>! {
-        let rv: UnsafeMutablePointer<ClutterStage>! = cast(clutter_input_device_get_pointer_stage(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getPointerStage() -> StageRef! {
+        let rv = StageRef(gconstpointer: gconstpointer(clutter_input_device_get_pointer_stage(input_device_ptr)))
+        return rv
     }
 
     /// Gets the product ID of this device.
-    func getProductId() -> String! {
-        let rv: String! = cast(clutter_input_device_get_product_id(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getProductId() -> String! {
+        let rv = clutter_input_device_get_product_id(input_device_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the slave devices attached to `device`.
-    func getSlaveDevices() -> UnsafeMutablePointer<GList>! {
-        let rv: UnsafeMutablePointer<GList>! = cast(clutter_input_device_get_slave_devices(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getSlaveDevices() -> GLib.ListRef! {
+        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_input_device_get_slave_devices(input_device_ptr)))
+        return rv
     }
 
     /// Gets the vendor ID of this device.
-    func getVendorId() -> String! {
-        let rv: String! = cast(clutter_input_device_get_vendor_id(cast(input_device_ptr)))
-        return cast(rv)
+    @inlinable func getVendorId() -> String! {
+        let rv = clutter_input_device_get_vendor_id(input_device_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Acquires a grab on `actor` for the given `device`.
@@ -504,8 +582,8 @@ public extension InputDeviceProtocol {
     /// 
     /// Only `ClutterInputDevice` of types `CLUTTER_POINTER_DEVICE` and
     /// `CLUTTER_KEYBOARD_DEVICE` can hold a grab.
-    func grab(actor: ActorProtocol) {
-        clutter_input_device_grab(cast(input_device_ptr), cast(actor.ptr))
+    @inlinable func grab<ActorT: ActorProtocol>(actor: ActorT) {
+        clutter_input_device_grab(input_device_ptr, actor.actor_ptr)
     
     }
 
@@ -514,16 +592,16 @@ public extension InputDeviceProtocol {
     /// used by Clutter this function can fail if there is no obvious
     /// mapping between the key codes. The hardware keycode can be taken
     /// from the `ClutterKeyEvent.hardware_keycode` member of `ClutterKeyEvent`.
-    func keycodeToEvdev(hardwareKeycode hardware_keycode: CUnsignedInt, evdevKeycode evdev_keycode: UnsafeMutablePointer<CUnsignedInt>) -> Bool {
-        let rv = clutter_input_device_keycode_to_evdev(cast(input_device_ptr), guint(hardware_keycode), cast(evdev_keycode))
-        return Bool(rv != 0)
+    @inlinable func keycodeToEvdev(hardwareKeycode hardware_keycode: Int, evdevKeycode evdev_keycode: UnsafeMutablePointer<guint>!) -> Bool {
+        let rv = ((clutter_input_device_keycode_to_evdev(input_device_ptr, guint(hardware_keycode), evdev_keycode)) != 0)
+        return rv
     }
 
     /// Retrieves a pointer to the `ClutterActor` currently grabbing the
     /// touch events coming from `device` given the `sequence`.
-    func sequenceGetGrabbedActor(sequence: EventSequenceProtocol) -> UnsafeMutablePointer<ClutterActor>! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_sequence_get_grabbed_actor(cast(input_device_ptr), cast(sequence.ptr)))
-        return cast(rv)
+    @inlinable func sequenceGetGrabbedActor<EventSequenceT: EventSequenceProtocol>(sequence: EventSequenceT) -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_input_device_sequence_get_grabbed_actor(input_device_ptr, sequence.event_sequence_ptr)))
+        return rv
     }
 
     /// Acquires a grab on `actor` for the given `device` and the given touch
@@ -536,15 +614,15 @@ public extension InputDeviceProtocol {
     /// 
     /// The grab is client-side: even if the windowing system used by the Clutter
     /// backend has the concept of "device grabs", Clutter will not use them.
-    func sequenceGrab(sequence: EventSequenceProtocol, actor: ActorProtocol) {
-        clutter_input_device_sequence_grab(cast(input_device_ptr), cast(sequence.ptr), cast(actor.ptr))
+    @inlinable func sequenceGrab<ActorT: ActorProtocol, EventSequenceT: EventSequenceProtocol>(sequence: EventSequenceT, actor: ActorT) {
+        clutter_input_device_sequence_grab(input_device_ptr, sequence.event_sequence_ptr, actor.actor_ptr)
     
     }
 
     /// Releases the grab on the `device` for the given `sequence`, if one is
     /// in place.
-    func sequenceUngrab(sequence: EventSequenceProtocol) {
-        clutter_input_device_sequence_ungrab(cast(input_device_ptr), cast(sequence.ptr))
+    @inlinable func sequenceUngrab<EventSequenceT: EventSequenceProtocol>(sequence: EventSequenceT) {
+        clutter_input_device_sequence_ungrab(input_device_ptr, sequence.event_sequence_ptr)
     
     }
 
@@ -553,8 +631,8 @@ public extension InputDeviceProtocol {
     /// Only devices with a `ClutterInputDevice:device`-mode property set
     /// to `CLUTTER_INPUT_MODE_SLAVE` or `CLUTTER_INPUT_MODE_FLOATING` can
     /// be disabled.
-    func set(enabled: Bool) {
-        clutter_input_device_set_enabled(cast(input_device_ptr), gboolean(enabled ? 1 : 0))
+    @inlinable func set(enabled: Bool) {
+        clutter_input_device_set_enabled(input_device_ptr, gboolean((enabled) ? 1 : 0))
     
     }
 
@@ -562,14 +640,14 @@ public extension InputDeviceProtocol {
     /// 
     /// Clutter will use the keyval and modifiers set when filling out
     /// an event coming from the same input device.
-    func setKey(index_: CUnsignedInt, keyval: CUnsignedInt, modifiers: ModifierType) {
-        clutter_input_device_set_key(cast(input_device_ptr), guint(index_), guint(keyval), modifiers.value)
+    @inlinable func setKey(index_: Int, keyval: Int, modifiers: ModifierType) {
+        clutter_input_device_set_key(input_device_ptr, guint(index_), guint(keyval), modifiers.value)
     
     }
 
     /// Releases the grab on the `device`, if one is in place.
-    func ungrab() {
-        clutter_input_device_ungrab(cast(input_device_ptr))
+    @inlinable func ungrab() {
+        clutter_input_device_ungrab(input_device_ptr)
     
     }
 
@@ -624,8 +702,8 @@ public extension InputDeviceProtocol {
     /// The `update_stage` boolean argument should be used when the input device
     /// enters and leaves a `ClutterStage`; it will use the `ClutterStage` field
     /// of the passed `event` to update the stage associated to the input device.
-    func updateFrom(event: EventProtocol, updateStage update_stage: Bool) {
-        clutter_input_device_update_from_event(cast(input_device_ptr), cast(event.ptr), gboolean(update_stage ? 1 : 0))
+    @inlinable func updateFrom<EventT: EventProtocol>(event: EventT, updateStage update_stage: Bool) {
+        clutter_input_device_update_from_event(input_device_ptr, event.event_ptr, gboolean((update_stage) ? 1 : 0))
     
     }
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
@@ -634,7 +712,7 @@ public extension InputDeviceProtocol {
     /// If the `ClutterInputDevice:device`-mode property of `device` is
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
-    var associatedDevice: UnsafeMutablePointer<ClutterInputDevice>! {
+    @inlinable var associatedDevice: InputDeviceRef! {
         /// Retrieves a pointer to the `ClutterInputDevice` that has been
         /// associated to `device`.
         /// 
@@ -642,44 +720,44 @@ public extension InputDeviceProtocol {
         /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
         /// `nil`.
         get {
-            let rv: UnsafeMutablePointer<ClutterInputDevice>! = cast(clutter_input_device_get_associated_device(cast(input_device_ptr)))
-            return cast(rv)
+            guard let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_input_device_get_associated_device(input_device_ptr))) else { return nil }
+            return rv
         }
     }
 
     /// Retrieves the unique identifier of `device`
-    var deviceId: Int {
+    @inlinable var deviceId: Int {
         /// Retrieves the unique identifier of `device`
         get {
-            let rv: Int = cast(clutter_input_device_get_device_id(cast(input_device_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_input_device_get_device_id(input_device_ptr))
+            return rv
         }
     }
 
     /// Retrieves the `ClutterInputMode` of `device`.
-    var deviceMode: ClutterInputMode {
+    @inlinable var deviceMode: ClutterInputMode {
         /// Retrieves the `ClutterInputMode` of `device`.
         get {
-            let rv = clutter_input_device_get_device_mode(cast(input_device_ptr))
-            return cast(rv)
+            let rv = clutter_input_device_get_device_mode(input_device_ptr)
+            return rv
         }
     }
 
     /// Retrieves the name of the `device`
-    var deviceName: String! {
+    @inlinable var deviceName: String! {
         /// Retrieves the name of the `device`
         get {
-            let rv: String! = cast(clutter_input_device_get_device_name(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = clutter_input_device_get_device_name(input_device_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Retrieves the type of `device`
-    var deviceType: ClutterInputDeviceType {
+    @inlinable var deviceType: ClutterInputDeviceType {
         /// Retrieves the type of `device`
         get {
-            let rv = clutter_input_device_get_device_type(cast(input_device_ptr))
-            return cast(rv)
+            let rv = clutter_input_device_get_device_type(input_device_ptr)
+            return rv
         }
     }
 
@@ -689,11 +767,11 @@ public extension InputDeviceProtocol {
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
-    var enabled: Bool {
+    @inlinable var enabled: Bool {
         /// Retrieves whether `device` is enabled.
         get {
-            let rv = clutter_input_device_get_enabled(cast(input_device_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_input_device_get_enabled(input_device_ptr)) != 0)
+            return rv
         }
         /// Enables or disables a `ClutterInputDevice`.
         /// 
@@ -701,103 +779,103 @@ public extension InputDeviceProtocol {
         /// to `CLUTTER_INPUT_MODE_SLAVE` or `CLUTTER_INPUT_MODE_FLOATING` can
         /// be disabled.
         nonmutating set {
-            clutter_input_device_set_enabled(cast(input_device_ptr), gboolean(newValue ? 1 : 0))
+            clutter_input_device_set_enabled(input_device_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves a pointer to the `ClutterActor` currently grabbing all
     /// the events coming from `device`.
-    var grabbedActor: UnsafeMutablePointer<ClutterActor>! {
+    @inlinable var grabbedActor: ActorRef! {
         /// Retrieves a pointer to the `ClutterActor` currently grabbing all
         /// the events coming from `device`.
         get {
-            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_grabbed_actor(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = ActorRef(gconstpointer: gconstpointer(clutter_input_device_get_grabbed_actor(input_device_ptr)))
+            return rv
         }
     }
 
     /// Retrieves whether `device` has a pointer that follows the
     /// device motion.
-    var hasCursor: Bool {
+    @inlinable var hasCursor: Bool {
         /// Retrieves whether `device` has a pointer that follows the
         /// device motion.
         get {
-            let rv = clutter_input_device_get_has_cursor(cast(input_device_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_input_device_get_has_cursor(input_device_ptr)) != 0)
+            return rv
         }
     }
 
     /// Retrieves the current modifiers state of the device, as seen
     /// by the last event Clutter processed.
-    var modifierState: ModifierType {
+    @inlinable var modifierState: ModifierType {
         /// Retrieves the current modifiers state of the device, as seen
         /// by the last event Clutter processed.
         get {
-            let rv = clutter_input_device_get_modifier_state(cast(input_device_ptr))
-            return cast(rv)
+            let rv = ModifierType(clutter_input_device_get_modifier_state(input_device_ptr))
+            return rv
         }
     }
 
     /// Retrieves the number of axes available on `device`.
-    var nAxes: Int {
+    @inlinable var nAxes: Int {
         /// Retrieves the number of axes available on `device`.
         get {
-            let rv: Int = cast(clutter_input_device_get_n_axes(cast(input_device_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_input_device_get_n_axes(input_device_ptr))
+            return rv
         }
     }
 
     /// Retrieves the number of keys registered for `device`.
-    var nKeys: Int {
+    @inlinable var nKeys: Int {
         /// Retrieves the number of keys registered for `device`.
         get {
-            let rv: Int = cast(clutter_input_device_get_n_keys(cast(input_device_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_input_device_get_n_keys(input_device_ptr))
+            return rv
         }
     }
 
     /// Retrieves the `ClutterActor` underneath the pointer of `device`
-    var pointerActor: UnsafeMutablePointer<ClutterActor>! {
+    @inlinable var pointerActor: ActorRef! {
         /// Retrieves the `ClutterActor` underneath the pointer of `device`
         get {
-            let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_input_device_get_pointer_actor(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = ActorRef(gconstpointer: gconstpointer(clutter_input_device_get_pointer_actor(input_device_ptr)))
+            return rv
         }
     }
 
     /// Retrieves the `ClutterStage` underneath the pointer of `device`
-    var pointerStage: UnsafeMutablePointer<ClutterStage>! {
+    @inlinable var pointerStage: StageRef! {
         /// Retrieves the `ClutterStage` underneath the pointer of `device`
         get {
-            let rv: UnsafeMutablePointer<ClutterStage>! = cast(clutter_input_device_get_pointer_stage(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = StageRef(gconstpointer: gconstpointer(clutter_input_device_get_pointer_stage(input_device_ptr)))
+            return rv
         }
     }
 
     /// Gets the product ID of this device.
-    var productId: String! {
+    @inlinable var productId: String! {
         /// Gets the product ID of this device.
         get {
-            let rv: String! = cast(clutter_input_device_get_product_id(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = clutter_input_device_get_product_id(input_device_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Retrieves the slave devices attached to `device`.
-    var slaveDevices: UnsafeMutablePointer<GList>! {
+    @inlinable var slaveDevices: GLib.ListRef! {
         /// Retrieves the slave devices attached to `device`.
         get {
-            let rv: UnsafeMutablePointer<GList>! = cast(clutter_input_device_get_slave_devices(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_input_device_get_slave_devices(input_device_ptr)))
+            return rv
         }
     }
 
     /// Gets the vendor ID of this device.
-    var vendorId: String! {
+    @inlinable var vendorId: String! {
         /// Gets the vendor ID of this device.
         get {
-            let rv: String! = cast(clutter_input_device_get_vendor_id(cast(input_device_ptr)))
-            return cast(rv)
+            let rv = clutter_input_device_get_vendor_id(input_device_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -817,10 +895,11 @@ public extension InputDeviceProtocol {
 /// be accessed using the provided functions.
 public protocol IntervalProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
         /// Untyped pointer to the underlying `ClutterInterval` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterInterval` instance.
-    var interval_ptr: UnsafeMutablePointer<ClutterInterval> { get }
+    var interval_ptr: UnsafeMutablePointer<ClutterInterval>! { get }
+
 }
 
 /// The `IntervalRef` type acts as a lightweight Swift reference to an underlying `ClutterInterval` instance.
@@ -832,46 +911,76 @@ public protocol IntervalProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
 public struct IntervalRef: IntervalProtocol {
         /// Untyped pointer to the underlying `ClutterInterval` instance.
     /// For type-safe access, use the generated, typed pointer `interval_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension IntervalRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterInterval>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterInterval>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterInterval>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterInterval>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterInterval>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `IntervalProtocol`
-    init<T: IntervalProtocol>(_ other: T) {
+    @inlinable init<T: IntervalProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -883,17 +992,17 @@ public extension IntervalRef {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
-        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) {
+        let rv = clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `ClutterInterval` of type `gtype`, between `initial`
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    static func newWith(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) -> IntervalRef! {
-        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
-        return rv.map { IntervalRef(cast($0)) }
+    @inlinable static func newWith<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) -> IntervalRef! {
+        guard let rv = IntervalRef(gconstpointer: gconstpointer(clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr))) else { return nil }
+        return rv
     }
 }
 
@@ -908,77 +1017,123 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Interval` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterInterval>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterInterval>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterInterval>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterInterval>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Interval` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterInterval>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterInterval`.
     /// i.e., ownership is transferred to the `Interval` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterInterval>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterInterval>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `IntervalProtocol`
     /// Will retain `ClutterInterval`.
     /// - Parameter other: an instance of a related type that implements `IntervalProtocol`
-    public init<T: IntervalProtocol>(interval other: T) {
-        super.init(retaining: cast(other.interval_ptr))
+    @inlinable public init<T: IntervalProtocol>(interval other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -990,18 +1145,18 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    public init(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) {
-        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) {
+        let rv = clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `ClutterInterval` of type `gtype`, between `initial`
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    public static func newWith(values gtype: GType, initial: GLibObject.ValueProtocol, final_: GLibObject.ValueProtocol) -> Interval! {
-        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_new_with_values(gtype, cast(initial.ptr), cast(final_.ptr)))
-        return rv.map { Interval(cast($0)) }
+    @inlinable public static func newWith<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) -> Interval! {
+        guard let rv = Interval(gconstpointer: gconstpointer(clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr))) else { return nil }
+        return rv
     }
 
 }
@@ -1066,21 +1221,21 @@ public extension IntervalProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: IntervalPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: IntervalPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(interval_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1098,7 +1253,7 @@ public extension IntervalProtocol {
     /// Get the value of a Interval property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: IntervalPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: IntervalPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1108,7 +1263,7 @@ public extension IntervalProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: IntervalPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: IntervalPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1234,11 +1389,11 @@ public extension IntervalProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: IntervalSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: IntervalSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(interval_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1259,12 +1414,12 @@ public extension IntervalProtocol {
 // MARK: Interval Class: IntervalProtocol extension (methods and fields)
 public extension IntervalProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterInterval` instance.
-    var interval_ptr: UnsafeMutablePointer<ClutterInterval> { return ptr.assumingMemoryBound(to: ClutterInterval.self) }
+    @inlinable var interval_ptr: UnsafeMutablePointer<ClutterInterval>! { return ptr?.assumingMemoryBound(to: ClutterInterval.self) }
 
     /// Creates a copy of `interval`.
-    func clone() -> UnsafeMutablePointer<ClutterInterval>! {
-        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_interval_clone(cast(interval_ptr)))
-        return cast(rv)
+    @inlinable func clone() -> IntervalRef! {
+        guard let rv = IntervalRef(gconstpointer: gconstpointer(clutter_interval_clone(interval_ptr))) else { return nil }
+        return rv
     }
 
     /// Computes the value between the `interval` boundaries given the
@@ -1276,16 +1431,16 @@ public extension IntervalProtocol {
     /// You should use this function if you immediately pass the computed
     /// value to another function that makes a copy of it, like
     /// `g_object_set_property()`
-    func compute(factor: gdouble) -> UnsafePointer<GValue>! {
-        let rv: UnsafePointer<GValue>! = cast(clutter_interval_compute(cast(interval_ptr), factor))
-        return cast(rv)
+    @inlinable func compute(factor: Double) -> GLibObject.ValueRef! {
+        let rv = GLibObject.ValueRef(gconstpointer: gconstpointer(clutter_interval_compute(interval_ptr, gdouble(factor))))
+        return rv
     }
 
     /// Computes the value between the `interval` boundaries given the
     /// progress `factor` and copies it into `value`.
-    func computeValue(factor: gdouble, value: GLibObject.ValueProtocol) -> Bool {
-        let rv = clutter_interval_compute_value(cast(interval_ptr), factor, cast(value.ptr))
-        return Bool(rv != 0)
+    @inlinable func computeValue<ValueT: GLibObject.ValueProtocol>(factor: Double, value: ValueT) -> Bool {
+        let rv = ((clutter_interval_compute_value(interval_ptr, gdouble(factor), value.value_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the final value of `interval` and copies
@@ -1293,8 +1448,8 @@ public extension IntervalProtocol {
     /// 
     /// The passed `GValue` must be initialized to the value held by
     /// the `ClutterInterval`.
-    func getFinal(value: GLibObject.ValueProtocol) {
-        clutter_interval_get_final_value(cast(interval_ptr), cast(value.ptr))
+    @inlinable func getFinal<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
+        clutter_interval_get_final_value(interval_ptr, value.value_ptr)
     
     }
 
@@ -1303,8 +1458,8 @@ public extension IntervalProtocol {
     /// 
     /// The passed `GValue` must be initialized to the value held by
     /// the `ClutterInterval`.
-    func getInitial(value: GLibObject.ValueProtocol) {
-        clutter_interval_get_initial_value(cast(interval_ptr), cast(value.ptr))
+    @inlinable func getInitial<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
+        clutter_interval_get_initial_value(interval_ptr, value.value_ptr)
     
     }
 
@@ -1313,21 +1468,21 @@ public extension IntervalProtocol {
 
 
     /// Retrieves the `GType` of the values inside `interval`.
-    func getValueType() -> GType {
-        let rv = clutter_interval_get_value_type(cast(interval_ptr))
-        return cast(rv)
+    @inlinable func getValueType() -> GType {
+        let rv = clutter_interval_get_value_type(interval_ptr)
+        return rv
     }
 
     /// Gets the pointer to the final value of `interval`
-    func peekFinalValue() -> UnsafeMutablePointer<GValue>! {
-        let rv: UnsafeMutablePointer<GValue>! = cast(clutter_interval_peek_final_value(cast(interval_ptr)))
-        return cast(rv)
+    @inlinable func peekFinalValue() -> GLibObject.ValueRef! {
+        let rv = GLibObject.ValueRef(gconstpointer: gconstpointer(clutter_interval_peek_final_value(interval_ptr)))
+        return rv
     }
 
     /// Gets the pointer to the initial value of `interval`
-    func peekInitialValue() -> UnsafeMutablePointer<GValue>! {
-        let rv: UnsafeMutablePointer<GValue>! = cast(clutter_interval_peek_initial_value(cast(interval_ptr)))
-        return cast(rv)
+    @inlinable func peekInitialValue() -> GLibObject.ValueRef! {
+        let rv = GLibObject.ValueRef(gconstpointer: gconstpointer(clutter_interval_peek_initial_value(interval_ptr)))
+        return rv
     }
 
 
@@ -1336,8 +1491,8 @@ public extension IntervalProtocol {
 
     /// Sets the final value of `interval` to `value`. The value is
     /// copied inside the `ClutterInterval`.
-    func setFinal(value: GLibObject.ValueProtocol) {
-        clutter_interval_set_final_value(cast(interval_ptr), cast(value.ptr))
+    @inlinable func setFinal<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
+        clutter_interval_set_final_value(interval_ptr, value.value_ptr)
     
     }
 
@@ -1347,8 +1502,8 @@ public extension IntervalProtocol {
 
     /// Sets the initial value of `interval` to `value`. The value is copied
     /// inside the `ClutterInterval`.
-    func setInitial(value: GLibObject.ValueProtocol) {
-        clutter_interval_set_initial_value(cast(interval_ptr), cast(value.ptr))
+    @inlinable func setInitial<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
+        clutter_interval_set_initial_value(interval_ptr, value.value_ptr)
     
     }
 
@@ -1358,25 +1513,25 @@ public extension IntervalProtocol {
 
     /// Validates the initial and final values of `interval` against
     /// a `GParamSpec`.
-    func validate(pspec: ParamSpecProtocol) -> Bool {
-        let rv = clutter_interval_validate(cast(interval_ptr), cast(pspec.ptr))
-        return Bool(rv != 0)
+    @inlinable func validate<ParamSpecT: ParamSpecProtocol>(pspec: ParamSpecT) -> Bool {
+        let rv = ((clutter_interval_validate(interval_ptr, pspec.param_spec_ptr)) != 0)
+        return rv
     }
     /// Checks if the `interval` has a valid initial and final values.
-    var isValid: Bool {
+    @inlinable var isValid: Bool {
         /// Checks if the `interval` has a valid initial and final values.
         get {
-            let rv = clutter_interval_is_valid(cast(interval_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_interval_is_valid(interval_ptr)) != 0)
+            return rv
         }
     }
 
     /// Retrieves the `GType` of the values inside `interval`.
-    var valueType: GType {
+    @inlinable var valueType: GType {
         /// Retrieves the `GType` of the values inside `interval`.
         get {
-            let rv = clutter_interval_get_value_type(cast(interval_ptr))
-            return cast(rv)
+            let rv = clutter_interval_get_value_type(interval_ptr)
+            return rv
         }
     }
 
@@ -1399,10 +1554,11 @@ public extension IntervalProtocol {
 /// data and should be accessed using the provided API.
 public protocol KeyframeTransitionProtocol: PropertyTransitionProtocol {
         /// Untyped pointer to the underlying `ClutterKeyframeTransition` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterKeyframeTransition` instance.
-    var keyframe_transition_ptr: UnsafeMutablePointer<ClutterKeyframeTransition> { get }
+    var keyframe_transition_ptr: UnsafeMutablePointer<ClutterKeyframeTransition>! { get }
+
 }
 
 /// The `KeyframeTransitionRef` type acts as a lightweight Swift reference to an underlying `ClutterKeyframeTransition` instance.
@@ -1414,53 +1570,83 @@ public protocol KeyframeTransitionProtocol: PropertyTransitionProtocol {
 public struct KeyframeTransitionRef: KeyframeTransitionProtocol {
         /// Untyped pointer to the underlying `ClutterKeyframeTransition` instance.
     /// For type-safe access, use the generated, typed pointer `keyframe_transition_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension KeyframeTransitionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterKeyframeTransition>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterKeyframeTransition>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterKeyframeTransition>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterKeyframeTransition>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterKeyframeTransition>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `KeyframeTransitionProtocol`
-    init<T: KeyframeTransitionProtocol>(_ other: T) {
+    @inlinable init<T: KeyframeTransitionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterKeyframeTransition` for `property_name`.
-    init( property_name: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_keyframe_transition_new(property_name))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( property_name: UnsafePointer<CChar>!) {
+        let rv = clutter_keyframe_transition_new(property_name)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -1475,84 +1661,130 @@ open class KeyframeTransition: PropertyTransition, KeyframeTransitionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `KeyframeTransition` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterKeyframeTransition>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterKeyframeTransition>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterKeyframeTransition>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterKeyframeTransition>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `KeyframeTransition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterKeyframeTransition>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterKeyframeTransition`.
     /// i.e., ownership is transferred to the `KeyframeTransition` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterKeyframeTransition>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterKeyframeTransition>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `KeyframeTransitionProtocol`
     /// Will retain `ClutterKeyframeTransition`.
     /// - Parameter other: an instance of a related type that implements `KeyframeTransitionProtocol`
-    public init<T: KeyframeTransitionProtocol>(keyframeTransition other: T) {
-        super.init(retaining: cast(other.keyframe_transition_ptr))
+    @inlinable public init<T: KeyframeTransitionProtocol>(keyframeTransition other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterKeyframeTransition` for `property_name`.
-    public override init( property_name: UnsafePointer<CChar>) {
-        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_keyframe_transition_new(property_name))
-        super.init(cast(rv))
+    @inlinable public override init( property_name: UnsafePointer<CChar>!) {
+        let rv = clutter_keyframe_transition_new(property_name)
+        super.init(gpointer: (rv))
     }
 
 
@@ -1614,21 +1846,21 @@ public extension KeyframeTransitionProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: KeyframeTransitionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: KeyframeTransitionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(keyframe_transition_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1646,7 +1878,7 @@ public extension KeyframeTransitionProtocol {
     /// Get the value of a KeyframeTransition property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: KeyframeTransitionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: KeyframeTransitionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1656,7 +1888,7 @@ public extension KeyframeTransitionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: KeyframeTransitionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: KeyframeTransitionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -1797,11 +2029,11 @@ public extension KeyframeTransitionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: KeyframeTransitionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: KeyframeTransitionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(keyframe_transition_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -1822,11 +2054,11 @@ public extension KeyframeTransitionProtocol {
 // MARK: KeyframeTransition Class: KeyframeTransitionProtocol extension (methods and fields)
 public extension KeyframeTransitionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKeyframeTransition` instance.
-    var keyframe_transition_ptr: UnsafeMutablePointer<ClutterKeyframeTransition> { return ptr.assumingMemoryBound(to: ClutterKeyframeTransition.self) }
+    @inlinable var keyframe_transition_ptr: UnsafeMutablePointer<ClutterKeyframeTransition>! { return ptr?.assumingMemoryBound(to: ClutterKeyframeTransition.self) }
 
     /// Removes all key frames from `transition`.
-    func clear() {
-        clutter_keyframe_transition_clear(cast(keyframe_transition_ptr))
+    @inlinable func clear() {
+        clutter_keyframe_transition_clear(keyframe_transition_ptr)
     
     }
 
@@ -1834,15 +2066,15 @@ public extension KeyframeTransitionProtocol {
     /// 
     /// The `transition` must already have key frames set, and `index_` must be
     /// smaller than the number of key frames.
-    func getKeyFrame(index_: CUnsignedInt, key: UnsafeMutablePointer<CDouble>, mode: UnsafeMutablePointer<ClutterAnimationMode>, value: GLibObject.ValueProtocol) {
-        clutter_keyframe_transition_get_key_frame(cast(keyframe_transition_ptr), guint(index_), cast(key), cast(mode), cast(value.ptr))
+    @inlinable func getKeyFrame<ValueT: GLibObject.ValueProtocol>(index_: Int, key: UnsafeMutablePointer<CDouble>! = nil, mode: UnsafeMutablePointer<ClutterAnimationMode>! = nil, value: ValueT) {
+        clutter_keyframe_transition_get_key_frame(keyframe_transition_ptr, guint(index_), key, mode, value.value_ptr)
     
     }
 
     /// Retrieves the number of key frames inside `transition`.
-    func getNKeyFrames() -> Int {
-        let rv: Int = cast(clutter_keyframe_transition_get_n_key_frames(cast(keyframe_transition_ptr)))
-        return Int(rv)
+    @inlinable func getNKeyFrames() -> Int {
+        let rv = Int(clutter_keyframe_transition_get_n_key_frames(keyframe_transition_ptr))
+        return rv
     }
 
 
@@ -1853,8 +2085,8 @@ public extension KeyframeTransitionProtocol {
     /// 
     /// The `transition` must already have a key frame at `index_`, and `index_`
     /// must be smaller than the number of key frames inside `transition`.
-    func setKeyFrame(index_: CUnsignedInt, key: gdouble, mode: AnimationMode, value: GLibObject.ValueProtocol) {
-        clutter_keyframe_transition_set_key_frame(cast(keyframe_transition_ptr), guint(index_), key, mode, cast(value.ptr))
+    @inlinable func setKeyFrame<ValueT: GLibObject.ValueProtocol>(index_: Int, key: CDouble, mode: ClutterAnimationMode, value: ValueT) {
+        clutter_keyframe_transition_set_key_frame(keyframe_transition_ptr, guint(index_), key, mode, value.value_ptr)
     
     }
 
@@ -1863,8 +2095,8 @@ public extension KeyframeTransitionProtocol {
     /// If `transition` does not hold any key frame, `n_key_frames` key frames
     /// will be created; if `transition` already has key frames, `key_frames` must
     /// have at least as many elements as the number of key frames.
-    func setKeyFrames(nKeyFrames n_key_frames: CUnsignedInt, keyFrames key_frames: UnsafePointer<CDouble>) {
-        clutter_keyframe_transition_set_key_frames(cast(keyframe_transition_ptr), guint(n_key_frames), cast(key_frames))
+    @inlinable func setKeyFrames(nKeyFrames n_key_frames: Int, keyFrames key_frames: UnsafePointer<CDouble>!) {
+        clutter_keyframe_transition_set_key_frames(keyframe_transition_ptr, guint(n_key_frames), key_frames)
     
     }
 
@@ -1873,8 +2105,8 @@ public extension KeyframeTransitionProtocol {
     /// If `transition` does not hold any key frame, `n_modes` key frames will
     /// be created; if `transition` already has key frames, `modes` must have
     /// at least as many elements as the number of key frames.
-    func setModes(nModes n_modes: CUnsignedInt, modes: UnsafePointer<ClutterAnimationMode>) {
-        clutter_keyframe_transition_set_modes(cast(keyframe_transition_ptr), guint(n_modes), cast(modes))
+    @inlinable func setModes(nModes n_modes: Int, modes: UnsafePointer<ClutterAnimationMode>!) {
+        clutter_keyframe_transition_set_modes(keyframe_transition_ptr, guint(n_modes), modes)
     
     }
 
@@ -1883,16 +2115,16 @@ public extension KeyframeTransitionProtocol {
     /// If `transition` does not hold any key frame, `n_values` key frames will
     /// be created; if `transition` already has key frames, `values` must have
     /// at least as many elements as the number of key frames.
-    func setValues(nValues n_values: CUnsignedInt, values: UnsafePointer<GValue>) {
-        clutter_keyframe_transition_set_values(cast(keyframe_transition_ptr), guint(n_values), cast(values))
+    @inlinable func setValues(nValues n_values: Int, values: UnsafePointer<GValue>!) {
+        clutter_keyframe_transition_set_values(keyframe_transition_ptr, guint(n_values), values)
     
     }
     /// Retrieves the number of key frames inside `transition`.
-    var nKeyFrames: Int {
+    @inlinable var nKeyFrames: Int {
         /// Retrieves the number of key frames inside `transition`.
         get {
-            let rv: Int = cast(clutter_keyframe_transition_get_n_key_frames(cast(keyframe_transition_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_keyframe_transition_get_n_key_frames(keyframe_transition_ptr))
+            return rv
         }
     }
 

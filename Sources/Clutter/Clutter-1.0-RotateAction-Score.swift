@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -23,10 +24,11 @@ import Atk
 /// only private data and should be accessed using the provided API
 public protocol RotateActionProtocol: GestureActionProtocol {
         /// Untyped pointer to the underlying `ClutterRotateAction` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterRotateAction` instance.
-    var rotate_action_ptr: UnsafeMutablePointer<ClutterRotateAction> { get }
+    var rotate_action_ptr: UnsafeMutablePointer<ClutterRotateAction>! { get }
+
 }
 
 /// The `RotateActionRef` type acts as a lightweight Swift reference to an underlying `ClutterRotateAction` instance.
@@ -38,53 +40,83 @@ public protocol RotateActionProtocol: GestureActionProtocol {
 public struct RotateActionRef: RotateActionProtocol {
         /// Untyped pointer to the underlying `ClutterRotateAction` instance.
     /// For type-safe access, use the generated, typed pointer `rotate_action_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension RotateActionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterRotateAction>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterRotateAction>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterRotateAction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterRotateAction>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterRotateAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `RotateActionProtocol`
-    init<T: RotateActionProtocol>(_ other: T) {
+    @inlinable init<T: RotateActionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterRotateAction` instance
-    init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_rotate_action_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_rotate_action_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -99,84 +131,130 @@ open class RotateAction: GestureAction, RotateActionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `RotateAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterRotateAction>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterRotateAction>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RotateAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterRotateAction>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RotateAction` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RotateAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RotateAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterRotateAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `RotateAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterRotateAction>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterRotateAction`.
     /// i.e., ownership is transferred to the `RotateAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterRotateAction>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterRotateAction>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `RotateActionProtocol`
     /// Will retain `ClutterRotateAction`.
     /// - Parameter other: an instance of a related type that implements `RotateActionProtocol`
-    public init<T: RotateActionProtocol>(rotateAction other: T) {
-        super.init(retaining: cast(other.rotate_action_ptr))
+    @inlinable public init<T: RotateActionProtocol>(rotateAction other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterRotateAction` instance
-    public override init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_rotate_action_new())
-        super.init(cast(rv))
+    @inlinable public override init() {
+        let rv = clutter_rotate_action_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -260,21 +338,21 @@ public extension RotateActionProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: RotateActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: RotateActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(rotate_action_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -292,7 +370,7 @@ public extension RotateActionProtocol {
     /// Get the value of a RotateAction property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: RotateActionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: RotateActionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -302,7 +380,7 @@ public extension RotateActionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: RotateActionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: RotateActionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -468,11 +546,11 @@ public extension RotateActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: RotateActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: RotateActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(rotate_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -493,7 +571,7 @@ public extension RotateActionProtocol {
 // MARK: RotateAction Class: RotateActionProtocol extension (methods and fields)
 public extension RotateActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterRotateAction` instance.
-    var rotate_action_ptr: UnsafeMutablePointer<ClutterRotateAction> { return ptr.assumingMemoryBound(to: ClutterRotateAction.self) }
+    @inlinable var rotate_action_ptr: UnsafeMutablePointer<ClutterRotateAction>! { return ptr?.assumingMemoryBound(to: ClutterRotateAction.self) }
 
 
     // var parentInstance is unavailable because parent_instance is private
@@ -515,10 +593,11 @@ public extension RotateActionProtocol {
 /// and should be accessed using the provided API
 public protocol ScoreProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `ClutterScore` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScore` instance.
-    var score_ptr: UnsafeMutablePointer<ClutterScore> { get }
+    var score_ptr: UnsafeMutablePointer<ClutterScore>! { get }
+
 }
 
 /// The `ScoreRef` type acts as a lightweight Swift reference to an underlying `ClutterScore` instance.
@@ -530,46 +609,76 @@ public protocol ScoreProtocol: GLibObject.ObjectProtocol {
 public struct ScoreRef: ScoreProtocol {
         /// Untyped pointer to the underlying `ClutterScore` instance.
     /// For type-safe access, use the generated, typed pointer `score_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScoreRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScore>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScore>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScore>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScore>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScore>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScoreProtocol`
-    init<T: ScoreProtocol>(_ other: T) {
+    @inlinable init<T: ScoreProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -578,9 +687,9 @@ public extension ScoreRef {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) init() {
-        let rv: UnsafeMutablePointer<ClutterScore>! = cast(clutter_score_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @available(*, deprecated) @inlinable init() {
+        let rv = clutter_score_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -595,77 +704,123 @@ open class Score: GLibObject.Object, ScoreProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Score` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScore>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScore>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Score` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScore>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Score` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Score` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Score` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScore>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Score` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScore>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterScore`.
     /// i.e., ownership is transferred to the `Score` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScore>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScore>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ScoreProtocol`
     /// Will retain `ClutterScore`.
     /// - Parameter other: an instance of a related type that implements `ScoreProtocol`
-    public init<T: ScoreProtocol>(score other: T) {
-        super.init(retaining: cast(other.score_ptr))
+    @inlinable public init<T: ScoreProtocol>(score other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -674,9 +829,9 @@ open class Score: GLibObject.Object, ScoreProtocol {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) public init() {
-        let rv: UnsafeMutablePointer<ClutterScore>! = cast(clutter_score_new())
-        super.init(cast(rv))
+    @available(*, deprecated) @inlinable public init() {
+        let rv = clutter_score_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -696,21 +851,21 @@ public extension ScoreProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ScorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ScorePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(score_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -728,7 +883,7 @@ public extension ScoreProtocol {
     /// Get the value of a Score property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ScorePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ScorePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -738,7 +893,7 @@ public extension ScoreProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ScorePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ScorePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -810,11 +965,11 @@ public extension ScoreProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ScoreSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ScoreSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(score_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -835,7 +990,7 @@ public extension ScoreProtocol {
 // MARK: Score Class: ScoreProtocol extension (methods and fields)
 public extension ScoreProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScore` instance.
-    var score_ptr: UnsafeMutablePointer<ClutterScore> { return ptr.assumingMemoryBound(to: ClutterScore.self) }
+    @inlinable var score_ptr: UnsafeMutablePointer<ClutterScore>! { return ptr?.assumingMemoryBound(to: ClutterScore.self) }
 
     /// Appends a timeline to another one existing in the score; the newly
     /// appended timeline will be started when `parent` is complete.
@@ -847,9 +1002,9 @@ public extension ScoreProtocol {
     ///
     /// **append is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func append(parent: TimelineProtocol, timeline: TimelineProtocol) -> Int {
-        let rv: Int = cast(clutter_score_append(cast(score_ptr), cast(parent.ptr), cast(timeline.ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func append<TimelineT: TimelineProtocol>(parent: TimelineT? = nil, timeline: TimelineT) -> Int {
+        let rv = Int(clutter_score_append(score_ptr, parent?.timeline_ptr, timeline.timeline_ptr))
+        return rv
     }
 
     /// Appends `timeline` at the given `marker_name` on the `parent`
@@ -862,44 +1017,44 @@ public extension ScoreProtocol {
     ///
     /// **append_at_marker is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func appendAtMarker(parent: TimelineProtocol, markerName marker_name: UnsafePointer<gchar>, timeline: TimelineProtocol) -> Int {
-        let rv: Int = cast(clutter_score_append_at_marker(cast(score_ptr), cast(parent.ptr), marker_name, cast(timeline.ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func appendAtMarker<TimelineT: TimelineProtocol>(parent: TimelineT, markerName marker_name: UnsafePointer<gchar>!, timeline: TimelineT) -> Int {
+        let rv = Int(clutter_score_append_at_marker(score_ptr, parent.timeline_ptr, marker_name, timeline.timeline_ptr))
+        return rv
     }
 
     /// Gets whether `score` is looping
     ///
     /// **get_loop is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getLoop() -> Bool {
-        let rv = clutter_score_get_loop(cast(score_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getLoop() -> Bool {
+        let rv = ((clutter_score_get_loop(score_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the `ClutterTimeline` for `id_` inside `score`.
     ///
     /// **get_timeline is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getTimeline(id_: CUnsignedLong) -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_score_get_timeline(cast(score_ptr), gulong(id_)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getTimeline(id_: Int) -> TimelineRef! {
+        let rv = TimelineRef(gconstpointer: gconstpointer(clutter_score_get_timeline(score_ptr, gulong(id_))))
+        return rv
     }
 
     /// Retrieves a list of all the `ClutterTimelines` managed by `score`.
     ///
     /// **list_timelines is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func listTimelines() -> UnsafeMutablePointer<GSList>! {
-        let rv: UnsafeMutablePointer<GSList>! = cast(clutter_score_list_timelines(cast(score_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func listTimelines() -> SListRef! {
+        let rv = SListRef(gconstpointer: gconstpointer(clutter_score_list_timelines(score_ptr)))
+        return rv
     }
 
     /// Pauses a playing score `score`.
     ///
     /// **pause is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func pause() {
-        clutter_score_pause(cast(score_ptr))
+    @available(*, deprecated) @inlinable func pause() {
+        clutter_score_pause(score_ptr)
     
     }
 
@@ -909,8 +1064,8 @@ public extension ScoreProtocol {
     ///
     /// **remove is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func remove(id_: CUnsignedLong) {
-        clutter_score_remove(cast(score_ptr), gulong(id_))
+    @available(*, deprecated) @inlinable func remove(id_: Int) {
+        clutter_score_remove(score_ptr, gulong(id_))
     
     }
 
@@ -918,8 +1073,8 @@ public extension ScoreProtocol {
     ///
     /// **remove_all is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func removeAll() {
-        clutter_score_remove_all(cast(score_ptr))
+    @available(*, deprecated) @inlinable func removeAll() {
+        clutter_score_remove_all(score_ptr)
     
     }
 
@@ -927,8 +1082,8 @@ public extension ScoreProtocol {
     ///
     /// **rewind is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func rewind() {
-        clutter_score_rewind(cast(score_ptr))
+    @available(*, deprecated) @inlinable func rewind() {
+        clutter_score_rewind(score_ptr)
     
     }
 
@@ -937,8 +1092,8 @@ public extension ScoreProtocol {
     ///
     /// **set_loop is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func set(loop: Bool) {
-        clutter_score_set_loop(cast(score_ptr), gboolean(loop ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(loop: Bool) {
+        clutter_score_set_loop(score_ptr, gboolean((loop) ? 1 : 0))
     
     }
 
@@ -946,8 +1101,8 @@ public extension ScoreProtocol {
     ///
     /// **start is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func start() {
-        clutter_score_start(cast(score_ptr))
+    @available(*, deprecated) @inlinable func start() {
+        clutter_score_start(score_ptr)
     
     }
 
@@ -955,22 +1110,22 @@ public extension ScoreProtocol {
     ///
     /// **stop is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func stop() {
-        clutter_score_stop(cast(score_ptr))
+    @available(*, deprecated) @inlinable func stop() {
+        clutter_score_stop(score_ptr)
     
     }
     /// Query state of a `ClutterScore` instance.
     ///
     /// **is_playing is deprecated:**
     /// This method is deprecated.
-    var isPlaying: Bool {
+    @inlinable var isPlaying: Bool {
         /// Query state of a `ClutterScore` instance.
         ///
         /// **is_playing is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_score_is_playing(cast(score_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_score_is_playing(score_ptr)) != 0)
+            return rv
         }
     }
 
@@ -978,14 +1133,14 @@ public extension ScoreProtocol {
     ///
     /// **loop is deprecated:**
     /// This method is deprecated.
-    var loop: Bool {
+    @inlinable var loop: Bool {
         /// Gets whether `score` is looping
         ///
         /// **get_loop is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_score_get_loop(cast(score_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_score_get_loop(score_ptr)) != 0)
+            return rv
         }
         /// Sets whether `score` should loop. A looping `ClutterScore` will start
         /// from its initial state after the `complete` signal has been fired.
@@ -993,7 +1148,7 @@ public extension ScoreProtocol {
         /// **set_loop is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_score_set_loop(cast(score_ptr), gboolean(newValue ? 1 : 0))
+            clutter_score_set_loop(score_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 

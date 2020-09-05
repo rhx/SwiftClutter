@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -23,10 +24,11 @@ import Atk
 /// only private data and should be accessed using the provided API
 public protocol TapActionProtocol: GestureActionProtocol {
         /// Untyped pointer to the underlying `ClutterTapAction` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTapAction` instance.
-    var tap_action_ptr: UnsafeMutablePointer<ClutterTapAction> { get }
+    var tap_action_ptr: UnsafeMutablePointer<ClutterTapAction>! { get }
+
 }
 
 /// The `TapActionRef` type acts as a lightweight Swift reference to an underlying `ClutterTapAction` instance.
@@ -38,53 +40,83 @@ public protocol TapActionProtocol: GestureActionProtocol {
 public struct TapActionRef: TapActionProtocol {
         /// Untyped pointer to the underlying `ClutterTapAction` instance.
     /// For type-safe access, use the generated, typed pointer `tap_action_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TapActionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTapAction>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTapAction>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTapAction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTapAction>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTapAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TapActionProtocol`
-    init<T: TapActionProtocol>(_ other: T) {
+    @inlinable init<T: TapActionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterTapAction` instance
-    init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_tap_action_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_tap_action_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -99,84 +131,130 @@ open class TapAction: GestureAction, TapActionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TapAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTapAction>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTapAction>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TapAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTapAction>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TapAction` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TapAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TapAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTapAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TapAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTapAction>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTapAction`.
     /// i.e., ownership is transferred to the `TapAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTapAction>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTapAction>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TapActionProtocol`
     /// Will retain `ClutterTapAction`.
     /// - Parameter other: an instance of a related type that implements `TapActionProtocol`
-    public init<T: TapActionProtocol>(tapAction other: T) {
-        super.init(retaining: cast(other.tap_action_ptr))
+    @inlinable public init<T: TapActionProtocol>(tapAction other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterTapAction` instance
-    public override init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_tap_action_new())
-        super.init(cast(rv))
+    @inlinable public override init() {
+        let rv = clutter_tap_action_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -260,21 +338,21 @@ public extension TapActionProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TapActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TapActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(tap_action_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -292,7 +370,7 @@ public extension TapActionProtocol {
     /// Get the value of a TapAction property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TapActionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TapActionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -302,7 +380,7 @@ public extension TapActionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TapActionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TapActionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -466,11 +544,11 @@ public extension TapActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TapActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TapActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(tap_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -491,7 +569,7 @@ public extension TapActionProtocol {
 // MARK: TapAction Class: TapActionProtocol extension (methods and fields)
 public extension TapActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTapAction` instance.
-    var tap_action_ptr: UnsafeMutablePointer<ClutterTapAction> { return ptr.assumingMemoryBound(to: ClutterTapAction.self) }
+    @inlinable var tap_action_ptr: UnsafeMutablePointer<ClutterTapAction>! { return ptr?.assumingMemoryBound(to: ClutterTapAction.self) }
 
 
     // var parentInstance is unavailable because parent_instance is private
@@ -510,10 +588,11 @@ public extension TapActionProtocol {
 /// The `ClutterText` struct contains only private data.
 public protocol TextProtocol: ActorProtocol {
         /// Untyped pointer to the underlying `ClutterText` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterText` instance.
-    var text_ptr: UnsafeMutablePointer<ClutterText> { get }
+    var text_ptr: UnsafeMutablePointer<ClutterText>! { get }
+
 }
 
 /// The `TextRef` type acts as a lightweight Swift reference to an underlying `ClutterText` instance.
@@ -524,54 +603,84 @@ public protocol TextProtocol: ActorProtocol {
 public struct TextRef: TextProtocol {
         /// Untyped pointer to the underlying `ClutterText` instance.
     /// For type-safe access, use the generated, typed pointer `text_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TextRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterText>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterText>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterText>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterText>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterText>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TextProtocol`
-    init<T: TextProtocol>(_ other: T) {
+    @inlinable init<T: TextProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterText` actor. This actor can be used to
     /// display and edit text.
-    init() {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_text_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -581,15 +690,15 @@ public extension TextRef {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    init(full font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>, color: ColorProtocol) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_full(font_name, text, cast(color.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) {
+        let rv = clutter_text_new_full(font_name, text, color.color_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new entry with the specified text buffer.
-    init(buffer: TextBufferProtocol) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_buffer(cast(buffer.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<TextBufferT: TextBufferProtocol>(buffer: TextBufferT) {
+        let rv = clutter_text_new_with_buffer(buffer.text_buffer_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -597,9 +706,9 @@ public extension TextRef {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    init(text font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_text(font_name, text))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) {
+        let rv = clutter_text_new_with_text(font_name, text)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `ClutterText` actor, using `font_name` as the font
     /// description; `text` will be used to set the contents of the actor;
@@ -608,15 +717,15 @@ public extension TextRef {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    static func new(full font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>, color: ColorProtocol) -> TextRef! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_full(font_name, text, cast(color.ptr)))
-        return rv.map { TextRef(cast($0)) }
+    @inlinable static func new<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_full(font_name, text, color.color_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new entry with the specified text buffer.
-    static func newWith(buffer: TextBufferProtocol) -> TextRef! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_buffer(cast(buffer.ptr)))
-        return rv.map { TextRef(cast($0)) }
+    @inlinable static func newWith<TextBufferT: TextBufferProtocol>(buffer: TextBufferT) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_with_buffer(buffer.text_buffer_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -624,9 +733,9 @@ public extension TextRef {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    static func newWith(text font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>) -> TextRef! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_text(font_name, text))
-        return rv.map { TextRef(cast($0)) }
+    @inlinable static func newWith(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_with_text(font_name, text))) else { return nil }
+        return rv
     }
 }
 
@@ -640,85 +749,131 @@ open class Text: Actor, TextProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Text` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterText>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterText>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Text` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterText>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Text` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Text` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Text` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterText>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Text` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterText>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterText`.
     /// i.e., ownership is transferred to the `Text` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterText>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterText>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TextProtocol`
     /// Will retain `ClutterText`.
     /// - Parameter other: an instance of a related type that implements `TextProtocol`
-    public init<T: TextProtocol>(text other: T) {
-        super.init(retaining: cast(other.text_ptr))
+    @inlinable public init<T: TextProtocol>(text other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterText` actor. This actor can be used to
     /// display and edit text.
-    public override init() {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new())
-        super.init(cast(rv))
+    @inlinable public override init() {
+        let rv = clutter_text_new()
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -728,15 +883,15 @@ open class Text: Actor, TextProtocol {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    public init(full font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>, color: ColorProtocol) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_full(font_name, text, cast(color.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) {
+        let rv = clutter_text_new_full(font_name, text, color.color_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new entry with the specified text buffer.
-    public init(buffer: TextBufferProtocol) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_buffer(cast(buffer.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<TextBufferT: TextBufferProtocol>(buffer: TextBufferT) {
+        let rv = clutter_text_new_with_buffer(buffer.text_buffer_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -744,9 +899,9 @@ open class Text: Actor, TextProtocol {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    public init(text font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_text(font_name, text))
-        super.init(cast(rv))
+    @inlinable public init(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) {
+        let rv = clutter_text_new_with_text(font_name, text)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -756,15 +911,15 @@ open class Text: Actor, TextProtocol {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    public static func new(full font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>, color: ColorProtocol) -> Text! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_full(font_name, text, cast(color.ptr)))
-        return rv.map { Text(cast($0)) }
+    @inlinable public static func new<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) -> Actor! {
+        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_full(font_name, text, color.color_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new entry with the specified text buffer.
-    public static func newWith(buffer: TextBufferProtocol) -> Text! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_buffer(cast(buffer.ptr)))
-        return rv.map { Text(cast($0)) }
+    @inlinable public static func newWith<TextBufferT: TextBufferProtocol>(buffer: TextBufferT) -> Actor! {
+        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_with_buffer(buffer.text_buffer_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -772,9 +927,9 @@ open class Text: Actor, TextProtocol {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    public static func newWith(text font_name: UnsafePointer<gchar>, text: UnsafePointer<gchar>) -> Text! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_text_new_with_text(font_name, text))
-        return rv.map { Text(cast($0)) }
+    @inlinable public static func newWith(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) -> Actor! {
+        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_with_text(font_name, text))) else { return nil }
+        return rv
     }
 
 }
@@ -1410,21 +1565,21 @@ public extension TextProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TextPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(text_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -1442,7 +1597,7 @@ public extension TextProtocol {
     /// Get the value of a Text property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TextPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TextPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -1452,7 +1607,7 @@ public extension TextProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TextPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TextPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -2356,11 +2511,11 @@ public extension TextProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TextSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(text_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -2381,7 +2536,7 @@ public extension TextProtocol {
 // MARK: Text Class: TextProtocol extension (methods and fields)
 public extension TextProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterText` instance.
-    var text_ptr: UnsafeMutablePointer<ClutterText> { return ptr.assumingMemoryBound(to: ClutterText.self) }
+    @inlinable var text_ptr: UnsafeMutablePointer<ClutterText>! { return ptr?.assumingMemoryBound(to: ClutterText.self) }
 
     /// Emits the `ClutterText::activate` signal, if `self` has been set
     /// as activatable using `clutter_text_set_activatable()`.
@@ -2390,15 +2545,15 @@ public extension TextProtocol {
     /// a `ClutterActor::captured`-event or `ClutterActor::key`-press-event
     /// signal handlers before the default signal handler for the
     /// `ClutterText` is invoked.
-    func activate() -> Bool {
-        let rv = clutter_text_activate(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func activate() -> Bool {
+        let rv = ((clutter_text_activate(text_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the position of the character at the given coordinates.
-    func coordsToPosition(x x_: gfloat, y y_: gfloat) -> Int {
-        let rv: Int = cast(clutter_text_coords_to_position(cast(text_ptr), x_, y_))
-        return Int(rv)
+    @inlinable func coordsToPosition(x: Double, y: Double) -> Int {
+        let rv = Int(clutter_text_coords_to_position(text_ptr, gfloat(x), gfloat(y)))
+        return rv
     }
 
     /// Deletes `n_chars` inside a `ClutterText` actor, starting from the
@@ -2406,17 +2561,17 @@ public extension TextProtocol {
     /// 
     /// Somewhat awkwardly, the cursor position is decremented by the same
     /// number of characters you've deleted.
-    func deleteChars(nChars n_chars: CUnsignedInt) {
-        clutter_text_delete_chars(cast(text_ptr), guint(n_chars))
+    @inlinable func deleteChars(nChars n_chars: Int) {
+        clutter_text_delete_chars(text_ptr, guint(n_chars))
     
     }
 
     /// Deletes the currently selected text
     /// 
     /// This function is only useful in subclasses of `ClutterText`
-    func deleteSelection() -> Bool {
-        let rv = clutter_text_delete_selection(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func deleteSelection() -> Bool {
+        let rv = ((clutter_text_delete_selection(text_ptr)) != 0)
+        return rv
     }
 
     /// Deletes the text inside a `ClutterText` actor between `start_pos`
@@ -2424,195 +2579,195 @@ public extension TextProtocol {
     /// 
     /// The starting and ending positions are expressed in characters,
     /// not in bytes.
-    func deleteText(startPos start_pos: gssize, endPos end_pos: gssize) {
-        clutter_text_delete_text(cast(text_ptr), start_pos, end_pos)
+    @inlinable func deleteText(startPos start_pos: gssize, endPos end_pos: gssize) {
+        clutter_text_delete_text(text_ptr, start_pos, end_pos)
     
     }
 
     /// Retrieves whether a `ClutterText` is activatable or not.
-    func getActivatable() -> Bool {
-        let rv = clutter_text_get_activatable(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getActivatable() -> Bool {
+        let rv = ((clutter_text_get_activatable(text_ptr)) != 0)
+        return rv
     }
 
     /// Gets the attribute list that was set on the `ClutterText` actor
     /// `clutter_text_set_attributes()`, if any.
-    func getAttributes() -> UnsafeMutablePointer<PangoAttrList>! {
-        let rv: UnsafeMutablePointer<PangoAttrList>! = cast(clutter_text_get_attributes(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getAttributes() -> AttrListRef! {
+        let rv = AttrListRef(gconstpointer: gconstpointer(clutter_text_get_attributes(text_ptr)))
+        return rv
     }
 
     /// Get the `ClutterTextBuffer` object which holds the text for
     /// this widget.
-    func getBuffer() -> UnsafeMutablePointer<ClutterTextBuffer>! {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_get_buffer(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getBuffer() -> TextBufferRef! {
+        let rv = TextBufferRef(gconstpointer: gconstpointer(clutter_text_get_buffer(text_ptr)))
+        return rv
     }
 
     /// Retrieves the contents of the `ClutterText` actor between
     /// `start_pos` and `end_pos`, but not including `end_pos`.
     /// 
     /// The positions are specified in characters, not in bytes.
-    func getChars(startPos start_pos: gssize, endPos end_pos: gssize) -> String! {
-        let rv: String! = cast(clutter_text_get_chars(cast(text_ptr), start_pos, end_pos))
-        return cast(rv)
+    @inlinable func getChars(startPos start_pos: gssize, endPos end_pos: gssize) -> String! {
+        let rv = clutter_text_get_chars(text_ptr, start_pos, end_pos).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the text color as set by `clutter_text_set_color()`.
-    func get(color: ColorProtocol) {
-        clutter_text_get_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func get<ColorT: ColorProtocol>(color: ColorT) {
+        clutter_text_get_color(text_ptr, color.color_ptr)
     
     }
 
     /// Retrieves the color of the cursor of a `ClutterText` actor.
-    func getCursor(color: ColorProtocol) {
-        clutter_text_get_cursor_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func getCursor<ColorT: ColorProtocol>(color: ColorT) {
+        clutter_text_get_cursor_color(text_ptr, color.color_ptr)
     
     }
 
     /// Retrieves the cursor position.
-    func getCursorPosition() -> Int {
-        let rv: Int = cast(clutter_text_get_cursor_position(cast(text_ptr)))
-        return Int(rv)
+    @inlinable func getCursorPosition() -> Int {
+        let rv = Int(clutter_text_get_cursor_position(text_ptr))
+        return rv
     }
 
     /// Retrieves the rectangle that contains the cursor.
     /// 
     /// The coordinates of the rectangle's origin are in actor-relative
     /// coordinates.
-    func getCursor(rect: RectProtocol) {
-        clutter_text_get_cursor_rect(cast(text_ptr), cast(rect.ptr))
+    @inlinable func getCursor<RectT: RectProtocol>(rect: RectT) {
+        clutter_text_get_cursor_rect(text_ptr, rect.rect_ptr)
     
     }
 
     /// Retrieves the size of the cursor of a `ClutterText` actor.
-    func getCursorSize() -> Int {
-        let rv: Int = cast(clutter_text_get_cursor_size(cast(text_ptr)))
-        return Int(rv)
+    @inlinable func getCursorSize() -> Int {
+        let rv = Int(clutter_text_get_cursor_size(text_ptr))
+        return rv
     }
 
     /// Retrieves whether the cursor of a `ClutterText` actor is visible.
-    func getCursorVisible() -> Bool {
-        let rv = clutter_text_get_cursor_visible(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getCursorVisible() -> Bool {
+        let rv = ((clutter_text_get_cursor_visible(text_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves whether a `ClutterText` is editable or not.
-    func getEditable() -> Bool {
-        let rv = clutter_text_get_editable(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getEditable() -> Bool {
+        let rv = ((clutter_text_get_editable(text_ptr)) != 0)
+        return rv
     }
 
     /// Returns the ellipsizing position of a `ClutterText` actor, as
     /// set by `clutter_text_set_ellipsize()`.
-    func getEllipsize() -> PangoEllipsizeMode {
-        let rv = clutter_text_get_ellipsize(cast(text_ptr))
-        return cast(rv)
+    @inlinable func getEllipsize() -> PangoEllipsizeMode {
+        let rv = clutter_text_get_ellipsize(text_ptr)
+        return rv
     }
 
     /// Retrieves the `PangoFontDescription` used by `self`
-    func getFontDescription() -> UnsafeMutablePointer<PangoFontDescription>! {
-        let rv: UnsafeMutablePointer<PangoFontDescription>! = cast(clutter_text_get_font_description(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getFontDescription() -> FontDescriptionRef! {
+        let rv = FontDescriptionRef(gconstpointer: gconstpointer(clutter_text_get_font_description(text_ptr)))
+        return rv
     }
 
     /// Retrieves the font name as set by `clutter_text_set_font_name()`.
-    func getFontName() -> String! {
-        let rv: String! = cast(clutter_text_get_font_name(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getFontName() -> String! {
+        let rv = clutter_text_get_font_name(text_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves whether the `ClutterText` actor should justify its contents
     /// on both margins.
-    func getJustify() -> Bool {
-        let rv = clutter_text_get_justify(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getJustify() -> Bool {
+        let rv = ((clutter_text_get_justify(text_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the current `PangoLayout` used by a `ClutterText` actor.
-    func getLayout() -> UnsafeMutablePointer<PangoLayout>! {
-        let rv: UnsafeMutablePointer<PangoLayout>! = cast(clutter_text_get_layout(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getLayout() -> LayoutRef! {
+        let rv = LayoutRef(gconstpointer: gconstpointer(clutter_text_get_layout(text_ptr)))
+        return rv
     }
 
     /// Obtains the coordinates where the `ClutterText` will draw the `PangoLayout`
     /// representing the text.
-    func getLayoutOffsets(x x_: UnsafeMutablePointer<CInt>, y y_: UnsafeMutablePointer<CInt>) {
-        clutter_text_get_layout_offsets(cast(text_ptr), cast(x_), cast(y_))
+    @inlinable func getLayoutOffsets(x: UnsafeMutablePointer<gint>!, y: UnsafeMutablePointer<gint>!) {
+        clutter_text_get_layout_offsets(text_ptr, x, y)
     
     }
 
     /// Retrieves the alignment of a `ClutterText`, as set by
     /// `clutter_text_set_line_alignment()`.
-    func getLineAlignment() -> PangoAlignment {
-        let rv = clutter_text_get_line_alignment(cast(text_ptr))
-        return cast(rv)
+    @inlinable func getLineAlignment() -> PangoAlignment {
+        let rv = clutter_text_get_line_alignment(text_ptr)
+        return rv
     }
 
     /// Retrieves the value set using `clutter_text_set_line_wrap()`.
-    func getLineWrap() -> Bool {
-        let rv = clutter_text_get_line_wrap(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getLineWrap() -> Bool {
+        let rv = ((clutter_text_get_line_wrap(text_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the line wrap mode used by the `ClutterText` actor.
     /// 
     /// See clutter_text_set_line_wrap_mode ().
-    func getLineWrapMode() -> PangoWrapMode {
-        let rv = clutter_text_get_line_wrap_mode(cast(text_ptr))
-        return cast(rv)
+    @inlinable func getLineWrapMode() -> PangoWrapMode {
+        let rv = clutter_text_get_line_wrap_mode(text_ptr)
+        return rv
     }
 
     /// Gets the maximum length of text that can be set into a text actor.
     /// 
     /// See `clutter_text_set_max_length()`.
-    func getMaxLength() -> Int {
-        let rv: Int = cast(clutter_text_get_max_length(cast(text_ptr)))
-        return Int(rv)
+    @inlinable func getMaxLength() -> Int {
+        let rv = Int(clutter_text_get_max_length(text_ptr))
+        return rv
     }
 
     /// Retrieves the character to use in place of the actual text
     /// as set by `clutter_text_set_password_char()`.
-    func getPasswordChar() -> gunichar {
-        let rv = clutter_text_get_password_char(cast(text_ptr))
-        return cast(rv)
+    @inlinable func getPasswordChar() -> gunichar {
+        let rv = clutter_text_get_password_char(text_ptr)
+        return rv
     }
 
     /// Retrieves whether a `ClutterText` is selectable or not.
-    func getSelectable() -> Bool {
-        let rv = clutter_text_get_selectable(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getSelectable() -> Bool {
+        let rv = ((clutter_text_get_selectable(text_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the color of selected text of a `ClutterText` actor.
-    func getSelectedText(color: ColorProtocol) {
-        clutter_text_get_selected_text_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func getSelectedText<ColorT: ColorProtocol>(color: ColorT) {
+        clutter_text_get_selected_text_color(text_ptr, color.color_ptr)
     
     }
 
     /// Retrieves the currently selected text.
-    func getSelection() -> String! {
-        let rv: String! = cast(clutter_text_get_selection(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getSelection() -> String! {
+        let rv = clutter_text_get_selection(text_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the other end of the selection of a `ClutterText` actor,
     /// in characters from the current cursor position.
-    func getSelectionBound() -> Int {
-        let rv: Int = cast(clutter_text_get_selection_bound(cast(text_ptr)))
-        return Int(rv)
+    @inlinable func getSelectionBound() -> Int {
+        let rv = Int(clutter_text_get_selection_bound(text_ptr))
+        return rv
     }
 
     /// Retrieves the color of the selection of a `ClutterText` actor.
-    func getSelection(color: ColorProtocol) {
-        clutter_text_get_selection_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func getSelection<ColorT: ColorProtocol>(color: ColorT) {
+        clutter_text_get_selection_color(text_ptr, color.color_ptr)
     
     }
 
     /// Retrieves whether the `ClutterText` actor is in single line mode.
-    func getSingleLineMode() -> Bool {
-        let rv = clutter_text_get_single_line_mode(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getSingleLineMode() -> Bool {
+        let rv = ((clutter_text_get_single_line_mode(text_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves a pointer to the current contents of a `ClutterText`
@@ -2629,16 +2784,16 @@ public extension TextProtocol {
     /// 
     /// If the `ClutterText` actor is empty, this function will return
     /// an empty string, and not `nil`.
-    func getText() -> String! {
-        let rv: String! = cast(clutter_text_get_text(cast(text_ptr)))
-        return cast(rv)
+    @inlinable func getText() -> String! {
+        let rv = clutter_text_get_text(text_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves whether the contents of the `ClutterText` actor should be
     /// parsed for the Pango text markup.
-    func getUseMarkup() -> Bool {
-        let rv = clutter_text_get_use_markup(cast(text_ptr))
-        return Bool(rv != 0)
+    @inlinable func getUseMarkup() -> Bool {
+        let rv = ((clutter_text_get_use_markup(text_ptr)) != 0)
+        return rv
     }
 
     /// Inserts `text` into a `ClutterActor` at the given position.
@@ -2647,22 +2802,22 @@ public extension TextProtocol {
     /// at the end of the current contents of the `ClutterText`.
     /// 
     /// The position is expressed in characters, not in bytes.
-    func insert(text: UnsafePointer<gchar>, position: gssize) {
-        clutter_text_insert_text(cast(text_ptr), text, position)
+    @inlinable func insert(text: UnsafePointer<gchar>!, position: gssize) {
+        clutter_text_insert_text(text_ptr, text, position)
     
     }
 
     /// Inserts `wc` at the current cursor position of a
     /// `ClutterText` actor.
-    func insertUnichar(wc: gunichar) {
-        clutter_text_insert_unichar(cast(text_ptr), wc)
+    @inlinable func insertUnichar(wc: gunichar) {
+        clutter_text_insert_unichar(text_ptr, wc)
     
     }
 
     /// Retrieves the coordinates of the given `position`.
-    func positionToCoords(position: CInt, x x_: UnsafeMutablePointer<gfloat>, y y_: UnsafeMutablePointer<gfloat>, lineHeight line_height: UnsafeMutablePointer<gfloat>) -> Bool {
-        let rv = clutter_text_position_to_coords(cast(text_ptr), gint(position), cast(x_), cast(y_), cast(line_height))
-        return Bool(rv != 0)
+    @inlinable func positionToCoords(position: Int, x: UnsafeMutablePointer<gfloat>!, y: UnsafeMutablePointer<gfloat>!, lineHeight line_height: UnsafeMutablePointer<gfloat>!) -> Bool {
+        let rv = ((clutter_text_position_to_coords(text_ptr, gint(position), x, y, line_height)) != 0)
+        return rv
     }
 
     /// Sets whether a `ClutterText` actor should be activatable.
@@ -2673,8 +2828,8 @@ public extension TextProtocol {
     /// 
     /// An activatable `ClutterText` must also be set as editable using
     /// `clutter_text_set_editable()`.
-    func set(activatable: Bool) {
-        clutter_text_set_activatable(cast(text_ptr), gboolean(activatable ? 1 : 0))
+    @inlinable func set(activatable: Bool) {
+        clutter_text_set_activatable(text_ptr, gboolean((activatable) ? 1 : 0))
     
     }
 
@@ -2683,15 +2838,15 @@ public extension TextProtocol {
     /// 
     /// The `ClutterText` actor will take a reference on the `PangoAttrList`
     /// passed to this function.
-    func setAttributes(attrs: AttrListProtocol) {
-        clutter_text_set_attributes(cast(text_ptr), cast(attrs.ptr))
+    @inlinable func setAttributes<AttrListT: AttrListProtocol>(attrs: AttrListT? = nil) {
+        clutter_text_set_attributes(text_ptr, attrs?.attr_list_ptr)
     
     }
 
     /// Set the `ClutterTextBuffer` object which holds the text for
     /// this widget.
-    func set(buffer: TextBufferProtocol) {
-        clutter_text_set_buffer(cast(text_ptr), cast(buffer.ptr))
+    @inlinable func set<TextBufferT: TextBufferProtocol>(buffer: TextBufferT) {
+        clutter_text_set_buffer(text_ptr, buffer.text_buffer_ptr)
     
     }
 
@@ -2701,8 +2856,8 @@ public extension TextProtocol {
     /// result of the alpha value of `color` and the composited
     /// opacity of the actor itself on the scenegraph, as returned
     /// by `clutter_actor_get_paint_opacity()`.
-    func set(color: ColorProtocol) {
-        clutter_text_set_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func set<ColorT: ColorProtocol>(color: ColorT) {
+        clutter_text_set_color(text_ptr, color.color_ptr)
     
     }
 
@@ -2710,24 +2865,24 @@ public extension TextProtocol {
     /// 
     /// If `color` is `nil`, the cursor color will be the same as the
     /// text color.
-    func setCursor(color: ColorProtocol) {
-        clutter_text_set_cursor_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func setCursor<ColorT: ColorProtocol>(color: ColorT? = nil) {
+        clutter_text_set_cursor_color(text_ptr, color?.color_ptr)
     
     }
 
     /// Sets the cursor of a `ClutterText` actor at `position`.
     /// 
     /// The position is expressed in characters, not in bytes.
-    func setCursor(position: CInt) {
-        clutter_text_set_cursor_position(cast(text_ptr), gint(position))
+    @inlinable func setCursor(position: Int) {
+        clutter_text_set_cursor_position(text_ptr, gint(position))
     
     }
 
     /// Sets the size of the cursor of a `ClutterText`. The cursor
     /// will only be visible if the `ClutterText:cursor`-visible property
     /// is set to `true`.
-    func setCursor(size: CInt) {
-        clutter_text_set_cursor_size(cast(text_ptr), gint(size))
+    @inlinable func setCursor(size: Int) {
+        clutter_text_set_cursor_size(text_ptr, gint(size))
     
     }
 
@@ -2741,8 +2896,8 @@ public extension TextProtocol {
     /// 
     /// The position of the cursor can be changed programmatically using
     /// `clutter_text_set_cursor_position()`.
-    func set(cursorVisible cursor_visible: Bool) {
-        clutter_text_set_cursor_visible(cast(text_ptr), gboolean(cursor_visible ? 1 : 0))
+    @inlinable func set(cursorVisible cursor_visible: Bool) {
+        clutter_text_set_cursor_visible(text_ptr, gboolean((cursor_visible) ? 1 : 0))
     
     }
 
@@ -2751,16 +2906,16 @@ public extension TextProtocol {
     /// An editable `ClutterText` with key focus set using
     /// `clutter_actor_grab_key_focus()` or `clutter_stage_set_key_focus()`
     /// will receive key events and will update its contents accordingly.
-    func set(editable: Bool) {
-        clutter_text_set_editable(cast(text_ptr), gboolean(editable ? 1 : 0))
+    @inlinable func set(editable: Bool) {
+        clutter_text_set_editable(text_ptr, gboolean((editable) ? 1 : 0))
     
     }
 
     /// Sets the mode used to ellipsize (add an ellipsis: "...") to the
     /// text if there is not enough space to render the entire contents
     /// of a `ClutterText` actor
-    func setEllipsize(mode: Pango.EllipsizeMode) {
-        clutter_text_set_ellipsize(cast(text_ptr), mode)
+    @inlinable func setEllipsize(mode: PangoEllipsizeMode) {
+        clutter_text_set_ellipsize(text_ptr, mode)
     
     }
 
@@ -2769,8 +2924,8 @@ public extension TextProtocol {
     /// The `PangoFontDescription` is copied by the `ClutterText` actor
     /// so you can safely call `pango_font_description_free()` on it after
     /// calling this function.
-    func setFontDescription(fontDesc font_desc: FontDescriptionProtocol) {
-        clutter_text_set_font_description(cast(text_ptr), cast(font_desc.ptr))
+    @inlinable func setFontDescription<FontDescriptionT: FontDescriptionProtocol>(fontDesc font_desc: FontDescriptionT) {
+        clutter_text_set_font_description(text_ptr, font_desc.font_description_ptr)
     
     }
 
@@ -2791,16 +2946,16 @@ public extension TextProtocol {
     ///   clutter_text_set_font_name (text, "Helvetica 10");
     /// ```
     /// 
-    func set(fontName font_name: UnsafePointer<gchar>) {
-        clutter_text_set_font_name(cast(text_ptr), font_name)
+    @inlinable func set(fontName font_name: UnsafePointer<gchar>? = nil) {
+        clutter_text_set_font_name(text_ptr, font_name)
     
     }
 
     /// Sets whether the text of the `ClutterText` actor should be justified
     /// on both margins. This setting is ignored if Clutter is compiled
     /// against Pango &lt; 1.18.
-    func set(justify: Bool) {
-        clutter_text_set_justify(cast(text_ptr), gboolean(justify ? 1 : 0))
+    @inlinable func set(justify: Bool) {
+        clutter_text_set_justify(text_ptr, gboolean((justify) ? 1 : 0))
     
     }
 
@@ -2810,23 +2965,23 @@ public extension TextProtocol {
     /// 
     /// To align a `ClutterText` actor you should add it to a container
     /// that supports alignment, or use the anchor point.
-    func setLine(alignment: Pango.Alignment) {
-        clutter_text_set_line_alignment(cast(text_ptr), alignment)
+    @inlinable func setLine(alignment: PangoAlignment) {
+        clutter_text_set_line_alignment(text_ptr, alignment)
     
     }
 
     /// Sets whether the contents of a `ClutterText` actor should wrap,
     /// if they don't fit the size assigned to the actor.
-    func set(lineWrap line_wrap: Bool) {
-        clutter_text_set_line_wrap(cast(text_ptr), gboolean(line_wrap ? 1 : 0))
+    @inlinable func set(lineWrap line_wrap: Bool) {
+        clutter_text_set_line_wrap(text_ptr, gboolean((line_wrap) ? 1 : 0))
     
     }
 
     /// If line wrapping is enabled (see `clutter_text_set_line_wrap()`) this
     /// function controls how the line wrapping is performed. The default is
     /// `PANGO_WRAP_WORD` which means wrap on word boundaries.
-    func setLine(wrapMode wrap_mode: Pango.WrapMode) {
-        clutter_text_set_line_wrap_mode(cast(text_ptr), wrap_mode)
+    @inlinable func setLine(wrapMode wrap_mode: PangoWrapMode) {
+        clutter_text_set_line_wrap_mode(text_ptr, wrap_mode)
     
     }
 
@@ -2841,16 +2996,16 @@ public extension TextProtocol {
     ///   clutter_text_set_use_markup (CLUTTER_TEXT (actor), TRUE);
     /// ```
     /// 
-    func set(markup: UnsafePointer<gchar>) {
-        clutter_text_set_markup(cast(text_ptr), markup)
+    @inlinable func set(markup: UnsafePointer<gchar>? = nil) {
+        clutter_text_set_markup(text_ptr, markup)
     
     }
 
     /// Sets the maximum allowed length of the contents of the actor. If the
     /// current contents are longer than the given length, then they will be
     /// truncated to fit.
-    func setMaxLength(max: CInt) {
-        clutter_text_set_max_length(cast(text_ptr), gint(max))
+    @inlinable func setMaxLength(max: Int) {
+        clutter_text_set_max_length(text_ptr, gint(max))
     
     }
 
@@ -2859,8 +3014,8 @@ public extension TextProtocol {
     /// 
     /// If `wc` is 0 the text will be displayed as it is entered in the
     /// `ClutterText` actor.
-    func setPasswordChar(wc: gunichar) {
-        clutter_text_set_password_char(cast(text_ptr), wc)
+    @inlinable func setPasswordChar(wc: gunichar) {
+        clutter_text_set_password_char(text_ptr, wc)
     
     }
 
@@ -2873,8 +3028,8 @@ public extension TextProtocol {
     /// actor is not editable.
     /// 
     /// This function should not be used by applications
-    func setPreeditString(preeditStr preedit_str: UnsafePointer<gchar>, preeditAttrs preedit_attrs: AttrListProtocol, cursorPos cursor_pos: CUnsignedInt) {
-        clutter_text_set_preedit_string(cast(text_ptr), preedit_str, cast(preedit_attrs.ptr), guint(cursor_pos))
+    @inlinable func setPreeditString<AttrListT: AttrListProtocol>(preeditStr preedit_str: UnsafePointer<gchar>? = nil, preeditAttrs preedit_attrs: AttrListT? = nil, cursorPos cursor_pos: Int) {
+        clutter_text_set_preedit_string(text_ptr, preedit_str, preedit_attrs?.attr_list_ptr, guint(cursor_pos))
     
     }
 
@@ -2882,8 +3037,8 @@ public extension TextProtocol {
     /// 
     /// A selectable `ClutterText` will allow selecting its contents using
     /// the pointer or the keyboard.
-    func set(selectable: Bool) {
-        clutter_text_set_selectable(cast(text_ptr), gboolean(selectable ? 1 : 0))
+    @inlinable func set(selectable: Bool) {
+        clutter_text_set_selectable(text_ptr, gboolean((selectable) ? 1 : 0))
     
     }
 
@@ -2891,8 +3046,8 @@ public extension TextProtocol {
     /// 
     /// If `color` is `nil`, the selected text color will be the same as the
     /// selection color, which then falls back to cursor, and then text color.
-    func setSelectedText(color: ColorProtocol) {
-        clutter_text_set_selected_text_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func setSelectedText<ColorT: ColorProtocol>(color: ColorT? = nil) {
+        clutter_text_set_selected_text_color(text_ptr, color?.color_ptr)
     
     }
 
@@ -2900,8 +3055,8 @@ public extension TextProtocol {
     /// 
     /// This function changes the position of the cursor to match
     /// `start_pos` and the selection bound to match `end_pos`.
-    func setSelection(startPos start_pos: gssize, endPos end_pos: gssize) {
-        clutter_text_set_selection(cast(text_ptr), start_pos, end_pos)
+    @inlinable func setSelection(startPos start_pos: gssize, endPos end_pos: gssize) {
+        clutter_text_set_selection(text_ptr, start_pos, end_pos)
     
     }
 
@@ -2909,8 +3064,8 @@ public extension TextProtocol {
     /// cursor position.
     /// 
     /// If `selection_bound` is -1, the selection unset.
-    func set(selectionBound selection_bound: CInt) {
-        clutter_text_set_selection_bound(cast(text_ptr), gint(selection_bound))
+    @inlinable func set(selectionBound selection_bound: Int) {
+        clutter_text_set_selection_bound(text_ptr, gint(selection_bound))
     
     }
 
@@ -2919,8 +3074,8 @@ public extension TextProtocol {
     /// If `color` is `nil`, the selection color will be the same as the
     /// cursor color, or if no cursor color is set either then it will be
     /// the same as the text color.
-    func setSelection(color: ColorProtocol) {
-        clutter_text_set_selection_color(cast(text_ptr), cast(color.ptr))
+    @inlinable func setSelection<ColorT: ColorProtocol>(color: ColorT? = nil) {
+        clutter_text_set_selection_color(text_ptr, color?.color_ptr)
     
     }
 
@@ -2937,8 +3092,8 @@ public extension TextProtocol {
     /// property is also set as a side effect. Instead of entering a new
     /// line character, the text actor will emit the `ClutterText::activate`
     /// signal.
-    func setSingleLineMode(singleLine single_line: Bool) {
-        clutter_text_set_single_line_mode(cast(text_ptr), gboolean(single_line ? 1 : 0))
+    @inlinable func setSingleLineMode(singleLine single_line: Bool) {
+        clutter_text_set_single_line_mode(text_ptr, gboolean((single_line) ? 1 : 0))
     
     }
 
@@ -2948,8 +3103,8 @@ public extension TextProtocol {
     /// will be reset to `false` as a side effect. If you want to
     /// maintain the `ClutterText:use`-markup you should use the
     /// `clutter_text_set_markup()` function instead
-    func set(text: UnsafePointer<gchar>) {
-        clutter_text_set_text(cast(text_ptr), text)
+    @inlinable func set(text: UnsafePointer<gchar>? = nil) {
+        clutter_text_set_text(text_ptr, text)
     
     }
 
@@ -2960,16 +3115,16 @@ public extension TextProtocol {
     /// not have any effect except hiding the markup.
     /// 
     /// See also `ClutterText:use`-markup.
-    func setUseMarkup(setting: Bool) {
-        clutter_text_set_use_markup(cast(text_ptr), gboolean(setting ? 1 : 0))
+    @inlinable func setUseMarkup(setting: Bool) {
+        clutter_text_set_use_markup(text_ptr, gboolean((setting) ? 1 : 0))
     
     }
     /// Toggles whether return invokes the activate signal or not.
-    var activatable: Bool {
+    @inlinable var activatable: Bool {
         /// Retrieves whether a `ClutterText` is activatable or not.
         get {
-            let rv = clutter_text_get_activatable(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_activatable(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether a `ClutterText` actor should be activatable.
         /// 
@@ -2980,18 +3135,18 @@ public extension TextProtocol {
         /// An activatable `ClutterText` must also be set as editable using
         /// `clutter_text_set_editable()`.
         nonmutating set {
-            clutter_text_set_activatable(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_activatable(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// A list of `PangoStyleAttribute`<!-- -->s to be applied to the
     /// contents of the `ClutterText` actor.
-    var attributes: UnsafeMutablePointer<PangoAttrList>! {
+    @inlinable var attributes: AttrListRef! {
         /// Gets the attribute list that was set on the `ClutterText` actor
         /// `clutter_text_set_attributes()`, if any.
         get {
-            let rv: UnsafeMutablePointer<PangoAttrList>! = cast(clutter_text_get_attributes(cast(text_ptr)))
-            return cast(rv)
+            let rv = AttrListRef(gconstpointer: gconstpointer(clutter_text_get_attributes(text_ptr)))
+            return rv
         }
         /// Sets the attributes list that are going to be applied to the
         /// `ClutterText` contents.
@@ -2999,63 +3154,63 @@ public extension TextProtocol {
         /// The `ClutterText` actor will take a reference on the `PangoAttrList`
         /// passed to this function.
         nonmutating set {
-            clutter_text_set_attributes(cast(text_ptr), cast(newValue))
+            clutter_text_set_attributes(text_ptr, UnsafeMutablePointer<PangoAttrList>(newValue?.attr_list_ptr))
         }
     }
 
     /// The buffer which stores the text for this `ClutterText`.
     /// 
     /// If set to `nil`, a default buffer will be created.
-    var buffer: UnsafeMutablePointer<ClutterTextBuffer>! {
+    @inlinable var buffer: TextBufferRef! {
         /// Get the `ClutterTextBuffer` object which holds the text for
         /// this widget.
         get {
-            let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_get_buffer(cast(text_ptr)))
-            return cast(rv)
+            let rv = TextBufferRef(gconstpointer: gconstpointer(clutter_text_get_buffer(text_ptr)))
+            return rv
         }
         /// Set the `ClutterTextBuffer` object which holds the text for
         /// this widget.
         nonmutating set {
-            clutter_text_set_buffer(cast(text_ptr), cast(newValue))
+            clutter_text_set_buffer(text_ptr, UnsafeMutablePointer<ClutterTextBuffer>(newValue?.text_buffer_ptr))
         }
     }
 
     /// Retrieves the cursor position.
-    var cursorPosition: Int {
+    @inlinable var cursorPosition: Int {
         /// Retrieves the cursor position.
         get {
-            let rv: Int = cast(clutter_text_get_cursor_position(cast(text_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_text_get_cursor_position(text_ptr))
+            return rv
         }
         /// Sets the cursor of a `ClutterText` actor at `position`.
         /// 
         /// The position is expressed in characters, not in bytes.
         nonmutating set {
-            clutter_text_set_cursor_position(cast(text_ptr), gint(newValue))
+            clutter_text_set_cursor_position(text_ptr, gint(newValue))
         }
     }
 
     /// Retrieves the size of the cursor of a `ClutterText` actor.
-    var cursorSize: Int {
+    @inlinable var cursorSize: Int {
         /// Retrieves the size of the cursor of a `ClutterText` actor.
         get {
-            let rv: Int = cast(clutter_text_get_cursor_size(cast(text_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_text_get_cursor_size(text_ptr))
+            return rv
         }
         /// Sets the size of the cursor of a `ClutterText`. The cursor
         /// will only be visible if the `ClutterText:cursor`-visible property
         /// is set to `true`.
         nonmutating set {
-            clutter_text_set_cursor_size(cast(text_ptr), gint(newValue))
+            clutter_text_set_cursor_size(text_ptr, gint(newValue))
         }
     }
 
     /// Retrieves whether the cursor of a `ClutterText` actor is visible.
-    var cursorVisible: Bool {
+    @inlinable var cursorVisible: Bool {
         /// Retrieves whether the cursor of a `ClutterText` actor is visible.
         get {
-            let rv = clutter_text_get_cursor_visible(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_cursor_visible(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether the cursor of a `ClutterText` actor should be
         /// visible or not.
@@ -3068,16 +3223,16 @@ public extension TextProtocol {
         /// The position of the cursor can be changed programmatically using
         /// `clutter_text_set_cursor_position()`.
         nonmutating set {
-            clutter_text_set_cursor_visible(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_cursor_visible(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Whether key events delivered to the actor causes editing.
-    var editable: Bool {
+    @inlinable var editable: Bool {
         /// Retrieves whether a `ClutterText` is editable or not.
         get {
-            let rv = clutter_text_get_editable(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_editable(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether the `ClutterText` actor should be editable.
         /// 
@@ -3085,32 +3240,32 @@ public extension TextProtocol {
         /// `clutter_actor_grab_key_focus()` or `clutter_stage_set_key_focus()`
         /// will receive key events and will update its contents accordingly.
         nonmutating set {
-            clutter_text_set_editable(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_editable(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// The preferred place to ellipsize the contents of the `ClutterText` actor
-    var ellipsize: PangoEllipsizeMode {
+    @inlinable var ellipsize: PangoEllipsizeMode {
         /// Returns the ellipsizing position of a `ClutterText` actor, as
         /// set by `clutter_text_set_ellipsize()`.
         get {
-            let rv = clutter_text_get_ellipsize(cast(text_ptr))
-            return cast(rv)
+            let rv = clutter_text_get_ellipsize(text_ptr)
+            return rv
         }
         /// Sets the mode used to ellipsize (add an ellipsis: "...") to the
         /// text if there is not enough space to render the entire contents
         /// of a `ClutterText` actor
         nonmutating set {
-            clutter_text_set_ellipsize(cast(text_ptr), cast(newValue))
+            clutter_text_set_ellipsize(text_ptr, newValue)
         }
     }
 
     /// Retrieves the `PangoFontDescription` used by `self`
-    var fontDescription: UnsafeMutablePointer<PangoFontDescription>! {
+    @inlinable var fontDescription: FontDescriptionRef! {
         /// Retrieves the `PangoFontDescription` used by `self`
         get {
-            let rv: UnsafeMutablePointer<PangoFontDescription>! = cast(clutter_text_get_font_description(cast(text_ptr)))
-            return cast(rv)
+            let rv = FontDescriptionRef(gconstpointer: gconstpointer(clutter_text_get_font_description(text_ptr)))
+            return rv
         }
         /// Sets `font_desc` as the font description for a `ClutterText`
         /// 
@@ -3118,16 +3273,16 @@ public extension TextProtocol {
         /// so you can safely call `pango_font_description_free()` on it after
         /// calling this function.
         nonmutating set {
-            clutter_text_set_font_description(cast(text_ptr), cast(newValue))
+            clutter_text_set_font_description(text_ptr, UnsafeMutablePointer<PangoFontDescription>(newValue?.font_description_ptr))
         }
     }
 
     /// Retrieves the font name as set by `clutter_text_set_font_name()`.
-    var fontName: String! {
+    @inlinable var fontName: String! {
         /// Retrieves the font name as set by `clutter_text_set_font_name()`.
         get {
-            let rv: String! = cast(clutter_text_get_font_name(cast(text_ptr)))
-            return cast(rv)
+            let rv = clutter_text_get_font_name(text_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the font used by a `ClutterText`. The `font_name` string
         /// must either be `nil`, which means that the font name from the
@@ -3147,44 +3302,44 @@ public extension TextProtocol {
         /// ```
         /// 
         nonmutating set {
-            clutter_text_set_font_name(cast(text_ptr), cast(newValue))
+            clutter_text_set_font_name(text_ptr, newValue)
         }
     }
 
     /// Whether the contents of the `ClutterText` should be justified
     /// on both margins.
-    var justify: Bool {
+    @inlinable var justify: Bool {
         /// Retrieves whether the `ClutterText` actor should justify its contents
         /// on both margins.
         get {
-            let rv = clutter_text_get_justify(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_justify(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether the text of the `ClutterText` actor should be justified
         /// on both margins. This setting is ignored if Clutter is compiled
         /// against Pango &lt; 1.18.
         nonmutating set {
-            clutter_text_set_justify(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_justify(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the current `PangoLayout` used by a `ClutterText` actor.
-    var layout: UnsafeMutablePointer<PangoLayout>! {
+    @inlinable var layout: LayoutRef! {
         /// Retrieves the current `PangoLayout` used by a `ClutterText` actor.
         get {
-            let rv: UnsafeMutablePointer<PangoLayout>! = cast(clutter_text_get_layout(cast(text_ptr)))
-            return cast(rv)
+            let rv = LayoutRef(gconstpointer: gconstpointer(clutter_text_get_layout(text_ptr)))
+            return rv
         }
     }
 
     /// Retrieves the alignment of a `ClutterText`, as set by
     /// `clutter_text_set_line_alignment()`.
-    var lineAlignment: PangoAlignment {
+    @inlinable var lineAlignment: PangoAlignment {
         /// Retrieves the alignment of a `ClutterText`, as set by
         /// `clutter_text_set_line_alignment()`.
         get {
-            let rv = clutter_text_get_line_alignment(cast(text_ptr))
-            return cast(rv)
+            let rv = clutter_text_get_line_alignment(text_ptr)
+            return rv
         }
         /// Sets the way that the lines of a wrapped label are aligned with
         /// respect to each other. This does not affect the overall alignment
@@ -3193,70 +3348,70 @@ public extension TextProtocol {
         /// To align a `ClutterText` actor you should add it to a container
         /// that supports alignment, or use the anchor point.
         nonmutating set {
-            clutter_text_set_line_alignment(cast(text_ptr), cast(newValue))
+            clutter_text_set_line_alignment(text_ptr, newValue)
         }
     }
 
     /// Retrieves the value set using `clutter_text_set_line_wrap()`.
-    var lineWrap: Bool {
+    @inlinable var lineWrap: Bool {
         /// Retrieves the value set using `clutter_text_set_line_wrap()`.
         get {
-            let rv = clutter_text_get_line_wrap(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_line_wrap(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether the contents of a `ClutterText` actor should wrap,
         /// if they don't fit the size assigned to the actor.
         nonmutating set {
-            clutter_text_set_line_wrap(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_line_wrap(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the line wrap mode used by the `ClutterText` actor.
     /// 
     /// See clutter_text_set_line_wrap_mode ().
-    var lineWrapMode: PangoWrapMode {
+    @inlinable var lineWrapMode: PangoWrapMode {
         /// Retrieves the line wrap mode used by the `ClutterText` actor.
         /// 
         /// See clutter_text_set_line_wrap_mode ().
         get {
-            let rv = clutter_text_get_line_wrap_mode(cast(text_ptr))
-            return cast(rv)
+            let rv = clutter_text_get_line_wrap_mode(text_ptr)
+            return rv
         }
         /// If line wrapping is enabled (see `clutter_text_set_line_wrap()`) this
         /// function controls how the line wrapping is performed. The default is
         /// `PANGO_WRAP_WORD` which means wrap on word boundaries.
         nonmutating set {
-            clutter_text_set_line_wrap_mode(cast(text_ptr), cast(newValue))
+            clutter_text_set_line_wrap_mode(text_ptr, newValue)
         }
     }
 
     /// Gets the maximum length of text that can be set into a text actor.
     /// 
     /// See `clutter_text_set_max_length()`.
-    var maxLength: Int {
+    @inlinable var maxLength: Int {
         /// Gets the maximum length of text that can be set into a text actor.
         /// 
         /// See `clutter_text_set_max_length()`.
         get {
-            let rv: Int = cast(clutter_text_get_max_length(cast(text_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_text_get_max_length(text_ptr))
+            return rv
         }
         /// Sets the maximum allowed length of the contents of the actor. If the
         /// current contents are longer than the given length, then they will be
         /// truncated to fit.
         nonmutating set {
-            clutter_text_set_max_length(cast(text_ptr), gint(newValue))
+            clutter_text_set_max_length(text_ptr, gint(newValue))
         }
     }
 
     /// Retrieves the character to use in place of the actual text
     /// as set by `clutter_text_set_password_char()`.
-    var passwordChar: gunichar {
+    @inlinable var passwordChar: gunichar {
         /// Retrieves the character to use in place of the actual text
         /// as set by `clutter_text_set_password_char()`.
         get {
-            let rv = clutter_text_get_password_char(cast(text_ptr))
-            return cast(rv)
+            let rv = clutter_text_get_password_char(text_ptr)
+            return rv
         }
         /// Sets the character to use in place of the actual text in a
         /// password text actor.
@@ -3264,7 +3419,7 @@ public extension TextProtocol {
         /// If `wc` is 0 the text will be displayed as it is entered in the
         /// `ClutterText` actor.
         nonmutating set {
-            clutter_text_set_password_char(cast(text_ptr), cast(newValue))
+            clutter_text_set_password_char(text_ptr, newValue)
         }
     }
 
@@ -3273,54 +3428,54 @@ public extension TextProtocol {
     /// 
     /// This property depends on the `ClutterActor:reactive` property being
     /// set to `true`.
-    var selectable: Bool {
+    @inlinable var selectable: Bool {
         /// Retrieves whether a `ClutterText` is selectable or not.
         get {
-            let rv = clutter_text_get_selectable(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_selectable(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether a `ClutterText` actor should be selectable.
         /// 
         /// A selectable `ClutterText` will allow selecting its contents using
         /// the pointer or the keyboard.
         nonmutating set {
-            clutter_text_set_selectable(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_selectable(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the currently selected text.
-    var selection: String! {
+    @inlinable var selection: String! {
         /// Retrieves the currently selected text.
         get {
-            let rv: String! = cast(clutter_text_get_selection(cast(text_ptr)))
-            return cast(rv)
+            let rv = clutter_text_get_selection(text_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
     /// Retrieves the other end of the selection of a `ClutterText` actor,
     /// in characters from the current cursor position.
-    var selectionBound: Int {
+    @inlinable var selectionBound: Int {
         /// Retrieves the other end of the selection of a `ClutterText` actor,
         /// in characters from the current cursor position.
         get {
-            let rv: Int = cast(clutter_text_get_selection_bound(cast(text_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_text_get_selection_bound(text_ptr))
+            return rv
         }
         /// Sets the other end of the selection, starting from the current
         /// cursor position.
         /// 
         /// If `selection_bound` is -1, the selection unset.
         nonmutating set {
-            clutter_text_set_selection_bound(cast(text_ptr), gint(newValue))
+            clutter_text_set_selection_bound(text_ptr, gint(newValue))
         }
     }
 
     /// Retrieves whether the `ClutterText` actor is in single line mode.
-    var singleLineMode: Bool {
+    @inlinable var singleLineMode: Bool {
         /// Retrieves whether the `ClutterText` actor is in single line mode.
         get {
-            let rv = clutter_text_get_single_line_mode(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_single_line_mode(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether a `ClutterText` actor should be in single line mode
         /// or not. Only editable `ClutterText`<!-- -->s can be in single line
@@ -3336,12 +3491,12 @@ public extension TextProtocol {
         /// line character, the text actor will emit the `ClutterText::activate`
         /// signal.
         nonmutating set {
-            clutter_text_set_single_line_mode(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_single_line_mode(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// The text to render inside the actor.
-    var text: String! {
+    @inlinable var text: String! {
         /// Retrieves a pointer to the current contents of a `ClutterText`
         /// actor.
         /// 
@@ -3357,8 +3512,8 @@ public extension TextProtocol {
         /// If the `ClutterText` actor is empty, this function will return
         /// an empty string, and not `nil`.
         get {
-            let rv: String! = cast(clutter_text_get_text(cast(text_ptr)))
-            return cast(rv)
+            let rv = clutter_text_get_text(text_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the contents of a `ClutterText` actor.
         /// 
@@ -3367,18 +3522,18 @@ public extension TextProtocol {
         /// maintain the `ClutterText:use`-markup you should use the
         /// `clutter_text_set_markup()` function instead
         nonmutating set {
-            clutter_text_set_text(cast(text_ptr), cast(newValue))
+            clutter_text_set_text(text_ptr, newValue)
         }
     }
 
     /// Retrieves whether the contents of the `ClutterText` actor should be
     /// parsed for the Pango text markup.
-    var useMarkup: Bool {
+    @inlinable var useMarkup: Bool {
         /// Retrieves whether the contents of the `ClutterText` actor should be
         /// parsed for the Pango text markup.
         get {
-            let rv = clutter_text_get_use_markup(cast(text_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_text_get_use_markup(text_ptr)) != 0)
+            return rv
         }
         /// Sets whether the contents of the `ClutterText` actor contains markup
         /// in <link linkend="PangoMarkupFormat">Pango's text markup language</link>.
@@ -3388,7 +3543,7 @@ public extension TextProtocol {
         /// 
         /// See also `ClutterText:use`-markup.
         nonmutating set {
-            clutter_text_set_use_markup(cast(text_ptr), gboolean(newValue ? 1 : 0))
+            clutter_text_set_use_markup(text_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -3411,10 +3566,11 @@ public extension TextProtocol {
 /// data and it should only be accessed using the provided API.
 public protocol TextBufferProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `ClutterTextBuffer` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTextBuffer` instance.
-    var text_buffer_ptr: UnsafeMutablePointer<ClutterTextBuffer> { get }
+    var text_buffer_ptr: UnsafeMutablePointer<ClutterTextBuffer>! { get }
+
 }
 
 /// The `TextBufferRef` type acts as a lightweight Swift reference to an underlying `ClutterTextBuffer` instance.
@@ -3426,64 +3582,94 @@ public protocol TextBufferProtocol: GLibObject.ObjectProtocol {
 public struct TextBufferRef: TextBufferProtocol {
         /// Untyped pointer to the underlying `ClutterTextBuffer` instance.
     /// For type-safe access, use the generated, typed pointer `text_buffer_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TextBufferRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTextBuffer>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTextBuffer>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTextBuffer>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTextBuffer>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTextBuffer>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TextBufferProtocol`
-    init<T: TextBufferProtocol>(_ other: T) {
+    @inlinable init<T: TextBufferProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Create a new ClutterTextBuffer object.
-    init() {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_buffer_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_text_buffer_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Create a new ClutterTextBuffer object with some text.
-    init(text: UnsafePointer<gchar>, textLen text_len: gssize) {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_buffer_new_with_text(text, text_len))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) {
+        let rv = clutter_text_buffer_new_with_text(text, text_len)
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Create a new ClutterTextBuffer object with some text.
-    static func newWith(text: UnsafePointer<gchar>, textLen text_len: gssize) -> TextBufferRef! {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_buffer_new_with_text(text, text_len))
-        return rv.map { TextBufferRef(cast($0)) }
+    @inlinable static func newWith(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) -> TextBufferRef! {
+        guard let rv = TextBufferRef(gconstpointer: gconstpointer(clutter_text_buffer_new_with_text(text, text_len))) else { return nil }
+        return rv
     }
 }
 
@@ -3498,96 +3684,142 @@ open class TextBuffer: GLibObject.Object, TextBufferProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TextBuffer` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTextBuffer>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTextBuffer>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTextBuffer>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextBuffer` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTextBuffer>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextBuffer` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTextBuffer>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTextBuffer`.
     /// i.e., ownership is transferred to the `TextBuffer` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTextBuffer>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTextBuffer>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TextBufferProtocol`
     /// Will retain `ClutterTextBuffer`.
     /// - Parameter other: an instance of a related type that implements `TextBufferProtocol`
-    public init<T: TextBufferProtocol>(textBuffer other: T) {
-        super.init(retaining: cast(other.text_buffer_ptr))
+    @inlinable public init<T: TextBufferProtocol>(textBuffer other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Create a new ClutterTextBuffer object.
-    public init() {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_buffer_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = clutter_text_buffer_new()
+        super.init(gpointer: (rv))
     }
 
     /// Create a new ClutterTextBuffer object with some text.
-    public init(text: UnsafePointer<gchar>, textLen text_len: gssize) {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_buffer_new_with_text(text, text_len))
-        super.init(cast(rv))
+    @inlinable public init(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) {
+        let rv = clutter_text_buffer_new_with_text(text, text_len)
+        super.init(gpointer: (rv))
     }
 
     /// Create a new ClutterTextBuffer object with some text.
-    public static func newWith(text: UnsafePointer<gchar>, textLen text_len: gssize) -> TextBuffer! {
-        let rv: UnsafeMutablePointer<ClutterTextBuffer>! = cast(clutter_text_buffer_new_with_text(text, text_len))
-        return rv.map { TextBuffer(cast($0)) }
+    @inlinable public static func newWith(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) -> TextBuffer! {
+        guard let rv = TextBuffer(gconstpointer: gconstpointer(clutter_text_buffer_new_with_text(text, text_len))) else { return nil }
+        return rv
     }
 
 }
@@ -3607,21 +3839,21 @@ public extension TextBufferProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TextBufferPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TextBufferPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(text_buffer_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -3639,7 +3871,7 @@ public extension TextBufferProtocol {
     /// Get the value of a TextBuffer property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TextBufferPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TextBufferPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -3649,7 +3881,7 @@ public extension TextBufferProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TextBufferPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TextBufferPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -3698,11 +3930,11 @@ public extension TextBufferProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TextBufferSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TextBufferSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(text_buffer_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -3723,7 +3955,7 @@ public extension TextBufferProtocol {
 // MARK: TextBuffer Class: TextBufferProtocol extension (methods and fields)
 public extension TextBufferProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTextBuffer` instance.
-    var text_buffer_ptr: UnsafeMutablePointer<ClutterTextBuffer> { return ptr.assumingMemoryBound(to: ClutterTextBuffer.self) }
+    @inlinable var text_buffer_ptr: UnsafeMutablePointer<ClutterTextBuffer>! { return ptr?.assumingMemoryBound(to: ClutterTextBuffer.self) }
 
     /// Deletes a sequence of characters from the buffer. `n_chars` characters are
     /// deleted starting at `position`. If `n_chars` is negative, then all characters
@@ -3733,54 +3965,54 @@ public extension TextBufferProtocol {
     /// values.
     /// 
     /// Note that the positions are specified in characters, not bytes.
-    func deleteText(position: CUnsignedInt, nChars n_chars: CInt) -> Int {
-        let rv: Int = cast(clutter_text_buffer_delete_text(cast(text_buffer_ptr), guint(position), gint(n_chars)))
-        return Int(rv)
+    @inlinable func deleteText(position: Int, nChars n_chars: Int) -> Int {
+        let rv = Int(clutter_text_buffer_delete_text(text_buffer_ptr, guint(position), gint(n_chars)))
+        return rv
     }
 
     /// Emits the `ClutterTextBuffer::deleted`-text signal on `buffer`.
     /// 
     /// Used when subclassing `ClutterTextBuffer`
-    func emitDeletedText(position: CUnsignedInt, nChars n_chars: CUnsignedInt) {
-        clutter_text_buffer_emit_deleted_text(cast(text_buffer_ptr), guint(position), guint(n_chars))
+    @inlinable func emitDeletedText(position: Int, nChars n_chars: Int) {
+        clutter_text_buffer_emit_deleted_text(text_buffer_ptr, guint(position), guint(n_chars))
     
     }
 
     /// Emits the `ClutterTextBuffer::inserted`-text signal on `buffer`.
     /// 
     /// Used when subclassing `ClutterTextBuffer`
-    func emitInsertedText(position: CUnsignedInt, chars: UnsafePointer<gchar>, nChars n_chars: CUnsignedInt) {
-        clutter_text_buffer_emit_inserted_text(cast(text_buffer_ptr), guint(position), chars, guint(n_chars))
+    @inlinable func emitInsertedText(position: Int, chars: UnsafePointer<gchar>!, nChars n_chars: Int) {
+        clutter_text_buffer_emit_inserted_text(text_buffer_ptr, guint(position), chars, guint(n_chars))
     
     }
 
     /// Retrieves the length in bytes of the buffer.
     /// See `clutter_text_buffer_get_length()`.
-    func getBytes() -> Int {
-        let rv = clutter_text_buffer_get_bytes(cast(text_buffer_ptr))
-        return Int(rv)
+    @inlinable func getBytes() -> Int {
+        let rv = Int(clutter_text_buffer_get_bytes(text_buffer_ptr))
+        return rv
     }
 
     /// Retrieves the length in characters of the buffer.
-    func getLength() -> Int {
-        let rv: Int = cast(clutter_text_buffer_get_length(cast(text_buffer_ptr)))
-        return Int(rv)
+    @inlinable func getLength() -> Int {
+        let rv = Int(clutter_text_buffer_get_length(text_buffer_ptr))
+        return rv
     }
 
     /// Retrieves the maximum allowed length of the text in
     /// `buffer`. See `clutter_text_buffer_set_max_length()`.
-    func getMaxLength() -> Int {
-        let rv: Int = cast(clutter_text_buffer_get_max_length(cast(text_buffer_ptr)))
-        return Int(rv)
+    @inlinable func getMaxLength() -> Int {
+        let rv = Int(clutter_text_buffer_get_max_length(text_buffer_ptr))
+        return rv
     }
 
     /// Retrieves the contents of the buffer.
     /// 
     /// The memory pointer returned by this call will not change
     /// unless this object emits a signal, or is finalized.
-    func getText() -> String! {
-        let rv: String! = cast(clutter_text_buffer_get_text(cast(text_buffer_ptr)))
-        return cast(rv)
+    @inlinable func getText() -> String! {
+        let rv = clutter_text_buffer_get_text(text_buffer_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Inserts `n_chars` characters of `chars` into the contents of the
@@ -3792,16 +4024,16 @@ public extension TextBufferProtocol {
     /// coerced to sane values.
     /// 
     /// Note that the position and length are in characters, not in bytes.
-    func insertText(position: CUnsignedInt, chars: UnsafePointer<gchar>, nChars n_chars: CInt) -> Int {
-        let rv: Int = cast(clutter_text_buffer_insert_text(cast(text_buffer_ptr), guint(position), chars, gint(n_chars)))
-        return Int(rv)
+    @inlinable func insertText(position: Int, chars: UnsafePointer<gchar>!, nChars n_chars: Int) -> Int {
+        let rv = Int(clutter_text_buffer_insert_text(text_buffer_ptr, guint(position), chars, gint(n_chars)))
+        return rv
     }
 
     /// Sets the maximum allowed length of the contents of the buffer. If
     /// the current contents are longer than the given length, then they
     /// will be truncated to fit.
-    func set(maxLength max_length: CInt) {
-        clutter_text_buffer_set_max_length(cast(text_buffer_ptr), gint(max_length))
+    @inlinable func set(maxLength max_length: Int) {
+        clutter_text_buffer_set_max_length(text_buffer_ptr, gint(max_length))
     
     }
 
@@ -3811,56 +4043,56 @@ public extension TextBufferProtocol {
     /// and `clutter_text_buffer_insert_text()`.
     /// 
     /// Note that `n_chars` is in characters, not in bytes.
-    func setText(chars: UnsafePointer<gchar>, nChars n_chars: CInt) {
-        clutter_text_buffer_set_text(cast(text_buffer_ptr), chars, gint(n_chars))
+    @inlinable func setText(chars: UnsafePointer<gchar>!, nChars n_chars: Int) {
+        clutter_text_buffer_set_text(text_buffer_ptr, chars, gint(n_chars))
     
     }
     /// Retrieves the length in bytes of the buffer.
     /// See `clutter_text_buffer_get_length()`.
-    var bytes: Int {
+    @inlinable var bytes: Int {
         /// Retrieves the length in bytes of the buffer.
         /// See `clutter_text_buffer_get_length()`.
         get {
-            let rv = clutter_text_buffer_get_bytes(cast(text_buffer_ptr))
-            return Int(rv)
+            let rv = Int(clutter_text_buffer_get_bytes(text_buffer_ptr))
+            return rv
         }
     }
 
     /// The length (in characters) of the text in buffer.
-    var length: Int {
+    @inlinable var length: Int {
         /// Retrieves the length in characters of the buffer.
         get {
-            let rv: Int = cast(clutter_text_buffer_get_length(cast(text_buffer_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_text_buffer_get_length(text_buffer_ptr))
+            return rv
         }
     }
 
     /// Retrieves the maximum allowed length of the text in
     /// `buffer`. See `clutter_text_buffer_set_max_length()`.
-    var maxLength: Int {
+    @inlinable var maxLength: Int {
         /// Retrieves the maximum allowed length of the text in
         /// `buffer`. See `clutter_text_buffer_set_max_length()`.
         get {
-            let rv: Int = cast(clutter_text_buffer_get_max_length(cast(text_buffer_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_text_buffer_get_max_length(text_buffer_ptr))
+            return rv
         }
         /// Sets the maximum allowed length of the contents of the buffer. If
         /// the current contents are longer than the given length, then they
         /// will be truncated to fit.
         nonmutating set {
-            clutter_text_buffer_set_max_length(cast(text_buffer_ptr), gint(newValue))
+            clutter_text_buffer_set_max_length(text_buffer_ptr, gint(newValue))
         }
     }
 
     /// The contents of the buffer.
-    var text: String! {
+    @inlinable var text: String! {
         /// Retrieves the contents of the buffer.
         /// 
         /// The memory pointer returned by this call will not change
         /// unless this object emits a signal, or is finalized.
         get {
-            let rv: String! = cast(clutter_text_buffer_get_text(cast(text_buffer_ptr)))
-            return cast(rv)
+            let rv = clutter_text_buffer_get_text(text_buffer_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -3883,10 +4115,11 @@ public extension TextBufferProtocol {
 /// type whose members cannot be directly accessed.
 public protocol TextNodeProtocol: PaintNodeProtocol {
         /// Untyped pointer to the underlying `ClutterTextNode` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTextNode` instance.
-    var text_node_ptr: UnsafeMutablePointer<ClutterTextNode> { get }
+    var text_node_ptr: UnsafeMutablePointer<ClutterTextNode>! { get }
+
 }
 
 /// The `TextNodeRef` type acts as a lightweight Swift reference to an underlying `ClutterTextNode` instance.
@@ -3898,46 +4131,76 @@ public protocol TextNodeProtocol: PaintNodeProtocol {
 public struct TextNodeRef: TextNodeProtocol {
         /// Untyped pointer to the underlying `ClutterTextNode` instance.
     /// For type-safe access, use the generated, typed pointer `text_node_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TextNodeRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTextNode>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTextNode>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTextNode>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTextNode>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTextNode>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TextNodeProtocol`
-    init<T: TextNodeProtocol>(_ other: T) {
+    @inlinable init<T: TextNodeProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3946,9 +4209,9 @@ public extension TextNodeRef {
     /// 
     /// This function takes a reference on the passed `layout`, so it
     /// is safe to call `g_object_unref()` after it returns.
-    init( layout: LayoutProtocol, color: ColorProtocol) {
-        let rv: UnsafeMutablePointer<ClutterPaintNode>! = cast(clutter_text_node_new(cast(layout.ptr), cast(color.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ColorT: ColorProtocol, LayoutT: LayoutProtocol>( layout: LayoutT? = nil, color: ColorT? = nil) {
+        let rv = clutter_text_node_new(layout?.layout_ptr, color?.color_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -3963,77 +4226,123 @@ open class TextNode: PaintNode, TextNodeProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TextNode` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTextNode>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTextNode>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTextNode>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextNode` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTextNode>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTextNode>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTextNode`.
     /// i.e., ownership is transferred to the `TextNode` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTextNode>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTextNode>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TextNodeProtocol`
     /// Will retain `ClutterTextNode`.
     /// - Parameter other: an instance of a related type that implements `TextNodeProtocol`
-    public init<T: TextNodeProtocol>(textNode other: T) {
-        super.init(retaining: cast(other.text_node_ptr))
+    @inlinable public init<T: TextNodeProtocol>(textNode other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -4042,9 +4351,9 @@ open class TextNode: PaintNode, TextNodeProtocol {
     /// 
     /// This function takes a reference on the passed `layout`, so it
     /// is safe to call `g_object_unref()` after it returns.
-    public init( layout: LayoutProtocol, color: ColorProtocol) {
-        let rv: UnsafeMutablePointer<ClutterPaintNode>! = cast(clutter_text_node_new(cast(layout.ptr), cast(color.ptr)))
-        super.init(cast(rv))
+    @inlinable public init<ColorT: ColorProtocol, LayoutT: LayoutProtocol>( layout: LayoutT? = nil, color: ColorT? = nil) {
+        let rv = clutter_text_node_new(layout?.layout_ptr, color?.color_ptr)
+        super.init(gpointer: (rv))
     }
 
 
@@ -4058,7 +4367,7 @@ open class TextNode: PaintNode, TextNodeProtocol {
 // MARK: TextNode Class: TextNodeProtocol extension (methods and fields)
 public extension TextNodeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTextNode` instance.
-    var text_node_ptr: UnsafeMutablePointer<ClutterTextNode> { return ptr.assumingMemoryBound(to: ClutterTextNode.self) }
+    @inlinable var text_node_ptr: UnsafeMutablePointer<ClutterTextNode>! { return ptr?.assumingMemoryBound(to: ClutterTextNode.self) }
 
 
 
@@ -4077,10 +4386,11 @@ public extension TextNodeProtocol {
 /// and should be accessed using the provided API
 public protocol TextureProtocol: ActorProtocol {
         /// Untyped pointer to the underlying `ClutterTexture` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTexture` instance.
-    var texture_ptr: UnsafeMutablePointer<ClutterTexture> { get }
+    var texture_ptr: UnsafeMutablePointer<ClutterTexture>! { get }
+
 }
 
 /// The `TextureRef` type acts as a lightweight Swift reference to an underlying `ClutterTexture` instance.
@@ -4092,46 +4402,76 @@ public protocol TextureProtocol: ActorProtocol {
 public struct TextureRef: TextureProtocol {
         /// Untyped pointer to the underlying `ClutterTexture` instance.
     /// For type-safe access, use the generated, typed pointer `texture_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TextureRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTexture>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTexture>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTexture>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTexture>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTexture>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TextureProtocol`
-    init<T: TextureProtocol>(_ other: T) {
+    @inlinable init<T: TextureProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4139,9 +4479,9 @@ public extension TextureRef {
     ///
     /// **new is deprecated:**
     /// Use #ClutterImage instead
-    @available(*, deprecated) init() {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @available(*, deprecated) @inlinable init() {
+        let rv = clutter_texture_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new `ClutterTexture` object with its source a prexisting
@@ -4198,9 +4538,9 @@ public extension TextureRef {
     /// Use the #ClutterOffscreenEffect and #ClutterShaderEffect
     ///   directly on the intended #ClutterActor to replace the functionality of
     ///   this function.
-    @available(*, deprecated) init(actor: ActorProtocol) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_actor(cast(actor.ptr)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @available(*, deprecated) @inlinable init<ActorT: ActorProtocol>(actor: ActorT) {
+        let rv = clutter_texture_new_from_actor(actor.actor_ptr)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Creates a new ClutterTexture actor to display the image contained a
@@ -4210,11 +4550,11 @@ public extension TextureRef {
     /// **new_from_file is deprecated:**
     /// No direct replacement is available. Use #ClutterImage
     ///   and platform-specific image loading API, like GdkPixbuf, instead
-    @available(*, deprecated) init(file String_: UnsafePointer<gchar>) throws {
+    @available(*, deprecated) @inlinable init(file filename: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_file(String_, &error))
-        if let error = error { throw ErrorType(error) }
-        ptr = UnsafeMutableRawPointer(cast(rv))
+        let rv = clutter_texture_new_from_file(filename, &error)
+        if let error = error { throw GLibError(error) }
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `ClutterTexture` object with its source a prexisting
     /// actor (and associated children). The textures content will contain
@@ -4270,9 +4610,9 @@ public extension TextureRef {
     /// Use the #ClutterOffscreenEffect and #ClutterShaderEffect
     ///   directly on the intended #ClutterActor to replace the functionality of
     ///   this function.
-    @available(*, deprecated) static func newFrom(actor: ActorProtocol) -> TextureRef! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_actor(cast(actor.ptr)))
-        return rv.map { TextureRef(cast($0)) }
+    @available(*, deprecated) @inlinable static func newFrom<ActorT: ActorProtocol>(actor: ActorT) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_texture_new_from_actor(actor.actor_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new ClutterTexture actor to display the image contained a
@@ -4282,11 +4622,12 @@ public extension TextureRef {
     /// **new_from_file is deprecated:**
     /// No direct replacement is available. Use #ClutterImage
     ///   and platform-specific image loading API, like GdkPixbuf, instead
-    @available(*, deprecated) static func newFrom(file String_: UnsafePointer<gchar>) throws -> TextureRef! {
+    @available(*, deprecated) @inlinable static func newFrom(file filename: UnsafePointer<gchar>!) throws -> ActorRef! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_file(String_, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { TextureRef(cast($0)) }
+        let maybeRV = ActorRef(gconstpointer: gconstpointer(clutter_texture_new_from_file(filename, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 }
 
@@ -4301,77 +4642,123 @@ open class Texture: Actor, TextureProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Texture` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTexture>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTexture>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Texture` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTexture>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Texture` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Texture` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Texture` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTexture>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Texture` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTexture>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTexture`.
     /// i.e., ownership is transferred to the `Texture` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTexture>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTexture>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TextureProtocol`
     /// Will retain `ClutterTexture`.
     /// - Parameter other: an instance of a related type that implements `TextureProtocol`
-    public init<T: TextureProtocol>(texture other: T) {
-        super.init(retaining: cast(other.texture_ptr))
+    @inlinable public init<T: TextureProtocol>(texture other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -4379,9 +4766,9 @@ open class Texture: Actor, TextureProtocol {
     ///
     /// **new is deprecated:**
     /// Use #ClutterImage instead
-    @available(*, deprecated) public override init() {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new())
-        super.init(cast(rv))
+    @available(*, deprecated) @inlinable public override init() {
+        let rv = clutter_texture_new()
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `ClutterTexture` object with its source a prexisting
@@ -4438,9 +4825,9 @@ open class Texture: Actor, TextureProtocol {
     /// Use the #ClutterOffscreenEffect and #ClutterShaderEffect
     ///   directly on the intended #ClutterActor to replace the functionality of
     ///   this function.
-    @available(*, deprecated) public init(actor: ActorProtocol) {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_actor(cast(actor.ptr)))
-        super.init(cast(rv))
+    @available(*, deprecated) @inlinable public override init<ActorT: ActorProtocol>(actor: ActorT) {
+        let rv = clutter_texture_new_from_actor(actor.actor_ptr)
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new ClutterTexture actor to display the image contained a
@@ -4450,11 +4837,11 @@ open class Texture: Actor, TextureProtocol {
     /// **new_from_file is deprecated:**
     /// No direct replacement is available. Use #ClutterImage
     ///   and platform-specific image loading API, like GdkPixbuf, instead
-    @available(*, deprecated) public init(file String_: UnsafePointer<gchar>) throws {
+    @available(*, deprecated) @inlinable public init(file filename: UnsafePointer<gchar>!) throws {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_file(String_, &error))
-        if let error = error { throw ErrorType(error) }
-        super.init(cast(rv))
+        let rv = clutter_texture_new_from_file(filename, &error)
+        if let error = error { throw GLibError(error) }
+        super.init(gpointer: (rv))
     }
 
     /// Creates a new `ClutterTexture` object with its source a prexisting
@@ -4511,9 +4898,9 @@ open class Texture: Actor, TextureProtocol {
     /// Use the #ClutterOffscreenEffect and #ClutterShaderEffect
     ///   directly on the intended #ClutterActor to replace the functionality of
     ///   this function.
-    @available(*, deprecated) public static func newFrom(actor: ActorProtocol) -> Texture! {
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_actor(cast(actor.ptr)))
-        return rv.map { Texture(cast($0)) }
+    @available(*, deprecated) @inlinable public static func newFrom<ActorT: ActorProtocol>(actor: ActorT) -> Actor! {
+        guard let rv = Actor(gconstpointer: gconstpointer(clutter_texture_new_from_actor(actor.actor_ptr))) else { return nil }
+        return rv
     }
 
     /// Creates a new ClutterTexture actor to display the image contained a
@@ -4523,11 +4910,12 @@ open class Texture: Actor, TextureProtocol {
     /// **new_from_file is deprecated:**
     /// No direct replacement is available. Use #ClutterImage
     ///   and platform-specific image loading API, like GdkPixbuf, instead
-    @available(*, deprecated) public static func newFrom(file String_: UnsafePointer<gchar>) throws -> Texture! {
+    @available(*, deprecated) @inlinable public static func newFrom(file filename: UnsafePointer<gchar>!) throws -> Actor! {
         var error: UnsafeMutablePointer<GError>?
-        let rv: UnsafeMutablePointer<ClutterActor>! = cast(clutter_texture_new_from_file(String_, &error))
-        if let error = error { throw ErrorType(error) }
-        return rv.map { Texture(cast($0)) }
+        let maybeRV = Actor(gconstpointer: gconstpointer(clutter_texture_new_from_file(filename, &error)))
+        if let error = error { throw GLibError(error) }
+        guard let rv = maybeRV else { return nil }
+        return rv
     }
 
 }
@@ -5113,21 +5501,21 @@ public extension TextureProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TexturePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TexturePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(texture_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -5145,7 +5533,7 @@ public extension TextureProtocol {
     /// Get the value of a Texture property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TexturePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TexturePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -5155,7 +5543,7 @@ public extension TextureProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TexturePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TexturePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -6006,11 +6394,11 @@ public extension TextureProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TextureSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TextureSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(texture_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -6031,15 +6419,15 @@ public extension TextureProtocol {
 // MARK: Texture Class: TextureProtocol extension (methods and fields)
 public extension TextureProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTexture` instance.
-    var texture_ptr: UnsafeMutablePointer<ClutterTexture> { return ptr.assumingMemoryBound(to: ClutterTexture.self) }
+    @inlinable var texture_ptr: UnsafeMutablePointer<ClutterTexture>! { return ptr?.assumingMemoryBound(to: ClutterTexture.self) }
 
     /// Gets the size in pixels of the untransformed underlying image
     ///
     /// **get_base_size is deprecated:**
     /// Use #ClutterImage and clutter_content_get_preferred_size()
     ///   instead
-    @available(*, deprecated) func getBaseSize(width: UnsafeMutablePointer<CInt>, height: UnsafeMutablePointer<CInt>) {
-        clutter_texture_get_base_size(cast(texture_ptr), cast(width), cast(height))
+    @available(*, deprecated) @inlinable func getBaseSize(width: UnsafeMutablePointer<gint>!, height: UnsafeMutablePointer<gint>!) {
+        clutter_texture_get_base_size(texture_ptr, width, height)
     
     }
 
@@ -6050,9 +6438,9 @@ public extension TextureProtocol {
     /// No replacement is available; it's not advisable
     ///   to modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and modify the pipeline during the paint sequence
-    @available(*, deprecated) func getCoglMaterial() -> CoglHandle! {
-        let rv = clutter_texture_get_cogl_material(cast(texture_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getCoglMaterial() -> CoglHandle! {
+        let rv = clutter_texture_get_cogl_material(texture_ptr)
+        return rv
     }
 
     /// Retrieves the handle to the underlying COGL texture used for drawing
@@ -6069,9 +6457,9 @@ public extension TextureProtocol {
     ///   modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and set up the pipeline during the paint sequence
     ///   instead.
-    @available(*, deprecated) func getCoglTexture() -> CoglHandle! {
-        let rv = clutter_texture_get_cogl_texture(cast(texture_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getCoglTexture() -> CoglHandle! {
+        let rv = clutter_texture_get_cogl_texture(texture_ptr)
+        return rv
     }
 
     /// Gets the filter quality used when scaling a texture.
@@ -6079,9 +6467,9 @@ public extension TextureProtocol {
     /// **get_filter_quality is deprecated:**
     /// Use #ClutterImage and clutter_actor_get_content_scaling_filters()
     ///   instead
-    @available(*, deprecated) func getFilterQuality() -> ClutterTextureQuality {
-        let rv = clutter_texture_get_filter_quality(cast(texture_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getFilterQuality() -> ClutterTextureQuality {
+        let rv = clutter_texture_get_filter_quality(texture_ptr)
+        return rv
     }
 
     /// Retrieves the value set using `clutter_texture_set_keep_aspect_ratio()`
@@ -6089,27 +6477,27 @@ public extension TextureProtocol {
     /// **get_keep_aspect_ratio is deprecated:**
     /// Use #ClutterImage and clutter_actor_get_content_gravity()
     ///   instead
-    @available(*, deprecated) func getKeepAspectRatio() -> Bool {
-        let rv = clutter_texture_get_keep_aspect_ratio(cast(texture_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getKeepAspectRatio() -> Bool {
+        let rv = ((clutter_texture_get_keep_aspect_ratio(texture_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the value set using `clutter_texture_set_load_async()`
     ///
     /// **get_load_async is deprecated:**
     /// There is no direct replacement for this function
-    @available(*, deprecated) func getLoadAsync() -> Bool {
-        let rv = clutter_texture_get_load_async(cast(texture_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getLoadAsync() -> Bool {
+        let rv = ((clutter_texture_get_load_async(texture_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the value set by `clutter_texture_set_load_data_async()`
     ///
     /// **get_load_data_async is deprecated:**
     /// There is no direct replacement for this function
-    @available(*, deprecated) func getLoadDataAsync() -> Bool {
-        let rv = clutter_texture_get_load_data_async(cast(texture_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getLoadDataAsync() -> Bool {
+        let rv = ((clutter_texture_get_load_data_async(texture_ptr)) != 0)
+        return rv
     }
 
     /// Gets the maximum waste that will be used when creating a texture or
@@ -6117,18 +6505,18 @@ public extension TextureProtocol {
     ///
     /// **get_max_tile_waste is deprecated:**
     /// No replacement is available
-    @available(*, deprecated) func getMaxTileWaste() -> Int {
-        let rv: Int = cast(clutter_texture_get_max_tile_waste(cast(texture_ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func getMaxTileWaste() -> Int {
+        let rv = Int(clutter_texture_get_max_tile_waste(texture_ptr))
+        return rv
     }
 
     /// Retrieves the value set by `clutter_texture_set_load_data_async()`
     ///
     /// **get_pick_with_alpha is deprecated:**
     /// There is no direct replacement for this function
-    @available(*, deprecated) func getPickWithAlpha() -> Bool {
-        let rv = clutter_texture_get_pick_with_alpha(cast(texture_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getPickWithAlpha() -> Bool {
+        let rv = ((clutter_texture_get_pick_with_alpha(texture_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the pixel format used by `texture`. This is
@@ -6144,9 +6532,9 @@ public extension TextureProtocol {
     ///
     /// **get_pixel_format is deprecated:**
     /// There is no direct replacement for this function
-    @available(*, deprecated) func getPixelFormat() -> CoglPixelFormat {
-        let rv = clutter_texture_get_pixel_format(cast(texture_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getPixelFormat() -> CoglPixelFormat {
+        let rv = clutter_texture_get_pixel_format(texture_ptr)
+        return rv
     }
 
     /// Retrieves the horizontal and vertical repeat values set
@@ -6155,8 +6543,8 @@ public extension TextureProtocol {
     /// **get_repeat is deprecated:**
     /// Use #ClutterImage and clutter_actor_get_content_repeat()
     ///   instead
-    @available(*, deprecated) func getRepeat(repeatX repeat_x: UnsafeMutablePointer<Bool>, repeatY repeat_y: UnsafeMutablePointer<Bool>) {
-        clutter_texture_get_repeat(cast(texture_ptr), cast(repeat_x), cast(repeat_y))
+    @available(*, deprecated) @inlinable func getRepeat(repeatX repeat_x: UnsafeMutablePointer<gboolean>!, repeatY repeat_y: UnsafeMutablePointer<gboolean>!) {
+        clutter_texture_get_repeat(texture_ptr, repeat_x, repeat_y)
     
     }
 
@@ -6164,20 +6552,20 @@ public extension TextureProtocol {
     ///
     /// **get_sync_size is deprecated:**
     /// There is no direct replacement
-    @available(*, deprecated) func getSyncSize() -> Bool {
-        let rv = clutter_texture_get_sync_size(cast(texture_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getSyncSize() -> Bool {
+        let rv = ((clutter_texture_get_sync_size(texture_ptr)) != 0)
+        return rv
     }
 
     /// Updates a sub-region of the pixel data in a `ClutterTexture`.
     ///
     /// **set_area_from_rgb_data is deprecated:**
     /// Use #ClutterImage and clutter_image_set_area() instead
-    @available(*, deprecated) func setAreaFromRgb(data: UnsafePointer<guchar>, hasAlpha has_alpha: Bool, x x_: CInt, y y_: CInt, width: CInt, height: CInt, rowstride: CInt, bpp: CInt, flags: TextureFlags) throws -> Bool {
+    @available(*, deprecated) @inlinable func setAreaFromRgb(data: UnsafePointer<guchar>!, hasAlpha has_alpha: Bool, x: Int, y: Int, width: Int, height: Int, rowstride: Int, bpp: Int, flags: TextureFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_texture_set_area_from_rgb_data(cast(texture_ptr), cast(data), gboolean(has_alpha ? 1 : 0), gint(x_), gint(y_), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_texture_set_area_from_rgb_data(texture_ptr, data, gboolean((has_alpha) ? 1 : 0), gint(x), gint(y), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Replaces the underlying Cogl material drawn by this actor with
@@ -6193,8 +6581,8 @@ public extension TextureProtocol {
     /// No replacement is available; it's not advisable
     ///   to modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and modify the pipeline during the paint sequence
-    @available(*, deprecated) func set(coglMaterial cogl_material: Cogl.Handle) {
-        clutter_texture_set_cogl_material(cast(texture_ptr), cogl_material)
+    @available(*, deprecated) @inlinable func set(coglMaterial cogl_material: CoglHandle) {
+        clutter_texture_set_cogl_material(texture_ptr, cogl_material)
     
     }
 
@@ -6207,8 +6595,8 @@ public extension TextureProtocol {
     ///   modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and set up the pipeline during the paint sequence
     ///   instead.
-    @available(*, deprecated) func setCoglTexture(coglTex cogl_tex: Cogl.Handle) {
-        clutter_texture_set_cogl_texture(cast(texture_ptr), cogl_tex)
+    @available(*, deprecated) @inlinable func setCoglTexture(coglTex cogl_tex: CoglHandle) {
+        clutter_texture_set_cogl_texture(texture_ptr, cogl_tex)
     
     }
 
@@ -6224,8 +6612,8 @@ public extension TextureProtocol {
     /// **set_filter_quality is deprecated:**
     /// Use #ClutterImage and clutter_actor_set_content_scaling_filters()
     ///   instead
-    @available(*, deprecated) func set(filterQuality filter_quality: TextureQuality) {
-        clutter_texture_set_filter_quality(cast(texture_ptr), filter_quality)
+    @available(*, deprecated) @inlinable func set(filterQuality filter_quality: ClutterTextureQuality) {
+        clutter_texture_set_filter_quality(texture_ptr, filter_quality)
     
     }
 
@@ -6242,22 +6630,22 @@ public extension TextureProtocol {
     /// **set_from_file is deprecated:**
     /// Use #ClutterImage and platform-specific image
     ///   loading API, like GdkPixbuf, instead
-    @available(*, deprecated) func setFromFile(String_: UnsafePointer<gchar>) throws -> Bool {
+    @available(*, deprecated) @inlinable func setFromFile(filename: UnsafePointer<gchar>!) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_texture_set_from_file(cast(texture_ptr), String_, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_texture_set_from_file(texture_ptr, filename, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets `ClutterTexture` image data.
     ///
     /// **set_from_rgb_data is deprecated:**
     /// Use #ClutterImage and clutter_image_set_data() instead
-    @available(*, deprecated) func setFromRgb(data: UnsafePointer<guchar>, hasAlpha has_alpha: Bool, width: CInt, height: CInt, rowstride: CInt, bpp: CInt, flags: TextureFlags) throws -> Bool {
+    @available(*, deprecated) @inlinable func setFromRgb(data: UnsafePointer<guchar>!, hasAlpha has_alpha: Bool, width: Int, height: Int, rowstride: Int, bpp: Int, flags: TextureFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_texture_set_from_rgb_data(cast(texture_ptr), cast(data), gboolean(has_alpha ? 1 : 0), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_texture_set_from_rgb_data(texture_ptr, data, gboolean((has_alpha) ? 1 : 0), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets a `ClutterTexture` from YUV image data. If an error occurred,
@@ -6274,11 +6662,11 @@ public extension TextureProtocol {
     /// Use a custom #ClutterContent implementation and
     ///   set up the Cogl pipeline using a #ClutterPipelineNode with a
     ///   fragment shader instead.
-    @available(*, deprecated) func setFromYuv(data: UnsafePointer<guchar>, width: CInt, height: CInt, flags: TextureFlags) throws -> Bool {
+    @available(*, deprecated) @inlinable func setFromYuv(data: UnsafePointer<guchar>!, width: Int, height: Int, flags: TextureFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = clutter_texture_set_from_yuv_data(cast(texture_ptr), cast(data), gint(width), gint(height), flags.value, &error)
-        if let error = error { throw ErrorType(error) }
-        return Bool(rv != 0)
+        let rv = ((clutter_texture_set_from_yuv_data(texture_ptr, data, gint(width), gint(height), flags.value, &error)) != 0)
+        if let error = error { throw GLibError(error) }
+        return rv
     }
 
     /// Sets whether `texture` should have a preferred size maintaining
@@ -6287,8 +6675,8 @@ public extension TextureProtocol {
     /// **set_keep_aspect_ratio is deprecated:**
     /// Use #ClutterImage and clutter_actor_set_content_gravity()
     ///   with %CLUTTER_CONTENT_GRAVITY_RESIZE_ASPECT instead
-    @available(*, deprecated) func setKeepAspectRatio(keepAspect keep_aspect: Bool) {
-        clutter_texture_set_keep_aspect_ratio(cast(texture_ptr), gboolean(keep_aspect ? 1 : 0))
+    @available(*, deprecated) @inlinable func setKeepAspectRatio(keepAspect keep_aspect: Bool) {
+        clutter_texture_set_keep_aspect_ratio(texture_ptr, gboolean((keep_aspect) ? 1 : 0))
     
     }
 
@@ -6303,8 +6691,8 @@ public extension TextureProtocol {
     /// There is no direct replacement for this function.
     ///   Use #ClutterImage and platform-specific API for loading image data
     ///   asynchronously, like GdkPixbuf
-    @available(*, deprecated) func set(loadAsync load_async: Bool) {
-        clutter_texture_set_load_async(cast(texture_ptr), gboolean(load_async ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(loadAsync load_async: Bool) {
+        clutter_texture_set_load_async(texture_ptr, gboolean((load_async) ? 1 : 0))
     
     }
 
@@ -6320,8 +6708,8 @@ public extension TextureProtocol {
     /// There is no direct replacement for this function.
     ///   Use #ClutterImage and platform-specific API for loading image data
     ///   asynchronously, like GdkPixbuf
-    @available(*, deprecated) func setLoadDataAsync(loadAsync load_async: Bool) {
-        clutter_texture_set_load_data_async(cast(texture_ptr), gboolean(load_async ? 1 : 0))
+    @available(*, deprecated) @inlinable func setLoadDataAsync(loadAsync load_async: Bool) {
+        clutter_texture_set_load_data_async(texture_ptr, gboolean((load_async) ? 1 : 0))
     
     }
 
@@ -6339,8 +6727,8 @@ public extension TextureProtocol {
     ///
     /// **set_pick_with_alpha is deprecated:**
     /// There is no direct replacement for this function
-    @available(*, deprecated) func set(pickWithAlpha pick_with_alpha: Bool) {
-        clutter_texture_set_pick_with_alpha(cast(texture_ptr), gboolean(pick_with_alpha ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(pickWithAlpha pick_with_alpha: Bool) {
+        clutter_texture_set_pick_with_alpha(texture_ptr, gboolean((pick_with_alpha) ? 1 : 0))
     
     }
 
@@ -6350,8 +6738,8 @@ public extension TextureProtocol {
     /// **set_repeat is deprecated:**
     /// Use #ClutterImage and clutter_actor_set_content_repeat()
     ///   instead
-    @available(*, deprecated) func setRepeat(repeatX repeat_x: Bool, repeatY repeat_y: Bool) {
-        clutter_texture_set_repeat(cast(texture_ptr), gboolean(repeat_x ? 1 : 0), gboolean(repeat_y ? 1 : 0))
+    @available(*, deprecated) @inlinable func setRepeat(repeatX repeat_x: Bool, repeatY repeat_y: Bool) {
+        clutter_texture_set_repeat(texture_ptr, gboolean((repeat_x) ? 1 : 0), gboolean((repeat_y) ? 1 : 0))
     
     }
 
@@ -6363,8 +6751,8 @@ public extension TextureProtocol {
     ///   #ClutterImage with a %CLUTTER_REQUEST_CONTENT_SIZE request mode
     ///   will automatically bind the preferred size of the content to the
     ///   preferred size of the actor
-    @available(*, deprecated) func set(syncSize sync_size: Bool) {
-        clutter_texture_set_sync_size(cast(texture_ptr), gboolean(sync_size ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(syncSize sync_size: Bool) {
+        clutter_texture_set_sync_size(texture_ptr, gboolean((sync_size) ? 1 : 0))
     
     }
     /// Returns a handle to the underlying COGL material used for drawing
@@ -6374,7 +6762,7 @@ public extension TextureProtocol {
     /// No replacement is available; it's not advisable
     ///   to modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and modify the pipeline during the paint sequence
-    var coglMaterial: CoglHandle! {
+    @inlinable var coglMaterial: CoglHandle! {
         /// Returns a handle to the underlying COGL material used for drawing
         /// the actor.
         ///
@@ -6383,8 +6771,8 @@ public extension TextureProtocol {
         ///   to modify the Cogl pipeline of an actor. Use a #ClutterContent
         ///   implementation and modify the pipeline during the paint sequence
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_cogl_material(cast(texture_ptr))
-            return cast(rv)
+            let rv = clutter_texture_get_cogl_material(texture_ptr)
+            return rv
         }
         /// Replaces the underlying Cogl material drawn by this actor with
         /// `cogl_material`. A reference to the material is taken so if the
@@ -6400,7 +6788,7 @@ public extension TextureProtocol {
         ///   to modify the Cogl pipeline of an actor. Use a #ClutterContent
         ///   implementation and modify the pipeline during the paint sequence
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_cogl_material(cast(texture_ptr), cast(newValue))
+            clutter_texture_set_cogl_material(texture_ptr, newValue)
         }
     }
 
@@ -6418,7 +6806,7 @@ public extension TextureProtocol {
     ///   modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and set up the pipeline during the paint sequence
     ///   instead.
-    var coglTexture: CoglHandle! {
+    @inlinable var coglTexture: CoglHandle! {
         /// Retrieves the handle to the underlying COGL texture used for drawing
         /// the actor. No extra reference is taken so if you need to keep the
         /// handle then you should call `cogl_handle_ref()` on it.
@@ -6434,8 +6822,8 @@ public extension TextureProtocol {
         ///   implementation and set up the pipeline during the paint sequence
         ///   instead.
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_cogl_texture(cast(texture_ptr))
-            return cast(rv)
+            let rv = clutter_texture_get_cogl_texture(texture_ptr)
+            return rv
         }
         /// Replaces the underlying COGL texture drawn by this actor with
         /// `cogl_tex`. A reference to the texture is taken so if the handle is
@@ -6447,7 +6835,7 @@ public extension TextureProtocol {
         ///   implementation and set up the pipeline during the paint sequence
         ///   instead.
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_cogl_texture(cast(texture_ptr), cast(newValue))
+            clutter_texture_set_cogl_texture(texture_ptr, newValue)
         }
     }
 
@@ -6456,15 +6844,15 @@ public extension TextureProtocol {
     /// **get_filter_quality is deprecated:**
     /// Use #ClutterImage and clutter_actor_get_content_scaling_filters()
     ///   instead
-    var filterQuality: ClutterTextureQuality {
+    @inlinable var filterQuality: ClutterTextureQuality {
         /// Gets the filter quality used when scaling a texture.
         ///
         /// **get_filter_quality is deprecated:**
         /// Use #ClutterImage and clutter_actor_get_content_scaling_filters()
         ///   instead
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_filter_quality(cast(texture_ptr))
-            return cast(rv)
+            let rv = clutter_texture_get_filter_quality(texture_ptr)
+            return rv
         }
         /// Sets the filter quality when scaling a texture. The quality is an
         /// enumeration currently the following values are supported:
@@ -6479,7 +6867,7 @@ public extension TextureProtocol {
         /// Use #ClutterImage and clutter_actor_set_content_scaling_filters()
         ///   instead
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_filter_quality(cast(texture_ptr), cast(newValue))
+            clutter_texture_set_filter_quality(texture_ptr, newValue)
         }
     }
 
@@ -6488,15 +6876,15 @@ public extension TextureProtocol {
     /// **get_keep_aspect_ratio is deprecated:**
     /// Use #ClutterImage and clutter_actor_get_content_gravity()
     ///   instead
-    var keepAspectRatio: Bool {
+    @inlinable var keepAspectRatio: Bool {
         /// Retrieves the value set using `clutter_texture_set_keep_aspect_ratio()`
         ///
         /// **get_keep_aspect_ratio is deprecated:**
         /// Use #ClutterImage and clutter_actor_get_content_gravity()
         ///   instead
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_keep_aspect_ratio(cast(texture_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_texture_get_keep_aspect_ratio(texture_ptr)) != 0)
+            return rv
         }
         /// Sets whether `texture` should have a preferred size maintaining
         /// the aspect ratio of the underlying image
@@ -6505,7 +6893,7 @@ public extension TextureProtocol {
         /// Use #ClutterImage and clutter_actor_set_content_gravity()
         ///   with %CLUTTER_CONTENT_GRAVITY_RESIZE_ASPECT instead
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_keep_aspect_ratio(cast(texture_ptr), gboolean(newValue ? 1 : 0))
+            clutter_texture_set_keep_aspect_ratio(texture_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -6513,14 +6901,14 @@ public extension TextureProtocol {
     ///
     /// **get_load_async is deprecated:**
     /// There is no direct replacement for this function
-    var loadAsync: Bool {
+    @inlinable var loadAsync: Bool {
         /// Retrieves the value set using `clutter_texture_set_load_async()`
         ///
         /// **get_load_async is deprecated:**
         /// There is no direct replacement for this function
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_load_async(cast(texture_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_texture_get_load_async(texture_ptr)) != 0)
+            return rv
         }
         /// Sets whether `texture` should use a worker thread to load the data
         /// from disk asynchronously. Setting `load_async` to `true` will make
@@ -6534,7 +6922,7 @@ public extension TextureProtocol {
         ///   Use #ClutterImage and platform-specific API for loading image data
         ///   asynchronously, like GdkPixbuf
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_load_async(cast(texture_ptr), gboolean(newValue ? 1 : 0))
+            clutter_texture_set_load_async(texture_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -6542,14 +6930,14 @@ public extension TextureProtocol {
     ///
     /// **get_load_data_async is deprecated:**
     /// There is no direct replacement for this function
-    var loadDataAsync: Bool {
+    @inlinable var loadDataAsync: Bool {
         /// Retrieves the value set by `clutter_texture_set_load_data_async()`
         ///
         /// **get_load_data_async is deprecated:**
         /// There is no direct replacement for this function
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_load_data_async(cast(texture_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_texture_get_load_data_async(texture_ptr)) != 0)
+            return rv
         }
         /// Sets whether `texture` should use a worker thread to load the data
         /// from disk asynchronously. Setting `load_async` to `true` will make
@@ -6564,7 +6952,7 @@ public extension TextureProtocol {
         ///   Use #ClutterImage and platform-specific API for loading image data
         ///   asynchronously, like GdkPixbuf
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_load_data_async(cast(texture_ptr), gboolean(newValue ? 1 : 0))
+            clutter_texture_set_load_data_async(texture_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -6573,15 +6961,15 @@ public extension TextureProtocol {
     ///
     /// **get_max_tile_waste is deprecated:**
     /// No replacement is available
-    var maxTileWaste: Int {
+    @inlinable var maxTileWaste: Int {
         /// Gets the maximum waste that will be used when creating a texture or
         /// -1 if slicing is disabled.
         ///
         /// **get_max_tile_waste is deprecated:**
         /// No replacement is available
         @available(*, deprecated) get {
-            let rv: Int = cast(clutter_texture_get_max_tile_waste(cast(texture_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_texture_get_max_tile_waste(texture_ptr))
+            return rv
         }
     }
 
@@ -6589,14 +6977,14 @@ public extension TextureProtocol {
     ///
     /// **get_pick_with_alpha is deprecated:**
     /// There is no direct replacement for this function
-    var pickWithAlpha: Bool {
+    @inlinable var pickWithAlpha: Bool {
         /// Retrieves the value set by `clutter_texture_set_load_data_async()`
         ///
         /// **get_pick_with_alpha is deprecated:**
         /// There is no direct replacement for this function
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_pick_with_alpha(cast(texture_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_texture_get_pick_with_alpha(texture_ptr)) != 0)
+            return rv
         }
         /// Sets whether `texture` should have it's shape defined by the alpha
         /// channel when picking.
@@ -6613,7 +7001,7 @@ public extension TextureProtocol {
         /// **set_pick_with_alpha is deprecated:**
         /// There is no direct replacement for this function
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_pick_with_alpha(cast(texture_ptr), gboolean(newValue ? 1 : 0))
+            clutter_texture_set_pick_with_alpha(texture_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -6630,7 +7018,7 @@ public extension TextureProtocol {
     ///
     /// **get_pixel_format is deprecated:**
     /// There is no direct replacement for this function
-    var pixelFormat: CoglPixelFormat {
+    @inlinable var pixelFormat: CoglPixelFormat {
         /// Retrieves the pixel format used by `texture`. This is
         /// equivalent to:
         /// 
@@ -6645,8 +7033,8 @@ public extension TextureProtocol {
         /// **get_pixel_format is deprecated:**
         /// There is no direct replacement for this function
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_pixel_format(cast(texture_ptr))
-            return cast(rv)
+            let rv = clutter_texture_get_pixel_format(texture_ptr)
+            return rv
         }
     }
 
@@ -6654,14 +7042,14 @@ public extension TextureProtocol {
     ///
     /// **get_sync_size is deprecated:**
     /// There is no direct replacement
-    var syncSize: Bool {
+    @inlinable var syncSize: Bool {
         /// Retrieves the value set with `clutter_texture_set_sync_size()`
         ///
         /// **get_sync_size is deprecated:**
         /// There is no direct replacement
         @available(*, deprecated) get {
-            let rv = clutter_texture_get_sync_size(cast(texture_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_texture_get_sync_size(texture_ptr)) != 0)
+            return rv
         }
         /// Sets whether `texture` should have the same preferred size as the
         /// underlying image data.
@@ -6672,7 +7060,7 @@ public extension TextureProtocol {
         ///   will automatically bind the preferred size of the content to the
         ///   preferred size of the actor
         @available(*, deprecated) nonmutating set {
-            clutter_texture_set_sync_size(cast(texture_ptr), gboolean(newValue ? 1 : 0))
+            clutter_texture_set_sync_size(texture_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -6695,10 +7083,11 @@ public extension TextureProtocol {
 /// type whose members cannot be directly accessed.
 public protocol TextureNodeProtocol: PipelineNodeProtocol {
         /// Untyped pointer to the underlying `ClutterTextureNode` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTextureNode` instance.
-    var texture_node_ptr: UnsafeMutablePointer<ClutterTextureNode> { get }
+    var texture_node_ptr: UnsafeMutablePointer<ClutterTextureNode>! { get }
+
 }
 
 /// The `TextureNodeRef` type acts as a lightweight Swift reference to an underlying `ClutterTextureNode` instance.
@@ -6710,46 +7099,76 @@ public protocol TextureNodeProtocol: PipelineNodeProtocol {
 public struct TextureNodeRef: TextureNodeProtocol {
         /// Untyped pointer to the underlying `ClutterTextureNode` instance.
     /// For type-safe access, use the generated, typed pointer `texture_node_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TextureNodeRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTextureNode>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTextureNode>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTextureNode>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTextureNode>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTextureNode>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TextureNodeProtocol`
-    init<T: TextureNodeProtocol>(_ other: T) {
+    @inlinable init<T: TextureNodeProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -6761,9 +7180,9 @@ public extension TextureNodeRef {
     /// The `color` must not be pre-multiplied with its `ClutterColor.alpha`
     /// channel value; if `color` is `nil`, a fully opaque white color will
     /// be used for blending.
-    init( texture: TextureProtocol, color: ColorProtocol, minFilter min_filter: ScalingFilter, magFilter mag_filter: ScalingFilter) {
-        let rv: UnsafeMutablePointer<ClutterPaintNode>! = cast(clutter_texture_node_new(cast(texture.ptr), cast(color.ptr), min_filter, mag_filter))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init<ColorT: ColorProtocol, TextureT: TextureProtocol>( texture: TextureT, color: ColorT? = nil, minFilter min_filter: ClutterScalingFilter, magFilter mag_filter: ClutterScalingFilter) {
+        let rv = clutter_texture_node_new(texture.texture_ptr, color?.color_ptr, min_filter, mag_filter)
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -6778,77 +7197,123 @@ open class TextureNode: PipelineNode, TextureNodeProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TextureNode` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTextureNode>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTextureNode>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextureNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTextureNode>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextureNode` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextureNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextureNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTextureNode>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TextureNode` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTextureNode>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTextureNode`.
     /// i.e., ownership is transferred to the `TextureNode` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTextureNode>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTextureNode>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TextureNodeProtocol`
     /// Will retain `ClutterTextureNode`.
     /// - Parameter other: an instance of a related type that implements `TextureNodeProtocol`
-    public init<T: TextureNodeProtocol>(textureNode other: T) {
-        super.init(retaining: cast(other.texture_node_ptr))
+    @inlinable public init<T: TextureNodeProtocol>(textureNode other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -6860,9 +7325,9 @@ open class TextureNode: PipelineNode, TextureNodeProtocol {
     /// The `color` must not be pre-multiplied with its `ClutterColor.alpha`
     /// channel value; if `color` is `nil`, a fully opaque white color will
     /// be used for blending.
-    public init( texture: TextureProtocol, color: ColorProtocol, minFilter min_filter: ScalingFilter, magFilter mag_filter: ScalingFilter) {
-        let rv: UnsafeMutablePointer<ClutterPaintNode>! = cast(clutter_texture_node_new(cast(texture.ptr), cast(color.ptr), min_filter, mag_filter))
-        super.init(cast(rv))
+    @inlinable public init<ColorT: ColorProtocol, TextureT: TextureProtocol>( texture: TextureT, color: ColorT? = nil, minFilter min_filter: ClutterScalingFilter, magFilter mag_filter: ClutterScalingFilter) {
+        let rv = clutter_texture_node_new(texture.texture_ptr, color?.color_ptr, min_filter, mag_filter)
+        super.init(gpointer: (rv))
     }
 
 
@@ -6876,7 +7341,7 @@ open class TextureNode: PipelineNode, TextureNodeProtocol {
 // MARK: TextureNode Class: TextureNodeProtocol extension (methods and fields)
 public extension TextureNodeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTextureNode` instance.
-    var texture_node_ptr: UnsafeMutablePointer<ClutterTextureNode> { return ptr.assumingMemoryBound(to: ClutterTextureNode.self) }
+    @inlinable var texture_node_ptr: UnsafeMutablePointer<ClutterTextureNode>! { return ptr?.assumingMemoryBound(to: ClutterTextureNode.self) }
 
 
 
@@ -6895,10 +7360,11 @@ public extension TextureNodeProtocol {
 /// and should be accessed using the provided API
 public protocol TimelineProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
         /// Untyped pointer to the underlying `ClutterTimeline` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTimeline` instance.
-    var timeline_ptr: UnsafeMutablePointer<ClutterTimeline> { get }
+    var timeline_ptr: UnsafeMutablePointer<ClutterTimeline>! { get }
+
 }
 
 /// The `TimelineRef` type acts as a lightweight Swift reference to an underlying `ClutterTimeline` instance.
@@ -6910,53 +7376,83 @@ public protocol TimelineProtocol: GLibObject.ObjectProtocol, ScriptableProtocol 
 public struct TimelineRef: TimelineProtocol {
         /// Untyped pointer to the underlying `ClutterTimeline` instance.
     /// For type-safe access, use the generated, typed pointer `timeline_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TimelineRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTimeline>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTimeline>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTimeline>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTimeline>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTimeline>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TimelineProtocol`
-    init<T: TimelineProtocol>(_ other: T) {
+    @inlinable init<T: TimelineProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterTimeline` with a duration of `msecs`.
-    init( msecs: CUnsignedInt) {
-        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_timeline_new(guint(msecs)))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( msecs: Int) {
+        let rv = clutter_timeline_new(guint(msecs))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -6971,84 +7467,130 @@ open class Timeline: GLibObject.Object, TimelineProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Timeline` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTimeline>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTimeline>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Timeline` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTimeline>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Timeline` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Timeline` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Timeline` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTimeline>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Timeline` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTimeline>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTimeline`.
     /// i.e., ownership is transferred to the `Timeline` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTimeline>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTimeline>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TimelineProtocol`
     /// Will retain `ClutterTimeline`.
     /// - Parameter other: an instance of a related type that implements `TimelineProtocol`
-    public init<T: TimelineProtocol>(timeline other: T) {
-        super.init(retaining: cast(other.timeline_ptr))
+    @inlinable public init<T: TimelineProtocol>(timeline other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterTimeline` with a duration of `msecs`.
-    public init( msecs: CUnsignedInt) {
-        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_timeline_new(guint(msecs)))
-        super.init(cast(rv))
+    @inlinable public init( msecs: Int) {
+        let rv = clutter_timeline_new(guint(msecs))
+        super.init(gpointer: (rv))
     }
 
 
@@ -7094,21 +7636,21 @@ public extension TimelineProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TimelinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TimelinePropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(timeline_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -7126,7 +7668,7 @@ public extension TimelineProtocol {
     /// Get the value of a Timeline property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TimelinePropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TimelinePropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -7136,7 +7678,7 @@ public extension TimelineProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TimelinePropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TimelinePropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -7261,11 +7803,11 @@ public extension TimelineProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TimelineSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TimelineSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(timeline_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -7286,7 +7828,7 @@ public extension TimelineProtocol {
 // MARK: Timeline Class: TimelineProtocol extension (methods and fields)
 public extension TimelineProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTimeline` instance.
-    var timeline_ptr: UnsafeMutablePointer<ClutterTimeline> { return ptr.assumingMemoryBound(to: ClutterTimeline.self) }
+    @inlinable var timeline_ptr: UnsafeMutablePointer<ClutterTimeline>! { return ptr?.assumingMemoryBound(to: ClutterTimeline.self) }
 
     /// Adds a named marker that will be hit when the timeline has reached
     /// the specified `progress`.
@@ -7301,8 +7843,8 @@ public extension TimelineProtocol {
     /// `clutter_timeline_advance_to_marker()`.
     /// 
     /// See also: `clutter_timeline_add_marker_at_time()`
-    func addMarker(markerName marker_name: UnsafePointer<gchar>, progress: gdouble) {
-        clutter_timeline_add_marker(cast(timeline_ptr), marker_name, progress)
+    @inlinable func addMarker(markerName marker_name: UnsafePointer<gchar>!, progress: Double) {
+        clutter_timeline_add_marker(timeline_ptr, marker_name, gdouble(progress))
     
     }
 
@@ -7318,8 +7860,8 @@ public extension TimelineProtocol {
     /// `clutter_timeline_advance_to_marker()`.
     /// 
     /// See also: `clutter_timeline_add_marker()`
-    func addMarkerAtTime(markerName marker_name: UnsafePointer<gchar>, msecs: CUnsignedInt) {
-        clutter_timeline_add_marker_at_time(cast(timeline_ptr), marker_name, guint(msecs))
+    @inlinable func addMarkerAtTime(markerName marker_name: UnsafePointer<gchar>!, msecs: Int) {
+        clutter_timeline_add_marker_at_time(timeline_ptr, marker_name, guint(msecs))
     
     }
 
@@ -7329,8 +7871,8 @@ public extension TimelineProtocol {
     /// The `timeline` will not emit the `ClutterTimeline::new`-frame
     /// signal for the given time. The first `new`-frame signal after the call to
     /// `clutter_timeline_advance()` will be emit the skipped markers.
-    func advance(msecs: CUnsignedInt) {
-        clutter_timeline_advance(cast(timeline_ptr), guint(msecs))
+    @inlinable func advance(msecs: Int) {
+        clutter_timeline_advance(timeline_ptr, guint(msecs))
     
     }
 
@@ -7340,8 +7882,8 @@ public extension TimelineProtocol {
     /// emit the `ClutterTimeline::new`-frame for the time where `marker_name`
     /// is set, nor it will emit `ClutterTimeline::marker`-reached for
     /// `marker_name`.
-    func advanceToMarker(markerName marker_name: UnsafePointer<gchar>) {
-        clutter_timeline_advance_to_marker(cast(timeline_ptr), marker_name)
+    @inlinable func advanceToMarker(markerName marker_name: UnsafePointer<gchar>!) {
+        clutter_timeline_advance_to_marker(timeline_ptr, marker_name)
     
     }
 
@@ -7361,35 +7903,35 @@ public extension TimelineProtocol {
     /// **clone is deprecated:**
     /// Use clutter_timeline_new() or g_object_new()
     ///   instead
-    @available(*, deprecated) func clone() -> UnsafeMutablePointer<ClutterTimeline>! {
-        let rv: UnsafeMutablePointer<ClutterTimeline>! = cast(clutter_timeline_clone(cast(timeline_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func clone() -> TimelineRef! {
+        guard let rv = TimelineRef(gconstpointer: gconstpointer(clutter_timeline_clone(timeline_ptr))) else { return nil }
+        return rv
     }
 
     /// Retrieves the value set by `clutter_timeline_set_auto_reverse()`.
-    func getAutoReverse() -> Bool {
-        let rv = clutter_timeline_get_auto_reverse(cast(timeline_ptr))
-        return Bool(rv != 0)
+    @inlinable func getAutoReverse() -> Bool {
+        let rv = ((clutter_timeline_get_auto_reverse(timeline_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the control points for the cubic bezier progress mode.
-    func getCubicBezierProgress(c1 c_1: PointProtocol, c2 c_2: PointProtocol) -> Bool {
-        let rv = clutter_timeline_get_cubic_bezier_progress(cast(timeline_ptr), cast(c_1.ptr), cast(c_2.ptr))
-        return Bool(rv != 0)
+    @inlinable func getCubicBezierProgress<PointT: PointProtocol>(c1 c_1: PointT, c2 c_2: PointT) -> Bool {
+        let rv = ((clutter_timeline_get_cubic_bezier_progress(timeline_ptr, c_1.point_ptr, c_2.point_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the current repeat for a timeline.
     /// 
     /// Repeats start at 0.
-    func getCurrentRepeat() -> Int {
-        let rv: Int = cast(clutter_timeline_get_current_repeat(cast(timeline_ptr)))
-        return Int(rv)
+    @inlinable func getCurrentRepeat() -> Int {
+        let rv = Int(clutter_timeline_get_current_repeat(timeline_ptr))
+        return rv
     }
 
     /// Retrieves the delay set using `clutter_timeline_set_delay()`.
-    func getDelay() -> Int {
-        let rv: Int = cast(clutter_timeline_get_delay(cast(timeline_ptr)))
-        return Int(rv)
+    @inlinable func getDelay() -> Int {
+        let rv = Int(clutter_timeline_get_delay(timeline_ptr))
+        return rv
     }
 
     /// Retrieves the amount of time elapsed since the last
@@ -7398,23 +7940,23 @@ public extension TimelineProtocol {
     /// This function is only useful inside handlers for the `new`-frame
     /// signal, and its behaviour is undefined if the timeline is not
     /// playing.
-    func getDelta() -> Int {
-        let rv: Int = cast(clutter_timeline_get_delta(cast(timeline_ptr)))
-        return Int(rv)
+    @inlinable func getDelta() -> Int {
+        let rv = Int(clutter_timeline_get_delta(timeline_ptr))
+        return rv
     }
 
     /// Retrieves the direction of the timeline set with
     /// `clutter_timeline_set_direction()`.
-    func getDirection() -> ClutterTimelineDirection {
-        let rv = clutter_timeline_get_direction(cast(timeline_ptr))
-        return cast(rv)
+    @inlinable func getDirection() -> ClutterTimelineDirection {
+        let rv = clutter_timeline_get_direction(timeline_ptr)
+        return rv
     }
 
     /// Retrieves the duration of a `ClutterTimeline` in milliseconds.
     /// See `clutter_timeline_set_duration()`.
-    func getDuration() -> Int {
-        let rv: Int = cast(clutter_timeline_get_duration(cast(timeline_ptr)))
-        return Int(rv)
+    @inlinable func getDuration() -> Int {
+        let rv = Int(clutter_timeline_get_duration(timeline_ptr))
+        return rv
     }
 
     /// Retrieves the full duration of the `timeline`, taking into account the
@@ -7425,24 +7967,24 @@ public extension TimelineProtocol {
     /// 
     /// The returned value is to be considered a hint, and it's only valid
     /// as long as the `timeline` hasn't been changed.
-    func getDurationHint() -> Int64 {
-        let rv = clutter_timeline_get_duration_hint(cast(timeline_ptr))
-        return Int64(rv)
+    @inlinable func getDurationHint() -> gint64 {
+        let rv = clutter_timeline_get_duration_hint(timeline_ptr)
+        return rv
     }
 
     /// Request the current time position of the timeline.
-    func getElapsedTime() -> Int {
-        let rv: Int = cast(clutter_timeline_get_elapsed_time(cast(timeline_ptr)))
-        return Int(rv)
+    @inlinable func getElapsedTime() -> Int {
+        let rv = Int(clutter_timeline_get_elapsed_time(timeline_ptr))
+        return rv
     }
 
     /// Gets whether `timeline` is looping
     ///
     /// **get_loop is deprecated:**
     /// Use clutter_timeline_get_repeat_count() instead.
-    @available(*, deprecated) func getLoop() -> Bool {
-        let rv = clutter_timeline_get_loop(cast(timeline_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getLoop() -> Bool {
+        let rv = ((clutter_timeline_get_loop(timeline_ptr)) != 0)
+        return rv
     }
 
     /// The position of the timeline in a normalized [-1, 2] interval.
@@ -7450,61 +7992,61 @@ public extension TimelineProtocol {
     /// The return value of this function is determined by the progress
     /// mode set using `clutter_timeline_set_progress_mode()`, or by the
     /// progress function set using `clutter_timeline_set_progress_func()`.
-    func getProgress() -> Double {
-        let rv: Double = cast(clutter_timeline_get_progress(cast(timeline_ptr)))
-        return cast(rv)
+    @inlinable func getProgress() -> Double {
+        let rv = Double(clutter_timeline_get_progress(timeline_ptr))
+        return rv
     }
 
     /// Retrieves the progress mode set using `clutter_timeline_set_progress_mode()`
     /// or `clutter_timeline_set_progress_func()`.
-    func getProgressMode() -> ClutterAnimationMode {
-        let rv = clutter_timeline_get_progress_mode(cast(timeline_ptr))
-        return cast(rv)
+    @inlinable func getProgressMode() -> ClutterAnimationMode {
+        let rv = clutter_timeline_get_progress_mode(timeline_ptr)
+        return rv
     }
 
     /// Retrieves the number set using `clutter_timeline_set_repeat_count()`.
-    func getRepeatCount() -> Int {
-        let rv: Int = cast(clutter_timeline_get_repeat_count(cast(timeline_ptr)))
-        return Int(rv)
+    @inlinable func getRepeatCount() -> Int {
+        let rv = Int(clutter_timeline_get_repeat_count(timeline_ptr))
+        return rv
     }
 
     /// Retrieves the parameters of the step progress mode used by `timeline`.
-    func getStepProgress(nSteps n_steps: UnsafeMutablePointer<CInt>, stepMode step_mode: UnsafeMutablePointer<ClutterStepMode>) -> Bool {
-        let rv = clutter_timeline_get_step_progress(cast(timeline_ptr), cast(n_steps), cast(step_mode))
-        return Bool(rv != 0)
+    @inlinable func getStepProgress(nSteps n_steps: UnsafeMutablePointer<gint>!, stepMode step_mode: UnsafeMutablePointer<ClutterStepMode>!) -> Bool {
+        let rv = ((clutter_timeline_get_step_progress(timeline_ptr, n_steps, step_mode)) != 0)
+        return rv
     }
 
     /// Checks whether `timeline` has a marker set with the given name.
-    func hasMarker(markerName marker_name: UnsafePointer<gchar>) -> Bool {
-        let rv = clutter_timeline_has_marker(cast(timeline_ptr), marker_name)
-        return Bool(rv != 0)
+    @inlinable func hasMarker(markerName marker_name: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((clutter_timeline_has_marker(timeline_ptr, marker_name)) != 0)
+        return rv
     }
 
     /// Retrieves the list of markers at time `msecs`. If `msecs` is a
     /// negative integer, all the markers attached to `timeline` will be
     /// returned.
-    func listMarkers(msecs: CInt, nMarkers n_markers: UnsafeMutablePointer<Int>) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! {
-        let rv: UnsafeMutablePointer<UnsafeMutablePointer<gchar>>! = cast(clutter_timeline_list_markers(cast(timeline_ptr), gint(msecs), cast(n_markers)))
-        return cast(rv)
+    @inlinable func listMarkers(msecs: Int, nMarkers n_markers: UnsafeMutablePointer<gsize>!) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = clutter_timeline_list_markers(timeline_ptr, gint(msecs), n_markers)
+        return rv
     }
 
     /// Pauses the `ClutterTimeline` on current frame
-    func pause() {
-        clutter_timeline_pause(cast(timeline_ptr))
+    @inlinable func pause() {
+        clutter_timeline_pause(timeline_ptr)
     
     }
 
     /// Removes `marker_name`, if found, from `timeline`.
-    func removeMarker(markerName marker_name: UnsafePointer<gchar>) {
-        clutter_timeline_remove_marker(cast(timeline_ptr), marker_name)
+    @inlinable func removeMarker(markerName marker_name: UnsafePointer<gchar>!) {
+        clutter_timeline_remove_marker(timeline_ptr, marker_name)
     
     }
 
     /// Rewinds `ClutterTimeline` to the first frame if its direction is
     /// `CLUTTER_TIMELINE_FORWARD` and the last frame if it is
     /// `CLUTTER_TIMELINE_BACKWARD`.
-    func rewind() {
-        clutter_timeline_rewind(cast(timeline_ptr))
+    @inlinable func rewind() {
+        clutter_timeline_rewind(timeline_ptr)
     
     }
 
@@ -7545,8 +8087,8 @@ public extension TimelineProtocol {
     ///   clutter_timeline_set_auto_reverse (timeline);
     /// ```
     /// 
-    func setAuto(reverse: Bool) {
-        clutter_timeline_set_auto_reverse(cast(timeline_ptr), gboolean(reverse ? 1 : 0))
+    @inlinable func setAuto(reverse: Bool) {
+        clutter_timeline_set_auto_reverse(timeline_ptr, gboolean((reverse) ? 1 : 0))
     
     }
 
@@ -7557,28 +8099,28 @@ public extension TimelineProtocol {
     /// The cubic bezier curve is between (0, 0) and (1, 1). The X coordinate
     /// of the two control points must be in the [ 0, 1 ] range, while the
     /// Y coordinate of the two control points can exceed this range.
-    func setCubicBezierProgress(c1 c_1: PointProtocol, c2 c_2: PointProtocol) {
-        clutter_timeline_set_cubic_bezier_progress(cast(timeline_ptr), cast(c_1.ptr), cast(c_2.ptr))
+    @inlinable func setCubicBezierProgress<PointT: PointProtocol>(c1 c_1: PointT, c2 c_2: PointT) {
+        clutter_timeline_set_cubic_bezier_progress(timeline_ptr, c_1.point_ptr, c_2.point_ptr)
     
     }
 
     /// Sets the delay, in milliseconds, before `timeline` should start.
-    func setDelay(msecs: CUnsignedInt) {
-        clutter_timeline_set_delay(cast(timeline_ptr), guint(msecs))
+    @inlinable func setDelay(msecs: Int) {
+        clutter_timeline_set_delay(timeline_ptr, guint(msecs))
     
     }
 
     /// Sets the direction of `timeline`, either `CLUTTER_TIMELINE_FORWARD` or
     /// `CLUTTER_TIMELINE_BACKWARD`.
-    func set(direction: TimelineDirection) {
-        clutter_timeline_set_direction(cast(timeline_ptr), direction)
+    @inlinable func set(direction: ClutterTimelineDirection) {
+        clutter_timeline_set_direction(timeline_ptr, direction)
     
     }
 
     /// Sets the duration of the timeline, in milliseconds. The speed
     /// of the timeline depends on the ClutterTimeline:fps setting.
-    func setDuration(msecs: CUnsignedInt) {
-        clutter_timeline_set_duration(cast(timeline_ptr), guint(msecs))
+    @inlinable func setDuration(msecs: Int) {
+        clutter_timeline_set_duration(timeline_ptr, guint(msecs))
     
     }
 
@@ -7589,8 +8131,8 @@ public extension TimelineProtocol {
     ///
     /// **set_loop is deprecated:**
     /// Use clutter_timeline_set_repeat_count() instead.
-    @available(*, deprecated) func set(loop: Bool) {
-        clutter_timeline_set_loop(cast(timeline_ptr), gboolean(loop ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(loop: Bool) {
+        clutter_timeline_set_loop(timeline_ptr, gboolean((loop) ? 1 : 0))
     
     }
 
@@ -7604,16 +8146,16 @@ public extension TimelineProtocol {
     /// 
     /// If `func` is `nil`, any previously set progress function will be unset, and
     /// the `ClutterTimeline:progress`-mode property will be set to `CLUTTER_LINEAR`.
-    func setProgressFunc(func_: @escaping TimelineProgressFunc, data: UnsafeMutableRawPointer, notify: @escaping GLib.DestroyNotify) {
-        clutter_timeline_set_progress_func(cast(timeline_ptr), func_, cast(data), notify)
+    @inlinable func setProgressFunc(`func`: ClutterTimelineProgressFunc? = nil, data: gpointer! = nil, notify: GDestroyNotify?) {
+        clutter_timeline_set_progress_func(timeline_ptr, `func`, data, notify)
     
     }
 
     /// Sets the progress function using a value from the `ClutterAnimationMode`
     /// enumeration. The `mode` cannot be `CLUTTER_CUSTOM_MODE` or bigger than
     /// `CLUTTER_ANIMATION_LAST`.
-    func setProgress(mode: AnimationMode) {
-        clutter_timeline_set_progress_mode(cast(timeline_ptr), mode)
+    @inlinable func setProgress(mode: ClutterAnimationMode) {
+        clutter_timeline_set_progress_mode(timeline_ptr, mode)
     
     }
 
@@ -7623,41 +8165,41 @@ public extension TimelineProtocol {
     /// 
     /// If `count` is -1, the timeline will always repeat until
     /// it's stopped.
-    func setRepeat(count: CInt) {
-        clutter_timeline_set_repeat_count(cast(timeline_ptr), gint(count))
+    @inlinable func setRepeat(count: Int) {
+        clutter_timeline_set_repeat_count(timeline_ptr, gint(count))
     
     }
 
     /// Sets the `ClutterTimeline:progress`-mode of the `timeline` to `CLUTTER_STEPS`
     /// and provides the parameters of the step function.
-    func setStepProgress(nSteps n_steps: CInt, stepMode step_mode: StepMode) {
-        clutter_timeline_set_step_progress(cast(timeline_ptr), gint(n_steps), step_mode)
+    @inlinable func setStepProgress(nSteps n_steps: Int, stepMode step_mode: ClutterStepMode) {
+        clutter_timeline_set_step_progress(timeline_ptr, gint(n_steps), step_mode)
     
     }
 
     /// Advance timeline by the requested time in milliseconds
-    func skip(msecs: CUnsignedInt) {
-        clutter_timeline_skip(cast(timeline_ptr), guint(msecs))
+    @inlinable func skip(msecs: Int) {
+        clutter_timeline_skip(timeline_ptr, guint(msecs))
     
     }
 
     /// Starts the `ClutterTimeline` playing.
-    func start() {
-        clutter_timeline_start(cast(timeline_ptr))
+    @inlinable func start() {
+        clutter_timeline_start(timeline_ptr)
     
     }
 
     /// Stops the `ClutterTimeline` and moves to frame 0
-    func stop() {
-        clutter_timeline_stop(cast(timeline_ptr))
+    @inlinable func stop() {
+        clutter_timeline_stop(timeline_ptr)
     
     }
     /// Retrieves the value set by `clutter_timeline_set_auto_reverse()`.
-    var autoReverse: Bool {
+    @inlinable var autoReverse: Bool {
         /// Retrieves the value set by `clutter_timeline_set_auto_reverse()`.
         get {
-            let rv = clutter_timeline_get_auto_reverse(cast(timeline_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_timeline_get_auto_reverse(timeline_ptr)) != 0)
+            return rv
         }
         /// Sets whether `timeline` should reverse the direction after the
         /// emission of the `ClutterTimeline::completed` signal.
@@ -7697,34 +8239,34 @@ public extension TimelineProtocol {
         /// ```
         /// 
         nonmutating set {
-            clutter_timeline_set_auto_reverse(cast(timeline_ptr), gboolean(newValue ? 1 : 0))
+            clutter_timeline_set_auto_reverse(timeline_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
     /// Retrieves the current repeat for a timeline.
     /// 
     /// Repeats start at 0.
-    var currentRepeat: Int {
+    @inlinable var currentRepeat: Int {
         /// Retrieves the current repeat for a timeline.
         /// 
         /// Repeats start at 0.
         get {
-            let rv: Int = cast(clutter_timeline_get_current_repeat(cast(timeline_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_timeline_get_current_repeat(timeline_ptr))
+            return rv
         }
     }
 
     /// A delay, in milliseconds, that should be observed by the
     /// timeline before actually starting.
-    var delay: Int {
+    @inlinable var delay: Int {
         /// Retrieves the delay set using `clutter_timeline_set_delay()`.
         get {
-            let rv: Int = cast(clutter_timeline_get_delay(cast(timeline_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_timeline_get_delay(timeline_ptr))
+            return rv
         }
         /// Sets the delay, in milliseconds, before `timeline` should start.
         nonmutating set {
-            clutter_timeline_set_delay(cast(timeline_ptr), guint(newValue))
+            clutter_timeline_set_delay(timeline_ptr, guint(newValue))
         }
     }
 
@@ -7734,7 +8276,7 @@ public extension TimelineProtocol {
     /// This function is only useful inside handlers for the `new`-frame
     /// signal, and its behaviour is undefined if the timeline is not
     /// playing.
-    var delta: Int {
+    @inlinable var delta: Int {
         /// Retrieves the amount of time elapsed since the last
         /// ClutterTimeline`new`-frame signal.
         /// 
@@ -7742,40 +8284,40 @@ public extension TimelineProtocol {
         /// signal, and its behaviour is undefined if the timeline is not
         /// playing.
         get {
-            let rv: Int = cast(clutter_timeline_get_delta(cast(timeline_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_timeline_get_delta(timeline_ptr))
+            return rv
         }
     }
 
     /// The direction of the timeline, either `CLUTTER_TIMELINE_FORWARD` or
     /// `CLUTTER_TIMELINE_BACKWARD`.
-    var direction: ClutterTimelineDirection {
+    @inlinable var direction: ClutterTimelineDirection {
         /// Retrieves the direction of the timeline set with
         /// `clutter_timeline_set_direction()`.
         get {
-            let rv = clutter_timeline_get_direction(cast(timeline_ptr))
-            return cast(rv)
+            let rv = clutter_timeline_get_direction(timeline_ptr)
+            return rv
         }
         /// Sets the direction of `timeline`, either `CLUTTER_TIMELINE_FORWARD` or
         /// `CLUTTER_TIMELINE_BACKWARD`.
         nonmutating set {
-            clutter_timeline_set_direction(cast(timeline_ptr), cast(newValue))
+            clutter_timeline_set_direction(timeline_ptr, newValue)
         }
     }
 
     /// Duration of the timeline in milliseconds, depending on the
     /// ClutterTimeline:fps value.
-    var duration: Int {
+    @inlinable var duration: Int {
         /// Retrieves the duration of a `ClutterTimeline` in milliseconds.
         /// See `clutter_timeline_set_duration()`.
         get {
-            let rv: Int = cast(clutter_timeline_get_duration(cast(timeline_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_timeline_get_duration(timeline_ptr))
+            return rv
         }
         /// Sets the duration of the timeline, in milliseconds. The speed
         /// of the timeline depends on the ClutterTimeline:fps setting.
         nonmutating set {
-            clutter_timeline_set_duration(cast(timeline_ptr), guint(newValue))
+            clutter_timeline_set_duration(timeline_ptr, guint(newValue))
         }
     }
 
@@ -7787,7 +8329,7 @@ public extension TimelineProtocol {
     /// 
     /// The returned value is to be considered a hint, and it's only valid
     /// as long as the `timeline` hasn't been changed.
-    var durationHint: Int64 {
+    @inlinable var durationHint: gint64 {
         /// Retrieves the full duration of the `timeline`, taking into account the
         /// current value of the `ClutterTimeline:repeat`-count property.
         /// 
@@ -7797,26 +8339,26 @@ public extension TimelineProtocol {
         /// The returned value is to be considered a hint, and it's only valid
         /// as long as the `timeline` hasn't been changed.
         get {
-            let rv = clutter_timeline_get_duration_hint(cast(timeline_ptr))
-            return Int64(rv)
+            let rv = clutter_timeline_get_duration_hint(timeline_ptr)
+            return rv
         }
     }
 
     /// Request the current time position of the timeline.
-    var elapsedTime: Int {
+    @inlinable var elapsedTime: Int {
         /// Request the current time position of the timeline.
         get {
-            let rv: Int = cast(clutter_timeline_get_elapsed_time(cast(timeline_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_timeline_get_elapsed_time(timeline_ptr))
+            return rv
         }
     }
 
     /// Queries state of a `ClutterTimeline`.
-    var isPlaying: Bool {
+    @inlinable var isPlaying: Bool {
         /// Queries state of a `ClutterTimeline`.
         get {
-            let rv = clutter_timeline_is_playing(cast(timeline_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_timeline_is_playing(timeline_ptr)) != 0)
+            return rv
         }
     }
 
@@ -7829,14 +8371,14 @@ public extension TimelineProtocol {
     ///
     /// **loop is deprecated:**
     /// Use the #ClutterTimeline:repeat-count property instead.
-    var loop: Bool {
+    @inlinable var loop: Bool {
         /// Gets whether `timeline` is looping
         ///
         /// **get_loop is deprecated:**
         /// Use clutter_timeline_get_repeat_count() instead.
         @available(*, deprecated) get {
-            let rv = clutter_timeline_get_loop(cast(timeline_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_timeline_get_loop(timeline_ptr)) != 0)
+            return rv
         }
         /// Sets whether `timeline` should loop.
         /// 
@@ -7846,7 +8388,7 @@ public extension TimelineProtocol {
         /// **set_loop is deprecated:**
         /// Use clutter_timeline_set_repeat_count() instead.
         @available(*, deprecated) nonmutating set {
-            clutter_timeline_set_loop(cast(timeline_ptr), gboolean(newValue ? 1 : 0))
+            clutter_timeline_set_loop(timeline_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -7855,41 +8397,41 @@ public extension TimelineProtocol {
     /// The return value of this function is determined by the progress
     /// mode set using `clutter_timeline_set_progress_mode()`, or by the
     /// progress function set using `clutter_timeline_set_progress_func()`.
-    var progress: Double {
+    @inlinable var progress: Double {
         /// The position of the timeline in a normalized [-1, 2] interval.
         /// 
         /// The return value of this function is determined by the progress
         /// mode set using `clutter_timeline_set_progress_mode()`, or by the
         /// progress function set using `clutter_timeline_set_progress_func()`.
         get {
-            let rv: Double = cast(clutter_timeline_get_progress(cast(timeline_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_timeline_get_progress(timeline_ptr))
+            return rv
         }
     }
 
     /// Retrieves the progress mode set using `clutter_timeline_set_progress_mode()`
     /// or `clutter_timeline_set_progress_func()`.
-    var progressMode: ClutterAnimationMode {
+    @inlinable var progressMode: ClutterAnimationMode {
         /// Retrieves the progress mode set using `clutter_timeline_set_progress_mode()`
         /// or `clutter_timeline_set_progress_func()`.
         get {
-            let rv = clutter_timeline_get_progress_mode(cast(timeline_ptr))
-            return cast(rv)
+            let rv = clutter_timeline_get_progress_mode(timeline_ptr)
+            return rv
         }
         /// Sets the progress function using a value from the `ClutterAnimationMode`
         /// enumeration. The `mode` cannot be `CLUTTER_CUSTOM_MODE` or bigger than
         /// `CLUTTER_ANIMATION_LAST`.
         nonmutating set {
-            clutter_timeline_set_progress_mode(cast(timeline_ptr), cast(newValue))
+            clutter_timeline_set_progress_mode(timeline_ptr, newValue)
         }
     }
 
     /// Retrieves the number set using `clutter_timeline_set_repeat_count()`.
-    var repeatCount: Int {
+    @inlinable var repeatCount: Int {
         /// Retrieves the number set using `clutter_timeline_set_repeat_count()`.
         get {
-            let rv: Int = cast(clutter_timeline_get_repeat_count(cast(timeline_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_timeline_get_repeat_count(timeline_ptr))
+            return rv
         }
         /// Sets the number of times the `timeline` should repeat.
         /// 
@@ -7898,7 +8440,7 @@ public extension TimelineProtocol {
         /// If `count` is -1, the timeline will always repeat until
         /// it's stopped.
         nonmutating set {
-            clutter_timeline_set_repeat_count(cast(timeline_ptr), gint(newValue))
+            clutter_timeline_set_repeat_count(timeline_ptr, gint(newValue))
         }
     }
 
@@ -7921,10 +8463,11 @@ public extension TimelineProtocol {
 /// data and should only be accessed using the provided API.
 public protocol TransitionProtocol: TimelineProtocol {
         /// Untyped pointer to the underlying `ClutterTransition` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTransition` instance.
-    var transition_ptr: UnsafeMutablePointer<ClutterTransition> { get }
+    var transition_ptr: UnsafeMutablePointer<ClutterTransition>! { get }
+
 }
 
 /// The `TransitionRef` type acts as a lightweight Swift reference to an underlying `ClutterTransition` instance.
@@ -7936,46 +8479,76 @@ public protocol TransitionProtocol: TimelineProtocol {
 public struct TransitionRef: TransitionProtocol {
         /// Untyped pointer to the underlying `ClutterTransition` instance.
     /// For type-safe access, use the generated, typed pointer `transition_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TransitionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTransition>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTransition>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTransition>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTransition>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTransition>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TransitionProtocol`
-    init<T: TransitionProtocol>(_ other: T) {
+    @inlinable init<T: TransitionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -7992,77 +8565,123 @@ open class Transition: Timeline, TransitionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Transition` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTransition>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTransition>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Transition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTransition>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Transition` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Transition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Transition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTransition>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Transition` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTransition>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTransition`.
     /// i.e., ownership is transferred to the `Transition` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTransition>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTransition>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TransitionProtocol`
     /// Will retain `ClutterTransition`.
     /// - Parameter other: an instance of a related type that implements `TransitionProtocol`
-    public init<T: TransitionProtocol>(transition other: T) {
-        super.init(retaining: cast(other.transition_ptr))
+    @inlinable public init<T: TransitionProtocol>(transition other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -8124,21 +8743,21 @@ public extension TransitionProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TransitionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TransitionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(transition_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -8156,7 +8775,7 @@ public extension TransitionProtocol {
     /// Get the value of a Transition property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TransitionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TransitionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -8166,7 +8785,7 @@ public extension TransitionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TransitionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TransitionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -8305,11 +8924,11 @@ public extension TransitionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TransitionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TransitionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(transition_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -8330,24 +8949,24 @@ public extension TransitionProtocol {
 // MARK: Transition Class: TransitionProtocol extension (methods and fields)
 public extension TransitionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTransition` instance.
-    var transition_ptr: UnsafeMutablePointer<ClutterTransition> { return ptr.assumingMemoryBound(to: ClutterTransition.self) }
+    @inlinable var transition_ptr: UnsafeMutablePointer<ClutterTransition>! { return ptr?.assumingMemoryBound(to: ClutterTransition.self) }
 
     /// Retrieves the `ClutterAnimatable` set using `clutter_transition_set_animatable()`.
-    func getAnimatable() -> UnsafeMutablePointer<ClutterAnimatable>! {
-        let rv: UnsafeMutablePointer<ClutterAnimatable>! = cast(clutter_transition_get_animatable(cast(transition_ptr)))
-        return cast(rv)
+    @inlinable func getAnimatable() -> AnimatableRef! {
+        let rv = AnimatableRef(gconstpointer: gconstpointer(clutter_transition_get_animatable(transition_ptr)))
+        return rv
     }
 
     /// Retrieves the interval set using `clutter_transition_set_interval()`
-    func getInterval() -> UnsafeMutablePointer<ClutterInterval>! {
-        let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_transition_get_interval(cast(transition_ptr)))
-        return cast(rv)
+    @inlinable func getInterval() -> IntervalRef! {
+        let rv = IntervalRef(gconstpointer: gconstpointer(clutter_transition_get_interval(transition_ptr)))
+        return rv
     }
 
     /// Retrieves the value of the `ClutterTransition:remove`-on-complete property.
-    func getRemoveOnComplete() -> Bool {
-        let rv = clutter_transition_get_remove_on_complete(cast(transition_ptr))
-        return Bool(rv != 0)
+    @inlinable func getRemoveOnComplete() -> Bool {
+        let rv = ((clutter_transition_get_remove_on_complete(transition_ptr)) != 0)
+        return rv
     }
 
     /// Sets the `ClutterTransition:animatable` property.
@@ -8358,8 +8977,8 @@ public extension TransitionProtocol {
     /// If an existing `ClutterAnimatable` is attached to `transition`, the
     /// reference will be released, and the `ClutterTransitionClass.detached``()`
     /// virtual function will be called.
-    func set(animatable: AnimatableProtocol) {
-        clutter_transition_set_animatable(cast(transition_ptr), cast(animatable.ptr))
+    @inlinable func set<AnimatableT: AnimatableProtocol>(animatable: AnimatableT? = nil) {
+        clutter_transition_set_animatable(transition_ptr, animatable?.animatable_ptr)
     
     }
 
@@ -8381,8 +9000,8 @@ public extension TransitionProtocol {
     /// as the interval's `ClutterInterval:value`-type property.
     /// 
     /// This function is meant to be used by language bindings.
-    func setFrom(value: GLibObject.ValueProtocol) {
-        clutter_transition_set_from_value(cast(transition_ptr), cast(value.ptr))
+    @inlinable func setFrom<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
+        clutter_transition_set_from_value(transition_ptr, value.value_ptr)
     
     }
 
@@ -8390,16 +9009,16 @@ public extension TransitionProtocol {
     /// 
     /// The `transition` will acquire a reference on the `interval`, sinking
     /// the floating flag on it if necessary.
-    func set(interval: IntervalProtocol) {
-        clutter_transition_set_interval(cast(transition_ptr), cast(interval.ptr))
+    @inlinable func set<IntervalT: IntervalProtocol>(interval: IntervalT? = nil) {
+        clutter_transition_set_interval(transition_ptr, interval?.interval_ptr)
     
     }
 
     /// Sets whether `transition` should be detached from the `ClutterAnimatable`
     /// set using `clutter_transition_set_animatable()` when the
     /// `ClutterTimeline::completed` signal is emitted.
-    func setRemoveOnComplete(removeComplete remove_complete: Bool) {
-        clutter_transition_set_remove_on_complete(cast(transition_ptr), gboolean(remove_complete ? 1 : 0))
+    @inlinable func setRemoveOnComplete(removeComplete remove_complete: Bool) {
+        clutter_transition_set_remove_on_complete(transition_ptr, gboolean((remove_complete) ? 1 : 0))
     
     }
 
@@ -8421,16 +9040,16 @@ public extension TransitionProtocol {
     /// as the interval's `ClutterInterval:value`-type property.
     /// 
     /// This function is meant to be used by language bindings.
-    func setTo(value: GLibObject.ValueProtocol) {
-        clutter_transition_set_to_value(cast(transition_ptr), cast(value.ptr))
+    @inlinable func setTo<ValueT: GLibObject.ValueProtocol>(value: ValueT) {
+        clutter_transition_set_to_value(transition_ptr, value.value_ptr)
     
     }
     /// The `ClutterAnimatable` instance currently being animated.
-    var animatable: UnsafeMutablePointer<ClutterAnimatable>! {
+    @inlinable var animatable: AnimatableRef! {
         /// Retrieves the `ClutterAnimatable` set using `clutter_transition_set_animatable()`.
         get {
-            let rv: UnsafeMutablePointer<ClutterAnimatable>! = cast(clutter_transition_get_animatable(cast(transition_ptr)))
-            return cast(rv)
+            let rv = AnimatableRef(gconstpointer: gconstpointer(clutter_transition_get_animatable(transition_ptr)))
+            return rv
         }
         /// Sets the `ClutterTransition:animatable` property.
         /// 
@@ -8441,39 +9060,39 @@ public extension TransitionProtocol {
         /// reference will be released, and the `ClutterTransitionClass.detached``()`
         /// virtual function will be called.
         nonmutating set {
-            clutter_transition_set_animatable(cast(transition_ptr), cast(newValue))
+            clutter_transition_set_animatable(transition_ptr, UnsafeMutablePointer<ClutterAnimatable>(newValue?.animatable_ptr))
         }
     }
 
     /// The `ClutterInterval` used to describe the initial and final states
     /// of the transition.
-    var interval: UnsafeMutablePointer<ClutterInterval>! {
+    @inlinable var interval: IntervalRef! {
         /// Retrieves the interval set using `clutter_transition_set_interval()`
         get {
-            let rv: UnsafeMutablePointer<ClutterInterval>! = cast(clutter_transition_get_interval(cast(transition_ptr)))
-            return cast(rv)
+            let rv = IntervalRef(gconstpointer: gconstpointer(clutter_transition_get_interval(transition_ptr)))
+            return rv
         }
         /// Sets the `ClutterTransition:interval` property using `interval`.
         /// 
         /// The `transition` will acquire a reference on the `interval`, sinking
         /// the floating flag on it if necessary.
         nonmutating set {
-            clutter_transition_set_interval(cast(transition_ptr), cast(newValue))
+            clutter_transition_set_interval(transition_ptr, UnsafeMutablePointer<ClutterInterval>(newValue?.interval_ptr))
         }
     }
 
     /// Retrieves the value of the `ClutterTransition:remove`-on-complete property.
-    var removeOnComplete: Bool {
+    @inlinable var removeOnComplete: Bool {
         /// Retrieves the value of the `ClutterTransition:remove`-on-complete property.
         get {
-            let rv = clutter_transition_get_remove_on_complete(cast(transition_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_transition_get_remove_on_complete(transition_ptr)) != 0)
+            return rv
         }
         /// Sets whether `transition` should be detached from the `ClutterAnimatable`
         /// set using `clutter_transition_set_animatable()` when the
         /// `ClutterTimeline::completed` signal is emitted.
         nonmutating set {
-            clutter_transition_set_remove_on_complete(cast(transition_ptr), gboolean(newValue ? 1 : 0))
+            clutter_transition_set_remove_on_complete(transition_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -8496,10 +9115,11 @@ public extension TransitionProtocol {
 /// private data and should only be accessed using the provided API.
 public protocol TransitionGroupProtocol: TransitionProtocol {
         /// Untyped pointer to the underlying `ClutterTransitionGroup` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTransitionGroup` instance.
-    var transition_group_ptr: UnsafeMutablePointer<ClutterTransitionGroup> { get }
+    var transition_group_ptr: UnsafeMutablePointer<ClutterTransitionGroup>! { get }
+
 }
 
 /// The `TransitionGroupRef` type acts as a lightweight Swift reference to an underlying `ClutterTransitionGroup` instance.
@@ -8511,53 +9131,83 @@ public protocol TransitionGroupProtocol: TransitionProtocol {
 public struct TransitionGroupRef: TransitionGroupProtocol {
         /// Untyped pointer to the underlying `ClutterTransitionGroup` instance.
     /// For type-safe access, use the generated, typed pointer `transition_group_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TransitionGroupRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTransitionGroup>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTransitionGroup>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTransitionGroup>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTransitionGroup>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTransitionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TransitionGroupProtocol`
-    init<T: TransitionGroupProtocol>(_ other: T) {
+    @inlinable init<T: TransitionGroupProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterTransitionGroup` instance.
-    init() {
-        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_transition_group_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_transition_group_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -8572,84 +9222,130 @@ open class TransitionGroup: Transition, TransitionGroupProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TransitionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTransitionGroup>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTransitionGroup>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TransitionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTransitionGroup>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TransitionGroup` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TransitionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TransitionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTransitionGroup>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TransitionGroup` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTransitionGroup>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterTransitionGroup`.
     /// i.e., ownership is transferred to the `TransitionGroup` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTransitionGroup>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTransitionGroup>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `TransitionGroupProtocol`
     /// Will retain `ClutterTransitionGroup`.
     /// - Parameter other: an instance of a related type that implements `TransitionGroupProtocol`
-    public init<T: TransitionGroupProtocol>(transitionGroup other: T) {
-        super.init(retaining: cast(other.transition_group_ptr))
+    @inlinable public init<T: TransitionGroupProtocol>(transitionGroup other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterTransitionGroup` instance.
-    public init() {
-        let rv: UnsafeMutablePointer<ClutterTransition>! = cast(clutter_transition_group_new())
-        super.init(cast(rv))
+    @inlinable public init() {
+        let rv = clutter_transition_group_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -8709,21 +9405,21 @@ public extension TransitionGroupProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TransitionGroupPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: TransitionGroupPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(transition_group_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -8741,7 +9437,7 @@ public extension TransitionGroupProtocol {
     /// Get the value of a TransitionGroup property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: TransitionGroupPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: TransitionGroupPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -8751,7 +9447,7 @@ public extension TransitionGroupProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: TransitionGroupPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: TransitionGroupPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -8890,11 +9586,11 @@ public extension TransitionGroupProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: TransitionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: TransitionGroupSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(transition_group_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -8915,14 +9611,14 @@ public extension TransitionGroupProtocol {
 // MARK: TransitionGroup Class: TransitionGroupProtocol extension (methods and fields)
 public extension TransitionGroupProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTransitionGroup` instance.
-    var transition_group_ptr: UnsafeMutablePointer<ClutterTransitionGroup> { return ptr.assumingMemoryBound(to: ClutterTransitionGroup.self) }
+    @inlinable var transition_group_ptr: UnsafeMutablePointer<ClutterTransitionGroup>! { return ptr?.assumingMemoryBound(to: ClutterTransitionGroup.self) }
 
     /// Adds `transition` to `group`.
     /// 
     /// This function acquires a reference on `transition` that will be released
     /// when calling `clutter_transition_group_remove_transition()`.
-    func add(transition: TransitionProtocol) {
-        clutter_transition_group_add_transition(cast(transition_group_ptr), cast(transition.ptr))
+    @inlinable func add<TransitionT: TransitionProtocol>(transition: TransitionT) {
+        clutter_transition_group_add_transition(transition_group_ptr, transition.transition_ptr)
     
     }
 
@@ -8930,8 +9626,8 @@ public extension TransitionGroupProtocol {
     /// 
     /// This function releases the reference acquired when calling
     /// `clutter_transition_group_add_transition()`.
-    func removeAll() {
-        clutter_transition_group_remove_all(cast(transition_group_ptr))
+    @inlinable func removeAll() {
+        clutter_transition_group_remove_all(transition_group_ptr)
     
     }
 
@@ -8939,8 +9635,8 @@ public extension TransitionGroupProtocol {
     /// 
     /// This function releases the reference acquired on `transition` when
     /// calling `clutter_transition_group_add_transition()`.
-    func remove(transition: TransitionProtocol) {
-        clutter_transition_group_remove_transition(cast(transition_group_ptr), cast(transition.ptr))
+    @inlinable func remove<TransitionT: TransitionProtocol>(transition: TransitionT) {
+        clutter_transition_group_remove_transition(transition_group_ptr, transition.transition_ptr)
     
     }
 
@@ -8963,10 +9659,11 @@ public extension TransitionGroupProtocol {
 /// private data and should be accessed using the provided API
 public protocol ZoomActionProtocol: GestureActionProtocol {
         /// Untyped pointer to the underlying `ClutterZoomAction` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterZoomAction` instance.
-    var zoom_action_ptr: UnsafeMutablePointer<ClutterZoomAction> { get }
+    var zoom_action_ptr: UnsafeMutablePointer<ClutterZoomAction>! { get }
+
 }
 
 /// The `ZoomActionRef` type acts as a lightweight Swift reference to an underlying `ClutterZoomAction` instance.
@@ -8978,53 +9675,83 @@ public protocol ZoomActionProtocol: GestureActionProtocol {
 public struct ZoomActionRef: ZoomActionProtocol {
         /// Untyped pointer to the underlying `ClutterZoomAction` instance.
     /// For type-safe access, use the generated, typed pointer `zoom_action_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ZoomActionRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterZoomAction>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterZoomAction>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterZoomAction>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterZoomAction>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterZoomAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ZoomActionProtocol`
-    init<T: ZoomActionProtocol>(_ other: T) {
+    @inlinable init<T: ZoomActionProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Creates a new `ClutterZoomAction` instance
-    init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_zoom_action_new())
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init() {
+        let rv = clutter_zoom_action_new()
+        ptr = UnsafeMutableRawPointer(rv)
     }
 }
 
@@ -9039,84 +9766,130 @@ open class ZoomAction: GestureAction, ZoomActionProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZoomAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterZoomAction>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterZoomAction>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterZoomAction>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomAction` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterZoomAction>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomAction` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterZoomAction>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterZoomAction`.
     /// i.e., ownership is transferred to the `ZoomAction` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterZoomAction>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterZoomAction>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ZoomActionProtocol`
     /// Will retain `ClutterZoomAction`.
     /// - Parameter other: an instance of a related type that implements `ZoomActionProtocol`
-    public init<T: ZoomActionProtocol>(zoomAction other: T) {
-        super.init(retaining: cast(other.zoom_action_ptr))
+    @inlinable public init<T: ZoomActionProtocol>(zoomAction other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
     /// Creates a new `ClutterZoomAction` instance
-    public override init() {
-        let rv: UnsafeMutablePointer<ClutterAction>! = cast(clutter_zoom_action_new())
-        super.init(cast(rv))
+    @inlinable public override init() {
+        let rv = clutter_zoom_action_new()
+        super.init(gpointer: (rv))
     }
 
 
@@ -9202,21 +9975,21 @@ public extension ZoomActionProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ZoomActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ZoomActionPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(zoom_action_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -9234,7 +10007,7 @@ public extension ZoomActionProtocol {
     /// Get the value of a ZoomAction property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ZoomActionPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ZoomActionPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -9244,7 +10017,7 @@ public extension ZoomActionProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ZoomActionPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ZoomActionPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -9417,11 +10190,11 @@ public extension ZoomActionProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ZoomActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ZoomActionSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(zoom_action_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -9442,42 +10215,42 @@ public extension ZoomActionProtocol {
 // MARK: ZoomAction Class: ZoomActionProtocol extension (methods and fields)
 public extension ZoomActionProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterZoomAction` instance.
-    var zoom_action_ptr: UnsafeMutablePointer<ClutterZoomAction> { return ptr.assumingMemoryBound(to: ClutterZoomAction.self) }
+    @inlinable var zoom_action_ptr: UnsafeMutablePointer<ClutterZoomAction>! { return ptr?.assumingMemoryBound(to: ClutterZoomAction.self) }
 
     /// Retrieves the focal point of the current zoom
-    func getFocal(point: PointProtocol) {
-        clutter_zoom_action_get_focal_point(cast(zoom_action_ptr), cast(point.ptr))
+    @inlinable func getFocal<PointT: PointProtocol>(point: PointT) {
+        clutter_zoom_action_get_focal_point(zoom_action_ptr, point.point_ptr)
     
     }
 
     /// Retrieves the focal point relative to the actor's coordinates of
     /// the current zoom
-    func getTransformedFocal(point: PointProtocol) {
-        clutter_zoom_action_get_transformed_focal_point(cast(zoom_action_ptr), cast(point.ptr))
+    @inlinable func getTransformedFocal<PointT: PointProtocol>(point: PointT) {
+        clutter_zoom_action_get_transformed_focal_point(zoom_action_ptr, point.point_ptr)
     
     }
 
     /// Retrieves the axis constraint set by `clutter_zoom_action_set_zoom_axis()`
-    func getZoomAxis() -> ClutterZoomAxis {
-        let rv = clutter_zoom_action_get_zoom_axis(cast(zoom_action_ptr))
-        return cast(rv)
+    @inlinable func getZoomAxis() -> ClutterZoomAxis {
+        let rv = clutter_zoom_action_get_zoom_axis(zoom_action_ptr)
+        return rv
     }
 
     /// Restricts the zooming action to a specific axis
-    func setZoom(axis: ZoomAxis) {
-        clutter_zoom_action_set_zoom_axis(cast(zoom_action_ptr), axis)
+    @inlinable func setZoom(axis: ClutterZoomAxis) {
+        clutter_zoom_action_set_zoom_axis(zoom_action_ptr, axis)
     
     }
     /// Retrieves the axis constraint set by `clutter_zoom_action_set_zoom_axis()`
-    var zoomAxis: ClutterZoomAxis {
+    @inlinable var zoomAxis: ClutterZoomAxis {
         /// Retrieves the axis constraint set by `clutter_zoom_action_set_zoom_axis()`
         get {
-            let rv = clutter_zoom_action_get_zoom_axis(cast(zoom_action_ptr))
-            return cast(rv)
+            let rv = clutter_zoom_action_get_zoom_axis(zoom_action_ptr)
+            return rv
         }
         /// Restricts the zooming action to a specific axis
         nonmutating set {
-            clutter_zoom_action_set_zoom_axis(cast(zoom_action_ptr), cast(newValue))
+            clutter_zoom_action_set_zoom_axis(zoom_action_ptr, newValue)
         }
     }
 

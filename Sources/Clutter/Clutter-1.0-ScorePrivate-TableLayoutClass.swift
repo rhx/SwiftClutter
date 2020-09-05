@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -22,10 +23,11 @@ import Atk
 
 public protocol ScorePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScorePrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScorePrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScorePrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScorePrivate>! { get }
+
 }
 
 /// The `ScorePrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterScorePrivate` instance.
@@ -36,46 +38,76 @@ public protocol ScorePrivateProtocol {
 public struct ScorePrivateRef: ScorePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScorePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScorePrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScorePrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScorePrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScorePrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScorePrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScorePrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScorePrivateProtocol`
-    init<T: ScorePrivateProtocol>(_ other: T) {
+    @inlinable init<T: ScorePrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -89,95 +121,141 @@ public extension ScorePrivateRef {
 open class ScorePrivate: ScorePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScorePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScorePrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScorePrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScorePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScorePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScorePrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScorePrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScorePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScorePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScorePrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScorePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScorePrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScorePrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScorePrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScorePrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScorePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScorePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScorePrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScorePrivateProtocol`
     /// `ClutterScorePrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScorePrivateProtocol`
-    public init<T: ScorePrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScorePrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScorePrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScorePrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScorePrivate`.
     deinit {
-        // no reference counting for ClutterScorePrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScorePrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScorePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScorePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScorePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScorePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScorePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScorePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScorePrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScorePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScorePrivate, cannot ref(_ptr)
     }
 
 
@@ -192,7 +270,7 @@ open class ScorePrivate: ScorePrivateProtocol {
 // MARK: ScorePrivate Record: ScorePrivateProtocol extension (methods and fields)
 public extension ScorePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScorePrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScorePrivate> { return ptr.assumingMemoryBound(to: ClutterScorePrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScorePrivate>! { return ptr?.assumingMemoryBound(to: ClutterScorePrivate.self) }
 
 
 
@@ -210,10 +288,11 @@ public extension ScorePrivateProtocol {
 /// The `ClutterScriptClass` structure contains only private data
 public protocol ScriptClassProtocol {
         /// Untyped pointer to the underlying `ClutterScriptClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScriptClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScriptClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScriptClass>! { get }
+
 }
 
 /// The `ScriptClassRef` type acts as a lightweight Swift reference to an underlying `ClutterScriptClass` instance.
@@ -224,46 +303,76 @@ public protocol ScriptClassProtocol {
 public struct ScriptClassRef: ScriptClassProtocol {
         /// Untyped pointer to the underlying `ClutterScriptClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScriptClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScriptClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScriptClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScriptClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScriptClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScriptClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScriptClassProtocol`
-    init<T: ScriptClassProtocol>(_ other: T) {
+    @inlinable init<T: ScriptClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -277,95 +386,141 @@ public extension ScriptClassRef {
 open class ScriptClass: ScriptClassProtocol {
         /// Untyped pointer to the underlying `ClutterScriptClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScriptClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScriptClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScriptClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScriptClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScriptClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScriptClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScriptClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScriptClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScriptClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScriptClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScriptClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScriptClassProtocol`
     /// `ClutterScriptClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScriptClassProtocol`
-    public init<T: ScriptClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScriptClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScriptClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScriptClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScriptClass`.
     deinit {
-        // no reference counting for ClutterScriptClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScriptClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScriptClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScriptClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScriptClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScriptClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptClass, cannot ref(_ptr)
     }
 
 
@@ -380,7 +535,7 @@ open class ScriptClass: ScriptClassProtocol {
 // MARK: ScriptClass Record: ScriptClassProtocol extension (methods and fields)
 public extension ScriptClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScriptClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScriptClass> { return ptr.assumingMemoryBound(to: ClutterScriptClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScriptClass>! { return ptr?.assumingMemoryBound(to: ClutterScriptClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -417,10 +572,11 @@ public extension ScriptClassProtocol {
 
 public protocol ScriptPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScriptPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScriptPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScriptPrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScriptPrivate>! { get }
+
 }
 
 /// The `ScriptPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterScriptPrivate` instance.
@@ -431,46 +587,76 @@ public protocol ScriptPrivateProtocol {
 public struct ScriptPrivateRef: ScriptPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScriptPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScriptPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScriptPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScriptPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScriptPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScriptPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScriptPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScriptPrivateProtocol`
-    init<T: ScriptPrivateProtocol>(_ other: T) {
+    @inlinable init<T: ScriptPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -484,95 +670,141 @@ public extension ScriptPrivateRef {
 open class ScriptPrivate: ScriptPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScriptPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScriptPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScriptPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScriptPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScriptPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScriptPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScriptPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScriptPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScriptPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScriptPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScriptPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScriptPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScriptPrivateProtocol`
     /// `ClutterScriptPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScriptPrivateProtocol`
-    public init<T: ScriptPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScriptPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScriptPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScriptPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScriptPrivate`.
     deinit {
-        // no reference counting for ClutterScriptPrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScriptPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScriptPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScriptPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScriptPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScriptPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptPrivate, cannot ref(_ptr)
     }
 
 
@@ -587,7 +819,7 @@ open class ScriptPrivate: ScriptPrivateProtocol {
 // MARK: ScriptPrivate Record: ScriptPrivateProtocol extension (methods and fields)
 public extension ScriptPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScriptPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScriptPrivate> { return ptr.assumingMemoryBound(to: ClutterScriptPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScriptPrivate>! { return ptr?.assumingMemoryBound(to: ClutterScriptPrivate.self) }
 
 
 
@@ -607,10 +839,11 @@ public extension ScriptPrivateProtocol {
 /// when loading a UI definition data with `ClutterScript`
 public protocol ScriptableIfaceProtocol {
         /// Untyped pointer to the underlying `ClutterScriptableIface` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScriptableIface` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScriptableIface> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScriptableIface>! { get }
+
 }
 
 /// The `ScriptableIfaceRef` type acts as a lightweight Swift reference to an underlying `ClutterScriptableIface` instance.
@@ -623,46 +856,76 @@ public protocol ScriptableIfaceProtocol {
 public struct ScriptableIfaceRef: ScriptableIfaceProtocol {
         /// Untyped pointer to the underlying `ClutterScriptableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScriptableIfaceRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScriptableIface>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScriptableIface>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScriptableIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScriptableIface>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScriptableIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScriptableIfaceProtocol`
-    init<T: ScriptableIfaceProtocol>(_ other: T) {
+    @inlinable init<T: ScriptableIfaceProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -678,95 +941,141 @@ public extension ScriptableIfaceRef {
 open class ScriptableIface: ScriptableIfaceProtocol {
         /// Untyped pointer to the underlying `ClutterScriptableIface` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScriptableIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScriptableIface>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScriptableIface>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScriptableIface>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptableIface` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScriptableIface>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScriptableIface` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScriptableIface>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScriptableIface` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScriptableIface` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScriptableIface>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScriptableIface>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScriptableIface, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptableIface, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScriptableIfaceProtocol`
     /// `ClutterScriptableIface` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScriptableIfaceProtocol`
-    public init<T: ScriptableIfaceProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScriptableIface, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScriptableIfaceProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScriptableIface, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScriptableIface`.
     deinit {
-        // no reference counting for ClutterScriptableIface, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScriptableIface, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScriptableIface, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptableIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScriptableIface, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptableIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScriptableIface, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptableIface, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableIfaceProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScriptableIface, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScriptableIface, cannot ref(_ptr)
     }
 
 
@@ -781,7 +1090,7 @@ open class ScriptableIface: ScriptableIfaceProtocol {
 // MARK: ScriptableIface Record: ScriptableIfaceProtocol extension (methods and fields)
 public extension ScriptableIfaceProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScriptableIface` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScriptableIface> { return ptr.assumingMemoryBound(to: ClutterScriptableIface.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScriptableIface>! { return ptr?.assumingMemoryBound(to: ClutterScriptableIface.self) }
 
 
     // var gIface is unavailable because g_iface is private
@@ -809,10 +1118,11 @@ public extension ScriptableIfaceProtocol {
 /// private data.
 public protocol ScrollActorClassProtocol {
         /// Untyped pointer to the underlying `ClutterScrollActorClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScrollActorClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScrollActorClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScrollActorClass>! { get }
+
 }
 
 /// The `ScrollActorClassRef` type acts as a lightweight Swift reference to an underlying `ClutterScrollActorClass` instance.
@@ -824,46 +1134,76 @@ public protocol ScrollActorClassProtocol {
 public struct ScrollActorClassRef: ScrollActorClassProtocol {
         /// Untyped pointer to the underlying `ClutterScrollActorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScrollActorClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScrollActorClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScrollActorClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScrollActorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScrollActorClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScrollActorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScrollActorClassProtocol`
-    init<T: ScrollActorClassProtocol>(_ other: T) {
+    @inlinable init<T: ScrollActorClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -878,95 +1218,141 @@ public extension ScrollActorClassRef {
 open class ScrollActorClass: ScrollActorClassProtocol {
         /// Untyped pointer to the underlying `ClutterScrollActorClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScrollActorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScrollActorClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScrollActorClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScrollActorClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScrollActorClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScrollActorClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScrollActorClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScrollActorClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScrollActorClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScrollActorClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScrollActorClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScrollActorClassProtocol`
     /// `ClutterScrollActorClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScrollActorClassProtocol`
-    public init<T: ScrollActorClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScrollActorClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScrollActorClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScrollActorClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScrollActorClass`.
     deinit {
-        // no reference counting for ClutterScrollActorClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScrollActorClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScrollActorClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScrollActorClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScrollActorClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScrollActorClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorClass, cannot ref(_ptr)
     }
 
 
@@ -981,7 +1367,7 @@ open class ScrollActorClass: ScrollActorClassProtocol {
 // MARK: ScrollActorClass Record: ScrollActorClassProtocol extension (methods and fields)
 public extension ScrollActorClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScrollActorClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScrollActorClass> { return ptr.assumingMemoryBound(to: ClutterScrollActorClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScrollActorClass>! { return ptr?.assumingMemoryBound(to: ClutterScrollActorClass.self) }
 
 
     // var parentInstance is unavailable because parent_instance is private
@@ -1002,10 +1388,11 @@ public extension ScrollActorClassProtocol {
 
 public protocol ScrollActorPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScrollActorPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScrollActorPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScrollActorPrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScrollActorPrivate>! { get }
+
 }
 
 /// The `ScrollActorPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterScrollActorPrivate` instance.
@@ -1016,46 +1403,76 @@ public protocol ScrollActorPrivateProtocol {
 public struct ScrollActorPrivateRef: ScrollActorPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScrollActorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScrollActorPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScrollActorPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScrollActorPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScrollActorPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScrollActorPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScrollActorPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScrollActorPrivateProtocol`
-    init<T: ScrollActorPrivateProtocol>(_ other: T) {
+    @inlinable init<T: ScrollActorPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1069,95 +1486,141 @@ public extension ScrollActorPrivateRef {
 open class ScrollActorPrivate: ScrollActorPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterScrollActorPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScrollActorPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScrollActorPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScrollActorPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScrollActorPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScrollActorPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScrollActorPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScrollActorPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScrollActorPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScrollActorPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScrollActorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScrollActorPrivateProtocol`
     /// `ClutterScrollActorPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScrollActorPrivateProtocol`
-    public init<T: ScrollActorPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScrollActorPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScrollActorPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScrollActorPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScrollActorPrivate`.
     deinit {
-        // no reference counting for ClutterScrollActorPrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScrollActorPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScrollActorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScrollActorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScrollActorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScrollActorPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollActorPrivate, cannot ref(_ptr)
     }
 
 
@@ -1172,7 +1635,7 @@ open class ScrollActorPrivate: ScrollActorPrivateProtocol {
 // MARK: ScrollActorPrivate Record: ScrollActorPrivateProtocol extension (methods and fields)
 public extension ScrollActorPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScrollActorPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScrollActorPrivate> { return ptr.assumingMemoryBound(to: ClutterScrollActorPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScrollActorPrivate>! { return ptr?.assumingMemoryBound(to: ClutterScrollActorPrivate.self) }
 
 
 
@@ -1190,10 +1653,11 @@ public extension ScrollActorPrivateProtocol {
 /// Scroll wheel (or similar device) event
 public protocol ScrollEventProtocol {
         /// Untyped pointer to the underlying `ClutterScrollEvent` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterScrollEvent` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScrollEvent> { get }
+    var _ptr: UnsafeMutablePointer<ClutterScrollEvent>! { get }
+
 }
 
 /// The `ScrollEventRef` type acts as a lightweight Swift reference to an underlying `ClutterScrollEvent` instance.
@@ -1204,46 +1668,76 @@ public protocol ScrollEventProtocol {
 public struct ScrollEventRef: ScrollEventProtocol {
         /// Untyped pointer to the underlying `ClutterScrollEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ScrollEventRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterScrollEvent>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterScrollEvent>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterScrollEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterScrollEvent>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterScrollEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ScrollEventProtocol`
-    init<T: ScrollEventProtocol>(_ other: T) {
+    @inlinable init<T: ScrollEventProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1257,95 +1751,141 @@ public extension ScrollEventRef {
 open class ScrollEvent: ScrollEventProtocol {
         /// Untyped pointer to the underlying `ClutterScrollEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ScrollEvent` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterScrollEvent>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterScrollEvent>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterScrollEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollEvent` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterScrollEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ScrollEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterScrollEvent>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterScrollEvent` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ScrollEvent` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterScrollEvent>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterScrollEvent>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterScrollEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollEvent, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ScrollEventProtocol`
     /// `ClutterScrollEvent` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ScrollEventProtocol`
-    public init<T: ScrollEventProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterScrollEvent, cannot ref(cast(_ptr))
+    @inlinable public init<T: ScrollEventProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterScrollEvent, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterScrollEvent`.
     deinit {
-        // no reference counting for ClutterScrollEvent, cannot unref(cast(_ptr))
+        // no reference counting for ClutterScrollEvent, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterScrollEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollEvent, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterScrollEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollEvent, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterScrollEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollEvent, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterScrollEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterScrollEvent, cannot ref(_ptr)
     }
 
 
@@ -1360,178 +1900,178 @@ open class ScrollEvent: ScrollEventProtocol {
 // MARK: ScrollEvent Record: ScrollEventProtocol extension (methods and fields)
 public extension ScrollEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScrollEvent` instance.
-    var _ptr: UnsafeMutablePointer<ClutterScrollEvent> { return ptr.assumingMemoryBound(to: ClutterScrollEvent.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterScrollEvent>! { return ptr?.assumingMemoryBound(to: ClutterScrollEvent.self) }
 
 
     /// event type
-    var type: ClutterEventType {
+    @inlinable var type: ClutterEventType {
         /// event type
         get {
-            let rv: ClutterEventType = cast(_ptr.pointee.type)
+            let rv = _ptr.pointee.type
             return rv
         }
         /// event type
          set {
-            _ptr.pointee.type = cast(newValue)
+            _ptr.pointee.type = newValue
         }
     }
 
     /// event time
-    var time: UInt32 {
+    @inlinable var time: guint32 {
         /// event time
         get {
-            let rv: UInt32 = cast(_ptr.pointee.time)
+            let rv = _ptr.pointee.time
             return rv
         }
         /// event time
          set {
-            _ptr.pointee.time = guint32(newValue)
+            _ptr.pointee.time = newValue
         }
     }
 
     /// event flags
-    var flags: ClutterEventFlags {
+    @inlinable var flags: EventFlags {
         /// event flags
         get {
-            let rv: ClutterEventFlags = cast(_ptr.pointee.flags)
+            let rv = EventFlags(_ptr.pointee.flags)
             return rv
         }
         /// event flags
          set {
-            _ptr.pointee.flags = cast(newValue)
+            _ptr.pointee.flags = newValue.value
         }
     }
 
     /// event source stage
-    var stage: UnsafeMutablePointer<ClutterStage> {
+    @inlinable var stage: StageRef! {
         /// event source stage
         get {
-            let rv: UnsafeMutablePointer<ClutterStage> = cast(_ptr.pointee.stage)
+            let rv = StageRef(gconstpointer: gconstpointer(_ptr.pointee.stage))
             return rv
         }
         /// event source stage
          set {
-            _ptr.pointee.stage = cast(newValue)
+            _ptr.pointee.stage = UnsafeMutablePointer<ClutterStage>(newValue.stage_ptr)
         }
     }
 
     /// event source actor
-    var source: UnsafeMutablePointer<ClutterActor> {
+    @inlinable var source: ActorRef! {
         /// event source actor
         get {
-            let rv: UnsafeMutablePointer<ClutterActor> = cast(_ptr.pointee.source)
+            let rv = ActorRef(gconstpointer: gconstpointer(_ptr.pointee.source))
             return rv
         }
         /// event source actor
          set {
-            _ptr.pointee.source = cast(newValue)
+            _ptr.pointee.source = UnsafeMutablePointer<ClutterActor>(newValue.actor_ptr)
         }
     }
 
     /// event X coordinate
-    var x: Float {
+    @inlinable var x: gfloat {
         /// event X coordinate
         get {
-            let rv: Float = cast(_ptr.pointee.x)
+            let rv = _ptr.pointee.x
             return rv
         }
         /// event X coordinate
          set {
-            _ptr.pointee.x = cast(newValue)
+            _ptr.pointee.x = newValue
         }
     }
 
     /// event Y coordinate
-    var y: Float {
+    @inlinable var y: gfloat {
         /// event Y coordinate
         get {
-            let rv: Float = cast(_ptr.pointee.y)
+            let rv = _ptr.pointee.y
             return rv
         }
         /// event Y coordinate
          set {
-            _ptr.pointee.y = cast(newValue)
+            _ptr.pointee.y = newValue
         }
     }
 
     /// direction of the scrolling
-    var direction: ClutterScrollDirection {
+    @inlinable var direction: ClutterScrollDirection {
         /// direction of the scrolling
         get {
-            let rv: ClutterScrollDirection = cast(_ptr.pointee.direction)
+            let rv = _ptr.pointee.direction
             return rv
         }
         /// direction of the scrolling
          set {
-            _ptr.pointee.direction = cast(newValue)
+            _ptr.pointee.direction = newValue
         }
     }
 
     /// button modifiers
-    var modifierState: ModifierType {
+    @inlinable var modifierState: ModifierType {
         /// button modifiers
         get {
-            let rv: ModifierType = cast(_ptr.pointee.modifier_state)
+            let rv = ModifierType(_ptr.pointee.modifier_state)
             return rv
         }
         /// button modifiers
          set {
-            _ptr.pointee.modifier_state = cast(newValue.value)
+            _ptr.pointee.modifier_state = newValue.value
         }
     }
 
     /// reserved for future use
-    var axes: UnsafeMutablePointer<gdouble> {
+    @inlinable var axes: UnsafeMutablePointer<gdouble>! {
         /// reserved for future use
         get {
-            let rv: UnsafeMutablePointer<gdouble> = cast(_ptr.pointee.axes)
+            let rv = _ptr.pointee.axes
             return rv
         }
         /// reserved for future use
          set {
-            _ptr.pointee.axes = cast(newValue)
+            _ptr.pointee.axes = newValue
         }
     }
 
     /// the device that originated the event. If you want the physical
     /// device the event originated from, use `clutter_event_get_source_device()`
-    var device: UnsafeMutablePointer<ClutterInputDevice> {
+    @inlinable var device: InputDeviceRef! {
         /// the device that originated the event. If you want the physical
         /// device the event originated from, use `clutter_event_get_source_device()`
         get {
-            let rv: UnsafeMutablePointer<ClutterInputDevice> = cast(_ptr.pointee.device)
+            let rv = InputDeviceRef(gconstpointer: gconstpointer(_ptr.pointee.device))
             return rv
         }
         /// the device that originated the event. If you want the physical
         /// device the event originated from, use `clutter_event_get_source_device()`
          set {
-            _ptr.pointee.device = cast(newValue)
+            _ptr.pointee.device = UnsafeMutablePointer<ClutterInputDevice>(newValue.input_device_ptr)
         }
     }
 
     /// the source of scroll events. This field is available since 1.26
-    var scrollSource: ClutterScrollSource {
+    @inlinable var scrollSource: ClutterScrollSource {
         /// the source of scroll events. This field is available since 1.26
         get {
-            let rv: ClutterScrollSource = cast(_ptr.pointee.scroll_source)
+            let rv = _ptr.pointee.scroll_source
             return rv
         }
         /// the source of scroll events. This field is available since 1.26
          set {
-            _ptr.pointee.scroll_source = cast(newValue)
+            _ptr.pointee.scroll_source = newValue
         }
     }
 
     /// the axes that were stopped in this event. This field is available since 1.26
-    var finishFlags: ClutterScrollFinishFlags {
+    @inlinable var finishFlags: ScrollFinishFlags {
         /// the axes that were stopped in this event. This field is available since 1.26
         get {
-            let rv: ClutterScrollFinishFlags = cast(_ptr.pointee.finish_flags)
+            let rv = ScrollFinishFlags(_ptr.pointee.finish_flags)
             return rv
         }
         /// the axes that were stopped in this event. This field is available since 1.26
          set {
-            _ptr.pointee.finish_flags = cast(newValue)
+            _ptr.pointee.finish_flags = newValue.value
         }
     }
 
@@ -1549,10 +2089,11 @@ public extension ScrollEventProtocol {
 
 public protocol SettingsClassProtocol {
         /// Untyped pointer to the underlying `ClutterSettingsClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterSettingsClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSettingsClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterSettingsClass>! { get }
+
 }
 
 /// The `SettingsClassRef` type acts as a lightweight Swift reference to an underlying `ClutterSettingsClass` instance.
@@ -1563,46 +2104,76 @@ public protocol SettingsClassProtocol {
 public struct SettingsClassRef: SettingsClassProtocol {
         /// Untyped pointer to the underlying `ClutterSettingsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SettingsClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterSettingsClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterSettingsClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterSettingsClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterSettingsClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterSettingsClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SettingsClassProtocol`
-    init<T: SettingsClassProtocol>(_ other: T) {
+    @inlinable init<T: SettingsClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1616,95 +2187,141 @@ public extension SettingsClassRef {
 open class SettingsClass: SettingsClassProtocol {
         /// Untyped pointer to the underlying `ClutterSettingsClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SettingsClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterSettingsClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterSettingsClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SettingsClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterSettingsClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SettingsClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SettingsClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SettingsClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterSettingsClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SettingsClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterSettingsClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterSettingsClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `SettingsClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterSettingsClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterSettingsClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterSettingsClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSettingsClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SettingsClassProtocol`
     /// `ClutterSettingsClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SettingsClassProtocol`
-    public init<T: SettingsClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterSettingsClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: SettingsClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterSettingsClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterSettingsClass`.
     deinit {
-        // no reference counting for ClutterSettingsClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterSettingsClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterSettingsClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSettingsClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterSettingsClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSettingsClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterSettingsClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSettingsClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterSettingsClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSettingsClass, cannot ref(_ptr)
     }
 
 
@@ -1719,7 +2336,7 @@ open class SettingsClass: SettingsClassProtocol {
 // MARK: SettingsClass Record: SettingsClassProtocol extension (methods and fields)
 public extension SettingsClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterSettingsClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSettingsClass> { return ptr.assumingMemoryBound(to: ClutterSettingsClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterSettingsClass>! { return ptr?.assumingMemoryBound(to: ClutterSettingsClass.self) }
 
 
 
@@ -1737,10 +2354,11 @@ public extension SettingsClassProtocol {
 /// The `ClutterShaderClass` structure contains only private data
 public protocol ShaderClassProtocol {
         /// Untyped pointer to the underlying `ClutterShaderClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterShaderClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterShaderClass>! { get }
+
 }
 
 /// The `ShaderClassRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderClass` instance.
@@ -1751,46 +2369,76 @@ public protocol ShaderClassProtocol {
 public struct ShaderClassRef: ShaderClassProtocol {
         /// Untyped pointer to the underlying `ClutterShaderClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ShaderClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterShaderClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterShaderClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterShaderClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterShaderClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterShaderClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ShaderClassProtocol`
-    init<T: ShaderClassProtocol>(_ other: T) {
+    @inlinable init<T: ShaderClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1804,95 +2452,141 @@ public extension ShaderClassRef {
 open class ShaderClass: ShaderClassProtocol {
         /// Untyped pointer to the underlying `ClutterShaderClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ShaderClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterShaderClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterShaderClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterShaderClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterShaderClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterShaderClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterShaderClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ShaderClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterShaderClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterShaderClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterShaderClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ShaderClassProtocol`
     /// `ClutterShaderClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ShaderClassProtocol`
-    public init<T: ShaderClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterShaderClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: ShaderClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterShaderClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterShaderClass`.
     deinit {
-        // no reference counting for ClutterShaderClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterShaderClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterShaderClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterShaderClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterShaderClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterShaderClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderClass, cannot ref(_ptr)
     }
 
 
@@ -1907,7 +2601,7 @@ open class ShaderClass: ShaderClassProtocol {
 // MARK: ShaderClass Record: ShaderClassProtocol extension (methods and fields)
 public extension ShaderClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterShaderClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderClass> { return ptr.assumingMemoryBound(to: ClutterShaderClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterShaderClass>! { return ptr?.assumingMemoryBound(to: ClutterShaderClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -1927,10 +2621,11 @@ public extension ShaderClassProtocol {
 /// only private data
 public protocol ShaderEffectClassProtocol {
         /// Untyped pointer to the underlying `ClutterShaderEffectClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterShaderEffectClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderEffectClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterShaderEffectClass>! { get }
+
 }
 
 /// The `ShaderEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderEffectClass` instance.
@@ -1942,46 +2637,76 @@ public protocol ShaderEffectClassProtocol {
 public struct ShaderEffectClassRef: ShaderEffectClassProtocol {
         /// Untyped pointer to the underlying `ClutterShaderEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ShaderEffectClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterShaderEffectClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterShaderEffectClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterShaderEffectClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterShaderEffectClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterShaderEffectClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ShaderEffectClassProtocol`
-    init<T: ShaderEffectClassProtocol>(_ other: T) {
+    @inlinable init<T: ShaderEffectClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -1996,95 +2721,141 @@ public extension ShaderEffectClassRef {
 open class ShaderEffectClass: ShaderEffectClassProtocol {
         /// Untyped pointer to the underlying `ClutterShaderEffectClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterShaderEffectClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterShaderEffectClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterShaderEffectClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterShaderEffectClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterShaderEffectClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterShaderEffectClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ShaderEffectClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterShaderEffectClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterShaderEffectClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterShaderEffectClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ShaderEffectClassProtocol`
     /// `ClutterShaderEffectClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ShaderEffectClassProtocol`
-    public init<T: ShaderEffectClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterShaderEffectClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: ShaderEffectClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterShaderEffectClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterShaderEffectClass`.
     deinit {
-        // no reference counting for ClutterShaderEffectClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterShaderEffectClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterShaderEffectClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterShaderEffectClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterShaderEffectClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectClass, cannot ref(_ptr)
     }
 
 
@@ -2099,7 +2870,7 @@ open class ShaderEffectClass: ShaderEffectClassProtocol {
 // MARK: ShaderEffectClass Record: ShaderEffectClassProtocol extension (methods and fields)
 public extension ShaderEffectClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterShaderEffectClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderEffectClass> { return ptr.assumingMemoryBound(to: ClutterShaderEffectClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterShaderEffectClass>! { return ptr?.assumingMemoryBound(to: ClutterShaderEffectClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -2130,10 +2901,11 @@ public extension ShaderEffectClassProtocol {
 
 public protocol ShaderEffectPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterShaderEffectPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterShaderEffectPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderEffectPrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterShaderEffectPrivate>! { get }
+
 }
 
 /// The `ShaderEffectPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderEffectPrivate` instance.
@@ -2144,46 +2916,76 @@ public protocol ShaderEffectPrivateProtocol {
 public struct ShaderEffectPrivateRef: ShaderEffectPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterShaderEffectPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ShaderEffectPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterShaderEffectPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterShaderEffectPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterShaderEffectPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterShaderEffectPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterShaderEffectPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ShaderEffectPrivateProtocol`
-    init<T: ShaderEffectPrivateProtocol>(_ other: T) {
+    @inlinable init<T: ShaderEffectPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2197,95 +2999,141 @@ public extension ShaderEffectPrivateRef {
 open class ShaderEffectPrivate: ShaderEffectPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterShaderEffectPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterShaderEffectPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterShaderEffectPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterShaderEffectPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterShaderEffectPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterShaderEffectPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterShaderEffectPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ShaderEffectPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterShaderEffectPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterShaderEffectPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterShaderEffectPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ShaderEffectPrivateProtocol`
     /// `ClutterShaderEffectPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ShaderEffectPrivateProtocol`
-    public init<T: ShaderEffectPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterShaderEffectPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: ShaderEffectPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterShaderEffectPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterShaderEffectPrivate`.
     deinit {
-        // no reference counting for ClutterShaderEffectPrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterShaderEffectPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterShaderEffectPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterShaderEffectPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterShaderEffectPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderEffectPrivate, cannot ref(_ptr)
     }
 
 
@@ -2300,7 +3148,7 @@ open class ShaderEffectPrivate: ShaderEffectPrivateProtocol {
 // MARK: ShaderEffectPrivate Record: ShaderEffectPrivateProtocol extension (methods and fields)
 public extension ShaderEffectPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterShaderEffectPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderEffectPrivate> { return ptr.assumingMemoryBound(to: ClutterShaderEffectPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterShaderEffectPrivate>! { return ptr?.assumingMemoryBound(to: ClutterShaderEffectPrivate.self) }
 
 
 
@@ -2318,10 +3166,11 @@ public extension ShaderEffectPrivateProtocol {
 
 public protocol ShaderPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterShaderPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterShaderPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderPrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterShaderPrivate>! { get }
+
 }
 
 /// The `ShaderPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderPrivate` instance.
@@ -2332,46 +3181,76 @@ public protocol ShaderPrivateProtocol {
 public struct ShaderPrivateRef: ShaderPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterShaderPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ShaderPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterShaderPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterShaderPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterShaderPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterShaderPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterShaderPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ShaderPrivateProtocol`
-    init<T: ShaderPrivateProtocol>(_ other: T) {
+    @inlinable init<T: ShaderPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2385,95 +3264,141 @@ public extension ShaderPrivateRef {
 open class ShaderPrivate: ShaderPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterShaderPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ShaderPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterShaderPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterShaderPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterShaderPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterShaderPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ShaderPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterShaderPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterShaderPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ShaderPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterShaderPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterShaderPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterShaderPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ShaderPrivateProtocol`
     /// `ClutterShaderPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ShaderPrivateProtocol`
-    public init<T: ShaderPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterShaderPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: ShaderPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterShaderPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterShaderPrivate`.
     deinit {
-        // no reference counting for ClutterShaderPrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterShaderPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterShaderPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterShaderPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterShaderPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterShaderPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterShaderPrivate, cannot ref(_ptr)
     }
 
 
@@ -2488,7 +3413,7 @@ open class ShaderPrivate: ShaderPrivateProtocol {
 // MARK: ShaderPrivate Record: ShaderPrivateProtocol extension (methods and fields)
 public extension ShaderPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterShaderPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterShaderPrivate> { return ptr.assumingMemoryBound(to: ClutterShaderPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterShaderPrivate>! { return ptr?.assumingMemoryBound(to: ClutterShaderPrivate.self) }
 
 
 
@@ -2506,10 +3431,11 @@ public extension ShaderPrivateProtocol {
 /// A size, in 2D space.
 public protocol SizeProtocol {
         /// Untyped pointer to the underlying `ClutterSize` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterSize` instance.
-    var size_ptr: UnsafeMutablePointer<ClutterSize> { get }
+    var size_ptr: UnsafeMutablePointer<ClutterSize>! { get }
+
 }
 
 /// The `SizeRef` type acts as a lightweight Swift reference to an underlying `ClutterSize` instance.
@@ -2520,53 +3446,83 @@ public protocol SizeProtocol {
 public struct SizeRef: SizeProtocol {
         /// Untyped pointer to the underlying `ClutterSize` instance.
     /// For type-safe access, use the generated, typed pointer `size_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SizeRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterSize>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterSize>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterSize>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterSize>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterSize>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SizeProtocol`
-    init<T: SizeProtocol>(_ other: T) {
+    @inlinable init<T: SizeProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
         /// Allocates a new `ClutterSize`.
-    static func alloc() -> SizeRef! {
-        let rv: UnsafeMutablePointer<ClutterSize>! = cast(clutter_size_alloc())
-        return rv.map { SizeRef(cast($0)) }
+    @inlinable static func alloc() -> SizeRef! {
+        guard let rv = SizeRef(gconstpointer: gconstpointer(clutter_size_alloc())) else { return nil }
+        return rv
     }
 }
 
@@ -2578,102 +3534,148 @@ public extension SizeRef {
 open class Size: SizeProtocol {
         /// Untyped pointer to the underlying `ClutterSize` instance.
     /// For type-safe access, use the generated, typed pointer `size_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Size` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterSize>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterSize>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Size` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterSize>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Size` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Size` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Size` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterSize>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Size` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterSize>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterSize` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Size` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterSize>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterSize>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterSize, cannot ref(cast(size_ptr))
+        // no reference counting for ClutterSize, cannot ref(size_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SizeProtocol`
     /// `ClutterSize` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SizeProtocol`
-    public init<T: SizeProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.size_ptr)
-        // no reference counting for ClutterSize, cannot ref(cast(size_ptr))
+    @inlinable public init<T: SizeProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterSize, cannot ref(size_ptr)
     }
 
     /// Do-nothing destructor for `ClutterSize`.
     deinit {
-        // no reference counting for ClutterSize, cannot unref(cast(size_ptr))
+        // no reference counting for ClutterSize, cannot unref(size_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterSize, cannot ref(cast(size_ptr))
+        // no reference counting for ClutterSize, cannot ref(size_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterSize, cannot ref(cast(size_ptr))
+        // no reference counting for ClutterSize, cannot ref(size_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterSize, cannot ref(cast(size_ptr))
+        // no reference counting for ClutterSize, cannot ref(size_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterSize, cannot ref(cast(size_ptr))
+        // no reference counting for ClutterSize, cannot ref(size_ptr)
     }
 
 
     /// Allocates a new `ClutterSize`.
-    public static func alloc() -> Size! {
-        let rv: UnsafeMutablePointer<ClutterSize>! = cast(clutter_size_alloc())
-        return rv.map { Size(cast($0)) }
+    @inlinable public static func alloc() -> Size! {
+        guard let rv = Size(gconstpointer: gconstpointer(clutter_size_alloc())) else { return nil }
+        return rv
     }
 
 }
@@ -2686,55 +3688,55 @@ open class Size: SizeProtocol {
 // MARK: Size Record: SizeProtocol extension (methods and fields)
 public extension SizeProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterSize` instance.
-    var size_ptr: UnsafeMutablePointer<ClutterSize> { return ptr.assumingMemoryBound(to: ClutterSize.self) }
+    @inlinable var size_ptr: UnsafeMutablePointer<ClutterSize>! { return ptr?.assumingMemoryBound(to: ClutterSize.self) }
 
     /// Creates a new `ClutterSize` and duplicates `size`.
-    func copy() -> UnsafeMutablePointer<ClutterSize>! {
-        let rv: UnsafeMutablePointer<ClutterSize>! = cast(clutter_size_copy(cast(size_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> SizeRef! {
+        guard let rv = SizeRef(gconstpointer: gconstpointer(clutter_size_copy(size_ptr))) else { return nil }
+        return rv
     }
 
     /// Compares two `ClutterSize` for equality.
-    func equals(b_: SizeProtocol) -> Bool {
-        let rv = clutter_size_equals(cast(size_ptr), cast(b_.ptr))
-        return Bool(rv != 0)
+    @inlinable func equals<SizeT: SizeProtocol>(b: SizeT) -> Bool {
+        let rv = ((clutter_size_equals(size_ptr, b.size_ptr)) != 0)
+        return rv
     }
 
     /// Frees the resources allocated for `size`.
-    func free() {
-        clutter_size_free(cast(size_ptr))
+    @inlinable func free() {
+        clutter_size_free(size_ptr)
     
     }
 
     /// Initializes a `ClutterSize` with the given dimensions.
-    func init_(width: gfloat, height: gfloat) -> UnsafeMutablePointer<ClutterSize>! {
-        let rv: UnsafeMutablePointer<ClutterSize>! = cast(clutter_size_init(cast(size_ptr), width, height))
-        return cast(rv)
+    @inlinable func init_(width: CFloat, height: CFloat) -> SizeRef! {
+        guard let rv = SizeRef(gconstpointer: gconstpointer(clutter_size_init(size_ptr, width, height))) else { return nil }
+        return rv
     }
 
     /// the width, in pixels
-    var width: Double {
+    @inlinable var width: CFloat {
         /// the width, in pixels
         get {
-            let rv: Double = cast(size_ptr.pointee.width)
+            let rv = size_ptr.pointee.width
             return rv
         }
         /// the width, in pixels
          set {
-            size_ptr.pointee.width = cast(newValue)
+            size_ptr.pointee.width = newValue
         }
     }
 
     /// the height, in pixels
-    var height: Double {
+    @inlinable var height: CFloat {
         /// the height, in pixels
         get {
-            let rv: Double = cast(size_ptr.pointee.height)
+            let rv = size_ptr.pointee.height
             return rv
         }
         /// the height, in pixels
          set {
-            size_ptr.pointee.height = cast(newValue)
+            size_ptr.pointee.height = newValue
         }
     }
 
@@ -2752,10 +3754,11 @@ public extension SizeProtocol {
 
 public protocol SnapConstraintClassProtocol {
         /// Untyped pointer to the underlying `ClutterSnapConstraintClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterSnapConstraintClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSnapConstraintClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterSnapConstraintClass>! { get }
+
 }
 
 /// The `SnapConstraintClassRef` type acts as a lightweight Swift reference to an underlying `ClutterSnapConstraintClass` instance.
@@ -2766,46 +3769,76 @@ public protocol SnapConstraintClassProtocol {
 public struct SnapConstraintClassRef: SnapConstraintClassProtocol {
         /// Untyped pointer to the underlying `ClutterSnapConstraintClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SnapConstraintClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterSnapConstraintClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterSnapConstraintClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterSnapConstraintClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterSnapConstraintClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterSnapConstraintClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SnapConstraintClassProtocol`
-    init<T: SnapConstraintClassProtocol>(_ other: T) {
+    @inlinable init<T: SnapConstraintClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -2819,95 +3852,141 @@ public extension SnapConstraintClassRef {
 open class SnapConstraintClass: SnapConstraintClassProtocol {
         /// Untyped pointer to the underlying `ClutterSnapConstraintClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterSnapConstraintClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterSnapConstraintClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterSnapConstraintClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterSnapConstraintClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterSnapConstraintClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterSnapConstraintClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `SnapConstraintClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterSnapConstraintClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterSnapConstraintClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterSnapConstraintClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSnapConstraintClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SnapConstraintClassProtocol`
     /// `ClutterSnapConstraintClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SnapConstraintClassProtocol`
-    public init<T: SnapConstraintClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterSnapConstraintClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: SnapConstraintClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterSnapConstraintClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterSnapConstraintClass`.
     deinit {
-        // no reference counting for ClutterSnapConstraintClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterSnapConstraintClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterSnapConstraintClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSnapConstraintClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterSnapConstraintClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSnapConstraintClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterSnapConstraintClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSnapConstraintClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterSnapConstraintClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSnapConstraintClass, cannot ref(_ptr)
     }
 
 
@@ -2922,7 +4001,7 @@ open class SnapConstraintClass: SnapConstraintClassProtocol {
 // MARK: SnapConstraintClass Record: SnapConstraintClassProtocol extension (methods and fields)
 public extension SnapConstraintClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterSnapConstraintClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSnapConstraintClass> { return ptr.assumingMemoryBound(to: ClutterSnapConstraintClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterSnapConstraintClass>! { return ptr?.assumingMemoryBound(to: ClutterSnapConstraintClass.self) }
 
 
 
@@ -2940,10 +4019,11 @@ public extension SnapConstraintClassProtocol {
 /// The `ClutterStageClass` structure contains only private data
 public protocol StageClassProtocol {
         /// Untyped pointer to the underlying `ClutterStageClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStageClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStageClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterStageClass>! { get }
+
 }
 
 /// The `StageClassRef` type acts as a lightweight Swift reference to an underlying `ClutterStageClass` instance.
@@ -2954,46 +4034,76 @@ public protocol StageClassProtocol {
 public struct StageClassRef: StageClassProtocol {
         /// Untyped pointer to the underlying `ClutterStageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StageClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStageClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStageClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStageClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStageClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStageClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StageClassProtocol`
-    init<T: StageClassProtocol>(_ other: T) {
+    @inlinable init<T: StageClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3007,95 +4117,141 @@ public extension StageClassRef {
 open class StageClass: StageClassProtocol {
         /// Untyped pointer to the underlying `ClutterStageClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StageClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStageClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStageClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStageClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStageClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStageClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStageClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StageClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStageClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStageClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStageClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StageClassProtocol`
     /// `ClutterStageClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StageClassProtocol`
-    public init<T: StageClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterStageClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: StageClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStageClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStageClass`.
     deinit {
-        // no reference counting for ClutterStageClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterStageClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStageClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStageClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStageClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStageClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageClass, cannot ref(_ptr)
     }
 
 
@@ -3110,7 +4266,7 @@ open class StageClass: StageClassProtocol {
 // MARK: StageClass Record: StageClassProtocol extension (methods and fields)
 public extension StageClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStageClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStageClass> { return ptr.assumingMemoryBound(to: ClutterStageClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterStageClass>! { return ptr?.assumingMemoryBound(to: ClutterStageClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -3142,10 +4298,11 @@ public extension StageClassProtocol {
 /// and should be accessed using the provided API
 public protocol StageManagerClassProtocol {
         /// Untyped pointer to the underlying `ClutterStageManagerClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStageManagerClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStageManagerClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterStageManagerClass>! { get }
+
 }
 
 /// The `StageManagerClassRef` type acts as a lightweight Swift reference to an underlying `ClutterStageManagerClass` instance.
@@ -3157,46 +4314,76 @@ public protocol StageManagerClassProtocol {
 public struct StageManagerClassRef: StageManagerClassProtocol {
         /// Untyped pointer to the underlying `ClutterStageManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StageManagerClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStageManagerClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStageManagerClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStageManagerClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStageManagerClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStageManagerClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StageManagerClassProtocol`
-    init<T: StageManagerClassProtocol>(_ other: T) {
+    @inlinable init<T: StageManagerClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3211,95 +4398,141 @@ public extension StageManagerClassRef {
 open class StageManagerClass: StageManagerClassProtocol {
         /// Untyped pointer to the underlying `ClutterStageManagerClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StageManagerClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStageManagerClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStageManagerClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageManagerClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStageManagerClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageManagerClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageManagerClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageManagerClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStageManagerClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageManagerClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStageManagerClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStageManagerClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StageManagerClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStageManagerClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStageManagerClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStageManagerClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageManagerClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StageManagerClassProtocol`
     /// `ClutterStageManagerClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StageManagerClassProtocol`
-    public init<T: StageManagerClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterStageManagerClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: StageManagerClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStageManagerClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStageManagerClass`.
     deinit {
-        // no reference counting for ClutterStageManagerClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterStageManagerClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStageManagerClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageManagerClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStageManagerClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageManagerClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStageManagerClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageManagerClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStageManagerClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageManagerClass, cannot ref(_ptr)
     }
 
 
@@ -3314,7 +4547,7 @@ open class StageManagerClass: StageManagerClassProtocol {
 // MARK: StageManagerClass Record: StageManagerClassProtocol extension (methods and fields)
 public extension StageManagerClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStageManagerClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStageManagerClass> { return ptr.assumingMemoryBound(to: ClutterStageManagerClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterStageManagerClass>! { return ptr?.assumingMemoryBound(to: ClutterStageManagerClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -3337,10 +4570,11 @@ public extension StageManagerClassProtocol {
 
 public protocol StagePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterStagePrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStagePrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStagePrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterStagePrivate>! { get }
+
 }
 
 /// The `StagePrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterStagePrivate` instance.
@@ -3351,46 +4585,76 @@ public protocol StagePrivateProtocol {
 public struct StagePrivateRef: StagePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterStagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StagePrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStagePrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStagePrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStagePrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStagePrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStagePrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StagePrivateProtocol`
-    init<T: StagePrivateProtocol>(_ other: T) {
+    @inlinable init<T: StagePrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3404,95 +4668,141 @@ public extension StagePrivateRef {
 open class StagePrivate: StagePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterStagePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StagePrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStagePrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStagePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StagePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStagePrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StagePrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StagePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StagePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStagePrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StagePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStagePrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStagePrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StagePrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStagePrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStagePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStagePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStagePrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StagePrivateProtocol`
     /// `ClutterStagePrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StagePrivateProtocol`
-    public init<T: StagePrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterStagePrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: StagePrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStagePrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStagePrivate`.
     deinit {
-        // no reference counting for ClutterStagePrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterStagePrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStagePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStagePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStagePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStagePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStagePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStagePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StagePrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStagePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStagePrivate, cannot ref(_ptr)
     }
 
 
@@ -3507,7 +4817,7 @@ open class StagePrivate: StagePrivateProtocol {
 // MARK: StagePrivate Record: StagePrivateProtocol extension (methods and fields)
 public extension StagePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStagePrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStagePrivate> { return ptr.assumingMemoryBound(to: ClutterStagePrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterStagePrivate>! { return ptr?.assumingMemoryBound(to: ClutterStagePrivate.self) }
 
 
 
@@ -3525,10 +4835,11 @@ public extension StagePrivateProtocol {
 /// Event signalling a change in the `ClutterStage` state.
 public protocol StageStateEventProtocol {
         /// Untyped pointer to the underlying `ClutterStageStateEvent` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStageStateEvent` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStageStateEvent> { get }
+    var _ptr: UnsafeMutablePointer<ClutterStageStateEvent>! { get }
+
 }
 
 /// The `StageStateEventRef` type acts as a lightweight Swift reference to an underlying `ClutterStageStateEvent` instance.
@@ -3539,46 +4850,76 @@ public protocol StageStateEventProtocol {
 public struct StageStateEventRef: StageStateEventProtocol {
         /// Untyped pointer to the underlying `ClutterStageStateEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StageStateEventRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStageStateEvent>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStageStateEvent>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStageStateEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStageStateEvent>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStageStateEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StageStateEventProtocol`
-    init<T: StageStateEventProtocol>(_ other: T) {
+    @inlinable init<T: StageStateEventProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3592,95 +4933,141 @@ public extension StageStateEventRef {
 open class StageStateEvent: StageStateEventProtocol {
         /// Untyped pointer to the underlying `ClutterStageStateEvent` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StageStateEvent` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStageStateEvent>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStageStateEvent>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageStateEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStageStateEvent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageStateEvent` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageStateEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageStateEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStageStateEvent>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StageStateEvent` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStageStateEvent>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStageStateEvent` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StageStateEvent` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStageStateEvent>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStageStateEvent>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStageStateEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageStateEvent, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StageStateEventProtocol`
     /// `ClutterStageStateEvent` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StageStateEventProtocol`
-    public init<T: StageStateEventProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterStageStateEvent, cannot ref(cast(_ptr))
+    @inlinable public init<T: StageStateEventProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStageStateEvent, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStageStateEvent`.
     deinit {
-        // no reference counting for ClutterStageStateEvent, cannot unref(cast(_ptr))
+        // no reference counting for ClutterStageStateEvent, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStageStateEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageStateEvent, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStageStateEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageStateEvent, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStageStateEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageStateEvent, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStageStateEvent, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStageStateEvent, cannot ref(_ptr)
     }
 
 
@@ -3695,97 +5082,97 @@ open class StageStateEvent: StageStateEventProtocol {
 // MARK: StageStateEvent Record: StageStateEventProtocol extension (methods and fields)
 public extension StageStateEventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStageStateEvent` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStageStateEvent> { return ptr.assumingMemoryBound(to: ClutterStageStateEvent.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterStageStateEvent>! { return ptr?.assumingMemoryBound(to: ClutterStageStateEvent.self) }
 
 
     /// event type
-    var type: ClutterEventType {
+    @inlinable var type: ClutterEventType {
         /// event type
         get {
-            let rv: ClutterEventType = cast(_ptr.pointee.type)
+            let rv = _ptr.pointee.type
             return rv
         }
         /// event type
          set {
-            _ptr.pointee.type = cast(newValue)
+            _ptr.pointee.type = newValue
         }
     }
 
     /// event time
-    var time: UInt32 {
+    @inlinable var time: guint32 {
         /// event time
         get {
-            let rv: UInt32 = cast(_ptr.pointee.time)
+            let rv = _ptr.pointee.time
             return rv
         }
         /// event time
          set {
-            _ptr.pointee.time = guint32(newValue)
+            _ptr.pointee.time = newValue
         }
     }
 
     /// event flags
-    var flags: ClutterEventFlags {
+    @inlinable var flags: EventFlags {
         /// event flags
         get {
-            let rv: ClutterEventFlags = cast(_ptr.pointee.flags)
+            let rv = EventFlags(_ptr.pointee.flags)
             return rv
         }
         /// event flags
          set {
-            _ptr.pointee.flags = cast(newValue)
+            _ptr.pointee.flags = newValue.value
         }
     }
 
     /// event source stage
-    var stage: UnsafeMutablePointer<ClutterStage> {
+    @inlinable var stage: StageRef! {
         /// event source stage
         get {
-            let rv: UnsafeMutablePointer<ClutterStage> = cast(_ptr.pointee.stage)
+            let rv = StageRef(gconstpointer: gconstpointer(_ptr.pointee.stage))
             return rv
         }
         /// event source stage
          set {
-            _ptr.pointee.stage = cast(newValue)
+            _ptr.pointee.stage = UnsafeMutablePointer<ClutterStage>(newValue.stage_ptr)
         }
     }
 
     /// event source actor (unused)
-    var source: UnsafeMutablePointer<ClutterActor> {
+    @inlinable var source: ActorRef! {
         /// event source actor (unused)
         get {
-            let rv: UnsafeMutablePointer<ClutterActor> = cast(_ptr.pointee.source)
+            let rv = ActorRef(gconstpointer: gconstpointer(_ptr.pointee.source))
             return rv
         }
         /// event source actor (unused)
          set {
-            _ptr.pointee.source = cast(newValue)
+            _ptr.pointee.source = UnsafeMutablePointer<ClutterActor>(newValue.actor_ptr)
         }
     }
 
     /// bitwise OR of the changed flags
-    var changedMask: ClutterStageState {
+    @inlinable var changedMask: StageState {
         /// bitwise OR of the changed flags
         get {
-            let rv: ClutterStageState = cast(_ptr.pointee.changed_mask)
+            let rv = StageState(_ptr.pointee.changed_mask)
             return rv
         }
         /// bitwise OR of the changed flags
          set {
-            _ptr.pointee.changed_mask = cast(newValue)
+            _ptr.pointee.changed_mask = newValue.value
         }
     }
 
     /// bitwise OR of the current state flags
-    var newState: ClutterStageState {
+    @inlinable var newState: StageState {
         /// bitwise OR of the current state flags
         get {
-            let rv: ClutterStageState = cast(_ptr.pointee.new_state)
+            let rv = StageState(_ptr.pointee.new_state)
             return rv
         }
         /// bitwise OR of the current state flags
          set {
-            _ptr.pointee.new_state = cast(newValue)
+            _ptr.pointee.new_state = newValue.value
         }
     }
 
@@ -3804,10 +5191,11 @@ public extension StageStateEventProtocol {
 /// only private data
 public protocol StateClassProtocol {
         /// Untyped pointer to the underlying `ClutterStateClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStateClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStateClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterStateClass>! { get }
+
 }
 
 /// The `StateClassRef` type acts as a lightweight Swift reference to an underlying `ClutterStateClass` instance.
@@ -3819,46 +5207,76 @@ public protocol StateClassProtocol {
 public struct StateClassRef: StateClassProtocol {
         /// Untyped pointer to the underlying `ClutterStateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StateClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStateClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStateClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStateClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStateClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStateClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StateClassProtocol`
-    init<T: StateClassProtocol>(_ other: T) {
+    @inlinable init<T: StateClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -3873,95 +5291,141 @@ public extension StateClassRef {
 open class StateClass: StateClassProtocol {
         /// Untyped pointer to the underlying `ClutterStateClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StateClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStateClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStateClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStateClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStateClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStateClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStateClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StateClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStateClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStateClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStateClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStateClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StateClassProtocol`
     /// `ClutterStateClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StateClassProtocol`
-    public init<T: StateClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterStateClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: StateClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStateClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStateClass`.
     deinit {
-        // no reference counting for ClutterStateClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterStateClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStateClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStateClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStateClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStateClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStateClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStateClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStateClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStateClass, cannot ref(_ptr)
     }
 
 
@@ -3976,7 +5440,7 @@ open class StateClass: StateClassProtocol {
 // MARK: StateClass Record: StateClassProtocol extension (methods and fields)
 public extension StateClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStateClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStateClass> { return ptr.assumingMemoryBound(to: ClutterStateClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterStateClass>! { return ptr?.assumingMemoryBound(to: ClutterStateClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -4000,10 +5464,11 @@ public extension StateClassProtocol {
 /// members cannot be accessed directly
 public protocol StateKeyProtocol {
         /// Untyped pointer to the underlying `ClutterStateKey` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStateKey` instance.
-    var state_key_ptr: UnsafeMutablePointer<ClutterStateKey> { get }
+    var state_key_ptr: UnsafeMutablePointer<ClutterStateKey>! { get }
+
 }
 
 /// The `StateKeyRef` type acts as a lightweight Swift reference to an underlying `ClutterStateKey` instance.
@@ -4015,46 +5480,76 @@ public protocol StateKeyProtocol {
 public struct StateKeyRef: StateKeyProtocol {
         /// Untyped pointer to the underlying `ClutterStateKey` instance.
     /// For type-safe access, use the generated, typed pointer `state_key_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StateKeyRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStateKey>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStateKey>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStateKey>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStateKey>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStateKey>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StateKeyProtocol`
-    init<T: StateKeyProtocol>(_ other: T) {
+    @inlinable init<T: StateKeyProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4069,95 +5564,141 @@ public extension StateKeyRef {
 open class StateKey: StateKeyProtocol {
         /// Untyped pointer to the underlying `ClutterStateKey` instance.
     /// For type-safe access, use the generated, typed pointer `state_key_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StateKey` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStateKey>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStateKey>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStateKey>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateKey` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStateKey>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StateKey` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStateKey>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStateKey` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StateKey` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStateKey>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStateKey>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStateKey, cannot ref(cast(state_key_ptr))
+        // no reference counting for ClutterStateKey, cannot ref(state_key_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StateKeyProtocol`
     /// `ClutterStateKey` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StateKeyProtocol`
-    public init<T: StateKeyProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.state_key_ptr)
-        // no reference counting for ClutterStateKey, cannot ref(cast(state_key_ptr))
+    @inlinable public init<T: StateKeyProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStateKey, cannot ref(state_key_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStateKey`.
     deinit {
-        // no reference counting for ClutterStateKey, cannot unref(cast(state_key_ptr))
+        // no reference counting for ClutterStateKey, cannot unref(state_key_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStateKey, cannot ref(cast(state_key_ptr))
+        // no reference counting for ClutterStateKey, cannot ref(state_key_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStateKey, cannot ref(cast(state_key_ptr))
+        // no reference counting for ClutterStateKey, cannot ref(state_key_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStateKey, cannot ref(cast(state_key_ptr))
+        // no reference counting for ClutterStateKey, cannot ref(state_key_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStateKey, cannot ref(cast(state_key_ptr))
+        // no reference counting for ClutterStateKey, cannot ref(state_key_ptr)
     }
 
 
@@ -4172,16 +5713,16 @@ open class StateKey: StateKeyProtocol {
 // MARK: StateKey Record: StateKeyProtocol extension (methods and fields)
 public extension StateKeyProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStateKey` instance.
-    var state_key_ptr: UnsafeMutablePointer<ClutterStateKey> { return ptr.assumingMemoryBound(to: ClutterStateKey.self) }
+    @inlinable var state_key_ptr: UnsafeMutablePointer<ClutterStateKey>! { return ptr?.assumingMemoryBound(to: ClutterStateKey.self) }
 
     /// Retrieves the easing mode used for `state_key`.
     ///
     /// **get_mode is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getMode() -> Int {
-        let rv: Int = cast(clutter_state_key_get_mode(cast(state_key_ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func getMode() -> Int {
+        let rv = Int(clutter_state_key_get_mode(state_key_ptr))
+        return rv
     }
 
     /// Retrieves the object instance this `ClutterStateKey` applies to.
@@ -4189,9 +5730,9 @@ public extension StateKeyProtocol {
     /// **get_object is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getObject() -> UnsafeMutablePointer<GObject>! {
-        let rv: UnsafeMutablePointer<GObject>! = cast(clutter_state_key_get_object(cast(state_key_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getObject() -> GLibObject.ObjectRef! {
+        let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_state_key_get_object(state_key_ptr)))
+        return rv
     }
 
     /// Retrieves the duration of the pause after transitioning is complete
@@ -4200,9 +5741,9 @@ public extension StateKeyProtocol {
     /// **get_post_delay is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getPostDelay() -> Double {
-        let rv: Double = cast(clutter_state_key_get_post_delay(cast(state_key_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getPostDelay() -> Double {
+        let rv = Double(clutter_state_key_get_post_delay(state_key_ptr))
+        return rv
     }
 
     /// Retrieves the pause before transitioning starts as a fraction of
@@ -4211,9 +5752,9 @@ public extension StateKeyProtocol {
     /// **get_pre_delay is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getPreDelay() -> Double {
-        let rv: Double = cast(clutter_state_key_get_pre_delay(cast(state_key_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getPreDelay() -> Double {
+        let rv = Double(clutter_state_key_get_pre_delay(state_key_ptr))
+        return rv
     }
 
     /// Retrieves the name of the property this `ClutterStateKey` applies to
@@ -4221,9 +5762,9 @@ public extension StateKeyProtocol {
     /// **get_property_name is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getPropertyName() -> String! {
-        let rv: String! = cast(clutter_state_key_get_property_name(cast(state_key_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getPropertyName() -> String! {
+        let rv = clutter_state_key_get_property_name(state_key_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the `GType` of the property a key applies to
@@ -4234,9 +5775,9 @@ public extension StateKeyProtocol {
     /// **get_property_type is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getPropertyType() -> GType {
-        let rv = clutter_state_key_get_property_type(cast(state_key_ptr))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getPropertyType() -> GType {
+        let rv = clutter_state_key_get_property_type(state_key_ptr)
+        return rv
     }
 
     /// Retrieves the name of the source state of the `state_key`
@@ -4244,9 +5785,9 @@ public extension StateKeyProtocol {
     /// **get_source_state_name is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getSourceStateName() -> String! {
-        let rv: String! = cast(clutter_state_key_get_source_state_name(cast(state_key_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getSourceStateName() -> String! {
+        let rv = clutter_state_key_get_source_state_name(state_key_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Get the name of the source state this `ClutterStateKey` contains,
@@ -4256,9 +5797,9 @@ public extension StateKeyProtocol {
     /// **get_target_state_name is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func getTargetStateName() -> String! {
-        let rv: String! = cast(clutter_state_key_get_target_state_name(cast(state_key_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getTargetStateName() -> String! {
+        let rv = clutter_state_key_get_target_state_name(state_key_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves a copy of the value for a `ClutterStateKey`.
@@ -4272,24 +5813,24 @@ public extension StateKeyProtocol {
     /// **get_value is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    @available(*, deprecated) func get(value: GLibObject.ValueProtocol) -> Bool {
-        let rv = clutter_state_key_get_value(cast(state_key_ptr), cast(value.ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func get<ValueT: GLibObject.ValueProtocol>(value: ValueT) -> Bool {
+        let rv = ((clutter_state_key_get_value(state_key_ptr, value.value_ptr)) != 0)
+        return rv
     }
     /// Retrieves the easing mode used for `state_key`.
     ///
     /// **get_mode is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var mode: Int {
+    @inlinable var mode: Int {
         /// Retrieves the easing mode used for `state_key`.
         ///
         /// **get_mode is deprecated:**
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: Int = cast(clutter_state_key_get_mode(cast(state_key_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_state_key_get_mode(state_key_ptr))
+            return rv
         }
     }
 
@@ -4298,15 +5839,15 @@ public extension StateKeyProtocol {
     /// **get_object is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var object: UnsafeMutablePointer<GObject>! {
+    @inlinable var object: GLibObject.ObjectRef! {
         /// Retrieves the object instance this `ClutterStateKey` applies to.
         ///
         /// **get_object is deprecated:**
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: UnsafeMutablePointer<GObject>! = cast(clutter_state_key_get_object(cast(state_key_ptr)))
-            return cast(rv)
+            let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_state_key_get_object(state_key_ptr)))
+            return rv
         }
     }
 
@@ -4316,7 +5857,7 @@ public extension StateKeyProtocol {
     /// **get_post_delay is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var postDelay: Double {
+    @inlinable var postDelay: Double {
         /// Retrieves the duration of the pause after transitioning is complete
         /// as a fraction of the total transition time.
         ///
@@ -4324,8 +5865,8 @@ public extension StateKeyProtocol {
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: Double = cast(clutter_state_key_get_post_delay(cast(state_key_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_state_key_get_post_delay(state_key_ptr))
+            return rv
         }
     }
 
@@ -4335,7 +5876,7 @@ public extension StateKeyProtocol {
     /// **get_pre_delay is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var preDelay: Double {
+    @inlinable var preDelay: Double {
         /// Retrieves the pause before transitioning starts as a fraction of
         /// the total transition time.
         ///
@@ -4343,8 +5884,8 @@ public extension StateKeyProtocol {
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: Double = cast(clutter_state_key_get_pre_delay(cast(state_key_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_state_key_get_pre_delay(state_key_ptr))
+            return rv
         }
     }
 
@@ -4353,15 +5894,15 @@ public extension StateKeyProtocol {
     /// **get_property_name is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var propertyName: String! {
+    @inlinable var propertyName: String! {
         /// Retrieves the name of the property this `ClutterStateKey` applies to
         ///
         /// **get_property_name is deprecated:**
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: String! = cast(clutter_state_key_get_property_name(cast(state_key_ptr)))
-            return cast(rv)
+            let rv = clutter_state_key_get_property_name(state_key_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -4373,7 +5914,7 @@ public extension StateKeyProtocol {
     /// **get_property_type is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var propertyType: GType {
+    @inlinable var propertyType: GType {
         /// Retrieves the `GType` of the property a key applies to
         /// 
         /// You can use this type to initialize the `GValue` to pass to
@@ -4383,8 +5924,8 @@ public extension StateKeyProtocol {
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv = clutter_state_key_get_property_type(cast(state_key_ptr))
-            return cast(rv)
+            let rv = clutter_state_key_get_property_type(state_key_ptr)
+            return rv
         }
     }
 
@@ -4393,15 +5934,15 @@ public extension StateKeyProtocol {
     /// **get_source_state_name is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var sourceStateName: String! {
+    @inlinable var sourceStateName: String! {
         /// Retrieves the name of the source state of the `state_key`
         ///
         /// **get_source_state_name is deprecated:**
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: String! = cast(clutter_state_key_get_source_state_name(cast(state_key_ptr)))
-            return cast(rv)
+            let rv = clutter_state_key_get_source_state_name(state_key_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -4412,7 +5953,7 @@ public extension StateKeyProtocol {
     /// **get_target_state_name is deprecated:**
     /// Use #ClutterKeyframeTransition and
     ///   #ClutterTransitionGroup instead
-    var targetStateName: String! {
+    @inlinable var targetStateName: String! {
         /// Get the name of the source state this `ClutterStateKey` contains,
         /// or NULL if this is the generic state key for the given property
         /// when transitioning to the target state.
@@ -4421,8 +5962,8 @@ public extension StateKeyProtocol {
         /// Use #ClutterKeyframeTransition and
         ///   #ClutterTransitionGroup instead
         @available(*, deprecated) get {
-            let rv: String! = cast(clutter_state_key_get_target_state_name(cast(state_key_ptr)))
-            return cast(rv)
+            let rv = clutter_state_key_get_target_state_name(state_key_ptr).map({ String(cString: $0) })
+            return rv
         }
     }
 
@@ -4441,10 +5982,11 @@ public extension StateKeyProtocol {
 
 public protocol StatePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterStatePrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterStatePrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStatePrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterStatePrivate>! { get }
+
 }
 
 /// The `StatePrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterStatePrivate` instance.
@@ -4455,46 +5997,76 @@ public protocol StatePrivateProtocol {
 public struct StatePrivateRef: StatePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterStatePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension StatePrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterStatePrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterStatePrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterStatePrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterStatePrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterStatePrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `StatePrivateProtocol`
-    init<T: StatePrivateProtocol>(_ other: T) {
+    @inlinable init<T: StatePrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4508,95 +6080,141 @@ public extension StatePrivateRef {
 open class StatePrivate: StatePrivateProtocol {
         /// Untyped pointer to the underlying `ClutterStatePrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `StatePrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterStatePrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterStatePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StatePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterStatePrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StatePrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StatePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StatePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterStatePrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `StatePrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterStatePrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterStatePrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `StatePrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterStatePrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterStatePrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterStatePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStatePrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `StatePrivateProtocol`
     /// `ClutterStatePrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `StatePrivateProtocol`
-    public init<T: StatePrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterStatePrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: StatePrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterStatePrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterStatePrivate`.
     deinit {
-        // no reference counting for ClutterStatePrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterStatePrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterStatePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStatePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterStatePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStatePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterStatePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStatePrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StatePrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterStatePrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterStatePrivate, cannot ref(_ptr)
     }
 
 
@@ -4611,7 +6229,7 @@ open class StatePrivate: StatePrivateProtocol {
 // MARK: StatePrivate Record: StatePrivateProtocol extension (methods and fields)
 public extension StatePrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterStatePrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterStatePrivate> { return ptr.assumingMemoryBound(to: ClutterStatePrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterStatePrivate>! { return ptr?.assumingMemoryBound(to: ClutterStatePrivate.self) }
 
 
 
@@ -4630,10 +6248,11 @@ public extension StatePrivateProtocol {
 /// only private data.
 public protocol SwipeActionClassProtocol {
         /// Untyped pointer to the underlying `ClutterSwipeActionClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterSwipeActionClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSwipeActionClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterSwipeActionClass>! { get }
+
 }
 
 /// The `SwipeActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterSwipeActionClass` instance.
@@ -4645,46 +6264,76 @@ public protocol SwipeActionClassProtocol {
 public struct SwipeActionClassRef: SwipeActionClassProtocol {
         /// Untyped pointer to the underlying `ClutterSwipeActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SwipeActionClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterSwipeActionClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterSwipeActionClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterSwipeActionClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterSwipeActionClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterSwipeActionClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SwipeActionClassProtocol`
-    init<T: SwipeActionClassProtocol>(_ other: T) {
+    @inlinable init<T: SwipeActionClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4699,95 +6348,141 @@ public extension SwipeActionClassRef {
 open class SwipeActionClass: SwipeActionClassProtocol {
         /// Untyped pointer to the underlying `ClutterSwipeActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SwipeActionClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterSwipeActionClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterSwipeActionClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterSwipeActionClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterSwipeActionClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterSwipeActionClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterSwipeActionClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `SwipeActionClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterSwipeActionClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterSwipeActionClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterSwipeActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SwipeActionClassProtocol`
     /// `ClutterSwipeActionClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SwipeActionClassProtocol`
-    public init<T: SwipeActionClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterSwipeActionClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: SwipeActionClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterSwipeActionClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterSwipeActionClass`.
     deinit {
-        // no reference counting for ClutterSwipeActionClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterSwipeActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterSwipeActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterSwipeActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterSwipeActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionClass, cannot ref(_ptr)
     }
 
 
@@ -4802,7 +6497,7 @@ open class SwipeActionClass: SwipeActionClassProtocol {
 // MARK: SwipeActionClass Record: SwipeActionClassProtocol extension (methods and fields)
 public extension SwipeActionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterSwipeActionClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSwipeActionClass> { return ptr.assumingMemoryBound(to: ClutterSwipeActionClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterSwipeActionClass>! { return ptr?.assumingMemoryBound(to: ClutterSwipeActionClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
@@ -4837,10 +6532,11 @@ public extension SwipeActionClassProtocol {
 
 public protocol SwipeActionPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterSwipeActionPrivate` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterSwipeActionPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSwipeActionPrivate> { get }
+    var _ptr: UnsafeMutablePointer<ClutterSwipeActionPrivate>! { get }
+
 }
 
 /// The `SwipeActionPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterSwipeActionPrivate` instance.
@@ -4851,46 +6547,76 @@ public protocol SwipeActionPrivateProtocol {
 public struct SwipeActionPrivateRef: SwipeActionPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterSwipeActionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension SwipeActionPrivateRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterSwipeActionPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterSwipeActionPrivate>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterSwipeActionPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterSwipeActionPrivate>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterSwipeActionPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `SwipeActionPrivateProtocol`
-    init<T: SwipeActionPrivateProtocol>(_ other: T) {
+    @inlinable init<T: SwipeActionPrivateProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -4904,95 +6630,141 @@ public extension SwipeActionPrivateRef {
 open class SwipeActionPrivate: SwipeActionPrivateProtocol {
         /// Untyped pointer to the underlying `ClutterSwipeActionPrivate` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterSwipeActionPrivate>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterSwipeActionPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterSwipeActionPrivate>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterSwipeActionPrivate>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterSwipeActionPrivate>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterSwipeActionPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `SwipeActionPrivate` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterSwipeActionPrivate>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterSwipeActionPrivate>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterSwipeActionPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionPrivate, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `SwipeActionPrivateProtocol`
     /// `ClutterSwipeActionPrivate` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `SwipeActionPrivateProtocol`
-    public init<T: SwipeActionPrivateProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterSwipeActionPrivate, cannot ref(cast(_ptr))
+    @inlinable public init<T: SwipeActionPrivateProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterSwipeActionPrivate, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterSwipeActionPrivate`.
     deinit {
-        // no reference counting for ClutterSwipeActionPrivate, cannot unref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionPrivate, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterSwipeActionPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterSwipeActionPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterSwipeActionPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionPrivate, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionPrivateProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterSwipeActionPrivate, cannot ref(cast(_ptr))
+        // no reference counting for ClutterSwipeActionPrivate, cannot ref(_ptr)
     }
 
 
@@ -5007,7 +6779,7 @@ open class SwipeActionPrivate: SwipeActionPrivateProtocol {
 // MARK: SwipeActionPrivate Record: SwipeActionPrivateProtocol extension (methods and fields)
 public extension SwipeActionPrivateProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterSwipeActionPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterSwipeActionPrivate> { return ptr.assumingMemoryBound(to: ClutterSwipeActionPrivate.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterSwipeActionPrivate>! { return ptr?.assumingMemoryBound(to: ClutterSwipeActionPrivate.self) }
 
 
 
@@ -5026,10 +6798,11 @@ public extension SwipeActionPrivateProtocol {
 /// data and should be accessed using the provided API
 public protocol TableLayoutClassProtocol {
         /// Untyped pointer to the underlying `ClutterTableLayoutClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterTableLayoutClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterTableLayoutClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterTableLayoutClass>! { get }
+
 }
 
 /// The `TableLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTableLayoutClass` instance.
@@ -5041,46 +6814,76 @@ public protocol TableLayoutClassProtocol {
 public struct TableLayoutClassRef: TableLayoutClassProtocol {
         /// Untyped pointer to the underlying `ClutterTableLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension TableLayoutClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterTableLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterTableLayoutClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterTableLayoutClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterTableLayoutClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterTableLayoutClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `TableLayoutClassProtocol`
-    init<T: TableLayoutClassProtocol>(_ other: T) {
+    @inlinable init<T: TableLayoutClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -5095,95 +6898,141 @@ public extension TableLayoutClassRef {
 open class TableLayoutClass: TableLayoutClassProtocol {
         /// Untyped pointer to the underlying `ClutterTableLayoutClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `TableLayoutClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterTableLayoutClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterTableLayoutClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TableLayoutClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterTableLayoutClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TableLayoutClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TableLayoutClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TableLayoutClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterTableLayoutClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `TableLayoutClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterTableLayoutClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterTableLayoutClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `TableLayoutClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterTableLayoutClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterTableLayoutClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterTableLayoutClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterTableLayoutClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `TableLayoutClassProtocol`
     /// `ClutterTableLayoutClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `TableLayoutClassProtocol`
-    public init<T: TableLayoutClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterTableLayoutClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: TableLayoutClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterTableLayoutClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterTableLayoutClass`.
     deinit {
-        // no reference counting for ClutterTableLayoutClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterTableLayoutClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterTableLayoutClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterTableLayoutClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterTableLayoutClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterTableLayoutClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterTableLayoutClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterTableLayoutClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterTableLayoutClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterTableLayoutClass, cannot ref(_ptr)
     }
 
 
@@ -5198,7 +7047,7 @@ open class TableLayoutClass: TableLayoutClassProtocol {
 // MARK: TableLayoutClass Record: TableLayoutClassProtocol extension (methods and fields)
 public extension TableLayoutClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterTableLayoutClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterTableLayoutClass> { return ptr.assumingMemoryBound(to: ClutterTableLayoutClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterTableLayoutClass>! { return ptr?.assumingMemoryBound(to: ClutterTableLayoutClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private

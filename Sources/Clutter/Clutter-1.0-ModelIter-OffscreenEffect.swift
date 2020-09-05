@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -24,10 +25,11 @@ import Atk
 /// provided API.
 public protocol ModelIterProtocol: GLibObject.ObjectProtocol {
         /// Untyped pointer to the underlying `ClutterModelIter` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterModelIter` instance.
-    var model_iter_ptr: UnsafeMutablePointer<ClutterModelIter> { get }
+    var model_iter_ptr: UnsafeMutablePointer<ClutterModelIter>! { get }
+
 }
 
 /// The `ModelIterRef` type acts as a lightweight Swift reference to an underlying `ClutterModelIter` instance.
@@ -40,46 +42,76 @@ public protocol ModelIterProtocol: GLibObject.ObjectProtocol {
 public struct ModelIterRef: ModelIterProtocol {
         /// Untyped pointer to the underlying `ClutterModelIter` instance.
     /// For type-safe access, use the generated, typed pointer `model_iter_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ModelIterRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterModelIter>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterModelIter>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterModelIter>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterModelIter>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterModelIter>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ModelIterProtocol`
-    init<T: ModelIterProtocol>(_ other: T) {
+    @inlinable init<T: ModelIterProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -97,77 +129,123 @@ open class ModelIter: GLibObject.Object, ModelIterProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ModelIter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterModelIter>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterModelIter>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ModelIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterModelIter>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ModelIter` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ModelIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ModelIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterModelIter>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ModelIter` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterModelIter>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterModelIter`.
     /// i.e., ownership is transferred to the `ModelIter` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterModelIter>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterModelIter>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `ModelIterProtocol`
     /// Will retain `ClutterModelIter`.
     /// - Parameter other: an instance of a related type that implements `ModelIterProtocol`
-    public init<T: ModelIterProtocol>(modelIter other: T) {
-        super.init(retaining: cast(other.model_iter_ptr))
+    @inlinable public init<T: ModelIterProtocol>(modelIter other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -194,21 +272,21 @@ public extension ModelIterProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ModelIterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: ModelIterPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(model_iter_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -226,7 +304,7 @@ public extension ModelIterProtocol {
     /// Get the value of a ModelIter property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: ModelIterPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: ModelIterPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -236,7 +314,7 @@ public extension ModelIterProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: ModelIterPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: ModelIterPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -285,11 +363,11 @@ public extension ModelIterProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ModelIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ModelIterSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(model_iter_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -310,15 +388,15 @@ public extension ModelIterProtocol {
 // MARK: ModelIter Class: ModelIterProtocol extension (methods and fields)
 public extension ModelIterProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterModelIter` instance.
-    var model_iter_ptr: UnsafeMutablePointer<ClutterModelIter> { return ptr.assumingMemoryBound(to: ClutterModelIter.self) }
+    @inlinable var model_iter_ptr: UnsafeMutablePointer<ClutterModelIter>! { return ptr?.assumingMemoryBound(to: ClutterModelIter.self) }
 
     /// Copies the passed iterator.
     ///
     /// **copy is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func copy() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_iter_copy(cast(model_iter_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func copy() -> ModelIterRef! {
+        guard let rv = ModelIterRef(gconstpointer: gconstpointer(clutter_model_iter_copy(model_iter_ptr))) else { return nil }
+        return rv
     }
 
 
@@ -329,18 +407,18 @@ public extension ModelIterProtocol {
     ///
     /// **get_model is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getModel() -> UnsafeMutablePointer<ClutterModel>! {
-        let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_model_iter_get_model(cast(model_iter_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getModel() -> ModelRef! {
+        let rv = ModelRef(gconstpointer: gconstpointer(clutter_model_iter_get_model(model_iter_ptr)))
+        return rv
     }
 
     /// Retrieves the position of the row that the `iter` points to.
     ///
     /// **get_row is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getRow() -> Int {
-        let rv: Int = cast(clutter_model_iter_get_row(cast(model_iter_ptr)))
-        return Int(rv)
+    @available(*, deprecated) @inlinable func getRow() -> Int {
+        let rv = Int(clutter_model_iter_get_row(model_iter_ptr))
+        return rv
     }
 
     /// See `clutter_model_iter_get()`. This version takes a va_list for language
@@ -348,8 +426,8 @@ public extension ModelIterProtocol {
     ///
     /// **get_valist is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getValist(args: CVaListPointer) {
-        clutter_model_iter_get_valist(cast(model_iter_ptr), args)
+    @available(*, deprecated) @inlinable func getValist(args: CVaListPointer) {
+        clutter_model_iter_get_valist(model_iter_ptr, args)
     
     }
 
@@ -358,8 +436,8 @@ public extension ModelIterProtocol {
     ///
     /// **get_value is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func getValue(column: CUnsignedInt, value: GLibObject.ValueProtocol) {
-        clutter_model_iter_get_value(cast(model_iter_ptr), guint(column), cast(value.ptr))
+    @available(*, deprecated) @inlinable func getValue<ValueT: GLibObject.ValueProtocol>(column: Int, value: ValueT) {
+        clutter_model_iter_get_value(model_iter_ptr, guint(column), value.value_ptr)
     
     }
 
@@ -369,9 +447,9 @@ public extension ModelIterProtocol {
     ///
     /// **next is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func next() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_iter_next(cast(model_iter_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func next() -> ModelIterRef! {
+        guard let rv = ModelIterRef(gconstpointer: gconstpointer(clutter_model_iter_next(model_iter_ptr))) else { return nil }
+        return rv
     }
 
     /// Sets the `iter` to point at the previous position in the model.
@@ -380,9 +458,9 @@ public extension ModelIterProtocol {
     ///
     /// **prev is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func prev() -> UnsafeMutablePointer<ClutterModelIter>! {
-        let rv: UnsafeMutablePointer<ClutterModelIter>! = cast(clutter_model_iter_prev(cast(model_iter_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func prev() -> ModelIterRef! {
+        guard let rv = ModelIterRef(gconstpointer: gconstpointer(clutter_model_iter_prev(model_iter_ptr))) else { return nil }
+        return rv
     }
 
 
@@ -394,8 +472,8 @@ public extension ModelIterProtocol {
     ///
     /// **set_valist is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func setValist(args: CVaListPointer) {
-        clutter_model_iter_set_valist(cast(model_iter_ptr), args)
+    @available(*, deprecated) @inlinable func setValist(args: CVaListPointer) {
+        clutter_model_iter_set_valist(model_iter_ptr, args)
     
     }
 
@@ -404,8 +482,8 @@ public extension ModelIterProtocol {
     ///
     /// **set_value is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) func setValue(column: CUnsignedInt, value: GLibObject.ValueProtocol) {
-        clutter_model_iter_set_value(cast(model_iter_ptr), guint(column), cast(value.ptr))
+    @available(*, deprecated) @inlinable func setValue<ValueT: GLibObject.ValueProtocol>(column: Int, value: ValueT) {
+        clutter_model_iter_set_value(model_iter_ptr, guint(column), value.value_ptr)
     
     }
     /// Gets whether the current iterator is at the beginning of the model
@@ -413,15 +491,15 @@ public extension ModelIterProtocol {
     ///
     /// **is_first is deprecated:**
     /// Use #GListModel instead
-    var isFirst: Bool {
+    @inlinable var isFirst: Bool {
         /// Gets whether the current iterator is at the beginning of the model
         /// to which it belongs.
         ///
         /// **is_first is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_iter_is_first(cast(model_iter_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_model_iter_is_first(model_iter_ptr)) != 0)
+            return rv
         }
     }
 
@@ -430,15 +508,15 @@ public extension ModelIterProtocol {
     ///
     /// **is_last is deprecated:**
     /// Use #GListModel instead
-    var isLast: Bool {
+    @inlinable var isLast: Bool {
         /// Gets whether the iterator is at the end of the model to which it
         /// belongs.
         ///
         /// **is_last is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv = clutter_model_iter_is_last(cast(model_iter_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_model_iter_is_last(model_iter_ptr)) != 0)
+            return rv
         }
     }
 
@@ -446,14 +524,14 @@ public extension ModelIterProtocol {
     ///
     /// **model is deprecated:**
     /// Use #GListModel instead
-    var model: UnsafeMutablePointer<ClutterModel>! {
+    @inlinable var model: ModelRef! {
         /// Retrieves a pointer to the `ClutterModel` that this iter is part of.
         ///
         /// **get_model is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv: UnsafeMutablePointer<ClutterModel>! = cast(clutter_model_iter_get_model(cast(model_iter_ptr)))
-            return cast(rv)
+            let rv = ModelRef(gconstpointer: gconstpointer(clutter_model_iter_get_model(model_iter_ptr)))
+            return rv
         }
     }
 
@@ -461,14 +539,14 @@ public extension ModelIterProtocol {
     ///
     /// **row is deprecated:**
     /// Use #GListModel instead
-    var row: Int {
+    @inlinable var row: Int {
         /// Retrieves the position of the row that the `iter` points to.
         ///
         /// **get_row is deprecated:**
         /// Use #GListModel instead
         @available(*, deprecated) get {
-            let rv: Int = cast(clutter_model_iter_get_row(cast(model_iter_ptr)))
-            return Int(rv)
+            let rv = Int(clutter_model_iter_get_row(model_iter_ptr))
+            return rv
         }
     }
 
@@ -491,10 +569,11 @@ public extension ModelIterProtocol {
 /// and should be accessed using the provided API
 public protocol OffscreenEffectProtocol: EffectProtocol {
         /// Untyped pointer to the underlying `ClutterOffscreenEffect` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterOffscreenEffect` instance.
-    var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect> { get }
+    var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect>! { get }
+
 }
 
 /// The `OffscreenEffectRef` type acts as a lightweight Swift reference to an underlying `ClutterOffscreenEffect` instance.
@@ -506,46 +585,76 @@ public protocol OffscreenEffectProtocol: EffectProtocol {
 public struct OffscreenEffectRef: OffscreenEffectProtocol {
         /// Untyped pointer to the underlying `ClutterOffscreenEffect` instance.
     /// For type-safe access, use the generated, typed pointer `offscreen_effect_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension OffscreenEffectRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterOffscreenEffect>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterOffscreenEffect>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterOffscreenEffect>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterOffscreenEffect>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterOffscreenEffect>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `OffscreenEffectProtocol`
-    init<T: OffscreenEffectProtocol>(_ other: T) {
+    @inlinable init<T: OffscreenEffectProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -562,77 +671,123 @@ open class OffscreenEffect: Effect, OffscreenEffectProtocol {
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `OffscreenEffect` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterOffscreenEffect>) {
-        super.init(cast(op))
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterOffscreenEffect>) {
+        super.init(cPointer: op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OffscreenEffect` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterOffscreenEffect>) {
+        super.init(raw: UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op)))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OffscreenEffect` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable override public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OffscreenEffect` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable override public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        super.init(raw: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OffscreenEffect` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterOffscreenEffect>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        super.init(cPointer: p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `OffscreenEffect` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterOffscreenEffect>?) {
+        guard let p = op else { return nil }
+        super.init(cPointer: p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// Will retain `ClutterOffscreenEffect`.
     /// i.e., ownership is transferred to the `OffscreenEffect` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterOffscreenEffect>) {
-        super.init(retaining: cast(op))
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterOffscreenEffect>) {
+        super.init(retainingCPointer: op)
     }
 
     /// Reference intialiser for a related type that implements `OffscreenEffectProtocol`
     /// Will retain `ClutterOffscreenEffect`.
     /// - Parameter other: an instance of a related type that implements `OffscreenEffectProtocol`
-    public init<T: OffscreenEffectProtocol>(offscreenEffect other: T) {
-        super.init(retaining: cast(other.offscreen_effect_ptr))
+    @inlinable public init<T: OffscreenEffectProtocol>(offscreenEffect other: T) {
+        super.init(retainingRaw: other.ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         super.init(cPointer: p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable override public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         super.init(retainingCPointer: cPointer)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    override public init(raw p: UnsafeRawPointer) {
+    @inlinable override public init(raw p: UnsafeRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    override public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(opaquePointer p: OpaquePointer) {
+    @inlinable override public init(opaquePointer p: OpaquePointer) {
         super.init(opaquePointer: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    override public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable override public init(retainingOpaquePointer p: OpaquePointer) {
         super.init(retainingOpaquePointer: p)
     }
 
@@ -700,21 +855,21 @@ public extension OffscreenEffectProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: OffscreenEffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: OffscreenEffectPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(offscreen_effect_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -732,7 +887,7 @@ public extension OffscreenEffectProtocol {
     /// Get the value of a OffscreenEffect property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: OffscreenEffectPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: OffscreenEffectPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -742,7 +897,7 @@ public extension OffscreenEffectProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: OffscreenEffectPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: OffscreenEffectPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -868,11 +1023,11 @@ public extension OffscreenEffectProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: OffscreenEffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: OffscreenEffectSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(offscreen_effect_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -893,12 +1048,12 @@ public extension OffscreenEffectProtocol {
 // MARK: OffscreenEffect Class: OffscreenEffectProtocol extension (methods and fields)
 public extension OffscreenEffectProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterOffscreenEffect` instance.
-    var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect> { return ptr.assumingMemoryBound(to: ClutterOffscreenEffect.self) }
+    @inlinable var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect>! { return ptr?.assumingMemoryBound(to: ClutterOffscreenEffect.self) }
 
     /// Calls the `create_texture()` virtual function of the `effect`
-    func createTexture(width: gfloat, height: gfloat) -> CoglHandle! {
-        let rv = clutter_offscreen_effect_create_texture(cast(offscreen_effect_ptr), width, height)
-        return cast(rv)
+    @inlinable func createTexture(width: Double, height: Double) -> CoglHandle! {
+        let rv = clutter_offscreen_effect_create_texture(offscreen_effect_ptr, gfloat(width), gfloat(height))
+        return rv
     }
 
     /// Retrieves the material used as a render target for the offscreen
@@ -906,9 +1061,9 @@ public extension OffscreenEffectProtocol {
     /// 
     /// You should only use the returned `CoglMaterial` when painting. The
     /// returned material might change between different frames.
-    func getTarget() -> UnsafeMutablePointer<CoglMaterial>! {
-        let rv: UnsafeMutablePointer<CoglMaterial>! = cast(clutter_offscreen_effect_get_target(cast(offscreen_effect_ptr)))
-        return cast(rv)
+    @inlinable func getTarget() -> MaterialRef! {
+        let rv = MaterialRef(gconstpointer: gconstpointer(clutter_offscreen_effect_get_target(offscreen_effect_ptr)))
+        return rv
     }
 
     /// Retrieves the origin and size of the offscreen buffer used by `effect` to
@@ -917,9 +1072,9 @@ public extension OffscreenEffectProtocol {
     /// This function should only be called by `ClutterOffscreenEffect`
     /// implementations, from within the `ClutterOffscreenEffectClass.paint_target``()`
     /// virtual function.
-    func getTarget(rect: RectProtocol) -> Bool {
-        let rv = clutter_offscreen_effect_get_target_rect(cast(offscreen_effect_ptr), cast(rect.ptr))
-        return Bool(rv != 0)
+    @inlinable func getTarget<RectT: RectProtocol>(rect: RectT) -> Bool {
+        let rv = ((clutter_offscreen_effect_get_target_rect(offscreen_effect_ptr, rect.rect_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the size of the offscreen buffer used by `effect` to
@@ -931,9 +1086,9 @@ public extension OffscreenEffectProtocol {
     ///
     /// **get_target_size is deprecated:**
     /// Use clutter_offscreen_effect_get_target_rect() instead
-    @available(*, deprecated) func getTargetSize(width: UnsafeMutablePointer<gfloat>, height: UnsafeMutablePointer<gfloat>) -> Bool {
-        let rv = clutter_offscreen_effect_get_target_size(cast(offscreen_effect_ptr), cast(width), cast(height))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getTargetSize(width: UnsafeMutablePointer<gfloat>!, height: UnsafeMutablePointer<gfloat>!) -> Bool {
+        let rv = ((clutter_offscreen_effect_get_target_size(offscreen_effect_ptr, width, height)) != 0)
+        return rv
     }
 
     /// Retrieves the texture used as a render target for the offscreen
@@ -945,14 +1100,14 @@ public extension OffscreenEffectProtocol {
     /// chaining-up to the parent's pre_paint implementation. This can be
     /// used instead of `clutter_offscreen_effect_get_target()` when the
     /// effect subclass wants to paint using its own material.
-    func getTexture() -> CoglHandle! {
-        let rv = clutter_offscreen_effect_get_texture(cast(offscreen_effect_ptr))
-        return cast(rv)
+    @inlinable func getTexture() -> CoglHandle! {
+        let rv = clutter_offscreen_effect_get_texture(offscreen_effect_ptr)
+        return rv
     }
 
     /// Calls the `paint_target()` virtual function of the `effect`
-    func paintTarget() {
-        clutter_offscreen_effect_paint_target(cast(offscreen_effect_ptr))
+    @inlinable func paintTarget() {
+        clutter_offscreen_effect_paint_target(offscreen_effect_ptr)
     
     }
     /// Retrieves the material used as a render target for the offscreen
@@ -960,15 +1115,15 @@ public extension OffscreenEffectProtocol {
     /// 
     /// You should only use the returned `CoglMaterial` when painting. The
     /// returned material might change between different frames.
-    var target: UnsafeMutablePointer<CoglMaterial>! {
+    @inlinable var target: MaterialRef! {
         /// Retrieves the material used as a render target for the offscreen
         /// buffer created by `effect`
         /// 
         /// You should only use the returned `CoglMaterial` when painting. The
         /// returned material might change between different frames.
         get {
-            let rv: UnsafeMutablePointer<CoglMaterial>! = cast(clutter_offscreen_effect_get_target(cast(offscreen_effect_ptr)))
-            return cast(rv)
+            let rv = MaterialRef(gconstpointer: gconstpointer(clutter_offscreen_effect_get_target(offscreen_effect_ptr)))
+            return rv
         }
     }
 
@@ -981,7 +1136,7 @@ public extension OffscreenEffectProtocol {
     /// chaining-up to the parent's pre_paint implementation. This can be
     /// used instead of `clutter_offscreen_effect_get_target()` when the
     /// effect subclass wants to paint using its own material.
-    var texture: CoglHandle! {
+    @inlinable var texture: CoglHandle! {
         /// Retrieves the texture used as a render target for the offscreen
         /// buffer created by `effect`
         /// 
@@ -992,8 +1147,8 @@ public extension OffscreenEffectProtocol {
         /// used instead of `clutter_offscreen_effect_get_target()` when the
         /// effect subclass wants to paint using its own material.
         get {
-            let rv = clutter_offscreen_effect_get_texture(cast(offscreen_effect_ptr))
-            return cast(rv)
+            let rv = clutter_offscreen_effect_get_texture(offscreen_effect_ptr)
+            return rv
         }
     }
 

@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -23,10 +24,11 @@ import Atk
 /// whose members cannot be acccessed directly.
 public protocol ContentProtocol {
         /// Untyped pointer to the underlying `ClutterContent` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterContent` instance.
-    var content_ptr: UnsafeMutablePointer<ClutterContent> { get }
+    var content_ptr: UnsafeMutablePointer<ClutterContent>! { get }
+
 }
 
 /// The `ContentRef` type acts as a lightweight Swift reference to an underlying `ClutterContent` instance.
@@ -38,46 +40,76 @@ public protocol ContentProtocol {
 public struct ContentRef: ContentProtocol {
         /// Untyped pointer to the underlying `ClutterContent` instance.
     /// For type-safe access, use the generated, typed pointer `content_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ContentRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterContent>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterContent>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterContent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterContent>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterContent>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ContentProtocol`
-    init<T: ContentProtocol>(_ other: T) {
+    @inlinable init<T: ContentProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -92,95 +124,141 @@ public extension ContentRef {
 open class Content: ContentProtocol {
         /// Untyped pointer to the underlying `ClutterContent` instance.
     /// For type-safe access, use the generated, typed pointer `content_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Content` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterContent>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterContent>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Content` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterContent>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Content` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Content` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Content` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterContent>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Content` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterContent>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterContent` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Content` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterContent>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterContent>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
+        // no reference counting for ClutterContent, cannot ref(content_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ContentProtocol`
     /// `ClutterContent` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ContentProtocol`
-    public init<T: ContentProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.content_ptr)
-        // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
+    @inlinable public init<T: ContentProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterContent, cannot ref(content_ptr)
     }
 
     /// Do-nothing destructor for `ClutterContent`.
     deinit {
-        // no reference counting for ClutterContent, cannot unref(cast(content_ptr))
+        // no reference counting for ClutterContent, cannot unref(content_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
+        // no reference counting for ClutterContent, cannot ref(content_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
+        // no reference counting for ClutterContent, cannot ref(content_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
+        // no reference counting for ClutterContent, cannot ref(content_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterContent, cannot ref(cast(content_ptr))
+        // no reference counting for ClutterContent, cannot ref(content_ptr)
     }
 
 
@@ -205,11 +283,11 @@ public extension ContentProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: ContentSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: ContentSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(content_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -230,16 +308,16 @@ public extension ContentProtocol {
 // MARK: Content Interface: ContentProtocol extension (methods and fields)
 public extension ContentProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterContent` instance.
-    var content_ptr: UnsafeMutablePointer<ClutterContent> { return ptr.assumingMemoryBound(to: ClutterContent.self) }
+    @inlinable var content_ptr: UnsafeMutablePointer<ClutterContent>! { return ptr?.assumingMemoryBound(to: ClutterContent.self) }
 
     /// Retrieves the natural size of the `content`, if any.
     /// 
     /// The natural size of a `ClutterContent` is defined as the size the content
     /// would have regardless of the allocation of the actor that is painting it,
     /// for instance the size of an image data.
-    func getPreferredSize(width: UnsafeMutablePointer<gfloat>, height: UnsafeMutablePointer<gfloat>) -> Bool {
-        let rv = clutter_content_get_preferred_size(cast(content_ptr), cast(width), cast(height))
-        return Bool(rv != 0)
+    @inlinable func getPreferredSize(width: UnsafeMutablePointer<gfloat>!, height: UnsafeMutablePointer<gfloat>!) -> Bool {
+        let rv = ((clutter_content_get_preferred_size(content_ptr, width, height)) != 0)
+        return rv
     }
 
     /// Invalidates a `ClutterContent`.
@@ -247,8 +325,8 @@ public extension ContentProtocol {
     /// This function should be called by `ClutterContent` implementations when
     /// they change the way a the content should be painted regardless of the
     /// actor state.
-    func invalidate() {
-        clutter_content_invalidate(cast(content_ptr))
+    @inlinable func invalidate() {
+        clutter_content_invalidate(content_ptr)
     
     }
 
@@ -268,10 +346,11 @@ public extension ContentProtocol {
 /// accessed
 public protocol MediaProtocol {
         /// Untyped pointer to the underlying `ClutterMedia` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterMedia` instance.
-    var media_ptr: UnsafeMutablePointer<ClutterMedia> { get }
+    var media_ptr: UnsafeMutablePointer<ClutterMedia>! { get }
+
 }
 
 /// The `MediaRef` type acts as a lightweight Swift reference to an underlying `ClutterMedia` instance.
@@ -283,46 +362,76 @@ public protocol MediaProtocol {
 public struct MediaRef: MediaProtocol {
         /// Untyped pointer to the underlying `ClutterMedia` instance.
     /// For type-safe access, use the generated, typed pointer `media_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension MediaRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterMedia>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterMedia>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterMedia>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterMedia>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterMedia>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `MediaProtocol`
-    init<T: MediaProtocol>(_ other: T) {
+    @inlinable init<T: MediaProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -337,95 +446,141 @@ public extension MediaRef {
 open class Media: MediaProtocol {
         /// Untyped pointer to the underlying `ClutterMedia` instance.
     /// For type-safe access, use the generated, typed pointer `media_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Media` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterMedia>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterMedia>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Media` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterMedia>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Media` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Media` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Media` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterMedia>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Media` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterMedia>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterMedia` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Media` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterMedia>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterMedia>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
+        // no reference counting for ClutterMedia, cannot ref(media_ptr)
     }
 
     /// Reference intialiser for a related type that implements `MediaProtocol`
     /// `ClutterMedia` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `MediaProtocol`
-    public init<T: MediaProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.media_ptr)
-        // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
+    @inlinable public init<T: MediaProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterMedia, cannot ref(media_ptr)
     }
 
     /// Do-nothing destructor for `ClutterMedia`.
     deinit {
-        // no reference counting for ClutterMedia, cannot unref(cast(media_ptr))
+        // no reference counting for ClutterMedia, cannot unref(media_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
+        // no reference counting for ClutterMedia, cannot ref(media_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
+        // no reference counting for ClutterMedia, cannot ref(media_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
+        // no reference counting for ClutterMedia, cannot ref(media_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterMedia, cannot ref(cast(media_ptr))
+        // no reference counting for ClutterMedia, cannot ref(media_ptr)
     }
 
 
@@ -491,21 +646,21 @@ public extension MediaProtocol {
     /// - Parameter target: the target object to bind to
     /// - Parameter target_property: the target property to bind to
     /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `ValueTransformer` to use for backwards transformation
+    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
+    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
     /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: MediaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
+    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: MediaPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
         func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
             let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
             let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(cast(media_ptr)).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
+            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
                 }
             }
-            return rv.map { BindingRef(cast($0)) }
+            return rv.map { BindingRef($0) }
         }
 
         let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
@@ -523,7 +678,7 @@ public extension MediaProtocol {
     /// Get the value of a Media property
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func get(property: MediaPropertyName) -> GLibObject.Value {
+    @inlinable func get(property: MediaPropertyName) -> GLibObject.Value {
         let v = GLibObject.Value()
         g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
         return v
@@ -533,7 +688,7 @@ public extension MediaProtocol {
     /// *Note* that this will only have an effect on properties that are writable and not construct-only!
     /// - Parameter property: the property to get the value for
     /// - Returns: the value of the named property
-    func set(property: MediaPropertyName, value v: GLibObject.Value) {
+    @inlinable func set(property: MediaPropertyName, value v: GLibObject.Value) {
         g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
     }
 }
@@ -607,11 +762,11 @@ public extension MediaProtocol {
     /// - Parameter flags: signal connection flags
     /// - Parameter handler: signal handler to use
     /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @discardableResult func connect(signal kind: MediaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
+    @inlinable @discardableResult func connect(signal kind: MediaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
         func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
             let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
             let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(cast(media_ptr)).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
+            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
                 if let swift = UnsafeRawPointer($0) {
                     let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
                     holder.release()
@@ -632,95 +787,95 @@ public extension MediaProtocol {
 // MARK: Media Interface: MediaProtocol extension (methods and fields)
 public extension MediaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterMedia` instance.
-    var media_ptr: UnsafeMutablePointer<ClutterMedia> { return ptr.assumingMemoryBound(to: ClutterMedia.self) }
+    @inlinable var media_ptr: UnsafeMutablePointer<ClutterMedia>! { return ptr?.assumingMemoryBound(to: ClutterMedia.self) }
 
     /// Retrieves the playback volume of `media`.
     ///
     /// **get_audio_volume is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getAudioVolume() -> Double {
-        let rv: Double = cast(clutter_media_get_audio_volume(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getAudioVolume() -> Double {
+        let rv = Double(clutter_media_get_audio_volume(media_ptr))
+        return rv
     }
 
     /// Retrieves the amount of the stream that is buffered.
     ///
     /// **get_buffer_fill is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getBufferFill() -> Double {
-        let rv: Double = cast(clutter_media_get_buffer_fill(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getBufferFill() -> Double {
+        let rv = Double(clutter_media_get_buffer_fill(media_ptr))
+        return rv
     }
 
     /// Retrieves whether `media` is seekable or not.
     ///
     /// **get_can_seek is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getCanSeek() -> Bool {
-        let rv = clutter_media_get_can_seek(cast(media_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getCanSeek() -> Bool {
+        let rv = ((clutter_media_get_can_seek(media_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the duration of the media stream that `media` represents.
     ///
     /// **get_duration is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getDuration() -> Double {
-        let rv: Double = cast(clutter_media_get_duration(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getDuration() -> Double {
+        let rv = Double(clutter_media_get_duration(media_ptr))
+        return rv
     }
 
     /// Retrieves the playing status of `media`.
     ///
     /// **get_playing is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getPlaying() -> Bool {
-        let rv = clutter_media_get_playing(cast(media_ptr))
-        return Bool(rv != 0)
+    @available(*, deprecated) @inlinable func getPlaying() -> Bool {
+        let rv = ((clutter_media_get_playing(media_ptr)) != 0)
+        return rv
     }
 
     /// Retrieves the playback progress of `media`.
     ///
     /// **get_progress is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getProgress() -> Double {
-        let rv: Double = cast(clutter_media_get_progress(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getProgress() -> Double {
+        let rv = Double(clutter_media_get_progress(media_ptr))
+        return rv
     }
 
     /// Retrieves the font name currently used.
     ///
     /// **get_subtitle_font_name is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getSubtitleFontName() -> String! {
-        let rv: String! = cast(clutter_media_get_subtitle_font_name(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getSubtitleFontName() -> String! {
+        let rv = clutter_media_get_subtitle_font_name(media_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the URI of the subtitle file in use.
     ///
     /// **get_subtitle_uri is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getSubtitleUri() -> String! {
-        let rv: String! = cast(clutter_media_get_subtitle_uri(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getSubtitleUri() -> String! {
+        let rv = clutter_media_get_subtitle_uri(media_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Retrieves the URI from `media`.
     ///
     /// **get_uri is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func getUri() -> String! {
-        let rv: String! = cast(clutter_media_get_uri(cast(media_ptr)))
-        return cast(rv)
+    @available(*, deprecated) @inlinable func getUri() -> String! {
+        let rv = clutter_media_get_uri(media_ptr).map({ String(cString: $0) })
+        return rv
     }
 
     /// Sets the playback volume of `media` to `volume`.
     ///
     /// **set_audio_volume is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func setAudio(volume: gdouble) {
-        clutter_media_set_audio_volume(cast(media_ptr), volume)
+    @available(*, deprecated) @inlinable func setAudio(volume: Double) {
+        clutter_media_set_audio_volume(media_ptr, gdouble(volume))
     
     }
 
@@ -728,8 +883,8 @@ public extension MediaProtocol {
     ///
     /// **set_filename is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func setFilename(String_: UnsafePointer<gchar>) {
-        clutter_media_set_filename(cast(media_ptr), String_)
+    @available(*, deprecated) @inlinable func set(filename: UnsafePointer<gchar>!) {
+        clutter_media_set_filename(media_ptr, filename)
     
     }
 
@@ -743,8 +898,8 @@ public extension MediaProtocol {
     ///
     /// **set_playing is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func set(playing: Bool) {
-        clutter_media_set_playing(cast(media_ptr), gboolean(playing ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(playing: Bool) {
+        clutter_media_set_playing(media_ptr, gboolean((playing) ? 1 : 0))
     
     }
 
@@ -753,8 +908,8 @@ public extension MediaProtocol {
     ///
     /// **set_progress is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func set(progress: gdouble) {
-        clutter_media_set_progress(cast(media_ptr), progress)
+    @available(*, deprecated) @inlinable func set(progress: Double) {
+        clutter_media_set_progress(media_ptr, gdouble(progress))
     
     }
 
@@ -770,8 +925,8 @@ public extension MediaProtocol {
     ///
     /// **set_subtitle_font_name is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func setSubtitle(fontName font_name: UnsafePointer<CChar>) {
-        clutter_media_set_subtitle_font_name(cast(media_ptr), font_name)
+    @available(*, deprecated) @inlinable func setSubtitle(fontName font_name: UnsafePointer<CChar>!) {
+        clutter_media_set_subtitle_font_name(media_ptr, font_name)
     
     }
 
@@ -779,8 +934,8 @@ public extension MediaProtocol {
     ///
     /// **set_subtitle_uri is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func setSubtitle(uri: UnsafePointer<gchar>) {
-        clutter_media_set_subtitle_uri(cast(media_ptr), uri)
+    @available(*, deprecated) @inlinable func setSubtitle(uri: UnsafePointer<gchar>!) {
+        clutter_media_set_subtitle_uri(media_ptr, uri)
     
     }
 
@@ -788,29 +943,29 @@ public extension MediaProtocol {
     ///
     /// **set_uri is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) func set(uri: UnsafePointer<gchar>) {
-        clutter_media_set_uri(cast(media_ptr), uri)
+    @available(*, deprecated) @inlinable func set(uri: UnsafePointer<gchar>!) {
+        clutter_media_set_uri(media_ptr, uri)
     
     }
     /// Retrieves the playback volume of `media`.
     ///
     /// **get_audio_volume is deprecated:**
     /// This method is deprecated.
-    var audioVolume: Double {
+    @inlinable var audioVolume: Double {
         /// Retrieves the playback volume of `media`.
         ///
         /// **get_audio_volume is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: Double = cast(clutter_media_get_audio_volume(cast(media_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_media_get_audio_volume(media_ptr))
+            return rv
         }
         /// Sets the playback volume of `media` to `volume`.
         ///
         /// **set_audio_volume is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_audio_volume(cast(media_ptr), cast(newValue))
+            clutter_media_set_audio_volume(media_ptr, gdouble(newValue))
         }
     }
 
@@ -818,14 +973,14 @@ public extension MediaProtocol {
     ///
     /// **get_buffer_fill is deprecated:**
     /// This method is deprecated.
-    var bufferFill: Double {
+    @inlinable var bufferFill: Double {
         /// Retrieves the amount of the stream that is buffered.
         ///
         /// **get_buffer_fill is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: Double = cast(clutter_media_get_buffer_fill(cast(media_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_media_get_buffer_fill(media_ptr))
+            return rv
         }
     }
 
@@ -833,14 +988,14 @@ public extension MediaProtocol {
     ///
     /// **get_can_seek is deprecated:**
     /// This method is deprecated.
-    var canSeek: Bool {
+    @inlinable var canSeek: Bool {
         /// Retrieves whether `media` is seekable or not.
         ///
         /// **get_can_seek is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_can_seek(cast(media_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_media_get_can_seek(media_ptr)) != 0)
+            return rv
         }
     }
 
@@ -848,14 +1003,14 @@ public extension MediaProtocol {
     ///
     /// **duration is deprecated:**
     /// This method is deprecated.
-    var duration: Double {
+    @inlinable var duration: Double {
         /// Retrieves the duration of the media stream that `media` represents.
         ///
         /// **get_duration is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: Double = cast(clutter_media_get_duration(cast(media_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_media_get_duration(media_ptr))
+            return rv
         }
     }
 
@@ -863,14 +1018,14 @@ public extension MediaProtocol {
     ///
     /// **playing is deprecated:**
     /// This method is deprecated.
-    var playing: Bool {
+    @inlinable var playing: Bool {
         /// Retrieves the playing status of `media`.
         ///
         /// **get_playing is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = clutter_media_get_playing(cast(media_ptr))
-            return Bool(rv != 0)
+            let rv = ((clutter_media_get_playing(media_ptr)) != 0)
+            return rv
         }
         /// Starts or stops playing of `media`.
         ///  
@@ -883,7 +1038,7 @@ public extension MediaProtocol {
         /// **set_playing is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_playing(cast(media_ptr), gboolean(newValue ? 1 : 0))
+            clutter_media_set_playing(media_ptr, gboolean((newValue) ? 1 : 0))
         }
     }
 
@@ -892,14 +1047,14 @@ public extension MediaProtocol {
     ///
     /// **progress is deprecated:**
     /// This method is deprecated.
-    var progress: Double {
+    @inlinable var progress: Double {
         /// Retrieves the playback progress of `media`.
         ///
         /// **get_progress is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: Double = cast(clutter_media_get_progress(cast(media_ptr)))
-            return cast(rv)
+            let rv = Double(clutter_media_get_progress(media_ptr))
+            return rv
         }
         /// Sets the playback progress of `media`. The `progress` is
         /// a normalized value between 0.0 (begin) and 1.0 (end).
@@ -907,7 +1062,7 @@ public extension MediaProtocol {
         /// **set_progress is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_progress(cast(media_ptr), cast(newValue))
+            clutter_media_set_progress(media_ptr, gdouble(newValue))
         }
     }
 
@@ -915,14 +1070,14 @@ public extension MediaProtocol {
     ///
     /// **get_subtitle_font_name is deprecated:**
     /// This method is deprecated.
-    var subtitleFontName: String! {
+    @inlinable var subtitleFontName: String! {
         /// Retrieves the font name currently used.
         ///
         /// **get_subtitle_font_name is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: String! = cast(clutter_media_get_subtitle_font_name(cast(media_ptr)))
-            return cast(rv)
+            let rv = clutter_media_get_subtitle_font_name(media_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the font used by the subtitle renderer. The `font_name` string must be
         /// either `nil`, which means that the default font name of the underlying
@@ -937,7 +1092,7 @@ public extension MediaProtocol {
         /// **set_subtitle_font_name is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_subtitle_font_name(cast(media_ptr), cast(newValue))
+            clutter_media_set_subtitle_font_name(media_ptr, newValue)
         }
     }
 
@@ -945,21 +1100,21 @@ public extension MediaProtocol {
     ///
     /// **get_subtitle_uri is deprecated:**
     /// This method is deprecated.
-    var subtitleUri: String! {
+    @inlinable var subtitleUri: String! {
         /// Retrieves the URI of the subtitle file in use.
         ///
         /// **get_subtitle_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: String! = cast(clutter_media_get_subtitle_uri(cast(media_ptr)))
-            return cast(rv)
+            let rv = clutter_media_get_subtitle_uri(media_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the location of a subtitle file to display while playing `media`.
         ///
         /// **set_subtitle_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_subtitle_uri(cast(media_ptr), cast(newValue))
+            clutter_media_set_subtitle_uri(media_ptr, newValue)
         }
     }
 
@@ -967,21 +1122,21 @@ public extension MediaProtocol {
     ///
     /// **uri is deprecated:**
     /// This method is deprecated.
-    var uri: String! {
+    @inlinable var uri: String! {
         /// Retrieves the URI from `media`.
         ///
         /// **get_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv: String! = cast(clutter_media_get_uri(cast(media_ptr)))
-            return cast(rv)
+            let rv = clutter_media_get_uri(media_ptr).map({ String(cString: $0) })
+            return rv
         }
         /// Sets the URI of `media` to `uri`.
         ///
         /// **set_uri is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) nonmutating set {
-            clutter_media_set_uri(cast(media_ptr), cast(newValue))
+            clutter_media_set_uri(media_ptr, newValue)
         }
     }
 

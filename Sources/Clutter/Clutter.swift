@@ -18,7 +18,7 @@ public var argv: UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>? = CommandLi
 
 /// Initialisation function for Clutter.
 /// Must be called before any other function gets called!
-@discardableResult public func initialize() -> InitError {
+@discardableResult @inlinable public func initialize() -> InitError {
     return clutter_init(&argc, &argv)
 }
 
@@ -31,7 +31,7 @@ public class ThreeParameterClosureHolder<S, T, U, V> {
     
     public let call: (S, T, U) -> V
 
-    public init(_ closure: @escaping (S, T, U) -> V) {
+    @inlinable public init(_ closure: @escaping (S, T, U) -> V) {
         self.call = closure
     }
 }
@@ -40,17 +40,17 @@ public class ThreeParameterClosureHolder<S, T, U, V> {
 public typealias EventSignalHandler = (StageRef, UnsafeMutablePointer<ClutterEvent>, UnsafeMutableRawPointer?) -> Void
 
 /// Internal type used for holding a Timeline signal handling closure
-typealias EventSignalHandlerClosureHolder = ThreeParameterClosureHolder<StageRef,UnsafeMutablePointer<ClutterEvent>,UnsafeMutableRawPointer?,Void>
+public typealias EventSignalHandlerClosureHolder = ThreeParameterClosureHolder<StageRef,UnsafeMutablePointer<ClutterEvent>,UnsafeMutableRawPointer?,Void>
 
 /// Signal handler for timeline signals.
 public typealias TimelineSignalHandler = (TimelineRef, Int, UnsafeMutableRawPointer?) -> Void
 
 /// Internal type used for holding a Timeline signal handling closure
-typealias TimelineSignalHandlerClosureHolder = ThreeParameterClosureHolder<TimelineRef,Int,UnsafeMutableRawPointer?,Void>
+public typealias TimelineSignalHandlerClosureHolder = ThreeParameterClosureHolder<TimelineRef,Int,UnsafeMutableRawPointer?,Void>
 
 public extension TimelineProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: TimelineSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
+    @usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: TimelineSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
@@ -67,7 +67,7 @@ public extension TimelineProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
+    @inlinable func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: TimelineSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<TimelineSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let frame = Int(bitPattern: $1)
@@ -81,7 +81,7 @@ public extension TimelineProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectTimelineSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
+    @inlinable func connectTimelineSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: TimelineSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<TimelineSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let frame = Int(bitPattern: $1)
@@ -95,7 +95,7 @@ public extension TimelineProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int where T: SignalNameProtocol {
+    @inlinable func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int where T: SignalNameProtocol {
         return connectTimelineSignal(name: s.rawValue, flags: f, handler: handler)
     }
     
@@ -103,7 +103,7 @@ public extension TimelineProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect(signal: TimelineSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
+    @inlinable func connect(signal: TimelineSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
         return connectTimelineSignal(name: signal.rawValue, flags: f, handler: handler)
     }
     
@@ -111,14 +111,14 @@ public extension TimelineProtocol {
     /// signal of the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func onNewFrame(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
+    @inlinable func onNewFrame(flags f: ConnectFlags = ConnectFlags(0), handler: @escaping TimelineSignalHandler) -> Int {
         return connectTimelineSignal(name: TimelineSignalName.newFrame.rawValue, flags: f, handler: handler)
     }
 }
 
 public extension StageProtocol {
     /// Connection helper function
-    private func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: EventSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
+    @usableFromInline internal func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: EventSignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer, gpointer) -> gboolean) -> Int {
         let opaqueHolder = Unmanaged.passRetained(data).toOpaque()
         let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
         let rv = signalConnectData(detailedSignal: name, cHandler: callback, data: opaqueHolder, destroyData: {
@@ -135,7 +135,7 @@ public extension StageProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int {
+    @inlinable func connectSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: EventSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<EventSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let event = $1.assumingMemoryBound(to: ClutterEvent.self)
@@ -149,7 +149,7 @@ public extension StageProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connectEventSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int {
+    @inlinable func connectEventSignal(name: UnsafePointer<gchar>, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int {
         let rv = _connect(signal: name, flags: f, data: EventSignalHandlerClosureHolder(handler)) {
             let holder = Unmanaged<EventSignalHandlerClosureHolder>.fromOpaque($2).takeUnretainedValue()
             let event = $1.assumingMemoryBound(to: ClutterEvent.self)
@@ -163,7 +163,7 @@ public extension StageProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int where T: SignalNameProtocol {
+    @inlinable func connect<T>(signal s: T, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int where T: SignalNameProtocol {
         return connectEventSignal(name: s.rawValue, flags: f, handler: handler)
     }
     
@@ -171,14 +171,14 @@ public extension StageProtocol {
     /// the receiver object.  Similar to g_signal_connect(), but allows
     /// to provide a Swift closure that can capture its surrounding context.
     @discardableResult
-    func connect(event: ActorSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int {
+    @inlinable func connect(event: ActorSignalName, flags f: ConnectFlags = ConnectFlags(0), handler: @escaping EventSignalHandler) -> Int {
         return connectEventSignal(name: event.rawValue, flags: f, handler: handler)
     }
 }
 
 public extension ActorProtocol {
     /// Dimensions of the actor.
-    var size: (width: Double, height: Double) {
+    @inlinable var size: (width: Double, height: Double) {
         get {
             var w = gfloat(0)
             var h = gfloat(0)
@@ -186,12 +186,12 @@ public extension ActorProtocol {
             return (Double(w), Double(h))
         }
         set {
-            setSize(width: gfloat(newValue.width), height: gfloat(newValue.height))
+            setSize(width: newValue.width, height: newValue.height)
         }
     }
 
     /// Position of the actor.
-    var position: (x: Double, y: Double) {
+    @inlinable var position: (x: Double, y: Double) {
         get {
             var x = gfloat(0)
             var y = gfloat(0)
@@ -199,12 +199,12 @@ public extension ActorProtocol {
             return (Double(x), Double(y))
         }
         set {
-            setPosition(x: gfloat(newValue.x), y: gfloat(newValue.y))
+            setPosition(x: newValue.x, y: newValue.y)
         }
     }
 
     /// Background colour of the actor.
-    var backgroundColor: Color {
+    @inlinable var backgroundColor: Color {
         get {
             let c = Color(red: 0, green: 0, blue: 0, alpha: 0)
             getBackground(color: c)
@@ -225,31 +225,31 @@ public struct MatrixRef: MatrixProtocol {
 }
 
 public extension MatrixRef {
-    public init(_ p: UnsafeMutablePointer<ClutterMatrix>) {
+    @inlinable public init(_ p: UnsafeMutablePointer<ClutterMatrix>) {
         ptr = p
     }
     
-    public init<T: MatrixProtocol>(_ other: T) {
+    @inlinable public init<T: MatrixProtocol>(_ other: T) {
         ptr = other.ptr
     }
     
-    public init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = cPointer.withMemoryRebound(to: ClutterMatrix.self, capacity: 1) { $0 }
     }
     
-    public init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable public init<T>(constPointer: UnsafePointer<T>) {
         ptr = constPointer.withMemoryRebound(to: ClutterMatrix.self, capacity: 1) { UnsafeMutablePointer(mutating: $0) }
     }
     
-    public init(raw: UnsafeRawPointer) {
+    @inlinable public init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterMatrix.self)
     }
     
-    public init(raw: UnsafeMutableRawPointer) {
+    @inlinable public init(raw: UnsafeMutableRawPointer) {
         ptr = raw.assumingMemoryBound(to: ClutterMatrix.self)
     }
     
-    public init(opaquePointer: OpaquePointer) {
+    @inlinable public init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutablePointer<ClutterMatrix>(opaquePointer)
     }
     
@@ -258,11 +258,11 @@ public extension MatrixRef {
 open class MatrixClass: MatrixProtocol {
     public let ptr: UnsafeMutablePointer<ClutterMatrix>
     
-    public init(_ op: UnsafeMutablePointer<ClutterMatrix>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterMatrix>) {
         self.ptr = op
     }
     
-    public convenience init<T: MatrixProtocol>(_ other: T) {
+    @inlinable public convenience init<T: MatrixProtocol>(_ other: T) {
         self.init(other.ptr)
         // no reference counting for ClutterMatrix, cannot ref(cast(ptr))
     }
@@ -271,19 +271,19 @@ open class MatrixClass: MatrixProtocol {
         // no reference counting for ClutterMatrix, cannot unref(cast(ptr))
     }
     
-    public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public convenience init<T>(cPointer: UnsafeMutablePointer<T>) {
         self.init(cPointer.withMemoryRebound(to: ClutterMatrix.self, capacity: 1) { $0 })
     }
     
-    public convenience init(raw: UnsafeRawPointer) {
+    @inlinable public convenience init(raw: UnsafeRawPointer) {
         self.init(UnsafeMutableRawPointer(mutating: raw).assumingMemoryBound(to: ClutterMatrix.self))
     }
     
-    public convenience init(raw: UnsafeMutableRawPointer) {
+    @inlinable public convenience init(raw: UnsafeMutableRawPointer) {
         self.init(raw.assumingMemoryBound(to: ClutterMatrix.self))
     }
     
-    public convenience init(opaquePointer: OpaquePointer) {
+    @inlinable public convenience init(opaquePointer: OpaquePointer) {
         self.init(UnsafeMutablePointer<ClutterMatrix>(opaquePointer))
     }
 }
@@ -294,3 +294,6 @@ func cast(_ f: @convention(c) @escaping (UnsafeMutablePointer<GObject>?, UnsafeP
 }
 
 func cast(_ m: ClutterModifierType) -> ModifierType { ModifierType(m) }
+
+@_cdecl("clutter_event_get_scroll_finish_flags") func missing_clutter_event_get_scroll_finish_flags() { fatalError("unimplemented clutter_event_get_scroll_finish_flags() stub called") }
+@_cdecl("clutter_event_get_scroll_source") func missing_clutter_event_get_scroll_source() { fatalError("unimplemented clutter_event_get_scroll_source() stub called") }

@@ -6,6 +6,7 @@ import CCoglPango
 import CClutter
 import GLib
 import GLibObject
+import GIO
 import Cairo
 import Pango
 import Cogl
@@ -22,10 +23,11 @@ import Atk
 /// A point in 3D space, expressed in pixels
 public protocol VertexProtocol {
         /// Untyped pointer to the underlying `ClutterVertex` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterVertex` instance.
-    var vertex_ptr: UnsafeMutablePointer<ClutterVertex> { get }
+    var vertex_ptr: UnsafeMutablePointer<ClutterVertex>! { get }
+
 }
 
 /// The `VertexRef` type acts as a lightweight Swift reference to an underlying `ClutterVertex` instance.
@@ -36,46 +38,76 @@ public protocol VertexProtocol {
 public struct VertexRef: VertexProtocol {
         /// Untyped pointer to the underlying `ClutterVertex` instance.
     /// For type-safe access, use the generated, typed pointer `vertex_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension VertexRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterVertex>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterVertex>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterVertex>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterVertex>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterVertex>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `VertexProtocol`
-    init<T: VertexProtocol>(_ other: T) {
+    @inlinable init<T: VertexProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -88,14 +120,14 @@ public extension VertexRef {
     ///   clutter_vertex_init (clutter_vertex_alloc (), x, y, z);
     /// ```
     /// 
-    init( x_: gfloat, y y_: gfloat, z_: gfloat) {
-        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_new(x_, y_, z_))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable init( x: Double, y: Double, z: Double) {
+        let rv = clutter_vertex_new(gfloat(x), gfloat(y), gfloat(z))
+        ptr = UnsafeMutableRawPointer(rv)
     }
     /// Allocates a new, empty `ClutterVertex`.
-    static func alloc() -> VertexRef! {
-        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_alloc())
-        return rv.map { VertexRef(cast($0)) }
+    @inlinable static func alloc() -> VertexRef! {
+        guard let rv = VertexRef(gconstpointer: gconstpointer(clutter_vertex_alloc())) else { return nil }
+        return rv
     }
 }
 
@@ -107,95 +139,141 @@ public extension VertexRef {
 open class Vertex: VertexProtocol {
         /// Untyped pointer to the underlying `ClutterVertex` instance.
     /// For type-safe access, use the generated, typed pointer `vertex_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Vertex` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterVertex>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterVertex>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Vertex` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterVertex>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Vertex` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Vertex` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Vertex` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterVertex>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `Vertex` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterVertex>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterVertex` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `Vertex` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterVertex>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterVertex>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
+        // no reference counting for ClutterVertex, cannot ref(vertex_ptr)
     }
 
     /// Reference intialiser for a related type that implements `VertexProtocol`
     /// `ClutterVertex` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `VertexProtocol`
-    public init<T: VertexProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other.vertex_ptr)
-        // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
+    @inlinable public init<T: VertexProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterVertex, cannot ref(vertex_ptr)
     }
 
     /// Do-nothing destructor for `ClutterVertex`.
     deinit {
-        // no reference counting for ClutterVertex, cannot unref(cast(vertex_ptr))
+        // no reference counting for ClutterVertex, cannot unref(vertex_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
+        // no reference counting for ClutterVertex, cannot ref(vertex_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
+        // no reference counting for ClutterVertex, cannot ref(vertex_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
+        // no reference counting for ClutterVertex, cannot ref(vertex_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterVertex, cannot ref(cast(vertex_ptr))
+        // no reference counting for ClutterVertex, cannot ref(vertex_ptr)
     }
 
     /// Creates a new `ClutterVertex` for the point in 3D space
@@ -207,15 +285,15 @@ open class Vertex: VertexProtocol {
     ///   clutter_vertex_init (clutter_vertex_alloc (), x, y, z);
     /// ```
     /// 
-    public init( x_: gfloat, y y_: gfloat, z_: gfloat) {
-        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_new(x_, y_, z_))
-        ptr = UnsafeMutableRawPointer(cast(rv))
+    @inlinable public init( x: Double, y: Double, z: Double) {
+        let rv = clutter_vertex_new(gfloat(x), gfloat(y), gfloat(z))
+        ptr = UnsafeMutableRawPointer(rv)
     }
 
     /// Allocates a new, empty `ClutterVertex`.
-    public static func alloc() -> Vertex! {
-        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_alloc())
-        return rv.map { Vertex(cast($0)) }
+    @inlinable public static func alloc() -> Vertex! {
+        guard let rv = Vertex(gconstpointer: gconstpointer(clutter_vertex_alloc())) else { return nil }
+        return rv
     }
 
 }
@@ -228,69 +306,69 @@ open class Vertex: VertexProtocol {
 // MARK: Vertex Record: VertexProtocol extension (methods and fields)
 public extension VertexProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterVertex` instance.
-    var vertex_ptr: UnsafeMutablePointer<ClutterVertex> { return ptr.assumingMemoryBound(to: ClutterVertex.self) }
+    @inlinable var vertex_ptr: UnsafeMutablePointer<ClutterVertex>! { return ptr?.assumingMemoryBound(to: ClutterVertex.self) }
 
     /// Copies `vertex`
-    func copy() -> UnsafeMutablePointer<ClutterVertex>! {
-        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_copy(cast(vertex_ptr)))
-        return cast(rv)
+    @inlinable func copy() -> VertexRef! {
+        guard let rv = VertexRef(gconstpointer: gconstpointer(clutter_vertex_copy(vertex_ptr))) else { return nil }
+        return rv
     }
 
     /// Compares `vertex_a` and `vertex_b` for equality
-    func equal(vertexB vertex_b: VertexProtocol) -> Bool {
-        let rv = clutter_vertex_equal(cast(vertex_ptr), cast(vertex_b.ptr))
-        return Bool(rv != 0)
+    @inlinable func equal<VertexT: VertexProtocol>(vertexB vertex_b: VertexT) -> Bool {
+        let rv = ((clutter_vertex_equal(vertex_ptr, vertex_b.vertex_ptr)) != 0)
+        return rv
     }
 
     /// Frees a `ClutterVertex` allocated using `clutter_vertex_alloc()` or
     /// `clutter_vertex_copy()`.
-    func free() {
-        clutter_vertex_free(cast(vertex_ptr))
+    @inlinable func free() {
+        clutter_vertex_free(vertex_ptr)
     
     }
 
     /// Initializes `vertex` with the given coordinates.
-    func init_(x x_: gfloat, y y_: gfloat, z_: gfloat) -> UnsafeMutablePointer<ClutterVertex>! {
-        let rv: UnsafeMutablePointer<ClutterVertex>! = cast(clutter_vertex_init(cast(vertex_ptr), x_, y_, z_))
-        return cast(rv)
+    @inlinable func init_(x: Double, y: Double, z: Double) -> VertexRef! {
+        guard let rv = VertexRef(gconstpointer: gconstpointer(clutter_vertex_init(vertex_ptr, gfloat(x), gfloat(y), gfloat(z)))) else { return nil }
+        return rv
     }
 
     /// X coordinate of the vertex
-    var x: Float {
+    @inlinable var x: gfloat {
         /// X coordinate of the vertex
         get {
-            let rv: Float = cast(vertex_ptr.pointee.x)
+            let rv = vertex_ptr.pointee.x
             return rv
         }
         /// X coordinate of the vertex
          set {
-            vertex_ptr.pointee.x = cast(newValue)
+            vertex_ptr.pointee.x = newValue
         }
     }
 
     /// Y coordinate of the vertex
-    var y: Float {
+    @inlinable var y: gfloat {
         /// Y coordinate of the vertex
         get {
-            let rv: Float = cast(vertex_ptr.pointee.y)
+            let rv = vertex_ptr.pointee.y
             return rv
         }
         /// Y coordinate of the vertex
          set {
-            vertex_ptr.pointee.y = cast(newValue)
+            vertex_ptr.pointee.y = newValue
         }
     }
 
     /// Z coordinate of the vertex
-    var z: Float {
+    @inlinable var z: gfloat {
         /// Z coordinate of the vertex
         get {
-            let rv: Float = cast(vertex_ptr.pointee.z)
+            let rv = vertex_ptr.pointee.z
             return rv
         }
         /// Z coordinate of the vertex
          set {
-            vertex_ptr.pointee.z = cast(newValue)
+            vertex_ptr.pointee.z = newValue
         }
     }
 
@@ -309,10 +387,11 @@ public extension VertexProtocol {
 /// only private data
 public protocol ZoomActionClassProtocol {
         /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
-    var ptr: UnsafeMutableRawPointer { get }
+    var ptr: UnsafeMutableRawPointer! { get }
 
     /// Typed pointer to the underlying `ClutterZoomActionClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterZoomActionClass> { get }
+    var _ptr: UnsafeMutablePointer<ClutterZoomActionClass>! { get }
+
 }
 
 /// The `ZoomActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterZoomActionClass` instance.
@@ -324,46 +403,76 @@ public protocol ZoomActionClassProtocol {
 public struct ZoomActionClassRef: ZoomActionClassProtocol {
         /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 }
 
 public extension ZoomActionClassRef {
     /// Designated initialiser from the underlying `C` data type
-    init(_ p: UnsafeMutablePointer<ClutterZoomActionClass>) {
-        ptr = UnsafeMutableRawPointer(p)    }
+    @inlinable init(_ p: UnsafeMutablePointer<ClutterZoomActionClass>) {
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type
+    @inlinable init(_ p: UnsafePointer<ClutterZoomActionClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
+    }
+
+    /// Conditional initialiser from an optional pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterZoomActionClass>?) {
+        guard let p = maybePointer else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
+    @inlinable init!(_ maybePointer: UnsafePointer<ClutterZoomActionClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional `gpointer`
+    @inlinable init!(gpointer g: gpointer?) {
+        guard let p = g else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
+    @inlinable init!(gconstpointer g: gconstpointer?) {
+        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
+        ptr = p
+    }
 
     /// Reference intialiser for a related type that implements `ZoomActionClassProtocol`
-    init<T: ZoomActionClassProtocol>(_ other: T) {
+    @inlinable init<T: ZoomActionClassProtocol>(_ other: T) {
         ptr = other.ptr
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    init<T>(cPointer: UnsafeMutablePointer<T>) {
+    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    init<T>(constPointer: UnsafePointer<T>) {
+    @inlinable init<T>(constPointer: UnsafePointer<T>) {
         ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    init(raw: UnsafeRawPointer) {
+    @inlinable init(raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    init(raw: UnsafeMutableRawPointer) {
+    @inlinable init(raw: UnsafeMutableRawPointer) {
         ptr = raw
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    init(opaquePointer: OpaquePointer) {
+    @inlinable init(opaquePointer: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(opaquePointer)
     }
 
@@ -378,95 +487,141 @@ public extension ZoomActionClassRef {
 open class ZoomActionClass: ZoomActionClassProtocol {
         /// Untyped pointer to the underlying `ClutterZoomActionClass` instance.
     /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer
+    public let ptr: UnsafeMutableRawPointer!
 
     /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ZoomActionClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(_ op: UnsafeMutablePointer<ClutterZoomActionClass>) {
+    @inlinable public init(_ op: UnsafeMutablePointer<ClutterZoomActionClass>) {
         ptr = UnsafeMutableRawPointer(op)
+    }
+
+    /// Designated initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init(_ op: UnsafePointer<ClutterZoomActionClass>) {
+        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
+    }
+
+    /// Optional initialiser from a non-mutating `gpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomActionClass` instance.
+    /// - Parameter op: gpointer to the underlying object
+    @inlinable public init!(gpointer op: gpointer?) {
+        guard let p = UnsafeMutableRawPointer(op) else { return nil }
+        ptr = p
+    }
+
+    /// Optional initialiser from a non-mutating `gconstpointer` to
+    /// the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(gconstpointer op: gconstpointer?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(mutating: p)
+    }
+
+    /// Optional initialiser from a constant pointer to the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafePointer<ClutterZoomActionClass>?) {
+        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
+    }
+
+    /// Optional initialiser from the underlying `C` data type.
+    /// This creates an instance without performing an unbalanced retain
+    /// i.e., ownership is transferred to the `ZoomActionClass` instance.
+    /// - Parameter op: pointer to the underlying object
+    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterZoomActionClass>?) {
+        guard let p = op else { return nil }
+        ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Designated initialiser from the underlying `C` data type.
     /// `ClutterZoomActionClass` does not allow reference counting, so despite the name no actual retaining will occur.
     /// i.e., ownership is transferred to the `ZoomActionClass` instance.
     /// - Parameter op: pointer to the underlying object
-    public init(retaining op: UnsafeMutablePointer<ClutterZoomActionClass>) {
+    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterZoomActionClass>) {
         ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterZoomActionClass, cannot ref(_ptr)
     }
 
     /// Reference intialiser for a related type that implements `ZoomActionClassProtocol`
     /// `ClutterZoomActionClass` does not allow reference counting.
     /// - Parameter other: an instance of a related type that implements `ZoomActionClassProtocol`
-    public init<T: ZoomActionClassProtocol>(_ other: T) {
-        ptr = UnsafeMutableRawPointer(other._ptr)
-        // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
+    @inlinable public init<T: ZoomActionClassProtocol>(_ other: T) {
+        ptr = other.ptr
+        // no reference counting for ClutterZoomActionClass, cannot ref(_ptr)
     }
 
     /// Do-nothing destructor for `ClutterZoomActionClass`.
     deinit {
-        // no reference counting for ClutterZoomActionClass, cannot unref(cast(_ptr))
+        // no reference counting for ClutterZoomActionClass, cannot unref(_ptr)
     }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(cPointer p: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe typed, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter cPointer: pointer to the underlying object
-    public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
+    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
         ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterZoomActionClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter p: raw pointer to the underlying object
-    public init(raw p: UnsafeRawPointer) {
+    @inlinable public init(raw p: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    public init(retainingRaw raw: UnsafeRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterZoomActionClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
         ptr = raw
-        // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterZoomActionClass, cannot ref(_ptr)
     }
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(opaquePointer p: OpaquePointer) {
+    @inlinable public init(opaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
     /// - Parameter p: opaque pointer to the underlying object
-    public init(retainingOpaquePointer p: OpaquePointer) {
+    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
         ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterZoomActionClass, cannot ref(cast(_ptr))
+        // no reference counting for ClutterZoomActionClass, cannot ref(_ptr)
     }
 
 
@@ -481,7 +636,7 @@ open class ZoomActionClass: ZoomActionClassProtocol {
 // MARK: ZoomActionClass Record: ZoomActionClassProtocol extension (methods and fields)
 public extension ZoomActionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterZoomActionClass` instance.
-    var _ptr: UnsafeMutablePointer<ClutterZoomActionClass> { return ptr.assumingMemoryBound(to: ClutterZoomActionClass.self) }
+    @inlinable var _ptr: UnsafeMutablePointer<ClutterZoomActionClass>! { return ptr?.assumingMemoryBound(to: ClutterZoomActionClass.self) }
 
 
     // var parentClass is unavailable because parent_class is private
