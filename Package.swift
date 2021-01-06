@@ -6,10 +6,10 @@ let package = Package(
     name: "Clutter",
     products: [ .library(name: "Clutter", targets: ["Clutter"]) ],
     dependencies: [
-        .package(name: "Cairo", url: "https://github.com/rhx/SwiftCairo.git", .branch("master")),
-        .package(name: "CoglPango", url: "https://github.com/rhx/SwiftCoglPango.git", .branch("master")),
-        .package(name: "Atk", url: "https://github.com/rhx/SwiftAtk.git", .branch("master")),
-        .package(name: "GIO", url: "https://github.com/rhx/SwiftGIO.git", .branch("master")),
+        .package(name: "Cairo", url: "https://github.com/rhx/SwiftCairo.git", .branch("main")),
+        .package(name: "CoglPango", url: "https://github.com/rhx/SwiftCoglPango.git", .branch("main")),
+        .package(name: "Atk", url: "https://github.com/rhx/SwiftAtk.git", .branch("main")),
+        .package(name: "GIO", url: "https://github.com/rhx/SwiftGIO.git", .branch("main")),
     ],
     targets: [
 	.systemLibrary(name: "CClutter", pkgConfig: "clutter-1.0 cogl-gl-1.0 cogl-path-1.0 glib-2.0 gio-unix-2.0",
