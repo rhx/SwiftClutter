@@ -40,7 +40,7 @@
         </p>
     
         <p class="header-col header-col--secondary">
-          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx%2Egithub%2Eio%2FSwiftClutter%2Fdocsets%2FClutter%2Exml">
+          <a class="header-link" href="dash-feed://http%3A%2F%2Frhx.github.io%2FSwiftClutter%2Fdocsets%2FClutter.xml">
             <img class="header-icon" src="img/dash.png"/>
             Install in Dash
           </a>
@@ -15095,6 +15095,9 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter13actorBoxAllocAA05ActorC3RefVSgyF">actorBoxAlloc()</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:7Clutter9addFilter5stage4func6notify8userDataSiAA8StageRefVSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyAPXCSgAPtF">addFilter(stage:func:notify:userData:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter9addFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF">addFilter(stage:func:notify:userData:)</a>
               </li>
               <li class="nav-group-task">
@@ -15135,6 +15138,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter3do_5eventyx_tAA13EventProtocolRzlF">do_(event:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:7Clutter14eventAddFilter5stage4func6notify8userDataSiAA8StageRefVSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyAPXCSgAPtF">eventAddFilter(stage:func:notify:userData:)</a>
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter14eventAddFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF">eventAddFilter(stage:func:notify:userData:)</a>
@@ -15431,6 +15437,9 @@
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter17valueSetPaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF">valueSetPaintNode(value:node:)</a>
               </li>
               <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:7Clutter17valueSetPaintNode0B04nodeyx_AA0dE3RefVSgt10GLibObject13ValueProtocolRzlF">valueSetPaintNode(value:node:)</a>
+              </li>
+              <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter19valueSetShaderFloat0B04size6floatsyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderFloat(value:size:floats:)</a>
               </li>
               <li class="nav-group-task">
@@ -15444,6 +15453,9 @@
               </li>
               <li class="nav-group-task">
                 <a class="nav-group-task-link" href="Functions.html#/s:7Clutter18valueTakePaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF">valueTakePaintNode(value:node:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a class="nav-group-task-link" href="Functions.html#/s:7Clutter18valueTakePaintNode0B04nodeyx_AA0dE3RefVSgt10GLibObject13ValueProtocolRzlF">valueTakePaintNode(value:node:)</a>
               </li>
             </ul>
           </li>
@@ -17347,9 +17359,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Clutter9addFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF"></a>
+                    <a name="/s:7Clutter9addFilter5stage4func6notify8userDataSiAA8StageRefVSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyAPXCSgAPtF"></a>
                     <a name="//apple_ref/swift/Function/addFilter(stage:func:notify:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter9addFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF">addFilter(stage:func:notify:userData:)</a>
+                    <a class="token" href="#/s:7Clutter9addFilter5stage4func6notify8userDataSiAA8StageRefVSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyAPXCSgAPtF">addFilter(stage:<wbr>func:<wbr>notify:<wbr>userData:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17367,12 +17379,45 @@ emitted for the event and it will take precedence over any grabs.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">addFilter</span><span class="o">&lt;</span><span class="kt">StageT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">stage</span><span class="p">:</span> <span class="kt">StageT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">ClutterEventFilterFunc</span><span class="p">?,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="k">where</span> <span class="kt">StageT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StageProtocol.html">StageProtocol</a></span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">addFilter</span><span class="p">(</span><span class="nv">stage</span><span class="p">:</span> <span class="kt"><a href="Structs/StageRef.html">StageRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">ClutterEventFilterFunc</span><span class="p">?,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
                         <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L19-L22">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Clutter9addFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF"></a>
+                    <a name="//apple_ref/swift/Function/addFilter(stage:func:notify:userData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Clutter9addFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF">addFilter(stage:<wbr>func:<wbr>notify:<wbr>userData:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a function which will be called for all events that Clutter
+processes. The function will be called before any signals are
+emitted for the event and it will take precedence over any grabs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">addFilter</span><span class="o">&lt;</span><span class="kt">StageT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">stage</span><span class="p">:</span> <span class="kt">StageT</span><span class="p">?,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">ClutterEventFilterFunc</span><span class="p">?,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="k">where</span> <span class="kt">StageT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StageProtocol.html">StageProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L26-L29">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17404,7 +17449,7 @@ this.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L29-L32">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L36-L39">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17436,7 +17481,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L39-L42">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L46-L49">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17446,7 +17491,7 @@ does not remove it.</p>
                     <code>
                     <a name="/s:7Clutter12removeFilter2idySi_tF"></a>
                     <a name="//apple_ref/swift/Function/removeFilter(id:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter12removeFilter2idySi_tF">removeFilter(id:)</a>
+                    <a class="token" href="#/s:7Clutter12removeFilter2idySi_tF">removeFilter(id:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17468,7 +17513,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L49-L52">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L56-L59">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17499,7 +17544,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L58-L61">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L65-L68">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17530,7 +17575,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L66-L69">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L73-L76">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17540,7 +17585,7 @@ does not remove it.</p>
                     <code>
                     <a name="/s:7Clutter10cairoClear2cryx_t5Cairo15ContextProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/cairoClear(cr:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter10cairoClear2cryx_t5Cairo15ContextProtocolRzlF">cairoClear(cr:)</a>
+                    <a class="token" href="#/s:7Clutter10cairoClear2cryx_t5Cairo15ContextProtocolRzlF">cairoClear(cr:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17561,7 +17606,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L75-L78">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L82-L85">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17571,7 +17616,7 @@ does not remove it.</p>
                     <code>
                     <a name="/s:7Clutter19cairoSetSourceColor2cr5coloryq__xtAA0E8ProtocolRz5Cairo07ContextH0R_r0_lF"></a>
                     <a name="//apple_ref/swift/Function/cairoSetSourceColor(cr:color:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter19cairoSetSourceColor2cr5coloryq__xtAA0E8ProtocolRz5Cairo07ContextH0R_r0_lF">cairoSetSourceColor(cr:color:)</a>
+                    <a class="token" href="#/s:7Clutter19cairoSetSourceColor2cr5coloryq__xtAA0E8ProtocolRz5Cairo07ContextH0R_r0_lF">cairoSetSourceColor(cr:<wbr>color:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17599,7 +17644,7 @@ a <code>ClutterColor</code>. This function is the equivalent of:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L94-L97">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L101-L104">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17609,7 +17654,7 @@ a <code>ClutterColor</code>. This function is the equivalent of:</p>
                     <code>
                     <a name="/s:7Clutter21checkWindowingBackend11backendTypeSbSPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Function/checkWindowingBackend(backendType:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter21checkWindowingBackend11backendTypeSbSPys4Int8VGSg_tF">checkWindowingBackend(backendType:)</a>
+                    <a class="token" href="#/s:7Clutter21checkWindowingBackend11backendTypeSbSPys4Int8VGSg_tF">checkWindowingBackend(backendType:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17648,12 +17693,12 @@ windowing system; for instance:</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkWindowingBackend</span><span class="p">(</span><span class="n">backendType</span> <span class="nv">backend_type</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">checkWindowingBackend</span><span class="p">(</span><span class="nv">backendType</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L129-L132">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L136-L139">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17692,7 +17737,7 @@ Use clutter_get_font_map() and
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L145-L148">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L152-L155">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17702,7 +17747,7 @@ Use clutter_get_font_map() and
                     <code>
                     <a name="/s:7Clutter12colorFromHls0B03hue9luminance10saturationyx_S3dtAA13ColorProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/colorFromHls(color:hue:luminance:saturation:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter12colorFromHls0B03hue9luminance10saturationyx_S3dtAA13ColorProtocolRzlF">colorFromHls(color:hue:luminance:saturation:)</a>
+                    <a class="token" href="#/s:7Clutter12colorFromHls0B03hue9luminance10saturationyx_S3dtAA13ColorProtocolRzlF">colorFromHls(color:<wbr>hue:<wbr>luminance:<wbr>saturation:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17724,7 +17769,7 @@ values into a <code>ClutterColor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L155-L158">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L162-L165">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17734,7 +17779,7 @@ values into a <code>ClutterColor</code>.</p>
                     <code>
                     <a name="/s:7Clutter14colorFromPixel0B05pixelyx_s6UInt32VtAA13ColorProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/colorFromPixel(color:pixel:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14colorFromPixel0B05pixelyx_s6UInt32VtAA13ColorProtocolRzlF">colorFromPixel(color:pixel:)</a>
+                    <a class="token" href="#/s:7Clutter14colorFromPixel0B05pixelyx_s6UInt32VtAA13ColorProtocolRzlF">colorFromPixel(color:<wbr>pixel:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17756,7 +17801,7 @@ color to a <code>ClutterColor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L165-L168">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L172-L175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17766,7 +17811,7 @@ color to a <code>ClutterColor</code>.</p>
                     <code>
                     <a name="/s:7Clutter15colorFromString0B03strSbx_SPys4Int8VGSgtAA13ColorProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/colorFromString(color:str:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter15colorFromString0B03strSbx_SPys4Int8VGSgtAA13ColorProtocolRzlF">colorFromString(color:str:)</a>
+                    <a class="token" href="#/s:7Clutter15colorFromString0B03strSbx_SPys4Int8VGSgtAA13ColorProtocolRzlF">colorFromString(color:<wbr>str:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17822,7 +17867,7 @@ be fully opaque.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L207-L210">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L214-L217">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17832,7 +17877,7 @@ be fully opaque.</p>
                     <code>
                     <a name="/s:7Clutter14colorGetStatic0B0AA8ColorRefVSgSo0adE0a_tF"></a>
                     <a name="//apple_ref/swift/Function/colorGetStatic(color:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14colorGetStatic0B0AA8ColorRefVSgSo0adE0a_tF">colorGetStatic(color:)</a>
+                    <a class="token" href="#/s:7Clutter14colorGetStatic0B0AA8ColorRefVSgSo0adE0a_tF">colorGetStatic(color:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17856,7 +17901,7 @@ available and valid</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L219-L222">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L226-L229">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17866,7 +17911,7 @@ available and valid</p>
                     <code>
                     <a name="/s:7Clutter31containerClassFindChildProperty5klass12propertyName10GLibObject12ParamSpecRefVSgx_SPys4Int8VGSgtAE0kC8ProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/containerClassFindChildProperty(klass:propertyName:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter31containerClassFindChildProperty5klass12propertyName10GLibObject12ParamSpecRefVSgx_SPys4Int8VGSgtAE0kC8ProtocolRzlF">containerClassFindChildProperty(klass:propertyName:)</a>
+                    <a class="token" href="#/s:7Clutter31containerClassFindChildProperty5klass12propertyName10GLibObject12ParamSpecRefVSgx_SPys4Int8VGSgtAE0kC8ProtocolRzlF">containerClassFindChildProperty(klass:<wbr>propertyName:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17882,12 +17927,12 @@ available and valid</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">containerClassFindChildProperty</span><span class="o">&lt;</span><span class="kt">ObjectClassT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">klass</span><span class="p">:</span> <span class="kt">ObjectClassT</span><span class="p">,</span> <span class="n">propertyName</span> <span class="nv">property_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ParamSpecRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">ObjectClassT</span> <span class="p">:</span> <span class="kt">ObjectClassProtocol</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">containerClassFindChildProperty</span><span class="o">&lt;</span><span class="kt">ObjectClassT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">klass</span><span class="p">:</span> <span class="kt">ObjectClassT</span><span class="p">,</span> <span class="nv">propertyName</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamSpecRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">ObjectClassT</span> <span class="p">:</span> <span class="kt">ObjectClassProtocol</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L228-L231">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L235-L238">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17897,7 +17942,7 @@ available and valid</p>
                     <code>
                     <a name="/s:7Clutter33containerClassListChildProperties5klass01nF0SpySpySo11_GParamSpecVGSgGSgx_Spys6UInt32VGSgt10GLibObject0lC8ProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/containerClassListChildProperties(klass:nProperties:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter33containerClassListChildProperties5klass01nF0SpySpySo11_GParamSpecVGSgGSgx_Spys6UInt32VGSgt10GLibObject0lC8ProtocolRzlF">containerClassListChildProperties(klass:nProperties:)</a>
+                    <a class="token" href="#/s:7Clutter33containerClassListChildProperties5klass01nF0SpySpySo11_GParamSpecVGSgGSgx_Spys6UInt32VGSgt10GLibObject0lC8ProtocolRzlF">containerClassListChildProperties(klass:<wbr>nProperties:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17913,12 +17958,12 @@ available and valid</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">containerClassListChildProperties</span><span class="o">&lt;</span><span class="kt">ObjectClassT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">klass</span><span class="p">:</span> <span class="kt">ObjectClassT</span><span class="p">,</span> <span class="n">nProperties</span> <span class="nv">n_properties</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GParamSpec</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="k">where</span> <span class="kt">ObjectClassT</span> <span class="p">:</span> <span class="kt">ObjectClassProtocol</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">containerClassListChildProperties</span><span class="o">&lt;</span><span class="kt">ObjectClassT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">klass</span><span class="p">:</span> <span class="kt">ObjectClassT</span><span class="p">,</span> <span class="nv">nProperties</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">guint</span><span class="o">&gt;!</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GParamSpec</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="k">where</span> <span class="kt">ObjectClassT</span> <span class="p">:</span> <span class="kt">ObjectClassProtocol</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L237-L240">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L244-L247">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17952,7 +17997,7 @@ should be called before <code>clutter_init()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L249-L252">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L256-L259">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17962,7 +18007,7 @@ should be called before <code>clutter_init()</code>.</p>
                     <code>
                     <a name="/s:7Clutter3do_5eventyx_tAA13EventProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/do_(event:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter3do_5eventyx_tAA13EventProtocolRzlF">do_(event:)</a>
+                    <a class="token" href="#/s:7Clutter3do_5eventyx_tAA13EventProtocolRzlF">do_(event:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -17989,7 +18034,7 @@ toolkit, and it should never be called by applications.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L264-L267">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L271-L274">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -17997,9 +18042,9 @@ toolkit, and it should never be called by applications.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Clutter14eventAddFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF"></a>
+                    <a name="/s:7Clutter14eventAddFilter5stage4func6notify8userDataSiAA8StageRefVSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyAPXCSgAPtF"></a>
                     <a name="//apple_ref/swift/Function/eventAddFilter(stage:func:notify:userData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14eventAddFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF">eventAddFilter(stage:func:notify:userData:)</a>
+                    <a class="token" href="#/s:7Clutter14eventAddFilter5stage4func6notify8userDataSiAA8StageRefVSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyAPXCSgAPtF">eventAddFilter(stage:<wbr>func:<wbr>notify:<wbr>userData:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18017,12 +18062,45 @@ emitted for the event and it will take precedence over any grabs.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">eventAddFilter</span><span class="o">&lt;</span><span class="kt">StageT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">stage</span><span class="p">:</span> <span class="kt">StageT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">ClutterEventFilterFunc</span><span class="p">?,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?,</span> <span class="n">userData</span> <span class="nv">user_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="k">where</span> <span class="kt">StageT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StageProtocol.html">StageProtocol</a></span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">eventAddFilter</span><span class="p">(</span><span class="nv">stage</span><span class="p">:</span> <span class="kt"><a href="Structs/StageRef.html">StageRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">ClutterEventFilterFunc</span><span class="p">?,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L275-L278">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L282-L285">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Clutter14eventAddFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF"></a>
+                    <a name="//apple_ref/swift/Function/eventAddFilter(stage:func:notify:userData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Clutter14eventAddFilter5stage4func6notify8userDataSixSg_s5Int32VSPySo01_A5EventVGSg_SvSgtXCSgyANXCSgANtAA13StageProtocolRzlF">eventAddFilter(stage:<wbr>func:<wbr>notify:<wbr>userData:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Adds a function which will be called for all events that Clutter
+processes. The function will be called before any signals are
+emitted for the event and it will take precedence over any grabs.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">eventAddFilter</span><span class="o">&lt;</span><span class="kt">StageT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">stage</span><span class="p">:</span> <span class="kt">StageT</span><span class="p">?,</span> <span class="nv">func</span><span class="p">:</span> <span class="kt">ClutterEventFilterFunc</span><span class="p">?,</span> <span class="nv">notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?,</span> <span class="nv">userData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Int</span> <span class="k">where</span> <span class="kt">StageT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/StageProtocol.html">StageProtocol</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L289-L292">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18054,7 +18132,7 @@ this.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L285-L288">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L299-L302">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18086,7 +18164,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L295-L298">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L309-L312">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18096,7 +18174,7 @@ does not remove it.</p>
                     <code>
                     <a name="/s:7Clutter17eventRemoveFilter2idySi_tF"></a>
                     <a name="//apple_ref/swift/Function/eventRemoveFilter(id:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17eventRemoveFilter2idySi_tF">eventRemoveFilter(id:)</a>
+                    <a class="token" href="#/s:7Clutter17eventRemoveFilter2idySi_tF">eventRemoveFilter(id:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18118,7 +18196,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L305-L308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L319-L322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18149,7 +18227,7 @@ does not remove it.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L314-L317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L328-L331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18159,7 +18237,7 @@ does not remove it.</p>
                     <code>
                     <a name="/s:7Clutter16featureAvailable0B0SbAA12FeatureFlagsV_tF"></a>
                     <a name="//apple_ref/swift/Function/featureAvailable(feature:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter16featureAvailable0B0SbAA12FeatureFlagsV_tF">featureAvailable(feature:)</a>
+                    <a class="token" href="#/s:7Clutter16featureAvailable0B0SbAA12FeatureFlagsV_tF">featureAvailable(feature:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18181,7 +18259,7 @@ OR of <code>ClutterFeatureFlags</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L324-L327">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L338-L341">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18212,7 +18290,7 @@ OR of <code>ClutterFeatureFlags</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L333-L336">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L347-L350">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18222,7 +18300,7 @@ OR of <code>ClutterFeatureFlags</code>.</p>
                     <code>
                     <a name="/s:7Clutter14frameSourceAdd3fps4func4dataS2i_s5Int32VSvSgXCSgAHtF"></a>
                     <a name="//apple_ref/swift/Function/frameSourceAdd(fps:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14frameSourceAdd3fps4func4dataS2i_s5Int32VSvSgXCSgAHtF">frameSourceAdd(fps:func:data:)</a>
+                    <a class="token" href="#/s:7Clutter14frameSourceAdd3fps4func4dataS2i_s5Int32VSvSgXCSgAHtF">frameSourceAdd(fps:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18247,7 +18325,7 @@ There is no direct replacement for this API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L345-L348">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L359-L362">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18257,7 +18335,7 @@ There is no direct replacement for this API</p>
                     <code>
                     <a name="/s:7Clutter18frameSourceAddFull8priority3fps4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/frameSourceAddFull(priority:fps:func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter18frameSourceAddFull8priority3fps4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF">frameSourceAddFull(priority:fps:func:data:notify:)</a>
+                    <a class="token" href="#/s:7Clutter18frameSourceAddFull8priority3fps4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF">frameSourceAddFull(priority:<wbr>fps:<wbr>func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18297,7 +18375,7 @@ There is no direct replacement for this API.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L372-L375">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L386-L389">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18330,7 +18408,7 @@ implementation available</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L383-L386">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L397-L400">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18340,7 +18418,7 @@ implementation available</p>
                     <code>
                     <a name="/s:7Clutter13getActorByGid3id_AA0C3RefVSgs6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Function/getActorByGid(id_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13getActorByGid3id_AA0C3RefVSgs6UInt32V_tF">getActorByGid(id_:)</a>
+                    <a class="token" href="#/s:7Clutter13getActorByGid3id_AA0C3RefVSgs6UInt32V_tF">getActorByGid(id_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18367,7 +18445,7 @@ The id is deprecated, and this function always returns
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L397-L400">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L411-L414">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18402,7 +18480,7 @@ event.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L410-L413">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L424-L427">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18434,7 +18512,7 @@ event or if the event has a timestamp.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L420-L423">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L434-L437">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18469,7 +18547,7 @@ This function does not do anything.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L432-L435">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L446-L449">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18501,7 +18579,7 @@ This function does not do anything.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L442-L445">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L456-L459">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18532,7 +18610,7 @@ This function does not do anything.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L451-L454">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L465-L468">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18568,7 +18646,7 @@ environment variable.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L465-L468">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L479-L482">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18605,7 +18683,7 @@ Use clutter_backend_get_font_options() and the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L479-L482">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L493-L496">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18633,12 +18711,12 @@ Pango API.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFontMap</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">FontMapRef</span><span class="o">!</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getFontMap</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Pango</span><span class="o">.</span><span class="kt">FontMapRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L490-L493">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L504-L507">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18648,7 +18726,7 @@ Pango API.</p>
                     <code>
                     <a name="/s:7Clutter19getInputDeviceForId3id_AA0cD3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Function/getInputDeviceForId(id_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter19getInputDeviceForId3id_AA0cD3RefVSgSi_tF">getInputDeviceForId(id_:)</a>
+                    <a class="token" href="#/s:7Clutter19getInputDeviceForId3id_AA0cD3RefVSgSi_tF">getInputDeviceForId(id_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18681,7 +18759,7 @@ Use clutter_device_manager_get_device() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L513-L516">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L527-L530">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18712,7 +18790,7 @@ Use clutter_device_manager_get_device() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L522-L525">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L536-L539">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18747,7 +18825,7 @@ Use clutter_stage_get_motion_events_enabled() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L534-L537">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L548-L551">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18782,12 +18860,12 @@ display connection with <code>clutter_x11_set_display()</code>, or with
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOptionGroupWithoutInit</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">OptionGroupRef</span><span class="o">!</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">getOptionGroupWithoutInit</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">GLib</span><span class="o">.</span><span class="kt">OptionGroupRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L552-L555">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L566-L569">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18818,7 +18896,7 @@ display connection with <code>clutter_x11_set_display()</code>, or with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L561-L564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L575-L578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18828,7 +18906,7 @@ display connection with <code>clutter_x11_set_display()</code>, or with
                     <code>
                     <a name="/s:7Clutter11getScriptId7gobjectSSSgx_t10GLibObject0G8ProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/getScriptId(gobject:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11getScriptId7gobjectSSSgx_t10GLibObject0G8ProtocolRzlF">getScriptId(gobject:)</a>
+                    <a class="token" href="#/s:7Clutter11getScriptId7gobjectSSSgx_t10GLibObject0G8ProtocolRzlF">getScriptId(gobject:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18849,7 +18927,7 @@ display connection with <code>clutter_x11_set_display()</code>, or with
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L570-L573">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L584-L587">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18889,7 +18967,7 @@ This function does not do anything. Use the environment
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L587-L590">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L601-L604">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18934,7 +19012,7 @@ Use #GTimer or g_get_monotonic_time() for a proper
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L609-L612">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L623-L626">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18944,7 +19022,7 @@ Use #GTimer or g_get_monotonic_time() for a proper
                     <code>
                     <a name="/s:7Clutter12grabKeyboard5actoryx_tAA13ActorProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/grabKeyboard(actor:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter12grabKeyboard5actoryx_tAA13ActorProtocolRzlF">grabKeyboard(actor:)</a>
+                    <a class="token" href="#/s:7Clutter12grabKeyboard5actoryx_tAA13ActorProtocolRzlF">grabKeyboard(actor:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -18975,7 +19053,7 @@ to perform a &ldquo;soft&rdquo; key grab and assign key focus to a specific acto
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L628-L631">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L642-L645">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -18985,7 +19063,7 @@ to perform a &ldquo;soft&rdquo; key grab and assign key focus to a specific acto
                     <code>
                     <a name="/s:7Clutter11grabPointer5actoryx_tAA13ActorProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/grabPointer(actor:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11grabPointer5actoryx_tAA13ActorProtocolRzlF">grabPointer(actor:)</a>
+                    <a class="token" href="#/s:7Clutter11grabPointer5actoryx_tAA13ActorProtocolRzlF">grabPointer(actor:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19020,7 +19098,7 @@ input device by calling <code>clutter_input_device_grab()</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L651-L654">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L665-L668">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19030,7 +19108,7 @@ input device by calling <code>clutter_input_device_grab()</code>.</p>
                     <code>
                     <a name="/s:7Clutter20grabPointerForDevice5actor3id_yx_SitAA13ActorProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/grabPointerForDevice(actor:id_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter20grabPointerForDevice5actor3id_yx_SitAA13ActorProtocolRzlF">grabPointerForDevice(actor:id_:)</a>
+                    <a class="token" href="#/s:7Clutter20grabPointerForDevice5actor3id_yx_SitAA13ActorProtocolRzlF">grabPointerForDevice(actor:<wbr>id_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19057,7 +19135,7 @@ Use clutter_input_device_grab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L665-L668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L679-L682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19088,7 +19166,7 @@ Use clutter_input_device_grab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L673-L676">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L687-L690">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19098,7 +19176,7 @@ Use clutter_input_device_grab() instead.</p>
                     <code>
                     <a name="/s:7Clutter5init_4argc4argvSo0A9InitErroraSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgtF"></a>
                     <a name="//apple_ref/swift/Function/init_(argc:argv:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter5init_4argc4argvSo0A9InitErroraSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgtF">init_(argc:argv:)</a>
+                    <a class="token" href="#/s:7Clutter5init_4argc4argvSo0A9InitErroraSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgtF">init_(argc:<wbr>argv:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19135,7 +19213,7 @@ faults and assertion failures. Make sure to handle the returned
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L698-L701">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L712-L715">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19166,7 +19244,7 @@ faults and assertion failures. Make sure to handle the returned
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L706-L709">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L720-L723">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19176,7 +19254,7 @@ faults and assertion failures. Make sure to handle the returned
                     <code>
                     <a name="/s:7Clutter12initWithArgs4argc4argv15parameterString7entries17translationDomainSo0A9InitErroraSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgSPyAOGSgSpySo13_GOptionEntryVGSgAWtKF"></a>
                     <a name="//apple_ref/swift/Function/initWithArgs(argc:argv:parameterString:entries:translationDomain:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter12initWithArgs4argc4argv15parameterString7entries17translationDomainSo0A9InitErroraSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgSPyAOGSgSpySo13_GOptionEntryVGSgAWtKF">initWithArgs(argc:argv:parameterString:entries:translationDomain:)</a>
+                    <a class="token" href="#/s:7Clutter12initWithArgs4argc4argv15parameterString7entries17translationDomainSo0A9InitErroraSpys5Int32VGSg_SpySpySpys4Int8VGSgGSgGSgSPyAOGSgSpySo13_GOptionEntryVGSgAWtKF">initWithArgs(argc:<wbr>argv:<wbr>parameterString:<wbr>entries:<wbr>translationDomain:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19202,12 +19280,12 @@ behaviour - including segmentation faults.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">initWithArgs</span><span class="p">(</span><span class="nv">argc</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">argv</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">parameterString</span> <span class="nv">parameter_string</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GOptionEntry</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">translationDomain</span> <span class="nv">translation_domain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ClutterInitError</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">initWithArgs</span><span class="p">(</span><span class="nv">argc</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="n">gint</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">argv</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;</span><span class="p">?</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">parameterString</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">entries</span><span class="p">:</span> <span class="kt">UnsafeMutablePointer</span><span class="o">&lt;</span><span class="kt">GOptionEntry</span><span class="o">&gt;!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">translationDomain</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">ClutterInitError</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L725-L730">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L739-L744">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19217,7 +19295,7 @@ behaviour - including segmentation faults.</p>
                     <code>
                     <a name="/s:7Clutter15keysymToUnicode6keyvals6UInt32VSi_tF"></a>
                     <a name="//apple_ref/swift/Function/keysymToUnicode(keyval:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter15keysymToUnicode6keyvals6UInt32VSi_tF">keysymToUnicode(keyval:)</a>
+                    <a class="token" href="#/s:7Clutter15keysymToUnicode6keyvals6UInt32VSi_tF">keysymToUnicode(keyval:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19239,7 +19317,7 @@ ISO10646 (Unicode) character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L737-L740">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L751-L754">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19270,7 +19348,7 @@ ISO10646 (Unicode) character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L746-L749">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L760-L763">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19301,7 +19379,7 @@ ISO10646 (Unicode) character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L755-L758">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L769-L772">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19332,7 +19410,7 @@ ISO10646 (Unicode) character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L764-L767">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L778-L781">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19363,7 +19441,7 @@ ISO10646 (Unicode) character.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L773-L776">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L787-L790">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19373,7 +19451,7 @@ ISO10646 (Unicode) character.</p>
                     <code>
                     <a name="/s:7Clutter14paramSpecColor4name4nick5blurb12defaultValue5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2OxAH0M5FlagsVtAA0D8ProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/paramSpecColor(name:nick:blurb:defaultValue:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14paramSpecColor4name4nick5blurb12defaultValue5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2OxAH0M5FlagsVtAA0D8ProtocolRzlF">paramSpecColor(name:nick:blurb:defaultValue:flags:)</a>
+                    <a class="token" href="#/s:7Clutter14paramSpecColor4name4nick5blurb12defaultValue5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2OxAH0M5FlagsVtAA0D8ProtocolRzlF">paramSpecColor(name:<wbr>nick:<wbr>blurb:<wbr>defaultValue:<wbr>flags:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19389,12 +19467,12 @@ ISO10646 (Unicode) character.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">paramSpecColor</span><span class="o">&lt;</span><span class="kt">ColorT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nick</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">blurb</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">defaultValue</span> <span class="n">default_value</span><span class="p">:</span> <span class="kt">ColorT</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">ParamFlags</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ParamSpecRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">ColorT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ColorProtocol.html">ColorProtocol</a></span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">paramSpecColor</span><span class="o">&lt;</span><span class="kt">ColorT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nick</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">blurb</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">ColorT</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamFlags</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamSpecRef</span><span class="o">!</span> <span class="k">where</span> <span class="kt">ColorT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/ColorProtocol.html">ColorProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L782-L785">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L796-L799">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19404,7 +19482,7 @@ ISO10646 (Unicode) character.</p>
                     <code>
                     <a name="/s:7Clutter14paramSpecFixed4name4nick5blurb7minimum7maximum12defaultValue5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2Qs5Int32VA2sJ0O5FlagsVtF"></a>
                     <a name="//apple_ref/swift/Function/paramSpecFixed(name:nick:blurb:minimum:maximum:defaultValue:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14paramSpecFixed4name4nick5blurb7minimum7maximum12defaultValue5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2Qs5Int32VA2sJ0O5FlagsVtF">paramSpecFixed(name:nick:blurb:minimum:maximum:defaultValue:flags:)</a>
+                    <a class="token" href="#/s:7Clutter14paramSpecFixed4name4nick5blurb7minimum7maximum12defaultValue5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2Qs5Int32VA2sJ0O5FlagsVtF">paramSpecFixed(name:<wbr>nick:<wbr>blurb:<wbr>minimum:<wbr>maximum:<wbr>defaultValue:<wbr>flags:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19424,12 +19502,12 @@ Use #GParamSpecInt instead.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">paramSpecFixed</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nick</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">blurb</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">minimum</span><span class="p">:</span> <span class="kt">CoglFixed</span><span class="p">,</span> <span class="nv">maximum</span><span class="p">:</span> <span class="kt">CoglFixed</span><span class="p">,</span> <span class="n">defaultValue</span> <span class="n">default_value</span><span class="p">:</span> <span class="kt">CoglFixed</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">ParamFlags</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ParamSpecRef</span><span class="o">!</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">paramSpecFixed</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nick</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">blurb</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">minimum</span><span class="p">:</span> <span class="kt">CoglFixed</span><span class="p">,</span> <span class="nv">maximum</span><span class="p">:</span> <span class="kt">CoglFixed</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">CoglFixed</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamFlags</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamSpecRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L794-L797">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L808-L811">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19439,7 +19517,7 @@ Use #GParamSpecInt instead.</p>
                     <code>
                     <a name="/s:7Clutter14paramSpecUnits4name4nick5blurb11defaultType7minimum7maximum0H5Value5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2RSo0a4UnitI0aS3dAK0P5FlagsVtF"></a>
                     <a name="//apple_ref/swift/Function/paramSpecUnits(name:nick:blurb:defaultType:minimum:maximum:defaultValue:flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14paramSpecUnits4name4nick5blurb11defaultType7minimum7maximum0H5Value5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2RSo0a4UnitI0aS3dAK0P5FlagsVtF">paramSpecUnits(name:nick:blurb:defaultType:minimum:maximum:defaultValue:flags:)</a>
+                    <a class="token" href="#/s:7Clutter14paramSpecUnits4name4nick5blurb11defaultType7minimum7maximum0H5Value5flags10GLibObject05ParamC3RefVSgSPys4Int8VGSg_A2RSo0a4UnitI0aS3dAK0P5FlagsVtF">paramSpecUnits(name:<wbr>nick:<wbr>blurb:<wbr>defaultType:<wbr>minimum:<wbr>maximum:<wbr>defaultValue:<wbr>flags:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19455,12 +19533,12 @@ Use #GParamSpecInt instead.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">paramSpecUnits</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nick</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">blurb</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">defaultType</span> <span class="n">default_type</span><span class="p">:</span> <span class="kt">ClutterUnitType</span><span class="p">,</span> <span class="nv">minimum</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">maximum</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">defaultValue</span> <span class="n">default_value</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">ParamFlags</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">ParamSpecRef</span><span class="o">!</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">paramSpecUnits</span><span class="p">(</span><span class="nv">name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">nick</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">blurb</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">defaultType</span><span class="p">:</span> <span class="kt">ClutterUnitType</span><span class="p">,</span> <span class="nv">minimum</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">maximum</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="n">defaultValue</span><span class="p">:</span> <span class="kt">Double</span><span class="p">,</span> <span class="nv">flags</span><span class="p">:</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamFlags</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">GLibObject</span><span class="o">.</span><span class="kt">ParamSpecRef</span><span class="o">!</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L803-L806">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L817-L820">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19493,7 +19571,7 @@ Use #GParamSpecInt instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L814-L817">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L828-L831">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19527,7 +19605,7 @@ of 0.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L826-L829">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L840-L843">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19537,7 +19615,7 @@ of 0.</p>
                     <code>
                     <a name="/s:7Clutter6redraw5stageyx_tAA13StageProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/redraw(stage:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter6redraw5stageyx_tAA13StageProtocolRzlF">redraw(stage:)</a>
+                    <a class="token" href="#/s:7Clutter6redraw5stageyx_tAA13StageProtocolRzlF">redraw(stage:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19566,7 +19644,7 @@ Use clutter_stage_ensure_redraw() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L842-L845">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L856-L859">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19597,7 +19675,7 @@ Use clutter_stage_ensure_redraw() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L850-L853">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L864-L867">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19607,7 +19685,7 @@ Use clutter_stage_ensure_redraw() instead.</p>
                     <code>
                     <a name="/s:7Clutter19setDefaultFrameRate12framesPerSecySi_tF"></a>
                     <a name="//apple_ref/swift/Function/setDefaultFrameRate(framesPerSec:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter19setDefaultFrameRate12framesPerSecySi_tF">setDefaultFrameRate(framesPerSec:)</a>
+                    <a class="token" href="#/s:7Clutter19setDefaultFrameRate12framesPerSecySi_tF">setDefaultFrameRate(framesPerSec:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19630,12 +19708,12 @@ This function does not do anything any more.</p>
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@available</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">deprecated</span><span class="p">)</span>
 <span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setDefaultFrameRate</span><span class="p">(</span><span class="n">framesPerSec</span> <span class="nv">frames_per_sec</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setDefaultFrameRate</span><span class="p">(</span><span class="nv">framesPerSec</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L865-L868">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L879-L882">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19645,7 +19723,7 @@ This function does not do anything any more.</p>
                     <code>
                     <a name="/s:7Clutter7setFont5flagsyAA0C5FlagsV_tF"></a>
                     <a name="//apple_ref/swift/Function/setFont(flags:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter7setFont5flagsyAA0C5FlagsV_tF">setFont(flags:)</a>
+                    <a class="token" href="#/s:7Clutter7setFont5flagsyAA0C5FlagsV_tF">setFont(flags:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19678,7 +19756,7 @@ Use clutter_backend_set_font_options() and the
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L885-L888">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L899-L902">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19688,7 +19766,7 @@ Use clutter_backend_set_font_options() and the
                     <code>
                     <a name="/s:7Clutter22setMotionEventsEnabled6enableySb_tF"></a>
                     <a name="//apple_ref/swift/Function/setMotionEventsEnabled(enable:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter22setMotionEventsEnabled6enableySb_tF">setMotionEventsEnabled(enable:)</a>
+                    <a class="token" href="#/s:7Clutter22setMotionEventsEnabled6enableySb_tF">setMotionEventsEnabled(enable:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19722,7 +19800,7 @@ Use clutter_stage_set_motion_events_enabled() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L904-L907">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L918-L921">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19732,7 +19810,7 @@ Use clutter_stage_set_motion_events_enabled() instead.</p>
                     <code>
                     <a name="/s:7Clutter19setWindowingBackend11backendTypeySPys4Int8VGSg_tF"></a>
                     <a name="//apple_ref/swift/Function/setWindowingBackend(backendType:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter19setWindowingBackend11backendTypeySPys4Int8VGSg_tF">setWindowingBackend(backendType:)</a>
+                    <a class="token" href="#/s:7Clutter19setWindowingBackend11backendTypeySPys4Int8VGSg_tF">setWindowingBackend(backendType:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19780,12 +19858,12 @@ to the internal list of available backends.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setWindowingBackend</span><span class="p">(</span><span class="n">backendType</span> <span class="nv">backend_type</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">setWindowingBackend</span><span class="p">(</span><span class="nv">backendType</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L948-L951">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L962-L965">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19816,7 +19894,7 @@ to the internal list of available backends.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L956-L959">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L970-L973">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19826,7 +19904,7 @@ to the internal list of available backends.</p>
                     <code>
                     <a name="/s:7Clutter7testAdd0B4Path0B4FuncySPys4Int8VGSg_yyXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/testAdd(testPath:testFunc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter7testAdd0B4Path0B4FuncySPys4Int8VGSg_yyXCSgtF">testAdd(testPath:testFunc:)</a>
+                    <a class="token" href="#/s:7Clutter7testAdd0B4Path0B4FuncySPys4Int8VGSg_yyXCSgtF">testAdd(testPath:<wbr>testFunc:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19844,12 +19922,12 @@ to the internal list of available backends.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">testAdd</span><span class="p">(</span><span class="n">testPath</span> <span class="nv">test_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">testFunc</span> <span class="nv">test_func</span><span class="p">:</span> <span class="kt">GTestFunc</span><span class="p">?)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">testAdd</span><span class="p">(</span><span class="nv">testPath</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">testFunc</span><span class="p">:</span> <span class="kt">GTestFunc</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L967-L970">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L981-L984">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19859,7 +19937,7 @@ to the internal list of available backends.</p>
                     <code>
                     <a name="/s:7Clutter11testAddData0B4Path0B4Func0bD0ySPys4Int8VGSg_ySVSgXCSgSvSgtF"></a>
                     <a name="//apple_ref/swift/Function/testAddData(testPath:testFunc:testData:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11testAddData0B4Path0B4Func0bD0ySPys4Int8VGSg_ySVSgXCSgSvSgtF">testAddData(testPath:testFunc:testData:)</a>
+                    <a class="token" href="#/s:7Clutter11testAddData0B4Path0B4Func0bD0ySPys4Int8VGSg_ySVSgXCSgSvSgtF">testAddData(testPath:<wbr>testFunc:<wbr>testData:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19877,12 +19955,12 @@ to the internal list of available backends.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">testAddData</span><span class="p">(</span><span class="n">testPath</span> <span class="nv">test_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">testFunc</span> <span class="nv">test_func</span><span class="p">:</span> <span class="kt">GTestDataFunc</span><span class="p">?,</span> <span class="n">testData</span> <span class="nv">test_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">testAddData</span><span class="p">(</span><span class="nv">testPath</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">testFunc</span><span class="p">:</span> <span class="kt">GTestDataFunc</span><span class="p">?,</span> <span class="nv">testData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L978-L981">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L992-L995">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19892,7 +19970,7 @@ to the internal list of available backends.</p>
                     <code>
                     <a name="/s:7Clutter15testAddDataFull0B4Path0B4Func0bD00B6NotifyySPys4Int8VGSg_ySVSgXCSgSvSgyAMXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/testAddDataFull(testPath:testFunc:testData:testNotify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter15testAddDataFull0B4Path0B4Func0bD00B6NotifyySPys4Int8VGSg_ySVSgXCSgSvSgyAMXCSgtF">testAddDataFull(testPath:testFunc:testData:testNotify:)</a>
+                    <a class="token" href="#/s:7Clutter15testAddDataFull0B4Path0B4Func0bD00B6NotifyySPys4Int8VGSg_ySVSgXCSgSvSgyAMXCSgtF">testAddDataFull(testPath:<wbr>testFunc:<wbr>testData:<wbr>testNotify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19910,12 +19988,12 @@ to the internal list of available backends.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">testAddDataFull</span><span class="p">(</span><span class="n">testPath</span> <span class="nv">test_path</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="n">testFunc</span> <span class="nv">test_func</span><span class="p">:</span> <span class="kt">GTestDataFunc</span><span class="p">?,</span> <span class="n">testData</span> <span class="nv">test_data</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">testNotify</span> <span class="nv">test_notify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">testAddDataFull</span><span class="p">(</span><span class="nv">testPath</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="kt">CChar</span><span class="o">&gt;!</span><span class="p">,</span> <span class="nv">testFunc</span><span class="p">:</span> <span class="kt">GTestDataFunc</span><span class="p">?,</span> <span class="nv">testData</span><span class="p">:</span> <span class="n">gpointer</span><span class="o">!</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">testNotify</span><span class="p">:</span> <span class="kt">GDestroyNotify</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L989-L992">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1003-L1006">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19925,7 +20003,7 @@ to the internal list of available backends.</p>
                     <code>
                     <a name="/s:7Clutter21testCheckActorAtPoint5stage5point5actor6resultSbx_q_xSpySpySo01_aD0VGSgGSgtAA0D8ProtocolRzAA0fK0R_r0_lF"></a>
                     <a name="//apple_ref/swift/Function/testCheckActorAtPoint(stage:point:actor:result:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter21testCheckActorAtPoint5stage5point5actor6resultSbx_q_xSpySpySo01_aD0VGSgGSgtAA0D8ProtocolRzAA0fK0R_r0_lF">testCheckActorAtPoint(stage:point:actor:result:)</a>
+                    <a class="token" href="#/s:7Clutter21testCheckActorAtPoint5stage5point5actor6resultSbx_q_xSpySpySo01_aD0VGSgGSgtAA0D8ProtocolRzAA0fK0R_r0_lF">testCheckActorAtPoint(stage:<wbr>point:<wbr>actor:<wbr>result:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19947,7 +20025,7 @@ actor found there with the given <code>actor</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L999-L1002">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1013-L1016">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -19957,7 +20035,7 @@ actor found there with the given <code>actor</code>.</p>
                     <code>
                     <a name="/s:7Clutter21testCheckColorAtPoint5stage5point5color6resultSbx_q0_q_q_tAA13ActorProtocolRzAA0dL0R_AA0fL0R0_r1_lF"></a>
                     <a name="//apple_ref/swift/Function/testCheckColorAtPoint(stage:point:color:result:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter21testCheckColorAtPoint5stage5point5color6resultSbx_q0_q_q_tAA13ActorProtocolRzAA0dL0R_AA0fL0R0_r1_lF">testCheckColorAtPoint(stage:point:color:result:)</a>
+                    <a class="token" href="#/s:7Clutter21testCheckColorAtPoint5stage5point5color6resultSbx_q0_q_q_tAA13ActorProtocolRzAA0dL0R_AA0fL0R0_r1_lF">testCheckColorAtPoint(stage:<wbr>point:<wbr>color:<wbr>result:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -19980,7 +20058,7 @@ component of <code>color</code> and <code>result</code> is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1010-L1013">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1024-L1027">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20011,7 +20089,7 @@ component of <code>color</code> and <code>result</code> is ignored.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1019-L1022">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1033-L1036">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20021,7 +20099,7 @@ component of <code>color</code> and <code>result</code> is ignored.</p>
                     <code>
                     <a name="/s:7Clutter21threadsAddFrameSource3fps4func4dataS2i_s5Int32VSvSgXCSgAHtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddFrameSource(fps:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter21threadsAddFrameSource3fps4func4dataS2i_s5Int32VSvSgXCSgAHtF">threadsAddFrameSource(fps:func:data:)</a>
+                    <a class="token" href="#/s:7Clutter21threadsAddFrameSource3fps4func4dataS2i_s5Int32VSvSgXCSgAHtF">threadsAddFrameSource(fps:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20046,7 +20124,7 @@ There is no direct replacement for this API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1031-L1034">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1045-L1048">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20056,7 +20134,7 @@ There is no direct replacement for this API</p>
                     <code>
                     <a name="/s:7Clutter25threadsAddFrameSourceFull8priority3fps4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddFrameSourceFull(priority:fps:func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter25threadsAddFrameSourceFull8priority3fps4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF">threadsAddFrameSourceFull(priority:fps:func:data:notify:)</a>
+                    <a class="token" href="#/s:7Clutter25threadsAddFrameSourceFull8priority3fps4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF">threadsAddFrameSourceFull(priority:<wbr>fps:<wbr>func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20097,7 +20175,7 @@ There is no direct replacement for this API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1059-L1062">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1073-L1076">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20107,7 +20185,7 @@ There is no direct replacement for this API</p>
                     <code>
                     <a name="/s:7Clutter14threadsAddIdle4func4dataSis5Int32VSvSgXCSg_AGtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddIdle(func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14threadsAddIdle4func4dataSis5Int32VSvSgXCSg_AGtF">threadsAddIdle(func:data:)</a>
+                    <a class="token" href="#/s:7Clutter14threadsAddIdle4func4dataSis5Int32VSvSgXCSg_AGtF">threadsAddIdle(func:<wbr>data:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20129,7 +20207,7 @@ default priority.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1069-L1072">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1083-L1086">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20139,7 +20217,7 @@ default priority.</p>
                     <code>
                     <a name="/s:7Clutter18threadsAddIdleFull8priority4func4data6notifyS2i_s5Int32VSvSgXCSgAIyAIXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddIdleFull(priority:func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter18threadsAddIdleFull8priority4func4data6notifyS2i_s5Int32VSvSgXCSgAIyAIXCSgtF">threadsAddIdleFull(priority:func:data:notify:)</a>
+                    <a class="token" href="#/s:7Clutter18threadsAddIdleFull8priority4func4data6notifyS2i_s5Int32VSvSgXCSgAIyAIXCSgtF">threadsAddIdleFull(priority:<wbr>func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20235,7 +20313,7 @@ thread:</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1158-L1161">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1172-L1175">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20245,7 +20323,7 @@ thread:</p>
                     <code>
                     <a name="/s:7Clutter21threadsAddRepaintFunc4func4data6notifySis5Int32VSvSgXCSg_AHyAHXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddRepaintFunc(func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter21threadsAddRepaintFunc4func4data6notifySis5Int32VSvSgXCSg_AHyAHXCSgtF">threadsAddRepaintFunc(func:data:notify:)</a>
+                    <a class="token" href="#/s:7Clutter21threadsAddRepaintFunc4func4data6notifySis5Int32VSvSgXCSg_AHyAHXCSgtF">threadsAddRepaintFunc(func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20290,7 +20368,7 @@ or because <code>clutter_threads_remove_repaint_func()</code> has been called) t
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1191-L1194">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1205-L1208">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20300,7 +20378,7 @@ or because <code>clutter_threads_remove_repaint_func()</code> has been called) t
                     <code>
                     <a name="/s:7Clutter25threadsAddRepaintFuncFull5flags4func4data6notifySiAA0D5FlagsV_s5Int32VSvSgXCSgAKyAKXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddRepaintFuncFull(flags:func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter25threadsAddRepaintFuncFull5flags4func4data6notifySiAA0D5FlagsV_s5Int32VSvSgXCSgAKyAKXCSgtF">threadsAddRepaintFuncFull(flags:func:data:notify:)</a>
+                    <a class="token" href="#/s:7Clutter25threadsAddRepaintFuncFull5flags4func4data6notifySiAA0D5FlagsV_s5Int32VSvSgXCSgAKyAKXCSgtF">threadsAddRepaintFuncFull(flags:<wbr>func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20343,7 +20421,7 @@ or because <code>clutter_threads_remove_repaint_func()</code> has been called) t
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1222-L1225">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1236-L1239">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20353,7 +20431,7 @@ or because <code>clutter_threads_remove_repaint_func()</code> has been called) t
                     <code>
                     <a name="/s:7Clutter17threadsAddTimeout8interval4func4dataS2i_s5Int32VSvSgXCSgAHtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddTimeout(interval:func:data:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17threadsAddTimeout8interval4func4dataS2i_s5Int32VSvSgXCSgAHtF">threadsAddTimeout(interval:func:data:)</a>
+                    <a class="token" href="#/s:7Clutter17threadsAddTimeout8interval4func4dataS2i_s5Int32VSvSgXCSgAHtF">threadsAddTimeout(interval:<wbr>func:<wbr>data:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20374,7 +20452,7 @@ or because <code>clutter_threads_remove_repaint_func()</code> has been called) t
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1231-L1234">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1245-L1248">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20384,7 +20462,7 @@ or because <code>clutter_threads_remove_repaint_func()</code> has been called) t
                     <code>
                     <a name="/s:7Clutter21threadsAddTimeoutFull8priority8interval4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF"></a>
                     <a name="//apple_ref/swift/Function/threadsAddTimeoutFull(priority:interval:func:data:notify:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter21threadsAddTimeoutFull8priority8interval4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF">threadsAddTimeoutFull(priority:interval:func:data:notify:)</a>
+                    <a class="token" href="#/s:7Clutter21threadsAddTimeoutFull8priority8interval4func4data6notifyS2i_Sis5Int32VSvSgXCSgAJyAJXCSgtF">threadsAddTimeoutFull(priority:<wbr>interval:<wbr>func:<wbr>data:<wbr>notify:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20417,7 +20495,7 @@ implemented, the timing will not be accurate and it will not try to
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1252-L1255">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1266-L1269">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20456,7 +20534,7 @@ This function should not be used by application
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1268-L1271">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1282-L1285">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20500,7 +20578,7 @@ This function does not do anything. Threading support
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1289-L1292">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1303-L1306">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20539,7 +20617,7 @@ This function should not be used by application
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1305-L1308">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1319-L1322">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20549,7 +20627,7 @@ This function should not be used by application
                     <code>
                     <a name="/s:7Clutter24threadsRemoveRepaintFunc8handleIdySi_tF"></a>
                     <a name="//apple_ref/swift/Function/threadsRemoveRepaintFunc(handleId:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter24threadsRemoveRepaintFunc8handleIdySi_tF">threadsRemoveRepaintFunc(handleId:)</a>
+                    <a class="token" href="#/s:7Clutter24threadsRemoveRepaintFunc8handleIdySi_tF">threadsRemoveRepaintFunc(handleId:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20565,12 +20643,12 @@ This function should not be used by application
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsRemoveRepaintFunc</span><span class="p">(</span><span class="n">handleId</span> <span class="nv">handle_id</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsRemoveRepaintFunc</span><span class="p">(</span><span class="nv">handleId</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1314-L1317">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1328-L1331">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20580,7 +20658,7 @@ This function should not be used by application
                     <code>
                     <a name="/s:7Clutter23threadsSetLockFunctions7enterFn05leaveG0yyyXCSg_AEtF"></a>
                     <a name="//apple_ref/swift/Function/threadsSetLockFunctions(enterFn:leaveFn:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter23threadsSetLockFunctions7enterFn05leaveG0yyyXCSg_AEtF">threadsSetLockFunctions(enterFn:leaveFn:)</a>
+                    <a class="token" href="#/s:7Clutter23threadsSetLockFunctions7enterFn05leaveG0yyyXCSg_AEtF">threadsSetLockFunctions(enterFn:<wbr>leaveFn:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20616,12 +20694,12 @@ be called multiple times.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsSetLockFunctions</span><span class="p">(</span><span class="n">enterFn</span> <span class="nv">enter_fn</span><span class="p">:</span> <span class="kt">GCallback</span><span class="p">?,</span> <span class="n">leaveFn</span> <span class="nv">leave_fn</span><span class="p">:</span> <span class="kt">GCallback</span><span class="p">?)</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="nf">threadsSetLockFunctions</span><span class="p">(</span><span class="nv">enterFn</span><span class="p">:</span> <span class="kt">GCallback</span><span class="p">?,</span> <span class="nv">leaveFn</span><span class="p">:</span> <span class="kt">GCallback</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1343-L1346">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1357-L1360">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20631,7 +20709,7 @@ be called multiple times.</p>
                     <code>
                     <a name="/s:7Clutter14timeoutPoolNew8priorityAA07TimeoutC3RefVSgSi_tF"></a>
                     <a name="//apple_ref/swift/Function/timeoutPoolNew(priority:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter14timeoutPoolNew8priorityAA07TimeoutC3RefVSgSi_tF">timeoutPoolNew(priority:)</a>
+                    <a class="token" href="#/s:7Clutter14timeoutPoolNew8priorityAA07TimeoutC3RefVSgSi_tF">timeoutPoolNew(priority:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20662,7 +20740,7 @@ There is no direct replacement for this API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1361-L1364">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1375-L1378">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20693,7 +20771,7 @@ There is no direct replacement for this API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1370-L1373">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1384-L1387">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20724,7 +20802,7 @@ There is no direct replacement for this API</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1379-L1382">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1393-L1396">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20734,7 +20812,7 @@ There is no direct replacement for this API</p>
                     <code>
                     <a name="/s:7Clutter22ungrabPointerForDevice3id_ySi_tF"></a>
                     <a name="//apple_ref/swift/Function/ungrabPointerForDevice(id_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter22ungrabPointerForDevice3id_ySi_tF">ungrabPointerForDevice(id_:)</a>
+                    <a class="token" href="#/s:7Clutter22ungrabPointerForDevice3id_ySi_tF">ungrabPointerForDevice(id_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20759,7 +20837,7 @@ Use clutter_input_device_ungrab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1391-L1394">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1405-L1408">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20769,7 +20847,7 @@ Use clutter_input_device_ungrab() instead.</p>
                     <code>
                     <a name="/s:7Clutter15unicodeToKeysym2wcSis6UInt32V_tF"></a>
                     <a name="//apple_ref/swift/Function/unicodeToKeysym(wc:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter15unicodeToKeysym2wcSis6UInt32V_tF">unicodeToKeysym(wc:)</a>
+                    <a class="token" href="#/s:7Clutter15unicodeToKeysym2wcSis6UInt32V_tF">unicodeToKeysym(wc:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20790,7 +20868,7 @@ Use clutter_input_device_ungrab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1400-L1403">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1414-L1417">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20800,7 +20878,7 @@ Use clutter_input_device_ungrab() instead.</p>
                     <code>
                     <a name="/s:7Clutter11unitsFromCm0B02cmyx_SdtAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromCm(units:cm:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11unitsFromCm0B02cmyx_SdtAA13UnitsProtocolRzlF">unitsFromCm(units:cm:)</a>
+                    <a class="token" href="#/s:7Clutter11unitsFromCm0B02cmyx_SdtAA13UnitsProtocolRzlF">unitsFromCm(units:<wbr>cm:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20821,7 +20899,7 @@ Use clutter_input_device_ungrab() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1409-L1412">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1423-L1426">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20831,7 +20909,7 @@ Use clutter_input_device_ungrab() instead.</p>
                     <code>
                     <a name="/s:7Clutter11unitsFromEm0B02emyx_SdtAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromEm(units:em:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11unitsFromEm0B02emyx_SdtAA13UnitsProtocolRzlF">unitsFromEm(units:em:)</a>
+                    <a class="token" href="#/s:7Clutter11unitsFromEm0B02emyx_SdtAA13UnitsProtocolRzlF">unitsFromEm(units:<wbr>em:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20853,7 +20931,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1419-L1422">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1433-L1436">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20863,7 +20941,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                     <code>
                     <a name="/s:7Clutter18unitsFromEmForFont0B08fontName2emyx_SPys4Int8VGSgSdtAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromEmForFont(units:fontName:em:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter18unitsFromEmForFont0B08fontName2emyx_SPys4Int8VGSgSdtAA13UnitsProtocolRzlF">unitsFromEmForFont(units:fontName:em:)</a>
+                    <a class="token" href="#/s:7Clutter18unitsFromEmForFont0B08fontName2emyx_SPys4Int8VGSgSdtAA13UnitsProtocolRzlF">unitsFromEmForFont(units:<wbr>fontName:<wbr>em:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20879,12 +20957,12 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">unitsFromEmForFont</span><span class="o">&lt;</span><span class="kt">UnitsT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">units</span><span class="p">:</span> <span class="kt">UnitsT</span><span class="p">,</span> <span class="n">fontName</span> <span class="nv">font_name</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">em</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="k">where</span> <span class="kt">UnitsT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/UnitsProtocol.html">UnitsProtocol</a></span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">unitsFromEmForFont</span><span class="o">&lt;</span><span class="kt">UnitsT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">units</span><span class="p">:</span> <span class="kt">UnitsT</span><span class="p">,</span> <span class="nv">fontName</span><span class="p">:</span> <span class="kt">UnsafePointer</span><span class="o">&lt;</span><span class="n">gchar</span><span class="o">&gt;</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span> <span class="nv">em</span><span class="p">:</span> <span class="kt">Double</span><span class="p">)</span> <span class="k">where</span> <span class="kt">UnitsT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/UnitsProtocol.html">UnitsProtocol</a></span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1428-L1431">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1442-L1445">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20894,7 +20972,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                     <code>
                     <a name="/s:7Clutter11unitsFromMm0B02mmyx_SdtAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromMm(units:mm:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11unitsFromMm0B02mmyx_SdtAA13UnitsProtocolRzlF">unitsFromMm(units:mm:)</a>
+                    <a class="token" href="#/s:7Clutter11unitsFromMm0B02mmyx_SdtAA13UnitsProtocolRzlF">unitsFromMm(units:<wbr>mm:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20915,7 +20993,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1437-L1440">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1451-L1454">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20925,7 +21003,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                     <code>
                     <a name="/s:7Clutter15unitsFromPixels0B02pxyx_SitAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromPixels(units:px:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter15unitsFromPixels0B02pxyx_SitAA13UnitsProtocolRzlF">unitsFromPixels(units:px:)</a>
+                    <a class="token" href="#/s:7Clutter15unitsFromPixels0B02pxyx_SitAA13UnitsProtocolRzlF">unitsFromPixels(units:<wbr>px:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20946,7 +21024,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1446-L1449">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1460-L1463">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20956,7 +21034,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                     <code>
                     <a name="/s:7Clutter11unitsFromPt0B02ptyx_SdtAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromPt(units:pt:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter11unitsFromPt0B02ptyx_SdtAA13UnitsProtocolRzlF">unitsFromPt(units:pt:)</a>
+                    <a class="token" href="#/s:7Clutter11unitsFromPt0B02ptyx_SdtAA13UnitsProtocolRzlF">unitsFromPt(units:<wbr>pt:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -20977,7 +21055,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1455-L1458">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1469-L1472">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -20987,7 +21065,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                     <code>
                     <a name="/s:7Clutter15unitsFromString0B03strSbx_SPys4Int8VGSgtAA13UnitsProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/unitsFromString(units:str:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter15unitsFromString0B03strSbx_SPys4Int8VGSgtAA13UnitsProtocolRzlF">unitsFromString(units:str:)</a>
+                    <a class="token" href="#/s:7Clutter15unitsFromString0B03strSbx_SPys4Int8VGSgtAA13UnitsProtocolRzlF">unitsFromString(units:<wbr>str:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21034,7 +21112,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1496-L1499">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1510-L1513">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21044,7 +21122,7 @@ name as returned by <code>clutter_backend_get_font_name()</code></p>
                     <code>
                     <a name="/s:7Clutter10utilNextP21aS2i_tF"></a>
                     <a name="//apple_ref/swift/Function/utilNextP2(a:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter10utilNextP21aS2i_tF">utilNextP2(a:)</a>
+                    <a class="token" href="#/s:7Clutter10utilNextP21aS2i_tF">utilNextP2(a:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21069,7 +21147,7 @@ This method is deprecated.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1508-L1511">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1522-L1525">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21079,7 +21157,7 @@ This method is deprecated.</p>
                     <code>
                     <a name="/s:7Clutter17valueDupPaintNode0B0AA0dE3RefVSgx_t10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueDupPaintNode(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17valueDupPaintNode0B0AA0dE3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueDupPaintNode(value:)</a>
+                    <a class="token" href="#/s:7Clutter17valueDupPaintNode0B0AA0dE3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueDupPaintNode(value:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21102,7 +21180,7 @@ reference count.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1519-L1522">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1533-L1536">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21112,7 +21190,7 @@ reference count.</p>
                     <code>
                     <a name="/s:7Clutter13valueGetColor0B0AA0D3RefVSgx_t10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetColor(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13valueGetColor0B0AA0D3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueGetColor(value:)</a>
+                    <a class="token" href="#/s:7Clutter13valueGetColor0B0AA0D3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueGetColor(value:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21133,7 +21211,7 @@ reference count.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1528-L1531">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1542-L1545">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21143,7 +21221,7 @@ reference count.</p>
                     <code>
                     <a name="/s:7Clutter13valueGetFixed0B0s5Int32Vx_t10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetFixed(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13valueGetFixed0B0s5Int32Vx_t10GLibObject13ValueProtocolRzlF">valueGetFixed(value:)</a>
+                    <a class="token" href="#/s:7Clutter13valueGetFixed0B0s5Int32Vx_t10GLibObject13ValueProtocolRzlF">valueGetFixed(value:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21168,7 +21246,7 @@ Use g_value_get_int() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1540-L1543">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1554-L1557">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21178,7 +21256,7 @@ Use g_value_get_int() instead.</p>
                     <code>
                     <a name="/s:7Clutter17valueGetPaintNode0B0AA0dE3RefVSgx_t10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetPaintNode(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17valueGetPaintNode0B0AA0dE3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueGetPaintNode(value:)</a>
+                    <a class="token" href="#/s:7Clutter17valueGetPaintNode0B0AA0dE3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueGetPaintNode(value:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21200,7 +21278,7 @@ the passed <code>GValue</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1550-L1553">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1564-L1567">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21210,7 +21288,7 @@ the passed <code>GValue</code>.</p>
                     <code>
                     <a name="/s:7Clutter19valueGetShaderFloat0B06lengthSPySfGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetShaderFloat(value:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter19valueGetShaderFloat0B06lengthSPySfGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF">valueGetShaderFloat(value:length:)</a>
+                    <a class="token" href="#/s:7Clutter19valueGetShaderFloat0B06lengthSPySfGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF">valueGetShaderFloat(value:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21233,7 +21311,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1561-L1564">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1575-L1578">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21243,7 +21321,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                     <code>
                     <a name="/s:7Clutter17valueGetShaderInt0B06lengthSPys5Int32VGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetShaderInt(value:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17valueGetShaderInt0B06lengthSPys5Int32VGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF">valueGetShaderInt(value:length:)</a>
+                    <a class="token" href="#/s:7Clutter17valueGetShaderInt0B06lengthSPys5Int32VGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF">valueGetShaderInt(value:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21266,7 +21344,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1572-L1575">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1586-L1589">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21276,7 +21354,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                     <code>
                     <a name="/s:7Clutter20valueGetShaderMatrix0B06lengthSPySfGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetShaderMatrix(value:length:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter20valueGetShaderMatrix0B06lengthSPySfGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF">valueGetShaderMatrix(value:length:)</a>
+                    <a class="token" href="#/s:7Clutter20valueGetShaderMatrix0B06lengthSPySfGSgx_SpySuGSgt10GLibObject13ValueProtocolRzlF">valueGetShaderMatrix(value:<wbr>length:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21299,7 +21377,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1583-L1586">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1597-L1600">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21309,7 +21387,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                     <code>
                     <a name="/s:7Clutter13valueGetUnits0B0AA0D3RefVSgx_t10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueGetUnits(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13valueGetUnits0B0AA0D3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueGetUnits(value:)</a>
+                    <a class="token" href="#/s:7Clutter13valueGetUnits0B0AA0D3RefVSgx_t10GLibObject13ValueProtocolRzlF">valueGetUnits(value:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21330,7 +21408,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1592-L1595">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1606-L1609">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21340,7 +21418,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                     <code>
                     <a name="/s:7Clutter13valueSetColor0B05coloryq__xtAA0D8ProtocolRz10GLibObject05ValueF0R_r0_lF"></a>
                     <a name="//apple_ref/swift/Function/valueSetColor(value:color:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13valueSetColor0B05coloryq__xtAA0D8ProtocolRz10GLibObject05ValueF0R_r0_lF">valueSetColor(value:color:)</a>
+                    <a class="token" href="#/s:7Clutter13valueSetColor0B05coloryq__xtAA0D8ProtocolRz10GLibObject05ValueF0R_r0_lF">valueSetColor(value:<wbr>color:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21361,7 +21439,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1601-L1604">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1615-L1618">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21371,7 +21449,7 @@ the passed <code>GValue</code>. <code>value</code> must have been initialized wi
                     <code>
                     <a name="/s:7Clutter13valueSetFixed0B06fixed_yx_s5Int32Vt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueSetFixed(value:fixed_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13valueSetFixed0B06fixed_yx_s5Int32Vt10GLibObject13ValueProtocolRzlF">valueSetFixed(value:fixed_:)</a>
+                    <a class="token" href="#/s:7Clutter13valueSetFixed0B06fixed_yx_s5Int32Vt10GLibObject13ValueProtocolRzlF">valueSetFixed(value:<wbr>fixed_:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21396,7 +21474,7 @@ Use g_value_set_int() instead.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1613-L1616">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1627-L1630">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21404,9 +21482,9 @@ Use g_value_set_int() instead.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Clutter17valueSetPaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF"></a>
+                    <a name="/s:7Clutter17valueSetPaintNode0B04nodeyx_AA0dE3RefVSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueSetPaintNode(value:node:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17valueSetPaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF">valueSetPaintNode(value:node:)</a>
+                    <a class="token" href="#/s:7Clutter17valueSetPaintNode0B04nodeyx_AA0dE3RefVSgt10GLibObject13ValueProtocolRzlF">valueSetPaintNode(value:<wbr>node:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21426,12 +21504,47 @@ instead. The reference count will be released by <code>g_value_unset()</code>.</
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">valueSetPaintNode</span><span class="o">&lt;</span><span class="kt">PaintNodeT</span><span class="p">,</span> <span class="kt">ValueT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">ValueT</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">PaintNodeT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">PaintNodeT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PaintNodeProtocol.html">PaintNodeProtocol</a></span><span class="p">,</span> <span class="kt">ValueT</span> <span class="p">:</span> <span class="kt">ValueProtocol</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">valueSetPaintNode</span><span class="o">&lt;</span><span class="kt">ValueT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">ValueT</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="Structs/PaintNodeRef.html">PaintNodeRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ValueT</span> <span class="p">:</span> <span class="kt">ValueProtocol</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1626-L1629">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1640-L1643">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Clutter17valueSetPaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/valueSetPaintNode(value:node:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Clutter17valueSetPaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF">valueSetPaintNode(value:<wbr>node:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the contents of a <code>GValue</code> initialized with <code>CLUTTER_TYPE_PAINT_NODE</code>.</p>
+
+<p>This function increased the reference count of <code>node</code>; if you do not wish
+to increase the reference count, use <code>clutter_value_take_paint_node()</code>
+instead. The reference count will be released by <code>g_value_unset()</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">valueSetPaintNode</span><span class="o">&lt;</span><span class="kt">PaintNodeT</span><span class="p">,</span> <span class="kt">ValueT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">ValueT</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">PaintNodeT</span><span class="p">?)</span> <span class="k">where</span> <span class="kt">PaintNodeT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PaintNodeProtocol.html">PaintNodeProtocol</a></span><span class="p">,</span> <span class="kt">ValueT</span> <span class="p">:</span> <span class="kt">ValueProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1649-L1652">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21441,7 +21554,7 @@ instead. The reference count will be released by <code>g_value_unset()</code>.</
                     <code>
                     <a name="/s:7Clutter19valueSetShaderFloat0B04size6floatsyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueSetShaderFloat(value:size:floats:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter19valueSetShaderFloat0B04size6floatsyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderFloat(value:size:floats:)</a>
+                    <a class="token" href="#/s:7Clutter19valueSetShaderFloat0B04size6floatsyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderFloat(value:<wbr>size:<wbr>floats:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21463,7 +21576,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_FLOAT</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1636-L1639">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1659-L1662">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21473,7 +21586,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_FLOAT</code>.</p>
                     <code>
                     <a name="/s:7Clutter17valueSetShaderInt0B04size4intsyx_SiSPys5Int32VGSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueSetShaderInt(value:size:ints:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter17valueSetShaderInt0B04size4intsyx_SiSPys5Int32VGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderInt(value:size:ints:)</a>
+                    <a class="token" href="#/s:7Clutter17valueSetShaderInt0B04size4intsyx_SiSPys5Int32VGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderInt(value:<wbr>size:<wbr>ints:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21495,7 +21608,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_INT</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1646-L1649">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1669-L1672">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21505,7 +21618,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_INT</code>.</p>
                     <code>
                     <a name="/s:7Clutter20valueSetShaderMatrix0B04size6matrixyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueSetShaderMatrix(value:size:matrix:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter20valueSetShaderMatrix0B04size6matrixyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderMatrix(value:size:matrix:)</a>
+                    <a class="token" href="#/s:7Clutter20valueSetShaderMatrix0B04size6matrixyx_SiSPySfGSgt10GLibObject13ValueProtocolRzlF">valueSetShaderMatrix(value:<wbr>size:<wbr>matrix:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21527,7 +21640,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_MATRIX</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1656-L1659">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1679-L1682">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21537,7 +21650,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_MATRIX</code>.</p>
                     <code>
                     <a name="/s:7Clutter13valueSetUnits0B05unitsyq__xtAA0D8ProtocolRz10GLibObject05ValueF0R_r0_lF"></a>
                     <a name="//apple_ref/swift/Function/valueSetUnits(value:units:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter13valueSetUnits0B05unitsyq__xtAA0D8ProtocolRz10GLibObject05ValueF0R_r0_lF">valueSetUnits(value:units:)</a>
+                    <a class="token" href="#/s:7Clutter13valueSetUnits0B05unitsyq__xtAA0D8ProtocolRz10GLibObject05ValueF0R_r0_lF">valueSetUnits(value:<wbr>units:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21558,7 +21671,7 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_MATRIX</code>.</p>
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1665-L1668">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1688-L1691">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21566,9 +21679,9 @@ must have been initialized using <code>CLUTTER_TYPE_SHADER_MATRIX</code>.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:7Clutter18valueTakePaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF"></a>
+                    <a name="/s:7Clutter18valueTakePaintNode0B04nodeyx_AA0dE3RefVSgt10GLibObject13ValueProtocolRzlF"></a>
                     <a name="//apple_ref/swift/Function/valueTakePaintNode(value:node:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:7Clutter18valueTakePaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF">valueTakePaintNode(value:node:)</a>
+                    <a class="token" href="#/s:7Clutter18valueTakePaintNode0B04nodeyx_AA0dE3RefVSgt10GLibObject13ValueProtocolRzlF">valueTakePaintNode(value:<wbr>node:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -21588,12 +21701,47 @@ current reference count.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">@inlinable</span>
-<span class="kd">public</span> <span class="kd">func</span> <span class="n">valueTakePaintNode</span><span class="o">&lt;</span><span class="kt">PaintNodeT</span><span class="p">,</span> <span class="kt">ValueT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">ValueT</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">PaintNodeT</span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">PaintNodeT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PaintNodeProtocol.html">PaintNodeProtocol</a></span><span class="p">,</span> <span class="kt">ValueT</span> <span class="p">:</span> <span class="kt">ValueProtocol</span></code></pre>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">valueTakePaintNode</span><span class="o">&lt;</span><span class="kt">ValueT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">ValueT</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt"><a href="Structs/PaintNodeRef.html">PaintNodeRef</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="k">where</span> <span class="kt">ValueT</span> <span class="p">:</span> <span class="kt">ValueProtocol</span></code></pre>
 
                         </div>
                       </div>
                       <div class="slightly-smaller">
-                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1678-L1681">Show on GitHub</a>
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1701-L1704">Show on GitHub</a>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:7Clutter18valueTakePaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF"></a>
+                    <a name="//apple_ref/swift/Function/valueTakePaintNode(value:node:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:7Clutter18valueTakePaintNode0B04nodeyq__xSgtAA0dE8ProtocolRz10GLibObject05ValueG0R_r0_lF">valueTakePaintNode(value:<wbr>node:<wbr>)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets the contents of a <code>GValue</code> initialized with <code>CLUTTER_TYPE_PAINT_NODE</code>.</p>
+
+<p>Unlike <code>clutter_value_set_paint_node()</code>, this function will not take a
+reference on the passed <code>node:</code> instead, it will take ownership of the
+current reference count.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">@inlinable</span>
+<span class="kd">public</span> <span class="kd">func</span> <span class="n">valueTakePaintNode</span><span class="o">&lt;</span><span class="kt">PaintNodeT</span><span class="p">,</span> <span class="kt">ValueT</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt">ValueT</span><span class="p">,</span> <span class="nv">node</span><span class="p">:</span> <span class="kt">PaintNodeT</span><span class="p">?)</span> <span class="k">where</span> <span class="kt">PaintNodeT</span> <span class="p">:</span> <span class="kt"><a href="Protocols/PaintNodeProtocol.html">PaintNodeProtocol</a></span><span class="p">,</span> <span class="kt">ValueT</span> <span class="p">:</span> <span class="kt">ValueProtocol</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div class="slightly-smaller">
+                        <a href="https://github.com/rhx/SwiftClutter/tree/generated/Sources/Clutter/Clutter-1.0-functions.swift#L1710-L1713">Show on GitHub</a>
                       </div>
                     </section>
                   </div>
@@ -21639,8 +21787,8 @@ Must be called before any other function gets called!</p>
       </article>
     </div>
     <section class="footer">
-      <p>&copy; 2020 <a class="link" href="https://www.ict.griffith.edu.au/~rhexel/" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2020-09-06)</p>
-      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.1</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+      <p>&copy; 2021 <a class="link" href="https://experts.griffith.edu.au/9237-rene-hexel" target="_blank" rel="external">Ren&eacute;&nbsp;Hexel</a>. All rights reserved. (Last updated: 2021-01-06)</p>
+      <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
     </section>
   </body>
 </div>
