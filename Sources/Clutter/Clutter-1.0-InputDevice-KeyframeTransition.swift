@@ -97,7 +97,7 @@ public extension InputDeviceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -458,7 +458,13 @@ public extension InputDeviceProtocol {
 
     /// Retrieves the latest coordinates of a pointer or touch point of
     /// `device`.
-    @inlinable func getCoords<EventSequenceT: EventSequenceProtocol, PointT: PointProtocol>(sequence: EventSequenceT? = nil, point: PointT) -> Bool {
+    @inlinable func getCoords<PointT: PointProtocol>(sequence: EventSequenceRef? = nil, point: PointT) -> Bool {
+        let rv = ((clutter_input_device_get_coords(input_device_ptr, sequence?.event_sequence_ptr, point.point_ptr)) != 0)
+        return rv
+    }
+    /// Retrieves the latest coordinates of a pointer or touch point of
+    /// `device`.
+    @inlinable func getCoords<EventSequenceT: EventSequenceProtocol, PointT: PointProtocol>(sequence: EventSequenceT?, point: PointT) -> Bool {
         let rv = ((clutter_input_device_get_coords(input_device_ptr, sequence?.event_sequence_ptr, point.point_ptr)) != 0)
         return rv
     }
@@ -561,7 +567,7 @@ public extension InputDeviceProtocol {
 
     /// Retrieves the slave devices attached to `device`.
     @inlinable func getSlaveDevices() -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_input_device_get_slave_devices(input_device_ptr)))
+        let rv = GLib.ListRef(clutter_input_device_get_slave_devices(input_device_ptr))
         return rv
     }
 
@@ -592,8 +598,8 @@ public extension InputDeviceProtocol {
     /// used by Clutter this function can fail if there is no obvious
     /// mapping between the key codes. The hardware keycode can be taken
     /// from the `ClutterKeyEvent.hardware_keycode` member of `ClutterKeyEvent`.
-    @inlinable func keycodeToEvdev(hardwareKeycode hardware_keycode: Int, evdevKeycode evdev_keycode: UnsafeMutablePointer<guint>!) -> Bool {
-        let rv = ((clutter_input_device_keycode_to_evdev(input_device_ptr, guint(hardware_keycode), evdev_keycode)) != 0)
+    @inlinable func keycodeToEvdev(hardwareKeycode: Int, evdevKeycode: UnsafeMutablePointer<guint>!) -> Bool {
+        let rv = ((clutter_input_device_keycode_to_evdev(input_device_ptr, guint(hardwareKeycode), evdevKeycode)) != 0)
         return rv
     }
 
@@ -702,8 +708,8 @@ public extension InputDeviceProtocol {
     /// The `update_stage` boolean argument should be used when the input device
     /// enters and leaves a `ClutterStage`; it will use the `ClutterStage` field
     /// of the passed `event` to update the stage associated to the input device.
-    @inlinable func updateFrom<EventT: EventProtocol>(event: EventT, updateStage update_stage: Bool) {
-        clutter_input_device_update_from_event(input_device_ptr, event.event_ptr, gboolean((update_stage) ? 1 : 0))
+    @inlinable func updateFrom<EventT: EventProtocol>(event: EventT, updateStage: Bool) {
+        clutter_input_device_update_from_event(input_device_ptr, event.event_ptr, gboolean((updateStage) ? 1 : 0))
     
     }
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
@@ -865,7 +871,7 @@ public extension InputDeviceProtocol {
     @inlinable var slaveDevices: GLib.ListRef! {
         /// Retrieves the slave devices attached to `device`.
         get {
-            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_input_device_get_slave_devices(input_device_ptr)))
+            let rv = GLib.ListRef(clutter_input_device_get_slave_devices(input_device_ptr))
             return rv
         }
     }
@@ -893,7 +899,7 @@ public extension InputDeviceProtocol {
 ///
 /// The `ClutterInterval` structure contains only private data and should
 /// be accessed using the provided functions.
-public protocol IntervalProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
+public protocol IntervalProtocol: GLibObject.InitiallyUnownedProtocol, ScriptableProtocol {
         /// Untyped pointer to the underlying `ClutterInterval` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -968,7 +974,7 @@ public extension IntervalRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -992,7 +998,7 @@ public extension IntervalRef {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    @inlinable init<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) {
+    @inlinable init<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT?, `final`: ValueT?) {
         let rv = clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -1000,7 +1006,7 @@ public extension IntervalRef {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    @inlinable static func newWith<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) -> IntervalRef! {
+    @inlinable static func newWith<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT?, `final`: ValueT?) -> IntervalRef! {
         guard let rv = IntervalRef(gconstpointer: gconstpointer(clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr))) else { return nil }
         return rv
     }
@@ -1012,7 +1018,7 @@ public extension IntervalRef {
 ///
 /// The `ClutterInterval` structure contains only private data and should
 /// be accessed using the provided functions.
-open class Interval: InitiallyUnowned, IntervalProtocol {
+open class Interval: GLibObject.InitiallyUnowned, IntervalProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Interval` instance.
@@ -1145,7 +1151,7 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    @inlinable public init<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) {
+    @inlinable public init<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT?, `final`: ValueT?) {
         let rv = clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr)
         super.init(gpointer: (rv))
     }
@@ -1154,7 +1160,7 @@ open class Interval: InitiallyUnowned, IntervalProtocol {
     /// and `final`.
     /// 
     /// This function is useful for language bindings.
-    @inlinable public static func newWith<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT? = nil, `final`: ValueT? = nil) -> Interval! {
+    @inlinable public static func newWith<ValueT: GLibObject.ValueProtocol>(values gtype: GType, initial: ValueT?, `final`: ValueT?) -> Interval! {
         guard let rv = Interval(gconstpointer: gconstpointer(clutter_interval_new_with_values(gtype, initial?.value_ptr, `final`?.value_ptr))) else { return nil }
         return rv
     }
@@ -1432,7 +1438,7 @@ public extension IntervalProtocol {
     /// value to another function that makes a copy of it, like
     /// `g_object_set_property()`
     @inlinable func compute(factor: Double) -> GLibObject.ValueRef! {
-        let rv = GLibObject.ValueRef(gconstpointer: gconstpointer(clutter_interval_compute(interval_ptr, gdouble(factor))))
+        let rv = GLibObject.ValueRef(clutter_interval_compute(interval_ptr, gdouble(factor)))
         return rv
     }
 
@@ -1475,13 +1481,13 @@ public extension IntervalProtocol {
 
     /// Gets the pointer to the final value of `interval`
     @inlinable func peekFinalValue() -> GLibObject.ValueRef! {
-        let rv = GLibObject.ValueRef(gconstpointer: gconstpointer(clutter_interval_peek_final_value(interval_ptr)))
+        let rv = GLibObject.ValueRef(clutter_interval_peek_final_value(interval_ptr))
         return rv
     }
 
     /// Gets the pointer to the initial value of `interval`
     @inlinable func peekInitialValue() -> GLibObject.ValueRef! {
-        let rv = GLibObject.ValueRef(gconstpointer: gconstpointer(clutter_interval_peek_initial_value(interval_ptr)))
+        let rv = GLibObject.ValueRef(clutter_interval_peek_initial_value(interval_ptr))
         return rv
     }
 
@@ -1513,7 +1519,7 @@ public extension IntervalProtocol {
 
     /// Validates the initial and final values of `interval` against
     /// a `GParamSpec`.
-    @inlinable func validate<ParamSpecT: ParamSpecProtocol>(pspec: ParamSpecT) -> Bool {
+    @inlinable func validate<ParamSpecT: GLibObject.ParamSpecProtocol>(pspec: ParamSpecT) -> Bool {
         let rv = ((clutter_interval_validate(interval_ptr, pspec.param_spec_ptr)) != 0)
         return rv
     }
@@ -1627,7 +1633,7 @@ public extension KeyframeTransitionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1644,8 +1650,8 @@ public extension KeyframeTransitionRef {
     }
 
         /// Creates a new `ClutterKeyframeTransition` for `property_name`.
-    @inlinable init( property_name: UnsafePointer<CChar>!) {
-        let rv = clutter_keyframe_transition_new(property_name)
+    @inlinable init( propertyName: UnsafePointer<CChar>!) {
+        let rv = clutter_keyframe_transition_new(propertyName)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -1782,8 +1788,8 @@ open class KeyframeTransition: PropertyTransition, KeyframeTransitionProtocol {
     }
 
     /// Creates a new `ClutterKeyframeTransition` for `property_name`.
-    @inlinable public override init( property_name: UnsafePointer<CChar>!) {
-        let rv = clutter_keyframe_transition_new(property_name)
+    @inlinable public override init( propertyName: UnsafePointer<CChar>!) {
+        let rv = clutter_keyframe_transition_new(propertyName)
         super.init(gpointer: (rv))
     }
 
@@ -2095,8 +2101,8 @@ public extension KeyframeTransitionProtocol {
     /// If `transition` does not hold any key frame, `n_key_frames` key frames
     /// will be created; if `transition` already has key frames, `key_frames` must
     /// have at least as many elements as the number of key frames.
-    @inlinable func setKeyFrames(nKeyFrames n_key_frames: Int, keyFrames key_frames: UnsafePointer<CDouble>!) {
-        clutter_keyframe_transition_set_key_frames(keyframe_transition_ptr, guint(n_key_frames), key_frames)
+    @inlinable func setKeyFrames(nKeyFrames: Int, keyFrames: UnsafePointer<CDouble>!) {
+        clutter_keyframe_transition_set_key_frames(keyframe_transition_ptr, guint(nKeyFrames), keyFrames)
     
     }
 
@@ -2105,8 +2111,8 @@ public extension KeyframeTransitionProtocol {
     /// If `transition` does not hold any key frame, `n_modes` key frames will
     /// be created; if `transition` already has key frames, `modes` must have
     /// at least as many elements as the number of key frames.
-    @inlinable func setModes(nModes n_modes: Int, modes: UnsafePointer<ClutterAnimationMode>!) {
-        clutter_keyframe_transition_set_modes(keyframe_transition_ptr, guint(n_modes), modes)
+    @inlinable func setModes(nModes: Int, modes: UnsafePointer<ClutterAnimationMode>!) {
+        clutter_keyframe_transition_set_modes(keyframe_transition_ptr, guint(nModes), modes)
     
     }
 
@@ -2115,8 +2121,8 @@ public extension KeyframeTransitionProtocol {
     /// If `transition` does not hold any key frame, `n_values` key frames will
     /// be created; if `transition` already has key frames, `values` must have
     /// at least as many elements as the number of key frames.
-    @inlinable func setValues(nValues n_values: Int, values: UnsafePointer<GValue>!) {
-        clutter_keyframe_transition_set_values(keyframe_transition_ptr, guint(n_values), values)
+    @inlinable func setValues(nValues: Int, values: UnsafePointer<GValue>!) {
+        clutter_keyframe_transition_set_values(keyframe_transition_ptr, guint(nValues), values)
     
     }
     /// Retrieves the number of key frames inside `transition`.

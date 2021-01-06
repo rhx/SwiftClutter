@@ -97,7 +97,7 @@ public extension ActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -520,7 +520,7 @@ public extension ActionProtocol {
 /// Alternatively, use `ActorRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// Base class for actors.
-public protocol ActorProtocol: InitiallyUnownedProtocol, Atk.ImplementorIfaceProtocol, AnimatableProtocol, ContainerProtocol, ScriptableProtocol {
+public protocol ActorProtocol: GLibObject.InitiallyUnownedProtocol, Atk.ImplementorIfaceProtocol, AnimatableProtocol, ContainerProtocol, ScriptableProtocol {
         /// Untyped pointer to the underlying `ClutterActor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -594,7 +594,7 @@ public extension ActorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -625,7 +625,7 @@ public extension ActorRef {
 /// Use `Actor` as a strong reference or owner of a `ClutterActor` instance.
 ///
 /// Base class for actors.
-open class Actor: InitiallyUnowned, ActorProtocol {
+open class Actor: GLibObject.InitiallyUnowned, ActorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Actor` instance.
@@ -2315,8 +2315,8 @@ public extension ActorProtocol {
     /// and `ClutterActor:y`-align properties, instead, and just call
     /// `clutter_actor_allocate()` inside their `ClutterActorClass.allocate``()`
     /// implementation.
-    @inlinable func allocateAlignFill<ActorBoxT: ActorBoxProtocol>(box: ActorBoxT, xAlign x_align: Double, yAlign y_align: Double, xFill x_fill: Bool, yFill y_fill: Bool, flags: AllocationFlags) {
-        clutter_actor_allocate_align_fill(actor_ptr, box.actor_box_ptr, gdouble(x_align), gdouble(y_align), gboolean((x_fill) ? 1 : 0), gboolean((y_fill) ? 1 : 0), flags.value)
+    @inlinable func allocateAlignFill<ActorBoxT: ActorBoxProtocol>(box: ActorBoxT, xAlign: Double, yAlign: Double, xFill: Bool, yFill: Bool, flags: AllocationFlags) {
+        clutter_actor_allocate_align_fill(actor_ptr, box.actor_box_ptr, gdouble(xAlign), gdouble(yAlign), gboolean((xFill) ? 1 : 0), gboolean((yFill) ? 1 : 0), flags.value)
     
     }
 
@@ -2372,8 +2372,8 @@ public extension ActorProtocol {
     /// This function can be used by fluid layout managers to allocate
     /// an actor's preferred size without making it bigger than the area
     /// available for the container.
-    @inlinable func allocateAvailableSize(x: Double, y: Double, availableWidth available_width: Double, availableHeight available_height: Double, flags: AllocationFlags) {
-        clutter_actor_allocate_available_size(actor_ptr, gfloat(x), gfloat(y), gfloat(available_width), gfloat(available_height), flags.value)
+    @inlinable func allocateAvailableSize(x: Double, y: Double, availableWidth: Double, availableHeight: Double, flags: AllocationFlags) {
+        clutter_actor_allocate_available_size(actor_ptr, gfloat(x), gfloat(y), gfloat(availableWidth), gfloat(availableHeight), flags.value)
     
     }
 
@@ -2422,8 +2422,8 @@ public extension ActorProtocol {
     ///   in #ClutterActor instead. See clutter_actor_save_easing_state(),
     ///   clutter_actor_set_easing_mode(), clutter_actor_set_easing_duration(),
     ///   clutter_actor_set_easing_delay(), and clutter_actor_restore_easing_state().
-    @available(*, deprecated) @inlinable func animateWithAlphav<AlphaT: AlphaProtocol>(alpha: AlphaT, nProperties n_properties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) -> AnimationRef! {
-        let rv = AnimationRef(gconstpointer: gconstpointer(clutter_actor_animate_with_alphav(actor_ptr, alpha.alpha_ptr, gint(n_properties), properties, values)))
+    @available(*, deprecated) @inlinable func animateWithAlphav<AlphaT: AlphaProtocol>(alpha: AlphaT, nProperties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) -> AnimationRef! {
+        let rv = AnimationRef(gconstpointer: gconstpointer(clutter_actor_animate_with_alphav(actor_ptr, alpha.alpha_ptr, gint(nProperties), properties, values)))
         return rv
     }
 
@@ -2451,8 +2451,8 @@ public extension ActorProtocol {
     ///   in #ClutterActor instead. See clutter_actor_save_easing_state(),
     ///   clutter_actor_set_easing_mode(), clutter_actor_set_easing_duration(),
     ///   clutter_actor_set_easing_delay(), and clutter_actor_restore_easing_state().
-    @available(*, deprecated) @inlinable func animateWithTimelinev<TimelineT: TimelineProtocol>(mode: Int, timeline: TimelineT, nProperties n_properties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) -> AnimationRef! {
-        let rv = AnimationRef(gconstpointer: gconstpointer(clutter_actor_animate_with_timelinev(actor_ptr, gulong(mode), timeline.timeline_ptr, gint(n_properties), properties, values)))
+    @available(*, deprecated) @inlinable func animateWithTimelinev<TimelineT: TimelineProtocol>(mode: Int, timeline: TimelineT, nProperties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) -> AnimationRef! {
+        let rv = AnimationRef(gconstpointer: gconstpointer(clutter_actor_animate_with_timelinev(actor_ptr, gulong(mode), timeline.timeline_ptr, gint(nProperties), properties, values)))
         return rv
     }
 
@@ -2471,8 +2471,8 @@ public extension ActorProtocol {
     ///   in #ClutterActor instead. See clutter_actor_save_easing_state(),
     ///   clutter_actor_set_easing_mode(), clutter_actor_set_easing_duration(),
     ///   clutter_actor_set_easing_delay(), and clutter_actor_restore_easing_state().
-    @available(*, deprecated) @inlinable func animatev(mode: Int, duration: Int, nProperties n_properties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) -> AnimationRef! {
-        let rv = AnimationRef(gconstpointer: gconstpointer(clutter_actor_animatev(actor_ptr, gulong(mode), guint(duration), gint(n_properties), properties, values)))
+    @available(*, deprecated) @inlinable func animatev(mode: Int, duration: Int, nProperties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) -> AnimationRef! {
+        let rv = AnimationRef(gconstpointer: gconstpointer(clutter_actor_animatev(actor_ptr, gulong(mode), guint(duration), gint(nProperties), properties, values)))
         return rv
     }
 
@@ -2484,7 +2484,19 @@ public extension ActorProtocol {
     /// this case, the coordinates returned will be the coordinates on
     /// the stage before the projection is applied. This is different from
     /// the behaviour of `clutter_actor_apply_transform_to_point()`.
-    @inlinable func applyRelativeTransformToPoint<ActorT: ActorProtocol, VertexT: VertexProtocol>(ancestor: ActorT? = nil, point: VertexT, vertex: VertexT) {
+    @inlinable func applyRelativeTransformToPoint<VertexT: VertexProtocol>(ancestor: ActorRef? = nil, point: VertexT, vertex: VertexT) {
+        clutter_actor_apply_relative_transform_to_point(actor_ptr, ancestor?.actor_ptr, point.vertex_ptr, vertex.vertex_ptr)
+    
+    }
+    /// Transforms `point` in coordinates relative to the actor into
+    /// ancestor-relative coordinates using the relevant transform
+    /// stack (i.e. scale, rotation, etc).
+    /// 
+    /// If `ancestor` is `nil` the ancestor will be the `ClutterStage`. In
+    /// this case, the coordinates returned will be the coordinates on
+    /// the stage before the projection is applied. This is different from
+    /// the behaviour of `clutter_actor_apply_transform_to_point()`.
+    @inlinable func applyRelativeTransformToPoint<ActorT: ActorProtocol, VertexT: VertexProtocol>(ancestor: ActorT?, point: VertexT, vertex: VertexT) {
         clutter_actor_apply_relative_transform_to_point(actor_ptr, ancestor?.actor_ptr, point.vertex_ptr, vertex.vertex_ptr)
     
     }
@@ -2509,8 +2521,8 @@ public extension ActorProtocol {
     /// 
     /// When a `ClutterActor` is bound to a model, adding and removing children
     /// directly is undefined behaviour.
-    @inlinable func bind<ListModelT: GIO.ListModelProtocol>(model: ListModelT? = nil, createChildFunc create_child_func: ClutterActorCreateChildFunc?, userData user_data: gpointer! = nil, notify: GDestroyNotify?) {
-        clutter_actor_bind_model(actor_ptr, model?.list_model_ptr, create_child_func, user_data, notify)
+    @inlinable func bind(model: UnsafeMutablePointer<GListModel>? = nil, createChildFunc: ClutterActorCreateChildFunc?, userData: gpointer! = nil, notify: GDestroyNotify?) {
+        clutter_actor_bind_model(actor_ptr, model, createChildFunc, userData, notify)
     
     }
 
@@ -2560,7 +2572,7 @@ public extension ActorProtocol {
     /// 
     /// See also `clutter_actor_get_pango_context()`.
     @inlinable func createPangoContext() -> Pango.ContextRef! {
-        let rv = Pango.ContextRef(gconstpointer: gconstpointer(clutter_actor_create_pango_context(actor_ptr)))
+        let rv = Pango.ContextRef(clutter_actor_create_pango_context(actor_ptr))
         return rv
     }
 
@@ -2573,8 +2585,8 @@ public extension ActorProtocol {
     /// function you will have to connect to the `ClutterBackend::font`-changed
     /// and `ClutterBackend::resolution`-changed signals, and call
     /// `pango_layout_context_changed()` in response to them.
-    @inlinable func createPangoLayout(text: UnsafePointer<gchar>? = nil) -> LayoutRef! {
-        let rv = LayoutRef(gconstpointer: gconstpointer(clutter_actor_create_pango_layout(actor_ptr, text)))
+    @inlinable func createPangoLayout(text: UnsafePointer<gchar>? = nil) -> Pango.LayoutRef! {
+        let rv = Pango.LayoutRef(clutter_actor_create_pango_layout(actor_ptr, text))
         return rv
     }
 
@@ -2666,8 +2678,8 @@ public extension ActorProtocol {
     /// url="http://developer.gnome.org/doc/API/2.0/atk/index.html">ATK</ulink>
     /// library contains more information about accessible objects and
     /// their uses.
-    @inlinable func getAccessible() -> GLibObject.ObjectRef! {
-        guard let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_actor_get_accessible(actor_ptr))) else { return nil }
+    @inlinable func getAccessible() -> Atk.ObjectRef! {
+        let rv = Atk.ObjectRef(clutter_actor_get_accessible(actor_ptr))
         return rv
     }
 
@@ -2680,7 +2692,7 @@ public extension ActorProtocol {
 
     /// Retrieves the list of actions applied to `self`
     @inlinable func getActions() -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_actions(actor_ptr)))
+        let rv = GLib.ListRef(clutter_actor_get_actions(actor_ptr))
         return rv
     }
 
@@ -2728,7 +2740,24 @@ public extension ActorProtocol {
     /// this case, the coordinates returned will be the coordinates on
     /// the stage before the projection is applied. This is different from
     /// the behaviour of `clutter_actor_get_abs_allocation_vertices()`.
-    @inlinable func getAllocationVertices<ActorT: ActorProtocol>(ancestor: ActorT? = nil, verts: UnsafeMutablePointer<ClutterVertex>!) {
+    @inlinable func getAllocationVertices(ancestor: ActorRef? = nil, verts: UnsafeMutablePointer<ClutterVertex>!) {
+        clutter_actor_get_allocation_vertices(actor_ptr, ancestor?.actor_ptr, verts)
+    
+    }
+    /// Calculates the transformed coordinates of the four corners of the
+    /// actor in the plane of `ancestor`. The returned vertices relate to
+    /// the `ClutterActorBox` coordinates as follows:
+    /// 
+    ///  - `verts`[0] contains (x1, y1)
+    ///  - `verts`[1] contains (x2, y1)
+    ///  - `verts`[2] contains (x1, y2)
+    ///  - `verts`[3] contains (x2, y2)
+    /// 
+    /// If `ancestor` is `nil` the ancestor will be the `ClutterStage`. In
+    /// this case, the coordinates returned will be the coordinates on
+    /// the stage before the projection is applied. This is different from
+    /// the behaviour of `clutter_actor_get_abs_allocation_vertices()`.
+    @inlinable func getAllocationVertices<ActorT: ActorProtocol>(ancestor: ActorT?, verts: UnsafeMutablePointer<ClutterVertex>!) {
         clutter_actor_get_allocation_vertices(actor_ptr, ancestor?.actor_ptr, verts)
     
     }
@@ -2737,8 +2766,8 @@ public extension ActorProtocol {
     ///
     /// **get_anchor_point is deprecated:**
     /// Use #ClutterActor:pivot-point instead
-    @available(*, deprecated) @inlinable func getAnchorPoint(anchorX anchor_x: UnsafeMutablePointer<gfloat>!, anchorY anchor_y: UnsafeMutablePointer<gfloat>!) {
-        clutter_actor_get_anchor_point(actor_ptr, anchor_x, anchor_y)
+    @available(*, deprecated) @inlinable func getAnchorPoint(anchorX: UnsafeMutablePointer<gfloat>!, anchorY: UnsafeMutablePointer<gfloat>!) {
+        clutter_actor_get_anchor_point(actor_ptr, anchorX, anchorY)
     
     }
 
@@ -2788,7 +2817,7 @@ public extension ActorProtocol {
 
     /// Retrieves the list of children of `self`.
     @inlinable func getChildren() -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_children(actor_ptr)))
+        let rv = GLib.ListRef(clutter_actor_get_children(actor_ptr))
         return rv
     }
 
@@ -2813,7 +2842,7 @@ public extension ActorProtocol {
 
     /// Retrieves the list of constraints applied to `self`
     @inlinable func getConstraints() -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_constraints(actor_ptr)))
+        let rv = GLib.ListRef(clutter_actor_get_constraints(actor_ptr))
         return rv
     }
 
@@ -2856,8 +2885,8 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the values set using `clutter_actor_set_content_scaling_filters()`.
-    @inlinable func getContentScalingFilters(minFilter min_filter: UnsafeMutablePointer<ClutterScalingFilter>! = nil, magFilter mag_filter: UnsafeMutablePointer<ClutterScalingFilter>! = nil) {
-        clutter_actor_get_content_scaling_filters(actor_ptr, min_filter, mag_filter)
+    @inlinable func getContentScalingFilters(minFilter: UnsafeMutablePointer<ClutterScalingFilter>! = nil, magFilter: UnsafeMutablePointer<ClutterScalingFilter>! = nil) {
+        clutter_actor_get_content_scaling_filters(actor_ptr, minFilter, magFilter)
     
     }
 
@@ -2914,7 +2943,7 @@ public extension ActorProtocol {
 
     /// Retrieves the `ClutterEffect`<!-- -->s applied on `self`, if any
     @inlinable func getEffects() -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_effects(actor_ptr)))
+        let rv = GLib.ListRef(clutter_actor_get_effects(actor_ptr))
         return rv
     }
 
@@ -3145,7 +3174,7 @@ public extension ActorProtocol {
     /// and render text using `cogl_pango_render_layout()` to reuse the
     /// glyphs cache also used by Clutter.
     @inlinable func getPangoContext() -> Pango.ContextRef! {
-        let rv = Pango.ContextRef(gconstpointer: gconstpointer(clutter_actor_get_pango_context(actor_ptr)))
+        let rv = Pango.ContextRef(clutter_actor_get_pango_context(actor_ptr))
         return rv
     }
 
@@ -3156,8 +3185,8 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the coordinates of the `ClutterActor:pivot`-point.
-    @inlinable func getPivotPoint(pivotX pivot_x: UnsafeMutablePointer<gfloat>! = nil, pivotY pivot_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_actor_get_pivot_point(actor_ptr, pivot_x, pivot_y)
+    @inlinable func getPivotPoint(pivotX: UnsafeMutablePointer<gfloat>! = nil, pivotY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_actor_get_pivot_point(actor_ptr, pivotX, pivotY)
     
     }
 
@@ -3187,8 +3216,8 @@ public extension ActorProtocol {
     /// 
     /// A request should not incorporate the actor's scale or anchor point;
     /// those transformations do not affect layout, only rendering.
-    @inlinable func getPreferredHeight(forWidth for_width: Double, minHeightP min_height_p: UnsafeMutablePointer<gfloat>! = nil, naturalHeightP natural_height_p: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_actor_get_preferred_height(actor_ptr, gfloat(for_width), min_height_p, natural_height_p)
+    @inlinable func getPreferredHeight(`for` width: Double, minHeightP: UnsafeMutablePointer<gfloat>! = nil, naturalHeightP: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_actor_get_preferred_height(actor_ptr, gfloat(width), minHeightP, naturalHeightP)
     
     }
 
@@ -3203,8 +3232,8 @@ public extension ActorProtocol {
     /// the preferred height, you should use `clutter_actor_get_preferred_width()`
     /// and `clutter_actor_get_preferred_height()`, and check the actor's preferred
     /// geometry management using the `ClutterActor:request`-mode property.
-    @inlinable func getPreferredSize(minWidthP min_width_p: UnsafeMutablePointer<gfloat>! = nil, minHeightP min_height_p: UnsafeMutablePointer<gfloat>! = nil, naturalWidthP natural_width_p: UnsafeMutablePointer<gfloat>! = nil, naturalHeightP natural_height_p: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_actor_get_preferred_size(actor_ptr, min_width_p, min_height_p, natural_width_p, natural_height_p)
+    @inlinable func getPreferredSize(minWidthP: UnsafeMutablePointer<gfloat>! = nil, minHeightP: UnsafeMutablePointer<gfloat>! = nil, naturalWidthP: UnsafeMutablePointer<gfloat>! = nil, naturalHeightP: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_actor_get_preferred_size(actor_ptr, minWidthP, minHeightP, naturalWidthP, naturalHeightP)
     
     }
 
@@ -3217,8 +3246,8 @@ public extension ActorProtocol {
     /// 
     /// A request should not incorporate the actor's scale or anchor point;
     /// those transformations do not affect layout, only rendering.
-    @inlinable func getPreferredWidth(forHeight for_height: Double, minWidthP min_width_p: UnsafeMutablePointer<gfloat>! = nil, naturalWidthP natural_width_p: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_actor_get_preferred_width(actor_ptr, gfloat(for_height), min_width_p, natural_width_p)
+    @inlinable func getPreferredWidth(`for` height: Double, minWidthP: UnsafeMutablePointer<gfloat>! = nil, naturalWidthP: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_actor_get_preferred_width(actor_ptr, gfloat(height), minWidthP, naturalWidthP)
     
     }
 
@@ -3263,8 +3292,8 @@ public extension ActorProtocol {
     }
 
     /// Retrieves an actors scale factors.
-    @inlinable func getScale(scaleX scale_x: UnsafeMutablePointer<gdouble>! = nil, scaleY scale_y: UnsafeMutablePointer<gdouble>! = nil) {
-        clutter_actor_get_scale(actor_ptr, scale_x, scale_y)
+    @inlinable func getScale(scaleX: UnsafeMutablePointer<gdouble>! = nil, scaleY: UnsafeMutablePointer<gdouble>! = nil) {
+        clutter_actor_get_scale(actor_ptr, scaleX, scaleY)
     
     }
 
@@ -3275,8 +3304,8 @@ public extension ActorProtocol {
     ///
     /// **get_scale_center is deprecated:**
     /// Use clutter_actor_get_pivot_point() instead.
-    @available(*, deprecated) @inlinable func getScaleCenter(centerX center_x: UnsafeMutablePointer<gfloat>! = nil, centerY center_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_actor_get_scale_center(actor_ptr, center_x, center_y)
+    @available(*, deprecated) @inlinable func getScaleCenter(centerX: UnsafeMutablePointer<gfloat>! = nil, centerY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_actor_get_scale_center(actor_ptr, centerX, centerY)
     
     }
 
@@ -3364,8 +3393,8 @@ public extension ActorProtocol {
     /// the volume of their children. Such containers can query the
     /// transformed paint volume of all of its children and union them
     /// together using `clutter_paint_volume_union()`.
-    @inlinable func getTransformedPaintVolume<ActorT: ActorProtocol>(relativeToAncestor relative_to_ancestor: ActorT) -> PaintVolumeRef! {
-        let rv = PaintVolumeRef(gconstpointer: gconstpointer(clutter_actor_get_transformed_paint_volume(actor_ptr, relative_to_ancestor.actor_ptr)))
+    @inlinable func getTransformedPaintVolume<ActorT: ActorProtocol>(relativeToAncestor: ActorT) -> PaintVolumeRef! {
+        let rv = PaintVolumeRef(gconstpointer: gconstpointer(clutter_actor_get_transformed_paint_volume(actor_ptr, relativeToAncestor.actor_ptr)))
         return rv
     }
 
@@ -3428,8 +3457,8 @@ public extension ActorProtocol {
     }
 
     /// Retrieves the translation set using `clutter_actor_set_translation()`.
-    @inlinable func getTranslation(translateX translate_x: UnsafeMutablePointer<gfloat>! = nil, translateY translate_y: UnsafeMutablePointer<gfloat>! = nil, translateZ translate_z: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_actor_get_translation(actor_ptr, translate_x, translate_y, translate_z)
+    @inlinable func getTranslation(translateX: UnsafeMutablePointer<gfloat>! = nil, translateY: UnsafeMutablePointer<gfloat>! = nil, translateZ: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_actor_get_translation(actor_ptr, translateX, translateY, translateZ)
     
     }
 
@@ -3651,7 +3680,7 @@ public extension ActorProtocol {
     /// 
     /// This function will emit the `ClutterContainer::actor`-added signal
     /// on `self`.
-    @inlinable func insertChildAbove<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT? = nil) {
+    @inlinable func insertChildAbove<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT?) {
         clutter_actor_insert_child_above(actor_ptr, child.actor_ptr, sibling?.actor_ptr)
     
     }
@@ -3685,7 +3714,7 @@ public extension ActorProtocol {
     /// 
     /// This function will emit the `ClutterContainer::actor`-added signal
     /// on `self`.
-    @inlinable func insertChildBelow<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT? = nil) {
+    @inlinable func insertChildBelow<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT?) {
         clutter_actor_insert_child_below(actor_ptr, child.actor_ptr, sibling?.actor_ptr)
     
     }
@@ -3699,7 +3728,20 @@ public extension ActorProtocol {
     ///
     /// **lower is deprecated:**
     /// Use clutter_actor_set_child_below_sibling() instead.
-    @available(*, deprecated) @inlinable func lower<ActorT: ActorProtocol>(above: ActorT? = nil) {
+    @available(*, deprecated) @inlinable func lower(above: ActorRef? = nil) {
+        clutter_actor_lower(actor_ptr, above?.actor_ptr)
+    
+    }
+    /// Puts `self` below `above`.
+    /// 
+    /// Both actors must have the same parent, and the parent must implement
+    /// the `ClutterContainer` interface.
+    /// 
+    /// This function calls `clutter_container_lower_child()` internally.
+    ///
+    /// **lower is deprecated:**
+    /// Use clutter_actor_set_child_below_sibling() instead.
+    @available(*, deprecated) @inlinable func lower<ActorT: ActorProtocol>(above: ActorT?) {
         clutter_actor_lower(actor_ptr, above?.actor_ptr)
     
     }
@@ -3737,8 +3779,8 @@ public extension ActorProtocol {
     /// **move_anchor_point is deprecated:**
     /// Use #ClutterActor:pivot-point and
     /// clutter_actor_set_translation() instead.
-    @available(*, deprecated) @inlinable func moveAnchorPoint(anchorX anchor_x: Double, anchorY anchor_y: Double) {
-        clutter_actor_move_anchor_point(actor_ptr, gfloat(anchor_x), gfloat(anchor_y))
+    @available(*, deprecated) @inlinable func moveAnchorPoint(anchorX: Double, anchorY: Double) {
+        clutter_actor_move_anchor_point(actor_ptr, gfloat(anchorX), gfloat(anchorY))
     
     }
 
@@ -3894,7 +3936,16 @@ public extension ActorProtocol {
     /// 
     /// If `clip` is `nil` this function is equivalent to
     /// `clutter_actor_queue_redraw()`.
-    @inlinable func queueRedrawWith<RectangleIntT: RectangleIntProtocol>(clip: RectangleIntT? = nil) {
+    @inlinable func queueRedrawWith(clip: Cairo.RectangleIntRef? = nil) {
+        clutter_actor_queue_redraw_with_clip(actor_ptr, clip?._ptr)
+    
+    }
+    /// Queues a redraw on `self` limited to a specific, actor-relative
+    /// rectangular area.
+    /// 
+    /// If `clip` is `nil` this function is equivalent to
+    /// `clutter_actor_queue_redraw()`.
+    @inlinable func queueRedrawWith<RectangleIntT: Cairo.RectangleIntProtocol>(clip: RectangleIntT?) {
         clutter_actor_queue_redraw_with_clip(actor_ptr, clip?._ptr)
     
     }
@@ -3918,7 +3969,20 @@ public extension ActorProtocol {
     ///
     /// **raise is deprecated:**
     /// Use clutter_actor_set_child_above_sibling() instead.
-    @available(*, deprecated) @inlinable func raise<ActorT: ActorProtocol>(below: ActorT? = nil) {
+    @available(*, deprecated) @inlinable func raise(below: ActorRef? = nil) {
+        clutter_actor_raise(actor_ptr, below?.actor_ptr)
+    
+    }
+    /// Puts `self` above `below`.
+    /// 
+    /// Both actors must have the same parent, and the parent must implement
+    /// the `ClutterContainer` interface
+    /// 
+    /// This function calls `clutter_container_raise_child()` internally.
+    ///
+    /// **raise is deprecated:**
+    /// Use clutter_actor_set_child_above_sibling() instead.
+    @available(*, deprecated) @inlinable func raise<ActorT: ActorProtocol>(below: ActorT?) {
         clutter_actor_raise(actor_ptr, below?.actor_ptr)
     
     }
@@ -4074,14 +4138,14 @@ public extension ActorProtocol {
     ///   the actor being removed before calling clutter_actor_remove_child()
     ///   to avoid the reference count dropping to zero and the actor being
     ///   destroyed.
-    @available(*, deprecated) @inlinable func reparent<ActorT: ActorProtocol>(newParent new_parent: ActorT) {
-        clutter_actor_reparent(actor_ptr, new_parent.actor_ptr)
+    @available(*, deprecated) @inlinable func reparent<ActorT: ActorProtocol>(newParent: ActorT) {
+        clutter_actor_reparent(actor_ptr, newParent.actor_ptr)
     
     }
 
     /// Replaces `old_child` with `new_child` in the list of children of `self`.
-    @inlinable func replaceChild<ActorT: ActorProtocol>(oldChild old_child: ActorT, newChild new_child: ActorT) {
-        clutter_actor_replace_child(actor_ptr, old_child.actor_ptr, new_child.actor_ptr)
+    @inlinable func replaceChild<ActorT: ActorProtocol>(oldChild: ActorT, newChild: ActorT) {
+        clutter_actor_replace_child(actor_ptr, oldChild.actor_ptr, newChild.actor_ptr)
     
     }
 
@@ -4189,8 +4253,8 @@ public extension ActorProtocol {
     ///
     /// **set_anchor_point is deprecated:**
     /// Use #ClutterActor:pivot-point instead.
-    @available(*, deprecated) @inlinable func setAnchorPoint(anchorX anchor_x: Double, anchorY anchor_y: Double) {
-        clutter_actor_set_anchor_point(actor_ptr, gfloat(anchor_x), gfloat(anchor_y))
+    @available(*, deprecated) @inlinable func setAnchorPoint(anchorX: Double, anchorY: Double) {
+        clutter_actor_set_anchor_point(actor_ptr, gfloat(anchorX), gfloat(anchorY))
     
     }
 
@@ -4221,7 +4285,20 @@ public extension ActorProtocol {
     /// `ClutterActor:background`-color-set actor property.
     /// 
     /// The `ClutterActor:background`-color property is animatable.
-    @inlinable func setBackground<ColorT: ColorProtocol>(color: ColorT? = nil) {
+    @inlinable func setBackground(color: ColorRef? = nil) {
+        clutter_actor_set_background_color(actor_ptr, color?.color_ptr)
+    
+    }
+    /// Sets the background color of a `ClutterActor`.
+    /// 
+    /// The background color will be used to cover the whole allocation of the
+    /// actor. The default background color of an actor is transparent.
+    /// 
+    /// To check whether an actor has a background color, you can use the
+    /// `ClutterActor:background`-color-set actor property.
+    /// 
+    /// The `ClutterActor:background`-color property is animatable.
+    @inlinable func setBackground<ColorT: ColorProtocol>(color: ColorT?) {
         clutter_actor_set_background_color(actor_ptr, color?.color_ptr)
     
     }
@@ -4233,7 +4310,7 @@ public extension ActorProtocol {
     /// This function is logically equivalent to removing `child` and using
     /// `clutter_actor_insert_child_above()`, but it will not emit signals
     /// or change state on `child`.
-    @inlinable func setChildAboveSibling<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT? = nil) {
+    @inlinable func setChildAboveSibling<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT?) {
         clutter_actor_set_child_above_sibling(actor_ptr, child.actor_ptr, sibling?.actor_ptr)
     
     }
@@ -4255,7 +4332,7 @@ public extension ActorProtocol {
     /// This function is logically equivalent to removing `self` and using
     /// `clutter_actor_insert_child_below()`, but it will not emit signals
     /// or change state on `child`.
-    @inlinable func setChildBelowSibling<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT? = nil) {
+    @inlinable func setChildBelowSibling<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT?) {
         clutter_actor_set_child_below_sibling(actor_ptr, child.actor_ptr, sibling?.actor_ptr)
     
     }
@@ -4267,7 +4344,18 @@ public extension ActorProtocol {
     /// If `transform` is `nil`, the child transform will be unset.
     /// 
     /// The `ClutterActor:child`-transform property is animatable.
-    @inlinable func setChild<MatrixT: MatrixProtocol>(transform: MatrixT? = nil) {
+    @inlinable func setChild(transform: MatrixRef? = nil) {
+        clutter_actor_set_child_transform(actor_ptr, transform?.matrix_ptr)
+    
+    }
+    /// Sets the transformation matrix to be applied to all the children
+    /// of `self` prior to their own transformations. The default child
+    /// transformation is the identity matrix.
+    /// 
+    /// If `transform` is `nil`, the child transform will be unset.
+    /// 
+    /// The `ClutterActor:child`-transform property is animatable.
+    @inlinable func setChild<MatrixT: MatrixProtocol>(transform: MatrixT?) {
         clutter_actor_set_child_transform(actor_ptr, transform?.matrix_ptr)
     
     }
@@ -4282,13 +4370,18 @@ public extension ActorProtocol {
 
     /// Sets whether `self` should be clipped to the same size as its
     /// allocation
-    @inlinable func setClipToAllocation(clipSet clip_set: Bool) {
-        clutter_actor_set_clip_to_allocation(actor_ptr, gboolean((clip_set) ? 1 : 0))
+    @inlinable func setClipToAllocation(clipSet: Bool) {
+        clutter_actor_set_clip_to_allocation(actor_ptr, gboolean((clipSet) ? 1 : 0))
     
     }
 
     /// Sets the contents of a `ClutterActor`.
-    @inlinable func set<ContentT: ContentProtocol>(content: ContentT? = nil) {
+    @inlinable func set(content: ContentRef? = nil) {
+        clutter_actor_set_content(actor_ptr, content?.content_ptr)
+    
+    }
+    /// Sets the contents of a `ClutterActor`.
+    @inlinable func set<ContentT: ContentProtocol>(content: ContentT?) {
         clutter_actor_set_content(actor_ptr, content?.content_ptr)
     
     }
@@ -4318,8 +4411,8 @@ public extension ActorProtocol {
     /// The `ClutterActor:minification`-filter will be used when reducing
     /// the size of the content; the `ClutterActor:magnification`-filter
     /// will be used when increasing the size of the content.
-    @inlinable func setContentScalingFilters(minFilter min_filter: ClutterScalingFilter, magFilter mag_filter: ClutterScalingFilter) {
-        clutter_actor_set_content_scaling_filters(actor_ptr, min_filter, mag_filter)
+    @inlinable func setContentScalingFilters(minFilter: ClutterScalingFilter, magFilter: ClutterScalingFilter) {
+        clutter_actor_set_content_scaling_filters(actor_ptr, minFilter, magFilter)
     
     }
 
@@ -4358,8 +4451,8 @@ public extension ActorProtocol {
 
     /// Sets whether an actor has a fixed position set (and will thus be
     /// unaffected by any layout manager).
-    @inlinable func setFixedPositionSet(isSet is_set: Bool) {
-        clutter_actor_set_fixed_position_set(actor_ptr, gboolean((is_set) ? 1 : 0))
+    @inlinable func setFixedPositionSet(isSet: Bool) {
+        clutter_actor_set_fixed_position_set(actor_ptr, gboolean((isSet) ? 1 : 0))
     
     }
 
@@ -4402,7 +4495,17 @@ public extension ActorProtocol {
     /// The `ClutterActor` will take a reference on the passed `manager` which
     /// will be released either when the layout manager is removed, or when
     /// the actor is destroyed.
-    @inlinable func setLayout<LayoutManagerT: LayoutManagerProtocol>(manager: LayoutManagerT? = nil) {
+    @inlinable func setLayout(manager: LayoutManagerRef? = nil) {
+        clutter_actor_set_layout_manager(actor_ptr, manager?.layout_manager_ptr)
+    
+    }
+    /// Sets the `ClutterLayoutManager` delegate object that will be used to
+    /// lay out the children of `self`.
+    /// 
+    /// The `ClutterActor` will take a reference on the passed `manager` which
+    /// will be released either when the layout manager is removed, or when
+    /// the actor is destroyed.
+    @inlinable func setLayout<LayoutManagerT: LayoutManagerProtocol>(manager: LayoutManagerT?) {
         clutter_actor_set_layout_manager(actor_ptr, manager?.layout_manager_ptr)
     
     }
@@ -4545,8 +4648,8 @@ public extension ActorProtocol {
     /// The pivot point's coordinates are in normalized space, with the (0, 0)
     /// point being the top left corner of the actor, and the (1, 1) point being
     /// the bottom right corner.
-    @inlinable func setPivotPoint(pivotX pivot_x: Double, pivotY pivot_y: Double) {
-        clutter_actor_set_pivot_point(actor_ptr, gfloat(pivot_x), gfloat(pivot_y))
+    @inlinable func setPivotPoint(pivotX: Double, pivotY: Double) {
+        clutter_actor_set_pivot_point(actor_ptr, gfloat(pivotX), gfloat(pivotY))
     
     }
 
@@ -4554,8 +4657,8 @@ public extension ActorProtocol {
     /// which the scaling and rotation transformations occur.
     /// 
     /// The `pivot_z` value is expressed as a distance along the Z axis.
-    @inlinable func setPivotPointZ(pivotZ pivot_z: Double) {
-        clutter_actor_set_pivot_point_z(actor_ptr, gfloat(pivot_z))
+    @inlinable func setPivotPointZ(pivotZ: Double) {
+        clutter_actor_set_pivot_point_z(actor_ptr, gfloat(pivotZ))
     
     }
 
@@ -4624,8 +4727,8 @@ public extension ActorProtocol {
     /// 
     /// The `ClutterActor:scale`-x and `ClutterActor:scale`-y properties are
     /// animatable.
-    @inlinable func setScale(scaleX scale_x: Double, scaleY scale_y: Double) {
-        clutter_actor_set_scale(actor_ptr, gdouble(scale_x), gdouble(scale_y))
+    @inlinable func setScale(scaleX: Double, scaleY: Double) {
+        clutter_actor_set_scale(actor_ptr, gdouble(scaleX), gdouble(scaleY))
     
     }
 
@@ -4639,8 +4742,8 @@ public extension ActorProtocol {
     /// **set_scale_full is deprecated:**
     /// Use clutter_actor_set_pivot_point() to control
     ///   the scale center
-    @available(*, deprecated) @inlinable func setScaleFull(scaleX scale_x: Double, scaleY scale_y: Double, centerX center_x: Double, centerY center_y: Double) {
-        clutter_actor_set_scale_full(actor_ptr, gdouble(scale_x), gdouble(scale_y), gfloat(center_x), gfloat(center_y))
+    @available(*, deprecated) @inlinable func setScaleFull(scaleX: Double, scaleY: Double, centerX: Double, centerY: Double) {
+        clutter_actor_set_scale_full(actor_ptr, gdouble(scaleX), gdouble(scaleY), gfloat(centerX), gfloat(centerY))
     
     }
 
@@ -4656,8 +4759,8 @@ public extension ActorProtocol {
     /// **set_scale_with_gravity is deprecated:**
     /// Use clutter_actor_set_pivot_point() to set the
     ///   scale center using normalized coordinates instead.
-    @available(*, deprecated) @inlinable func setScaleWithGravity(scaleX scale_x: Double, scaleY scale_y: Double, gravity: ClutterGravity) {
-        clutter_actor_set_scale_with_gravity(actor_ptr, gdouble(scale_x), gdouble(scale_y), gravity)
+    @available(*, deprecated) @inlinable func setScaleWithGravity(scaleX: Double, scaleY: Double, gravity: ClutterGravity) {
+        clutter_actor_set_scale_with_gravity(actor_ptr, gdouble(scaleX), gdouble(scaleY), gravity)
     
     }
 
@@ -4666,8 +4769,8 @@ public extension ActorProtocol {
     /// The scale transformation is relative the the `ClutterActor:pivot`-point.
     /// 
     /// The `ClutterActor:scale`-z property is animatable.
-    @inlinable func set(scaleZ scale_z: Double) {
-        clutter_actor_set_scale_z(actor_ptr, gdouble(scale_z))
+    @inlinable func set(scaleZ: Double) {
+        clutter_actor_set_scale_z(actor_ptr, gdouble(scaleZ))
     
     }
 
@@ -4682,7 +4785,22 @@ public extension ActorProtocol {
     /// **set_shader is deprecated:**
     /// Use #ClutterShaderEffect and
     ///   clutter_actor_add_effect() instead.
-    @available(*, deprecated) @inlinable func set<ShaderT: ShaderProtocol>(shader: ShaderT? = nil) -> Bool {
+    @available(*, deprecated) @inlinable func set(shader: ShaderRef? = nil) -> Bool {
+        let rv = ((clutter_actor_set_shader(actor_ptr, shader?.shader_ptr)) != 0)
+        return rv
+    }
+    /// Sets the `ClutterShader` to be used when rendering `self`.
+    /// 
+    /// If `shader` is `nil` this function will unset any currently set shader
+    /// for the actor.
+    /// 
+    /// Any `ClutterEffect` applied to `self` will take the precedence
+    /// over the `ClutterShader` set using this function.
+    ///
+    /// **set_shader is deprecated:**
+    /// Use #ClutterShaderEffect and
+    ///   clutter_actor_add_effect() instead.
+    @available(*, deprecated) @inlinable func set<ShaderT: ShaderProtocol>(shader: ShaderT?) -> Bool {
         let rv = ((clutter_actor_set_shader(actor_ptr, shader?.shader_ptr)) != 0)
         return rv
     }
@@ -4742,8 +4860,8 @@ public extension ActorProtocol {
     /// Composite actors not implementing `ClutterContainer`, or actors requiring
     /// special handling when the text direction changes, should connect to
     /// the `GObject::notify` signal for the `ClutterActor:text`-direction property
-    @inlinable func setTextDirection(textDir text_dir: ClutterTextDirection) {
-        clutter_actor_set_text_direction(actor_ptr, text_dir)
+    @inlinable func setTextDirection(textDir: ClutterTextDirection) {
+        clutter_actor_set_text_direction(actor_ptr, textDir)
     
     }
 
@@ -4752,15 +4870,24 @@ public extension ActorProtocol {
     /// actor's allocation and to the actor's pivot point.
     /// 
     /// The `ClutterActor:transform` property is animatable.
-    @inlinable func set<MatrixT: MatrixProtocol>(transform: MatrixT? = nil) {
+    @inlinable func set(transform: MatrixRef? = nil) {
+        clutter_actor_set_transform(actor_ptr, transform?.matrix_ptr)
+    
+    }
+    /// Overrides the transformations of a `ClutterActor` with a custom
+    /// matrix, which will be applied relative to the origin of the
+    /// actor's allocation and to the actor's pivot point.
+    /// 
+    /// The `ClutterActor:transform` property is animatable.
+    @inlinable func set<MatrixT: MatrixProtocol>(transform: MatrixT?) {
         clutter_actor_set_transform(actor_ptr, transform?.matrix_ptr)
     
     }
 
     /// Sets an additional translation transformation on a `ClutterActor`,
     /// relative to the `ClutterActor:pivot`-point.
-    @inlinable func setTranslation(translateX translate_x: Double, translateY translate_y: Double, translateZ translate_z: Double) {
-        clutter_actor_set_translation(actor_ptr, gfloat(translate_x), gfloat(translate_y), gfloat(translate_z))
+    @inlinable func setTranslation(translateX: Double, translateY: Double, translateZ: Double) {
+        clutter_actor_set_translation(actor_ptr, gfloat(translateX), gfloat(translateY), gfloat(translateZ))
     
     }
 
@@ -4791,8 +4918,8 @@ public extension ActorProtocol {
     /// actor received extra horizontal space.
     /// 
     /// See also the `ClutterActor:x`-align property.
-    @inlinable func set(xAlign x_align: ClutterActorAlign) {
-        clutter_actor_set_x_align(actor_ptr, x_align)
+    @inlinable func set(xAlign: ClutterActorAlign) {
+        clutter_actor_set_x_align(actor_ptr, xAlign)
     
     }
 
@@ -4823,8 +4950,8 @@ public extension ActorProtocol {
     /// actor received extra vertical space.
     /// 
     /// See also the `ClutterActor:y`-align property.
-    @inlinable func set(yAlign y_align: ClutterActorAlign) {
-        clutter_actor_set_y_align(actor_ptr, y_align)
+    @inlinable func set(yAlign: ClutterActorAlign) {
+        clutter_actor_set_y_align(actor_ptr, yAlign)
     
     }
 
@@ -4843,8 +4970,8 @@ public extension ActorProtocol {
     /// Sets the actor's position on the Z axis.
     /// 
     /// See `ClutterActor:z`-position.
-    @inlinable func set(zPosition z_position: Double) {
-        clutter_actor_set_z_position(actor_ptr, gfloat(z_position))
+    @inlinable func set(zPosition: Double) {
+        clutter_actor_set_z_position(actor_ptr, gfloat(zPosition))
     
     }
 
@@ -4909,8 +5036,8 @@ public extension ActorProtocol {
     /// 
     /// This function only works when the allocation is up-to-date, i.e. inside of
     /// the `ClutterActorClass.paint``()` implementation
-    @inlinable func transformStagePoint(x: Double, y: Double, xOut x_out: UnsafeMutablePointer<gfloat>!, yOut y_out: UnsafeMutablePointer<gfloat>!) -> Bool {
-        let rv = ((clutter_actor_transform_stage_point(actor_ptr, gfloat(x), gfloat(y), x_out, y_out)) != 0)
+    @inlinable func transformStagePoint(x: Double, y: Double, xOut: UnsafeMutablePointer<gfloat>!, yOut: UnsafeMutablePointer<gfloat>!) -> Bool {
+        let rv = ((clutter_actor_transform_stage_point(actor_ptr, gfloat(x), gfloat(y), xOut, yOut)) != 0)
         return rv
     }
 
@@ -5066,7 +5193,7 @@ public extension ActorProtocol {
     /// url="http://developer.gnome.org/doc/API/2.0/atk/index.html">ATK</ulink>
     /// library contains more information about accessible objects and
     /// their uses.
-    @inlinable var accessible: GLibObject.ObjectRef! {
+    @inlinable var accessible: Atk.ObjectRef! {
         /// Returns the accessible object that describes the actor to an
         /// assistive technology.
         /// 
@@ -5080,7 +5207,7 @@ public extension ActorProtocol {
         /// library contains more information about accessible objects and
         /// their uses.
         get {
-            guard let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_actor_get_accessible(actor_ptr))) else { return nil }
+            let rv = Atk.ObjectRef(clutter_actor_get_accessible(actor_ptr))
             return rv
         }
     }
@@ -5089,7 +5216,7 @@ public extension ActorProtocol {
     @inlinable var actions: GLib.ListRef! {
         /// Retrieves the list of actions applied to `self`
         get {
-            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_actions(actor_ptr)))
+            let rv = GLib.ListRef(clutter_actor_get_actions(actor_ptr))
             return rv
         }
     }
@@ -5138,7 +5265,7 @@ public extension ActorProtocol {
     @inlinable var children: GLib.ListRef! {
         /// Retrieves the list of children of `self`.
         get {
-            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_children(actor_ptr)))
+            let rv = GLib.ListRef(clutter_actor_get_children(actor_ptr))
             return rv
         }
     }
@@ -5161,7 +5288,7 @@ public extension ActorProtocol {
     @inlinable var constraints: GLib.ListRef! {
         /// Retrieves the list of constraints applied to `self`
         get {
-            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_constraints(actor_ptr)))
+            let rv = GLib.ListRef(clutter_actor_get_constraints(actor_ptr))
             return rv
         }
     }
@@ -5327,7 +5454,7 @@ public extension ActorProtocol {
     @inlinable var effects: GLib.ListRef! {
         /// Retrieves the `ClutterEffect`<!-- -->s applied on `self`, if any
         get {
-            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_actor_get_effects(actor_ptr)))
+            let rv = GLib.ListRef(clutter_actor_get_effects(actor_ptr))
             return rv
         }
     }
@@ -5845,7 +5972,7 @@ public extension ActorProtocol {
         /// and render text using `cogl_pango_render_layout()` to reuse the
         /// glyphs cache also used by Clutter.
         get {
-            let rv = Pango.ContextRef(gconstpointer: gconstpointer(clutter_actor_get_pango_context(actor_ptr)))
+            let rv = Pango.ContextRef(clutter_actor_get_pango_context(actor_ptr))
             return rv
         }
     }
@@ -6302,7 +6429,7 @@ public extension ActorProtocol {
 ///
 /// The `ClutterActorMeta` structure contains only
 /// private data and should be accessed using the provided API
-public protocol ActorMetaProtocol: InitiallyUnownedProtocol {
+public protocol ActorMetaProtocol: GLibObject.InitiallyUnownedProtocol {
         /// Untyped pointer to the underlying `ClutterActorMeta` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -6377,7 +6504,7 @@ public extension ActorMetaRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6401,7 +6528,7 @@ public extension ActorMetaRef {
 ///
 /// The `ClutterActorMeta` structure contains only
 /// private data and should be accessed using the provided API
-open class ActorMeta: InitiallyUnowned, ActorMetaProtocol {
+open class ActorMeta: GLibObject.InitiallyUnowned, ActorMetaProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ActorMeta` instance.
@@ -6804,8 +6931,8 @@ public extension ActorMetaProtocol {
     }
 
     /// Sets whether `meta` should be enabled or not
-    @inlinable func setEnabled(isEnabled is_enabled: Bool) {
-        clutter_actor_meta_set_enabled(actor_meta_ptr, gboolean((is_enabled) ? 1 : 0))
+    @inlinable func setEnabled(isEnabled: Bool) {
+        clutter_actor_meta_set_enabled(actor_meta_ptr, gboolean((isEnabled) ? 1 : 0))
     
     }
 
@@ -6945,7 +7072,7 @@ public extension AlignConstraintRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6964,7 +7091,7 @@ public extension AlignConstraintRef {
         /// Creates a new constraint, aligning a `ClutterActor`'s position with
     /// regards of the size of the actor to `source`, with the given
     /// alignment `factor`
-    @inlinable init<ActorT: ActorProtocol>( source: ActorT? = nil, axis: ClutterAlignAxis, factor: Double) {
+    @inlinable init<ActorT: ActorProtocol>( source: ActorT?, axis: ClutterAlignAxis, factor: Double) {
         let rv = clutter_align_constraint_new(source?.actor_ptr, axis, gfloat(factor))
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -7104,7 +7231,7 @@ open class AlignConstraint: Constraint, AlignConstraintProtocol {
     /// Creates a new constraint, aligning a `ClutterActor`'s position with
     /// regards of the size of the actor to `source`, with the given
     /// alignment `factor`
-    @inlinable public init<ActorT: ActorProtocol>( source: ActorT? = nil, axis: ClutterAlignAxis, factor: Double) {
+    @inlinable public init<ActorT: ActorProtocol>( source: ActorT?, axis: ClutterAlignAxis, factor: Double) {
         let rv = clutter_align_constraint_new(source?.actor_ptr, axis, gfloat(factor))
         super.init(gpointer: (rv))
     }
@@ -7436,7 +7563,12 @@ public extension AlignConstraintProtocol {
     }
 
     /// Sets the source of the alignment constraint
-    @inlinable func set<ActorT: ActorProtocol>(source: ActorT? = nil) {
+    @inlinable func set(source: ActorRef? = nil) {
+        clutter_align_constraint_set_source(align_constraint_ptr, source?.actor_ptr)
+    
+    }
+    /// Sets the source of the alignment constraint
+    @inlinable func set<ActorT: ActorProtocol>(source: ActorT?) {
         clutter_align_constraint_set_source(align_constraint_ptr, source?.actor_ptr)
     
     }
@@ -7512,7 +7644,7 @@ public extension AlignConstraintProtocol {
 /// `ClutterAlpha` combines a `ClutterTimeline` and a function.
 /// The contents of the `ClutterAlpha` structure are private and should
 /// only be accessed using the provided API.
-public protocol AlphaProtocol: InitiallyUnownedProtocol, ScriptableProtocol {
+public protocol AlphaProtocol: GLibObject.InitiallyUnownedProtocol, ScriptableProtocol {
         /// Untyped pointer to the underlying `ClutterAlpha` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -7588,7 +7720,7 @@ public extension AlphaRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7678,7 +7810,7 @@ public extension AlphaRef {
 /// `ClutterAlpha` combines a `ClutterTimeline` and a function.
 /// The contents of the `ClutterAlpha` structure are private and should
 /// only be accessed using the provided API.
-open class Alpha: InitiallyUnowned, AlphaProtocol {
+open class Alpha: GLibObject.InitiallyUnowned, AlphaProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Alpha` instance.
@@ -8195,7 +8327,7 @@ public extension AlphaProtocol {
     ///
     /// **set_closure is deprecated:**
     /// Use clutter_timeline_set_progress_func()
-    @available(*, deprecated) @inlinable func set<ClosureT: ClosureProtocol>(closure: ClosureT) {
+    @available(*, deprecated) @inlinable func set<ClosureT: GLibObject.ClosureProtocol>(closure: ClosureT) {
         clutter_alpha_set_closure(alpha_ptr, closure.closure_ptr)
     
     }
@@ -8396,7 +8528,7 @@ public extension AnimationRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8796,8 +8928,8 @@ public extension AnimationProtocol {
     ///
     /// **bind is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func bind<ValueT: GLibObject.ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, `final`: ValueT) -> AnimationRef! {
-        guard let rv = AnimationRef(gconstpointer: gconstpointer(clutter_animation_bind(animation_ptr, property_name, `final`.value_ptr))) else { return nil }
+    @available(*, deprecated) @inlinable func bind<ValueT: GLibObject.ValueProtocol>(propertyName: UnsafePointer<gchar>!, `final`: ValueT) -> AnimationRef! {
+        guard let rv = AnimationRef(gconstpointer: gconstpointer(clutter_animation_bind(animation_ptr, propertyName, `final`.value_ptr))) else { return nil }
         return rv
     }
 
@@ -8811,8 +8943,8 @@ public extension AnimationProtocol {
     ///
     /// **bind_interval is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func bindInterval<IntervalT: IntervalProtocol>(propertyName property_name: UnsafePointer<gchar>!, interval: IntervalT) -> AnimationRef! {
-        guard let rv = AnimationRef(gconstpointer: gconstpointer(clutter_animation_bind_interval(animation_ptr, property_name, interval.interval_ptr))) else { return nil }
+    @available(*, deprecated) @inlinable func bindInterval<IntervalT: IntervalProtocol>(propertyName: UnsafePointer<gchar>!, interval: IntervalT) -> AnimationRef! {
+        guard let rv = AnimationRef(gconstpointer: gconstpointer(clutter_animation_bind_interval(animation_ptr, propertyName, interval.interval_ptr))) else { return nil }
         return rv
     }
 
@@ -8856,8 +8988,8 @@ public extension AnimationProtocol {
     ///
     /// **get_interval is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func getInterval(propertyName property_name: UnsafePointer<gchar>!) -> IntervalRef! {
-        let rv = IntervalRef(gconstpointer: gconstpointer(clutter_animation_get_interval(animation_ptr, property_name)))
+    @available(*, deprecated) @inlinable func getInterval(propertyName: UnsafePointer<gchar>!) -> IntervalRef! {
+        let rv = IntervalRef(gconstpointer: gconstpointer(clutter_animation_get_interval(animation_ptr, propertyName)))
         return rv
     }
 
@@ -8885,7 +9017,7 @@ public extension AnimationProtocol {
     /// **get_object is deprecated:**
     /// Use #ClutterPropertyTransition instead
     @available(*, deprecated) @inlinable func getObject() -> GLibObject.ObjectRef! {
-        guard let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_animation_get_object(animation_ptr))) else { return nil }
+        let rv = GLibObject.ObjectRef(clutter_animation_get_object(animation_ptr))
         return rv
     }
 
@@ -8902,8 +9034,8 @@ public extension AnimationProtocol {
     ///
     /// **has_property is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func hasProperty(propertyName property_name: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((clutter_animation_has_property(animation_ptr, property_name)) != 0)
+    @available(*, deprecated) @inlinable func hasProperty(propertyName: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((clutter_animation_has_property(animation_ptr, propertyName)) != 0)
         return rv
     }
 
@@ -8976,7 +9108,17 @@ public extension AnimationProtocol {
     ///
     /// **set_timeline is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func set<TimelineT: TimelineProtocol>(timeline: TimelineT? = nil) {
+    @available(*, deprecated) @inlinable func set(timeline: TimelineRef? = nil) {
+        clutter_animation_set_timeline(animation_ptr, timeline?.timeline_ptr)
+    
+    }
+    /// Sets the `ClutterTimeline` used by `animation`.
+    /// 
+    /// This function will take a reference on the passed `timeline`.
+    ///
+    /// **set_timeline is deprecated:**
+    /// Use #ClutterPropertyTransition instead
+    @available(*, deprecated) @inlinable func set<TimelineT: TimelineProtocol>(timeline: TimelineT?) {
         clutter_animation_set_timeline(animation_ptr, timeline?.timeline_ptr)
     
     }
@@ -8985,8 +9127,8 @@ public extension AnimationProtocol {
     ///
     /// **unbind_property is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func unbindProperty(propertyName property_name: UnsafePointer<gchar>!) {
-        clutter_animation_unbind_property(animation_ptr, property_name)
+    @available(*, deprecated) @inlinable func unbindProperty(propertyName: UnsafePointer<gchar>!) {
+        clutter_animation_unbind_property(animation_ptr, propertyName)
     
     }
 
@@ -8994,8 +9136,8 @@ public extension AnimationProtocol {
     ///
     /// **update is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func update<ValueT: GLibObject.ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, `final`: ValueT) -> AnimationRef! {
-        guard let rv = AnimationRef(gconstpointer: gconstpointer(clutter_animation_update(animation_ptr, property_name, `final`.value_ptr))) else { return nil }
+    @available(*, deprecated) @inlinable func update<ValueT: GLibObject.ValueProtocol>(propertyName: UnsafePointer<gchar>!, `final`: ValueT) -> AnimationRef! {
+        guard let rv = AnimationRef(gconstpointer: gconstpointer(clutter_animation_update(animation_ptr, propertyName, `final`.value_ptr))) else { return nil }
         return rv
     }
 
@@ -9004,8 +9146,8 @@ public extension AnimationProtocol {
     ///
     /// **update_interval is deprecated:**
     /// Use #ClutterPropertyTransition instead
-    @available(*, deprecated) @inlinable func updateInterval<IntervalT: IntervalProtocol>(propertyName property_name: UnsafePointer<gchar>!, interval: IntervalT) {
-        clutter_animation_update_interval(animation_ptr, property_name, interval.interval_ptr)
+    @available(*, deprecated) @inlinable func updateInterval<IntervalT: IntervalProtocol>(propertyName: UnsafePointer<gchar>!, interval: IntervalT) {
+        clutter_animation_update_interval(animation_ptr, propertyName, interval.interval_ptr)
     
     }
     /// The `ClutterAlpha` used by the animation.
@@ -9128,7 +9270,7 @@ public extension AnimationProtocol {
         /// **get_object is deprecated:**
         /// Use #ClutterPropertyTransition instead
         @available(*, deprecated) get {
-            guard let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_animation_get_object(animation_ptr))) else { return nil }
+            let rv = GLibObject.ObjectRef(clutter_animation_get_object(animation_ptr))
             return rv
         }
         /// Attaches `animation` to `object`. The `ClutterAnimation` will take a
@@ -9257,7 +9399,7 @@ public extension AnimatorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9574,8 +9716,8 @@ public extension AnimatorProtocol {
     ///
     /// **compute_value is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func computeValue<ObjectT: GLibObject.ObjectProtocol, ValueT: GLibObject.ValueProtocol>(object: ObjectT, propertyName property_name: UnsafePointer<gchar>!, progress: Double, value: ValueT) -> Bool {
-        let rv = ((clutter_animator_compute_value(animator_ptr, object.object_ptr, property_name, gdouble(progress), value.value_ptr)) != 0)
+    @available(*, deprecated) @inlinable func computeValue<ObjectT: GLibObject.ObjectProtocol, ValueT: GLibObject.ValueProtocol>(object: ObjectT, propertyName: UnsafePointer<gchar>!, progress: Double, value: ValueT) -> Bool {
+        let rv = ((clutter_animator_compute_value(animator_ptr, object.object_ptr, propertyName, gdouble(progress), value.value_ptr)) != 0)
         return rv
     }
 
@@ -9593,8 +9735,17 @@ public extension AnimatorProtocol {
     ///
     /// **get_keys is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func getKeys<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT? = nil, propertyName property_name: UnsafePointer<gchar>? = nil, progress: Double) -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_animator_get_keys(animator_ptr, object?.object_ptr, property_name, gdouble(progress))))
+    @available(*, deprecated) @inlinable func getKeys(object: GLibObject.ObjectRef? = nil, propertyName: UnsafePointer<gchar>? = nil, progress: Double) -> GLib.ListRef! {
+        let rv = GLib.ListRef(clutter_animator_get_keys(animator_ptr, object?.object_ptr, propertyName, gdouble(progress)))
+        return rv
+    }
+    /// Returns a list of pointers to opaque structures with accessor functions
+    /// that describe the keys added to an animator.
+    ///
+    /// **get_keys is deprecated:**
+    /// Use #ClutterKeyframeTransition instead
+    @available(*, deprecated) @inlinable func getKeys<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT?, propertyName: UnsafePointer<gchar>? = nil, progress: Double) -> GLib.ListRef! {
+        let rv = GLib.ListRef(clutter_animator_get_keys(animator_ptr, object?.object_ptr, propertyName, gdouble(progress)))
         return rv
     }
 
@@ -9611,8 +9762,8 @@ public extension AnimatorProtocol {
     ///
     /// **property_get_ease_in is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func propertyGetEaseIn<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName property_name: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((clutter_animator_property_get_ease_in(animator_ptr, object.object_ptr, property_name)) != 0)
+    @available(*, deprecated) @inlinable func propertyGetEaseIn<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((clutter_animator_property_get_ease_in(animator_ptr, object.object_ptr, propertyName)) != 0)
         return rv
     }
 
@@ -9621,8 +9772,8 @@ public extension AnimatorProtocol {
     ///
     /// **property_get_interpolation is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func propertyGetInterpolation<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName property_name: UnsafePointer<gchar>!) -> ClutterInterpolation {
-        let rv = clutter_animator_property_get_interpolation(animator_ptr, object.object_ptr, property_name)
+    @available(*, deprecated) @inlinable func propertyGetInterpolation<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName: UnsafePointer<gchar>!) -> ClutterInterpolation {
+        let rv = clutter_animator_property_get_interpolation(animator_ptr, object.object_ptr, propertyName)
         return rv
     }
 
@@ -9630,8 +9781,8 @@ public extension AnimatorProtocol {
     ///
     /// **property_set_ease_in is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func propertySetEaseIn<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName property_name: UnsafePointer<gchar>!, easeIn ease_in: Bool) {
-        clutter_animator_property_set_ease_in(animator_ptr, object.object_ptr, property_name, gboolean((ease_in) ? 1 : 0))
+    @available(*, deprecated) @inlinable func propertySetEaseIn<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName: UnsafePointer<gchar>!, easeIn: Bool) {
+        clutter_animator_property_set_ease_in(animator_ptr, object.object_ptr, propertyName, gboolean((easeIn) ? 1 : 0))
     
     }
 
@@ -9642,8 +9793,8 @@ public extension AnimatorProtocol {
     ///
     /// **property_set_interpolation is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func propertySetInterpolation<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName property_name: UnsafePointer<gchar>!, interpolation: ClutterInterpolation) {
-        clutter_animator_property_set_interpolation(animator_ptr, object.object_ptr, property_name, interpolation)
+    @available(*, deprecated) @inlinable func propertySetInterpolation<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT, propertyName: UnsafePointer<gchar>!, interpolation: ClutterInterpolation) {
+        clutter_animator_property_set_interpolation(animator_ptr, object.object_ptr, propertyName, interpolation)
     
     }
 
@@ -9651,8 +9802,16 @@ public extension AnimatorProtocol {
     ///
     /// **remove_key is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func removeKey<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT? = nil, propertyName property_name: UnsafePointer<gchar>? = nil, progress: Double) {
-        clutter_animator_remove_key(animator_ptr, object?.object_ptr, property_name, gdouble(progress))
+    @available(*, deprecated) @inlinable func removeKey(object: GLibObject.ObjectRef? = nil, propertyName: UnsafePointer<gchar>? = nil, progress: Double) {
+        clutter_animator_remove_key(animator_ptr, object?.object_ptr, propertyName, gdouble(progress))
+    
+    }
+    /// Removes all keys matching the conditions specificed in the arguments.
+    ///
+    /// **remove_key is deprecated:**
+    /// Use #ClutterKeyframeTransition instead
+    @available(*, deprecated) @inlinable func removeKey<ObjectT: GLibObject.ObjectProtocol>(object: ObjectT?, propertyName: UnsafePointer<gchar>? = nil, progress: Double) {
+        clutter_animator_remove_key(animator_ptr, object?.object_ptr, propertyName, gdouble(progress))
     
     }
 
@@ -9677,8 +9836,8 @@ public extension AnimatorProtocol {
     ///
     /// **set_key is deprecated:**
     /// Use #ClutterKeyframeTransition instead
-    @available(*, deprecated) @inlinable func setKey<ObjectT: GLibObject.ObjectProtocol, ValueT: GLibObject.ValueProtocol>(object: ObjectT, propertyName property_name: UnsafePointer<gchar>!, mode: Int, progress: Double, value: ValueT) -> AnimatorRef! {
-        guard let rv = AnimatorRef(gconstpointer: gconstpointer(clutter_animator_set_key(animator_ptr, object.object_ptr, property_name, guint(mode), gdouble(progress), value.value_ptr))) else { return nil }
+    @available(*, deprecated) @inlinable func setKey<ObjectT: GLibObject.ObjectProtocol, ValueT: GLibObject.ValueProtocol>(object: ObjectT, propertyName: UnsafePointer<gchar>!, mode: Int, progress: Double, value: ValueT) -> AnimatorRef! {
+        guard let rv = AnimatorRef(gconstpointer: gconstpointer(clutter_animator_set_key(animator_ptr, object.object_ptr, propertyName, guint(mode), gdouble(progress), value.value_ptr))) else { return nil }
         return rv
     }
 
@@ -9839,7 +9998,7 @@ public extension BackendRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -10095,8 +10254,8 @@ public extension BackendProtocol {
     }
 
     /// Retrieves the font options for `backend`.
-    @inlinable func getFontOptions() -> FontOptionsRef! {
-        let rv = FontOptionsRef(gconstpointer: gconstpointer(clutter_backend_get_font_options(backend_ptr)))
+    @inlinable func getFontOptions() -> Cairo.FontOptionsRef! {
+        let rv = Cairo.FontOptionsRef(clutter_backend_get_font_options(backend_ptr))
         return rv
     }
 
@@ -10141,8 +10300,8 @@ public extension BackendProtocol {
     ///
     /// **set_font_name is deprecated:**
     /// Use #ClutterSettings:font-name instead
-    @available(*, deprecated) @inlinable func set(fontName font_name: UnsafePointer<gchar>!) {
-        clutter_backend_set_font_name(backend_ptr, font_name)
+    @available(*, deprecated) @inlinable func set(fontName: UnsafePointer<gchar>!) {
+        clutter_backend_set_font_name(backend_ptr, fontName)
     
     }
 
@@ -10155,7 +10314,7 @@ public extension BackendProtocol {
     /// 
     /// This function is intended for actors creating a Pango layout
     /// using the PangoCairo API.
-    @inlinable func setFont<FontOptionsT: FontOptionsProtocol>(options: FontOptionsT) {
+    @inlinable func setFont<FontOptionsT: Cairo.FontOptionsProtocol>(options: FontOptionsT) {
         clutter_backend_set_font_options(backend_ptr, options._ptr)
     
     }
@@ -10248,10 +10407,10 @@ public extension BackendProtocol {
     }
 
     /// Retrieves the font options for `backend`.
-    @inlinable var fontOptions: FontOptionsRef! {
+    @inlinable var fontOptions: Cairo.FontOptionsRef! {
         /// Retrieves the font options for `backend`.
         get {
-            let rv = FontOptionsRef(gconstpointer: gconstpointer(clutter_backend_get_font_options(backend_ptr)))
+            let rv = Cairo.FontOptionsRef(clutter_backend_get_font_options(backend_ptr))
             return rv
         }
         /// Sets the new font options for `backend`. The `ClutterBackend` will

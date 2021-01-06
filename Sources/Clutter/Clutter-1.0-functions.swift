@@ -16,8 +16,15 @@ import Atk
 /// Adds a function which will be called for all events that Clutter
 /// processes. The function will be called before any signals are
 /// emitted for the event and it will take precedence over any grabs.
-@inlinable public func addFilter<StageT: StageProtocol>(stage: StageT? = nil, `func`: ClutterEventFilterFunc?, notify: GDestroyNotify?, userData user_data: gpointer! = nil) -> Int {
-    let rv = Int(clutter_event_add_filter(stage?.stage_ptr, `func`, notify, user_data))
+@inlinable public func addFilter(stage: StageRef? = nil, `func`: ClutterEventFilterFunc?, notify: GDestroyNotify?, userData: gpointer! = nil) -> Int {
+    let rv = Int(clutter_event_add_filter(stage?.stage_ptr, `func`, notify, userData))
+    return rv
+}
+/// Adds a function which will be called for all events that Clutter
+/// processes. The function will be called before any signals are
+/// emitted for the event and it will take precedence over any grabs.
+@inlinable public func addFilter<StageT: StageProtocol>(stage: StageT?, `func`: ClutterEventFilterFunc?, notify: GDestroyNotify?, userData: gpointer! = nil) -> Int {
+    let rv = Int(clutter_event_add_filter(stage?.stage_ptr, `func`, notify, userData))
     return rv
 }
 
@@ -73,7 +80,7 @@ import Atk
 
 /// Utility function to clear a Cairo context.
 @inlinable public func cairoClear<ContextT: Cairo.ContextProtocol>(cr: ContextT) {
-    clutter_cairo_clear(cr.context_ptr)
+    clutter_cairo_clear(cr._ptr)
 
 }
 
@@ -92,7 +99,7 @@ import Atk
 /// ```
 /// 
 @inlinable public func cairoSetSourceColor<ColorT: ColorProtocol, ContextT: Cairo.ContextProtocol>(cr: ContextT, color: ColorT) {
-    clutter_cairo_set_source_color(cr.context_ptr, color.color_ptr)
+    clutter_cairo_set_source_color(cr._ptr, color.color_ptr)
 
 }
 
@@ -126,8 +133,8 @@ import Atk
 ///     g_error ("Unknown Clutter backend.");
 /// ```
 /// 
-@inlinable public func checkWindowingBackend(backendType backend_type: UnsafePointer<CChar>!) -> Bool {
-    let rv = ((clutter_check_windowing_backend(backend_type)) != 0)
+@inlinable public func checkWindowingBackend(backendType: UnsafePointer<CChar>!) -> Bool {
+    let rv = ((clutter_check_windowing_backend(backendType)) != 0)
     return rv
 }
 
@@ -225,8 +232,8 @@ import Atk
 
 
 /// Looks up the `GParamSpec` for a child property of `klass`.
-@inlinable public func containerClassFindChildProperty<ObjectClassT: GLibObject.ObjectClassProtocol>(klass: ObjectClassT, propertyName property_name: UnsafePointer<gchar>!) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(clutter_container_class_find_child_property(klass._ptr, property_name))) else { return nil }
+@inlinable public func containerClassFindChildProperty<ObjectClassT: GLibObject.ObjectClassProtocol>(klass: ObjectClassT, propertyName: UnsafePointer<gchar>!) -> GLibObject.ParamSpecRef! {
+    guard let rv = GLibObject.ParamSpecRef(clutter_container_class_find_child_property(klass._ptr, propertyName)) else { return nil }
     return rv
 }
 
@@ -234,8 +241,8 @@ import Atk
 
 
 /// Returns an array of `GParamSpec` for all child properties.
-@inlinable public func containerClassListChildProperties<ObjectClassT: GLibObject.ObjectClassProtocol>(klass: ObjectClassT, nProperties n_properties: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
-    guard let rv = clutter_container_class_list_child_properties(klass._ptr, n_properties) else { return nil }
+@inlinable public func containerClassListChildProperties<ObjectClassT: GLibObject.ObjectClassProtocol>(klass: ObjectClassT, nProperties: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
+    guard let rv = clutter_container_class_list_child_properties(klass._ptr, nProperties) else { return nil }
     return rv
 }
 
@@ -272,8 +279,15 @@ import Atk
 /// Adds a function which will be called for all events that Clutter
 /// processes. The function will be called before any signals are
 /// emitted for the event and it will take precedence over any grabs.
-@inlinable public func eventAddFilter<StageT: StageProtocol>(stage: StageT? = nil, `func`: ClutterEventFilterFunc?, notify: GDestroyNotify?, userData user_data: gpointer! = nil) -> Int {
-    let rv = Int(clutter_event_add_filter(stage?.stage_ptr, `func`, notify, user_data))
+@inlinable public func eventAddFilter(stage: StageRef? = nil, `func`: ClutterEventFilterFunc?, notify: GDestroyNotify?, userData: gpointer! = nil) -> Int {
+    let rv = Int(clutter_event_add_filter(stage?.stage_ptr, `func`, notify, userData))
+    return rv
+}
+/// Adds a function which will be called for all events that Clutter
+/// processes. The function will be called before any signals are
+/// emitted for the event and it will take precedence over any grabs.
+@inlinable public func eventAddFilter<StageT: StageProtocol>(stage: StageT?, `func`: ClutterEventFilterFunc?, notify: GDestroyNotify?, userData: gpointer! = nil) -> Int {
+    let rv = Int(clutter_event_add_filter(stage?.stage_ptr, `func`, notify, userData))
     return rv
 }
 
@@ -487,8 +501,8 @@ import Atk
 /// Retrieves the `PangoFontMap` instance used by Clutter.
 /// You can use the global font map object with the COGL
 /// Pango API.
-@inlinable public func getFontMap() -> FontMapRef! {
-    guard let rv = FontMapRef(gconstpointer: gconstpointer(clutter_get_font_map())) else { return nil }
+@inlinable public func getFontMap() -> Pango.FontMapRef! {
+    guard let rv = Pango.FontMapRef(clutter_get_font_map()) else { return nil }
     return rv
 }
 
@@ -549,8 +563,8 @@ import Atk
 /// call to `clutter_init()`; use this function when needing to set foreign
 /// display connection with `clutter_x11_set_display()`, or with
 /// ``gtk_clutter_init()``.
-@inlinable public func getOptionGroupWithoutInit() -> OptionGroupRef! {
-    guard let rv = OptionGroupRef(gconstpointer: gconstpointer(clutter_get_option_group_without_init())) else { return nil }
+@inlinable public func getOptionGroupWithoutInit() -> GLib.OptionGroupRef! {
+    guard let rv = GLib.OptionGroupRef(clutter_get_option_group_without_init()) else { return nil }
     return rv
 }
 
@@ -722,9 +736,9 @@ import Atk
 /// Just like `clutter_init()`, if this function returns an error code then
 /// any subsequent call to any other Clutter API will result in undefined
 /// behaviour - including segmentation faults.
-@inlinable public func initWithArgs(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>?>! = nil, parameterString parameter_string: UnsafePointer<CChar>? = nil, entries: UnsafeMutablePointer<GOptionEntry>! = nil, translationDomain translation_domain: UnsafePointer<CChar>? = nil) throws -> ClutterInitError {
+@inlinable public func initWithArgs(argc: UnsafeMutablePointer<gint>!, argv: UnsafeMutablePointer<UnsafeMutablePointer<UnsafeMutablePointer<CChar>?>?>! = nil, parameterString: UnsafePointer<CChar>? = nil, entries: UnsafeMutablePointer<GOptionEntry>! = nil, translationDomain: UnsafePointer<CChar>? = nil) throws -> ClutterInitError {
     var error: UnsafeMutablePointer<GError>?
-    let rv = clutter_init_with_args(argc, argv, parameter_string, entries, translation_domain, &error)
+    let rv = clutter_init_with_args(argc, argv, parameterString, entries, translationDomain, &error)
     if let error = error { throw GLibError(error) }
     return rv
 }
@@ -779,8 +793,8 @@ import Atk
 
 
 /// Creates a `GParamSpec` for properties using `ClutterColor`.
-@inlinable public func paramSpecColor<ColorT: ColorProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue default_value: ColorT, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(clutter_param_spec_color(name, nick, blurb, default_value.color_ptr, flags.value))) else { return nil }
+@inlinable public func paramSpecColor<ColorT: ColorProtocol>(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultValue: ColorT, flags: GLibObject.ParamFlags) -> GLibObject.ParamSpecRef! {
+    guard let rv = GLibObject.ParamSpecRef(clutter_param_spec_color(name, nick, blurb, defaultValue.color_ptr, flags.value)) else { return nil }
     return rv
 }
 
@@ -791,8 +805,8 @@ import Atk
 ///
 /// **param_spec_fixed is deprecated:**
 /// Use #GParamSpecInt instead.
-@available(*, deprecated) @inlinable public func paramSpecFixed(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: CoglFixed, maximum: CoglFixed, defaultValue default_value: CoglFixed, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(clutter_param_spec_fixed(name, nick, blurb, minimum, maximum, default_value, flags.value))) else { return nil }
+@available(*, deprecated) @inlinable public func paramSpecFixed(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, minimum: CoglFixed, maximum: CoglFixed, defaultValue: CoglFixed, flags: GLibObject.ParamFlags) -> GLibObject.ParamSpecRef! {
+    guard let rv = GLibObject.ParamSpecRef(clutter_param_spec_fixed(name, nick, blurb, minimum, maximum, defaultValue, flags.value)) else { return nil }
     return rv
 }
 
@@ -800,8 +814,8 @@ import Atk
 
 
 /// Creates a `GParamSpec` for properties using `ClutterUnits`.
-@inlinable public func paramSpecUnits(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultType default_type: ClutterUnitType, minimum: Double, maximum: Double, defaultValue default_value: Double, flags: ParamFlags) -> ParamSpecRef! {
-    guard let rv = ParamSpecRef(gconstpointer: gconstpointer(clutter_param_spec_units(name, nick, blurb, default_type, gfloat(minimum), gfloat(maximum), gfloat(default_value), flags.value))) else { return nil }
+@inlinable public func paramSpecUnits(name: UnsafePointer<gchar>!, nick: UnsafePointer<gchar>!, blurb: UnsafePointer<gchar>!, defaultType: ClutterUnitType, minimum: Double, maximum: Double, defaultValue: Double, flags: GLibObject.ParamFlags) -> GLibObject.ParamSpecRef! {
+    guard let rv = GLibObject.ParamSpecRef(clutter_param_spec_units(name, nick, blurb, defaultType, gfloat(minimum), gfloat(maximum), gfloat(defaultValue), flags.value)) else { return nil }
     return rv
 }
 
@@ -862,8 +876,8 @@ import Atk
 ///
 /// **set_default_frame_rate is deprecated:**
 /// This function does not do anything any more.
-@available(*, deprecated) @inlinable public func setDefaultFrameRate(framesPerSec frames_per_sec: Int) {
-    clutter_set_default_frame_rate(guint(frames_per_sec))
+@available(*, deprecated) @inlinable public func setDefaultFrameRate(framesPerSec: Int) {
+    clutter_set_default_frame_rate(guint(framesPerSec))
 
 }
 
@@ -945,8 +959,8 @@ import Atk
 /// 
 /// This function must be called before the first API call to Clutter, including
 /// `clutter_get_option_context()`
-@inlinable public func setWindowingBackend(backendType backend_type: UnsafePointer<CChar>!) {
-    clutter_set_windowing_backend(backend_type)
+@inlinable public func setWindowingBackend(backendType: UnsafePointer<CChar>!) {
+    clutter_set_windowing_backend(backendType)
 
 }
 
@@ -964,8 +978,8 @@ import Atk
 /// Adds a test unit to the Clutter test environment.
 /// 
 /// See also: `g_test_add()`
-@inlinable public func testAdd(testPath test_path: UnsafePointer<CChar>!, testFunc test_func: GTestFunc?) {
-    clutter_test_add(test_path, test_func)
+@inlinable public func testAdd(testPath: UnsafePointer<CChar>!, testFunc: GTestFunc?) {
+    clutter_test_add(testPath, testFunc)
 
 }
 
@@ -975,8 +989,8 @@ import Atk
 /// Adds a test unit to the Clutter test environment.
 /// 
 /// See also: `g_test_add_data_func()`
-@inlinable public func testAddData(testPath test_path: UnsafePointer<CChar>!, testFunc test_func: GTestDataFunc?, testData test_data: gpointer! = nil) {
-    clutter_test_add_data(test_path, test_func, test_data)
+@inlinable public func testAddData(testPath: UnsafePointer<CChar>!, testFunc: GTestDataFunc?, testData: gpointer! = nil) {
+    clutter_test_add_data(testPath, testFunc, testData)
 
 }
 
@@ -986,8 +1000,8 @@ import Atk
 /// Adds a test unit to the Clutter test environment.
 /// 
 /// See also: `g_test_add_data_func_full()`
-@inlinable public func testAddDataFull(testPath test_path: UnsafePointer<CChar>!, testFunc test_func: GTestDataFunc?, testData test_data: gpointer! = nil, testNotify test_notify: GDestroyNotify?) {
-    clutter_test_add_data_full(test_path, test_func, test_data, test_notify)
+@inlinable public func testAddDataFull(testPath: UnsafePointer<CChar>!, testFunc: GTestDataFunc?, testData: gpointer! = nil, testNotify: GDestroyNotify?) {
+    clutter_test_add_data_full(testPath, testFunc, testData, testNotify)
 
 }
 
@@ -1311,8 +1325,8 @@ import Atk
 
 
 /// Removes the repaint function with `handle_id` as its id
-@inlinable public func threadsRemoveRepaintFunc(handleId handle_id: Int) {
-    clutter_threads_remove_repaint_func(guint(handle_id))
+@inlinable public func threadsRemoveRepaintFunc(handleId: Int) {
+    clutter_threads_remove_repaint_func(guint(handleId))
 
 }
 
@@ -1340,8 +1354,8 @@ import Atk
 /// 
 /// This method must be called before `clutter_init()`, and cannot
 /// be called multiple times.
-@inlinable public func threadsSetLockFunctions(enterFn enter_fn: GCallback?, leaveFn leave_fn: GCallback?) {
-    clutter_threads_set_lock_functions(enter_fn, leave_fn)
+@inlinable public func threadsSetLockFunctions(enterFn: GCallback?, leaveFn: GCallback?) {
+    clutter_threads_set_lock_functions(enterFn, leaveFn)
 
 }
 
@@ -1425,8 +1439,8 @@ import Atk
 
 
 /// Stores a value in em inside `units` using `font_name`
-@inlinable public func unitsFromEmForFont<UnitsT: UnitsProtocol>(units: UnitsT, fontName font_name: UnsafePointer<gchar>? = nil, em: Double) {
-    clutter_units_from_em_for_font(units.units_ptr, font_name, gfloat(em))
+@inlinable public func unitsFromEmForFont<UnitsT: UnitsProtocol>(units: UnitsT, fontName: UnsafePointer<gchar>? = nil, em: Double) {
+    clutter_units_from_em_for_font(units.units_ptr, fontName, gfloat(em))
 
 }
 
@@ -1623,7 +1637,16 @@ import Atk
 /// This function increased the reference count of `node`; if you do not wish
 /// to increase the reference count, use `clutter_value_take_paint_node()`
 /// instead. The reference count will be released by `g_value_unset()`.
-@inlinable public func valueSetPaintNode<PaintNodeT: PaintNodeProtocol, ValueT: GLibObject.ValueProtocol>(value: ValueT, node: PaintNodeT? = nil) {
+@inlinable public func valueSetPaintNode<ValueT: GLibObject.ValueProtocol>(value: ValueT, node: PaintNodeRef? = nil) {
+    clutter_value_set_paint_node(value.value_ptr, node?.paint_node_ptr)
+
+}
+/// Sets the contents of a `GValue` initialized with `CLUTTER_TYPE_PAINT_NODE`.
+/// 
+/// This function increased the reference count of `node`; if you do not wish
+/// to increase the reference count, use `clutter_value_take_paint_node()`
+/// instead. The reference count will be released by `g_value_unset()`.
+@inlinable public func valueSetPaintNode<PaintNodeT: PaintNodeProtocol, ValueT: GLibObject.ValueProtocol>(value: ValueT, node: PaintNodeT?) {
     clutter_value_set_paint_node(value.value_ptr, node?.paint_node_ptr)
 
 }
@@ -1675,7 +1698,16 @@ import Atk
 /// Unlike `clutter_value_set_paint_node()`, this function will not take a
 /// reference on the passed `node:` instead, it will take ownership of the
 /// current reference count.
-@inlinable public func valueTakePaintNode<PaintNodeT: PaintNodeProtocol, ValueT: GLibObject.ValueProtocol>(value: ValueT, node: PaintNodeT? = nil) {
+@inlinable public func valueTakePaintNode<ValueT: GLibObject.ValueProtocol>(value: ValueT, node: PaintNodeRef? = nil) {
+    clutter_value_take_paint_node(value.value_ptr, node?.paint_node_ptr)
+
+}
+/// Sets the contents of a `GValue` initialized with `CLUTTER_TYPE_PAINT_NODE`.
+/// 
+/// Unlike `clutter_value_set_paint_node()`, this function will not take a
+/// reference on the passed `node:` instead, it will take ownership of the
+/// current reference count.
+@inlinable public func valueTakePaintNode<PaintNodeT: PaintNodeProtocol, ValueT: GLibObject.ValueProtocol>(value: ValueT, node: PaintNodeT?) {
     clutter_value_take_paint_node(value.value_ptr, node?.paint_node_ptr)
 
 }

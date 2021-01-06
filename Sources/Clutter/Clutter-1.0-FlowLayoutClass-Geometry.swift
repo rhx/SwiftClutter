@@ -97,7 +97,7 @@ public extension FlowLayoutClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -364,7 +364,7 @@ public extension FlowLayoutPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -629,7 +629,7 @@ public extension FogRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FogProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -933,7 +933,7 @@ public extension GeometryRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1128,8 +1128,8 @@ public extension GeometryProtocol {
     ///
     /// **union is deprecated:**
     /// Use #ClutterRect and clutter_rect_union()
-    @available(*, deprecated) @inlinable func union<GeometryT: GeometryProtocol>(geometryB geometry_b: GeometryT, result: GeometryT) {
-        clutter_geometry_union(geometry_ptr, geometry_b.geometry_ptr, result.geometry_ptr)
+    @available(*, deprecated) @inlinable func union<GeometryT: GeometryProtocol>(geometryB: GeometryT, result: GeometryT) {
+        clutter_geometry_union(geometry_ptr, geometryB.geometry_ptr, result.geometry_ptr)
     
     }
 

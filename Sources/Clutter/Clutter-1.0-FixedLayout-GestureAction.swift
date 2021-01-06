@@ -97,7 +97,7 @@ public extension FixedLayoutRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -617,7 +617,7 @@ public extension FlowLayoutRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1111,8 +1111,8 @@ public extension FlowLayoutProtocol {
     }
 
     /// Retrieves the minimum and maximum column widths
-    @inlinable func getColumnWidth(minWidth min_width: UnsafeMutablePointer<gfloat>!, maxWidth max_width: UnsafeMutablePointer<gfloat>!) {
-        clutter_flow_layout_get_column_width(flow_layout_ptr, min_width, max_width)
+    @inlinable func getColumnWidth(minWidth: UnsafeMutablePointer<gfloat>!, maxWidth: UnsafeMutablePointer<gfloat>!) {
+        clutter_flow_layout_get_column_width(flow_layout_ptr, minWidth, maxWidth)
     
     }
 
@@ -1129,8 +1129,8 @@ public extension FlowLayoutProtocol {
     }
 
     /// Retrieves the minimum and maximum row heights
-    @inlinable func getRowHeight(minHeight min_height: UnsafeMutablePointer<gfloat>!, maxHeight max_height: UnsafeMutablePointer<gfloat>!) {
-        clutter_flow_layout_get_row_height(flow_layout_ptr, min_height, max_height)
+    @inlinable func getRowHeight(minHeight: UnsafeMutablePointer<gfloat>!, maxHeight: UnsafeMutablePointer<gfloat>!) {
+        clutter_flow_layout_get_row_height(flow_layout_ptr, minHeight, maxHeight)
     
     }
 
@@ -1153,8 +1153,8 @@ public extension FlowLayoutProtocol {
     }
 
     /// Sets the minimum and maximum widths that a column can have
-    @inlinable func setColumnWidth(minWidth min_width: Double, maxWidth max_width: Double) {
-        clutter_flow_layout_set_column_width(flow_layout_ptr, gfloat(min_width), gfloat(max_width))
+    @inlinable func setColumnWidth(minWidth: Double, maxWidth: Double) {
+        clutter_flow_layout_set_column_width(flow_layout_ptr, gfloat(minWidth), gfloat(maxWidth))
     
     }
 
@@ -1176,8 +1176,8 @@ public extension FlowLayoutProtocol {
     }
 
     /// Sets the minimum and maximum heights that a row can have
-    @inlinable func setRowHeight(minHeight min_height: Double, maxHeight max_height: Double) {
-        clutter_flow_layout_set_row_height(flow_layout_ptr, gfloat(min_height), gfloat(max_height))
+    @inlinable func setRowHeight(minHeight: Double, maxHeight: Double) {
+        clutter_flow_layout_set_row_height(flow_layout_ptr, gfloat(minHeight), gfloat(maxHeight))
     
     }
 
@@ -1188,8 +1188,8 @@ public extension FlowLayoutProtocol {
     }
 
     /// Whether the `layout` should place its children on a grid.
-    @inlinable func set(snapToGrid snap_to_grid: Bool) {
-        clutter_flow_layout_set_snap_to_grid(flow_layout_ptr, gboolean((snap_to_grid) ? 1 : 0))
+    @inlinable func set(snapToGrid: Bool) {
+        clutter_flow_layout_set_snap_to_grid(flow_layout_ptr, gboolean((snapToGrid) ? 1 : 0))
     
     }
     /// Retrieves the spacing between columns
@@ -1358,7 +1358,7 @@ public extension GestureActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1851,15 +1851,15 @@ public extension GestureActionProtocol {
 
     /// Retrieves the coordinates, in stage space, of the latest motion
     /// event during the dragging.
-    @inlinable func getMotionCoords(point: Int, motionX motion_x: UnsafeMutablePointer<gfloat>! = nil, motionY motion_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_gesture_action_get_motion_coords(gesture_action_ptr, guint(point), motion_x, motion_y)
+    @inlinable func getMotionCoords(point: Int, motionX: UnsafeMutablePointer<gfloat>! = nil, motionY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_gesture_action_get_motion_coords(gesture_action_ptr, guint(point), motionX, motionY)
     
     }
 
     /// Retrieves the incremental delta since the last motion event
     /// during the dragging.
-    @inlinable func getMotionDelta(point: Int, deltaX delta_x: UnsafeMutablePointer<gfloat>! = nil, deltaY delta_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
-        let rv = Double(clutter_gesture_action_get_motion_delta(gesture_action_ptr, guint(point), delta_x, delta_y))
+    @inlinable func getMotionDelta(point: Int, deltaX: UnsafeMutablePointer<gfloat>! = nil, deltaY: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_gesture_action_get_motion_delta(gesture_action_ptr, guint(point), deltaX, deltaY))
         return rv
     }
 
@@ -1877,15 +1877,15 @@ public extension GestureActionProtocol {
 
     /// Retrieves the coordinates, in stage space, of the press event
     /// that started the dragging for a specific touch point.
-    @inlinable func getPressCoords(point: Int, pressX press_x: UnsafeMutablePointer<gfloat>! = nil, pressY press_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_gesture_action_get_press_coords(gesture_action_ptr, guint(point), press_x, press_y)
+    @inlinable func getPressCoords(point: Int, pressX: UnsafeMutablePointer<gfloat>! = nil, pressY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_gesture_action_get_press_coords(gesture_action_ptr, guint(point), pressX, pressY)
     
     }
 
     /// Retrieves the coordinates, in stage space, where the touch point was
     /// last released.
-    @inlinable func getReleaseCoords(point: Int, releaseX release_x: UnsafeMutablePointer<gfloat>! = nil, releaseY release_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_gesture_action_get_release_coords(gesture_action_ptr, guint(point), release_x, release_y)
+    @inlinable func getReleaseCoords(point: Int, releaseX: UnsafeMutablePointer<gfloat>! = nil, releaseY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_gesture_action_get_release_coords(gesture_action_ptr, guint(point), releaseX, releaseY)
     
     }
 
@@ -1921,14 +1921,14 @@ public extension GestureActionProtocol {
 
     /// Retrieves the velocity, in stage pixels per millisecond, of the
     /// latest motion event during the dragging.
-    @inlinable func getVelocity(point: Int, velocityX velocity_x: UnsafeMutablePointer<gfloat>! = nil, velocityY velocity_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
-        let rv = Double(clutter_gesture_action_get_velocity(gesture_action_ptr, guint(point), velocity_x, velocity_y))
+    @inlinable func getVelocity(point: Int, velocityX: UnsafeMutablePointer<gfloat>! = nil, velocityY: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_gesture_action_get_velocity(gesture_action_ptr, guint(point), velocityX, velocityY))
         return rv
     }
 
     /// Sets the number of points needed to trigger the gesture.
-    @inlinable func setNTouchPoints(nbPoints nb_points: Int) {
-        clutter_gesture_action_set_n_touch_points(gesture_action_ptr, gint(nb_points))
+    @inlinable func setNTouchPoints(nbPoints: Int) {
+        clutter_gesture_action_set_n_touch_points(gesture_action_ptr, gint(nbPoints))
     
     }
 

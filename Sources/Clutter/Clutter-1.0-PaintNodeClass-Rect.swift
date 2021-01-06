@@ -95,7 +95,7 @@ public extension PaintNodeClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintNodeClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -360,7 +360,7 @@ public extension PaintNodePrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintNodePrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -647,7 +647,7 @@ public extension PaintVolumeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintVolumeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -992,8 +992,8 @@ public extension PaintVolumeProtocol {
     /// 
     /// There are no guarantees about how precisely the two volumes
     /// will be unioned.
-    @inlinable func union<PaintVolumeT: PaintVolumeProtocol>(anotherPv another_pv: PaintVolumeT) {
-        clutter_paint_volume_union(paint_volume_ptr, another_pv.paint_volume_ptr)
+    @inlinable func union<PaintVolumeT: PaintVolumeProtocol>(anotherPv: PaintVolumeT) {
+        clutter_paint_volume_union(paint_volume_ptr, anotherPv.paint_volume_ptr)
     
     }
 
@@ -1262,7 +1262,7 @@ public extension PanActionClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PanActionClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1545,7 +1545,7 @@ public extension PanActionPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PanActionPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1810,7 +1810,7 @@ public extension ParamSpecUnitsRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUnitsProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2128,7 +2128,7 @@ public extension PathClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2394,7 +2394,7 @@ public extension PathConstraintClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathConstraintClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2669,7 +2669,7 @@ public extension PathNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2859,8 +2859,8 @@ public extension PathNodeProtocol {
 
     /// Compares two nodes and checks if they are the same type with the
     /// same coordinates.
-    @inlinable func equal<PathNodeT: PathNodeProtocol>(nodeB node_b: PathNodeT) -> Bool {
-        let rv = ((clutter_path_node_equal(path_node_ptr, node_b.path_node_ptr)) != 0)
+    @inlinable func equal<PathNodeT: PathNodeProtocol>(nodeB: PathNodeT) -> Bool {
+        let rv = ((clutter_path_node_equal(path_node_ptr, nodeB.path_node_ptr)) != 0)
         return rv
     }
 
@@ -2982,7 +2982,7 @@ public extension PathPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3249,7 +3249,7 @@ public extension PerspectiveRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PerspectiveProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3577,7 +3577,7 @@ public extension PipelineNodeClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PipelineNodeClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3843,7 +3843,7 @@ public extension PointRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4053,8 +4053,8 @@ public extension PointProtocol {
     }
 
     /// Computes the distance between two `ClutterPoint`.
-    @inlinable func distance<PointT: PointProtocol>(b: PointT, xDistance x_distance: UnsafeMutablePointer<CFloat>! = nil, yDistance y_distance: UnsafeMutablePointer<CFloat>! = nil) -> CFloat {
-        let rv = clutter_point_distance(point_ptr, b.point_ptr, x_distance, y_distance)
+    @inlinable func distance<PointT: PointProtocol>(b: PointT, xDistance: UnsafeMutablePointer<CFloat>! = nil, yDistance: UnsafeMutablePointer<CFloat>! = nil) -> CFloat {
+        let rv = clutter_point_distance(point_ptr, b.point_ptr, xDistance, yDistance)
         return rv
     }
 
@@ -4205,7 +4205,7 @@ public extension PropertyTransitionClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyTransitionClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4474,7 +4474,7 @@ public extension PropertyTransitionPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyTransitionPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4763,7 +4763,7 @@ public extension RectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5087,8 +5087,8 @@ public extension RectProtocol {
     /// 
     /// If the resulting rectangle has a negative width or height, the size is
     /// set to 0.
-    @inlinable func inset(dX d_x: CFloat, dY d_y: CFloat) {
-        clutter_rect_inset(rect_ptr, d_x, d_y)
+    @inlinable func inset(dX: CFloat, dY: CFloat) {
+        clutter_rect_inset(rect_ptr, dX, dY)
     
     }
 
@@ -5100,7 +5100,7 @@ public extension RectProtocol {
     /// 
     /// This function can be used to simply check if the intersection of `a` and `b`
     /// is not empty, by using `nil` for `res`.
-    @inlinable func intersection<RectT: RectProtocol>(b: RectT, res: RectT? = nil) -> Bool {
+    @inlinable func intersection<RectT: RectProtocol>(b: RectT, res: RectT?) -> Bool {
         let rv = ((clutter_rect_intersection(rect_ptr, b.rect_ptr, res?.rect_ptr)) != 0)
         return rv
     }
@@ -5121,8 +5121,8 @@ public extension RectProtocol {
 
     /// Offsets the origin of `rect` by the given values, after normalizing
     /// the rectangle.
-    @inlinable func offset(dX d_x: CFloat, dY d_y: CFloat) {
-        clutter_rect_offset(rect_ptr, d_x, d_y)
+    @inlinable func offset(dX: CFloat, dY: CFloat) {
+        clutter_rect_offset(rect_ptr, dX, dY)
     
     }
 

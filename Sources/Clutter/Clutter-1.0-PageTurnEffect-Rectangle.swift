@@ -97,7 +97,7 @@ public extension PageTurnEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PageTurnEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -717,7 +717,7 @@ public extension PaintNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -911,8 +911,8 @@ public extension PaintNodeProtocol {
     }
 
     /// Adds a rectangle region to the `node`, with texture coordinates.
-    @inlinable func addTextureRectangle<ActorBoxT: ActorBoxProtocol>(rect: ActorBoxT, x1 x_1: CFloat, y1 y_1: CFloat, x2 x_2: CFloat, y2 y_2: CFloat) {
-        clutter_paint_node_add_texture_rectangle(paint_node_ptr, rect.actor_box_ptr, x_1, y_1, x_2, y_2)
+    @inlinable func addTextureRectangle<ActorBoxT: ActorBoxProtocol>(rect: ActorBoxT, x1: CFloat, y1: CFloat, x2: CFloat, y2: CFloat) {
+        clutter_paint_node_add_texture_rectangle(paint_node_ptr, rect.actor_box_ptr, x1, y1, x2, y2)
     
     }
 
@@ -1047,7 +1047,7 @@ public extension PanActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PanActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1566,8 +1566,8 @@ public extension PanActionProtocol {
     /// Retrieves the delta, in stage space, dependent on the current state
     /// of the `ClutterPanAction`, and respecting the constraint specified by the
     /// `ClutterPanAction:pan`-axis property.
-    @inlinable func getConstrainedMotionDelta(point: Int, deltaX delta_x: UnsafeMutablePointer<gfloat>! = nil, deltaY delta_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
-        let rv = Double(clutter_pan_action_get_constrained_motion_delta(pan_action_ptr, guint(point), delta_x, delta_y))
+    @inlinable func getConstrainedMotionDelta(point: Int, deltaX: UnsafeMutablePointer<gfloat>! = nil, deltaY: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_pan_action_get_constrained_motion_delta(pan_action_ptr, guint(point), deltaX, deltaY))
         return rv
     }
 
@@ -1587,15 +1587,15 @@ public extension PanActionProtocol {
 
     /// Retrieves the coordinates, in stage space, of the latest interpolated
     /// event, analogous to `clutter_gesture_action_get_motion_coords()`.
-    @inlinable func getInterpolatedCoords(interpolatedX interpolated_x: UnsafeMutablePointer<gfloat>! = nil, interpolatedY interpolated_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_pan_action_get_interpolated_coords(pan_action_ptr, interpolated_x, interpolated_y)
+    @inlinable func getInterpolatedCoords(interpolatedX: UnsafeMutablePointer<gfloat>! = nil, interpolatedY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_pan_action_get_interpolated_coords(pan_action_ptr, interpolatedX, interpolatedY)
     
     }
 
     /// Retrieves the delta, in stage space, since the latest interpolated
     /// event, analogous to `clutter_gesture_action_get_motion_delta()`.
-    @inlinable func getInterpolatedDelta(deltaX delta_x: UnsafeMutablePointer<gfloat>! = nil, deltaY delta_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
-        let rv = Double(clutter_pan_action_get_interpolated_delta(pan_action_ptr, delta_x, delta_y))
+    @inlinable func getInterpolatedDelta(deltaX: UnsafeMutablePointer<gfloat>! = nil, deltaY: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_pan_action_get_interpolated_delta(pan_action_ptr, deltaX, deltaY))
         return rv
     }
 
@@ -1607,8 +1607,8 @@ public extension PanActionProtocol {
     /// will be equivalent to those returned by
     /// `clutter_pan_action_get_interpolated_coords()`. This is a convenience
     /// method designed to be used in replacement "pan" signal handlers.
-    @inlinable func getMotionCoords(point: Int, motionX motion_x: UnsafeMutablePointer<gfloat>! = nil, motionY motion_y: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_pan_action_get_motion_coords(pan_action_ptr, guint(point), motion_x, motion_y)
+    @inlinable func getMotionCoords(point: Int, motionX: UnsafeMutablePointer<gfloat>! = nil, motionY: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_pan_action_get_motion_coords(pan_action_ptr, guint(point), motionX, motionY)
     
     }
 
@@ -1620,8 +1620,8 @@ public extension PanActionProtocol {
     /// will be equivalent to those returned by
     /// `clutter_pan_action_get_interpolated_delta()`. This is a convenience
     /// method designed to be used in replacement "pan" signal handlers.
-    @inlinable func getMotionDelta(point: Int, deltaX delta_x: UnsafeMutablePointer<gfloat>! = nil, deltaY delta_y: UnsafeMutablePointer<gfloat>! = nil) -> Double {
-        let rv = Double(clutter_pan_action_get_motion_delta(pan_action_ptr, guint(point), delta_x, delta_y))
+    @inlinable func getMotionDelta(point: Int, deltaX: UnsafeMutablePointer<gfloat>! = nil, deltaY: UnsafeMutablePointer<gfloat>! = nil) -> Double {
+        let rv = Double(clutter_pan_action_get_motion_delta(pan_action_ptr, guint(point), deltaX, deltaY))
         return rv
     }
 
@@ -1648,8 +1648,8 @@ public extension PanActionProtocol {
 
     /// Sets whether the action should emit interpolated `pan` events
     /// after the drag has ended, to emulate the gesture kinetic inertia.
-    @inlinable func setInterpolate(shouldInterpolate should_interpolate: Bool) {
-        clutter_pan_action_set_interpolate(pan_action_ptr, gboolean((should_interpolate) ? 1 : 0))
+    @inlinable func setInterpolate(shouldInterpolate: Bool) {
+        clutter_pan_action_set_interpolate(pan_action_ptr, gboolean((shouldInterpolate) ? 1 : 0))
     
     }
 
@@ -1736,7 +1736,7 @@ public extension PanActionProtocol {
 ///
 /// A `GParamSpec` subclass for defining properties holding
 /// a `ClutterColor`.
-public protocol ParamSpecColorProtocol: ParamSpecProtocol {
+public protocol ParamSpecColorProtocol: GLibObject.ParamSpecProtocol {
         /// Untyped pointer to the underlying `ClutterParamSpecColor` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -1811,7 +1811,7 @@ public extension ParamSpecColorRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecColorProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1835,7 +1835,7 @@ public extension ParamSpecColorRef {
 ///
 /// A `GParamSpec` subclass for defining properties holding
 /// a `ClutterColor`.
-open class ParamSpecColor: ParamSpec, ParamSpecColorProtocol {
+open class ParamSpecColor: GLibObject.ParamSpec, ParamSpecColorProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecColor` instance.
@@ -1998,7 +1998,7 @@ public extension ParamSpecColorProtocol {
 /// Alternatively, use `ParamSpecFixedRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 /// `GParamSpec` subclass for fixed point based properties
-public protocol ParamSpecFixedProtocol: ParamSpecProtocol {
+public protocol ParamSpecFixedProtocol: GLibObject.ParamSpecProtocol {
         /// Untyped pointer to the underlying `ClutterParamSpecFixed` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2072,7 +2072,7 @@ public extension ParamSpecFixedRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecFixedProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2095,7 +2095,7 @@ public extension ParamSpecFixedRef {
 /// Use `ParamSpecFixed` as a strong reference or owner of a `ClutterParamSpecFixed` instance.
 ///
 /// `GParamSpec` subclass for fixed point based properties
-open class ParamSpecFixed: ParamSpec, ParamSpecFixedProtocol {
+open class ParamSpecFixed: GLibObject.ParamSpec, ParamSpecFixedProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecFixed` instance.
@@ -2276,7 +2276,7 @@ public extension ParamSpecFixedProtocol {
 /// Alternatively, use `ParamSpecUnitRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
 
-public protocol ParamSpecUnitProtocol: ParamSpecProtocol {
+public protocol ParamSpecUnitProtocol: GLibObject.ParamSpecProtocol {
         /// Untyped pointer to the underlying `ClutterParamSpecUnit` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2350,7 +2350,7 @@ public extension ParamSpecUnitRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUnitProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2373,7 +2373,7 @@ public extension ParamSpecUnitRef {
 /// Use `ParamSpecUnit` as a strong reference or owner of a `ClutterParamSpecUnit` instance.
 ///
 
-open class ParamSpecUnit: ParamSpec, ParamSpecUnitProtocol {
+open class ParamSpecUnit: GLibObject.ParamSpec, ParamSpecUnitProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `ParamSpecUnit` instance.
@@ -2527,7 +2527,7 @@ public extension ParamSpecUnitProtocol {
 ///
 /// The `ClutterPath` struct contains only private data and should
 /// be accessed with the functions below.
-public protocol PathProtocol: InitiallyUnownedProtocol {
+public protocol PathProtocol: GLibObject.InitiallyUnownedProtocol {
         /// Untyped pointer to the underlying `ClutterPath` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -2602,7 +2602,7 @@ public extension PathRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2655,7 +2655,7 @@ public extension PathRef {
 ///
 /// The `ClutterPath` struct contains only private data and should
 /// be accessed with the functions below.
-open class Path: InitiallyUnowned, PathProtocol {
+open class Path: GLibObject.InitiallyUnowned, PathProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `Path` instance.
@@ -3061,8 +3061,8 @@ public extension PathProtocol {
     @inlinable var path_ptr: UnsafeMutablePointer<ClutterPath>! { return ptr?.assumingMemoryBound(to: ClutterPath.self) }
 
     /// Add the nodes of the Cairo path to the end of `path`.
-    @inlinable func addCairoPath<PathT: cairo.PathProtocol>(cpath: PathT) {
-        clutter_path_add_cairo_path(path_ptr, cpath.path_ptr)
+    @inlinable func addCairoPath<PathT: Cairo.PathProtocol>(cpath: PathT) {
+        clutter_path_add_cairo_path(path_ptr, cpath._ptr)
     
     }
 
@@ -3077,8 +3077,8 @@ public extension PathProtocol {
     /// Adds a `CLUTTER_PATH_CURVE_TO` type node to the path. This causes
     /// the actor to follow a bezier from the last node to (`x_3`, `y_3`) using
     /// (`x_1`, `y_1`) and (`x_2`,`y_2`) as control points.
-    @inlinable func addCurveTo(x1 x_1: Int, y1 y_1: Int, x2 x_2: Int, y2 y_2: Int, x3 x_3: Int, y3 y_3: Int) {
-        clutter_path_add_curve_to(path_ptr, gint(x_1), gint(y_1), gint(x_2), gint(y_2), gint(x_3), gint(y_3))
+    @inlinable func addCurveTo(x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int) {
+        clutter_path_add_curve_to(path_ptr, gint(x1), gint(y1), gint(x2), gint(y2), gint(x3), gint(y3))
     
     }
 
@@ -3105,8 +3105,8 @@ public extension PathProtocol {
 
     /// Same as `clutter_path_add_curve_to()` except the coordinates are
     /// relative to the previous node.
-    @inlinable func addRelCurveTo(x1 x_1: Int, y1 y_1: Int, x2 x_2: Int, y2 y_2: Int, x3 x_3: Int, y3 y_3: Int) {
-        clutter_path_add_rel_curve_to(path_ptr, gint(x_1), gint(y_1), gint(x_2), gint(y_2), gint(x_3), gint(y_3))
+    @inlinable func addRelCurveTo(x1: Int, y1: Int, x2: Int, y2: Int, x3: Int, y3: Int) {
+        clutter_path_add_rel_curve_to(path_ptr, gint(x1), gint(y1), gint(x2), gint(y2), gint(x3), gint(y3))
     
     }
 
@@ -3159,8 +3159,8 @@ public extension PathProtocol {
     }
 
     /// Calls a function for each node of the path.
-    @inlinable func foreach(callback: ClutterPathCallback?, userData user_data: gpointer! = nil) {
-        clutter_path_foreach(path_ptr, callback, user_data)
+    @inlinable func foreach(callback: ClutterPathCallback?, userData: gpointer! = nil) {
+        clutter_path_foreach(path_ptr, callback, userData)
     
     }
 
@@ -3194,8 +3194,8 @@ public extension PathProtocol {
     /// should not be freed. Altering the path may cause the nodes in the
     /// list to become invalid so you should copy them if you want to keep
     /// the list.
-    @inlinable func getNodes() -> SListRef! {
-        let rv = SListRef(gconstpointer: gconstpointer(clutter_path_get_nodes(path_ptr)))
+    @inlinable func getNodes() -> GLib.SListRef! {
+        let rv = GLib.SListRef(clutter_path_get_nodes(path_ptr))
         return rv
     }
 
@@ -3238,7 +3238,7 @@ public extension PathProtocol {
 
     /// Add the nodes of the ClutterPath to the path in the Cairo context.
     @inlinable func toCairoPath<ContextT: Cairo.ContextProtocol>(cr: ContextT) {
-        clutter_path_to_cairo_path(path_ptr, cr.context_ptr)
+        clutter_path_to_cairo_path(path_ptr, cr._ptr)
     
     }
     @inlinable var description: String! {
@@ -3280,14 +3280,14 @@ public extension PathProtocol {
     /// should not be freed. Altering the path may cause the nodes in the
     /// list to become invalid so you should copy them if you want to keep
     /// the list.
-    @inlinable var nodes: SListRef! {
+    @inlinable var nodes: GLib.SListRef! {
         /// Returns a `GSList` of `ClutterPathNode`<!-- -->s. The list should be
         /// freed with `g_slist_free()`. The nodes are owned by the path and
         /// should not be freed. Altering the path may cause the nodes in the
         /// list to become invalid so you should copy them if you want to keep
         /// the list.
         get {
-            let rv = SListRef(gconstpointer: gconstpointer(clutter_path_get_nodes(path_ptr)))
+            let rv = GLib.SListRef(clutter_path_get_nodes(path_ptr))
             return rv
         }
     }
@@ -3384,7 +3384,7 @@ public extension PathConstraintRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathConstraintProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3401,7 +3401,7 @@ public extension PathConstraintRef {
     }
 
         /// Creates a new `ClutterPathConstraint` with the given `path` and `offset`
-    @inlinable init<PathT: PathProtocol>( path: PathT? = nil, offset: Double) {
+    @inlinable init<PathT: PathProtocol>( path: PathT?, offset: Double) {
         let rv = clutter_path_constraint_new(path?.path_ptr, gfloat(offset))
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -3539,7 +3539,7 @@ open class PathConstraint: Constraint, PathConstraintProtocol {
     }
 
     /// Creates a new `ClutterPathConstraint` with the given `path` and `offset`
-    @inlinable public init<PathT: PathProtocol>( path: PathT? = nil, offset: Double) {
+    @inlinable public init<PathT: PathProtocol>( path: PathT?, offset: Double) {
         let rv = clutter_path_constraint_new(path?.path_ptr, gfloat(offset))
         super.init(gpointer: (rv))
     }
@@ -3836,7 +3836,15 @@ public extension PathConstraintProtocol {
     /// 
     /// The `constraint` will take ownership of the `ClutterPath` passed to this
     /// function.
-    @inlinable func set<PathT: PathProtocol>(path: PathT? = nil) {
+    @inlinable func set(path: PathRef? = nil) {
+        clutter_path_constraint_set_path(path_constraint_ptr, path?.path_ptr)
+    
+    }
+    /// Sets the `path` to be followed by the `ClutterPathConstraint`.
+    /// 
+    /// The `constraint` will take ownership of the `ClutterPath` passed to this
+    /// function.
+    @inlinable func set<PathT: PathProtocol>(path: PathT?) {
         clutter_path_constraint_set_path(path_constraint_ptr, path?.path_ptr)
     
     }
@@ -3958,7 +3966,7 @@ public extension PipelineNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PipelineNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4211,7 +4219,7 @@ public extension PropertyTransitionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PropertyTransitionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4228,8 +4236,8 @@ public extension PropertyTransitionRef {
     }
 
         /// Creates a new `ClutterPropertyTransition`.
-    @inlinable init( property_name: UnsafePointer<CChar>? = nil) {
-        let rv = clutter_property_transition_new(property_name)
+    @inlinable init( propertyName: UnsafePointer<CChar>? = nil) {
+        let rv = clutter_property_transition_new(propertyName)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -4366,8 +4374,8 @@ open class PropertyTransition: Transition, PropertyTransitionProtocol {
     }
 
     /// Creates a new `ClutterPropertyTransition`.
-    @inlinable public init( property_name: UnsafePointer<CChar>? = nil) {
-        let rv = clutter_property_transition_new(property_name)
+    @inlinable public init( propertyName: UnsafePointer<CChar>? = nil) {
+        let rv = clutter_property_transition_new(propertyName)
         super.init(gpointer: (rv))
     }
 
@@ -4648,8 +4656,8 @@ public extension PropertyTransitionProtocol {
     }
 
     /// Sets the `ClutterPropertyTransition:property`-name property of `transition`.
-    @inlinable func set(propertyName property_name: UnsafePointer<CChar>? = nil) {
-        clutter_property_transition_set_property_name(property_transition_ptr, property_name)
+    @inlinable func set(propertyName: UnsafePointer<CChar>? = nil) {
+        clutter_property_transition_set_property_name(property_transition_ptr, propertyName)
     
     }
     /// Retrieves the value of the `ClutterPropertyTransition:property`-name
@@ -4759,7 +4767,7 @@ public extension RectangleRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RectangleProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

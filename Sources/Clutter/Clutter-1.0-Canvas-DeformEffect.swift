@@ -99,7 +99,7 @@ public extension CanvasRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CanvasProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -633,7 +633,7 @@ public extension ChildMetaRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ChildMetaProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1078,7 +1078,7 @@ public extension ClickActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClickActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1555,8 +1555,8 @@ public extension ClickActionProtocol {
     }
 
     /// Retrieves the screen coordinates of the button press.
-    @inlinable func getCoords(pressX press_x: UnsafeMutablePointer<gfloat>!, pressY press_y: UnsafeMutablePointer<gfloat>!) {
-        clutter_click_action_get_coords(click_action_ptr, press_x, press_y)
+    @inlinable func getCoords(pressX: UnsafeMutablePointer<gfloat>!, pressY: UnsafeMutablePointer<gfloat>!) {
+        clutter_click_action_get_coords(click_action_ptr, pressX, pressY)
     
     }
 
@@ -1688,7 +1688,7 @@ public extension ClipNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ClipNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1953,7 +1953,7 @@ public extension CloneRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CloneProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3520,7 +3520,12 @@ public extension CloneProtocol {
     }
 
     /// Sets `source` as the source actor to be cloned by `self`.
-    @inlinable func set<ActorT: ActorProtocol>(source: ActorT? = nil) {
+    @inlinable func set(source: ActorRef? = nil) {
+        clutter_clone_set_source(clone_ptr, source?.actor_ptr)
+    
+    }
+    /// Sets `source` as the source actor to be cloned by `self`.
+    @inlinable func set<ActorT: ActorProtocol>(source: ActorT?) {
         clutter_clone_set_source(clone_ptr, source?.actor_ptr)
     
     }
@@ -3629,7 +3634,7 @@ public extension ColorNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3647,7 +3652,7 @@ public extension ColorNodeRef {
 
         /// Creates a new `ClutterPaintNode` that will paint a solid color
     /// fill using `color`.
-    @inlinable init<ColorT: ColorProtocol>( color: ColorT? = nil) {
+    @inlinable init<ColorT: ColorProtocol>( color: ColorT?) {
         let rv = clutter_color_node_new(color?.color_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -3786,7 +3791,7 @@ open class ColorNode: PipelineNode, ColorNodeProtocol {
 
     /// Creates a new `ClutterPaintNode` that will paint a solid color
     /// fill using `color`.
-    @inlinable public init<ColorT: ColorProtocol>( color: ColorT? = nil) {
+    @inlinable public init<ColorT: ColorProtocol>( color: ColorT?) {
         let rv = clutter_color_node_new(color?.color_ptr)
         super.init(gpointer: (rv))
     }
@@ -3894,7 +3899,7 @@ public extension ColorizeEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorizeEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4419,7 +4424,7 @@ public extension ConstraintRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ConstraintProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4918,7 +4923,7 @@ public extension DeformEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeformEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5356,8 +5361,8 @@ public extension DeformEffectProtocol {
 
     /// Retrieves the number of horizontal and vertical tiles used to sub-divide
     /// the actor's geometry during the effect
-    @inlinable func getNTiles(xTiles x_tiles: UnsafeMutablePointer<guint>!, yTiles y_tiles: UnsafeMutablePointer<guint>!) {
-        clutter_deform_effect_get_n_tiles(deform_effect_ptr, x_tiles, y_tiles)
+    @inlinable func getNTiles(xTiles: UnsafeMutablePointer<guint>!, yTiles: UnsafeMutablePointer<guint>!) {
+        clutter_deform_effect_get_n_tiles(deform_effect_ptr, xTiles, yTiles)
     
     }
 
@@ -5383,8 +5388,8 @@ public extension DeformEffectProtocol {
     /// 
     /// More tiles allow a finer grained deformation at the expenses
     /// of computation
-    @inlinable func setNTiles(xTiles x_tiles: Int, yTiles y_tiles: Int) {
-        clutter_deform_effect_set_n_tiles(deform_effect_ptr, guint(x_tiles), guint(y_tiles))
+    @inlinable func setNTiles(xTiles: Int, yTiles: Int) {
+        clutter_deform_effect_set_n_tiles(deform_effect_ptr, guint(xTiles), guint(yTiles))
     
     }
     /// Retrieves the handle to the back face material used by `effect`

@@ -95,7 +95,7 @@ public extension VertexRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -315,8 +315,8 @@ public extension VertexProtocol {
     }
 
     /// Compares `vertex_a` and `vertex_b` for equality
-    @inlinable func equal<VertexT: VertexProtocol>(vertexB vertex_b: VertexT) -> Bool {
-        let rv = ((clutter_vertex_equal(vertex_ptr, vertex_b.vertex_ptr)) != 0)
+    @inlinable func equal<VertexT: VertexProtocol>(vertexB: VertexT) -> Bool {
+        let rv = ((clutter_vertex_equal(vertex_ptr, vertexB.vertex_ptr)) != 0)
         return rv
     }
 
@@ -460,7 +460,7 @@ public extension ZoomActionClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

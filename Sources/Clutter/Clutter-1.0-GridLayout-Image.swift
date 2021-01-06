@@ -97,7 +97,7 @@ public extension GridLayoutRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GridLayoutProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -565,7 +565,7 @@ public extension GridLayoutProtocol {
     /// 
     /// Attaching widgets labeled [1], [2], [3] with `sibling` == `nil` and
     /// `side` == `CLUTTER_GRID_POSITION_LEFT` yields a layout of [3](#2)(#1).
-    @inlinable func attachNextTo<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT? = nil, side: ClutterGridPosition, width: Int, height: Int) {
+    @inlinable func attachNextTo<ActorT: ActorProtocol>(child: ActorT, sibling: ActorT?, side: ClutterGridPosition, width: Int, height: Int) {
         clutter_grid_layout_attach_next_to(grid_layout_ptr, child.actor_ptr, sibling?.actor_ptr, side, gint(width), gint(height))
     
     }
@@ -835,7 +835,7 @@ public extension GroupRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GroupProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2532,7 +2532,7 @@ public extension ImageRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ImageProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2764,9 +2764,9 @@ public extension ImageProtocol {
     /// return `false`.
     /// 
     /// The image data is copied in texture memory.
-    @inlinable func setArea<RectangleIntT: RectangleIntProtocol>(data: UnsafePointer<guint8>!, pixelFormat pixel_format: CoglPixelFormat, rect: RectangleIntT, rowStride row_stride: Int) throws -> Bool {
+    @inlinable func setArea<RectangleIntT: Cairo.RectangleIntProtocol>(data: UnsafePointer<guint8>!, pixelFormat: CoglPixelFormat, rect: RectangleIntT, rowStride: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((clutter_image_set_area(image_ptr, data, pixel_format, rect._ptr, guint(row_stride), &error)) != 0)
+        let rv = ((clutter_image_set_area(image_ptr, data, pixelFormat, rect._ptr, guint(rowStride), &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2780,9 +2780,9 @@ public extension ImageProtocol {
     /// 
     /// The image data contained inside the `GBytes` is copied in texture memory,
     /// and no additional reference is acquired on the `data`.
-    @inlinable func setBytes<BytesT: BytesProtocol>(data: BytesT, pixelFormat pixel_format: CoglPixelFormat, width: Int, height: Int, rowStride row_stride: Int) throws -> Bool {
+    @inlinable func setBytes<BytesT: GLib.BytesProtocol>(data: BytesT, pixelFormat: CoglPixelFormat, width: Int, height: Int, rowStride: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((clutter_image_set_bytes(image_ptr, data.bytes_ptr, pixel_format, guint(width), guint(height), guint(row_stride), &error)) != 0)
+        let rv = ((clutter_image_set_bytes(image_ptr, data.bytes_ptr, pixelFormat, guint(width), guint(height), guint(rowStride), &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -2819,9 +2819,9 @@ public extension ImageProtocol {
     ///   g_object_unref (pixbuf);
     /// ```
     /// 
-    @inlinable func set(data: UnsafePointer<guint8>!, pixelFormat pixel_format: CoglPixelFormat, width: Int, height: Int, rowStride row_stride: Int) throws -> Bool {
+    @inlinable func set(data: UnsafePointer<guint8>!, pixelFormat: CoglPixelFormat, width: Int, height: Int, rowStride: Int) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((clutter_image_set_data(image_ptr, data, pixel_format, guint(width), guint(height), guint(row_stride), &error)) != 0)
+        let rv = ((clutter_image_set_data(image_ptr, data, pixelFormat, guint(width), guint(height), guint(rowStride), &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }

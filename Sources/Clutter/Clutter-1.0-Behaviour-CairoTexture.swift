@@ -97,7 +97,7 @@ public extension BehaviourRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -420,8 +420,8 @@ public extension BehaviourProtocol {
     ///
     /// **get_actors is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func getActors() -> SListRef! {
-        let rv = SListRef(gconstpointer: gconstpointer(clutter_behaviour_get_actors(behaviour_ptr)))
+    @available(*, deprecated) @inlinable func getActors() -> GLib.SListRef! {
+        let rv = GLib.SListRef(clutter_behaviour_get_actors(behaviour_ptr))
         return rv
     }
 
@@ -502,7 +502,7 @@ public extension BehaviourProtocol {
     ///
     /// **get_actors is deprecated:**
     /// This method is deprecated.
-    @inlinable var actors: SListRef! {
+    @inlinable var actors: GLib.SListRef! {
         /// Retrieves all the actors to which `behave` applies. It is not recommended
         /// for derived classes to use this in there alpha notify method but use
         /// `clutter_behaviour_actors_foreach` as it avoids alot of needless allocations.
@@ -510,7 +510,7 @@ public extension BehaviourProtocol {
         /// **get_actors is deprecated:**
         /// This method is deprecated.
         @available(*, deprecated) get {
-            let rv = SListRef(gconstpointer: gconstpointer(clutter_behaviour_get_actors(behaviour_ptr)))
+            let rv = GLib.SListRef(clutter_behaviour_get_actors(behaviour_ptr))
             return rv
         }
     }
@@ -655,7 +655,7 @@ public extension BehaviourDepthRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourDepthProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -680,8 +680,8 @@ public extension BehaviourDepthRef {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, depthStart depth_start: Int, depthEnd depth_end: Int) {
-        let rv = clutter_behaviour_depth_new(alpha?.alpha_ptr, gint(depth_start), gint(depth_end))
+    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT?, depthStart: Int, depthEnd: Int) {
+        let rv = clutter_behaviour_depth_new(alpha?.alpha_ptr, gint(depthStart), gint(depthEnd))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -826,8 +826,8 @@ open class BehaviourDepth: Behaviour, BehaviourDepthProtocol {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, depthStart depth_start: Int, depthEnd depth_end: Int) {
-        let rv = clutter_behaviour_depth_new(alpha?.alpha_ptr, gint(depth_start), gint(depth_end))
+    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT?, depthStart: Int, depthEnd: Int) {
+        let rv = clutter_behaviour_depth_new(alpha?.alpha_ptr, gint(depthStart), gint(depthEnd))
         super.init(gpointer: (rv))
     }
 
@@ -1003,8 +1003,8 @@ public extension BehaviourDepthProtocol {
     ///
     /// **get_bounds is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func getBounds(depthStart depth_start: UnsafeMutablePointer<gint>!, depthEnd depth_end: UnsafeMutablePointer<gint>!) {
-        clutter_behaviour_depth_get_bounds(behaviour_depth_ptr, depth_start, depth_end)
+    @available(*, deprecated) @inlinable func getBounds(depthStart: UnsafeMutablePointer<gint>!, depthEnd: UnsafeMutablePointer<gint>!) {
+        clutter_behaviour_depth_get_bounds(behaviour_depth_ptr, depthStart, depthEnd)
     
     }
 
@@ -1012,8 +1012,8 @@ public extension BehaviourDepthProtocol {
     ///
     /// **set_bounds is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func setBounds(depthStart depth_start: Int, depthEnd depth_end: Int) {
-        clutter_behaviour_depth_set_bounds(behaviour_depth_ptr, gint(depth_start), gint(depth_end))
+    @available(*, deprecated) @inlinable func setBounds(depthStart: Int, depthEnd: Int) {
+        clutter_behaviour_depth_set_bounds(behaviour_depth_ptr, gint(depthStart), gint(depthEnd))
     
     }
 
@@ -1109,7 +1109,7 @@ public extension BehaviourEllipseRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourEllipseProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1135,7 +1135,7 @@ public extension BehaviourEllipseRef {
     /// If `alpha` is not `nil`, the `ClutterBehaviour` will take ownership
     /// of the `ClutterAlpha` instance. In the case when `alpha` is `nil`,
     /// it can be set later with `clutter_behaviour_set_alpha()`.
-    @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, x: Int, y: Int, width: Int, height: Int, direction: ClutterRotateDirection, start: Double, end: Double) {
+    @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT?, x: Int, y: Int, width: Int, height: Int, direction: ClutterRotateDirection, start: Double, end: Double) {
         let rv = clutter_behaviour_ellipse_new(alpha?.alpha_ptr, gint(x), gint(y), gint(width), gint(height), direction, gdouble(start), gdouble(end))
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -1282,7 +1282,7 @@ open class BehaviourEllipse: Behaviour, BehaviourEllipseProtocol {
     /// If `alpha` is not `nil`, the `ClutterBehaviour` will take ownership
     /// of the `ClutterAlpha` instance. In the case when `alpha` is `nil`,
     /// it can be set later with `clutter_behaviour_set_alpha()`.
-    @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, x: Int, y: Int, width: Int, height: Int, direction: ClutterRotateDirection, start: Double, end: Double) {
+    @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT?, x: Int, y: Int, width: Int, height: Int, direction: ClutterRotateDirection, start: Double, end: Double) {
         let rv = clutter_behaviour_ellipse_new(alpha?.alpha_ptr, gint(x), gint(y), gint(width), gint(height), direction, gdouble(start), gdouble(end))
         super.init(gpointer: (rv))
     }
@@ -1508,8 +1508,8 @@ public extension BehaviourEllipseProtocol {
     }
 
     /// Gets the tilt of the ellipse around the center in Y axis.
-    @inlinable func getTilt(angleTiltX angle_tilt_x: UnsafeMutablePointer<gdouble>!, angleTiltY angle_tilt_y: UnsafeMutablePointer<gdouble>!, angleTiltZ angle_tilt_z: UnsafeMutablePointer<gdouble>!) {
-        clutter_behaviour_ellipse_get_tilt(behaviour_ellipse_ptr, angle_tilt_x, angle_tilt_y, angle_tilt_z)
+    @inlinable func getTilt(angleTiltX: UnsafeMutablePointer<gdouble>!, angleTiltY: UnsafeMutablePointer<gdouble>!, angleTiltZ: UnsafeMutablePointer<gdouble>!) {
+        clutter_behaviour_ellipse_get_tilt(behaviour_ellipse_ptr, angleTiltX, angleTiltY, angleTiltZ)
     
     }
 
@@ -1521,21 +1521,21 @@ public extension BehaviourEllipseProtocol {
 
     /// Sets the angle at which movement ends; angles >= 360 degress get clamped
     /// to the canonical interval <0, 360).
-    @inlinable func set(angleEnd angle_end: Double) {
-        clutter_behaviour_ellipse_set_angle_end(behaviour_ellipse_ptr, gdouble(angle_end))
+    @inlinable func set(angleEnd: Double) {
+        clutter_behaviour_ellipse_set_angle_end(behaviour_ellipse_ptr, gdouble(angleEnd))
     
     }
 
     /// Sets the angle at which movement starts; angles >= 360 degress get clamped
     /// to the canonical interval <0, 360).
-    @inlinable func set(angleStart angle_start: Double) {
-        clutter_behaviour_ellipse_set_angle_start(behaviour_ellipse_ptr, gdouble(angle_start))
+    @inlinable func set(angleStart: Double) {
+        clutter_behaviour_ellipse_set_angle_start(behaviour_ellipse_ptr, gdouble(angleStart))
     
     }
 
     /// Sets the angle at which the ellipse should be tilted around it's center.
-    @inlinable func setAngleTilt(axis: ClutterRotateAxis, angleTilt angle_tilt: Double) {
-        clutter_behaviour_ellipse_set_angle_tilt(behaviour_ellipse_ptr, axis, gdouble(angle_tilt))
+    @inlinable func setAngleTilt(axis: ClutterRotateAxis, angleTilt: Double) {
+        clutter_behaviour_ellipse_set_angle_tilt(behaviour_ellipse_ptr, axis, gdouble(angleTilt))
     
     }
 
@@ -1558,8 +1558,8 @@ public extension BehaviourEllipseProtocol {
     }
 
     /// Sets the angles at which the ellipse should be tilted around it's center.
-    @inlinable func setTilt(angleTiltX angle_tilt_x: Double, angleTiltY angle_tilt_y: Double, angleTiltZ angle_tilt_z: Double) {
-        clutter_behaviour_ellipse_set_tilt(behaviour_ellipse_ptr, gdouble(angle_tilt_x), gdouble(angle_tilt_y), gdouble(angle_tilt_z))
+    @inlinable func setTilt(angleTiltX: Double, angleTiltY: Double, angleTiltZ: Double) {
+        clutter_behaviour_ellipse_set_tilt(behaviour_ellipse_ptr, gdouble(angleTiltX), gdouble(angleTiltY), gdouble(angleTiltZ))
     
     }
 
@@ -1727,7 +1727,7 @@ public extension BehaviourOpacityRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourOpacityProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1753,8 +1753,8 @@ public extension BehaviourOpacityRef {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, opacityStart opacity_start: guint8, opacityEnd opacity_end: guint8) {
-        let rv = clutter_behaviour_opacity_new(alpha?.alpha_ptr, opacity_start, opacity_end)
+    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT?, opacityStart: guint8, opacityEnd: guint8) {
+        let rv = clutter_behaviour_opacity_new(alpha?.alpha_ptr, opacityStart, opacityEnd)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -1900,8 +1900,8 @@ open class BehaviourOpacity: Behaviour, BehaviourOpacityProtocol {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, opacityStart opacity_start: guint8, opacityEnd opacity_end: guint8) {
-        let rv = clutter_behaviour_opacity_new(alpha?.alpha_ptr, opacity_start, opacity_end)
+    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT?, opacityStart: guint8, opacityEnd: guint8) {
+        let rv = clutter_behaviour_opacity_new(alpha?.alpha_ptr, opacityStart, opacityEnd)
         super.init(gpointer: (rv))
     }
 
@@ -2078,8 +2078,8 @@ public extension BehaviourOpacityProtocol {
     ///
     /// **get_bounds is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func getBounds(opacityStart opacity_start: UnsafeMutablePointer<guint8>!, opacityEnd opacity_end: UnsafeMutablePointer<guint8>!) {
-        clutter_behaviour_opacity_get_bounds(behaviour_opacity_ptr, opacity_start, opacity_end)
+    @available(*, deprecated) @inlinable func getBounds(opacityStart: UnsafeMutablePointer<guint8>!, opacityEnd: UnsafeMutablePointer<guint8>!) {
+        clutter_behaviour_opacity_get_bounds(behaviour_opacity_ptr, opacityStart, opacityEnd)
     
     }
 
@@ -2088,8 +2088,8 @@ public extension BehaviourOpacityProtocol {
     ///
     /// **set_bounds is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func setBounds(opacityStart opacity_start: guint8, opacityEnd opacity_end: guint8) {
-        clutter_behaviour_opacity_set_bounds(behaviour_opacity_ptr, opacity_start, opacity_end)
+    @available(*, deprecated) @inlinable func setBounds(opacityStart: guint8, opacityEnd: guint8) {
+        clutter_behaviour_opacity_set_bounds(behaviour_opacity_ptr, opacityStart, opacityEnd)
     
     }
 
@@ -2185,7 +2185,7 @@ public extension BehaviourPathRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourPathProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2213,7 +2213,7 @@ public extension BehaviourPathRef {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol, PathT: PathProtocol>( alpha: AlphaT? = nil, path: PathT) {
+    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol, PathT: PathProtocol>( alpha: AlphaT?, path: PathT) {
         let rv = clutter_behaviour_path_new(alpha?.alpha_ptr, path.path_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -2227,7 +2227,7 @@ public extension BehaviourPathRef {
     ///
     /// **new_with_description is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>(description alpha: AlphaT? = nil, desc: UnsafePointer<gchar>!) {
+    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>(description alpha: AlphaT?, desc: UnsafePointer<gchar>!) {
         let rv = clutter_behaviour_path_new_with_description(alpha?.alpha_ptr, desc)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -2245,8 +2245,8 @@ public extension BehaviourPathRef {
     ///
     /// **new_with_knots is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>(knots alpha: AlphaT? = nil, knots: UnsafePointer<ClutterKnot>!, nKnots n_knots: Int) {
-        let rv = clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(n_knots))
+    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>(knots alpha: AlphaT?, knots: UnsafePointer<ClutterKnot>!, nKnots: Int) {
+        let rv = clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(nKnots))
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new path behaviour using the path described by `desc`. See
@@ -2258,7 +2258,7 @@ public extension BehaviourPathRef {
     ///
     /// **new_with_description is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable static func newWith<AlphaT: AlphaProtocol>(description alpha: AlphaT? = nil, desc: UnsafePointer<gchar>!) -> BehaviourRef! {
+    @available(*, deprecated) @inlinable static func newWith<AlphaT: AlphaProtocol>(description alpha: AlphaT?, desc: UnsafePointer<gchar>!) -> BehaviourRef! {
         guard let rv = BehaviourRef(gconstpointer: gconstpointer(clutter_behaviour_path_new_with_description(alpha?.alpha_ptr, desc))) else { return nil }
         return rv
     }
@@ -2276,8 +2276,8 @@ public extension BehaviourPathRef {
     ///
     /// **new_with_knots is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable static func newWith<AlphaT: AlphaProtocol>(knots alpha: AlphaT? = nil, knots: UnsafePointer<ClutterKnot>!, nKnots n_knots: Int) -> BehaviourRef! {
-        guard let rv = BehaviourRef(gconstpointer: gconstpointer(clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(n_knots)))) else { return nil }
+    @available(*, deprecated) @inlinable static func newWith<AlphaT: AlphaProtocol>(knots alpha: AlphaT?, knots: UnsafePointer<ClutterKnot>!, nKnots: Int) -> BehaviourRef! {
+        guard let rv = BehaviourRef(gconstpointer: gconstpointer(clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(nKnots)))) else { return nil }
         return rv
     }
 }
@@ -2425,7 +2425,7 @@ open class BehaviourPath: Behaviour, BehaviourPathProtocol {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol, PathT: PathProtocol>( alpha: AlphaT? = nil, path: PathT) {
+    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol, PathT: PathProtocol>( alpha: AlphaT?, path: PathT) {
         let rv = clutter_behaviour_path_new(alpha?.alpha_ptr, path.path_ptr)
         super.init(gpointer: (rv))
     }
@@ -2439,7 +2439,7 @@ open class BehaviourPath: Behaviour, BehaviourPathProtocol {
     ///
     /// **new_with_description is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>(description alpha: AlphaT? = nil, desc: UnsafePointer<gchar>!) {
+    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>(description alpha: AlphaT?, desc: UnsafePointer<gchar>!) {
         let rv = clutter_behaviour_path_new_with_description(alpha?.alpha_ptr, desc)
         super.init(gpointer: (rv))
     }
@@ -2457,8 +2457,8 @@ open class BehaviourPath: Behaviour, BehaviourPathProtocol {
     ///
     /// **new_with_knots is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>(knots alpha: AlphaT? = nil, knots: UnsafePointer<ClutterKnot>!, nKnots n_knots: Int) {
-        let rv = clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(n_knots))
+    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>(knots alpha: AlphaT?, knots: UnsafePointer<ClutterKnot>!, nKnots: Int) {
+        let rv = clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(nKnots))
         super.init(gpointer: (rv))
     }
 
@@ -2471,7 +2471,7 @@ open class BehaviourPath: Behaviour, BehaviourPathProtocol {
     ///
     /// **new_with_description is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public static func newWith<AlphaT: AlphaProtocol>(description alpha: AlphaT? = nil, desc: UnsafePointer<gchar>!) -> Behaviour! {
+    @available(*, deprecated) @inlinable public static func newWith<AlphaT: AlphaProtocol>(description alpha: AlphaT?, desc: UnsafePointer<gchar>!) -> Behaviour! {
         guard let rv = Behaviour(gconstpointer: gconstpointer(clutter_behaviour_path_new_with_description(alpha?.alpha_ptr, desc))) else { return nil }
         return rv
     }
@@ -2489,8 +2489,8 @@ open class BehaviourPath: Behaviour, BehaviourPathProtocol {
     ///
     /// **new_with_knots is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public static func newWith<AlphaT: AlphaProtocol>(knots alpha: AlphaT? = nil, knots: UnsafePointer<ClutterKnot>!, nKnots n_knots: Int) -> Behaviour! {
-        guard let rv = Behaviour(gconstpointer: gconstpointer(clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(n_knots)))) else { return nil }
+    @available(*, deprecated) @inlinable public static func newWith<AlphaT: AlphaProtocol>(knots alpha: AlphaT?, knots: UnsafePointer<ClutterKnot>!, nKnots: Int) -> Behaviour! {
+        guard let rv = Behaviour(gconstpointer: gconstpointer(clutter_behaviour_path_new_with_knots(alpha?.alpha_ptr, knots, guint(nKnots)))) else { return nil }
         return rv
     }
 
@@ -2780,7 +2780,7 @@ public extension BehaviourRotateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourRotateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2805,8 +2805,8 @@ public extension BehaviourRotateRef {
     /// If `alpha` is not `nil`, the `ClutterBehaviour` will take ownership
     /// of the `ClutterAlpha` instance. In the case when `alpha` is `nil`,
     /// it can be set later with `clutter_behaviour_set_alpha()`.
-    @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, axis: ClutterRotateAxis, direction: ClutterRotateDirection, angleStart angle_start: Double, angleEnd angle_end: Double) {
-        let rv = clutter_behaviour_rotate_new(alpha?.alpha_ptr, axis, direction, gdouble(angle_start), gdouble(angle_end))
+    @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT?, axis: ClutterRotateAxis, direction: ClutterRotateDirection, angleStart: Double, angleEnd: Double) {
+        let rv = clutter_behaviour_rotate_new(alpha?.alpha_ptr, axis, direction, gdouble(angleStart), gdouble(angleEnd))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -2951,8 +2951,8 @@ open class BehaviourRotate: Behaviour, BehaviourRotateProtocol {
     /// If `alpha` is not `nil`, the `ClutterBehaviour` will take ownership
     /// of the `ClutterAlpha` instance. In the case when `alpha` is `nil`,
     /// it can be set later with `clutter_behaviour_set_alpha()`.
-    @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, axis: ClutterRotateAxis, direction: ClutterRotateDirection, angleStart angle_start: Double, angleEnd angle_end: Double) {
-        let rv = clutter_behaviour_rotate_new(alpha?.alpha_ptr, axis, direction, gdouble(angle_start), gdouble(angle_end))
+    @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT?, axis: ClutterRotateAxis, direction: ClutterRotateDirection, angleStart: Double, angleEnd: Double) {
+        let rv = clutter_behaviour_rotate_new(alpha?.alpha_ptr, axis, direction, gdouble(angleStart), gdouble(angleEnd))
         super.init(gpointer: (rv))
     }
 
@@ -3139,8 +3139,8 @@ public extension BehaviourRotateProtocol {
     }
 
     /// Retrieves the rotation boundaries of the rotate behaviour.
-    @inlinable func getBounds(angleStart angle_start: UnsafeMutablePointer<gdouble>!, angleEnd angle_end: UnsafeMutablePointer<gdouble>!) {
-        clutter_behaviour_rotate_get_bounds(behaviour_rotate_ptr, angle_start, angle_end)
+    @inlinable func getBounds(angleStart: UnsafeMutablePointer<gdouble>!, angleEnd: UnsafeMutablePointer<gdouble>!) {
+        clutter_behaviour_rotate_get_bounds(behaviour_rotate_ptr, angleStart, angleEnd)
     
     }
 
@@ -3165,8 +3165,8 @@ public extension BehaviourRotateProtocol {
 
     /// Sets the initial and final angles of a rotation behaviour; angles >= 360
     /// degrees get clamped to the canonical interval <0, 360).
-    @inlinable func setBounds(angleStart angle_start: Double, angleEnd angle_end: Double) {
-        clutter_behaviour_rotate_set_bounds(behaviour_rotate_ptr, gdouble(angle_start), gdouble(angle_end))
+    @inlinable func setBounds(angleStart: Double, angleEnd: Double) {
+        clutter_behaviour_rotate_set_bounds(behaviour_rotate_ptr, gdouble(angleStart), gdouble(angleEnd))
     
     }
 
@@ -3300,7 +3300,7 @@ public extension BehaviourScaleRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BehaviourScaleProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3324,8 +3324,8 @@ public extension BehaviourScaleRef {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, xScaleStart x_scale_start: Double, yScaleStart y_scale_start: Double, xScaleEnd x_scale_end: Double, yScaleEnd y_scale_end: Double) {
-        let rv = clutter_behaviour_scale_new(alpha?.alpha_ptr, gdouble(x_scale_start), gdouble(y_scale_start), gdouble(x_scale_end), gdouble(y_scale_end))
+    @available(*, deprecated) @inlinable init<AlphaT: AlphaProtocol>( alpha: AlphaT?, xScaleStart: Double, yScaleStart: Double, xScaleEnd: Double, yScaleEnd: Double) {
+        let rv = clutter_behaviour_scale_new(alpha?.alpha_ptr, gdouble(xScaleStart), gdouble(yScaleStart), gdouble(xScaleEnd), gdouble(yScaleEnd))
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -3469,8 +3469,8 @@ open class BehaviourScale: Behaviour, BehaviourScaleProtocol {
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT? = nil, xScaleStart x_scale_start: Double, yScaleStart y_scale_start: Double, xScaleEnd x_scale_end: Double, yScaleEnd y_scale_end: Double) {
-        let rv = clutter_behaviour_scale_new(alpha?.alpha_ptr, gdouble(x_scale_start), gdouble(y_scale_start), gdouble(x_scale_end), gdouble(y_scale_end))
+    @available(*, deprecated) @inlinable public init<AlphaT: AlphaProtocol>( alpha: AlphaT?, xScaleStart: Double, yScaleStart: Double, xScaleEnd: Double, yScaleEnd: Double) {
+        let rv = clutter_behaviour_scale_new(alpha?.alpha_ptr, gdouble(xScaleStart), gdouble(yScaleStart), gdouble(xScaleEnd), gdouble(yScaleEnd))
         super.init(gpointer: (rv))
     }
 
@@ -3666,8 +3666,8 @@ public extension BehaviourScaleProtocol {
     ///
     /// **get_bounds is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func getBounds(xScaleStart x_scale_start: UnsafeMutablePointer<gdouble>!, yScaleStart y_scale_start: UnsafeMutablePointer<gdouble>!, xScaleEnd x_scale_end: UnsafeMutablePointer<gdouble>!, yScaleEnd y_scale_end: UnsafeMutablePointer<gdouble>!) {
-        clutter_behaviour_scale_get_bounds(behaviour_scale_ptr, x_scale_start, y_scale_start, x_scale_end, y_scale_end)
+    @available(*, deprecated) @inlinable func getBounds(xScaleStart: UnsafeMutablePointer<gdouble>!, yScaleStart: UnsafeMutablePointer<gdouble>!, xScaleEnd: UnsafeMutablePointer<gdouble>!, yScaleEnd: UnsafeMutablePointer<gdouble>!) {
+        clutter_behaviour_scale_get_bounds(behaviour_scale_ptr, xScaleStart, yScaleStart, xScaleEnd, yScaleEnd)
     
     }
 
@@ -3675,8 +3675,8 @@ public extension BehaviourScaleProtocol {
     ///
     /// **set_bounds is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func setBounds(xScaleStart x_scale_start: Double, yScaleStart y_scale_start: Double, xScaleEnd x_scale_end: Double, yScaleEnd y_scale_end: Double) {
-        clutter_behaviour_scale_set_bounds(behaviour_scale_ptr, gdouble(x_scale_start), gdouble(y_scale_start), gdouble(x_scale_end), gdouble(y_scale_end))
+    @available(*, deprecated) @inlinable func setBounds(xScaleStart: Double, yScaleStart: Double, xScaleEnd: Double, yScaleEnd: Double) {
+        clutter_behaviour_scale_set_bounds(behaviour_scale_ptr, gdouble(xScaleStart), gdouble(yScaleStart), gdouble(xScaleEnd), gdouble(yScaleEnd))
     
     }
 
@@ -3772,7 +3772,7 @@ public extension BinLayoutRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BinLayoutProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3789,8 +3789,8 @@ public extension BinLayoutRef {
     }
 
         /// Creates a new `ClutterBinLayout` layout manager
-    @inlinable init( x_align: ClutterBinAlignment, yAlign y_align: ClutterBinAlignment) {
-        let rv = clutter_bin_layout_new(x_align, y_align)
+    @inlinable init( xAlign: ClutterBinAlignment, yAlign: ClutterBinAlignment) {
+        let rv = clutter_bin_layout_new(xAlign, yAlign)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -3927,8 +3927,8 @@ open class BinLayout: LayoutManager, BinLayoutProtocol {
     }
 
     /// Creates a new `ClutterBinLayout` layout manager
-    @inlinable public init( x_align: ClutterBinAlignment, yAlign y_align: ClutterBinAlignment) {
-        let rv = clutter_bin_layout_new(x_align, y_align)
+    @inlinable public init( xAlign: ClutterBinAlignment, yAlign: ClutterBinAlignment) {
+        let rv = clutter_bin_layout_new(xAlign, yAlign)
         super.init(gpointer: (rv))
     }
 
@@ -4239,8 +4239,8 @@ public extension BinLayoutProtocol {
     ///
     /// **add is deprecated:**
     /// Use clutter_actor_add_child() instead.
-    @available(*, deprecated) @inlinable func add<ActorT: ActorProtocol>(child: ActorT, xAlign x_align: ClutterBinAlignment, yAlign y_align: ClutterBinAlignment) {
-        clutter_bin_layout_add(bin_layout_ptr, child.actor_ptr, x_align, y_align)
+    @available(*, deprecated) @inlinable func add<ActorT: ActorProtocol>(child: ActorT, xAlign: ClutterBinAlignment, yAlign: ClutterBinAlignment) {
+        clutter_bin_layout_add(bin_layout_ptr, child.actor_ptr, xAlign, yAlign)
     
     }
 
@@ -4253,8 +4253,21 @@ public extension BinLayoutProtocol {
     /// **get_alignment is deprecated:**
     /// Use the #ClutterActor:x-align and the
     ///   #ClutterActor:y-align properties of #ClutterActor instead.
-    @available(*, deprecated) @inlinable func getAlignment<ActorT: ActorProtocol>(child: ActorT? = nil, xAlign x_align: UnsafeMutablePointer<ClutterBinAlignment>! = nil, yAlign y_align: UnsafeMutablePointer<ClutterBinAlignment>! = nil) {
-        clutter_bin_layout_get_alignment(bin_layout_ptr, child?.actor_ptr, x_align, y_align)
+    @available(*, deprecated) @inlinable func getAlignment(child: ActorRef? = nil, xAlign: UnsafeMutablePointer<ClutterBinAlignment>! = nil, yAlign: UnsafeMutablePointer<ClutterBinAlignment>! = nil) {
+        clutter_bin_layout_get_alignment(bin_layout_ptr, child?.actor_ptr, xAlign, yAlign)
+    
+    }
+    /// Retrieves the horizontal and vertical alignment policies for
+    /// a child of `self`
+    /// 
+    /// If `child` is `nil` the default alignment policies will be returned
+    /// instead
+    ///
+    /// **get_alignment is deprecated:**
+    /// Use the #ClutterActor:x-align and the
+    ///   #ClutterActor:y-align properties of #ClutterActor instead.
+    @available(*, deprecated) @inlinable func getAlignment<ActorT: ActorProtocol>(child: ActorT?, xAlign: UnsafeMutablePointer<ClutterBinAlignment>! = nil, yAlign: UnsafeMutablePointer<ClutterBinAlignment>! = nil) {
+        clutter_bin_layout_get_alignment(bin_layout_ptr, child?.actor_ptr, xAlign, yAlign)
     
     }
 
@@ -4267,8 +4280,21 @@ public extension BinLayoutProtocol {
     /// **set_alignment is deprecated:**
     /// Use the #ClutterActor:x-align and
     ///   #ClutterActor:y-align properties of #ClutterActor instead.
-    @available(*, deprecated) @inlinable func setAlignment<ActorT: ActorProtocol>(child: ActorT? = nil, xAlign x_align: ClutterBinAlignment, yAlign y_align: ClutterBinAlignment) {
-        clutter_bin_layout_set_alignment(bin_layout_ptr, child?.actor_ptr, x_align, y_align)
+    @available(*, deprecated) @inlinable func setAlignment(child: ActorRef? = nil, xAlign: ClutterBinAlignment, yAlign: ClutterBinAlignment) {
+        clutter_bin_layout_set_alignment(bin_layout_ptr, child?.actor_ptr, xAlign, yAlign)
+    
+    }
+    /// Sets the horizontal and vertical alignment policies to be applied
+    /// to a `child` of `self`
+    /// 
+    /// If `child` is `nil` then the `x_align` and `y_align` values will
+    /// be set as the default alignment policies
+    ///
+    /// **set_alignment is deprecated:**
+    /// Use the #ClutterActor:x-align and
+    ///   #ClutterActor:y-align properties of #ClutterActor instead.
+    @available(*, deprecated) @inlinable func setAlignment<ActorT: ActorProtocol>(child: ActorT?, xAlign: ClutterBinAlignment, yAlign: ClutterBinAlignment) {
+        clutter_bin_layout_set_alignment(bin_layout_ptr, child?.actor_ptr, xAlign, yAlign)
     
     }
 
@@ -4364,7 +4390,7 @@ public extension BindConstraintRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindConstraintProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4382,7 +4408,7 @@ public extension BindConstraintRef {
 
         /// Creates a new constraint, binding a `ClutterActor`'s position to
     /// the given `coordinate` of the position of `source`
-    @inlinable init<ActorT: ActorProtocol>( source: ActorT? = nil, coordinate: ClutterBindCoordinate, offset: Double) {
+    @inlinable init<ActorT: ActorProtocol>( source: ActorT?, coordinate: ClutterBindCoordinate, offset: Double) {
         let rv = clutter_bind_constraint_new(source?.actor_ptr, coordinate, gfloat(offset))
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -4521,7 +4547,7 @@ open class BindConstraint: Constraint, BindConstraintProtocol {
 
     /// Creates a new constraint, binding a `ClutterActor`'s position to
     /// the given `coordinate` of the position of `source`
-    @inlinable public init<ActorT: ActorProtocol>( source: ActorT? = nil, coordinate: ClutterBindCoordinate, offset: Double) {
+    @inlinable public init<ActorT: ActorProtocol>( source: ActorT?, coordinate: ClutterBindCoordinate, offset: Double) {
         let rv = clutter_bind_constraint_new(source?.actor_ptr, coordinate, gfloat(offset))
         super.init(gpointer: (rv))
     }
@@ -4833,7 +4859,12 @@ public extension BindConstraintProtocol {
     }
 
     /// Sets the source `ClutterActor` for the constraint
-    @inlinable func set<ActorT: ActorProtocol>(source: ActorT? = nil) {
+    @inlinable func set(source: ActorRef? = nil) {
+        clutter_bind_constraint_set_source(bind_constraint_ptr, source?.actor_ptr)
+    
+    }
+    /// Sets the source `ClutterActor` for the constraint
+    @inlinable func set<ActorT: ActorProtocol>(source: ActorT?) {
         clutter_bind_constraint_set_source(bind_constraint_ptr, source?.actor_ptr)
     
     }
@@ -4968,7 +4999,7 @@ public extension BindingPoolRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BindingPoolProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5328,21 +5359,21 @@ public extension BindingPoolProtocol {
     /// If the action bound to the `key_val`, `modifiers` pair has been
     /// blocked using `clutter_binding_pool_block_action()`, the callback
     /// will not be invoked, and this function will return `false`.
-    @inlinable func activate<ObjectT: GLibObject.ObjectProtocol>(keyVal key_val: Int, modifiers: ModifierType, gobject: ObjectT) -> Bool {
-        let rv = ((clutter_binding_pool_activate(binding_pool_ptr, guint(key_val), modifiers.value, gobject.object_ptr)) != 0)
+    @inlinable func activate<ObjectT: GLibObject.ObjectProtocol>(keyVal: Int, modifiers: ModifierType, gobject: ObjectT) -> Bool {
+        let rv = ((clutter_binding_pool_activate(binding_pool_ptr, guint(keyVal), modifiers.value, gobject.object_ptr)) != 0)
         return rv
     }
 
     /// Blocks all the actions with name `action_name` inside `pool`.
-    @inlinable func blockAction(actionName action_name: UnsafePointer<gchar>!) {
-        clutter_binding_pool_block_action(binding_pool_ptr, action_name)
+    @inlinable func blockAction(actionName: UnsafePointer<gchar>!) {
+        clutter_binding_pool_block_action(binding_pool_ptr, actionName)
     
     }
 
     /// Retrieves the name of the action matching the given key symbol
     /// and modifiers bitmask.
-    @inlinable func findAction(keyVal key_val: Int, modifiers: ModifierType) -> String! {
-        let rv = clutter_binding_pool_find_action(binding_pool_ptr, guint(key_val), modifiers.value).map({ String(cString: $0) })
+    @inlinable func findAction(keyVal: Int, modifiers: ModifierType) -> String! {
+        let rv = clutter_binding_pool_find_action(binding_pool_ptr, guint(keyVal), modifiers.value).map({ String(cString: $0) })
         return rv
     }
 
@@ -5357,8 +5388,8 @@ public extension BindingPoolProtocol {
     /// 
     /// Actions can be blocked with `clutter_binding_pool_block_action()`
     /// and then unblocked using `clutter_binding_pool_unblock_action()`.
-    @inlinable func installAction(actionName action_name: UnsafePointer<gchar>!, keyVal key_val: Int, modifiers: ModifierType, callback: GCallback?, data: gpointer! = nil, notify: GDestroyNotify?) {
-        clutter_binding_pool_install_action(binding_pool_ptr, action_name, guint(key_val), modifiers.value, callback, data, notify)
+    @inlinable func installAction(actionName: UnsafePointer<gchar>!, keyVal: Int, modifiers: ModifierType, callback: GCallback?, data: gpointer! = nil, notify: GDestroyNotify?) {
+        clutter_binding_pool_install_action(binding_pool_ptr, actionName, guint(keyVal), modifiers.value, callback, data, notify)
     
     }
 
@@ -5375,8 +5406,8 @@ public extension BindingPoolProtocol {
     /// 
     /// Actions can be blocked with `clutter_binding_pool_block_action()`
     /// and then unblocked using `clutter_binding_pool_unblock_action()`.
-    @inlinable func installClosure<ClosureT: ClosureProtocol>(actionName action_name: UnsafePointer<gchar>!, keyVal key_val: Int, modifiers: ModifierType, closure: ClosureT) {
-        clutter_binding_pool_install_closure(binding_pool_ptr, action_name, guint(key_val), modifiers.value, closure.closure_ptr)
+    @inlinable func installClosure<ClosureT: GLibObject.ClosureProtocol>(actionName: UnsafePointer<gchar>!, keyVal: Int, modifiers: ModifierType, closure: ClosureT) {
+        clutter_binding_pool_install_closure(binding_pool_ptr, actionName, guint(keyVal), modifiers.value, closure.closure_ptr)
     
     }
 
@@ -5388,8 +5419,8 @@ public extension BindingPoolProtocol {
     /// 
     /// Actions can be blocked with `clutter_binding_pool_block_action()`
     /// and then unblocked using `clutter_binding_pool_unblock_action()`.
-    @inlinable func overrideAction(keyVal key_val: Int, modifiers: ModifierType, callback: GCallback?, data: gpointer! = nil, notify: GDestroyNotify?) {
-        clutter_binding_pool_override_action(binding_pool_ptr, guint(key_val), modifiers.value, callback, data, notify)
+    @inlinable func overrideAction(keyVal: Int, modifiers: ModifierType, callback: GCallback?, data: gpointer! = nil, notify: GDestroyNotify?) {
+        clutter_binding_pool_override_action(binding_pool_ptr, guint(keyVal), modifiers.value, callback, data, notify)
     
     }
 
@@ -5403,15 +5434,15 @@ public extension BindingPoolProtocol {
     /// 
     /// Actions can be blocked with `clutter_binding_pool_block_action()`
     /// and then unblocked using `clutter_binding_pool_unblock_action()`.
-    @inlinable func overrideClosure<ClosureT: ClosureProtocol>(keyVal key_val: Int, modifiers: ModifierType, closure: ClosureT) {
-        clutter_binding_pool_override_closure(binding_pool_ptr, guint(key_val), modifiers.value, closure.closure_ptr)
+    @inlinable func overrideClosure<ClosureT: GLibObject.ClosureProtocol>(keyVal: Int, modifiers: ModifierType, closure: ClosureT) {
+        clutter_binding_pool_override_closure(binding_pool_ptr, guint(keyVal), modifiers.value, closure.closure_ptr)
     
     }
 
     /// Removes the action matching the given `key_val`, `modifiers` pair,
     /// if any exists.
-    @inlinable func removeAction(keyVal key_val: Int, modifiers: ModifierType) {
-        clutter_binding_pool_remove_action(binding_pool_ptr, guint(key_val), modifiers.value)
+    @inlinable func removeAction(keyVal: Int, modifiers: ModifierType) {
+        clutter_binding_pool_remove_action(binding_pool_ptr, guint(keyVal), modifiers.value)
     
     }
 
@@ -5420,8 +5451,8 @@ public extension BindingPoolProtocol {
     /// Unblocking an action does not cause the callback bound to it to
     /// be invoked in case `clutter_binding_pool_activate()` was called on
     /// an action previously blocked with `clutter_binding_pool_block_action()`.
-    @inlinable func unblockAction(actionName action_name: UnsafePointer<gchar>!) {
-        clutter_binding_pool_unblock_action(binding_pool_ptr, action_name)
+    @inlinable func unblockAction(actionName: UnsafePointer<gchar>!) {
+        clutter_binding_pool_unblock_action(binding_pool_ptr, actionName)
     
     }
 
@@ -5514,7 +5545,7 @@ public extension BlurEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BlurEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6024,7 +6055,7 @@ public extension BoxRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoxProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7667,8 +7698,8 @@ public extension BoxProtocol {
     /// **packv is deprecated:**
     /// Use clutter_actor_add_child() instead. To set
     ///   specific layout properties, use clutter_layout_manager_child_set()
-    @available(*, deprecated) @inlinable func packv<ActorT: ActorProtocol>(actor: ActorT, nProperties n_properties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) {
-        clutter_box_packv(box_ptr, actor.actor_ptr, guint(n_properties), properties, values)
+    @available(*, deprecated) @inlinable func packv<ActorT: ActorProtocol>(actor: ActorT, nProperties: Int, properties: UnsafePointer<UnsafePointer<gchar>?>!, values: UnsafePointer<GValue>!) {
+        clutter_box_packv(box_ptr, actor.actor_ptr, guint(nProperties), properties, values)
     
     }
 
@@ -7676,7 +7707,15 @@ public extension BoxProtocol {
     ///
     /// **set_color is deprecated:**
     /// Use clutter_actor_set_background_color() instead.
-    @available(*, deprecated) @inlinable func set<ColorT: ColorProtocol>(color: ColorT? = nil) {
+    @available(*, deprecated) @inlinable func set(color: ColorRef? = nil) {
+        clutter_box_set_color(box_ptr, color?.color_ptr)
+    
+    }
+    /// Sets (or unsets) the background color for `box`
+    ///
+    /// **set_color is deprecated:**
+    /// Use clutter_actor_set_background_color() instead.
+    @available(*, deprecated) @inlinable func set<ColorT: ColorProtocol>(color: ColorT?) {
         clutter_box_set_color(box_ptr, color?.color_ptr)
     
     }
@@ -7809,7 +7848,7 @@ public extension BoxLayoutRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BoxLayoutProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8338,8 +8377,8 @@ public extension BoxLayoutProtocol {
     /// **get_alignment is deprecated:**
     /// #ClutterBoxLayout will honour #ClutterActor's
     ///   #ClutterActor:x-align and #ClutterActor:y-align properies
-    @available(*, deprecated) @inlinable func getAlignment<ActorT: ActorProtocol>(actor: ActorT, xAlign x_align: UnsafeMutablePointer<ClutterBoxAlignment>!, yAlign y_align: UnsafeMutablePointer<ClutterBoxAlignment>!) {
-        clutter_box_layout_get_alignment(box_layout_ptr, actor.actor_ptr, x_align, y_align)
+    @available(*, deprecated) @inlinable func getAlignment<ActorT: ActorProtocol>(actor: ActorT, xAlign: UnsafeMutablePointer<ClutterBoxAlignment>!, yAlign: UnsafeMutablePointer<ClutterBoxAlignment>!) {
+        clutter_box_layout_get_alignment(box_layout_ptr, actor.actor_ptr, xAlign, yAlign)
     
     }
 
@@ -8377,8 +8416,8 @@ public extension BoxLayoutProtocol {
     /// **get_fill is deprecated:**
     /// #ClutterBoxLayout will honour #ClutterActor's
     ///   #ClutterActor:x-align and #ClutterActor:y-align properies
-    @available(*, deprecated) @inlinable func getFill<ActorT: ActorProtocol>(actor: ActorT, xFill x_fill: UnsafeMutablePointer<gboolean>!, yFill y_fill: UnsafeMutablePointer<gboolean>!) {
-        clutter_box_layout_get_fill(box_layout_ptr, actor.actor_ptr, x_fill, y_fill)
+    @available(*, deprecated) @inlinable func getFill<ActorT: ActorProtocol>(actor: ActorT, xFill: UnsafeMutablePointer<gboolean>!, yFill: UnsafeMutablePointer<gboolean>!) {
+        clutter_box_layout_get_fill(box_layout_ptr, actor.actor_ptr, xFill, yFill)
     
     }
 
@@ -8434,8 +8473,8 @@ public extension BoxLayoutProtocol {
     ///   the @actor with clutter_actor_add_child() and setting
     ///   #ClutterActor:x-align, #ClutterActor:y-align,
     ///   #ClutterActor:x-expand and #ClutterActor:y-expand
-    @available(*, deprecated) @inlinable func pack<ActorT: ActorProtocol>(actor: ActorT, expand: Bool, xFill x_fill: Bool, yFill y_fill: Bool, xAlign x_align: ClutterBoxAlignment, yAlign y_align: ClutterBoxAlignment) {
-        clutter_box_layout_pack(box_layout_ptr, actor.actor_ptr, gboolean((expand) ? 1 : 0), gboolean((x_fill) ? 1 : 0), gboolean((y_fill) ? 1 : 0), x_align, y_align)
+    @available(*, deprecated) @inlinable func pack<ActorT: ActorProtocol>(actor: ActorT, expand: Bool, xFill: Bool, yFill: Bool, xAlign: ClutterBoxAlignment, yAlign: ClutterBoxAlignment) {
+        clutter_box_layout_pack(box_layout_ptr, actor.actor_ptr, gboolean((expand) ? 1 : 0), gboolean((xFill) ? 1 : 0), gboolean((yFill) ? 1 : 0), xAlign, yAlign)
     
     }
 
@@ -8445,8 +8484,8 @@ public extension BoxLayoutProtocol {
     /// **set_alignment is deprecated:**
     /// #ClutterBoxLayout will honour #ClutterActor's
     ///   #ClutterActor:x-align and #ClutterActor:y-align properies
-    @available(*, deprecated) @inlinable func setAlignment<ActorT: ActorProtocol>(actor: ActorT, xAlign x_align: ClutterBoxAlignment, yAlign y_align: ClutterBoxAlignment) {
-        clutter_box_layout_set_alignment(box_layout_ptr, actor.actor_ptr, x_align, y_align)
+    @available(*, deprecated) @inlinable func setAlignment<ActorT: ActorProtocol>(actor: ActorT, xAlign: ClutterBoxAlignment, yAlign: ClutterBoxAlignment) {
+        clutter_box_layout_set_alignment(box_layout_ptr, actor.actor_ptr, xAlign, yAlign)
     
     }
 
@@ -8488,8 +8527,8 @@ public extension BoxLayoutProtocol {
     /// **set_fill is deprecated:**
     /// #ClutterBoxLayout will honour #ClutterActor's
     ///   #ClutterActor:x-align and #ClutterActor:y-align properies
-    @available(*, deprecated) @inlinable func setFill<ActorT: ActorProtocol>(actor: ActorT, xFill x_fill: Bool, yFill y_fill: Bool) {
-        clutter_box_layout_set_fill(box_layout_ptr, actor.actor_ptr, gboolean((x_fill) ? 1 : 0), gboolean((y_fill) ? 1 : 0))
+    @available(*, deprecated) @inlinable func setFill<ActorT: ActorProtocol>(actor: ActorT, xFill: Bool, yFill: Bool) {
+        clutter_box_layout_set_fill(box_layout_ptr, actor.actor_ptr, gboolean((xFill) ? 1 : 0), gboolean((yFill) ? 1 : 0))
     
     }
 
@@ -8508,8 +8547,8 @@ public extension BoxLayoutProtocol {
 
     /// Sets whether children of `layout` should be layed out by appending
     /// them or by prepending them
-    @inlinable func set(packStart pack_start: Bool) {
-        clutter_box_layout_set_pack_start(box_layout_ptr, gboolean((pack_start) ? 1 : 0))
+    @inlinable func set(packStart: Bool) {
+        clutter_box_layout_set_pack_start(box_layout_ptr, gboolean((packStart) ? 1 : 0))
     
     }
 
@@ -8798,7 +8837,7 @@ public extension BrightnessContrastEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BrightnessContrastEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9381,7 +9420,7 @@ public extension CairoTextureRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CairoTextureProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -11147,7 +11186,7 @@ public extension CairoTextureProtocol {
     ///   the clutter_cairo_texture_invalidate() function to obtain a
     ///   Cairo context for 2D drawing.
     @available(*, deprecated) @inlinable func create() -> Cairo.ContextRef! {
-        let rv = Cairo.ContextRef(gconstpointer: gconstpointer(clutter_cairo_texture_create(cairo_texture_ptr)))
+        let rv = Cairo.ContextRef(clutter_cairo_texture_create(cairo_texture_ptr))
         return rv
     }
 
@@ -11162,8 +11201,8 @@ public extension CairoTextureProtocol {
     /// Use the #ClutterCairoTexture::draw signal and
     ///   clutter_cairo_texture_invalidate_rectangle() to obtain a
     ///   clipped Cairo context for 2D drawing.
-    @available(*, deprecated) @inlinable func createRegion(xOffset x_offset: Int, yOffset y_offset: Int, width: Int, height: Int) -> Cairo.ContextRef! {
-        let rv = Cairo.ContextRef(gconstpointer: gconstpointer(clutter_cairo_texture_create_region(cairo_texture_ptr, gint(x_offset), gint(y_offset), gint(width), gint(height))))
+    @available(*, deprecated) @inlinable func createRegion(xOffset: Int, yOffset: Int, width: Int, height: Int) -> Cairo.ContextRef! {
+        let rv = Cairo.ContextRef(clutter_cairo_texture_create_region(cairo_texture_ptr, gint(xOffset), gint(yOffset), gint(width), gint(height)))
         return rv
     }
 
@@ -11208,7 +11247,20 @@ public extension CairoTextureProtocol {
     ///
     /// **invalidate_rectangle is deprecated:**
     /// Use #ClutterCanvas instead
-    @available(*, deprecated) @inlinable func invalidateRectangle<RectangleIntT: RectangleIntProtocol>(rect: RectangleIntT? = nil) {
+    @available(*, deprecated) @inlinable func invalidateRectangle(rect: Cairo.RectangleIntRef? = nil) {
+        clutter_cairo_texture_invalidate_rectangle(cairo_texture_ptr, rect?._ptr)
+    
+    }
+    /// Invalidates a rectangular region of a `ClutterCairoTexture`.
+    /// 
+    /// The invalidation will cause the `ClutterCairoTexture::draw` signal
+    /// to be emitted.
+    /// 
+    /// See also: `clutter_cairo_texture_invalidate()`
+    ///
+    /// **invalidate_rectangle is deprecated:**
+    /// Use #ClutterCanvas instead
+    @available(*, deprecated) @inlinable func invalidateRectangle<RectangleIntT: Cairo.RectangleIntProtocol>(rect: RectangleIntT?) {
         clutter_cairo_texture_invalidate_rectangle(cairo_texture_ptr, rect?._ptr)
     
     }

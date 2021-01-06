@@ -22,7 +22,7 @@ import Atk
 ///
 /// The `ClutterLayoutManager` structure contains only private data
 /// and should be accessed using the provided API
-public protocol LayoutManagerProtocol: InitiallyUnownedProtocol {
+public protocol LayoutManagerProtocol: GLibObject.InitiallyUnownedProtocol {
         /// Untyped pointer to the underlying `ClutterLayoutManager` instance.
     var ptr: UnsafeMutableRawPointer! { get }
 
@@ -97,7 +97,7 @@ public extension LayoutManagerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -121,7 +121,7 @@ public extension LayoutManagerRef {
 ///
 /// The `ClutterLayoutManager` structure contains only private data
 /// and should be accessed using the provided API
-open class LayoutManager: InitiallyUnowned, LayoutManagerProtocol {
+open class LayoutManager: GLibObject.InitiallyUnowned, LayoutManagerProtocol {
         /// Designated initialiser from the underlying `C` data type.
     /// This creates an instance without performing an unbalanced retain
     /// i.e., ownership is transferred to the `LayoutManager` instance.
@@ -549,8 +549,8 @@ public extension LayoutManagerProtocol {
     /// The `GValue` must already be initialized to the type of the property
     /// and has to be unset with `g_value_unset()` after extracting the real
     /// value out of it
-    @inlinable func childGetProperty<ActorT: ActorProtocol, ContainerT: ContainerProtocol, ValueT: GLibObject.ValueProtocol>(container: ContainerT, actor: ActorT, propertyName property_name: UnsafePointer<gchar>!, value: ValueT) {
-        clutter_layout_manager_child_get_property(layout_manager_ptr, container.container_ptr, actor.actor_ptr, property_name, value.value_ptr)
+    @inlinable func childGetProperty<ActorT: ActorProtocol, ContainerT: ContainerProtocol, ValueT: GLibObject.ValueProtocol>(container: ContainerT, actor: ActorT, propertyName: UnsafePointer<gchar>!, value: ValueT) {
+        clutter_layout_manager_child_get_property(layout_manager_ptr, container.container_ptr, actor.actor_ptr, propertyName, value.value_ptr)
     
     }
 
@@ -560,8 +560,8 @@ public extension LayoutManagerProtocol {
 
     /// Sets a property on the `ClutterLayoutMeta` created by `manager` and
     /// attached to a child of `container`
-    @inlinable func childSetProperty<ActorT: ActorProtocol, ContainerT: ContainerProtocol, ValueT: GLibObject.ValueProtocol>(container: ContainerT, actor: ActorT, propertyName property_name: UnsafePointer<gchar>!, value: ValueT) {
-        clutter_layout_manager_child_set_property(layout_manager_ptr, container.container_ptr, actor.actor_ptr, property_name, value.value_ptr)
+    @inlinable func childSetProperty<ActorT: ActorProtocol, ContainerT: ContainerProtocol, ValueT: GLibObject.ValueProtocol>(container: ContainerT, actor: ActorT, propertyName: UnsafePointer<gchar>!, value: ValueT) {
+        clutter_layout_manager_child_set_property(layout_manager_ptr, container.container_ptr, actor.actor_ptr, propertyName, value.value_ptr)
     
     }
 
@@ -578,8 +578,8 @@ public extension LayoutManagerProtocol {
 
     /// Retrieves the `GParamSpec` for the layout property `name` inside
     /// the `ClutterLayoutMeta` sub-class used by `manager`
-    @inlinable func findChildProperty(name: UnsafePointer<gchar>!) -> ParamSpecRef! {
-        let rv = ParamSpecRef(gconstpointer: gconstpointer(clutter_layout_manager_find_child_property(layout_manager_ptr, name)))
+    @inlinable func findChildProperty(name: UnsafePointer<gchar>!) -> GLibObject.ParamSpecRef! {
+        let rv = GLibObject.ParamSpecRef(clutter_layout_manager_find_child_property(layout_manager_ptr, name))
         return rv
     }
 
@@ -608,8 +608,8 @@ public extension LayoutManagerProtocol {
     /// to `manager`.
     /// 
     /// See also `clutter_actor_get_preferred_height()`
-    @inlinable func getPreferredHeight<ContainerT: ContainerProtocol>(container: ContainerT, forWidth for_width: Double, minHeightP min_height_p: UnsafeMutablePointer<gfloat>! = nil, natHeightP nat_height_p: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_layout_manager_get_preferred_height(layout_manager_ptr, container.container_ptr, gfloat(for_width), min_height_p, nat_height_p)
+    @inlinable func getPreferredHeight<ContainerT: ContainerProtocol>(container: ContainerT, `for` width: Double, minHeightP: UnsafeMutablePointer<gfloat>! = nil, natHeightP: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_layout_manager_get_preferred_height(layout_manager_ptr, container.container_ptr, gfloat(width), minHeightP, natHeightP)
     
     }
 
@@ -617,8 +617,8 @@ public extension LayoutManagerProtocol {
     /// to `manager`.
     /// 
     /// See also `clutter_actor_get_preferred_width()`
-    @inlinable func getPreferredWidth<ContainerT: ContainerProtocol>(container: ContainerT, forHeight for_height: Double, minWidthP min_width_p: UnsafeMutablePointer<gfloat>! = nil, natWidthP nat_width_p: UnsafeMutablePointer<gfloat>! = nil) {
-        clutter_layout_manager_get_preferred_width(layout_manager_ptr, container.container_ptr, gfloat(for_height), min_width_p, nat_width_p)
+    @inlinable func getPreferredWidth<ContainerT: ContainerProtocol>(container: ContainerT, `for` height: Double, minWidthP: UnsafeMutablePointer<gfloat>! = nil, natWidthP: UnsafeMutablePointer<gfloat>! = nil) {
+        clutter_layout_manager_get_preferred_width(layout_manager_ptr, container.container_ptr, gfloat(height), minWidthP, natWidthP)
     
     }
 
@@ -633,8 +633,8 @@ public extension LayoutManagerProtocol {
 
     /// Retrieves all the `GParamSpec`<!-- -->s for the layout properties
     /// stored inside the `ClutterLayoutMeta` sub-class used by `manager`
-    @inlinable func listChildProperties(nPspecs n_pspecs: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
-        let rv = clutter_layout_manager_list_child_properties(layout_manager_ptr, n_pspecs)
+    @inlinable func listChildProperties(nPspecs: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
+        let rv = clutter_layout_manager_list_child_properties(layout_manager_ptr, nPspecs)
         return rv
     }
 
@@ -644,7 +644,17 @@ public extension LayoutManagerProtocol {
     /// 
     /// The layout manager should not increase the reference
     /// count of the `container`
-    @inlinable func set<ContainerT: ContainerProtocol>(container: ContainerT? = nil) {
+    @inlinable func set(container: ContainerRef? = nil) {
+        clutter_layout_manager_set_container(layout_manager_ptr, container?.container_ptr)
+    
+    }
+    /// If the `ClutterLayoutManager` sub-class allows it, allow
+    /// adding a weak reference of the `container` using `manager`
+    /// from within the layout manager
+    /// 
+    /// The layout manager should not increase the reference
+    /// count of the `container`
+    @inlinable func set<ContainerT: ContainerProtocol>(container: ContainerT?) {
         clutter_layout_manager_set_container(layout_manager_ptr, container?.container_ptr)
     
     }
@@ -769,7 +779,7 @@ public extension LayoutMetaRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutMetaProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1169,7 +1179,7 @@ public extension ListModelRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1194,8 +1204,8 @@ public extension ListModelRef {
     ///
     /// **newv is deprecated:**
     /// Use #GListStore instead
-    @available(*, deprecated) @inlinable init(nColumns n_columns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) {
-        let rv = clutter_list_model_newv(guint(n_columns), types, names)
+    @available(*, deprecated) @inlinable init(nColumns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) {
+        let rv = clutter_list_model_newv(guint(nColumns), types, names)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Non-vararg version of `clutter_list_model_new()`. This function is
@@ -1203,8 +1213,8 @@ public extension ListModelRef {
     ///
     /// **newv is deprecated:**
     /// Use #GListStore instead
-    @available(*, deprecated) @inlinable static func listModelNewv(nColumns n_columns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) -> ModelRef! {
-        guard let rv = ModelRef(gconstpointer: gconstpointer(clutter_list_model_newv(guint(n_columns), types, names))) else { return nil }
+    @available(*, deprecated) @inlinable static func listModelNewv(nColumns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) -> ModelRef! {
+        guard let rv = ModelRef(gconstpointer: gconstpointer(clutter_list_model_newv(guint(nColumns), types, names))) else { return nil }
         return rv
     }
 }
@@ -1348,8 +1358,8 @@ open class ListModel: Model, ListModelProtocol {
     ///
     /// **newv is deprecated:**
     /// Use #GListStore instead
-    @available(*, deprecated) @inlinable public init(nColumns n_columns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) {
-        let rv = clutter_list_model_newv(guint(n_columns), types, names)
+    @available(*, deprecated) @inlinable public init(nColumns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) {
+        let rv = clutter_list_model_newv(guint(nColumns), types, names)
         super.init(gpointer: (rv))
     }
 
@@ -1358,8 +1368,8 @@ open class ListModel: Model, ListModelProtocol {
     ///
     /// **newv is deprecated:**
     /// Use #GListStore instead
-    @available(*, deprecated) @inlinable public static func listModelNewv(nColumns n_columns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) -> Model! {
-        guard let rv = Model(gconstpointer: gconstpointer(clutter_list_model_newv(guint(n_columns), types, names))) else { return nil }
+    @available(*, deprecated) @inlinable public static func listModelNewv(nColumns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) -> Model! {
+        guard let rv = Model(gconstpointer: gconstpointer(clutter_list_model_newv(guint(nColumns), types, names))) else { return nil }
         return rv
     }
 
@@ -1624,7 +1634,7 @@ public extension ModelRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1951,8 +1961,8 @@ public extension ModelProtocol {
     ///
     /// **appendv is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func appendv(nColumns n_columns: Int, columns: UnsafeMutablePointer<guint>!, values: UnsafeMutablePointer<GValue>!) {
-        clutter_model_appendv(model_ptr, guint(n_columns), columns, values)
+    @available(*, deprecated) @inlinable func appendv(nColumns: Int, columns: UnsafeMutablePointer<guint>!, values: UnsafeMutablePointer<GValue>!) {
+        clutter_model_appendv(model_ptr, guint(nColumns), columns, values)
     
     }
 
@@ -1984,8 +1994,8 @@ public extension ModelProtocol {
     ///
     /// **foreach is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func foreach(`func`: ClutterModelForeachFunc?, userData user_data: gpointer! = nil) {
-        clutter_model_foreach(model_ptr, `func`, user_data)
+    @available(*, deprecated) @inlinable func foreach(`func`: ClutterModelForeachFunc?, userData: gpointer! = nil) {
+        clutter_model_foreach(model_ptr, `func`, userData)
     
     }
 
@@ -2098,8 +2108,8 @@ public extension ModelProtocol {
     ///
     /// **insertv is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func insertv(row: Int, nColumns n_columns: Int, columns: UnsafeMutablePointer<guint>!, values: UnsafeMutablePointer<GValue>!) {
-        clutter_model_insertv(model_ptr, guint(row), guint(n_columns), columns, values)
+    @available(*, deprecated) @inlinable func insertv(row: Int, nColumns: Int, columns: UnsafeMutablePointer<guint>!, values: UnsafeMutablePointer<GValue>!) {
+        clutter_model_insertv(model_ptr, guint(row), guint(nColumns), columns, values)
     
     }
 
@@ -2112,8 +2122,8 @@ public extension ModelProtocol {
     ///
     /// **prependv is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func prependv(nColumns n_columns: Int, columns: UnsafeMutablePointer<guint>!, values: UnsafeMutablePointer<GValue>!) {
-        clutter_model_prependv(model_ptr, guint(n_columns), columns, values)
+    @available(*, deprecated) @inlinable func prependv(nColumns: Int, columns: UnsafeMutablePointer<guint>!, values: UnsafeMutablePointer<GValue>!) {
+        clutter_model_prependv(model_ptr, guint(nColumns), columns, values)
     
     }
 
@@ -2140,8 +2150,8 @@ public extension ModelProtocol {
     ///
     /// **set_filter is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func setFilter(`func`: ClutterModelFilterFunc? = nil, userData user_data: gpointer! = nil, notify: GDestroyNotify?) {
-        clutter_model_set_filter(model_ptr, `func`, user_data, notify)
+    @available(*, deprecated) @inlinable func setFilter(`func`: ClutterModelFilterFunc? = nil, userData: gpointer! = nil, notify: GDestroyNotify?) {
+        clutter_model_set_filter(model_ptr, `func`, userData, notify)
     
     }
 
@@ -2153,8 +2163,8 @@ public extension ModelProtocol {
     ///
     /// **set_names is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func setNames(nColumns n_columns: Int, names: UnsafePointer<UnsafePointer<gchar>?>!) {
-        clutter_model_set_names(model_ptr, guint(n_columns), names)
+    @available(*, deprecated) @inlinable func setNames(nColumns: Int, names: UnsafePointer<UnsafePointer<gchar>?>!) {
+        clutter_model_set_names(model_ptr, guint(nColumns), names)
     
     }
 
@@ -2162,8 +2172,8 @@ public extension ModelProtocol {
     ///
     /// **set_sort is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func setSort(column: Int, `func`: ClutterModelSortFunc? = nil, userData user_data: gpointer! = nil, notify: GDestroyNotify?) {
-        clutter_model_set_sort(model_ptr, gint(column), `func`, user_data, notify)
+    @available(*, deprecated) @inlinable func setSort(column: Int, `func`: ClutterModelSortFunc? = nil, userData: gpointer! = nil, notify: GDestroyNotify?) {
+        clutter_model_set_sort(model_ptr, gint(column), `func`, userData, notify)
     
     }
 
@@ -2185,8 +2195,8 @@ public extension ModelProtocol {
     ///
     /// **set_types is deprecated:**
     /// Use #GListModel instead
-    @available(*, deprecated) @inlinable func setTypes(nColumns n_columns: Int, types: UnsafeMutablePointer<GType>!) {
-        clutter_model_set_types(model_ptr, guint(n_columns), types)
+    @available(*, deprecated) @inlinable func setTypes(nColumns: Int, types: UnsafeMutablePointer<GType>!) {
+        clutter_model_set_types(model_ptr, guint(nColumns), types)
     
     }
     /// Returns whether the `model` has a filter in place, set

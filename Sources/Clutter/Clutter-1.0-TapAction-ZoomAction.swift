@@ -97,7 +97,7 @@ public extension TapActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TapActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -660,7 +660,7 @@ public extension TextRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -690,8 +690,8 @@ public extension TextRef {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    @inlinable init<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) {
-        let rv = clutter_text_new_full(font_name, text, color.color_ptr)
+    @inlinable init<ColorT: ColorProtocol>(full fontName: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) {
+        let rv = clutter_text_new_full(fontName, text, color.color_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -706,8 +706,8 @@ public extension TextRef {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    @inlinable init(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) {
-        let rv = clutter_text_new_with_text(font_name, text)
+    @inlinable init(text fontName: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) {
+        let rv = clutter_text_new_with_text(fontName, text)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Creates a new `ClutterText` actor, using `font_name` as the font
@@ -717,8 +717,8 @@ public extension TextRef {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    @inlinable static func new<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) -> ActorRef! {
-        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_full(font_name, text, color.color_ptr))) else { return nil }
+    @inlinable static func new<ColorT: ColorProtocol>(full fontName: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_full(fontName, text, color.color_ptr))) else { return nil }
         return rv
     }
 
@@ -733,8 +733,8 @@ public extension TextRef {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    @inlinable static func newWith(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) -> ActorRef! {
-        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_with_text(font_name, text))) else { return nil }
+    @inlinable static func newWith(text fontName: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) -> ActorRef! {
+        guard let rv = ActorRef(gconstpointer: gconstpointer(clutter_text_new_with_text(fontName, text))) else { return nil }
         return rv
     }
 }
@@ -883,8 +883,8 @@ open class Text: Actor, TextProtocol {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    @inlinable public init<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) {
-        let rv = clutter_text_new_full(font_name, text, color.color_ptr)
+    @inlinable public init<ColorT: ColorProtocol>(full fontName: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) {
+        let rv = clutter_text_new_full(fontName, text, color.color_ptr)
         super.init(gpointer: (rv))
     }
 
@@ -899,8 +899,8 @@ open class Text: Actor, TextProtocol {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    @inlinable public init(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) {
-        let rv = clutter_text_new_with_text(font_name, text)
+    @inlinable public init(text fontName: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) {
+        let rv = clutter_text_new_with_text(fontName, text)
         super.init(gpointer: (rv))
     }
 
@@ -911,8 +911,8 @@ open class Text: Actor, TextProtocol {
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, `clutter_text_set_text()` and
     /// `clutter_text_set_color()`.
-    @inlinable public static func new<ColorT: ColorProtocol>(full font_name: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) -> Actor! {
-        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_full(font_name, text, color.color_ptr))) else { return nil }
+    @inlinable public static func new<ColorT: ColorProtocol>(full fontName: UnsafePointer<gchar>!, text: UnsafePointer<gchar>!, color: ColorT) -> Actor! {
+        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_full(fontName, text, color.color_ptr))) else { return nil }
         return rv
     }
 
@@ -927,8 +927,8 @@ open class Text: Actor, TextProtocol {
     /// 
     /// This function is equivalent to calling `clutter_text_new()`,
     /// `clutter_text_set_font_name()`, and `clutter_text_set_text()`.
-    @inlinable public static func newWith(text font_name: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) -> Actor! {
-        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_with_text(font_name, text))) else { return nil }
+    @inlinable public static func newWith(text fontName: UnsafePointer<gchar>? = nil, text: UnsafePointer<gchar>!) -> Actor! {
+        guard let rv = Actor(gconstpointer: gconstpointer(clutter_text_new_with_text(fontName, text))) else { return nil }
         return rv
     }
 
@@ -2561,8 +2561,8 @@ public extension TextProtocol {
     /// 
     /// Somewhat awkwardly, the cursor position is decremented by the same
     /// number of characters you've deleted.
-    @inlinable func deleteChars(nChars n_chars: Int) {
-        clutter_text_delete_chars(text_ptr, guint(n_chars))
+    @inlinable func deleteChars(nChars: Int) {
+        clutter_text_delete_chars(text_ptr, guint(nChars))
     
     }
 
@@ -2579,8 +2579,8 @@ public extension TextProtocol {
     /// 
     /// The starting and ending positions are expressed in characters,
     /// not in bytes.
-    @inlinable func deleteText(startPos start_pos: gssize, endPos end_pos: gssize) {
-        clutter_text_delete_text(text_ptr, start_pos, end_pos)
+    @inlinable func deleteText(startPos: gssize, endPos: gssize) {
+        clutter_text_delete_text(text_ptr, startPos, endPos)
     
     }
 
@@ -2592,8 +2592,8 @@ public extension TextProtocol {
 
     /// Gets the attribute list that was set on the `ClutterText` actor
     /// `clutter_text_set_attributes()`, if any.
-    @inlinable func getAttributes() -> AttrListRef! {
-        let rv = AttrListRef(gconstpointer: gconstpointer(clutter_text_get_attributes(text_ptr)))
+    @inlinable func getAttributes() -> Pango.AttrListRef! {
+        let rv = Pango.AttrListRef(clutter_text_get_attributes(text_ptr))
         return rv
     }
 
@@ -2608,8 +2608,8 @@ public extension TextProtocol {
     /// `start_pos` and `end_pos`, but not including `end_pos`.
     /// 
     /// The positions are specified in characters, not in bytes.
-    @inlinable func getChars(startPos start_pos: gssize, endPos end_pos: gssize) -> String! {
-        let rv = clutter_text_get_chars(text_ptr, start_pos, end_pos).map({ String(cString: $0) })
+    @inlinable func getChars(startPos: gssize, endPos: gssize) -> String! {
+        let rv = clutter_text_get_chars(text_ptr, startPos, endPos).map({ String(cString: $0) })
         return rv
     }
 
@@ -2666,8 +2666,8 @@ public extension TextProtocol {
     }
 
     /// Retrieves the `PangoFontDescription` used by `self`
-    @inlinable func getFontDescription() -> FontDescriptionRef! {
-        let rv = FontDescriptionRef(gconstpointer: gconstpointer(clutter_text_get_font_description(text_ptr)))
+    @inlinable func getFontDescription() -> Pango.FontDescriptionRef! {
+        let rv = Pango.FontDescriptionRef(clutter_text_get_font_description(text_ptr))
         return rv
     }
 
@@ -2685,8 +2685,8 @@ public extension TextProtocol {
     }
 
     /// Retrieves the current `PangoLayout` used by a `ClutterText` actor.
-    @inlinable func getLayout() -> LayoutRef! {
-        let rv = LayoutRef(gconstpointer: gconstpointer(clutter_text_get_layout(text_ptr)))
+    @inlinable func getLayout() -> Pango.LayoutRef! {
+        let rv = Pango.LayoutRef(clutter_text_get_layout(text_ptr))
         return rv
     }
 
@@ -2815,8 +2815,8 @@ public extension TextProtocol {
     }
 
     /// Retrieves the coordinates of the given `position`.
-    @inlinable func positionToCoords(position: Int, x: UnsafeMutablePointer<gfloat>!, y: UnsafeMutablePointer<gfloat>!, lineHeight line_height: UnsafeMutablePointer<gfloat>!) -> Bool {
-        let rv = ((clutter_text_position_to_coords(text_ptr, gint(position), x, y, line_height)) != 0)
+    @inlinable func positionToCoords(position: Int, x: UnsafeMutablePointer<gfloat>!, y: UnsafeMutablePointer<gfloat>!, lineHeight: UnsafeMutablePointer<gfloat>!) -> Bool {
+        let rv = ((clutter_text_position_to_coords(text_ptr, gint(position), x, y, lineHeight)) != 0)
         return rv
     }
 
@@ -2838,7 +2838,16 @@ public extension TextProtocol {
     /// 
     /// The `ClutterText` actor will take a reference on the `PangoAttrList`
     /// passed to this function.
-    @inlinable func setAttributes<AttrListT: AttrListProtocol>(attrs: AttrListT? = nil) {
+    @inlinable func setAttributes(attrs: Pango.AttrListRef? = nil) {
+        clutter_text_set_attributes(text_ptr, attrs?.attr_list_ptr)
+    
+    }
+    /// Sets the attributes list that are going to be applied to the
+    /// `ClutterText` contents.
+    /// 
+    /// The `ClutterText` actor will take a reference on the `PangoAttrList`
+    /// passed to this function.
+    @inlinable func setAttributes<AttrListT: Pango.AttrListProtocol>(attrs: AttrListT?) {
         clutter_text_set_attributes(text_ptr, attrs?.attr_list_ptr)
     
     }
@@ -2865,7 +2874,15 @@ public extension TextProtocol {
     /// 
     /// If `color` is `nil`, the cursor color will be the same as the
     /// text color.
-    @inlinable func setCursor<ColorT: ColorProtocol>(color: ColorT? = nil) {
+    @inlinable func setCursor(color: ColorRef? = nil) {
+        clutter_text_set_cursor_color(text_ptr, color?.color_ptr)
+    
+    }
+    /// Sets the color of the cursor of a `ClutterText` actor.
+    /// 
+    /// If `color` is `nil`, the cursor color will be the same as the
+    /// text color.
+    @inlinable func setCursor<ColorT: ColorProtocol>(color: ColorT?) {
         clutter_text_set_cursor_color(text_ptr, color?.color_ptr)
     
     }
@@ -2896,8 +2913,8 @@ public extension TextProtocol {
     /// 
     /// The position of the cursor can be changed programmatically using
     /// `clutter_text_set_cursor_position()`.
-    @inlinable func set(cursorVisible cursor_visible: Bool) {
-        clutter_text_set_cursor_visible(text_ptr, gboolean((cursor_visible) ? 1 : 0))
+    @inlinable func set(cursorVisible: Bool) {
+        clutter_text_set_cursor_visible(text_ptr, gboolean((cursorVisible) ? 1 : 0))
     
     }
 
@@ -2924,8 +2941,8 @@ public extension TextProtocol {
     /// The `PangoFontDescription` is copied by the `ClutterText` actor
     /// so you can safely call `pango_font_description_free()` on it after
     /// calling this function.
-    @inlinable func setFontDescription<FontDescriptionT: FontDescriptionProtocol>(fontDesc font_desc: FontDescriptionT) {
-        clutter_text_set_font_description(text_ptr, font_desc.font_description_ptr)
+    @inlinable func setFontDescription<FontDescriptionT: Pango.FontDescriptionProtocol>(fontDesc: FontDescriptionT) {
+        clutter_text_set_font_description(text_ptr, fontDesc.font_description_ptr)
     
     }
 
@@ -2946,8 +2963,8 @@ public extension TextProtocol {
     ///   clutter_text_set_font_name (text, "Helvetica 10");
     /// ```
     /// 
-    @inlinable func set(fontName font_name: UnsafePointer<gchar>? = nil) {
-        clutter_text_set_font_name(text_ptr, font_name)
+    @inlinable func set(fontName: UnsafePointer<gchar>? = nil) {
+        clutter_text_set_font_name(text_ptr, fontName)
     
     }
 
@@ -2972,16 +2989,16 @@ public extension TextProtocol {
 
     /// Sets whether the contents of a `ClutterText` actor should wrap,
     /// if they don't fit the size assigned to the actor.
-    @inlinable func set(lineWrap line_wrap: Bool) {
-        clutter_text_set_line_wrap(text_ptr, gboolean((line_wrap) ? 1 : 0))
+    @inlinable func set(lineWrap: Bool) {
+        clutter_text_set_line_wrap(text_ptr, gboolean((lineWrap) ? 1 : 0))
     
     }
 
     /// If line wrapping is enabled (see `clutter_text_set_line_wrap()`) this
     /// function controls how the line wrapping is performed. The default is
     /// `PANGO_WRAP_WORD` which means wrap on word boundaries.
-    @inlinable func setLine(wrapMode wrap_mode: PangoWrapMode) {
-        clutter_text_set_line_wrap_mode(text_ptr, wrap_mode)
+    @inlinable func setLine(wrapMode: PangoWrapMode) {
+        clutter_text_set_line_wrap_mode(text_ptr, wrapMode)
     
     }
 
@@ -3028,8 +3045,21 @@ public extension TextProtocol {
     /// actor is not editable.
     /// 
     /// This function should not be used by applications
-    @inlinable func setPreeditString<AttrListT: AttrListProtocol>(preeditStr preedit_str: UnsafePointer<gchar>? = nil, preeditAttrs preedit_attrs: AttrListT? = nil, cursorPos cursor_pos: Int) {
-        clutter_text_set_preedit_string(text_ptr, preedit_str, preedit_attrs?.attr_list_ptr, guint(cursor_pos))
+    @inlinable func setPreeditString(preeditStr: UnsafePointer<gchar>? = nil, preeditAttrs: Pango.AttrListRef? = nil, cursorPos: Int) {
+        clutter_text_set_preedit_string(text_ptr, preeditStr, preeditAttrs?.attr_list_ptr, guint(cursorPos))
+    
+    }
+    /// Sets, or unsets, the pre-edit string. This function is useful
+    /// for input methods to display a string (with eventual specific
+    /// Pango attributes) before it is entered inside the `ClutterText`
+    /// buffer.
+    /// 
+    /// The preedit string and attributes are ignored if the `ClutterText`
+    /// actor is not editable.
+    /// 
+    /// This function should not be used by applications
+    @inlinable func setPreeditString<AttrListT: Pango.AttrListProtocol>(preeditStr: UnsafePointer<gchar>? = nil, preeditAttrs: AttrListT?, cursorPos: Int) {
+        clutter_text_set_preedit_string(text_ptr, preeditStr, preeditAttrs?.attr_list_ptr, guint(cursorPos))
     
     }
 
@@ -3046,7 +3076,15 @@ public extension TextProtocol {
     /// 
     /// If `color` is `nil`, the selected text color will be the same as the
     /// selection color, which then falls back to cursor, and then text color.
-    @inlinable func setSelectedText<ColorT: ColorProtocol>(color: ColorT? = nil) {
+    @inlinable func setSelectedText(color: ColorRef? = nil) {
+        clutter_text_set_selected_text_color(text_ptr, color?.color_ptr)
+    
+    }
+    /// Sets the selected text color of a `ClutterText` actor.
+    /// 
+    /// If `color` is `nil`, the selected text color will be the same as the
+    /// selection color, which then falls back to cursor, and then text color.
+    @inlinable func setSelectedText<ColorT: ColorProtocol>(color: ColorT?) {
         clutter_text_set_selected_text_color(text_ptr, color?.color_ptr)
     
     }
@@ -3055,8 +3093,8 @@ public extension TextProtocol {
     /// 
     /// This function changes the position of the cursor to match
     /// `start_pos` and the selection bound to match `end_pos`.
-    @inlinable func setSelection(startPos start_pos: gssize, endPos end_pos: gssize) {
-        clutter_text_set_selection(text_ptr, start_pos, end_pos)
+    @inlinable func setSelection(startPos: gssize, endPos: gssize) {
+        clutter_text_set_selection(text_ptr, startPos, endPos)
     
     }
 
@@ -3064,8 +3102,8 @@ public extension TextProtocol {
     /// cursor position.
     /// 
     /// If `selection_bound` is -1, the selection unset.
-    @inlinable func set(selectionBound selection_bound: Int) {
-        clutter_text_set_selection_bound(text_ptr, gint(selection_bound))
+    @inlinable func set(selectionBound: Int) {
+        clutter_text_set_selection_bound(text_ptr, gint(selectionBound))
     
     }
 
@@ -3074,7 +3112,16 @@ public extension TextProtocol {
     /// If `color` is `nil`, the selection color will be the same as the
     /// cursor color, or if no cursor color is set either then it will be
     /// the same as the text color.
-    @inlinable func setSelection<ColorT: ColorProtocol>(color: ColorT? = nil) {
+    @inlinable func setSelection(color: ColorRef? = nil) {
+        clutter_text_set_selection_color(text_ptr, color?.color_ptr)
+    
+    }
+    /// Sets the color of the selection of a `ClutterText` actor.
+    /// 
+    /// If `color` is `nil`, the selection color will be the same as the
+    /// cursor color, or if no cursor color is set either then it will be
+    /// the same as the text color.
+    @inlinable func setSelection<ColorT: ColorProtocol>(color: ColorT?) {
         clutter_text_set_selection_color(text_ptr, color?.color_ptr)
     
     }
@@ -3092,8 +3139,8 @@ public extension TextProtocol {
     /// property is also set as a side effect. Instead of entering a new
     /// line character, the text actor will emit the `ClutterText::activate`
     /// signal.
-    @inlinable func setSingleLineMode(singleLine single_line: Bool) {
-        clutter_text_set_single_line_mode(text_ptr, gboolean((single_line) ? 1 : 0))
+    @inlinable func setSingleLineMode(singleLine: Bool) {
+        clutter_text_set_single_line_mode(text_ptr, gboolean((singleLine) ? 1 : 0))
     
     }
 
@@ -3141,11 +3188,11 @@ public extension TextProtocol {
 
     /// A list of `PangoStyleAttribute`<!-- -->s to be applied to the
     /// contents of the `ClutterText` actor.
-    @inlinable var attributes: AttrListRef! {
+    @inlinable var attributes: Pango.AttrListRef! {
         /// Gets the attribute list that was set on the `ClutterText` actor
         /// `clutter_text_set_attributes()`, if any.
         get {
-            let rv = AttrListRef(gconstpointer: gconstpointer(clutter_text_get_attributes(text_ptr)))
+            let rv = Pango.AttrListRef(clutter_text_get_attributes(text_ptr))
             return rv
         }
         /// Sets the attributes list that are going to be applied to the
@@ -3261,10 +3308,10 @@ public extension TextProtocol {
     }
 
     /// Retrieves the `PangoFontDescription` used by `self`
-    @inlinable var fontDescription: FontDescriptionRef! {
+    @inlinable var fontDescription: Pango.FontDescriptionRef! {
         /// Retrieves the `PangoFontDescription` used by `self`
         get {
-            let rv = FontDescriptionRef(gconstpointer: gconstpointer(clutter_text_get_font_description(text_ptr)))
+            let rv = Pango.FontDescriptionRef(clutter_text_get_font_description(text_ptr))
             return rv
         }
         /// Sets `font_desc` as the font description for a `ClutterText`
@@ -3324,10 +3371,10 @@ public extension TextProtocol {
     }
 
     /// Retrieves the current `PangoLayout` used by a `ClutterText` actor.
-    @inlinable var layout: LayoutRef! {
+    @inlinable var layout: Pango.LayoutRef! {
         /// Retrieves the current `PangoLayout` used by a `ClutterText` actor.
         get {
-            let rv = LayoutRef(gconstpointer: gconstpointer(clutter_text_get_layout(text_ptr)))
+            let rv = Pango.LayoutRef(clutter_text_get_layout(text_ptr))
             return rv
         }
     }
@@ -3639,7 +3686,7 @@ public extension TextBufferRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextBufferProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3662,13 +3709,13 @@ public extension TextBufferRef {
     }
 
     /// Create a new ClutterTextBuffer object with some text.
-    @inlinable init(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) {
-        let rv = clutter_text_buffer_new_with_text(text, text_len)
+    @inlinable init(text: UnsafePointer<gchar>? = nil, textLen: gssize) {
+        let rv = clutter_text_buffer_new_with_text(text, textLen)
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Create a new ClutterTextBuffer object with some text.
-    @inlinable static func newWith(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) -> TextBufferRef! {
-        guard let rv = TextBufferRef(gconstpointer: gconstpointer(clutter_text_buffer_new_with_text(text, text_len))) else { return nil }
+    @inlinable static func newWith(text: UnsafePointer<gchar>? = nil, textLen: gssize) -> TextBufferRef! {
+        guard let rv = TextBufferRef(gconstpointer: gconstpointer(clutter_text_buffer_new_with_text(text, textLen))) else { return nil }
         return rv
     }
 }
@@ -3811,14 +3858,14 @@ open class TextBuffer: GLibObject.Object, TextBufferProtocol {
     }
 
     /// Create a new ClutterTextBuffer object with some text.
-    @inlinable public init(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) {
-        let rv = clutter_text_buffer_new_with_text(text, text_len)
+    @inlinable public init(text: UnsafePointer<gchar>? = nil, textLen: gssize) {
+        let rv = clutter_text_buffer_new_with_text(text, textLen)
         super.init(gpointer: (rv))
     }
 
     /// Create a new ClutterTextBuffer object with some text.
-    @inlinable public static func newWith(text: UnsafePointer<gchar>? = nil, textLen text_len: gssize) -> TextBuffer! {
-        guard let rv = TextBuffer(gconstpointer: gconstpointer(clutter_text_buffer_new_with_text(text, text_len))) else { return nil }
+    @inlinable public static func newWith(text: UnsafePointer<gchar>? = nil, textLen: gssize) -> TextBuffer! {
+        guard let rv = TextBuffer(gconstpointer: gconstpointer(clutter_text_buffer_new_with_text(text, textLen))) else { return nil }
         return rv
     }
 
@@ -3965,24 +4012,24 @@ public extension TextBufferProtocol {
     /// values.
     /// 
     /// Note that the positions are specified in characters, not bytes.
-    @inlinable func deleteText(position: Int, nChars n_chars: Int) -> Int {
-        let rv = Int(clutter_text_buffer_delete_text(text_buffer_ptr, guint(position), gint(n_chars)))
+    @inlinable func deleteText(position: Int, nChars: Int) -> Int {
+        let rv = Int(clutter_text_buffer_delete_text(text_buffer_ptr, guint(position), gint(nChars)))
         return rv
     }
 
     /// Emits the `ClutterTextBuffer::deleted`-text signal on `buffer`.
     /// 
     /// Used when subclassing `ClutterTextBuffer`
-    @inlinable func emitDeletedText(position: Int, nChars n_chars: Int) {
-        clutter_text_buffer_emit_deleted_text(text_buffer_ptr, guint(position), guint(n_chars))
+    @inlinable func emitDeletedText(position: Int, nChars: Int) {
+        clutter_text_buffer_emit_deleted_text(text_buffer_ptr, guint(position), guint(nChars))
     
     }
 
     /// Emits the `ClutterTextBuffer::inserted`-text signal on `buffer`.
     /// 
     /// Used when subclassing `ClutterTextBuffer`
-    @inlinable func emitInsertedText(position: Int, chars: UnsafePointer<gchar>!, nChars n_chars: Int) {
-        clutter_text_buffer_emit_inserted_text(text_buffer_ptr, guint(position), chars, guint(n_chars))
+    @inlinable func emitInsertedText(position: Int, chars: UnsafePointer<gchar>!, nChars: Int) {
+        clutter_text_buffer_emit_inserted_text(text_buffer_ptr, guint(position), chars, guint(nChars))
     
     }
 
@@ -4024,16 +4071,16 @@ public extension TextBufferProtocol {
     /// coerced to sane values.
     /// 
     /// Note that the position and length are in characters, not in bytes.
-    @inlinable func insertText(position: Int, chars: UnsafePointer<gchar>!, nChars n_chars: Int) -> Int {
-        let rv = Int(clutter_text_buffer_insert_text(text_buffer_ptr, guint(position), chars, gint(n_chars)))
+    @inlinable func insertText(position: Int, chars: UnsafePointer<gchar>!, nChars: Int) -> Int {
+        let rv = Int(clutter_text_buffer_insert_text(text_buffer_ptr, guint(position), chars, gint(nChars)))
         return rv
     }
 
     /// Sets the maximum allowed length of the contents of the buffer. If
     /// the current contents are longer than the given length, then they
     /// will be truncated to fit.
-    @inlinable func set(maxLength max_length: Int) {
-        clutter_text_buffer_set_max_length(text_buffer_ptr, gint(max_length))
+    @inlinable func set(maxLength: Int) {
+        clutter_text_buffer_set_max_length(text_buffer_ptr, gint(maxLength))
     
     }
 
@@ -4043,8 +4090,8 @@ public extension TextBufferProtocol {
     /// and `clutter_text_buffer_insert_text()`.
     /// 
     /// Note that `n_chars` is in characters, not in bytes.
-    @inlinable func setText(chars: UnsafePointer<gchar>!, nChars n_chars: Int) {
-        clutter_text_buffer_set_text(text_buffer_ptr, chars, gint(n_chars))
+    @inlinable func setText(chars: UnsafePointer<gchar>!, nChars: Int) {
+        clutter_text_buffer_set_text(text_buffer_ptr, chars, gint(nChars))
     
     }
     /// Retrieves the length in bytes of the buffer.
@@ -4188,7 +4235,7 @@ public extension TextNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4209,7 +4256,7 @@ public extension TextNodeRef {
     /// 
     /// This function takes a reference on the passed `layout`, so it
     /// is safe to call `g_object_unref()` after it returns.
-    @inlinable init<ColorT: ColorProtocol, LayoutT: LayoutProtocol>( layout: LayoutT? = nil, color: ColorT? = nil) {
+    @inlinable init<ColorT: ColorProtocol, LayoutT: Pango.LayoutProtocol>( layout: LayoutT?, color: ColorT?) {
         let rv = clutter_text_node_new(layout?.layout_ptr, color?.color_ptr)
         ptr = UnsafeMutableRawPointer(rv)
     }
@@ -4351,7 +4398,7 @@ open class TextNode: PaintNode, TextNodeProtocol {
     /// 
     /// This function takes a reference on the passed `layout`, so it
     /// is safe to call `g_object_unref()` after it returns.
-    @inlinable public init<ColorT: ColorProtocol, LayoutT: LayoutProtocol>( layout: LayoutT? = nil, color: ColorT? = nil) {
+    @inlinable public init<ColorT: ColorProtocol, LayoutT: Pango.LayoutProtocol>( layout: LayoutT?, color: ColorT?) {
         let rv = clutter_text_node_new(layout?.layout_ptr, color?.color_ptr)
         super.init(gpointer: (rv))
     }
@@ -4459,7 +4506,7 @@ public extension TextureRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -6543,8 +6590,8 @@ public extension TextureProtocol {
     /// **get_repeat is deprecated:**
     /// Use #ClutterImage and clutter_actor_get_content_repeat()
     ///   instead
-    @available(*, deprecated) @inlinable func getRepeat(repeatX repeat_x: UnsafeMutablePointer<gboolean>!, repeatY repeat_y: UnsafeMutablePointer<gboolean>!) {
-        clutter_texture_get_repeat(texture_ptr, repeat_x, repeat_y)
+    @available(*, deprecated) @inlinable func getRepeat(repeatX: UnsafeMutablePointer<gboolean>!, repeatY: UnsafeMutablePointer<gboolean>!) {
+        clutter_texture_get_repeat(texture_ptr, repeatX, repeatY)
     
     }
 
@@ -6561,9 +6608,9 @@ public extension TextureProtocol {
     ///
     /// **set_area_from_rgb_data is deprecated:**
     /// Use #ClutterImage and clutter_image_set_area() instead
-    @available(*, deprecated) @inlinable func setAreaFromRgb(data: UnsafePointer<guchar>!, hasAlpha has_alpha: Bool, x: Int, y: Int, width: Int, height: Int, rowstride: Int, bpp: Int, flags: TextureFlags) throws -> Bool {
+    @available(*, deprecated) @inlinable func setAreaFromRgb(data: UnsafePointer<guchar>!, hasAlpha: Bool, x: Int, y: Int, width: Int, height: Int, rowstride: Int, bpp: Int, flags: TextureFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((clutter_texture_set_area_from_rgb_data(texture_ptr, data, gboolean((has_alpha) ? 1 : 0), gint(x), gint(y), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)) != 0)
+        let rv = ((clutter_texture_set_area_from_rgb_data(texture_ptr, data, gboolean((hasAlpha) ? 1 : 0), gint(x), gint(y), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6581,8 +6628,8 @@ public extension TextureProtocol {
     /// No replacement is available; it's not advisable
     ///   to modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and modify the pipeline during the paint sequence
-    @available(*, deprecated) @inlinable func set(coglMaterial cogl_material: CoglHandle) {
-        clutter_texture_set_cogl_material(texture_ptr, cogl_material)
+    @available(*, deprecated) @inlinable func set(coglMaterial: CoglHandle) {
+        clutter_texture_set_cogl_material(texture_ptr, coglMaterial)
     
     }
 
@@ -6595,8 +6642,8 @@ public extension TextureProtocol {
     ///   modify the Cogl pipeline of an actor. Use a #ClutterContent
     ///   implementation and set up the pipeline during the paint sequence
     ///   instead.
-    @available(*, deprecated) @inlinable func setCoglTexture(coglTex cogl_tex: CoglHandle) {
-        clutter_texture_set_cogl_texture(texture_ptr, cogl_tex)
+    @available(*, deprecated) @inlinable func setCoglTexture(coglTex: CoglHandle) {
+        clutter_texture_set_cogl_texture(texture_ptr, coglTex)
     
     }
 
@@ -6612,8 +6659,8 @@ public extension TextureProtocol {
     /// **set_filter_quality is deprecated:**
     /// Use #ClutterImage and clutter_actor_set_content_scaling_filters()
     ///   instead
-    @available(*, deprecated) @inlinable func set(filterQuality filter_quality: ClutterTextureQuality) {
-        clutter_texture_set_filter_quality(texture_ptr, filter_quality)
+    @available(*, deprecated) @inlinable func set(filterQuality: ClutterTextureQuality) {
+        clutter_texture_set_filter_quality(texture_ptr, filterQuality)
     
     }
 
@@ -6641,9 +6688,9 @@ public extension TextureProtocol {
     ///
     /// **set_from_rgb_data is deprecated:**
     /// Use #ClutterImage and clutter_image_set_data() instead
-    @available(*, deprecated) @inlinable func setFromRgb(data: UnsafePointer<guchar>!, hasAlpha has_alpha: Bool, width: Int, height: Int, rowstride: Int, bpp: Int, flags: TextureFlags) throws -> Bool {
+    @available(*, deprecated) @inlinable func setFromRgb(data: UnsafePointer<guchar>!, hasAlpha: Bool, width: Int, height: Int, rowstride: Int, bpp: Int, flags: TextureFlags) throws -> Bool {
         var error: UnsafeMutablePointer<GError>?
-        let rv = ((clutter_texture_set_from_rgb_data(texture_ptr, data, gboolean((has_alpha) ? 1 : 0), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)) != 0)
+        let rv = ((clutter_texture_set_from_rgb_data(texture_ptr, data, gboolean((hasAlpha) ? 1 : 0), gint(width), gint(height), gint(rowstride), gint(bpp), flags.value, &error)) != 0)
         if let error = error { throw GLibError(error) }
         return rv
     }
@@ -6675,8 +6722,8 @@ public extension TextureProtocol {
     /// **set_keep_aspect_ratio is deprecated:**
     /// Use #ClutterImage and clutter_actor_set_content_gravity()
     ///   with %CLUTTER_CONTENT_GRAVITY_RESIZE_ASPECT instead
-    @available(*, deprecated) @inlinable func setKeepAspectRatio(keepAspect keep_aspect: Bool) {
-        clutter_texture_set_keep_aspect_ratio(texture_ptr, gboolean((keep_aspect) ? 1 : 0))
+    @available(*, deprecated) @inlinable func setKeepAspectRatio(keepAspect: Bool) {
+        clutter_texture_set_keep_aspect_ratio(texture_ptr, gboolean((keepAspect) ? 1 : 0))
     
     }
 
@@ -6691,8 +6738,8 @@ public extension TextureProtocol {
     /// There is no direct replacement for this function.
     ///   Use #ClutterImage and platform-specific API for loading image data
     ///   asynchronously, like GdkPixbuf
-    @available(*, deprecated) @inlinable func set(loadAsync load_async: Bool) {
-        clutter_texture_set_load_async(texture_ptr, gboolean((load_async) ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(loadAsync: Bool) {
+        clutter_texture_set_load_async(texture_ptr, gboolean((loadAsync) ? 1 : 0))
     
     }
 
@@ -6708,8 +6755,8 @@ public extension TextureProtocol {
     /// There is no direct replacement for this function.
     ///   Use #ClutterImage and platform-specific API for loading image data
     ///   asynchronously, like GdkPixbuf
-    @available(*, deprecated) @inlinable func setLoadDataAsync(loadAsync load_async: Bool) {
-        clutter_texture_set_load_data_async(texture_ptr, gboolean((load_async) ? 1 : 0))
+    @available(*, deprecated) @inlinable func setLoadDataAsync(loadAsync: Bool) {
+        clutter_texture_set_load_data_async(texture_ptr, gboolean((loadAsync) ? 1 : 0))
     
     }
 
@@ -6727,8 +6774,8 @@ public extension TextureProtocol {
     ///
     /// **set_pick_with_alpha is deprecated:**
     /// There is no direct replacement for this function
-    @available(*, deprecated) @inlinable func set(pickWithAlpha pick_with_alpha: Bool) {
-        clutter_texture_set_pick_with_alpha(texture_ptr, gboolean((pick_with_alpha) ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(pickWithAlpha: Bool) {
+        clutter_texture_set_pick_with_alpha(texture_ptr, gboolean((pickWithAlpha) ? 1 : 0))
     
     }
 
@@ -6738,8 +6785,8 @@ public extension TextureProtocol {
     /// **set_repeat is deprecated:**
     /// Use #ClutterImage and clutter_actor_set_content_repeat()
     ///   instead
-    @available(*, deprecated) @inlinable func setRepeat(repeatX repeat_x: Bool, repeatY repeat_y: Bool) {
-        clutter_texture_set_repeat(texture_ptr, gboolean((repeat_x) ? 1 : 0), gboolean((repeat_y) ? 1 : 0))
+    @available(*, deprecated) @inlinable func setRepeat(repeatX: Bool, repeatY: Bool) {
+        clutter_texture_set_repeat(texture_ptr, gboolean((repeatX) ? 1 : 0), gboolean((repeatY) ? 1 : 0))
     
     }
 
@@ -6751,8 +6798,8 @@ public extension TextureProtocol {
     ///   #ClutterImage with a %CLUTTER_REQUEST_CONTENT_SIZE request mode
     ///   will automatically bind the preferred size of the content to the
     ///   preferred size of the actor
-    @available(*, deprecated) @inlinable func set(syncSize sync_size: Bool) {
-        clutter_texture_set_sync_size(texture_ptr, gboolean((sync_size) ? 1 : 0))
+    @available(*, deprecated) @inlinable func set(syncSize: Bool) {
+        clutter_texture_set_sync_size(texture_ptr, gboolean((syncSize) ? 1 : 0))
     
     }
     /// Returns a handle to the underlying COGL material used for drawing
@@ -7156,7 +7203,7 @@ public extension TextureNodeRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TextureNodeProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7180,8 +7227,8 @@ public extension TextureNodeRef {
     /// The `color` must not be pre-multiplied with its `ClutterColor.alpha`
     /// channel value; if `color` is `nil`, a fully opaque white color will
     /// be used for blending.
-    @inlinable init<ColorT: ColorProtocol, TextureT: TextureProtocol>( texture: TextureT, color: ColorT? = nil, minFilter min_filter: ClutterScalingFilter, magFilter mag_filter: ClutterScalingFilter) {
-        let rv = clutter_texture_node_new(texture.texture_ptr, color?.color_ptr, min_filter, mag_filter)
+    @inlinable init<ColorT: ColorProtocol, TextureT: Cogl.TextureProtocol>( texture: TextureT, color: ColorT?, minFilter: ClutterScalingFilter, magFilter: ClutterScalingFilter) {
+        let rv = clutter_texture_node_new(texture.texture_ptr, color?.color_ptr, minFilter, magFilter)
         ptr = UnsafeMutableRawPointer(rv)
     }
 }
@@ -7325,8 +7372,8 @@ open class TextureNode: PipelineNode, TextureNodeProtocol {
     /// The `color` must not be pre-multiplied with its `ClutterColor.alpha`
     /// channel value; if `color` is `nil`, a fully opaque white color will
     /// be used for blending.
-    @inlinable public init<ColorT: ColorProtocol, TextureT: TextureProtocol>( texture: TextureT, color: ColorT? = nil, minFilter min_filter: ClutterScalingFilter, magFilter mag_filter: ClutterScalingFilter) {
-        let rv = clutter_texture_node_new(texture.texture_ptr, color?.color_ptr, min_filter, mag_filter)
+    @inlinable public init<ColorT: ColorProtocol, TextureT: Cogl.TextureProtocol>( texture: TextureT, color: ColorT?, minFilter: ClutterScalingFilter, magFilter: ClutterScalingFilter) {
+        let rv = clutter_texture_node_new(texture.texture_ptr, color?.color_ptr, minFilter, magFilter)
         super.init(gpointer: (rv))
     }
 
@@ -7433,7 +7480,7 @@ public extension TimelineRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimelineProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -7843,8 +7890,8 @@ public extension TimelineProtocol {
     /// `clutter_timeline_advance_to_marker()`.
     /// 
     /// See also: `clutter_timeline_add_marker_at_time()`
-    @inlinable func addMarker(markerName marker_name: UnsafePointer<gchar>!, progress: Double) {
-        clutter_timeline_add_marker(timeline_ptr, marker_name, gdouble(progress))
+    @inlinable func addMarker(markerName: UnsafePointer<gchar>!, progress: Double) {
+        clutter_timeline_add_marker(timeline_ptr, markerName, gdouble(progress))
     
     }
 
@@ -7860,8 +7907,8 @@ public extension TimelineProtocol {
     /// `clutter_timeline_advance_to_marker()`.
     /// 
     /// See also: `clutter_timeline_add_marker()`
-    @inlinable func addMarkerAtTime(markerName marker_name: UnsafePointer<gchar>!, msecs: Int) {
-        clutter_timeline_add_marker_at_time(timeline_ptr, marker_name, guint(msecs))
+    @inlinable func addMarkerAtTime(markerName: UnsafePointer<gchar>!, msecs: Int) {
+        clutter_timeline_add_marker_at_time(timeline_ptr, markerName, guint(msecs))
     
     }
 
@@ -7882,8 +7929,8 @@ public extension TimelineProtocol {
     /// emit the `ClutterTimeline::new`-frame for the time where `marker_name`
     /// is set, nor it will emit `ClutterTimeline::marker`-reached for
     /// `marker_name`.
-    @inlinable func advanceToMarker(markerName marker_name: UnsafePointer<gchar>!) {
-        clutter_timeline_advance_to_marker(timeline_ptr, marker_name)
+    @inlinable func advanceToMarker(markerName: UnsafePointer<gchar>!) {
+        clutter_timeline_advance_to_marker(timeline_ptr, markerName)
     
     }
 
@@ -7915,8 +7962,8 @@ public extension TimelineProtocol {
     }
 
     /// Retrieves the control points for the cubic bezier progress mode.
-    @inlinable func getCubicBezierProgress<PointT: PointProtocol>(c1 c_1: PointT, c2 c_2: PointT) -> Bool {
-        let rv = ((clutter_timeline_get_cubic_bezier_progress(timeline_ptr, c_1.point_ptr, c_2.point_ptr)) != 0)
+    @inlinable func getCubicBezierProgress<PointT: PointProtocol>(c1: PointT, c2: PointT) -> Bool {
+        let rv = ((clutter_timeline_get_cubic_bezier_progress(timeline_ptr, c1.point_ptr, c2.point_ptr)) != 0)
         return rv
     }
 
@@ -8011,22 +8058,22 @@ public extension TimelineProtocol {
     }
 
     /// Retrieves the parameters of the step progress mode used by `timeline`.
-    @inlinable func getStepProgress(nSteps n_steps: UnsafeMutablePointer<gint>!, stepMode step_mode: UnsafeMutablePointer<ClutterStepMode>!) -> Bool {
-        let rv = ((clutter_timeline_get_step_progress(timeline_ptr, n_steps, step_mode)) != 0)
+    @inlinable func getStepProgress(nSteps: UnsafeMutablePointer<gint>!, stepMode: UnsafeMutablePointer<ClutterStepMode>!) -> Bool {
+        let rv = ((clutter_timeline_get_step_progress(timeline_ptr, nSteps, stepMode)) != 0)
         return rv
     }
 
     /// Checks whether `timeline` has a marker set with the given name.
-    @inlinable func hasMarker(markerName marker_name: UnsafePointer<gchar>!) -> Bool {
-        let rv = ((clutter_timeline_has_marker(timeline_ptr, marker_name)) != 0)
+    @inlinable func hasMarker(markerName: UnsafePointer<gchar>!) -> Bool {
+        let rv = ((clutter_timeline_has_marker(timeline_ptr, markerName)) != 0)
         return rv
     }
 
     /// Retrieves the list of markers at time `msecs`. If `msecs` is a
     /// negative integer, all the markers attached to `timeline` will be
     /// returned.
-    @inlinable func listMarkers(msecs: Int, nMarkers n_markers: UnsafeMutablePointer<gsize>!) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
-        let rv = clutter_timeline_list_markers(timeline_ptr, gint(msecs), n_markers)
+    @inlinable func listMarkers(msecs: Int, nMarkers: UnsafeMutablePointer<gsize>!) -> UnsafeMutablePointer<UnsafeMutablePointer<gchar>?>! {
+        let rv = clutter_timeline_list_markers(timeline_ptr, gint(msecs), nMarkers)
         return rv
     }
 
@@ -8037,8 +8084,8 @@ public extension TimelineProtocol {
     }
 
     /// Removes `marker_name`, if found, from `timeline`.
-    @inlinable func removeMarker(markerName marker_name: UnsafePointer<gchar>!) {
-        clutter_timeline_remove_marker(timeline_ptr, marker_name)
+    @inlinable func removeMarker(markerName: UnsafePointer<gchar>!) {
+        clutter_timeline_remove_marker(timeline_ptr, markerName)
     
     }
 
@@ -8099,8 +8146,8 @@ public extension TimelineProtocol {
     /// The cubic bezier curve is between (0, 0) and (1, 1). The X coordinate
     /// of the two control points must be in the [ 0, 1 ] range, while the
     /// Y coordinate of the two control points can exceed this range.
-    @inlinable func setCubicBezierProgress<PointT: PointProtocol>(c1 c_1: PointT, c2 c_2: PointT) {
-        clutter_timeline_set_cubic_bezier_progress(timeline_ptr, c_1.point_ptr, c_2.point_ptr)
+    @inlinable func setCubicBezierProgress<PointT: PointProtocol>(c1: PointT, c2: PointT) {
+        clutter_timeline_set_cubic_bezier_progress(timeline_ptr, c1.point_ptr, c2.point_ptr)
     
     }
 
@@ -8172,8 +8219,8 @@ public extension TimelineProtocol {
 
     /// Sets the `ClutterTimeline:progress`-mode of the `timeline` to `CLUTTER_STEPS`
     /// and provides the parameters of the step function.
-    @inlinable func setStepProgress(nSteps n_steps: Int, stepMode step_mode: ClutterStepMode) {
-        clutter_timeline_set_step_progress(timeline_ptr, gint(n_steps), step_mode)
+    @inlinable func setStepProgress(nSteps: Int, stepMode: ClutterStepMode) {
+        clutter_timeline_set_step_progress(timeline_ptr, gint(nSteps), stepMode)
     
     }
 
@@ -8536,7 +8583,7 @@ public extension TransitionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -8977,7 +9024,19 @@ public extension TransitionProtocol {
     /// If an existing `ClutterAnimatable` is attached to `transition`, the
     /// reference will be released, and the `ClutterTransitionClass.detached``()`
     /// virtual function will be called.
-    @inlinable func set<AnimatableT: AnimatableProtocol>(animatable: AnimatableT? = nil) {
+    @inlinable func set(animatable: AnimatableRef? = nil) {
+        clutter_transition_set_animatable(transition_ptr, animatable?.animatable_ptr)
+    
+    }
+    /// Sets the `ClutterTransition:animatable` property.
+    /// 
+    /// The `transition` will acquire a reference to the `animatable` instance,
+    /// and will call the `ClutterTransitionClass.attached``()` virtual function.
+    /// 
+    /// If an existing `ClutterAnimatable` is attached to `transition`, the
+    /// reference will be released, and the `ClutterTransitionClass.detached``()`
+    /// virtual function will be called.
+    @inlinable func set<AnimatableT: AnimatableProtocol>(animatable: AnimatableT?) {
         clutter_transition_set_animatable(transition_ptr, animatable?.animatable_ptr)
     
     }
@@ -9009,7 +9068,15 @@ public extension TransitionProtocol {
     /// 
     /// The `transition` will acquire a reference on the `interval`, sinking
     /// the floating flag on it if necessary.
-    @inlinable func set<IntervalT: IntervalProtocol>(interval: IntervalT? = nil) {
+    @inlinable func set(interval: IntervalRef? = nil) {
+        clutter_transition_set_interval(transition_ptr, interval?.interval_ptr)
+    
+    }
+    /// Sets the `ClutterTransition:interval` property using `interval`.
+    /// 
+    /// The `transition` will acquire a reference on the `interval`, sinking
+    /// the floating flag on it if necessary.
+    @inlinable func set<IntervalT: IntervalProtocol>(interval: IntervalT?) {
         clutter_transition_set_interval(transition_ptr, interval?.interval_ptr)
     
     }
@@ -9017,8 +9084,8 @@ public extension TransitionProtocol {
     /// Sets whether `transition` should be detached from the `ClutterAnimatable`
     /// set using `clutter_transition_set_animatable()` when the
     /// `ClutterTimeline::completed` signal is emitted.
-    @inlinable func setRemoveOnComplete(removeComplete remove_complete: Bool) {
-        clutter_transition_set_remove_on_complete(transition_ptr, gboolean((remove_complete) ? 1 : 0))
+    @inlinable func setRemoveOnComplete(removeComplete: Bool) {
+        clutter_transition_set_remove_on_complete(transition_ptr, gboolean((removeComplete) ? 1 : 0))
     
     }
 
@@ -9188,7 +9255,7 @@ public extension TransitionGroupRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TransitionGroupProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -9732,7 +9799,7 @@ public extension ZoomActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ZoomActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

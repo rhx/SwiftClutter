@@ -97,7 +97,7 @@ public extension KeyframeTransitionClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -366,7 +366,7 @@ public extension KeyframeTransitionPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -631,7 +631,7 @@ public extension KnotRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KnotProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -815,8 +815,8 @@ public extension KnotProtocol {
     }
 
     /// Compares to knot and checks if the point to the same location.
-    @inlinable func equal<KnotT: KnotProtocol>(knotB knot_b: KnotT) -> Bool {
-        let rv = ((clutter_knot_equal(knot_ptr, knot_b.knot_ptr)) != 0)
+    @inlinable func equal<KnotT: KnotProtocol>(knotB: KnotT) -> Bool {
+        let rv = ((clutter_knot_equal(knot_ptr, knotB.knot_ptr)) != 0)
         return rv
     }
 
@@ -940,7 +940,7 @@ public extension LayoutManagerClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

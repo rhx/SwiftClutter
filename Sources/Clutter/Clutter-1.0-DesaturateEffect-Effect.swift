@@ -97,7 +97,7 @@ public extension DesaturateEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DesaturateEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -637,7 +637,7 @@ public extension DeviceManagerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DeviceManagerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -928,26 +928,26 @@ public extension DeviceManagerProtocol {
     /// 
     /// Core devices are devices created automatically by the default
     /// Clutter backend
-    @inlinable func getCoreDevice(deviceType device_type: ClutterInputDeviceType) -> InputDeviceRef! {
-        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_device_manager_get_core_device(device_manager_ptr, device_type)))
+    @inlinable func getCoreDevice(deviceType: ClutterInputDeviceType) -> InputDeviceRef! {
+        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_device_manager_get_core_device(device_manager_ptr, deviceType)))
         return rv
     }
 
     /// Retrieves the `ClutterInputDevice` with the given `device_id`
-    @inlinable func getDevice(deviceId device_id: Int) -> InputDeviceRef! {
-        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_device_manager_get_device(device_manager_ptr, gint(device_id))))
+    @inlinable func getDevice(deviceId: Int) -> InputDeviceRef! {
+        let rv = InputDeviceRef(gconstpointer: gconstpointer(clutter_device_manager_get_device(device_manager_ptr, gint(deviceId))))
         return rv
     }
 
     /// Lists all currently registered input devices
-    @inlinable func listDevices() -> SListRef! {
-        let rv = SListRef(gconstpointer: gconstpointer(clutter_device_manager_list_devices(device_manager_ptr)))
+    @inlinable func listDevices() -> GLib.SListRef! {
+        let rv = GLib.SListRef(clutter_device_manager_list_devices(device_manager_ptr))
         return rv
     }
 
     /// Lists all currently registered input devices
-    @inlinable func peekDevices() -> SListRef! {
-        let rv = SListRef(gconstpointer: gconstpointer(clutter_device_manager_peek_devices(device_manager_ptr)))
+    @inlinable func peekDevices() -> GLib.SListRef! {
+        let rv = GLib.SListRef(clutter_device_manager_peek_devices(device_manager_ptr))
         return rv
     }
 
@@ -1043,7 +1043,7 @@ public extension DragActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DragActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1599,8 +1599,8 @@ public extension DragActionProtocol {
     /// Retrieves the "drag area" associated with `action`, that
     /// is a `ClutterRect` that constrains the actor movements,
     /// in parents coordinates.
-    @inlinable func get<RectT: RectProtocol>(dragArea drag_area: RectT) -> Bool {
-        let rv = ((clutter_drag_action_get_drag_area(drag_action_ptr, drag_area.rect_ptr)) != 0)
+    @inlinable func get<RectT: RectProtocol>(dragArea: RectT) -> Bool {
+        let rv = ((clutter_drag_action_get_drag_area(drag_action_ptr, dragArea.rect_ptr)) != 0)
         return rv
     }
 
@@ -1622,22 +1622,22 @@ public extension DragActionProtocol {
     /// `ClutterDragAction:y`-drag-threshold property have been set to -1 then
     /// this function will return the default drag threshold value as stored
     /// by the `ClutterSettings:dnd`-drag-threshold property of `ClutterSettings`.
-    @inlinable func getDragThreshold(xThreshold x_threshold: UnsafeMutablePointer<guint>!, yThreshold y_threshold: UnsafeMutablePointer<guint>!) {
-        clutter_drag_action_get_drag_threshold(drag_action_ptr, x_threshold, y_threshold)
+    @inlinable func getDragThreshold(xThreshold: UnsafeMutablePointer<guint>!, yThreshold: UnsafeMutablePointer<guint>!) {
+        clutter_drag_action_get_drag_threshold(drag_action_ptr, xThreshold, yThreshold)
     
     }
 
     /// Retrieves the coordinates, in stage space, of the latest motion
     /// event during the dragging
-    @inlinable func getMotionCoords(motionX motion_x: UnsafeMutablePointer<gfloat>!, motionY motion_y: UnsafeMutablePointer<gfloat>!) {
-        clutter_drag_action_get_motion_coords(drag_action_ptr, motion_x, motion_y)
+    @inlinable func getMotionCoords(motionX: UnsafeMutablePointer<gfloat>!, motionY: UnsafeMutablePointer<gfloat>!) {
+        clutter_drag_action_get_motion_coords(drag_action_ptr, motionX, motionY)
     
     }
 
     /// Retrieves the coordinates, in stage space, of the press event
     /// that started the dragging
-    @inlinable func getPressCoords(pressX press_x: UnsafeMutablePointer<gfloat>!, pressY press_y: UnsafeMutablePointer<gfloat>!) {
-        clutter_drag_action_get_press_coords(drag_action_ptr, press_x, press_y)
+    @inlinable func getPressCoords(pressX: UnsafeMutablePointer<gfloat>!, pressY: UnsafeMutablePointer<gfloat>!) {
+        clutter_drag_action_get_press_coords(drag_action_ptr, pressX, pressY)
     
     }
 
@@ -1645,8 +1645,16 @@ public extension DragActionProtocol {
     /// with `action`, so that it position is always within `drag_area`, expressed
     /// in parent's coordinates.
     /// If `drag_area` is `nil`, the actor is not constrained.
-    @inlinable func set<RectT: RectProtocol>(dragArea drag_area: RectT? = nil) {
-        clutter_drag_action_set_drag_area(drag_action_ptr, drag_area?.rect_ptr)
+    @inlinable func set(dragArea: RectRef? = nil) {
+        clutter_drag_action_set_drag_area(drag_action_ptr, dragArea?.rect_ptr)
+    
+    }
+    /// Sets `drag_area` to constrain the dragging of the actor associated
+    /// with `action`, so that it position is always within `drag_area`, expressed
+    /// in parent's coordinates.
+    /// If `drag_area` is `nil`, the actor is not constrained.
+    @inlinable func set<RectT: RectProtocol>(dragArea: RectT?) {
+        clutter_drag_action_set_drag_area(drag_action_ptr, dragArea?.rect_ptr)
     
     }
 
@@ -1657,7 +1665,12 @@ public extension DragActionProtocol {
     }
 
     /// Sets the actor to be used as the drag handle.
-    @inlinable func setDrag<ActorT: ActorProtocol>(handle: ActorT? = nil) {
+    @inlinable func setDrag(handle: ActorRef? = nil) {
+        clutter_drag_action_set_drag_handle(drag_action_ptr, handle?.actor_ptr)
+    
+    }
+    /// Sets the actor to be used as the drag handle.
+    @inlinable func setDrag<ActorT: ActorProtocol>(handle: ActorT?) {
         clutter_drag_action_set_drag_handle(drag_action_ptr, handle?.actor_ptr)
     
     }
@@ -1668,8 +1681,8 @@ public extension DragActionProtocol {
     /// If `x_threshold` or `y_threshold` are set to -1 then the default
     /// drag threshold stored in the `ClutterSettings:dnd`-drag-threshold
     /// property of `ClutterSettings` will be used.
-    @inlinable func setDragThreshold(xThreshold x_threshold: Int, yThreshold y_threshold: Int) {
-        clutter_drag_action_set_drag_threshold(drag_action_ptr, gint(x_threshold), gint(y_threshold))
+    @inlinable func setDragThreshold(xThreshold: Int, yThreshold: Int) {
+        clutter_drag_action_set_drag_threshold(drag_action_ptr, gint(xThreshold), gint(yThreshold))
     
     }
     /// Retrieves the axis constraint set by `clutter_drag_action_set_drag_axis()`
@@ -1790,7 +1803,7 @@ public extension DropActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `DropActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2329,7 +2342,7 @@ public extension EffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

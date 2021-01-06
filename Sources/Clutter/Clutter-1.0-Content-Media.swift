@@ -97,7 +97,7 @@ public extension ContentRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -419,7 +419,7 @@ public extension MediaRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -925,8 +925,8 @@ public extension MediaProtocol {
     ///
     /// **set_subtitle_font_name is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func setSubtitle(fontName font_name: UnsafePointer<CChar>!) {
-        clutter_media_set_subtitle_font_name(media_ptr, font_name)
+    @available(*, deprecated) @inlinable func setSubtitle(fontName: UnsafePointer<CChar>!) {
+        clutter_media_set_subtitle_font_name(media_ptr, fontName)
     
     }
 

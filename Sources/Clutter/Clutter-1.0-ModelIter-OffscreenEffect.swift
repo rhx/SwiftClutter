@@ -99,7 +99,7 @@ public extension ModelIterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -642,7 +642,7 @@ public extension OffscreenEffectRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1061,8 +1061,8 @@ public extension OffscreenEffectProtocol {
     /// 
     /// You should only use the returned `CoglMaterial` when painting. The
     /// returned material might change between different frames.
-    @inlinable func getTarget() -> MaterialRef! {
-        let rv = MaterialRef(gconstpointer: gconstpointer(clutter_offscreen_effect_get_target(offscreen_effect_ptr)))
+    @inlinable func getTarget() -> Cogl.MaterialRef! {
+        let rv = Cogl.MaterialRef(clutter_offscreen_effect_get_target(offscreen_effect_ptr))
         return rv
     }
 
@@ -1115,14 +1115,14 @@ public extension OffscreenEffectProtocol {
     /// 
     /// You should only use the returned `CoglMaterial` when painting. The
     /// returned material might change between different frames.
-    @inlinable var target: MaterialRef! {
+    @inlinable var target: Cogl.MaterialRef! {
         /// Retrieves the material used as a render target for the offscreen
         /// buffer created by `effect`
         /// 
         /// You should only use the returned `CoglMaterial` when painting. The
         /// returned material might change between different frames.
         get {
-            let rv = MaterialRef(gconstpointer: gconstpointer(clutter_offscreen_effect_get_target(offscreen_effect_ptr)))
+            let rv = Cogl.MaterialRef(clutter_offscreen_effect_get_target(offscreen_effect_ptr))
             return rv
         }
     }

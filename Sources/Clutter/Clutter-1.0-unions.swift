@@ -95,7 +95,7 @@ public extension EventRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -330,8 +330,8 @@ public extension EventProtocol {
     }
 
     /// Retrieves the array of axes values attached to the event.
-    @inlinable func getAxes(nAxes n_axes: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<gdouble>! {
-        let rv = clutter_event_get_axes(event_ptr, n_axes)
+    @inlinable func getAxes(nAxes: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<gdouble>! {
+        let rv = clutter_event_get_axes(event_ptr, nAxes)
         return rv
     }
 
@@ -523,8 +523,8 @@ public extension EventProtocol {
     /// Retrieves the decomposition of the keyboard state into button, base,
     /// latched, locked and effective. This can be used to transmit to other
     /// applications, for example when implementing a wayland compositor.
-    @inlinable func getStateFull(buttonState button_state: UnsafeMutablePointer<ClutterModifierType>! = nil, baseState base_state: UnsafeMutablePointer<ClutterModifierType>! = nil, latchedState latched_state: UnsafeMutablePointer<ClutterModifierType>! = nil, lockedState locked_state: UnsafeMutablePointer<ClutterModifierType>! = nil, effectiveState effective_state: UnsafeMutablePointer<ClutterModifierType>! = nil) {
-        clutter_event_get_state_full(event_ptr, button_state, base_state, latched_state, locked_state, effective_state)
+    @inlinable func getStateFull(buttonState: UnsafeMutablePointer<ClutterModifierType>! = nil, baseState: UnsafeMutablePointer<ClutterModifierType>! = nil, latchedState: UnsafeMutablePointer<ClutterModifierType>! = nil, lockedState: UnsafeMutablePointer<ClutterModifierType>! = nil, effectiveState: UnsafeMutablePointer<ClutterModifierType>! = nil) {
+        clutter_event_get_state_full(event_ptr, buttonState, baseState, latchedState, lockedState, effectiveState)
     
     }
 
@@ -569,7 +569,12 @@ public extension EventProtocol {
     }
 
     /// Sets the device for `event`.
-    @inlinable func set<InputDeviceT: InputDeviceProtocol>(device: InputDeviceT? = nil) {
+    @inlinable func set(device: InputDeviceRef? = nil) {
+        clutter_event_set_device(event_ptr, device?.input_device_ptr)
+    
+    }
+    /// Sets the device for `event`.
+    @inlinable func set<InputDeviceT: InputDeviceProtocol>(device: InputDeviceT?) {
         clutter_event_set_device(event_ptr, device?.input_device_ptr)
     
     }
@@ -581,25 +586,30 @@ public extension EventProtocol {
     }
 
     /// Sets the keycode of the `event`.
-    @inlinable func set(keyCode key_code: guint16) {
-        clutter_event_set_key_code(event_ptr, key_code)
+    @inlinable func set(keyCode: guint16) {
+        clutter_event_set_key_code(event_ptr, keyCode)
     
     }
 
     /// Sets the key symbol of `event`.
-    @inlinable func setKeySymbol(keySym key_sym: Int) {
-        clutter_event_set_key_symbol(event_ptr, guint(key_sym))
+    @inlinable func setKeySymbol(keySym: Int) {
+        clutter_event_set_key_symbol(event_ptr, guint(keySym))
     
     }
 
     /// Sets the Unicode value of `event`.
-    @inlinable func set(keyUnicode key_unicode: gunichar) {
-        clutter_event_set_key_unicode(event_ptr, key_unicode)
+    @inlinable func set(keyUnicode: gunichar) {
+        clutter_event_set_key_unicode(event_ptr, keyUnicode)
     
     }
 
     /// Sets the related actor of a crossing event
-    @inlinable func setRelated<ActorT: ActorProtocol>(actor: ActorT? = nil) {
+    @inlinable func setRelated(actor: ActorRef? = nil) {
+        clutter_event_set_related(event_ptr, actor?.actor_ptr)
+    
+    }
+    /// Sets the related actor of a crossing event
+    @inlinable func setRelated<ActorT: ActorProtocol>(actor: ActorT?) {
         clutter_event_set_related(event_ptr, actor?.actor_ptr)
     
     }
@@ -617,7 +627,12 @@ public extension EventProtocol {
     }
 
     /// Sets the source `ClutterActor` of `event`.
-    @inlinable func setSource<ActorT: ActorProtocol>(actor: ActorT? = nil) {
+    @inlinable func setSource(actor: ActorRef? = nil) {
+        clutter_event_set_source(event_ptr, actor?.actor_ptr)
+    
+    }
+    /// Sets the source `ClutterActor` of `event`.
+    @inlinable func setSource<ActorT: ActorProtocol>(actor: ActorT?) {
         clutter_event_set_source(event_ptr, actor?.actor_ptr)
     
     }
@@ -625,13 +640,25 @@ public extension EventProtocol {
     /// Sets the source `ClutterInputDevice` for `event`.
     /// 
     /// The `ClutterEvent` must have been created using `clutter_event_new()`.
-    @inlinable func setSource<InputDeviceT: InputDeviceProtocol>(device: InputDeviceT? = nil) {
+    @inlinable func setSource(device: InputDeviceRef? = nil) {
+        clutter_event_set_source_device(event_ptr, device?.input_device_ptr)
+    
+    }
+    /// Sets the source `ClutterInputDevice` for `event`.
+    /// 
+    /// The `ClutterEvent` must have been created using `clutter_event_new()`.
+    @inlinable func setSource<InputDeviceT: InputDeviceProtocol>(device: InputDeviceT?) {
         clutter_event_set_source_device(event_ptr, device?.input_device_ptr)
     
     }
 
     /// Sets the source `ClutterStage` of the event.
-    @inlinable func set<StageT: StageProtocol>(stage: StageT? = nil) {
+    @inlinable func set(stage: StageRef? = nil) {
+        clutter_event_set_stage(event_ptr, stage?.stage_ptr)
+    
+    }
+    /// Sets the source `ClutterStage` of the event.
+    @inlinable func set<StageT: StageProtocol>(stage: StageT?) {
         clutter_event_set_stage(event_ptr, stage?.stage_ptr)
     
     }

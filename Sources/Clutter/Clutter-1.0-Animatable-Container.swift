@@ -97,7 +97,7 @@ public extension AnimatableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -287,20 +287,20 @@ public extension AnimatableProtocol {
     /// **animate_property is deprecated:**
     /// Use clutter_animatable_interpolate_value()
     ///   instead
-    @available(*, deprecated) @inlinable func animateProperty<AnimationT: AnimationProtocol, ValueT: GLibObject.ValueProtocol>(animation: AnimationT, propertyName property_name: UnsafePointer<gchar>!, initialValue initial_value: ValueT, finalValue final_value: ValueT, progress: Double, value: ValueT) -> Bool {
-        let rv = ((clutter_animatable_animate_property(animatable_ptr, animation.animation_ptr, property_name, initial_value.value_ptr, final_value.value_ptr, gdouble(progress), value.value_ptr)) != 0)
+    @available(*, deprecated) @inlinable func animateProperty<AnimationT: AnimationProtocol, ValueT: GLibObject.ValueProtocol>(animation: AnimationT, propertyName: UnsafePointer<gchar>!, initialValue: ValueT, finalValue: ValueT, progress: Double, value: ValueT) -> Bool {
+        let rv = ((clutter_animatable_animate_property(animatable_ptr, animation.animation_ptr, propertyName, initialValue.value_ptr, finalValue.value_ptr, gdouble(progress), value.value_ptr)) != 0)
         return rv
     }
 
     /// Finds the `GParamSpec` for `property_name`
-    @inlinable func findProperty(propertyName property_name: UnsafePointer<gchar>!) -> ParamSpecRef! {
-        let rv = ParamSpecRef(gconstpointer: gconstpointer(clutter_animatable_find_property(animatable_ptr, property_name)))
+    @inlinable func findProperty(propertyName: UnsafePointer<gchar>!) -> GLibObject.ParamSpecRef! {
+        let rv = GLibObject.ParamSpecRef(clutter_animatable_find_property(animatable_ptr, propertyName))
         return rv
     }
 
     /// Retrieves the current state of `property_name` and sets `value` with it
-    @inlinable func getInitialState<ValueT: GLibObject.ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, value: ValueT) {
-        clutter_animatable_get_initial_state(animatable_ptr, property_name, value.value_ptr)
+    @inlinable func getInitialState<ValueT: GLibObject.ValueProtocol>(propertyName: UnsafePointer<gchar>!, value: ValueT) {
+        clutter_animatable_get_initial_state(animatable_ptr, propertyName, value.value_ptr)
     
     }
 
@@ -313,14 +313,14 @@ public extension AnimatableProtocol {
     /// involving `ClutterAnimatable`<!-- -->s.
     /// 
     /// This function replaces `clutter_animatable_animate_property()`.
-    @inlinable func interpolateValue<IntervalT: IntervalProtocol, ValueT: GLibObject.ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, interval: IntervalT, progress: Double, value: ValueT) -> Bool {
-        let rv = ((clutter_animatable_interpolate_value(animatable_ptr, property_name, interval.interval_ptr, gdouble(progress), value.value_ptr)) != 0)
+    @inlinable func interpolateValue<IntervalT: IntervalProtocol, ValueT: GLibObject.ValueProtocol>(propertyName: UnsafePointer<gchar>!, interval: IntervalT, progress: Double, value: ValueT) -> Bool {
+        let rv = ((clutter_animatable_interpolate_value(animatable_ptr, propertyName, interval.interval_ptr, gdouble(progress), value.value_ptr)) != 0)
         return rv
     }
 
     /// Sets the current state of `property_name` to `value`
-    @inlinable func setFinalState<ValueT: GLibObject.ValueProtocol>(propertyName property_name: UnsafePointer<gchar>!, value: ValueT) {
-        clutter_animatable_set_final_state(animatable_ptr, property_name, value.value_ptr)
+    @inlinable func setFinalState<ValueT: GLibObject.ValueProtocol>(propertyName: UnsafePointer<gchar>!, value: ValueT) {
+        clutter_animatable_set_final_state(animatable_ptr, propertyName, value.value_ptr)
     
     }
 
@@ -413,7 +413,7 @@ public extension ContainerRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContainerProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -658,8 +658,8 @@ public extension ContainerProtocol {
     ///
     /// **add_valist is deprecated:**
     /// Use clutter_actor_add_child() instead.
-    @available(*, deprecated) @inlinable func addValist<ActorT: ActorProtocol>(firstActor first_actor: ActorT, varArgs var_args: CVaListPointer) {
-        clutter_container_add_valist(container_ptr, first_actor.actor_ptr, var_args)
+    @available(*, deprecated) @inlinable func addValist<ActorT: ActorProtocol>(firstActor: ActorT, varArgs: CVaListPointer) {
+        clutter_container_add_valist(container_ptr, firstActor.actor_ptr, varArgs)
     
     }
 
@@ -682,7 +682,7 @@ public extension ContainerProtocol {
     /// Calls the `ClutterContainerIface.child_notify``()` virtual function
     /// of `ClutterContainer`. The default implementation will emit the
     /// `ClutterContainer::child`-notify signal.
-    @inlinable func childNotify<ActorT: ActorProtocol, ParamSpecT: ParamSpecProtocol>(child: ActorT, pspec: ParamSpecT) {
+    @inlinable func childNotify<ActorT: ActorProtocol, ParamSpecT: GLibObject.ParamSpecProtocol>(child: ActorT, pspec: ParamSpecT) {
         clutter_container_child_notify(container_ptr, child.actor_ptr, pspec.param_spec_ptr)
     
     }
@@ -726,8 +726,8 @@ public extension ContainerProtocol {
 
     /// Finds a child actor of a container by its name. Search recurses
     /// into any child container.
-    @inlinable func findChildByName(childName child_name: UnsafePointer<gchar>!) -> ActorRef! {
-        let rv = ActorRef(gconstpointer: gconstpointer(clutter_container_find_child_by_name(container_ptr, child_name)))
+    @inlinable func findChildByName(childName: UnsafePointer<gchar>!) -> ActorRef! {
+        let rv = ActorRef(gconstpointer: gconstpointer(clutter_container_find_child_by_name(container_ptr, childName)))
         return rv
     }
 
@@ -745,8 +745,8 @@ public extension ContainerProtocol {
     ///   the list of children, and clutter_actor_get_next_sibling()
     ///   and clutter_actor_get_previous_sibling() to iterate over it;
     ///   alternatively, use the #ClutterActorIter API.
-    @available(*, deprecated) @inlinable func foreach(callback: ClutterCallback?, userData user_data: gpointer! = nil) {
-        clutter_container_foreach(container_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func foreach(callback: ClutterCallback?, userData: gpointer! = nil) {
+        clutter_container_foreach(container_ptr, callback, userData)
     
     }
 
@@ -759,8 +759,8 @@ public extension ContainerProtocol {
     ///
     /// **foreach_with_internals is deprecated:**
     /// See clutter_container_foreach().
-    @available(*, deprecated) @inlinable func foreachWithInternals(callback: ClutterCallback?, userData user_data: gpointer! = nil) {
-        clutter_container_foreach_with_internals(container_ptr, callback, user_data)
+    @available(*, deprecated) @inlinable func foreachWithInternals(callback: ClutterCallback?, userData: gpointer! = nil) {
+        clutter_container_foreach_with_internals(container_ptr, callback, userData)
     
     }
 
@@ -776,7 +776,7 @@ public extension ContainerProtocol {
     /// **get_children is deprecated:**
     /// Use clutter_actor_get_children() instead.
     @available(*, deprecated) @inlinable func getChildren() -> GLib.ListRef! {
-        let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_container_get_children(container_ptr)))
+        let rv = GLib.ListRef(clutter_container_get_children(container_ptr))
         return rv
     }
 
@@ -788,7 +788,7 @@ public extension ContainerProtocol {
     ///
     /// **lower_child is deprecated:**
     /// Use clutter_actor_set_child_below_sibling() instead.
-    @available(*, deprecated) @inlinable func lowerChild<ActorT: ActorProtocol>(actor: ActorT, sibling: ActorT? = nil) {
+    @available(*, deprecated) @inlinable func lowerChild<ActorT: ActorProtocol>(actor: ActorT, sibling: ActorT?) {
         clutter_container_lower_child(container_ptr, actor.actor_ptr, sibling?.actor_ptr)
     
     }
@@ -801,7 +801,7 @@ public extension ContainerProtocol {
     ///
     /// **raise_child is deprecated:**
     /// Use clutter_actor_set_child_above_sibling() instead.
-    @available(*, deprecated) @inlinable func raiseChild<ActorT: ActorProtocol>(actor: ActorT, sibling: ActorT? = nil) {
+    @available(*, deprecated) @inlinable func raiseChild<ActorT: ActorProtocol>(actor: ActorT, sibling: ActorT?) {
         clutter_container_raise_child(container_ptr, actor.actor_ptr, sibling?.actor_ptr)
     
     }
@@ -834,8 +834,8 @@ public extension ContainerProtocol {
     ///
     /// **remove_valist is deprecated:**
     /// Use clutter_actor_remove_child() instead.
-    @available(*, deprecated) @inlinable func removeValist<ActorT: ActorProtocol>(firstActor first_actor: ActorT, varArgs var_args: CVaListPointer) {
-        clutter_container_remove_valist(container_ptr, first_actor.actor_ptr, var_args)
+    @available(*, deprecated) @inlinable func removeValist<ActorT: ActorProtocol>(firstActor: ActorT, varArgs: CVaListPointer) {
+        clutter_container_remove_valist(container_ptr, firstActor.actor_ptr, varArgs)
     
     }
 
@@ -860,7 +860,7 @@ public extension ContainerProtocol {
         /// **get_children is deprecated:**
         /// Use clutter_actor_get_children() instead.
         @available(*, deprecated) get {
-            let rv = GLib.ListRef(gconstpointer: gconstpointer(clutter_container_get_children(container_ptr)))
+            let rv = GLib.ListRef(clutter_container_get_children(container_ptr))
             return rv
         }
     }

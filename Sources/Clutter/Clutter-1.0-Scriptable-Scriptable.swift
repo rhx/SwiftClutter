@@ -97,7 +97,7 @@ public extension ScriptableRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -284,7 +284,7 @@ public extension ScriptableProtocol {
     /// Parses the passed JSON node. The implementation must set the type
     /// of the passed `GValue` pointer using `g_value_init()`.
     @inlinable func parseCustomNode<ScriptT: ScriptProtocol, ValueT: GLibObject.ValueProtocol>(script: ScriptT, value: ValueT, name: UnsafePointer<gchar>!, node: UnsafeMutablePointer<JsonNode>!) -> Bool {
-        let rv = (clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node) != 0)
+        let rv = ((clutter_scriptable_parse_custom_node(scriptable_ptr, script.script_ptr, value.value_ptr, name, node)) != 0)
         return rv
     }
 

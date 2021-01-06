@@ -95,7 +95,7 @@ public extension ActionClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActionClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -381,7 +381,7 @@ public extension ActorBoxRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorBoxProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -408,8 +408,8 @@ public extension ActorBoxRef {
     ///                           x_2, y_2);
     /// ```
     /// 
-    @inlinable init( x_1: Double, y1 y_1: Double, x2 x_2: Double, y2 y_2: Double) {
-        let rv = clutter_actor_box_new(gfloat(x_1), gfloat(y_1), gfloat(x_2), gfloat(y_2))
+    @inlinable init( x1: Double, y1: Double, x2: Double, y2: Double) {
+        let rv = clutter_actor_box_new(gfloat(x1), gfloat(y1), gfloat(x2), gfloat(y2))
         ptr = UnsafeMutableRawPointer(rv)
     }
     /// Allocates a new `ClutterActorBox`.
@@ -577,8 +577,8 @@ open class ActorBox: ActorBoxProtocol {
     ///                           x_2, y_2);
     /// ```
     /// 
-    @inlinable public init( x_1: Double, y1 y_1: Double, x2 x_2: Double, y2 y_2: Double) {
-        let rv = clutter_actor_box_new(gfloat(x_1), gfloat(y_1), gfloat(x_2), gfloat(y_2))
+    @inlinable public init( x1: Double, y1: Double, x2: Double, y2: Double) {
+        let rv = clutter_actor_box_new(gfloat(x1), gfloat(y1), gfloat(x2), gfloat(y2))
         ptr = UnsafeMutableRawPointer(rv)
     }
 
@@ -620,8 +620,8 @@ public extension ActorBoxProtocol {
     }
 
     /// Checks `box_a` and `box_b` for equality
-    @inlinable func equal<ActorBoxT: ActorBoxProtocol>(boxB box_b: ActorBoxT) -> Bool {
-        let rv = ((clutter_actor_box_equal(actor_box_ptr, box_b.actor_box_ptr)) != 0)
+    @inlinable func equal<ActorBoxT: ActorBoxProtocol>(boxB: ActorBoxT) -> Bool {
+        let rv = ((clutter_actor_box_equal(actor_box_ptr, boxB.actor_box_ptr)) != 0)
         return rv
     }
 
@@ -682,8 +682,8 @@ public extension ActorBoxProtocol {
     }
 
     /// Initializes `box` with the given coordinates.
-    @inlinable func init_(x1 x_1: Double, y1 y_1: Double, x2 x_2: Double, y2 y_2: Double) -> ActorBoxRef! {
-        guard let rv = ActorBoxRef(gconstpointer: gconstpointer(clutter_actor_box_init(actor_box_ptr, gfloat(x_1), gfloat(y_1), gfloat(x_2), gfloat(y_2)))) else { return nil }
+    @inlinable func init_(x1: Double, y1: Double, x2: Double, y2: Double) -> ActorBoxRef! {
+        guard let rv = ActorBoxRef(gconstpointer: gconstpointer(clutter_actor_box_init(actor_box_ptr, gfloat(x1), gfloat(y1), gfloat(x2), gfloat(y2)))) else { return nil }
         return rv
     }
 
@@ -900,7 +900,7 @@ public extension ActorClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1246,7 +1246,7 @@ public extension ActorIterRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorIterProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1617,7 +1617,7 @@ public extension ActorMetaClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1900,7 +1900,7 @@ public extension ActorMetaPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorMetaPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2165,7 +2165,7 @@ public extension ActorPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2430,7 +2430,7 @@ public extension AlignConstraintClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlignConstraintClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2695,7 +2695,7 @@ public extension AlphaClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -2971,7 +2971,7 @@ public extension AlphaPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AlphaPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3238,7 +3238,7 @@ public extension AnimatableIfaceRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatableIfaceProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3517,7 +3517,7 @@ public extension AnimationClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -3804,7 +3804,7 @@ public extension AnimationPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimationPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4069,7 +4069,7 @@ public extension AnimatorClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4337,7 +4337,7 @@ public extension AnimatorKeyRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorKeyProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -4531,7 +4531,7 @@ public extension AnimatorKeyProtocol {
     /// **get_object is deprecated:**
     /// Use #ClutterKeyframeTransition instead
     @available(*, deprecated) @inlinable func getObject() -> GLibObject.ObjectRef! {
-        let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_animator_key_get_object(animator_key_ptr)))
+        let rv = GLibObject.ObjectRef(clutter_animator_key_get_object(animator_key_ptr))
         return rv
     }
 
@@ -4610,7 +4610,7 @@ public extension AnimatorKeyProtocol {
         /// **get_object is deprecated:**
         /// Use #ClutterKeyframeTransition instead
         @available(*, deprecated) get {
-            let rv = GLibObject.ObjectRef(gconstpointer: gconstpointer(clutter_animator_key_get_object(animator_key_ptr)))
+            let rv = GLibObject.ObjectRef(clutter_animator_key_get_object(animator_key_ptr))
             return rv
         }
     }
@@ -4753,7 +4753,7 @@ public extension AnimatorPrivateRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorPrivateProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5018,7 +5018,7 @@ public extension AnyEventRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyEventProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -5344,7 +5344,7 @@ public extension BackendClassRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `BackendClassProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 

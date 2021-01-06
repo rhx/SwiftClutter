@@ -97,7 +97,7 @@ public extension RotateActionRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -666,7 +666,7 @@ public extension ScoreRef {
 
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
-    @inlinable init(raw: UnsafeRawPointer) {
+    @inlinable init(mutating raw: UnsafeRawPointer) {
         ptr = UnsafeMutableRawPointer(mutating: raw)
     }
 
@@ -1002,7 +1002,7 @@ public extension ScoreProtocol {
     ///
     /// **append is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func append<TimelineT: TimelineProtocol>(parent: TimelineT? = nil, timeline: TimelineT) -> Int {
+    @available(*, deprecated) @inlinable func append<TimelineT: TimelineProtocol>(parent: TimelineT?, timeline: TimelineT) -> Int {
         let rv = Int(clutter_score_append(score_ptr, parent?.timeline_ptr, timeline.timeline_ptr))
         return rv
     }
@@ -1017,8 +1017,8 @@ public extension ScoreProtocol {
     ///
     /// **append_at_marker is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func appendAtMarker<TimelineT: TimelineProtocol>(parent: TimelineT, markerName marker_name: UnsafePointer<gchar>!, timeline: TimelineT) -> Int {
-        let rv = Int(clutter_score_append_at_marker(score_ptr, parent.timeline_ptr, marker_name, timeline.timeline_ptr))
+    @available(*, deprecated) @inlinable func appendAtMarker<TimelineT: TimelineProtocol>(parent: TimelineT, markerName: UnsafePointer<gchar>!, timeline: TimelineT) -> Int {
+        let rv = Int(clutter_score_append_at_marker(score_ptr, parent.timeline_ptr, markerName, timeline.timeline_ptr))
         return rv
     }
 
@@ -1044,8 +1044,8 @@ public extension ScoreProtocol {
     ///
     /// **list_timelines is deprecated:**
     /// This method is deprecated.
-    @available(*, deprecated) @inlinable func listTimelines() -> SListRef! {
-        let rv = SListRef(gconstpointer: gconstpointer(clutter_score_list_timelines(score_ptr)))
+    @available(*, deprecated) @inlinable func listTimelines() -> GLib.SListRef! {
+        let rv = GLib.SListRef(clutter_score_list_timelines(score_ptr))
         return rv
     }
 
