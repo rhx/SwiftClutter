@@ -21,7 +21,7 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
     for src in Sources/${NAME}/*-*.swift ; do
 	    sed -f ${GIR_NAME}.sed < ${src} > ${src}.out
 	    mv -f ${src}.out ${src}
-	    for ver in 2.62.0 ; do
+	    for ver in 1.26.2 ; do
 		    if pkg-config --max-version=$ver clutter-1.0 ; then
 			    awk -f ${GIR_NAME}-$ver.awk < ${src} > ${src}.out
 			    mv -f ${src}.out ${src}
