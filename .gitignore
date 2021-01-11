@@ -2,6 +2,7 @@
 /.docs.old
 /docs
 /*.xcodeproj
+/.swiftpm
 *.tgz
 undocumented.json      
 Packages
