@@ -1,5 +1,11 @@
 # SwiftClutter
+
 A Swift wrapper around clutter that is largely auto-generated from gobject-introspection
+
+![macOS 11 build](https://github.com/rhx/SwiftClutter/workflows/macOS%2011/badge.svg)
+![macOS 10.15 build](https://github.com/rhx/SwiftClutter/workflows/macOS%2010.15/badge.svg)
+![Ubuntu 20.04 build](https://github.com/rhx/SwiftClutter/workflows/Ubuntu%2020.04/badge.svg)
+![Ubuntu 18.04 build](https://github.com/rhx/SwiftClutter/workflows/Ubuntu%2018.04/badge.svg)
 
 ## What is new?
 
@@ -52,7 +58,7 @@ These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, an
 On Ubuntu 20.04 and 18.04 you can use the gtk that comes with the distribution.  Just install with the `apt` package manager:
 
 	sudo apt update
-	sudo apt install libclutter-1.0-dev gir1.2-clutter-1.0 gobject-introspection libgirepository1.0-dev libxml2-dev
+	sudo apt install libclutter-1.0-dev gir1.2-clutter-1.0 libcogl-dev gir1.2-cogl-1.0 libcogl-pango-dev gir1.2-coglpango-1.0 libgdk-pixbuf2.0-dev gir1.2-gdkpixbuf-2.0 libglib2.0-dev glib-networking gobject-introspection libgirepository1.0-dev libxml2-dev jq
 
 ##### Fedora
 
@@ -119,11 +125,12 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 After that, use the (usual) Build and Test buttons to build/test this package.
 
 
-
 ## Troubleshooting
+
 Here are some common errors you might encounter and how to fix them.
 
 ### Old Swift toolchain or Xcode
+
 If you get an error such as
 
 	$ ./build.sh 
@@ -138,6 +145,7 @@ this probably means that your Swift toolchain is too old.  Make sure the latest 
 
 ### Known Issues
 
+ * When building, a lot of warnings appear.  This is largely an issue with automatic `RawRepresentable` conformance in the Swift Standard library.  As a workaryound, you can turn this off by passing the `-Xswiftc -suppresswarnings` parameter when building.
  * The current build system does not support directory paths with spaces (e.g. the `My Drive` directory used by Google Drive File Stream).
  * BUILD_DIR is not supported in the current build system.
  
