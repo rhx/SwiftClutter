@@ -269,7 +269,7 @@ open class Scriptable: ScriptableProtocol {
 
 // MARK: no Scriptable signals
 
-
+// MARK: Scriptable has no signals
 // MARK: Scriptable Interface: ScriptableProtocol extension (methods and fields)
 public extension ScriptableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScriptable` instance.

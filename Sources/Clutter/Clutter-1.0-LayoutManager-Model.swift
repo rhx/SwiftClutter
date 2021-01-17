@@ -37,7 +37,7 @@ public protocol LayoutManagerProtocol: GLibObject.InitiallyUnownedProtocol {
 ///
 /// The `ClutterLayoutManager` structure contains only private data
 /// and should be accessed using the provided API
-public struct LayoutManagerRef: LayoutManagerProtocol {
+public struct LayoutManagerRef: LayoutManagerProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `ClutterLayoutManager` instance.
     /// For type-safe access, use the generated, typed pointer `layout_manager_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -82,6 +82,9 @@ public extension LayoutManagerRef {
     @inlinable init<T: LayoutManagerProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: LayoutManagerProtocol>(_ other: T) -> LayoutManagerRef { LayoutManagerRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerProtocol`.**
@@ -250,123 +253,9 @@ open class LayoutManager: GLibObject.InitiallyUnowned, LayoutManagerProtocol {
 
 }
 
-public enum LayoutManagerPropertyName: String, PropertyNameProtocol {
-    case accessibleComponentLayer = "accessible-component-layer"
-    case accessibleComponentMdiZorder = "accessible-component-mdi-zorder"
-    case accessibleDescription = "accessible-description"
-    case accessibleHypertextNlinks = "accessible-hypertext-nlinks"
-    case accessibleName = "accessible-name"
-    case accessibleParent = "accessible-parent"
-    case accessibleRole = "accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case accessibleTableCaption = "accessible-table-caption"
-    case accessibleTableCaptionObject = "accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case accessibleTableColumnDescription = "accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case accessibleTableColumnHeader = "accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case accessibleTableRowDescription = "accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case accessibleTableRowHeader = "accessible-table-row-header"
-    case accessibleTableSummary = "accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case accessibleValue = "accessible-value"
-}
-
-public extension LayoutManagerProtocol {
-    /// Bind a `LayoutManagerPropertyName` source property to a given target object.
-    /// - Parameter source_property: the source property to bind
-    /// - Parameter target: the target object to bind to
-    /// - Parameter target_property: the target property to bind to
-    /// - Parameter flags: the flags to pass to the `Binding`
-    /// - Parameter transform_from: `GLibObject.ValueTransformer` to use for forward transformation
-    /// - Parameter transform_to: `GLibObject.ValueTransformer` to use for backwards transformation
-    /// - Returns: binding reference or `nil` in case of an error
-    @discardableResult @inlinable func bind<Q: PropertyNameProtocol, T: GLibObject.ObjectProtocol>(property source_property: LayoutManagerPropertyName, to target: T, _ target_property: Q, flags f: BindingFlags = .default, transformFrom transform_from: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }, transformTo transform_to: @escaping GLibObject.ValueTransformer = { $0.transform(destValue: $1) }) -> BindingRef! {
-        func _bind(_ source: UnsafePointer<gchar>, to t: T, _ target_property: UnsafePointer<gchar>, flags f: BindingFlags = .default, holder: BindingClosureHolder, transformFrom transform_from: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean, transformTo transform_to: @convention(c) @escaping (gpointer, gpointer, gpointer, gpointer) -> gboolean) -> BindingRef! {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(holder).toOpaque())
-            let from = unsafeBitCast(transform_from, to: BindingTransformFunc.self)
-            let to   = unsafeBitCast(transform_to,   to: BindingTransformFunc.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).bindPropertyFull(sourceProperty: source, target: t, targetProperty: target_property, flags: f, transformTo: to, transformFrom: from, userData: holder) {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-            }
-            return rv.map { BindingRef($0) }
-        }
-
-        let rv = _bind(source_property.name, to: target, target_property.name, flags: f, holder: BindingClosureHolder(transform_from, transform_to), transformFrom: {
-            let ptr = UnsafeRawPointer($3)
-            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            return holder.transform_from(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
-        }) {
-            let ptr = UnsafeRawPointer($3)
-            let holder = Unmanaged<BindingClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            return holder.transform_to(GLibObject.ValueRef(raw: $1), GLibObject.ValueRef(raw: $2)) ? 1 : 0
-        }
-        return rv
-    }
-
-    /// Get the value of a LayoutManager property
-    /// - Parameter property: the property to get the value for
-    /// - Returns: the value of the named property
-    @inlinable func get(property: LayoutManagerPropertyName) -> GLibObject.Value {
-        let v = GLibObject.Value()
-        g_object_get_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
-        return v
-    }
-
-    /// Set the value of a LayoutManager property.
-    /// *Note* that this will only have an effect on properties that are writable and not construct-only!
-    /// - Parameter property: the property to get the value for
-    /// - Returns: the value of the named property
-    @inlinable func set(property: LayoutManagerPropertyName, value v: GLibObject.Value) {
-        g_object_set_property(ptr.assumingMemoryBound(to: GObject.self), property.rawValue, v.value_ptr)
-    }
-}
+// MARK: no LayoutManager properties
 
 public enum LayoutManagerSignalName: String, SignalNameProtocol {
-    /// The "active-descendant-changed" signal is emitted by an object
-    /// which has the state ATK_STATE_MANAGES_DESCENDANTS when the focus
-    /// object in the object changes. For instance, a table will emit the
-    /// signal when the cell in the table which has focus changes.
-    case activeDescendantChanged = "active-descendant-changed"
-    /// The signal "children-changed" is emitted when a child is added or
-    /// removed form an object. It supports two details: "add" and
-    /// "remove"
-    case childrenChanged = "children-changed"
-    /// The signal "focus-event" is emitted when an object gained or lost
-    /// focus.
-    ///
-    /// **focus-event is deprecated:**
-    /// Use the #AtkObject::state-change signal instead.
-    case focusEvent = "focus-event"
     /// The `layout`-changed signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
     /// as a layout manager should connect a handler to the `layout`-changed
@@ -415,100 +304,84 @@ public enum LayoutManagerSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The signal "property-change" is emitted when an object's property
-    /// value changes. `arg1` contains an `AtkPropertyValues` with the name
-    /// and the new value of the property whose value has changed. Note
-    /// that, as with GObject notify, getting this signal does not
-    /// guarantee that the value of the property has actually changed; it
-    /// may also be emitted when the setter of the property is called to
-    /// reinstate the previous value.
-    /// 
-    /// Toolkit implementor note: ATK implementors should use
-    /// `g_object_notify()` to emit property-changed
-    /// notifications. `AtkObject::property`-changed is needed by the
-    /// implementation of `atk_add_global_event_listener()` because GObject
-    /// notify doesn't support emission hooks.
-    case propertyChange = "property-change"
-    /// The "state-change" signal is emitted when an object's state
-    /// changes.  The detail value identifies the state type which has
-    /// changed.
-    case stateChange = "state-change"
-    /// The "visible-data-changed" signal is emitted when the visual
-    /// appearance of the object changed.
-    case visibleDataChanged = "visible-data-changed"
-    case notifyAccessibleComponentLayer = "notify::accessible-component-layer"
-    case notifyAccessibleComponentMdiZorder = "notify::accessible-component-mdi-zorder"
-    case notifyAccessibleDescription = "notify::accessible-description"
-    case notifyAccessibleHypertextNlinks = "notify::accessible-hypertext-nlinks"
-    case notifyAccessibleName = "notify::accessible-name"
-    case notifyAccessibleParent = "notify::accessible-parent"
-    case notifyAccessibleRole = "notify::accessible-role"
-    /// Table caption.
-    ///
-    /// **accessible-table-caption is deprecated:**
-    /// Since 1.3. Use table-caption-object instead.
-    case notifyAccessibleTableCaption = "notify::accessible-table-caption"
-    case notifyAccessibleTableCaptionObject = "notify::accessible-table-caption-object"
-    /// Accessible table column description.
-    ///
-    /// **accessible-table-column-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_description()
-    /// and atk_table_set_column_description() instead.
-    case notifyAccessibleTableColumnDescription = "notify::accessible-table-column-description"
-    /// Accessible table column header.
-    ///
-    /// **accessible-table-column-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_column_header() and
-    /// atk_table_set_column_header() instead.
-    case notifyAccessibleTableColumnHeader = "notify::accessible-table-column-header"
-    /// Accessible table row description.
-    ///
-    /// **accessible-table-row-description is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_description() and
-    /// atk_table_set_row_description() instead.
-    case notifyAccessibleTableRowDescription = "notify::accessible-table-row-description"
-    /// Accessible table row header.
-    ///
-    /// **accessible-table-row-header is deprecated:**
-    /// Since 2.12. Use atk_table_get_row_header() and
-    /// atk_table_set_row_header() instead.
-    case notifyAccessibleTableRowHeader = "notify::accessible-table-row-header"
-    case notifyAccessibleTableSummary = "notify::accessible-table-summary"
-    /// Numeric value of this object, in case being and AtkValue.
-    ///
-    /// **accessible-value is deprecated:**
-    /// Since 2.12. Use atk_value_get_value_and_text() to get
-    /// the value, and value-changed signal to be notified on their value
-    /// changes.
-    case notifyAccessibleValue = "notify::accessible-value"
+
 }
 
+// MARK: LayoutManager signals
 public extension LayoutManagerProtocol {
-    /// Connect a `LayoutManagerSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: LayoutManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+    /// Connect a Swift signal handler to the given, typed `LayoutManagerSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: LayoutManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
     }
+    
+    
+    /// Connect a C signal handler to the given, typed `LayoutManagerSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: LayoutManagerSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `layout`-changed signal is emitted each time a layout manager
+    /// has been changed. Every `ClutterActor` using the `manager` instance
+    /// as a layout manager should connect a handler to the `layout`-changed
+    /// signal and queue a relayout on themselves:
+    /// 
+    /// ```
+    ///   static void layout_changed (ClutterLayoutManager *manager,
+    ///                               ClutterActor         *self)
+    ///   {
+    ///     clutter_actor_queue_relayout (self);
+    ///   }
+    ///   ...
+    ///     self->manager = g_object_ref_sink (manager);
+    ///     g_signal_connect (self->manager, "layout-changed",
+    ///                       G_CALLBACK (layout_changed),
+    ///                       self);
+    /// ```
+    /// 
+    /// Sub-classes of `ClutterLayoutManager` that implement a layout that
+    /// can be controlled or changed using parameters should emit the
+    /// `layout`-changed signal whenever one of the parameters changes,
+    /// by using `clutter_layout_manager_layout_changed()`.
+    /// - Note: This represents the underlying `layout-changed` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `layoutChanged` signal is emitted
+    @discardableResult @inlinable func onLayoutChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: LayoutManagerRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<LayoutManagerRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(LayoutManagerRef(raw: unownedSelf))
+            return output
+        }
+        return connect(
+            signal: .layoutChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `layout-changed` signal for using the `connect(signal:)` methods
+    static var layoutChangedSignal: LayoutManagerSignalName { .layoutChanged }
+    
+    
 }
 
 // MARK: LayoutManager Class: LayoutManagerProtocol extension (methods and fields)
@@ -719,7 +592,7 @@ public protocol LayoutMetaProtocol: ChildMetaProtocol {
 /// A `ClutterLayoutManager` sub-class should create a `ClutterLayoutMeta`
 /// instance by overriding the `ClutterLayoutManager::create_child_meta``()`
 /// virtual function
-public struct LayoutMetaRef: LayoutMetaProtocol {
+public struct LayoutMetaRef: LayoutMetaProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `ClutterLayoutMeta` instance.
     /// For type-safe access, use the generated, typed pointer `layout_meta_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -764,6 +637,9 @@ public extension LayoutMetaRef {
     @inlinable init<T: LayoutMetaProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: LayoutMetaProtocol>(_ other: T) -> LayoutMetaRef { LayoutMetaRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutMetaProtocol`.**
@@ -1031,34 +907,7 @@ public enum LayoutMetaSignalName: String, SignalNameProtocol {
     case notifyManager = "notify::manager"
 }
 
-public extension LayoutMetaProtocol {
-    /// Connect a `LayoutMetaSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: LayoutMetaSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
+// MARK: LayoutMeta has no signals
 // MARK: LayoutMeta Class: LayoutMetaProtocol extension (methods and fields)
 public extension LayoutMetaProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterLayoutMeta` instance.
@@ -1119,7 +968,7 @@ public protocol ListModelProtocol: ModelProtocol {
 /// Use `ListModelRef` only as an `unowned` reference to an existing `ClutterListModel` instance.
 ///
 /// The `ClutterListModel` struct contains only private data.
-public struct ListModelRef: ListModelProtocol {
+public struct ListModelRef: ListModelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `ClutterListModel` instance.
     /// For type-safe access, use the generated, typed pointer `list_model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -1164,6 +1013,9 @@ public extension ListModelRef {
     @inlinable init<T: ListModelProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ListModelProtocol>(_ other: T) -> ListModelRef { ListModelRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
@@ -1361,6 +1213,7 @@ open class ListModel: Model, ListModelProtocol {
     @available(*, deprecated) @inlinable public init(nColumns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) {
         let rv = clutter_list_model_newv(guint(nColumns), types, names)
         super.init(gpointer: (rv))
+        if typeIsA(type: self.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = self.refSink() } 
     }
 
     /// Non-vararg version of `clutter_list_model_new()`. This function is
@@ -1370,6 +1223,7 @@ open class ListModel: Model, ListModelProtocol {
     /// Use #GListStore instead
     @available(*, deprecated) @inlinable public static func listModelNewv(nColumns: Int, types: UnsafeMutablePointer<GType>!, names: UnsafePointer<UnsafePointer<gchar>?>!) -> Model! {
         guard let rv = Model(gconstpointer: gconstpointer(clutter_list_model_newv(guint(nColumns), types, names))) else { return nil }
+        if typeIsA(type: rv.type, isAType: InitiallyUnownedClassRef.metatypeReference) { _ = rv.refSink() } 
         return rv
     }
 
@@ -1506,34 +1360,7 @@ public enum ListModelSignalName: String, SignalNameProtocol {
     case notifyFilterSet = "notify::filter-set"
 }
 
-public extension ListModelProtocol {
-    /// Connect a `ListModelSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ListModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
-    }
-}
-
+// MARK: ListModel has no signals
 // MARK: ListModel Class: ListModelProtocol extension (methods and fields)
 public extension ListModelProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterListModel` instance.
@@ -1574,7 +1401,7 @@ public protocol ModelProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
 /// Base class for list models. The `ClutterModel` structure contains
 /// only private data and should be manipulated using the provided
 /// API.
-public struct ModelRef: ModelProtocol {
+public struct ModelRef: ModelProtocol, GWeakCapturing {
         /// Untyped pointer to the underlying `ClutterModel` instance.
     /// For type-safe access, use the generated, typed pointer `model_ptr` property instead.
     public let ptr: UnsafeMutableRawPointer!
@@ -1619,6 +1446,9 @@ public extension ModelRef {
     @inlinable init<T: ModelProtocol>(_ other: T) {
         ptr = other.ptr
     }
+
+    /// This factory is syntactic sugar for setting weak pointers wrapped in `GWeak<T>`
+    @inlinable static func unowned<T: ModelProtocol>(_ other: T) -> ModelRef { ModelRef(other) }
 
     /// Unsafe typed initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelProtocol`.**
@@ -1919,32 +1749,217 @@ public enum ModelSignalName: String, SignalNameProtocol {
     case notifyFilterSet = "notify::filter-set"
 }
 
+// MARK: Model signals
 public extension ModelProtocol {
-    /// Connect a `ModelSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ModelSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+    /// Connect a Swift signal handler to the given, typed `ModelSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ModelSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        connect(s, flags: f, handler: h)
     }
+    
+    
+    /// Connect a C signal handler to the given, typed `ModelSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ModelSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `filter`-changed signal is emitted when a new filter has been applied
+    /// - Note: This represents the underlying `filter-changed` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `filterChanged` signal is emitted
+    @discardableResult @inlinable func onFilterChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ModelRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<ModelRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ModelRef(raw: unownedSelf))
+            return output
+        }
+        return connect(
+            signal: .filterChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `filter-changed` signal for using the `connect(signal:)` methods
+    static var filterChangedSignal: ModelSignalName { .filterChanged }
+    
+    /// The `row`-added signal is emitted when a new row has been added.
+    /// The data on the row has already been set when the `row`-added signal
+    /// has been emitted.
+    /// - Note: This represents the underlying `row-added` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter iter: a `ClutterModelIter` pointing to the new row
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowAdded` signal is emitted
+    @discardableResult @inlinable func onRowAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ModelRef, _ iter: ModelIterRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ModelRef, ModelIterRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ModelRef(raw: unownedSelf), ModelIterRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .rowAdded,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `row-added` signal for using the `connect(signal:)` methods
+    static var rowAddedSignal: ModelSignalName { .rowAdded }
+    
+    /// The `row`-removed signal is emitted when a row has been changed.
+    /// The data on the row has already been updated when the `row`-changed
+    /// signal has been emitted.
+    /// - Note: This represents the underlying `row-changed` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter iter: a `ClutterModelIter` pointing to the changed row
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowChanged` signal is emitted
+    @discardableResult @inlinable func onRowChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ModelRef, _ iter: ModelIterRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ModelRef, ModelIterRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ModelRef(raw: unownedSelf), ModelIterRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .rowChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `row-changed` signal for using the `connect(signal:)` methods
+    static var rowChangedSignal: ModelSignalName { .rowChanged }
+    
+    /// The `row`-removed signal is emitted when a row has been removed.
+    /// The data on the row pointed by the passed iterator is still valid
+    /// when the `row`-removed signal has been emitted.
+    /// - Note: This represents the underlying `row-removed` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter iter: a `ClutterModelIter` pointing to the removed row
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `rowRemoved` signal is emitted
+    @discardableResult @inlinable func onRowRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ModelRef, _ iter: ModelIterRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ModelRef, ModelIterRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ModelRef(raw: unownedSelf), ModelIterRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .rowRemoved,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `row-removed` signal for using the `connect(signal:)` methods
+    static var rowRemovedSignal: ModelSignalName { .rowRemoved }
+    
+    /// The `sort`-changed signal is emitted after the model has been sorted
+    /// - Note: This represents the underlying `sort-changed` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `sortChanged` signal is emitted
+    @discardableResult @inlinable func onSortChanged(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ModelRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder<ModelRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer) -> Void = { unownedSelf, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ModelRef(raw: unownedSelf))
+            return output
+        }
+        return connect(
+            signal: .sortChanged,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `sort-changed` signal for using the `connect(signal:)` methods
+    static var sortChangedSignal: ModelSignalName { .sortChanged }
+    
+    /// The notify signal is emitted on an object when one of its properties has
+    /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
+    /// 
+    /// Note that getting this signal doesn’t itself guarantee that the value of
+    /// the property has actually changed. When it is emitted is determined by the
+    /// derived GObject class. If the implementor did not create the property with
+    /// `G_PARAM_EXPLICIT_NOTIFY`, then any call to `g_object_set_property()` results
+    /// in `notify` being emitted, even if the new value is the same as the old.
+    /// If they did pass `G_PARAM_EXPLICIT_NOTIFY`, then this signal is emitted only
+    /// when they explicitly call `g_object_notify()` or `g_object_notify_by_pspec()`,
+    /// and common practice is to do that only when the value has actually changed.
+    /// 
+    /// This signal is typically used to obtain change notification for a
+    /// single property, by specifying the property name as a detail in the
+    /// `g_signal_connect()` call, like this:
+    /// (C Language Example):
+    /// ```C
+    /// g_signal_connect (text_view->buffer, "notify::paste-target-list",
+    ///                   G_CALLBACK (gtk_text_view_target_list_notify),
+    ///                   text_view)
+    /// ```
+    /// It is important to note that you must use
+    /// [canonical parameter names](#canonical-parameter-names) as
+    /// detail strings for the notify signal.
+    /// - Note: This represents the underlying `notify::filter-set` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter pspec: the `GParamSpec` of the property which changed.
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `notifyFilterSet` signal is emitted
+    @discardableResult @inlinable func onNotifyFilterSet(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ModelRef, _ pspec: ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ModelRef, ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ModelRef(raw: unownedSelf), ParamSpecRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .notifyFilterSet,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `notify::filter-set` signal for using the `connect(signal:)` methods
+    static var notifyFilterSetSignal: ModelSignalName { .notifyFilterSet }
+    
 }
 
 // MARK: Model Class: ModelProtocol extension (methods and fields)

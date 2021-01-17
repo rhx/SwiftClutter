@@ -13,6 +13,21 @@ import Cogl
 import CoglPango
 import Atk
 
+/// Metatype/GType declaration for FlowLayout
+public extension FlowLayoutClassRef {
+    
+    /// This getter returns the GLib type identifier registered for `FlowLayout`
+    static var metatypeReference: GType { clutter_flow_layout_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<ClutterFlowLayoutClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: ClutterFlowLayoutClass.self) }
+    
+    static var metatype: ClutterFlowLayoutClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: FlowLayoutClassRef? { FlowLayoutClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - FlowLayoutClass Record
 
 /// The `FlowLayoutClassProtocol` protocol exposes the methods and properties of an underlying `ClutterFlowLayoutClass` instance.
@@ -115,161 +130,6 @@ public extension FlowLayoutClassRef {
 
     }
 
-/// The `FlowLayoutClass` type acts as an owner of an underlying `ClutterFlowLayoutClass` instance.
-/// It provides the methods that can operate on this data type through `FlowLayoutClassProtocol` conformance.
-/// Use `FlowLayoutClass` as a strong reference or owner of a `ClutterFlowLayoutClass` instance.
-///
-/// The `ClutterFlowLayoutClass` structure contains only private data
-/// and should be accessed using the provided API
-open class FlowLayoutClass: FlowLayoutClassProtocol {
-        /// Untyped pointer to the underlying `ClutterFlowLayoutClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<ClutterFlowLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<ClutterFlowLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<ClutterFlowLayoutClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterFlowLayoutClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `ClutterFlowLayoutClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `FlowLayoutClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterFlowLayoutClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterFlowLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `FlowLayoutClassProtocol`
-    /// `ClutterFlowLayoutClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `FlowLayoutClassProtocol`
-    @inlinable public init<T: FlowLayoutClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for ClutterFlowLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `ClutterFlowLayoutClass`.
-    deinit {
-        // no reference counting for ClutterFlowLayoutClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterFlowLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterFlowLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for ClutterFlowLayoutClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterFlowLayoutClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no FlowLayoutClass properties
-
-// MARK: no FlowLayoutClass signals
-
-
 // MARK: FlowLayoutClass Record: FlowLayoutClassProtocol extension (methods and fields)
 public extension FlowLayoutClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFlowLayoutClass` instance.
@@ -277,271 +137,6 @@ public extension FlowLayoutClassProtocol {
 
 
     // var parentClass is unavailable because parent_class is private
-
-}
-
-
-
-// MARK: - FlowLayoutPrivate Record
-
-/// The `FlowLayoutPrivateProtocol` protocol exposes the methods and properties of an underlying `ClutterFlowLayoutPrivate` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `FlowLayoutPrivate`.
-/// Alternatively, use `FlowLayoutPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-
-public protocol FlowLayoutPrivateProtocol {
-        /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `ClutterFlowLayoutPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterFlowLayoutPrivate>! { get }
-
-}
-
-/// The `FlowLayoutPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterFlowLayoutPrivate` instance.
-/// It exposes methods that can operate on this data type through `FlowLayoutPrivateProtocol` conformance.
-/// Use `FlowLayoutPrivateRef` only as an `unowned` reference to an existing `ClutterFlowLayoutPrivate` instance.
-///
-
-public struct FlowLayoutPrivateRef: FlowLayoutPrivateProtocol {
-        /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension FlowLayoutPrivateRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<ClutterFlowLayoutPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<ClutterFlowLayoutPrivate>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterFlowLayoutPrivate>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<ClutterFlowLayoutPrivate>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `FlowLayoutPrivateProtocol`
-    @inlinable init<T: FlowLayoutPrivateProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The `FlowLayoutPrivate` type acts as an owner of an underlying `ClutterFlowLayoutPrivate` instance.
-/// It provides the methods that can operate on this data type through `FlowLayoutPrivateProtocol` conformance.
-/// Use `FlowLayoutPrivate` as a strong reference or owner of a `ClutterFlowLayoutPrivate` instance.
-///
-
-open class FlowLayoutPrivate: FlowLayoutPrivateProtocol {
-        /// Untyped pointer to the underlying `ClutterFlowLayoutPrivate` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<ClutterFlowLayoutPrivate>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<ClutterFlowLayoutPrivate>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<ClutterFlowLayoutPrivate>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterFlowLayoutPrivate>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `ClutterFlowLayoutPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `FlowLayoutPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterFlowLayoutPrivate>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterFlowLayoutPrivate, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `FlowLayoutPrivateProtocol`
-    /// `ClutterFlowLayoutPrivate` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `FlowLayoutPrivateProtocol`
-    @inlinable public init<T: FlowLayoutPrivateProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for ClutterFlowLayoutPrivate, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `ClutterFlowLayoutPrivate`.
-    deinit {
-        // no reference counting for ClutterFlowLayoutPrivate, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterFlowLayoutPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterFlowLayoutPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for ClutterFlowLayoutPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutPrivateProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterFlowLayoutPrivate, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no FlowLayoutPrivate properties
-
-// MARK: no FlowLayoutPrivate signals
-
-
-// MARK: FlowLayoutPrivate Record: FlowLayoutPrivateProtocol extension (methods and fields)
-public extension FlowLayoutPrivateProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `ClutterFlowLayoutPrivate` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<ClutterFlowLayoutPrivate>! { return ptr?.assumingMemoryBound(to: ClutterFlowLayoutPrivate.self) }
-
-
 
 }
 
@@ -800,7 +395,7 @@ open class Fog: FogProtocol {
 
 // MARK: no Fog signals
 
-
+// MARK: Fog has no signals
 // MARK: Fog Record: FogProtocol extension (methods and fields)
 public extension FogProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterFog` instance.
@@ -1108,7 +703,7 @@ open class Geometry: GeometryProtocol {
 
 // MARK: no Geometry signals
 
-
+// MARK: Geometry has no signals
 // MARK: Geometry Record: GeometryProtocol extension (methods and fields)
 public extension GeometryProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterGeometry` instance.

@@ -269,7 +269,7 @@ open class Animatable: AnimatableProtocol {
 
 // MARK: no Animatable signals
 
-
+// MARK: Animatable has no signals
 // MARK: Animatable Interface: AnimatableProtocol extension (methods and fields)
 public extension AnimatableProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterAnimatable` instance.
@@ -597,32 +597,118 @@ public enum ContainerSignalName: String, SignalNameProtocol {
 
 }
 
+// MARK: Container signals
 public extension ContainerProtocol {
-    /// Connect a `ContainerSignalName` signal to a given signal handler.
-    /// - Parameter signal: the signal to connect
-    /// - Parameter flags: signal connection flags
-    /// - Parameter handler: signal handler to use
-    /// - Returns: positive handler ID, or a value less than or equal to `0` in case of an error
-    @inlinable @discardableResult func connect(signal kind: ContainerSignalName, flags f: ConnectFlags = ConnectFlags(0), to handler: @escaping GLibObject.SignalHandler) -> Int {
-        func _connect(signal name: UnsafePointer<gchar>, flags: ConnectFlags, data: GLibObject.SignalHandlerClosureHolder, handler: @convention(c) @escaping (gpointer, gpointer) -> Void) -> Int {
-            let holder = UnsafeMutableRawPointer(Unmanaged.passRetained(data).toOpaque())
-            let callback = unsafeBitCast(handler, to: GLibObject.Callback.self)
-            let rv = GLibObject.ObjectRef(raw: ptr).signalConnectData(detailedSignal: name, cHandler: callback, data: holder, destroyData: {
-                if let swift = UnsafeRawPointer($0) {
-                    let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(swift)
-                    holder.release()
-                }
-                let _ = $1
-            }, connectFlags: flags)
-            return rv
-        }
-        let rv = _connect(signal: kind.name, flags: f, data: ClosureHolder(handler)) {
-            let ptr = UnsafeRawPointer($1)
-            let holder = Unmanaged<GLibObject.SignalHandlerClosureHolder>.fromOpaque(ptr).takeUnretainedValue()
-            holder.call(())
-        }
-        return rv
+    /// Connect a Swift signal handler to the given, typed `ContainerSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - handler: The Swift signal handler (function or callback) to invoke on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ContainerSignalName, flags f: ConnectFlags = ConnectFlags(0), handler h: @escaping SignalHandler) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connect(s, flags: f, handler: h)
     }
+    
+    
+    /// Connect a C signal handler to the given, typed `ContainerSignalName` signal
+    /// - Parameters:
+    ///   - signal: The signal to connect
+    ///   - flags: The connection flags to use
+    ///   - data: A pointer to user data to provide to the callback
+    ///   - destroyData: A `GClosureNotify` C function to destroy the data pointed to by `userData`
+    ///   - signalHandler: The C function to be called on the given signal
+    /// - Returns: The signal handler ID (always greater than 0 for successful connections)
+    @inlinable @discardableResult func connect(signal s: ContainerSignalName, flags f: ConnectFlags = ConnectFlags(0), data userData: gpointer!, destroyData destructor: GClosureNotify? = nil, signalHandler h: @escaping GCallback) -> Int {
+        GLibObject.ObjectRef(raw: ptr).connectSignal(s, flags: f, data: userData, destroyData: destructor, handler: h)
+    }
+    
+    
+    /// The `actor`-added signal is emitted each time an actor
+    /// has been added to `container`.
+    /// - Note: This represents the underlying `actor-added` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter actor: the new child that has been added to `container`
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `actorAdded` signal is emitted
+    @discardableResult @inlinable func onActorAdded(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContainerRef, _ actor: ActorRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ContainerRef, ActorRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ContainerRef(raw: unownedSelf), ActorRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .actorAdded,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `actor-added` signal for using the `connect(signal:)` methods
+    static var actorAddedSignal: ContainerSignalName { .actorAdded }
+    
+    /// The `actor`-removed signal is emitted each time an actor
+    /// is removed from `container`.
+    /// - Note: This represents the underlying `actor-removed` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter actor: the child that has been removed from `container`
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `actorRemoved` signal is emitted
+    @discardableResult @inlinable func onActorRemoved(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContainerRef, _ actor: ActorRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder2<ContainerRef, ActorRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ContainerRef(raw: unownedSelf), ActorRef(raw: arg1))
+            return output
+        }
+        return connect(
+            signal: .actorRemoved,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `actor-removed` signal for using the `connect(signal:)` methods
+    static var actorRemovedSignal: ContainerSignalName { .actorRemoved }
+    
+    /// The `child`-notify signal is emitted each time a property is
+    /// being set through the `clutter_container_child_set()` and
+    /// `clutter_container_child_set_property()` calls.
+    /// - Note: This represents the underlying `child-notify` signal
+    /// - Parameter flags: Flags
+    /// - Parameter unownedSelf: Reference to instance of self
+    /// - Parameter actor: the child that has had a property set
+    /// - Parameter pspec: the `GParamSpec` of the property set
+    /// - Parameter handler: The signal handler to call
+    /// Run the given callback whenever the `childNotify` signal is emitted
+    @discardableResult @inlinable func onChildNotify(flags: ConnectFlags = ConnectFlags(0), handler: @escaping ( _ unownedSelf: ContainerRef, _ actor: ActorRef, _ pspec: GLibObject.ParamSpecRef) -> Void ) -> Int {
+        typealias SwiftHandler = GLib.ClosureHolder3<ContainerRef, ActorRef, GLibObject.ParamSpecRef, Void>
+        let cCallback: @convention(c) (gpointer, gpointer, gpointer, gpointer) -> Void = { unownedSelf, arg1, arg2, userData in
+            let holder = Unmanaged<SwiftHandler>.fromOpaque(userData).takeUnretainedValue()
+            let output: Void = holder.call(ContainerRef(raw: unownedSelf), ActorRef(raw: arg1), GLibObject.ParamSpecRef(raw: arg2))
+            return output
+        }
+        return connect(
+            signal: .childNotify,
+            flags: flags,
+            data: Unmanaged.passRetained(SwiftHandler(handler)).toOpaque(),
+            destroyData: { userData, _ in UnsafeRawPointer(userData).flatMap(Unmanaged<SwiftHandler>.fromOpaque(_:))?.release() },
+            signalHandler: unsafeBitCast(cCallback, to: GCallback.self)
+        )
+    }
+    
+    /// Typed `child-notify` signal for using the `connect(signal:)` methods
+    static var childNotifySignal: ContainerSignalName { .childNotify }
+    
+    
 }
 
 // MARK: Container Interface: ContainerProtocol extension (methods and fields)

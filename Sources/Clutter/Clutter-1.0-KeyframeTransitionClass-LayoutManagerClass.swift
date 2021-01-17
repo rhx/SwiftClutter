@@ -13,6 +13,21 @@ import Cogl
 import CoglPango
 import Atk
 
+/// Metatype/GType declaration for KeyframeTransition
+public extension KeyframeTransitionClassRef {
+    
+    /// This getter returns the GLib type identifier registered for `KeyframeTransition`
+    static var metatypeReference: GType { clutter_keyframe_transition_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<ClutterKeyframeTransitionClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: ClutterKeyframeTransitionClass.self) }
+    
+    static var metatype: ClutterKeyframeTransitionClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: KeyframeTransitionClassRef? { KeyframeTransitionClassRef(metatypePointer) }
+    
+    
+}
+
 // MARK: - KeyframeTransitionClass Record
 
 /// The `KeyframeTransitionClassProtocol` protocol exposes the methods and properties of an underlying `ClutterKeyframeTransitionClass` instance.
@@ -115,161 +130,6 @@ public extension KeyframeTransitionClassRef {
 
     }
 
-/// The `KeyframeTransitionClass` type acts as an owner of an underlying `ClutterKeyframeTransitionClass` instance.
-/// It provides the methods that can operate on this data type through `KeyframeTransitionClassProtocol` conformance.
-/// Use `KeyframeTransitionClass` as a strong reference or owner of a `ClutterKeyframeTransitionClass` instance.
-///
-/// The `ClutterKeyframeTransitionClass` structure contains only
-/// private data.
-open class KeyframeTransitionClass: KeyframeTransitionClassProtocol {
-        /// Untyped pointer to the underlying `ClutterKeyframeTransitionClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<ClutterKeyframeTransitionClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<ClutterKeyframeTransitionClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<ClutterKeyframeTransitionClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterKeyframeTransitionClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `ClutterKeyframeTransitionClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `KeyframeTransitionClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterKeyframeTransitionClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterKeyframeTransitionClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `KeyframeTransitionClassProtocol`
-    /// `ClutterKeyframeTransitionClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `KeyframeTransitionClassProtocol`
-    @inlinable public init<T: KeyframeTransitionClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for ClutterKeyframeTransitionClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `ClutterKeyframeTransitionClass`.
-    deinit {
-        // no reference counting for ClutterKeyframeTransitionClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterKeyframeTransitionClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterKeyframeTransitionClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for ClutterKeyframeTransitionClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterKeyframeTransitionClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no KeyframeTransitionClass properties
-
-// MARK: no KeyframeTransitionClass signals
-
-
 // MARK: KeyframeTransitionClass Record: KeyframeTransitionClassProtocol extension (methods and fields)
 public extension KeyframeTransitionClassProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKeyframeTransitionClass` instance.
@@ -279,271 +139,6 @@ public extension KeyframeTransitionClassProtocol {
     // var parentClass is unavailable because parent_class is private
 
     // var Padding is unavailable because _padding is private
-
-}
-
-
-
-// MARK: - KeyframeTransitionPrivate Record
-
-/// The `KeyframeTransitionPrivateProtocol` protocol exposes the methods and properties of an underlying `ClutterKeyframeTransitionPrivate` instance.
-/// The default implementation of these can be found in the protocol extension below.
-/// For a concrete class that implements these methods and properties, see `KeyframeTransitionPrivate`.
-/// Alternatively, use `KeyframeTransitionPrivateRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
-///
-
-public protocol KeyframeTransitionPrivateProtocol {
-        /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
-    var ptr: UnsafeMutableRawPointer! { get }
-
-    /// Typed pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
-    var _ptr: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>! { get }
-
-}
-
-/// The `KeyframeTransitionPrivateRef` type acts as a lightweight Swift reference to an underlying `ClutterKeyframeTransitionPrivate` instance.
-/// It exposes methods that can operate on this data type through `KeyframeTransitionPrivateProtocol` conformance.
-/// Use `KeyframeTransitionPrivateRef` only as an `unowned` reference to an existing `ClutterKeyframeTransitionPrivate` instance.
-///
-
-public struct KeyframeTransitionPrivateRef: KeyframeTransitionPrivateProtocol {
-        /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-}
-
-public extension KeyframeTransitionPrivateRef {
-    /// Designated initialiser from the underlying `C` data type
-    @inlinable init(_ p: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type
-    @inlinable init(_ p: UnsafePointer<ClutterKeyframeTransitionPrivate>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: p))
-    }
-
-    /// Conditional initialiser from an optional pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>?) {
-        guard let p = maybePointer else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable pointer to the underlying `C` data type
-    @inlinable init!(_ maybePointer: UnsafePointer<ClutterKeyframeTransitionPrivate>?) {
-        guard let p = UnsafeMutablePointer(mutating: maybePointer) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional `gpointer`
-    @inlinable init!(gpointer g: gpointer?) {
-        guard let p = g else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Conditional initialiser from an optional, non-mutable `gconstpointer`
-    @inlinable init!(gconstpointer g: gconstpointer?) {
-        guard let p = UnsafeMutableRawPointer(mutating: g) else { return nil }
-        ptr = p
-    }
-
-    /// Reference intialiser for a related type that implements `KeyframeTransitionPrivateProtocol`
-    @inlinable init<T: KeyframeTransitionPrivateProtocol>(_ other: T) {
-        ptr = other.ptr
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable init<T>(cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable init<T>(constPointer: UnsafePointer<T>) {
-        ptr = UnsafeMutableRawPointer(mutating: UnsafeRawPointer(constPointer))
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable init(mutating raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable init(raw: UnsafeMutableRawPointer) {
-        ptr = raw
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable init(opaquePointer: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(opaquePointer)
-    }
-
-    }
-
-/// The `KeyframeTransitionPrivate` type acts as an owner of an underlying `ClutterKeyframeTransitionPrivate` instance.
-/// It provides the methods that can operate on this data type through `KeyframeTransitionPrivateProtocol` conformance.
-/// Use `KeyframeTransitionPrivate` as a strong reference or owner of a `ClutterKeyframeTransitionPrivate` instance.
-///
-
-open class KeyframeTransitionPrivate: KeyframeTransitionPrivateProtocol {
-        /// Untyped pointer to the underlying `ClutterKeyframeTransitionPrivate` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<ClutterKeyframeTransitionPrivate>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<ClutterKeyframeTransitionPrivate>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `ClutterKeyframeTransitionPrivate` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `KeyframeTransitionPrivate` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `KeyframeTransitionPrivateProtocol`
-    /// `ClutterKeyframeTransitionPrivate` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `KeyframeTransitionPrivateProtocol`
-    @inlinable public init<T: KeyframeTransitionPrivateProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `ClutterKeyframeTransitionPrivate`.
-    deinit {
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionPrivateProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterKeyframeTransitionPrivate, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no KeyframeTransitionPrivate properties
-
-// MARK: no KeyframeTransitionPrivate signals
-
-
-// MARK: KeyframeTransitionPrivate Record: KeyframeTransitionPrivateProtocol extension (methods and fields)
-public extension KeyframeTransitionPrivateProtocol {
-    /// Return the stored, untyped pointer as a typed pointer to the `ClutterKeyframeTransitionPrivate` instance.
-    @inlinable var _ptr: UnsafeMutablePointer<ClutterKeyframeTransitionPrivate>! { return ptr?.assumingMemoryBound(to: ClutterKeyframeTransitionPrivate.self) }
-
-
 
 }
 
@@ -802,7 +397,7 @@ open class Knot: KnotProtocol {
 
 // MARK: no Knot signals
 
-
+// MARK: Knot has no signals
 // MARK: Knot Record: KnotProtocol extension (methods and fields)
 public extension KnotProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterKnot` instance.
@@ -855,6 +450,21 @@ public extension KnotProtocol {
 }
 
 
+
+/// Metatype/GType declaration for LayoutManager
+public extension LayoutManagerClassRef {
+    
+    /// This getter returns the GLib type identifier registered for `LayoutManager`
+    static var metatypeReference: GType { clutter_layout_manager_get_type() }
+    
+    private static var metatypePointer: UnsafeMutablePointer<ClutterLayoutManagerClass>? { g_type_class_peek_static(metatypeReference)?.assumingMemoryBound(to: ClutterLayoutManagerClass.self) }
+    
+    static var metatype: ClutterLayoutManagerClass? { metatypePointer?.pointee } 
+    
+    static var wrapper: LayoutManagerClassRef? { LayoutManagerClassRef(metatypePointer) }
+    
+    
+}
 
 // MARK: - LayoutManagerClass Record
 
@@ -957,161 +567,6 @@ public extension LayoutManagerClassRef {
     }
 
     }
-
-/// The `LayoutManagerClass` type acts as an owner of an underlying `ClutterLayoutManagerClass` instance.
-/// It provides the methods that can operate on this data type through `LayoutManagerClassProtocol` conformance.
-/// Use `LayoutManagerClass` as a strong reference or owner of a `ClutterLayoutManagerClass` instance.
-///
-/// The `ClutterLayoutManagerClass` structure contains only private
-/// data and should be accessed using the provided API
-open class LayoutManagerClass: LayoutManagerClassProtocol {
-        /// Untyped pointer to the underlying `ClutterLayoutManagerClass` instance.
-    /// For type-safe access, use the generated, typed pointer `_ptr` property instead.
-    public let ptr: UnsafeMutableRawPointer!
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafeMutablePointer<ClutterLayoutManagerClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-    }
-
-    /// Designated initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(_ op: UnsafePointer<ClutterLayoutManagerClass>) {
-        ptr = UnsafeMutableRawPointer(UnsafeMutablePointer(mutating: op))
-    }
-
-    /// Optional initialiser from a non-mutating `gpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: gpointer to the underlying object
-    @inlinable public init!(gpointer op: gpointer?) {
-        guard let p = UnsafeMutableRawPointer(op) else { return nil }
-        ptr = p
-    }
-
-    /// Optional initialiser from a non-mutating `gconstpointer` to
-    /// the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(gconstpointer op: gconstpointer?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Optional initialiser from a constant pointer to the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafePointer<ClutterLayoutManagerClass>?) {
-        guard let p = UnsafeMutablePointer(mutating: op) else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Optional initialiser from the underlying `C` data type.
-    /// This creates an instance without performing an unbalanced retain
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init!(_ op: UnsafeMutablePointer<ClutterLayoutManagerClass>?) {
-        guard let p = op else { return nil }
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Designated initialiser from the underlying `C` data type.
-    /// `ClutterLayoutManagerClass` does not allow reference counting, so despite the name no actual retaining will occur.
-    /// i.e., ownership is transferred to the `LayoutManagerClass` instance.
-    /// - Parameter op: pointer to the underlying object
-    @inlinable public init(retaining op: UnsafeMutablePointer<ClutterLayoutManagerClass>) {
-        ptr = UnsafeMutableRawPointer(op)
-        // no reference counting for ClutterLayoutManagerClass, cannot ref(_ptr)
-    }
-
-    /// Reference intialiser for a related type that implements `LayoutManagerClassProtocol`
-    /// `ClutterLayoutManagerClass` does not allow reference counting.
-    /// - Parameter other: an instance of a related type that implements `LayoutManagerClassProtocol`
-    @inlinable public init<T: LayoutManagerClassProtocol>(_ other: T) {
-        ptr = other.ptr
-        // no reference counting for ClutterLayoutManagerClass, cannot ref(_ptr)
-    }
-
-    /// Do-nothing destructor for `ClutterLayoutManagerClass`.
-    deinit {
-        // no reference counting for ClutterLayoutManagerClass, cannot unref(_ptr)
-    }
-
-    /// Unsafe typed initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(cPointer p: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe typed, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter cPointer: pointer to the underlying object
-    @inlinable public init<T>(retainingCPointer cPointer: UnsafeMutablePointer<T>) {
-        ptr = UnsafeMutableRawPointer(cPointer)
-        // no reference counting for ClutterLayoutManagerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter p: raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    @inlinable public init(retainingRaw raw: UnsafeRawPointer) {
-        ptr = UnsafeMutableRawPointer(mutating: raw)
-        // no reference counting for ClutterLayoutManagerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
-        ptr = p
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable public init(retainingRaw raw: UnsafeMutableRawPointer) {
-        ptr = raw
-        // no reference counting for ClutterLayoutManagerClass, cannot ref(_ptr)
-    }
-
-    /// Unsafe untyped initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(opaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-    }
-
-    /// Unsafe untyped, retaining initialiser.
-    /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerClassProtocol`.**
-    /// - Parameter p: opaque pointer to the underlying object
-    @inlinable public init(retainingOpaquePointer p: OpaquePointer) {
-        ptr = UnsafeMutableRawPointer(p)
-        // no reference counting for ClutterLayoutManagerClass, cannot ref(_ptr)
-    }
-
-
-
-}
-
-// MARK: no LayoutManagerClass properties
-
-// MARK: no LayoutManagerClass signals
-
 
 // MARK: LayoutManagerClass Record: LayoutManagerClassProtocol extension (methods and fields)
 public extension LayoutManagerClassProtocol {

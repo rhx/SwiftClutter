@@ -302,7 +302,7 @@ open class Event: EventProtocol {
 
 // MARK: no Event signals
 
-
+// MARK: Event has no signals
 // MARK: Event Union: EventProtocol extension (methods and fields)
 public extension EventProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterEvent` instance.
