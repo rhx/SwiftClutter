@@ -44,6 +44,8 @@ public protocol FlowLayoutClassProtocol {
     /// Typed pointer to the underlying `ClutterFlowLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterFlowLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `FlowLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterFlowLayoutClass` instance.
@@ -157,6 +159,8 @@ public protocol FogProtocol {
     /// Typed pointer to the underlying `ClutterFog` instance.
     var fog_ptr: UnsafeMutablePointer<ClutterFog>! { get }
 
+    /// Required Initialiser for types conforming to `FogProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FogRef` type acts as a lightweight Swift reference to an underlying `ClutterFog` instance.
@@ -360,7 +364,7 @@ open class Fog: FogProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FogProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -457,6 +461,8 @@ public protocol GeometryProtocol {
     /// Typed pointer to the underlying `ClutterGeometry` instance.
     var geometry_ptr: UnsafeMutablePointer<ClutterGeometry>! { get }
 
+    /// Required Initialiser for types conforming to `GeometryProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GeometryRef` type acts as a lightweight Swift reference to an underlying `ClutterGeometry` instance.
@@ -668,7 +674,7 @@ open class Geometry: GeometryProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GeometryProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

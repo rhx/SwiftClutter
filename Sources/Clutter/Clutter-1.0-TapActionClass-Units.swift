@@ -44,6 +44,8 @@ public protocol TapActionClassProtocol {
     /// Typed pointer to the underlying `ClutterTapActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTapActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `TapActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TapActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTapActionClass` instance.
@@ -187,6 +189,8 @@ public protocol TextBufferClassProtocol {
     /// Typed pointer to the underlying `ClutterTextBufferClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTextBufferClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextBufferClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextBufferClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTextBufferClass` instance.
@@ -343,6 +347,8 @@ public protocol TextClassProtocol {
     /// Typed pointer to the underlying `ClutterTextClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTextClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTextClass` instance.
@@ -493,6 +499,8 @@ public protocol TextNodeClassProtocol {
     /// Typed pointer to the underlying `ClutterTextNodeClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTextNodeClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextNodeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextNodeClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTextNodeClass` instance.
@@ -620,6 +628,8 @@ public protocol TextureClassProtocol {
     /// Typed pointer to the underlying `ClutterTextureClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTextureClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextureClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextureClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTextureClass` instance.
@@ -764,6 +774,8 @@ public protocol TextureNodeClassProtocol {
     /// Typed pointer to the underlying `ClutterTextureNodeClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTextureNodeClass>! { get }
 
+    /// Required Initialiser for types conforming to `TextureNodeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TextureNodeClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTextureNodeClass` instance.
@@ -891,6 +903,8 @@ public protocol TimelineClassProtocol {
     /// Typed pointer to the underlying `ClutterTimelineClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTimelineClass>! { get }
 
+    /// Required Initialiser for types conforming to `TimelineClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimelineClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTimelineClass` instance.
@@ -1024,6 +1038,8 @@ public protocol TimeoutPoolProtocol {
     /// Typed pointer to the underlying `ClutterTimeoutPool` instance.
     var _ptr: UnsafeMutablePointer<ClutterTimeoutPool>! { get }
 
+    /// Required Initialiser for types conforming to `TimeoutPoolProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TimeoutPoolRef` type acts as a lightweight Swift reference to an underlying `ClutterTimeoutPool` instance.
@@ -1229,7 +1245,7 @@ open class TimeoutPool: TimeoutPoolProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TimeoutPoolProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1334,6 +1350,8 @@ public protocol TouchEventProtocol {
     /// Typed pointer to the underlying `ClutterTouchEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterTouchEvent>! { get }
 
+    /// Required Initialiser for types conforming to `TouchEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TouchEventRef` type acts as a lightweight Swift reference to an underlying `ClutterTouchEvent` instance.
@@ -1559,7 +1577,7 @@ open class TouchEvent: TouchEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TouchEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1778,6 +1796,8 @@ public protocol TouchpadPinchEventProtocol {
     /// Typed pointer to the underlying `ClutterTouchpadPinchEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterTouchpadPinchEvent>! { get }
 
+    /// Required Initialiser for types conforming to `TouchpadPinchEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TouchpadPinchEventRef` type acts as a lightweight Swift reference to an underlying `ClutterTouchpadPinchEvent` instance.
@@ -1993,7 +2013,7 @@ open class TouchpadPinchEvent: TouchpadPinchEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TouchpadPinchEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2214,6 +2234,8 @@ public protocol TouchpadSwipeEventProtocol {
     /// Typed pointer to the underlying `ClutterTouchpadSwipeEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterTouchpadSwipeEvent>! { get }
 
+    /// Required Initialiser for types conforming to `TouchpadSwipeEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TouchpadSwipeEventRef` type acts as a lightweight Swift reference to an underlying `ClutterTouchpadSwipeEvent` instance.
@@ -2419,7 +2441,7 @@ open class TouchpadSwipeEvent: TouchpadSwipeEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TouchpadSwipeEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2639,6 +2661,8 @@ public protocol TransitionClassProtocol {
     /// Typed pointer to the underlying `ClutterTransitionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTransitionClass>! { get }
 
+    /// Required Initialiser for types conforming to `TransitionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TransitionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTransitionClass` instance.
@@ -2776,6 +2800,8 @@ public protocol TransitionGroupClassProtocol {
     /// Typed pointer to the underlying `ClutterTransitionGroupClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTransitionGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `TransitionGroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TransitionGroupClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTransitionGroupClass` instance.
@@ -2892,6 +2918,8 @@ public protocol UnitsProtocol {
     /// Typed pointer to the underlying `ClutterUnits` instance.
     var units_ptr: UnsafeMutablePointer<ClutterUnits>! { get }
 
+    /// Required Initialiser for types conforming to `UnitsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `UnitsRef` type acts as a lightweight Swift reference to an underlying `ClutterUnits` instance.
@@ -3097,7 +3125,7 @@ open class Units: UnitsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `UnitsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

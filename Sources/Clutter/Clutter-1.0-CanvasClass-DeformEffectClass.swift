@@ -44,6 +44,8 @@ public protocol CanvasClassProtocol {
     /// Typed pointer to the underlying `ClutterCanvasClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterCanvasClass>! { get }
 
+    /// Required Initialiser for types conforming to `CanvasClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CanvasClassRef` type acts as a lightweight Swift reference to an underlying `ClutterCanvasClass` instance.
@@ -176,6 +178,8 @@ public protocol ChildMetaClassProtocol {
     /// Typed pointer to the underlying `ClutterChildMetaClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterChildMetaClass>! { get }
 
+    /// Required Initialiser for types conforming to `ChildMetaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ChildMetaClassRef` type acts as a lightweight Swift reference to an underlying `ClutterChildMetaClass` instance.
@@ -304,6 +308,8 @@ public protocol ClickActionClassProtocol {
     /// Typed pointer to the underlying `ClutterClickActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterClickActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `ClickActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ClickActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterClickActionClass` instance.
@@ -451,6 +457,8 @@ public protocol ClipNodeClassProtocol {
     /// Typed pointer to the underlying `ClutterClipNodeClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterClipNodeClass>! { get }
 
+    /// Required Initialiser for types conforming to `ClipNodeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ClipNodeClassRef` type acts as a lightweight Swift reference to an underlying `ClutterClipNodeClass` instance.
@@ -578,6 +586,8 @@ public protocol CloneClassProtocol {
     /// Typed pointer to the underlying `ClutterCloneClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterCloneClass>! { get }
 
+    /// Required Initialiser for types conforming to `CloneClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CloneClassRef` type acts as a lightweight Swift reference to an underlying `ClutterCloneClass` instance.
@@ -698,6 +708,8 @@ public protocol ColorProtocol {
     /// Typed pointer to the underlying `ClutterColor` instance.
     var color_ptr: UnsafeMutablePointer<ClutterColor>! { get }
 
+    /// Required Initialiser for types conforming to `ColorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorRef` type acts as a lightweight Swift reference to an underlying `ClutterColor` instance.
@@ -927,7 +939,7 @@ open class Color: ColorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ColorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1017,10 +1029,10 @@ public extension ColorProtocol {
     
     }
 
-    /// Compares two `ClutterColor`<!-- -->s and checks if they are the same.
+    /// Compares two `ClutterColor`&lt;!-- --&gt;s and checks if they are the same.
     /// 
     /// This function can be passed to `g_hash_table_new()` as the `key_equal_func`
-    /// parameter, when using `ClutterColor`<!-- -->s as keys in a `GHashTable`.
+    /// parameter, when using `ClutterColor`&lt;!-- --&gt;s as keys in a `GHashTable`.
     @inlinable func equal<ColorT: ColorProtocol>(v2: ColorT) -> Bool {
         let rv = ((clutter_color_equal(color_ptr, v2.color_ptr)) != 0)
         return rv
@@ -1035,7 +1047,7 @@ public extension ColorProtocol {
     /// Converts a `ClutterColor` to a hash value.
     /// 
     /// This function can be passed to `g_hash_table_new()` as the `hash_func`
-    /// parameter, when using `ClutterColor`<!-- -->s as keys in a `GHashTable`.
+    /// parameter, when using `ClutterColor`&lt;!-- --&gt;s as keys in a `GHashTable`.
     @inlinable func hash() -> Int {
         let rv = Int(clutter_color_hash(color_ptr))
         return rv
@@ -1047,7 +1059,7 @@ public extension ColorProtocol {
         return rv
     }
 
-    /// Interpolates between `initial` and `final` `ClutterColor`<!-- -->s
+    /// Interpolates between `initial` and `final` `ClutterColor`&lt;!-- --&gt;s
     /// using `progress`
     @inlinable func interpolate<ColorT: ColorProtocol>(`final`: ColorT, progress: Double, result: ColorT) {
         clutter_color_interpolate(color_ptr, `final`.color_ptr, gdouble(progress), result.color_ptr)
@@ -1096,8 +1108,8 @@ public extension ColorProtocol {
     }
 
     /// Returns a textual specification of `color` in the hexadecimal form
-    /// <literal>&num;rrggbbaa</literal>, where <literal>r</literal>,
-    /// <literal>g</literal>, <literal>b</literal> and <literal>a</literal> are
+    /// &lt;literal&gt;&num;rrggbbaa&lt;/literal&gt;, where &lt;literal&gt;r&lt;/literal&gt;,
+    /// &lt;literal&gt;g&lt;/literal&gt;, &lt;literal&gt;b&lt;/literal&gt; and &lt;literal&gt;a&lt;/literal&gt; are
     /// hexadecimal digits representing the red, green, blue and alpha components
     /// respectively.
     @inlinable func toString() -> String! {
@@ -1334,6 +1346,8 @@ public protocol ColorNodeClassProtocol {
     /// Typed pointer to the underlying `ClutterColorNodeClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterColorNodeClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorNodeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorNodeClassRef` type acts as a lightweight Swift reference to an underlying `ClutterColorNodeClass` instance.
@@ -1461,6 +1475,8 @@ public protocol ColorizeEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterColorizeEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterColorizeEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `ColorizeEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ColorizeEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterColorizeEffectClass` instance.
@@ -1588,6 +1604,8 @@ public protocol ConstraintClassProtocol {
     /// Typed pointer to the underlying `ClutterConstraintClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterConstraintClass>! { get }
 
+    /// Required Initialiser for types conforming to `ConstraintClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ConstraintClassRef` type acts as a lightweight Swift reference to an underlying `ClutterConstraintClass` instance.
@@ -1736,6 +1754,8 @@ public protocol ContainerIfaceProtocol {
     /// Typed pointer to the underlying `ClutterContainerIface` instance.
     var _ptr: UnsafeMutablePointer<ClutterContainerIface>! { get }
 
+    /// Required Initialiser for types conforming to `ContainerIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContainerIfaceRef` type acts as a lightweight Swift reference to an underlying `ClutterContainerIface` instance.
@@ -1903,6 +1923,8 @@ public protocol ContentIfaceProtocol {
     /// Typed pointer to the underlying `ClutterContentIface` instance.
     var _ptr: UnsafeMutablePointer<ClutterContentIface>! { get }
 
+    /// Required Initialiser for types conforming to `ContentIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentIfaceRef` type acts as a lightweight Swift reference to an underlying `ClutterContentIface` instance.
@@ -2026,6 +2048,8 @@ public protocol CrossingEventProtocol {
     /// Typed pointer to the underlying `ClutterCrossingEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterCrossingEvent>! { get }
 
+    /// Required Initialiser for types conforming to `CrossingEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CrossingEventRef` type acts as a lightweight Swift reference to an underlying `ClutterCrossingEvent` instance.
@@ -2229,7 +2253,7 @@ open class CrossingEvent: CrossingEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `CrossingEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2426,6 +2450,8 @@ public protocol DeformEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterDeformEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterDeformEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `DeformEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DeformEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterDeformEffectClass` instance.

@@ -43,6 +43,8 @@ public protocol RectangleClassProtocol {
     /// Typed pointer to the underlying `ClutterRectangleClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterRectangleClass>! { get }
 
+    /// Required Initialiser for types conforming to `RectangleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RectangleClassRef` type acts as a lightweight Swift reference to an underlying `ClutterRectangleClass` instance.
@@ -179,6 +181,8 @@ public protocol RotateActionClassProtocol {
     /// Typed pointer to the underlying `ClutterRotateActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterRotateActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `RotateActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RotateActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterRotateActionClass` instance.
@@ -323,6 +327,8 @@ public protocol ScoreClassProtocol {
     /// Typed pointer to the underlying `ClutterScoreClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterScoreClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScoreClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScoreClassRef` type acts as a lightweight Swift reference to an underlying `ClutterScoreClass` instance.

@@ -30,6 +30,8 @@ public protocol ModelIterProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterModelIter` instance.
     var model_iter_ptr: UnsafeMutablePointer<ClutterModelIter>! { get }
 
+    /// Required Initialiser for types conforming to `ModelIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ModelIterRef` type acts as a lightweight Swift reference to an underlying `ClutterModelIter` instance.
@@ -227,14 +229,14 @@ open class ModelIter: GLibObject.Object, ModelIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelIterProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -550,6 +552,8 @@ public protocol OffscreenEffectProtocol: EffectProtocol {
     /// Typed pointer to the underlying `ClutterOffscreenEffect` instance.
     var offscreen_effect_ptr: UnsafeMutablePointer<ClutterOffscreenEffect>! { get }
 
+    /// Required Initialiser for types conforming to `OffscreenEffectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OffscreenEffectRef` type acts as a lightweight Swift reference to an underlying `ClutterOffscreenEffect` instance.
@@ -745,14 +749,14 @@ open class OffscreenEffect: Effect, OffscreenEffectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `OffscreenEffectProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 

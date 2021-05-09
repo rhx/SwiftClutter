@@ -30,6 +30,8 @@ public protocol MatrixProtocol {
     /// Typed pointer to the underlying `ClutterMatrix` instance.
     var matrix_ptr: UnsafeMutablePointer<ClutterMatrix>! { get }
 
+    /// Required Initialiser for types conforming to `MatrixProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MatrixRef` type acts as a lightweight Swift reference to an underlying `ClutterMatrix` instance.
@@ -242,7 +244,7 @@ open class Matrix: MatrixProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MatrixProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -357,6 +359,8 @@ public protocol MediaIfaceProtocol {
     /// Typed pointer to the underlying `ClutterMediaIface` instance.
     var _ptr: UnsafeMutablePointer<ClutterMediaIface>! { get }
 
+    /// Required Initialiser for types conforming to `MediaIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaIfaceRef` type acts as a lightweight Swift reference to an underlying `ClutterMediaIface` instance.
@@ -488,6 +492,8 @@ public protocol ModelClassProtocol {
     /// Typed pointer to the underlying `ClutterModelClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `ModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ModelClassRef` type acts as a lightweight Swift reference to an underlying `ClutterModelClass` instance.
@@ -657,6 +663,8 @@ public protocol ModelIterClassProtocol {
     /// Typed pointer to the underlying `ClutterModelIterClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterModelIterClass>! { get }
 
+    /// Required Initialiser for types conforming to `ModelIterClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ModelIterClassRef` type acts as a lightweight Swift reference to an underlying `ClutterModelIterClass` instance.
@@ -803,6 +811,8 @@ public protocol MotionEventProtocol {
     /// Typed pointer to the underlying `ClutterMotionEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterMotionEvent>! { get }
 
+    /// Required Initialiser for types conforming to `MotionEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MotionEventRef` type acts as a lightweight Swift reference to an underlying `ClutterMotionEvent` instance.
@@ -1006,7 +1016,7 @@ open class MotionEvent: MotionEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MotionEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1215,6 +1225,8 @@ public protocol OffscreenEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterOffscreenEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterOffscreenEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `OffscreenEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `OffscreenEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterOffscreenEffectClass` instance.

@@ -29,6 +29,8 @@ public protocol LayoutManagerProtocol: GLibObject.InitiallyUnownedProtocol {
     /// Typed pointer to the underlying `ClutterLayoutManager` instance.
     var layout_manager_ptr: UnsafeMutablePointer<ClutterLayoutManager>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutManagerRef` type acts as a lightweight Swift reference to an underlying `ClutterLayoutManager` instance.
@@ -224,14 +226,14 @@ open class LayoutManager: GLibObject.InitiallyUnowned, LayoutManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -256,9 +258,9 @@ open class LayoutManager: GLibObject.InitiallyUnowned, LayoutManagerProtocol {
 // MARK: no LayoutManager properties
 
 public enum LayoutManagerSignalName: String, SignalNameProtocol {
-    /// The `layout`-changed signal is emitted each time a layout manager
+    /// The `layout-changed` signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the `layout`-changed
+    /// as a layout manager should connect a handler to the `layout-changed`
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -276,7 +278,7 @@ public enum LayoutManagerSignalName: String, SignalNameProtocol {
     /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// `layout`-changed signal whenever one of the parameters changes,
+    /// `layout-changed` signal whenever one of the parameters changes,
     /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -335,9 +337,9 @@ public extension LayoutManagerProtocol {
     }
     
     
-    /// The `layout`-changed signal is emitted each time a layout manager
+    /// The `layout-changed` signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the `layout`-changed
+    /// as a layout manager should connect a handler to the `layout-changed`
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -355,7 +357,7 @@ public extension LayoutManagerProtocol {
     /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// `layout`-changed signal whenever one of the parameters changes,
+    /// `layout-changed` signal whenever one of the parameters changes,
     /// by using `clutter_layout_manager_layout_changed()`.
     /// - Note: This represents the underlying `layout-changed` signal
     /// - Parameter flags: Flags
@@ -495,7 +497,7 @@ public extension LayoutManagerProtocol {
     
     }
 
-    /// Emits the `ClutterLayoutManager::layout`-changed signal on `manager`
+    /// Emits the `ClutterLayoutManager::layout-changed` signal on `manager`
     /// 
     /// This function should only be called by implementations of the
     /// `ClutterLayoutManager` class
@@ -504,7 +506,7 @@ public extension LayoutManagerProtocol {
     
     }
 
-    /// Retrieves all the `GParamSpec`<!-- -->s for the layout properties
+    /// Retrieves all the `GParamSpec`&lt;!-- --&gt;s for the layout properties
     /// stored inside the `ClutterLayoutMeta` sub-class used by `manager`
     @inlinable func listChildProperties(nPspecs: UnsafeMutablePointer<guint>!) -> UnsafeMutablePointer<UnsafeMutablePointer<GParamSpec>?>! {
         let rv = clutter_layout_manager_list_child_properties(layout_manager_ptr, nPspecs)
@@ -581,6 +583,8 @@ public protocol LayoutMetaProtocol: ChildMetaProtocol {
     /// Typed pointer to the underlying `ClutterLayoutMeta` instance.
     var layout_meta_ptr: UnsafeMutablePointer<ClutterLayoutMeta>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutMetaProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutMetaRef` type acts as a lightweight Swift reference to an underlying `ClutterLayoutMeta` instance.
@@ -782,14 +786,14 @@ open class LayoutMeta: ChildMeta, LayoutMetaProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutMetaProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `LayoutMetaProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -961,6 +965,8 @@ public protocol ListModelProtocol: ModelProtocol {
     /// Typed pointer to the underlying `ClutterListModel` instance.
     var list_model_ptr: UnsafeMutablePointer<ClutterListModel>! { get }
 
+    /// Required Initialiser for types conforming to `ListModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListModelRef` type acts as a lightweight Swift reference to an underlying `ClutterListModel` instance.
@@ -1176,14 +1182,14 @@ open class ListModel: Model, ListModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ListModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1294,7 +1300,7 @@ public extension ListModelProtocol {
 }
 
 public enum ListModelSignalName: String, SignalNameProtocol {
-    /// The `filter`-changed signal is emitted when a new filter has been applied
+    /// The `filter-changed` signal is emitted when a new filter has been applied
     ///
     /// **filter-changed is deprecated:**
     /// Use #GListModel instead
@@ -1324,28 +1330,28 @@ public enum ListModelSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `row`-added signal is emitted when a new row has been added.
-    /// The data on the row has already been set when the `row`-added signal
+    /// The `row-added` signal is emitted when a new row has been added.
+    /// The data on the row has already been set when the `row-added` signal
     /// has been emitted.
     ///
     /// **row-added is deprecated:**
     /// Use #GListModel instead
     case rowAdded = "row-added"
-    /// The `row`-removed signal is emitted when a row has been changed.
-    /// The data on the row has already been updated when the `row`-changed
+    /// The `row-removed` signal is emitted when a row has been changed.
+    /// The data on the row has already been updated when the `row-changed`
     /// signal has been emitted.
     ///
     /// **row-changed is deprecated:**
     /// Use #GListModel instead
     case rowChanged = "row-changed"
-    /// The `row`-removed signal is emitted when a row has been removed.
+    /// The `row-removed` signal is emitted when a row has been removed.
     /// The data on the row pointed by the passed iterator is still valid
-    /// when the `row`-removed signal has been emitted.
+    /// when the `row-removed` signal has been emitted.
     ///
     /// **row-removed is deprecated:**
     /// Use #GListModel instead
     case rowRemoved = "row-removed"
-    /// The `sort`-changed signal is emitted after the model has been sorted
+    /// The `sort-changed` signal is emitted after the model has been sorted
     ///
     /// **sort-changed is deprecated:**
     /// Use #GListModel instead
@@ -1392,6 +1398,8 @@ public protocol ModelProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
     /// Typed pointer to the underlying `ClutterModel` instance.
     var model_ptr: UnsafeMutablePointer<ClutterModel>! { get }
 
+    /// Required Initialiser for types conforming to `ModelProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ModelRef` type acts as a lightweight Swift reference to an underlying `ClutterModel` instance.
@@ -1589,14 +1597,14 @@ open class Model: GLibObject.Object, ModelProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ModelProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1683,7 +1691,7 @@ public extension ModelProtocol {
 }
 
 public enum ModelSignalName: String, SignalNameProtocol {
-    /// The `filter`-changed signal is emitted when a new filter has been applied
+    /// The `filter-changed` signal is emitted when a new filter has been applied
     ///
     /// **filter-changed is deprecated:**
     /// Use #GListModel instead
@@ -1713,28 +1721,28 @@ public enum ModelSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `row`-added signal is emitted when a new row has been added.
-    /// The data on the row has already been set when the `row`-added signal
+    /// The `row-added` signal is emitted when a new row has been added.
+    /// The data on the row has already been set when the `row-added` signal
     /// has been emitted.
     ///
     /// **row-added is deprecated:**
     /// Use #GListModel instead
     case rowAdded = "row-added"
-    /// The `row`-removed signal is emitted when a row has been changed.
-    /// The data on the row has already been updated when the `row`-changed
+    /// The `row-removed` signal is emitted when a row has been changed.
+    /// The data on the row has already been updated when the `row-changed`
     /// signal has been emitted.
     ///
     /// **row-changed is deprecated:**
     /// Use #GListModel instead
     case rowChanged = "row-changed"
-    /// The `row`-removed signal is emitted when a row has been removed.
+    /// The `row-removed` signal is emitted when a row has been removed.
     /// The data on the row pointed by the passed iterator is still valid
-    /// when the `row`-removed signal has been emitted.
+    /// when the `row-removed` signal has been emitted.
     ///
     /// **row-removed is deprecated:**
     /// Use #GListModel instead
     case rowRemoved = "row-removed"
-    /// The `sort`-changed signal is emitted after the model has been sorted
+    /// The `sort-changed` signal is emitted after the model has been sorted
     ///
     /// **sort-changed is deprecated:**
     /// Use #GListModel instead
@@ -1777,7 +1785,7 @@ public extension ModelProtocol {
     }
     
     
-    /// The `filter`-changed signal is emitted when a new filter has been applied
+    /// The `filter-changed` signal is emitted when a new filter has been applied
     /// - Note: This represents the underlying `filter-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1802,8 +1810,8 @@ public extension ModelProtocol {
     /// Typed `filter-changed` signal for using the `connect(signal:)` methods
     static var filterChangedSignal: ModelSignalName { .filterChanged }
     
-    /// The `row`-added signal is emitted when a new row has been added.
-    /// The data on the row has already been set when the `row`-added signal
+    /// The `row-added` signal is emitted when a new row has been added.
+    /// The data on the row has already been set when the `row-added` signal
     /// has been emitted.
     /// - Note: This represents the underlying `row-added` signal
     /// - Parameter flags: Flags
@@ -1830,8 +1838,8 @@ public extension ModelProtocol {
     /// Typed `row-added` signal for using the `connect(signal:)` methods
     static var rowAddedSignal: ModelSignalName { .rowAdded }
     
-    /// The `row`-removed signal is emitted when a row has been changed.
-    /// The data on the row has already been updated when the `row`-changed
+    /// The `row-removed` signal is emitted when a row has been changed.
+    /// The data on the row has already been updated when the `row-changed`
     /// signal has been emitted.
     /// - Note: This represents the underlying `row-changed` signal
     /// - Parameter flags: Flags
@@ -1858,9 +1866,9 @@ public extension ModelProtocol {
     /// Typed `row-changed` signal for using the `connect(signal:)` methods
     static var rowChangedSignal: ModelSignalName { .rowChanged }
     
-    /// The `row`-removed signal is emitted when a row has been removed.
+    /// The `row-removed` signal is emitted when a row has been removed.
     /// The data on the row pointed by the passed iterator is still valid
-    /// when the `row`-removed signal has been emitted.
+    /// when the `row-removed` signal has been emitted.
     /// - Note: This represents the underlying `row-removed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self
@@ -1886,7 +1894,7 @@ public extension ModelProtocol {
     /// Typed `row-removed` signal for using the `connect(signal:)` methods
     static var rowRemovedSignal: ModelSignalName { .rowRemoved }
     
-    /// The `sort`-changed signal is emitted after the model has been sorted
+    /// The `sort-changed` signal is emitted after the model has been sorted
     /// - Note: This represents the underlying `sort-changed` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self

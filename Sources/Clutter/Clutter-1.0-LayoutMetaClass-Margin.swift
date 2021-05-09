@@ -44,6 +44,8 @@ public protocol LayoutMetaClassProtocol {
     /// Typed pointer to the underlying `ClutterLayoutMetaClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterLayoutMetaClass>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutMetaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutMetaClassRef` type acts as a lightweight Swift reference to an underlying `ClutterLayoutMetaClass` instance.
@@ -180,6 +182,8 @@ public protocol ListModelClassProtocol {
     /// Typed pointer to the underlying `ClutterListModelClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterListModelClass>! { get }
 
+    /// Required Initialiser for types conforming to `ListModelClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ListModelClassRef` type acts as a lightweight Swift reference to an underlying `ClutterListModelClass` instance.
@@ -292,6 +296,8 @@ public protocol MarginProtocol {
     /// Typed pointer to the underlying `ClutterMargin` instance.
     var margin_ptr: UnsafeMutablePointer<ClutterMargin>! { get }
 
+    /// Required Initialiser for types conforming to `MarginProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MarginRef` type acts as a lightweight Swift reference to an underlying `ClutterMargin` instance.
@@ -500,7 +506,7 @@ open class Margin: MarginProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MarginProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

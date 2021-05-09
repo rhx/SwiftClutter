@@ -43,6 +43,8 @@ public protocol InputDeviceClassProtocol {
     /// Typed pointer to the underlying `ClutterInputDeviceClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterInputDeviceClass>! { get }
 
+    /// Required Initialiser for types conforming to `InputDeviceClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InputDeviceClassRef` type acts as a lightweight Swift reference to an underlying `ClutterInputDeviceClass` instance.
@@ -169,6 +171,8 @@ public protocol IntervalClassProtocol {
     /// Typed pointer to the underlying `ClutterIntervalClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterIntervalClass>! { get }
 
+    /// Required Initialiser for types conforming to `IntervalClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IntervalClassRef` type acts as a lightweight Swift reference to an underlying `ClutterIntervalClass` instance.
@@ -297,6 +301,8 @@ public protocol KeyEventProtocol {
     /// Typed pointer to the underlying `ClutterKeyEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterKeyEvent>! { get }
 
+    /// Required Initialiser for types conforming to `KeyEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyEventRef` type acts as a lightweight Swift reference to an underlying `ClutterKeyEvent` instance.
@@ -500,7 +506,7 @@ open class KeyEvent: KeyEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

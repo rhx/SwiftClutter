@@ -28,6 +28,8 @@ public protocol EventProtocol {
     /// Typed pointer to the underlying `ClutterEvent` instance.
     var event_ptr: UnsafeMutablePointer<ClutterEvent>! { get }
 
+    /// Required Initialiser for types conforming to `EventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventRef` type acts as a lightweight Swift reference to an underlying `ClutterEvent` instance.
@@ -249,7 +251,7 @@ open class Event: EventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

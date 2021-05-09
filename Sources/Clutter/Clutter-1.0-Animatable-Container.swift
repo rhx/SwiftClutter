@@ -29,6 +29,8 @@ public protocol AnimatableProtocol {
     /// Typed pointer to the underlying `ClutterAnimatable` instance.
     var animatable_ptr: UnsafeMutablePointer<ClutterAnimatable>! { get }
 
+    /// Required Initialiser for types conforming to `AnimatableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnimatableRef` type acts as a lightweight Swift reference to an underlying `ClutterAnimatable` instance.
@@ -234,7 +236,7 @@ open class Animatable: AnimatableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -277,7 +279,7 @@ public extension AnimatableProtocol {
 
     /// Calls the `animate_property()` virtual function for `animatable`.
     /// 
-    /// The `initial_value` and `final_value` `GValue`<!-- -->s must contain
+    /// The `initial_value` and `final_value` `GValue`&lt;!-- --&gt;s must contain
     /// the same type; `value` must have been initialized to the same
     /// type of `initial_value` and `final_value`.
     /// 
@@ -310,7 +312,7 @@ public extension AnimatableProtocol {
     /// value, and store the result inside `value`.
     /// 
     /// This function should be used for every property animation
-    /// involving `ClutterAnimatable`<!-- -->s.
+    /// involving `ClutterAnimatable`&lt;!-- --&gt;s.
     /// 
     /// This function replaces `clutter_animatable_animate_property()`.
     @inlinable func interpolateValue<IntervalT: IntervalProtocol, ValueT: GLibObject.ValueProtocol>(propertyName: UnsafePointer<gchar>!, interval: IntervalT, progress: Double, value: ValueT) -> Bool {
@@ -345,6 +347,8 @@ public protocol ContainerProtocol {
     /// Typed pointer to the underlying `ClutterContainer` instance.
     var container_ptr: UnsafeMutablePointer<ClutterContainer>! { get }
 
+    /// Required Initialiser for types conforming to `ContainerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContainerRef` type acts as a lightweight Swift reference to an underlying `ClutterContainer` instance.
@@ -550,7 +554,7 @@ open class Container: ContainerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContainerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -584,13 +588,13 @@ open class Container: ContainerProtocol {
 // MARK: no Container properties
 
 public enum ContainerSignalName: String, SignalNameProtocol {
-    /// The `actor`-added signal is emitted each time an actor
+    /// The `actor-added` signal is emitted each time an actor
     /// has been added to `container`.
     case actorAdded = "actor-added"
-    /// The `actor`-removed signal is emitted each time an actor
+    /// The `actor-removed` signal is emitted each time an actor
     /// is removed from `container`.
     case actorRemoved = "actor-removed"
-    /// The `child`-notify signal is emitted each time a property is
+    /// The `child-notify` signal is emitted each time a property is
     /// being set through the `clutter_container_child_set()` and
     /// `clutter_container_child_set_property()` calls.
     case childNotify = "child-notify"
@@ -625,7 +629,7 @@ public extension ContainerProtocol {
     }
     
     
-    /// The `actor`-added signal is emitted each time an actor
+    /// The `actor-added` signal is emitted each time an actor
     /// has been added to `container`.
     /// - Note: This represents the underlying `actor-added` signal
     /// - Parameter flags: Flags
@@ -652,7 +656,7 @@ public extension ContainerProtocol {
     /// Typed `actor-added` signal for using the `connect(signal:)` methods
     static var actorAddedSignal: ContainerSignalName { .actorAdded }
     
-    /// The `actor`-removed signal is emitted each time an actor
+    /// The `actor-removed` signal is emitted each time an actor
     /// is removed from `container`.
     /// - Note: This represents the underlying `actor-removed` signal
     /// - Parameter flags: Flags
@@ -679,7 +683,7 @@ public extension ContainerProtocol {
     /// Typed `actor-removed` signal for using the `connect(signal:)` methods
     static var actorRemovedSignal: ContainerSignalName { .actorRemoved }
     
-    /// The `child`-notify signal is emitted each time a property is
+    /// The `child-notify` signal is emitted each time a property is
     /// being set through the `clutter_container_child_set()` and
     /// `clutter_container_child_set_property()` calls.
     /// - Note: This represents the underlying `child-notify` signal
@@ -767,7 +771,7 @@ public extension ContainerProtocol {
 
     /// Calls the `ClutterContainerIface.child_notify``()` virtual function
     /// of `ClutterContainer`. The default implementation will emit the
-    /// `ClutterContainer::child`-notify signal.
+    /// `ClutterContainer::child-notify` signal.
     @inlinable func childNotify<ActorT: ActorProtocol, ParamSpecT: GLibObject.ParamSpecProtocol>(child: ActorT, pspec: ParamSpecT) {
         clutter_container_child_notify(container_ptr, child.actor_ptr, pspec.param_spec_ptr)
     

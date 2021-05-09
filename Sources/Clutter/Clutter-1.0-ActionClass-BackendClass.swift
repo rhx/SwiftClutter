@@ -43,6 +43,8 @@ public protocol ActionClassProtocol {
     /// Typed pointer to the underlying `ClutterActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `ActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterActionClass` instance.
@@ -173,6 +175,8 @@ public protocol ActorBoxProtocol {
     /// Typed pointer to the underlying `ClutterActorBox` instance.
     var actor_box_ptr: UnsafeMutablePointer<ClutterActorBox>! { get }
 
+    /// Required Initialiser for types conforming to `ActorBoxProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActorBoxRef` type acts as a lightweight Swift reference to an underlying `ClutterActorBox` instance.
@@ -400,7 +404,7 @@ open class ActorBox: ActorBoxProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorBoxProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -554,7 +558,7 @@ public extension ActorBoxProtocol {
     
     }
 
-    /// Interpolates between `initial` and `final` `ClutterActorBox`<!-- -->es
+    /// Interpolates between `initial` and `final` `ClutterActorBox`&lt;!-- --&gt;es
     /// using `progress`
     @inlinable func interpolate<ActorBoxT: ActorBoxProtocol>(`final`: ActorBoxT, progress: Double, result: ActorBoxT) {
         clutter_actor_box_interpolate(actor_box_ptr, `final`.actor_box_ptr, gdouble(progress), result.actor_box_ptr)
@@ -709,6 +713,8 @@ public protocol ActorClassProtocol {
     /// Typed pointer to the underlying `ClutterActorClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterActorClass>! { get }
 
+    /// Required Initialiser for types conforming to `ActorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActorClassRef` type acts as a lightweight Swift reference to an underlying `ClutterActorClass` instance.
@@ -897,6 +903,8 @@ public protocol ActorIterProtocol {
     /// Typed pointer to the underlying `ClutterActorIter` instance.
     var _ptr: UnsafeMutablePointer<ClutterActorIter>! { get }
 
+    /// Required Initialiser for types conforming to `ActorIterProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActorIterRef` type acts as a lightweight Swift reference to an underlying `ClutterActorIter` instance.
@@ -1108,7 +1116,7 @@ open class ActorIter: ActorIterProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ActorIterProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1286,6 +1294,8 @@ public protocol ActorMetaClassProtocol {
     /// Typed pointer to the underlying `ClutterActorMetaClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterActorMetaClass>! { get }
 
+    /// Required Initialiser for types conforming to `ActorMetaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ActorMetaClassRef` type acts as a lightweight Swift reference to an underlying `ClutterActorMetaClass` instance.
@@ -1430,6 +1440,8 @@ public protocol AlignConstraintClassProtocol {
     /// Typed pointer to the underlying `ClutterAlignConstraintClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterAlignConstraintClass>! { get }
 
+    /// Required Initialiser for types conforming to `AlignConstraintClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AlignConstraintClassRef` type acts as a lightweight Swift reference to an underlying `ClutterAlignConstraintClass` instance.
@@ -1556,6 +1568,8 @@ public protocol AlphaClassProtocol {
     /// Typed pointer to the underlying `ClutterAlphaClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterAlphaClass>! { get }
 
+    /// Required Initialiser for types conforming to `AlphaClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AlphaClassRef` type acts as a lightweight Swift reference to an underlying `ClutterAlphaClass` instance.
@@ -1685,7 +1699,7 @@ public extension AnimatableIfaceRef {
 /// For a concrete class that implements these methods and properties, see `AnimatableIface`.
 /// Alternatively, use `AnimatableIfaceRef` as a lighweight, `unowned` reference if you already have an instance you just want to use.
 ///
-/// Base interface for `GObject`<!-- -->s that can be animated by a
+/// Base interface for `GObject`&lt;!-- --&gt;s that can be animated by a
 /// a `ClutterAnimation`.
 public protocol AnimatableIfaceProtocol {
         /// Untyped pointer to the underlying `ClutterAnimatableIface` instance.
@@ -1694,13 +1708,15 @@ public protocol AnimatableIfaceProtocol {
     /// Typed pointer to the underlying `ClutterAnimatableIface` instance.
     var _ptr: UnsafeMutablePointer<ClutterAnimatableIface>! { get }
 
+    /// Required Initialiser for types conforming to `AnimatableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnimatableIfaceRef` type acts as a lightweight Swift reference to an underlying `ClutterAnimatableIface` instance.
 /// It exposes methods that can operate on this data type through `AnimatableIfaceProtocol` conformance.
 /// Use `AnimatableIfaceRef` only as an `unowned` reference to an existing `ClutterAnimatableIface` instance.
 ///
-/// Base interface for `GObject`<!-- -->s that can be animated by a
+/// Base interface for `GObject`&lt;!-- --&gt;s that can be animated by a
 /// a `ClutterAnimation`.
 public struct AnimatableIfaceRef: AnimatableIfaceProtocol {
         /// Untyped pointer to the underlying `ClutterAnimatableIface` instance.
@@ -1833,6 +1849,8 @@ public protocol AnimationClassProtocol {
     /// Typed pointer to the underlying `ClutterAnimationClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterAnimationClass>! { get }
 
+    /// Required Initialiser for types conforming to `AnimationClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnimationClassRef` type acts as a lightweight Swift reference to an underlying `ClutterAnimationClass` instance.
@@ -1981,6 +1999,8 @@ public protocol AnimatorClassProtocol {
     /// Typed pointer to the underlying `ClutterAnimatorClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterAnimatorClass>! { get }
 
+    /// Required Initialiser for types conforming to `AnimatorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnimatorClassRef` type acts as a lightweight Swift reference to an underlying `ClutterAnimatorClass` instance.
@@ -2095,6 +2115,8 @@ public protocol AnimatorKeyProtocol {
     /// Typed pointer to the underlying `ClutterAnimatorKey` instance.
     var animator_key_ptr: UnsafeMutablePointer<ClutterAnimatorKey>! { get }
 
+    /// Required Initialiser for types conforming to `AnimatorKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnimatorKeyRef` type acts as a lightweight Swift reference to an underlying `ClutterAnimatorKey` instance.
@@ -2298,7 +2320,7 @@ open class AnimatorKey: AnimatorKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnimatorKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2511,6 +2533,8 @@ public protocol AnyEventProtocol {
     /// Typed pointer to the underlying `ClutterAnyEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterAnyEvent>! { get }
 
+    /// Required Initialiser for types conforming to `AnyEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `AnyEventRef` type acts as a lightweight Swift reference to an underlying `ClutterAnyEvent` instance.
@@ -2714,7 +2738,7 @@ open class AnyEvent: AnyEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `AnyEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2852,6 +2876,8 @@ public protocol BackendClassProtocol {
     /// Typed pointer to the underlying `ClutterBackendClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBackendClass>! { get }
 
+    /// Required Initialiser for types conforming to `BackendClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BackendClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBackendClass` instance.

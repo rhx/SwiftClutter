@@ -28,6 +28,8 @@ public protocol VertexProtocol {
     /// Typed pointer to the underlying `ClutterVertex` instance.
     var vertex_ptr: UnsafeMutablePointer<ClutterVertex>! { get }
 
+    /// Required Initialiser for types conforming to `VertexProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `VertexRef` type acts as a lightweight Swift reference to an underlying `ClutterVertex` instance.
@@ -249,7 +251,7 @@ open class Vertex: VertexProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `VertexProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -407,6 +409,8 @@ public protocol ZoomActionClassProtocol {
     /// Typed pointer to the underlying `ClutterZoomActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterZoomActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `ZoomActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ZoomActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterZoomActionClass` instance.

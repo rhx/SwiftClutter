@@ -43,6 +43,8 @@ public protocol BehaviourClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourClass` instance.
@@ -188,6 +190,8 @@ public protocol BehaviourDepthClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourDepthClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourDepthClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourDepthClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourDepthClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourDepthClass` instance.
@@ -315,6 +319,8 @@ public protocol BehaviourEllipseClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourEllipseClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourEllipseClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourEllipseClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourEllipseClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourEllipseClass` instance.
@@ -442,6 +448,8 @@ public protocol BehaviourOpacityClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourOpacityClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourOpacityClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourOpacityClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourOpacityClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourOpacityClass` instance.
@@ -569,6 +577,8 @@ public protocol BehaviourPathClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourPathClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourPathClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourPathClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourPathClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourPathClass` instance.
@@ -706,6 +716,8 @@ public protocol BehaviourRotateClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourRotateClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourRotateClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourRotateClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourRotateClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourRotateClass` instance.
@@ -833,6 +845,8 @@ public protocol BehaviourScaleClassProtocol {
     /// Typed pointer to the underlying `ClutterBehaviourScaleClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBehaviourScaleClass>! { get }
 
+    /// Required Initialiser for types conforming to `BehaviourScaleClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BehaviourScaleClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBehaviourScaleClass` instance.
@@ -961,6 +975,8 @@ public protocol BinLayoutClassProtocol {
     /// Typed pointer to the underlying `ClutterBinLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBinLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `BinLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BinLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBinLayoutClass` instance.
@@ -1089,6 +1105,8 @@ public protocol BindConstraintClassProtocol {
     /// Typed pointer to the underlying `ClutterBindConstraintClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBindConstraintClass>! { get }
 
+    /// Required Initialiser for types conforming to `BindConstraintClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindConstraintClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBindConstraintClass` instance.
@@ -1215,6 +1233,8 @@ public protocol BindingPoolClassProtocol {
     /// Typed pointer to the underlying `ClutterBindingPoolClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBindingPoolClass>! { get }
 
+    /// Required Initialiser for types conforming to `BindingPoolClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BindingPoolClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBindingPoolClass` instance.
@@ -1341,6 +1361,8 @@ public protocol BlurEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterBlurEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBlurEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `BlurEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BlurEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBlurEffectClass` instance.
@@ -1467,6 +1489,8 @@ public protocol BoxClassProtocol {
     /// Typed pointer to the underlying `ClutterBoxClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBoxClass>! { get }
 
+    /// Required Initialiser for types conforming to `BoxClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BoxClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBoxClass` instance.
@@ -1607,6 +1631,8 @@ public protocol BoxLayoutClassProtocol {
     /// Typed pointer to the underlying `ClutterBoxLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBoxLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `BoxLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BoxLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBoxLayoutClass` instance.
@@ -1735,6 +1761,8 @@ public protocol BrightnessContrastEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterBrightnessContrastEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterBrightnessContrastEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `BrightnessContrastEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `BrightnessContrastEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterBrightnessContrastEffectClass` instance.
@@ -1850,6 +1878,8 @@ public protocol ButtonEventProtocol {
     /// Typed pointer to the underlying `ClutterButtonEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterButtonEvent>! { get }
 
+    /// Required Initialiser for types conforming to `ButtonEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ButtonEventRef` type acts as a lightweight Swift reference to an underlying `ClutterButtonEvent` instance.
@@ -2061,7 +2091,7 @@ open class ButtonEvent: ButtonEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ButtonEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2299,6 +2329,8 @@ public protocol CairoTextureClassProtocol {
     /// Typed pointer to the underlying `ClutterCairoTextureClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterCairoTextureClass>! { get }
 
+    /// Required Initialiser for types conforming to `CairoTextureClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `CairoTextureClassRef` type acts as a lightweight Swift reference to an underlying `ClutterCairoTextureClass` instance.

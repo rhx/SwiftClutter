@@ -29,6 +29,8 @@ public protocol EventSequenceProtocol {
     /// Typed pointer to the underlying `ClutterEventSequence` instance.
     var event_sequence_ptr: UnsafeMutablePointer<ClutterEventSequence>! { get }
 
+    /// Required Initialiser for types conforming to `EventSequenceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EventSequenceRef` type acts as a lightweight Swift reference to an underlying `ClutterEventSequence` instance.
@@ -234,7 +236,7 @@ open class EventSequence: EventSequenceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `EventSequenceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -312,6 +314,8 @@ public protocol FixedLayoutClassProtocol {
     /// Typed pointer to the underlying `ClutterFixedLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterFixedLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `FixedLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterFixedLayoutClass` instance.

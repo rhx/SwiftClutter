@@ -29,6 +29,8 @@ public protocol RotateActionProtocol: GestureActionProtocol {
     /// Typed pointer to the underlying `ClutterRotateAction` instance.
     var rotate_action_ptr: UnsafeMutablePointer<ClutterRotateAction>! { get }
 
+    /// Required Initialiser for types conforming to `RotateActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RotateActionRef` type acts as a lightweight Swift reference to an underlying `ClutterRotateAction` instance.
@@ -229,14 +231,14 @@ open class RotateAction: GestureAction, RotateActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RotateActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -274,20 +276,20 @@ public enum RotateActionPropertyName: String, PropertyNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceX = "threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceY = "threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction::gesture`-begin signal or to emit the
-    /// `ClutterGestureAction::gesture`-cancel signal.
+    /// `ClutterGestureAction::gesture-begin` signal or to emit the
+    /// `ClutterGestureAction::gesture-cancel` signal.
     case thresholdTriggerEdge = "threshold-trigger-edge"
 }
 
@@ -348,20 +350,20 @@ public enum RotateActionSignalName: String, SignalNameProtocol {
     /// The `gesture_begin` signal is emitted when the `ClutterActor` to which
     /// a `ClutterGestureAction` has been applied starts receiving a gesture.
     case gestureBegin = "gesture-begin"
-    /// The `gesture`-cancel signal is emitted when the ongoing gesture gets
-    /// cancelled from the `ClutterGestureAction::gesture`-progress signal handler.
+    /// The `gesture-cancel` signal is emitted when the ongoing gesture gets
+    /// cancelled from the `ClutterGestureAction::gesture-progress` signal handler.
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     case gestureCancel = "gesture-cancel"
-    /// The `gesture`-end signal is emitted at the end of the gesture gesture,
+    /// The `gesture-end` signal is emitted at the end of the gesture gesture,
     /// when the pointer's button is released
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     case gestureEnd = "gesture-end"
-    /// The `gesture`-progress signal is emitted for each motion event after
-    /// the `ClutterGestureAction::gesture`-begin signal has been emitted.
+    /// The `gesture-progress` signal is emitted for each motion event after
+    /// the `ClutterGestureAction::gesture-begin` signal has been emitted.
     case gestureProgress = "gesture-progress"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -401,20 +403,20 @@ public enum RotateActionSignalName: String, SignalNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceX = "notify::threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceY = "notify::threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction::gesture`-begin signal or to emit the
-    /// `ClutterGestureAction::gesture`-cancel signal.
+    /// `ClutterGestureAction::gesture-begin` signal or to emit the
+    /// `ClutterGestureAction::gesture-cancel` signal.
     case notifyThresholdTriggerEdge = "notify::threshold-trigger-edge"
 }
 
@@ -508,6 +510,8 @@ public protocol ScoreProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterScore` instance.
     var score_ptr: UnsafeMutablePointer<ClutterScore>! { get }
 
+    /// Required Initialiser for types conforming to `ScoreProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScoreRef` type acts as a lightweight Swift reference to an underlying `ClutterScore` instance.
@@ -596,7 +600,7 @@ public extension ScoreRef {
     }
 
         /// Creates a new `ClutterScore`. A `ClutterScore` is an object that can
-    /// hold multiple `ClutterTimeline`<!-- -->s in a sequential order.
+    /// hold multiple `ClutterTimeline`&lt;!-- --&gt;s in a sequential order.
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
@@ -712,14 +716,14 @@ open class Score: GLibObject.Object, ScoreProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScoreProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -738,7 +742,7 @@ open class Score: GLibObject.Object, ScoreProtocol {
     }
 
     /// Creates a new `ClutterScore`. A `ClutterScore` is an object that can
-    /// hold multiple `ClutterTimeline`<!-- -->s in a sequential order.
+    /// hold multiple `ClutterTimeline`&lt;!-- --&gt;s in a sequential order.
     ///
     /// **new is deprecated:**
     /// This method is deprecated.
@@ -854,13 +858,13 @@ public enum ScoreSignalName: String, SignalNameProtocol {
     /// **started is deprecated:**
     /// This method is deprecated.
     case started = "started"
-    /// The `timeline`-completed signal is emitted each time a timeline
+    /// The `timeline-completed` signal is emitted each time a timeline
     /// inside a `ClutterScore` terminates.
     ///
     /// **timeline-completed is deprecated:**
     /// This method is deprecated.
     case timelineCompleted = "timeline-completed"
-    /// The `timeline`-started signal is emitted each time a new timeline
+    /// The `timeline-started` signal is emitted each time a new timeline
     /// inside a `ClutterScore` starts playing.
     ///
     /// **timeline-started is deprecated:**
@@ -977,7 +981,7 @@ public extension ScoreProtocol {
     /// Typed `started` signal for using the `connect(signal:)` methods
     static var startedSignal: ScoreSignalName { .started }
     
-    /// The `timeline`-completed signal is emitted each time a timeline
+    /// The `timeline-completed` signal is emitted each time a timeline
     /// inside a `ClutterScore` terminates.
     /// - Note: This represents the underlying `timeline-completed` signal
     /// - Parameter flags: Flags
@@ -1004,7 +1008,7 @@ public extension ScoreProtocol {
     /// Typed `timeline-completed` signal for using the `connect(signal:)` methods
     static var timelineCompletedSignal: ScoreSignalName { .timelineCompleted }
     
-    /// The `timeline`-started signal is emitted each time a new timeline
+    /// The `timeline-started` signal is emitted each time a new timeline
     /// inside a `ClutterScore` starts playing.
     /// - Note: This represents the underlying `timeline-started` signal
     /// - Parameter flags: Flags

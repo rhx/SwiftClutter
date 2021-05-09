@@ -29,6 +29,8 @@ public protocol ScriptableProtocol {
     /// Typed pointer to the underlying `ClutterScriptable` instance.
     var scriptable_ptr: UnsafeMutablePointer<ClutterScriptable>! { get }
 
+    /// Required Initialiser for types conforming to `ScriptableProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScriptableRef` type acts as a lightweight Swift reference to an underlying `ClutterScriptable` instance.
@@ -234,7 +236,7 @@ open class Scriptable: ScriptableProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptableProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

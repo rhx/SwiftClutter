@@ -89,7 +89,7 @@ public struct AllocationFlags: OptionSet {
     public static let absoluteOriginChanged = AllocationFlags(2) // CLUTTER_ABSOLUTE_ORIGIN_CHANGED
     /// Whether the allocation should be delegated
     ///   to the `ClutterLayoutManager` instance stored inside the
-    ///   `ClutterActor:layout`-manager property of `ClutterActor`. This flag
+    ///   `ClutterActor:layout-manager` property of `ClutterActor`. This flag
     ///   should only be used if you are subclassing `ClutterActor` and
     ///   overriding the `ClutterActorClass.allocate``()` virtual function, but
     ///   you wish to use the default implementation of the virtual function

@@ -591,8 +591,8 @@ import Atk
 
 /// Returns whether Clutter should print out the frames per second on the
 /// console. You can enable this setting either using the
-/// <literal>CLUTTER_SHOW_FPS</literal> environment variable or passing
-/// the <literal>--clutter-show-fps</literal> command line argument. *
+/// &lt;literal&gt;CLUTTER_SHOW_FPS&lt;/literal&gt; environment variable or passing
+/// the &lt;literal&gt;--clutter-show-fps&lt;/literal&gt; command line argument. *
 ///
 /// **get_show_fps is deprecated:**
 /// This function does not do anything. Use the environment
@@ -629,7 +629,7 @@ import Atk
 
 
 /// Grabs keyboard events, after the grab is done keyboard
-/// events (`ClutterActor::key`-press-event and `ClutterActor::key`-release-event)
+/// events (`ClutterActor::key-press-event` and `ClutterActor::key-release-event`)
 /// are delivered to this actor directly. The source set in the event will be
 /// the actor that would have received the event if the keyboard grab was not
 /// in effect.
@@ -655,7 +655,7 @@ import Atk
 /// 
 /// Grabs completely override the entire event delivery chain
 /// done by Clutter. Pointer grabs should only be used as a last resource;
-/// using the `ClutterActor::captured`-event signal should always be the
+/// using the `ClutterActor::captured-event` signal should always be the
 /// preferred way to intercept event delivery to reactive actors.
 /// 
 /// This function should rarely be used.
@@ -727,7 +727,7 @@ import Atk
 
 /// This function does the same work as `clutter_init()`. Additionally,
 /// it allows you to add your own command line options, and it
-/// automatically generates nicely formatted <option>--help</option>
+/// automatically generates nicely formatted &lt;option&gt;--help&lt;/option&gt;
 /// output. Note that your program will be terminated after writing
 /// out the help output. Also note that, in case of error, the
 /// error message will be placed inside `error` instead of being
@@ -905,13 +905,13 @@ import Atk
 
 
 /// Sets whether per-actor motion events should be enabled or not on
-/// all `ClutterStage`<!-- -->s managed by Clutter.
+/// all `ClutterStage`&lt;!-- --&gt;s managed by Clutter.
 /// 
 /// If `enable` is `false` the following events will not work:
 /// 
-///  - ClutterActor`motion`-event, except on the `ClutterStage`
-///  - ClutterActor`enter`-event
-///  - ClutterActor`leave`-event
+///  - ClutterActor`motion-event`, except on the `ClutterStage`
+///  - ClutterActor`enter-event`
+///  - ClutterActor`leave-event`
 ///
 /// **set_motion_events_enabled is deprecated:**
 /// Use clutter_stage_set_motion_events_enabled() instead.

@@ -43,6 +43,8 @@ public protocol PageTurnEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterPageTurnEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPageTurnEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `PageTurnEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PageTurnEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPageTurnEffectClass` instance.
@@ -169,6 +171,8 @@ public protocol PaintNodeClassProtocol {
     /// Typed pointer to the underlying `ClutterPaintNodeClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPaintNodeClass>! { get }
 
+    /// Required Initialiser for types conforming to `PaintNodeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PaintNodeClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPaintNodeClass` instance.
@@ -291,6 +295,8 @@ public protocol PaintVolumeProtocol {
     /// Typed pointer to the underlying `ClutterPaintVolume` instance.
     var paint_volume_ptr: UnsafeMutablePointer<ClutterPaintVolume>! { get }
 
+    /// Required Initialiser for types conforming to `PaintVolumeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PaintVolumeRef` type acts as a lightweight Swift reference to an underlying `ClutterPaintVolume` instance.
@@ -516,7 +522,7 @@ open class PaintVolume: PaintVolumeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PaintVolumeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -931,6 +937,8 @@ public protocol PanActionClassProtocol {
     /// Typed pointer to the underlying `ClutterPanActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPanActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `PanActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PanActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPanActionClass` instance.
@@ -1060,6 +1068,8 @@ public protocol ParamSpecUnitsProtocol {
     /// Typed pointer to the underlying `ClutterParamSpecUnits` instance.
     var _ptr: UnsafeMutablePointer<ClutterParamSpecUnits>! { get }
 
+    /// Required Initialiser for types conforming to `ParamSpecUnitsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ParamSpecUnitsRef` type acts as a lightweight Swift reference to an underlying `ClutterParamSpecUnits` instance.
@@ -1263,7 +1273,7 @@ open class ParamSpecUnits: ParamSpecUnitsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ParamSpecUnitsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1393,6 +1403,8 @@ public protocol PathClassProtocol {
     /// Typed pointer to the underlying `ClutterPathClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPathClass>! { get }
 
+    /// Required Initialiser for types conforming to `PathClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PathClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPathClass` instance.
@@ -1520,6 +1532,8 @@ public protocol PathConstraintClassProtocol {
     /// Typed pointer to the underlying `ClutterPathConstraintClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPathConstraintClass>! { get }
 
+    /// Required Initialiser for types conforming to `PathConstraintClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PathConstraintClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPathConstraintClass` instance.
@@ -1636,6 +1650,8 @@ public protocol PathNodeProtocol {
     /// Typed pointer to the underlying `ClutterPathNode` instance.
     var path_node_ptr: UnsafeMutablePointer<ClutterPathNode>! { get }
 
+    /// Required Initialiser for types conforming to `PathNodeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PathNodeRef` type acts as a lightweight Swift reference to an underlying `ClutterPathNode` instance.
@@ -1849,7 +1865,7 @@ open class PathNode: PathNodeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PathNodeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1955,6 +1971,8 @@ public protocol PerspectiveProtocol {
     /// Typed pointer to the underlying `ClutterPerspective` instance.
     var perspective_ptr: UnsafeMutablePointer<ClutterPerspective>! { get }
 
+    /// Required Initialiser for types conforming to `PerspectiveProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PerspectiveRef` type acts as a lightweight Swift reference to an underlying `ClutterPerspective` instance.
@@ -2160,7 +2178,7 @@ open class Perspective: PerspectiveProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PerspectiveProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2298,6 +2316,8 @@ public protocol PipelineNodeClassProtocol {
     /// Typed pointer to the underlying `ClutterPipelineNodeClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPipelineNodeClass>! { get }
 
+    /// Required Initialiser for types conforming to `PipelineNodeClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PipelineNodeClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPipelineNodeClass` instance.
@@ -2410,6 +2430,8 @@ public protocol PointProtocol {
     /// Typed pointer to the underlying `ClutterPoint` instance.
     var point_ptr: UnsafeMutablePointer<ClutterPoint>! { get }
 
+    /// Required Initialiser for types conforming to `PointProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PointRef` type acts as a lightweight Swift reference to an underlying `ClutterPoint` instance.
@@ -2626,7 +2648,7 @@ open class Point: PointProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `PointProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2786,6 +2808,8 @@ public protocol PropertyTransitionClassProtocol {
     /// Typed pointer to the underlying `ClutterPropertyTransitionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterPropertyTransitionClass>! { get }
 
+    /// Required Initialiser for types conforming to `PropertyTransitionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `PropertyTransitionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterPropertyTransitionClass` instance.
@@ -2913,6 +2937,8 @@ public protocol RectProtocol {
     /// Typed pointer to the underlying `ClutterRect` instance.
     var rect_ptr: UnsafeMutablePointer<ClutterRect>! { get }
 
+    /// Required Initialiser for types conforming to `RectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `RectRef` type acts as a lightweight Swift reference to an underlying `ClutterRect` instance.
@@ -3162,7 +3188,7 @@ open class Rect: RectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `RectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -29,6 +29,8 @@ public protocol ScriptProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterScript` instance.
     var script_ptr: UnsafeMutablePointer<ClutterScript>! { get }
 
+    /// Required Initialiser for types conforming to `ScriptProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScriptRef` type acts as a lightweight Swift reference to an underlying `ClutterScript` instance.
@@ -233,14 +235,14 @@ open class Script: GLibObject.Object, ScriptProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScriptProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -273,7 +275,7 @@ open class Script: GLibObject.Object, ScriptProtocol {
 }
 
 public enum ScriptPropertyName: String, PropertyNameProtocol {
-    /// The path of the currently parsed file. If `ClutterScript:filename`-set
+    /// The path of the currently parsed file. If `ClutterScript:filename-set`
     /// is `false` then the value of this property is undefined.
     case String = "filename"
     /// Whether the `ClutterScript:filename` property is set. If this property
@@ -283,7 +285,7 @@ public enum ScriptPropertyName: String, PropertyNameProtocol {
     /// The translation domain, used to localize strings marked as translatable
     /// inside a UI definition.
     /// 
-    /// If `ClutterScript:translation`-domain is set to `nil`, `ClutterScript`
+    /// If `ClutterScript:translation-domain` is set to `nil`, `ClutterScript`
     /// will use `gettext()`, otherwise `g_dgettext()` will be used.
     case translationDomain = "translation-domain"
 }
@@ -367,7 +369,7 @@ public enum ScriptSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The path of the currently parsed file. If `ClutterScript:filename`-set
+    /// The path of the currently parsed file. If `ClutterScript:filename-set`
     /// is `false` then the value of this property is undefined.
     case notifyFilename = "notify::filename"
     /// Whether the `ClutterScript:filename` property is set. If this property
@@ -377,7 +379,7 @@ public enum ScriptSignalName: String, SignalNameProtocol {
     /// The translation domain, used to localize strings marked as translatable
     /// inside a UI definition.
     /// 
-    /// If `ClutterScript:translation`-domain is set to `nil`, `ClutterScript`
+    /// If `ClutterScript:translation-domain` is set to `nil`, `ClutterScript`
     /// will use `gettext()`, otherwise `g_dgettext()` will be used.
     case notifyTranslationDomain = "notify::translation-domain"
 }
@@ -581,6 +583,8 @@ public protocol ScrollActorProtocol: ActorProtocol {
     /// Typed pointer to the underlying `ClutterScrollActor` instance.
     var scroll_actor_ptr: UnsafeMutablePointer<ClutterScrollActor>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollActorProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollActorRef` type acts as a lightweight Swift reference to an underlying `ClutterScrollActor` instance.
@@ -781,14 +785,14 @@ open class ScrollActor: Actor, ScrollActorProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollActorProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -826,13 +830,13 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     case allocation = "allocation"
     /// The anchor point expressed as a `ClutterGravity`
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-gravity is deprecated:**
@@ -841,13 +845,13 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// The X coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels.
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-x is deprecated:**
@@ -856,13 +860,13 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// The Y coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-y is deprecated:**
@@ -871,20 +875,20 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// Paints a solid fill of the actor's allocation using the specified
     /// color.
     /// 
-    /// The `ClutterActor:background`-color property is animatable.
+    /// The `ClutterActor:background-color` property is animatable.
     case backgroundColor = "background-color"
-    /// Whether the `ClutterActor:background`-color property has been set.
+    /// Whether the `ClutterActor:background-color` property has been set.
     case backgroundColorSet = "background-color-set"
     /// Applies a transformation matrix on each child of an actor.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:child`-transform-set property to `true` as a side effect;
+    /// `ClutterActor:child-transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:child`-transform-set property to `false`.
+    /// `ClutterActor:child-transform-set` property to `false`.
     /// 
-    /// The `ClutterActor:child`-transform property is animatable.
+    /// The `ClutterActor:child-transform` property is animatable.
     case childTransform = "child-transform"
-    /// Whether the `ClutterActor:child`-transform property is set.
+    /// Whether the `ClutterActor:child-transform` property is set.
     case childTransformSet = "child-transform-set"
     /// The visible region of the actor, in actor-relative coordinates
     ///
@@ -896,7 +900,7 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// 
     /// Setting this property to `nil` will unset the existing clip.
     /// 
-    /// Setting this property will change the `ClutterActor:has`-clip
+    /// Setting this property will change the `ClutterActor:has-clip`
     /// property as a side effect.
     case clipRect = "clip-rect"
     /// Whether the clip region should track the allocated area
@@ -913,7 +917,7 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// The bounding box for the `ClutterContent` used by the actor.
     /// 
     /// The value of this property is controlled by the `ClutterActor:allocation`
-    /// and `ClutterActor:content`-gravity properties of `ClutterActor`.
+    /// and `ClutterActor:content-gravity` properties of `ClutterActor`.
     /// 
     /// The bounding box for the content is guaranteed to never exceed the
     /// allocation's of the actor.
@@ -922,7 +926,7 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// set with the `ClutterActor:content` property.
     /// 
     /// Changing the value of this property will change the bounding box of
-    /// the content; you can use the `ClutterActor:content`-box property to
+    /// the content; you can use the `ClutterActor:content-box` property to
     /// get the position and size of the content within the actor's
     /// allocation.
     /// 
@@ -930,7 +934,7 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// that have a preferred size, and if the preferred size is smaller than
     /// the actor's allocation.
     /// 
-    /// The `ClutterActor:content`-gravity property is animatable.
+    /// The `ClutterActor:content-gravity` property is animatable.
     case contentGravity = "content-gravity"
     /// The repeat policy for the actor's `ClutterActor:content`.
     case contentRepeat = "content-repeat"
@@ -951,17 +955,17 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     case effect = "effect"
     /// The actor's first child.
     case firstChild = "first-child"
-    /// This flag controls whether the `ClutterActor:fixed`-x and
-    /// `ClutterActor:fixed`-y properties are used
+    /// This flag controls whether the `ClutterActor:fixed-x` and
+    /// `ClutterActor:fixed-y` properties are used
     case fixedPositionSet = "fixed-position-set"
     /// The fixed X position of the actor in pixels.
     /// 
-    /// Writing this property sets `ClutterActor:fixed`-position-set
+    /// Writing this property sets `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case fixedX = "fixed-x"
     /// The fixed Y position of the actor in pixels.
     /// 
-    /// Writing this property sets the `ClutterActor:fixed`-position-set
+    /// Writing this property sets the `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case fixedY = "fixed-y"
     /// Whether the actor has the `ClutterActor:clip` property set or not
@@ -989,46 +993,46 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-bottom property is animatable.
+    /// The `ClutterActor:margin-bottom` property is animatable.
     case marginBottom = "margin-bottom"
     /// The margin (in pixels) from the left of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-left property is animatable.
+    /// The `ClutterActor:margin-left` property is animatable.
     case marginLeft = "margin-left"
     /// The margin (in pixels) from the right of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-right property is animatable.
+    /// The `ClutterActor:margin-right` property is animatable.
     case marginRight = "margin-right"
     /// The margin (in pixels) from the top of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-top property is animatable.
+    /// The `ClutterActor:margin-top` property is animatable.
     case marginTop = "margin-top"
     /// A forced minimum height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-height-set property
+    /// Writing this property sets the `ClutterActor:min-height-set` property
     /// as well, as a side effect. This property overrides the usual height
     /// request of the actor.
     case minHeight = "min-height"
-    /// This flag controls whether the `ClutterActor:min`-height property
+    /// This flag controls whether the `ClutterActor:min-height` property
     /// is used
     case minHeightSet = "min-height-set"
     /// A forced minimum width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-width-set property
+    /// Writing this property sets the `ClutterActor:min-width-set` property
     /// as well, as a side effect.
     /// 
     /// This property overrides the usual width request of the actor.
     case minWidth = "min-width"
-    /// This flag controls whether the `ClutterActor:min`-width property
+    /// This flag controls whether the `ClutterActor:min-width` property
     /// is used
     case minWidthSet = "min-width-set"
     case minificationFilter = "minification-filter"
@@ -1036,20 +1040,20 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     case name = "name"
     /// A forced natural height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-height-set
+    /// Writing this property sets the `ClutterActor:natural-height-set`
     /// property as well, as a side effect. This property overrides the
     /// usual height request of the actor
     case naturalHeight = "natural-height"
-    /// This flag controls whether the `ClutterActor:natural`-height property
+    /// This flag controls whether the `ClutterActor:natural-height` property
     /// is used
     case naturalHeightSet = "natural-height-set"
     /// A forced natural width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-width-set
+    /// Writing this property sets the `ClutterActor:natural-width-set`
     /// property as well, as a side effect. This property overrides the
     /// usual width request of the actor
     case naturalWidth = "natural-width"
-    /// This flag controls whether the `ClutterActor:natural`-width property
+    /// This flag controls whether the `ClutterActor:natural-width` property
     /// is used
     case naturalWidthSet = "natural-width-set"
     /// Determines the conditions in which the actor will be redirected
@@ -1071,12 +1075,12 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// 
     /// The default pivot point is located at (0, 0).
     /// 
-    /// The `ClutterActor:pivot`-point property is animatable.
+    /// The `ClutterActor:pivot-point` property is animatable.
     case pivotPoint = "pivot-point"
-    /// The Z component of the `ClutterActor:pivot`-point, expressed as a value
+    /// The Z component of the `ClutterActor:pivot-point`, expressed as a value
     /// along the Z axis.
     /// 
-    /// The `ClutterActor:pivot`-point-z property is animatable.
+    /// The `ClutterActor:pivot-point-z` property is animatable.
     case pivotPointZ = "pivot-point-z"
     /// The position of the origin of the actor.
     /// 
@@ -1149,15 +1153,15 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     case requestMode = "request-mode"
     /// The rotation angle on the X axis.
     /// 
-    /// The `ClutterActor:rotation`-angle-x property is animatable.
+    /// The `ClutterActor:rotation-angle-x` property is animatable.
     case rotationAngleX = "rotation-angle-x"
     /// The rotation angle on the Y axis
     /// 
-    /// The `ClutterActor:rotation`-angle-y property is animatable.
+    /// The `ClutterActor:rotation-angle-y` property is animatable.
     case rotationAngleY = "rotation-angle-y"
     /// The rotation angle on the Z axis
     /// 
-    /// The `ClutterActor:rotation`-angle-z property is animatable.
+    /// The `ClutterActor:rotation-angle-z` property is animatable.
     case rotationAngleZ = "rotation-angle-z"
     /// The rotation center on the X axis.
     ///
@@ -1196,15 +1200,15 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     case scaleGravity = "scale-gravity"
     /// The horizontal scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-x property is animatable.
+    /// The `ClutterActor:scale-x` property is animatable.
     case scaleX = "scale-x"
     /// The vertical scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case scaleY = "scale-y"
     /// The scale factor of the actor along the Z axis.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case scaleZ = "scale-z"
     /// The scrollin direction.
     case scrollMode = "scroll-mode"
@@ -1227,33 +1231,33 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// 
     /// The matrix specified by the `ClutterActor:transform` property is
     /// applied to the actor and its children relative to the actor's
-    /// `ClutterActor:allocation` and `ClutterActor:pivot`-point.
+    /// `ClutterActor:allocation` and `ClutterActor:pivot-point`.
     /// 
     /// Application code should rarely need to use this function directly.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:transform`-set property to `true` as a side effect;
+    /// `ClutterActor:transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:transform`-set property to `false`.
+    /// `ClutterActor:transform-set` property to `false`.
     /// 
     /// The `ClutterActor:transform` property is animatable.
     case transform = "transform"
     /// Whether the `ClutterActor:transform` property is set.
     case transformSet = "transform-set"
     /// An additional translation applied along the X axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-x property is animatable.
+    /// The `ClutterActor:translation-x` property is animatable.
     case translationX = "translation-x"
     /// An additional translation applied along the Y axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-y property is animatable.
+    /// The `ClutterActor:translation-y` property is animatable.
     case translationY = "translation-y"
     /// An additional translation applied along the Z axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-z property is animatable.
+    /// The `ClutterActor:translation-z` property is animatable.
     case translationZ = "translation-z"
     /// Whether the actor is set to be visible or not
     /// 
@@ -1272,7 +1276,7 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// The `ClutterActor:x` property is animatable.
     case x = "x"
     /// The alignment of an actor on the X axis, if the actor has been given
-    /// extra space for its allocation. See also the `ClutterActor:x`-expand
+    /// extra space for its allocation. See also the `ClutterActor:x-expand`
     /// property.
     case xAlign = "x-align"
     /// Whether a layout manager should assign more space to the actor on
@@ -1297,10 +1301,10 @@ public enum ScrollActorPropertyName: String, PropertyNameProtocol {
     /// whereas negative values will bring the actor's position farther from
     /// the user.
     /// 
-    /// The `ClutterActor:z`-position does not affect the paint or allocation
+    /// The `ClutterActor:z-position` does not affect the paint or allocation
     /// order.
     /// 
-    /// The `ClutterActor:z`-position property is animatable.
+    /// The `ClutterActor:z-position` property is animatable.
     case zPosition = "z-position"
 }
 
@@ -1358,25 +1362,25 @@ public extension ScrollActorProtocol {
 }
 
 public enum ScrollActorSignalName: String, SignalNameProtocol {
-    /// The `allocation`-changed signal is emitted when the
+    /// The `allocation-changed` signal is emitted when the
     /// `ClutterActor:allocation` property changes. Usually, application
     /// code should just use the notifications for the :allocation property
     /// but if you want to track the allocation flags as well, for instance
     /// to know whether the absolute origin of `actor` changed, then you might
     /// want use this signal instead.
     case allocationChanged = "allocation-changed"
-    /// The `button`-press-event signal is emitted each time a mouse button
+    /// The `button-press-event` signal is emitted each time a mouse button
     /// is pressed on `actor`.
     case buttonPressEvent = "button-press-event"
-    /// The `button`-release-event signal is emitted each time a mouse button
+    /// The `button-release-event` signal is emitted each time a mouse button
     /// is released on `actor`.
     case buttonReleaseEvent = "button-release-event"
-    /// The `captured`-event signal is emitted when an event is captured
+    /// The `captured-event` signal is emitted when an event is captured
     /// by Clutter. This signal will be emitted starting from the top-level
     /// container (the `ClutterStage`) to the actor which received the event
     /// going down the hierarchy. This signal can be used to intercept every
     /// event before the specialized events (like
-    /// ClutterActor`button`-press-event or `key`-released-event) are
+    /// ClutterActor`button-press-event` or `key-released-event`) are
     /// emitted.
     case capturedEvent = "captured-event"
     /// The `destroy` signal notifies that all references held on the
@@ -1394,7 +1398,7 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// their children. When overriding the default class handler, it is
     /// required to chain up to the parent's implementation.
     case destroy = "destroy"
-    /// The `enter`-event signal is emitted when the pointer enters the `actor`
+    /// The `enter-event` signal is emitted when the pointer enters the `actor`
     case enterEvent = "enter-event"
     /// The `event` signal is emitted each time an event is received
     /// by the `actor`. This signal will be emitted on every actor,
@@ -1404,20 +1408,20 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// The `hide` signal is emitted when an actor is no longer rendered
     /// on the stage.
     case hide = "hide"
-    /// The `key`-focus-in signal is emitted when `actor` receives key focus.
+    /// The `key-focus-in` signal is emitted when `actor` receives key focus.
     case keyFocusIn = "key-focus-in"
-    /// The `key`-focus-out signal is emitted when `actor` loses key focus.
+    /// The `key-focus-out` signal is emitted when `actor` loses key focus.
     case keyFocusOut = "key-focus-out"
-    /// The `key`-press-event signal is emitted each time a keyboard button
+    /// The `key-press-event` signal is emitted each time a keyboard button
     /// is pressed while `actor` has key focus (see `clutter_stage_set_key_focus()`).
     case keyPressEvent = "key-press-event"
-    /// The `key`-release-event signal is emitted each time a keyboard button
+    /// The `key-release-event` signal is emitted each time a keyboard button
     /// is released while `actor` has key focus (see
     /// `clutter_stage_set_key_focus()`).
     case keyReleaseEvent = "key-release-event"
-    /// The `leave`-event signal is emitted when the pointer leaves the `actor`.
+    /// The `leave-event` signal is emitted when the pointer leaves the `actor`.
     case leaveEvent = "leave-event"
-    /// The `motion`-event signal is emitted each time the mouse pointer is
+    /// The `motion-event` signal is emitted each time the mouse pointer is
     /// moved over `actor`.
     case motionEvent = "motion-event"
     /// The notify signal is emitted on an object when one of its properties has
@@ -1542,22 +1546,22 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// The signal should not be used in newly
     ///   written code
     case realize = "realize"
-    /// The `scroll`-event signal is emitted each time the mouse is
+    /// The `scroll-event` signal is emitted each time the mouse is
     /// scrolled on `actor`
     case scrollEvent = "scroll-event"
     /// The `show` signal is emitted when an actor is visible and
     /// rendered on the stage.
     case show = "show"
-    /// The `touch`-event signal is emitted each time a touch
+    /// The `touch-event` signal is emitted each time a touch
     /// begin/end/update/cancel event.
     case touchEvent = "touch-event"
-    /// The `transition`-stopped signal is emitted once a transition
+    /// The `transition-stopped` signal is emitted once a transition
     /// is stopped; a transition is stopped once it reached its total
     /// duration (including eventual repeats), it has been stopped
     /// using `clutter_timeline_stop()`, or it has been removed from the
     /// transitions applied on `actor`, using `clutter_actor_remove_transition()`.
     case transitionStopped = "transition-stopped"
-    /// The `transitions`-completed signal is emitted once all transitions
+    /// The `transitions-completed` signal is emitted once all transitions
     /// involving `actor` are complete.
     case transitionsCompleted = "transitions-completed"
     /// The `unrealize` signal is emitted each time an actor is being
@@ -1576,13 +1580,13 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     case notifyAllocation = "notify::allocation"
     /// The anchor point expressed as a `ClutterGravity`
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-gravity is deprecated:**
@@ -1591,13 +1595,13 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// The X coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels.
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-x is deprecated:**
@@ -1606,13 +1610,13 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// The Y coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-y is deprecated:**
@@ -1621,20 +1625,20 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// Paints a solid fill of the actor's allocation using the specified
     /// color.
     /// 
-    /// The `ClutterActor:background`-color property is animatable.
+    /// The `ClutterActor:background-color` property is animatable.
     case notifyBackgroundColor = "notify::background-color"
-    /// Whether the `ClutterActor:background`-color property has been set.
+    /// Whether the `ClutterActor:background-color` property has been set.
     case notifyBackgroundColorSet = "notify::background-color-set"
     /// Applies a transformation matrix on each child of an actor.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:child`-transform-set property to `true` as a side effect;
+    /// `ClutterActor:child-transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:child`-transform-set property to `false`.
+    /// `ClutterActor:child-transform-set` property to `false`.
     /// 
-    /// The `ClutterActor:child`-transform property is animatable.
+    /// The `ClutterActor:child-transform` property is animatable.
     case notifyChildTransform = "notify::child-transform"
-    /// Whether the `ClutterActor:child`-transform property is set.
+    /// Whether the `ClutterActor:child-transform` property is set.
     case notifyChildTransformSet = "notify::child-transform-set"
     /// The visible region of the actor, in actor-relative coordinates
     ///
@@ -1646,7 +1650,7 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// 
     /// Setting this property to `nil` will unset the existing clip.
     /// 
-    /// Setting this property will change the `ClutterActor:has`-clip
+    /// Setting this property will change the `ClutterActor:has-clip`
     /// property as a side effect.
     case notifyClipRect = "notify::clip-rect"
     /// Whether the clip region should track the allocated area
@@ -1663,7 +1667,7 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// The bounding box for the `ClutterContent` used by the actor.
     /// 
     /// The value of this property is controlled by the `ClutterActor:allocation`
-    /// and `ClutterActor:content`-gravity properties of `ClutterActor`.
+    /// and `ClutterActor:content-gravity` properties of `ClutterActor`.
     /// 
     /// The bounding box for the content is guaranteed to never exceed the
     /// allocation's of the actor.
@@ -1672,7 +1676,7 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// set with the `ClutterActor:content` property.
     /// 
     /// Changing the value of this property will change the bounding box of
-    /// the content; you can use the `ClutterActor:content`-box property to
+    /// the content; you can use the `ClutterActor:content-box` property to
     /// get the position and size of the content within the actor's
     /// allocation.
     /// 
@@ -1680,7 +1684,7 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// that have a preferred size, and if the preferred size is smaller than
     /// the actor's allocation.
     /// 
-    /// The `ClutterActor:content`-gravity property is animatable.
+    /// The `ClutterActor:content-gravity` property is animatable.
     case notifyContentGravity = "notify::content-gravity"
     /// The repeat policy for the actor's `ClutterActor:content`.
     case notifyContentRepeat = "notify::content-repeat"
@@ -1701,17 +1705,17 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     case notifyEffect = "notify::effect"
     /// The actor's first child.
     case notifyFirstChild = "notify::first-child"
-    /// This flag controls whether the `ClutterActor:fixed`-x and
-    /// `ClutterActor:fixed`-y properties are used
+    /// This flag controls whether the `ClutterActor:fixed-x` and
+    /// `ClutterActor:fixed-y` properties are used
     case notifyFixedPositionSet = "notify::fixed-position-set"
     /// The fixed X position of the actor in pixels.
     /// 
-    /// Writing this property sets `ClutterActor:fixed`-position-set
+    /// Writing this property sets `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case notifyFixedX = "notify::fixed-x"
     /// The fixed Y position of the actor in pixels.
     /// 
-    /// Writing this property sets the `ClutterActor:fixed`-position-set
+    /// Writing this property sets the `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case notifyFixedY = "notify::fixed-y"
     /// Whether the actor has the `ClutterActor:clip` property set or not
@@ -1739,46 +1743,46 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-bottom property is animatable.
+    /// The `ClutterActor:margin-bottom` property is animatable.
     case notifyMarginBottom = "notify::margin-bottom"
     /// The margin (in pixels) from the left of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-left property is animatable.
+    /// The `ClutterActor:margin-left` property is animatable.
     case notifyMarginLeft = "notify::margin-left"
     /// The margin (in pixels) from the right of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-right property is animatable.
+    /// The `ClutterActor:margin-right` property is animatable.
     case notifyMarginRight = "notify::margin-right"
     /// The margin (in pixels) from the top of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-top property is animatable.
+    /// The `ClutterActor:margin-top` property is animatable.
     case notifyMarginTop = "notify::margin-top"
     /// A forced minimum height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-height-set property
+    /// Writing this property sets the `ClutterActor:min-height-set` property
     /// as well, as a side effect. This property overrides the usual height
     /// request of the actor.
     case notifyMinHeight = "notify::min-height"
-    /// This flag controls whether the `ClutterActor:min`-height property
+    /// This flag controls whether the `ClutterActor:min-height` property
     /// is used
     case notifyMinHeightSet = "notify::min-height-set"
     /// A forced minimum width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-width-set property
+    /// Writing this property sets the `ClutterActor:min-width-set` property
     /// as well, as a side effect.
     /// 
     /// This property overrides the usual width request of the actor.
     case notifyMinWidth = "notify::min-width"
-    /// This flag controls whether the `ClutterActor:min`-width property
+    /// This flag controls whether the `ClutterActor:min-width` property
     /// is used
     case notifyMinWidthSet = "notify::min-width-set"
     case notifyMinificationFilter = "notify::minification-filter"
@@ -1786,20 +1790,20 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     case notifyName = "notify::name"
     /// A forced natural height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-height-set
+    /// Writing this property sets the `ClutterActor:natural-height-set`
     /// property as well, as a side effect. This property overrides the
     /// usual height request of the actor
     case notifyNaturalHeight = "notify::natural-height"
-    /// This flag controls whether the `ClutterActor:natural`-height property
+    /// This flag controls whether the `ClutterActor:natural-height` property
     /// is used
     case notifyNaturalHeightSet = "notify::natural-height-set"
     /// A forced natural width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-width-set
+    /// Writing this property sets the `ClutterActor:natural-width-set`
     /// property as well, as a side effect. This property overrides the
     /// usual width request of the actor
     case notifyNaturalWidth = "notify::natural-width"
-    /// This flag controls whether the `ClutterActor:natural`-width property
+    /// This flag controls whether the `ClutterActor:natural-width` property
     /// is used
     case notifyNaturalWidthSet = "notify::natural-width-set"
     /// Determines the conditions in which the actor will be redirected
@@ -1821,12 +1825,12 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// 
     /// The default pivot point is located at (0, 0).
     /// 
-    /// The `ClutterActor:pivot`-point property is animatable.
+    /// The `ClutterActor:pivot-point` property is animatable.
     case notifyPivotPoint = "notify::pivot-point"
-    /// The Z component of the `ClutterActor:pivot`-point, expressed as a value
+    /// The Z component of the `ClutterActor:pivot-point`, expressed as a value
     /// along the Z axis.
     /// 
-    /// The `ClutterActor:pivot`-point-z property is animatable.
+    /// The `ClutterActor:pivot-point-z` property is animatable.
     case notifyPivotPointZ = "notify::pivot-point-z"
     /// The position of the origin of the actor.
     /// 
@@ -1899,15 +1903,15 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     case notifyRequestMode = "notify::request-mode"
     /// The rotation angle on the X axis.
     /// 
-    /// The `ClutterActor:rotation`-angle-x property is animatable.
+    /// The `ClutterActor:rotation-angle-x` property is animatable.
     case notifyRotationAngleX = "notify::rotation-angle-x"
     /// The rotation angle on the Y axis
     /// 
-    /// The `ClutterActor:rotation`-angle-y property is animatable.
+    /// The `ClutterActor:rotation-angle-y` property is animatable.
     case notifyRotationAngleY = "notify::rotation-angle-y"
     /// The rotation angle on the Z axis
     /// 
-    /// The `ClutterActor:rotation`-angle-z property is animatable.
+    /// The `ClutterActor:rotation-angle-z` property is animatable.
     case notifyRotationAngleZ = "notify::rotation-angle-z"
     /// The rotation center on the X axis.
     ///
@@ -1946,15 +1950,15 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     case notifyScaleGravity = "notify::scale-gravity"
     /// The horizontal scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-x property is animatable.
+    /// The `ClutterActor:scale-x` property is animatable.
     case notifyScaleX = "notify::scale-x"
     /// The vertical scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case notifyScaleY = "notify::scale-y"
     /// The scale factor of the actor along the Z axis.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case notifyScaleZ = "notify::scale-z"
     /// The scrollin direction.
     case notifyScrollMode = "notify::scroll-mode"
@@ -1977,33 +1981,33 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// 
     /// The matrix specified by the `ClutterActor:transform` property is
     /// applied to the actor and its children relative to the actor's
-    /// `ClutterActor:allocation` and `ClutterActor:pivot`-point.
+    /// `ClutterActor:allocation` and `ClutterActor:pivot-point`.
     /// 
     /// Application code should rarely need to use this function directly.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:transform`-set property to `true` as a side effect;
+    /// `ClutterActor:transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:transform`-set property to `false`.
+    /// `ClutterActor:transform-set` property to `false`.
     /// 
     /// The `ClutterActor:transform` property is animatable.
     case notifyTransform = "notify::transform"
     /// Whether the `ClutterActor:transform` property is set.
     case notifyTransformSet = "notify::transform-set"
     /// An additional translation applied along the X axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-x property is animatable.
+    /// The `ClutterActor:translation-x` property is animatable.
     case notifyTranslationX = "notify::translation-x"
     /// An additional translation applied along the Y axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-y property is animatable.
+    /// The `ClutterActor:translation-y` property is animatable.
     case notifyTranslationY = "notify::translation-y"
     /// An additional translation applied along the Z axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-z property is animatable.
+    /// The `ClutterActor:translation-z` property is animatable.
     case notifyTranslationZ = "notify::translation-z"
     /// Whether the actor is set to be visible or not
     /// 
@@ -2022,7 +2026,7 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// The `ClutterActor:x` property is animatable.
     case notifyX = "notify::x"
     /// The alignment of an actor on the X axis, if the actor has been given
-    /// extra space for its allocation. See also the `ClutterActor:x`-expand
+    /// extra space for its allocation. See also the `ClutterActor:x-expand`
     /// property.
     case notifyXAlign = "notify::x-align"
     /// Whether a layout manager should assign more space to the actor on
@@ -2047,10 +2051,10 @@ public enum ScrollActorSignalName: String, SignalNameProtocol {
     /// whereas negative values will bring the actor's position farther from
     /// the user.
     /// 
-    /// The `ClutterActor:z`-position does not affect the paint or allocation
+    /// The `ClutterActor:z-position` does not affect the paint or allocation
     /// order.
     /// 
-    /// The `ClutterActor:z`-position property is animatable.
+    /// The `ClutterActor:z-position` property is animatable.
     case notifyZPosition = "notify::z-position"
 }
 
@@ -2060,7 +2064,7 @@ public extension ScrollActorProtocol {
     /// Return the stored, untyped pointer as a typed pointer to the `ClutterScrollActor` instance.
     @inlinable var scroll_actor_ptr: UnsafeMutablePointer<ClutterScrollActor>! { return ptr?.assumingMemoryBound(to: ClutterScrollActor.self) }
 
-    /// Retrieves the `ClutterScrollActor:scroll`-mode property
+    /// Retrieves the `ClutterScrollActor:scroll-mode` property
     @inlinable func getScrollMode() -> ScrollMode {
         let rv = ScrollMode(clutter_scroll_actor_get_scroll_mode(scroll_actor_ptr))
         return rv
@@ -2084,19 +2088,19 @@ public extension ScrollActorProtocol {
     
     }
 
-    /// Sets the `ClutterScrollActor:scroll`-mode property.
+    /// Sets the `ClutterScrollActor:scroll-mode` property.
     @inlinable func setScroll(mode: ScrollMode) {
         clutter_scroll_actor_set_scroll_mode(scroll_actor_ptr, mode.value)
     
     }
-    /// Retrieves the `ClutterScrollActor:scroll`-mode property
+    /// Retrieves the `ClutterScrollActor:scroll-mode` property
     @inlinable var scrollMode: ScrollMode {
-        /// Retrieves the `ClutterScrollActor:scroll`-mode property
+        /// Retrieves the `ClutterScrollActor:scroll-mode` property
         get {
             let rv = ScrollMode(clutter_scroll_actor_get_scroll_mode(scroll_actor_ptr))
             return rv
         }
-        /// Sets the `ClutterScrollActor:scroll`-mode property.
+        /// Sets the `ClutterScrollActor:scroll-mode` property.
         nonmutating set {
             clutter_scroll_actor_set_scroll_mode(scroll_actor_ptr, newValue.value)
         }
@@ -2126,6 +2130,8 @@ public protocol SettingsProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterSettings` instance.
     var settings_ptr: UnsafeMutablePointer<ClutterSettings>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsRef` type acts as a lightweight Swift reference to an underlying `ClutterSettings` instance.
@@ -2326,14 +2332,14 @@ open class Settings: GLibObject.Object, SettingsProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SettingsProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -2412,7 +2418,7 @@ public enum SettingsPropertyName: String, PropertyNameProtocol {
     /// Sets the minimum duration for a press to be recognized as a long press
     /// gesture. The duration is expressed in milliseconds.
     /// 
-    /// See also `ClutterClickAction:long`-press-duration.
+    /// See also `ClutterClickAction:long-press-duration`.
     case longPressDuration = "long-press-duration"
     case passwordHintTime = "password-hint-time"
     case unscaledFontDpi = "unscaled-font-dpi"
@@ -2548,7 +2554,7 @@ public enum SettingsSignalName: String, SignalNameProtocol {
     /// Sets the minimum duration for a press to be recognized as a long press
     /// gesture. The duration is expressed in milliseconds.
     /// 
-    /// See also `ClutterClickAction:long`-press-duration.
+    /// See also `ClutterClickAction:long-press-duration`.
     case notifyLongPressDuration = "notify::long-press-duration"
     case notifyPasswordHintTime = "notify::password-hint-time"
     case notifyUnscaledFontDpi = "notify::unscaled-font-dpi"
@@ -2583,6 +2589,8 @@ public protocol ShaderProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterShader` instance.
     var shader_ptr: UnsafeMutablePointer<ClutterShader>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderRef` type acts as a lightweight Swift reference to an underlying `ClutterShader` instance.
@@ -2786,14 +2794,14 @@ open class Shader: GLibObject.Object, ShaderProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3218,6 +3226,8 @@ public protocol ShaderEffectProtocol: OffscreenEffectProtocol {
     /// Typed pointer to the underlying `ClutterShaderEffect` instance.
     var shader_effect_ptr: UnsafeMutablePointer<ClutterShaderEffect>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderEffectProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderEffectRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderEffect` instance.
@@ -3422,14 +3432,14 @@ open class ShaderEffect: OffscreenEffect, ShaderEffectProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderEffectProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -3654,6 +3664,8 @@ public protocol ShaderFloatProtocol {
     /// Typed pointer to the underlying `ClutterShaderFloat` instance.
     var shader_float_ptr: UnsafeMutablePointer<ClutterShaderFloat>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderFloatProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderFloatRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderFloat` instance.
@@ -3857,7 +3869,7 @@ open class ShaderFloat: ShaderFloatProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderFloatProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3919,6 +3931,8 @@ public protocol ShaderIntProtocol {
     /// Typed pointer to the underlying `ClutterShaderInt` instance.
     var shader_int_ptr: UnsafeMutablePointer<ClutterShaderInt>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderIntProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderIntRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderInt` instance.
@@ -4122,7 +4136,7 @@ open class ShaderInt: ShaderIntProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderIntProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4184,6 +4198,8 @@ public protocol ShaderMatrixProtocol {
     /// Typed pointer to the underlying `ClutterShaderMatrix` instance.
     var shader_matrix_ptr: UnsafeMutablePointer<ClutterShaderMatrix>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderMatrixProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderMatrixRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderMatrix` instance.
@@ -4387,7 +4403,7 @@ open class ShaderMatrix: ShaderMatrixProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ShaderMatrixProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -4450,6 +4466,8 @@ public protocol SnapConstraintProtocol: ConstraintProtocol {
     /// Typed pointer to the underlying `ClutterSnapConstraint` instance.
     var snap_constraint_ptr: UnsafeMutablePointer<ClutterSnapConstraint>! { get }
 
+    /// Required Initialiser for types conforming to `SnapConstraintProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SnapConstraintRef` type acts as a lightweight Swift reference to an underlying `ClutterSnapConstraint` instance.
@@ -4651,14 +4669,14 @@ open class SnapConstraint: Constraint, SnapConstraintProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SnapConstraintProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -4696,8 +4714,8 @@ public enum SnapConstraintPropertyName: String, PropertyNameProtocol {
     case fromEdge = "from-edge"
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
-    /// The offset, in pixels, between `ClutterSnapConstraint:from`-edge
-    /// and `ClutterSnapConstraint:to`-edge
+    /// The offset, in pixels, between `ClutterSnapConstraint:from-edge`
+    /// and `ClutterSnapConstraint:to-edge`
     case offset = "offset"
     /// The `ClutterActor` used as the source for the constraint
     case source = "source"
@@ -4792,8 +4810,8 @@ public enum SnapConstraintSignalName: String, SignalNameProtocol {
     case notifyFromEdge = "notify::from-edge"
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
-    /// The offset, in pixels, between `ClutterSnapConstraint:from`-edge
-    /// and `ClutterSnapConstraint:to`-edge
+    /// The offset, in pixels, between `ClutterSnapConstraint:from-edge`
+    /// and `ClutterSnapConstraint:to-edge`
     case notifyOffset = "notify::offset"
     /// The `ClutterActor` used as the source for the constraint
     case notifySource = "notify::source"
@@ -4851,8 +4869,8 @@ public extension SnapConstraintProtocol {
         clutter_snap_constraint_set_source(snap_constraint_ptr, source?.actor_ptr)
     
     }
-    /// The offset, in pixels, between `ClutterSnapConstraint:from`-edge
-    /// and `ClutterSnapConstraint:to`-edge
+    /// The offset, in pixels, between `ClutterSnapConstraint:from-edge`
+    /// and `ClutterSnapConstraint:to-edge`
     @inlinable var offset: Double {
         /// Retrieves the offset set using `clutter_snap_constraint_set_offset()`
         get {
@@ -4899,6 +4917,8 @@ public protocol StageProtocol: GroupProtocol {
     /// Typed pointer to the underlying `ClutterStage` instance.
     var stage_ptr: UnsafeMutablePointer<ClutterStage>! { get }
 
+    /// Required Initialiser for types conforming to `StageProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StageRef` type acts as a lightweight Swift reference to an underlying `ClutterStage` instance.
@@ -5108,14 +5128,14 @@ open class Stage: Group, StageProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -5164,13 +5184,13 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     case allocation = "allocation"
     /// The anchor point expressed as a `ClutterGravity`
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-gravity is deprecated:**
@@ -5179,13 +5199,13 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// The X coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels.
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-x is deprecated:**
@@ -5194,13 +5214,13 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// The Y coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-y is deprecated:**
@@ -5209,20 +5229,20 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// Paints a solid fill of the actor's allocation using the specified
     /// color.
     /// 
-    /// The `ClutterActor:background`-color property is animatable.
+    /// The `ClutterActor:background-color` property is animatable.
     case backgroundColor = "background-color"
-    /// Whether the `ClutterActor:background`-color property has been set.
+    /// Whether the `ClutterActor:background-color` property has been set.
     case backgroundColorSet = "background-color-set"
     /// Applies a transformation matrix on each child of an actor.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:child`-transform-set property to `true` as a side effect;
+    /// `ClutterActor:child-transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:child`-transform-set property to `false`.
+    /// `ClutterActor:child-transform-set` property to `false`.
     /// 
-    /// The `ClutterActor:child`-transform property is animatable.
+    /// The `ClutterActor:child-transform` property is animatable.
     case childTransform = "child-transform"
-    /// Whether the `ClutterActor:child`-transform property is set.
+    /// Whether the `ClutterActor:child-transform` property is set.
     case childTransformSet = "child-transform-set"
     /// The visible region of the actor, in actor-relative coordinates
     ///
@@ -5234,7 +5254,7 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// 
     /// Setting this property to `nil` will unset the existing clip.
     /// 
-    /// Setting this property will change the `ClutterActor:has`-clip
+    /// Setting this property will change the `ClutterActor:has-clip`
     /// property as a side effect.
     case clipRect = "clip-rect"
     /// Whether the clip region should track the allocated area
@@ -5257,7 +5277,7 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// The bounding box for the `ClutterContent` used by the actor.
     /// 
     /// The value of this property is controlled by the `ClutterActor:allocation`
-    /// and `ClutterActor:content`-gravity properties of `ClutterActor`.
+    /// and `ClutterActor:content-gravity` properties of `ClutterActor`.
     /// 
     /// The bounding box for the content is guaranteed to never exceed the
     /// allocation's of the actor.
@@ -5266,7 +5286,7 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// set with the `ClutterActor:content` property.
     /// 
     /// Changing the value of this property will change the bounding box of
-    /// the content; you can use the `ClutterActor:content`-box property to
+    /// the content; you can use the `ClutterActor:content-box` property to
     /// get the position and size of the content within the actor's
     /// allocation.
     /// 
@@ -5274,7 +5294,7 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// that have a preferred size, and if the preferred size is smaller than
     /// the actor's allocation.
     /// 
-    /// The `ClutterActor:content`-gravity property is animatable.
+    /// The `ClutterActor:content-gravity` property is animatable.
     case contentGravity = "content-gravity"
     /// The repeat policy for the actor's `ClutterActor:content`.
     case contentRepeat = "content-repeat"
@@ -5297,20 +5317,20 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     case effect = "effect"
     /// The actor's first child.
     case firstChild = "first-child"
-    /// This flag controls whether the `ClutterActor:fixed`-x and
-    /// `ClutterActor:fixed`-y properties are used
+    /// This flag controls whether the `ClutterActor:fixed-x` and
+    /// `ClutterActor:fixed-y` properties are used
     case fixedPositionSet = "fixed-position-set"
     /// The fixed X position of the actor in pixels.
     /// 
-    /// Writing this property sets `ClutterActor:fixed`-position-set
+    /// Writing this property sets `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case fixedX = "fixed-x"
     /// The fixed Y position of the actor in pixels.
     /// 
-    /// Writing this property sets the `ClutterActor:fixed`-position-set
+    /// Writing this property sets the `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case fixedY = "fixed-y"
-    /// The settings for the GL "fog", used only if `ClutterStage:use`-fog
+    /// The settings for the GL "fog", used only if `ClutterStage:use-fog`
     /// is set to `true`
     ///
     /// **fog is deprecated:**
@@ -5347,46 +5367,46 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-bottom property is animatable.
+    /// The `ClutterActor:margin-bottom` property is animatable.
     case marginBottom = "margin-bottom"
     /// The margin (in pixels) from the left of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-left property is animatable.
+    /// The `ClutterActor:margin-left` property is animatable.
     case marginLeft = "margin-left"
     /// The margin (in pixels) from the right of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-right property is animatable.
+    /// The `ClutterActor:margin-right` property is animatable.
     case marginRight = "margin-right"
     /// The margin (in pixels) from the top of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-top property is animatable.
+    /// The `ClutterActor:margin-top` property is animatable.
     case marginTop = "margin-top"
     /// A forced minimum height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-height-set property
+    /// Writing this property sets the `ClutterActor:min-height-set` property
     /// as well, as a side effect. This property overrides the usual height
     /// request of the actor.
     case minHeight = "min-height"
-    /// This flag controls whether the `ClutterActor:min`-height property
+    /// This flag controls whether the `ClutterActor:min-height` property
     /// is used
     case minHeightSet = "min-height-set"
     /// A forced minimum width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-width-set property
+    /// Writing this property sets the `ClutterActor:min-width-set` property
     /// as well, as a side effect.
     /// 
     /// This property overrides the usual width request of the actor.
     case minWidth = "min-width"
-    /// This flag controls whether the `ClutterActor:min`-width property
+    /// This flag controls whether the `ClutterActor:min-width` property
     /// is used
     case minWidthSet = "min-width-set"
     case minificationFilter = "minification-filter"
@@ -5394,20 +5414,20 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     case name = "name"
     /// A forced natural height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-height-set
+    /// Writing this property sets the `ClutterActor:natural-height-set`
     /// property as well, as a side effect. This property overrides the
     /// usual height request of the actor
     case naturalHeight = "natural-height"
-    /// This flag controls whether the `ClutterActor:natural`-height property
+    /// This flag controls whether the `ClutterActor:natural-height` property
     /// is used
     case naturalHeightSet = "natural-height-set"
     /// A forced natural width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-width-set
+    /// Writing this property sets the `ClutterActor:natural-width-set`
     /// property as well, as a side effect. This property overrides the
     /// usual width request of the actor
     case naturalWidth = "natural-width"
-    /// This flag controls whether the `ClutterActor:natural`-width property
+    /// This flag controls whether the `ClutterActor:natural-width` property
     /// is used
     case naturalWidthSet = "natural-width-set"
     /// Whether or not the `ClutterStage` should clear its contents
@@ -5442,12 +5462,12 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// 
     /// The default pivot point is located at (0, 0).
     /// 
-    /// The `ClutterActor:pivot`-point property is animatable.
+    /// The `ClutterActor:pivot-point` property is animatable.
     case pivotPoint = "pivot-point"
-    /// The Z component of the `ClutterActor:pivot`-point, expressed as a value
+    /// The Z component of the `ClutterActor:pivot-point`, expressed as a value
     /// along the Z axis.
     /// 
-    /// The `ClutterActor:pivot`-point-z property is animatable.
+    /// The `ClutterActor:pivot-point-z` property is animatable.
     case pivotPointZ = "pivot-point-z"
     /// The position of the origin of the actor.
     /// 
@@ -5520,15 +5540,15 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     case requestMode = "request-mode"
     /// The rotation angle on the X axis.
     /// 
-    /// The `ClutterActor:rotation`-angle-x property is animatable.
+    /// The `ClutterActor:rotation-angle-x` property is animatable.
     case rotationAngleX = "rotation-angle-x"
     /// The rotation angle on the Y axis
     /// 
-    /// The `ClutterActor:rotation`-angle-y property is animatable.
+    /// The `ClutterActor:rotation-angle-y` property is animatable.
     case rotationAngleY = "rotation-angle-y"
     /// The rotation angle on the Z axis
     /// 
-    /// The `ClutterActor:rotation`-angle-z property is animatable.
+    /// The `ClutterActor:rotation-angle-z` property is animatable.
     case rotationAngleZ = "rotation-angle-z"
     /// The rotation center on the X axis.
     ///
@@ -5567,15 +5587,15 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     case scaleGravity = "scale-gravity"
     /// The horizontal scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-x property is animatable.
+    /// The `ClutterActor:scale-x` property is animatable.
     case scaleX = "scale-x"
     /// The vertical scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case scaleY = "scale-y"
     /// The scale factor of the actor along the Z axis.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case scaleZ = "scale-z"
     /// If `true`, the actor is automatically shown when parented.
     /// 
@@ -5598,33 +5618,33 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// 
     /// The matrix specified by the `ClutterActor:transform` property is
     /// applied to the actor and its children relative to the actor's
-    /// `ClutterActor:allocation` and `ClutterActor:pivot`-point.
+    /// `ClutterActor:allocation` and `ClutterActor:pivot-point`.
     /// 
     /// Application code should rarely need to use this function directly.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:transform`-set property to `true` as a side effect;
+    /// `ClutterActor:transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:transform`-set property to `false`.
+    /// `ClutterActor:transform-set` property to `false`.
     /// 
     /// The `ClutterActor:transform` property is animatable.
     case transform = "transform"
     /// Whether the `ClutterActor:transform` property is set.
     case transformSet = "transform-set"
     /// An additional translation applied along the X axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-x property is animatable.
+    /// The `ClutterActor:translation-x` property is animatable.
     case translationX = "translation-x"
     /// An additional translation applied along the Y axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-y property is animatable.
+    /// The `ClutterActor:translation-y` property is animatable.
     case translationY = "translation-y"
     /// An additional translation applied along the Z axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-z property is animatable.
+    /// The `ClutterActor:translation-z` property is animatable.
     case translationZ = "translation-z"
     /// Whether the `ClutterStage` should honour the alpha component of the
     /// `ClutterStage:color` property when painting. If Clutter is run under
@@ -5657,7 +5677,7 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// The `ClutterActor:x` property is animatable.
     case x = "x"
     /// The alignment of an actor on the X axis, if the actor has been given
-    /// extra space for its allocation. See also the `ClutterActor:x`-expand
+    /// extra space for its allocation. See also the `ClutterActor:x-expand`
     /// property.
     case xAlign = "x-align"
     /// Whether a layout manager should assign more space to the actor on
@@ -5682,10 +5702,10 @@ public enum StagePropertyName: String, PropertyNameProtocol {
     /// whereas negative values will bring the actor's position farther from
     /// the user.
     /// 
-    /// The `ClutterActor:z`-position does not affect the paint or allocation
+    /// The `ClutterActor:z-position` does not affect the paint or allocation
     /// order.
     /// 
-    /// The `ClutterActor:z`-position property is animatable.
+    /// The `ClutterActor:z-position` property is animatable.
     case zPosition = "z-position"
 }
 
@@ -5746,34 +5766,34 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The `activate` signal is emitted when the stage receives key focus
     /// from the underlying window system.
     case activate = "activate"
-    /// The `after`-paint signal is emitted after the stage is painted,
+    /// The `after-paint` signal is emitted after the stage is painted,
     /// but before the results are displayed on the screen.
     case afterPaint = "after-paint"
-    /// The `allocation`-changed signal is emitted when the
+    /// The `allocation-changed` signal is emitted when the
     /// `ClutterActor:allocation` property changes. Usually, application
     /// code should just use the notifications for the :allocation property
     /// but if you want to track the allocation flags as well, for instance
     /// to know whether the absolute origin of `actor` changed, then you might
     /// want use this signal instead.
     case allocationChanged = "allocation-changed"
-    /// The `button`-press-event signal is emitted each time a mouse button
+    /// The `button-press-event` signal is emitted each time a mouse button
     /// is pressed on `actor`.
     case buttonPressEvent = "button-press-event"
-    /// The `button`-release-event signal is emitted each time a mouse button
+    /// The `button-release-event` signal is emitted each time a mouse button
     /// is released on `actor`.
     case buttonReleaseEvent = "button-release-event"
-    /// The `captured`-event signal is emitted when an event is captured
+    /// The `captured-event` signal is emitted when an event is captured
     /// by Clutter. This signal will be emitted starting from the top-level
     /// container (the `ClutterStage`) to the actor which received the event
     /// going down the hierarchy. This signal can be used to intercept every
     /// event before the specialized events (like
-    /// ClutterActor`button`-press-event or `key`-released-event) are
+    /// ClutterActor`button-press-event` or `key-released-event`) are
     /// emitted.
     case capturedEvent = "captured-event"
     /// The `deactivate` signal is emitted when the stage loses key focus
     /// from the underlying window system.
     case deactivate = "deactivate"
-    /// The `delete`-event signal is emitted when the user closes a
+    /// The `delete-event` signal is emitted when the user closes a
     /// `ClutterStage` window using the window controls.
     /// 
     /// Clutter by default will call `clutter_main_quit()` if `stage` is
@@ -5802,7 +5822,7 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// their children. When overriding the default class handler, it is
     /// required to chain up to the parent's implementation.
     case destroy = "destroy"
-    /// The `enter`-event signal is emitted when the pointer enters the `actor`
+    /// The `enter-event` signal is emitted when the pointer enters the `actor`
     case enterEvent = "enter-event"
     /// The `event` signal is emitted each time an event is received
     /// by the `actor`. This signal will be emitted on every actor,
@@ -5814,20 +5834,20 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The `hide` signal is emitted when an actor is no longer rendered
     /// on the stage.
     case hide = "hide"
-    /// The `key`-focus-in signal is emitted when `actor` receives key focus.
+    /// The `key-focus-in` signal is emitted when `actor` receives key focus.
     case keyFocusIn = "key-focus-in"
-    /// The `key`-focus-out signal is emitted when `actor` loses key focus.
+    /// The `key-focus-out` signal is emitted when `actor` loses key focus.
     case keyFocusOut = "key-focus-out"
-    /// The `key`-press-event signal is emitted each time a keyboard button
+    /// The `key-press-event` signal is emitted each time a keyboard button
     /// is pressed while `actor` has key focus (see `clutter_stage_set_key_focus()`).
     case keyPressEvent = "key-press-event"
-    /// The `key`-release-event signal is emitted each time a keyboard button
+    /// The `key-release-event` signal is emitted each time a keyboard button
     /// is released while `actor` has key focus (see
     /// `clutter_stage_set_key_focus()`).
     case keyReleaseEvent = "key-release-event"
-    /// The `leave`-event signal is emitted when the pointer leaves the `actor`.
+    /// The `leave-event` signal is emitted when the pointer leaves the `actor`.
     case leaveEvent = "leave-event"
-    /// The `motion`-event signal is emitted each time the mouse pointer is
+    /// The `motion-event` signal is emitted each time the mouse pointer is
     /// moved over `actor`.
     case motionEvent = "motion-event"
     /// The notify signal is emitted on an object when one of its properties has
@@ -5952,22 +5972,22 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The signal should not be used in newly
     ///   written code
     case realize = "realize"
-    /// The `scroll`-event signal is emitted each time the mouse is
+    /// The `scroll-event` signal is emitted each time the mouse is
     /// scrolled on `actor`
     case scrollEvent = "scroll-event"
     /// The `show` signal is emitted when an actor is visible and
     /// rendered on the stage.
     case show = "show"
-    /// The `touch`-event signal is emitted each time a touch
+    /// The `touch-event` signal is emitted each time a touch
     /// begin/end/update/cancel event.
     case touchEvent = "touch-event"
-    /// The `transition`-stopped signal is emitted once a transition
+    /// The `transition-stopped` signal is emitted once a transition
     /// is stopped; a transition is stopped once it reached its total
     /// duration (including eventual repeats), it has been stopped
     /// using `clutter_timeline_stop()`, or it has been removed from the
     /// transitions applied on `actor`, using `clutter_actor_remove_transition()`.
     case transitionStopped = "transition-stopped"
-    /// The `transitions`-completed signal is emitted once all transitions
+    /// The `transitions-completed` signal is emitted once all transitions
     /// involving `actor` are complete.
     case transitionsCompleted = "transitions-completed"
     /// The `unfullscreen` signal is emitted when the stage leaves a fullscreen
@@ -5991,13 +6011,13 @@ public enum StageSignalName: String, SignalNameProtocol {
     case notifyAllocation = "notify::allocation"
     /// The anchor point expressed as a `ClutterGravity`
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-gravity is deprecated:**
@@ -6006,13 +6026,13 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The X coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels.
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-x is deprecated:**
@@ -6021,13 +6041,13 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The Y coordinate of an actor's anchor point, relative to
     /// the actor coordinate space, in pixels
     /// 
-    /// It is highly recommended not to use `ClutterActor:anchor`-x,
-    /// `ClutterActor:anchor`-y, and `ClutterActor:anchor`-gravity in newly
+    /// It is highly recommended not to use `ClutterActor:anchor-x`,
+    /// `ClutterActor:anchor-y`, and `ClutterActor:anchor-gravity` in newly
     /// written code; the anchor point adds an additional translation that
     /// will affect the actor's relative position with regards to its
     /// parent, as well as the position of its children. This change needs
     /// to always be taken into account when positioning the actor. It is
-    /// recommended to use the `ClutterActor:pivot`-point property instead,
+    /// recommended to use the `ClutterActor:pivot-point` property instead,
     /// as it will affect only the transformations.
     ///
     /// **anchor-y is deprecated:**
@@ -6036,20 +6056,20 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// Paints a solid fill of the actor's allocation using the specified
     /// color.
     /// 
-    /// The `ClutterActor:background`-color property is animatable.
+    /// The `ClutterActor:background-color` property is animatable.
     case notifyBackgroundColor = "notify::background-color"
-    /// Whether the `ClutterActor:background`-color property has been set.
+    /// Whether the `ClutterActor:background-color` property has been set.
     case notifyBackgroundColorSet = "notify::background-color-set"
     /// Applies a transformation matrix on each child of an actor.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:child`-transform-set property to `true` as a side effect;
+    /// `ClutterActor:child-transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:child`-transform-set property to `false`.
+    /// `ClutterActor:child-transform-set` property to `false`.
     /// 
-    /// The `ClutterActor:child`-transform property is animatable.
+    /// The `ClutterActor:child-transform` property is animatable.
     case notifyChildTransform = "notify::child-transform"
-    /// Whether the `ClutterActor:child`-transform property is set.
+    /// Whether the `ClutterActor:child-transform` property is set.
     case notifyChildTransformSet = "notify::child-transform-set"
     /// The visible region of the actor, in actor-relative coordinates
     ///
@@ -6061,7 +6081,7 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// 
     /// Setting this property to `nil` will unset the existing clip.
     /// 
-    /// Setting this property will change the `ClutterActor:has`-clip
+    /// Setting this property will change the `ClutterActor:has-clip`
     /// property as a side effect.
     case notifyClipRect = "notify::clip-rect"
     /// Whether the clip region should track the allocated area
@@ -6084,7 +6104,7 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The bounding box for the `ClutterContent` used by the actor.
     /// 
     /// The value of this property is controlled by the `ClutterActor:allocation`
-    /// and `ClutterActor:content`-gravity properties of `ClutterActor`.
+    /// and `ClutterActor:content-gravity` properties of `ClutterActor`.
     /// 
     /// The bounding box for the content is guaranteed to never exceed the
     /// allocation's of the actor.
@@ -6093,7 +6113,7 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// set with the `ClutterActor:content` property.
     /// 
     /// Changing the value of this property will change the bounding box of
-    /// the content; you can use the `ClutterActor:content`-box property to
+    /// the content; you can use the `ClutterActor:content-box` property to
     /// get the position and size of the content within the actor's
     /// allocation.
     /// 
@@ -6101,7 +6121,7 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// that have a preferred size, and if the preferred size is smaller than
     /// the actor's allocation.
     /// 
-    /// The `ClutterActor:content`-gravity property is animatable.
+    /// The `ClutterActor:content-gravity` property is animatable.
     case notifyContentGravity = "notify::content-gravity"
     /// The repeat policy for the actor's `ClutterActor:content`.
     case notifyContentRepeat = "notify::content-repeat"
@@ -6124,20 +6144,20 @@ public enum StageSignalName: String, SignalNameProtocol {
     case notifyEffect = "notify::effect"
     /// The actor's first child.
     case notifyFirstChild = "notify::first-child"
-    /// This flag controls whether the `ClutterActor:fixed`-x and
-    /// `ClutterActor:fixed`-y properties are used
+    /// This flag controls whether the `ClutterActor:fixed-x` and
+    /// `ClutterActor:fixed-y` properties are used
     case notifyFixedPositionSet = "notify::fixed-position-set"
     /// The fixed X position of the actor in pixels.
     /// 
-    /// Writing this property sets `ClutterActor:fixed`-position-set
+    /// Writing this property sets `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case notifyFixedX = "notify::fixed-x"
     /// The fixed Y position of the actor in pixels.
     /// 
-    /// Writing this property sets the `ClutterActor:fixed`-position-set
+    /// Writing this property sets the `ClutterActor:fixed-position-set`
     /// property as well, as a side effect
     case notifyFixedY = "notify::fixed-y"
-    /// The settings for the GL "fog", used only if `ClutterStage:use`-fog
+    /// The settings for the GL "fog", used only if `ClutterStage:use-fog`
     /// is set to `true`
     ///
     /// **fog is deprecated:**
@@ -6174,46 +6194,46 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-bottom property is animatable.
+    /// The `ClutterActor:margin-bottom` property is animatable.
     case notifyMarginBottom = "notify::margin-bottom"
     /// The margin (in pixels) from the left of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-left property is animatable.
+    /// The `ClutterActor:margin-left` property is animatable.
     case notifyMarginLeft = "notify::margin-left"
     /// The margin (in pixels) from the right of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-right property is animatable.
+    /// The `ClutterActor:margin-right` property is animatable.
     case notifyMarginRight = "notify::margin-right"
     /// The margin (in pixels) from the top of the actor.
     /// 
     /// This property adds a margin to the actor's preferred size; the margin
     /// will be automatically taken into account when allocating the actor.
     /// 
-    /// The `ClutterActor:margin`-top property is animatable.
+    /// The `ClutterActor:margin-top` property is animatable.
     case notifyMarginTop = "notify::margin-top"
     /// A forced minimum height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-height-set property
+    /// Writing this property sets the `ClutterActor:min-height-set` property
     /// as well, as a side effect. This property overrides the usual height
     /// request of the actor.
     case notifyMinHeight = "notify::min-height"
-    /// This flag controls whether the `ClutterActor:min`-height property
+    /// This flag controls whether the `ClutterActor:min-height` property
     /// is used
     case notifyMinHeightSet = "notify::min-height-set"
     /// A forced minimum width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:min`-width-set property
+    /// Writing this property sets the `ClutterActor:min-width-set` property
     /// as well, as a side effect.
     /// 
     /// This property overrides the usual width request of the actor.
     case notifyMinWidth = "notify::min-width"
-    /// This flag controls whether the `ClutterActor:min`-width property
+    /// This flag controls whether the `ClutterActor:min-width` property
     /// is used
     case notifyMinWidthSet = "notify::min-width-set"
     case notifyMinificationFilter = "notify::minification-filter"
@@ -6221,20 +6241,20 @@ public enum StageSignalName: String, SignalNameProtocol {
     case notifyName = "notify::name"
     /// A forced natural height request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-height-set
+    /// Writing this property sets the `ClutterActor:natural-height-set`
     /// property as well, as a side effect. This property overrides the
     /// usual height request of the actor
     case notifyNaturalHeight = "notify::natural-height"
-    /// This flag controls whether the `ClutterActor:natural`-height property
+    /// This flag controls whether the `ClutterActor:natural-height` property
     /// is used
     case notifyNaturalHeightSet = "notify::natural-height-set"
     /// A forced natural width request for the actor, in pixels
     /// 
-    /// Writing this property sets the `ClutterActor:natural`-width-set
+    /// Writing this property sets the `ClutterActor:natural-width-set`
     /// property as well, as a side effect. This property overrides the
     /// usual width request of the actor
     case notifyNaturalWidth = "notify::natural-width"
-    /// This flag controls whether the `ClutterActor:natural`-width property
+    /// This flag controls whether the `ClutterActor:natural-width` property
     /// is used
     case notifyNaturalWidthSet = "notify::natural-width-set"
     /// Whether or not the `ClutterStage` should clear its contents
@@ -6269,12 +6289,12 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// 
     /// The default pivot point is located at (0, 0).
     /// 
-    /// The `ClutterActor:pivot`-point property is animatable.
+    /// The `ClutterActor:pivot-point` property is animatable.
     case notifyPivotPoint = "notify::pivot-point"
-    /// The Z component of the `ClutterActor:pivot`-point, expressed as a value
+    /// The Z component of the `ClutterActor:pivot-point`, expressed as a value
     /// along the Z axis.
     /// 
-    /// The `ClutterActor:pivot`-point-z property is animatable.
+    /// The `ClutterActor:pivot-point-z` property is animatable.
     case notifyPivotPointZ = "notify::pivot-point-z"
     /// The position of the origin of the actor.
     /// 
@@ -6347,15 +6367,15 @@ public enum StageSignalName: String, SignalNameProtocol {
     case notifyRequestMode = "notify::request-mode"
     /// The rotation angle on the X axis.
     /// 
-    /// The `ClutterActor:rotation`-angle-x property is animatable.
+    /// The `ClutterActor:rotation-angle-x` property is animatable.
     case notifyRotationAngleX = "notify::rotation-angle-x"
     /// The rotation angle on the Y axis
     /// 
-    /// The `ClutterActor:rotation`-angle-y property is animatable.
+    /// The `ClutterActor:rotation-angle-y` property is animatable.
     case notifyRotationAngleY = "notify::rotation-angle-y"
     /// The rotation angle on the Z axis
     /// 
-    /// The `ClutterActor:rotation`-angle-z property is animatable.
+    /// The `ClutterActor:rotation-angle-z` property is animatable.
     case notifyRotationAngleZ = "notify::rotation-angle-z"
     /// The rotation center on the X axis.
     ///
@@ -6394,15 +6414,15 @@ public enum StageSignalName: String, SignalNameProtocol {
     case notifyScaleGravity = "notify::scale-gravity"
     /// The horizontal scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-x property is animatable.
+    /// The `ClutterActor:scale-x` property is animatable.
     case notifyScaleX = "notify::scale-x"
     /// The vertical scale of the actor.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case notifyScaleY = "notify::scale-y"
     /// The scale factor of the actor along the Z axis.
     /// 
-    /// The `ClutterActor:scale`-y property is animatable.
+    /// The `ClutterActor:scale-y` property is animatable.
     case notifyScaleZ = "notify::scale-z"
     /// If `true`, the actor is automatically shown when parented.
     /// 
@@ -6425,33 +6445,33 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// 
     /// The matrix specified by the `ClutterActor:transform` property is
     /// applied to the actor and its children relative to the actor's
-    /// `ClutterActor:allocation` and `ClutterActor:pivot`-point.
+    /// `ClutterActor:allocation` and `ClutterActor:pivot-point`.
     /// 
     /// Application code should rarely need to use this function directly.
     /// 
     /// Setting this property with a `ClutterMatrix` will set the
-    /// `ClutterActor:transform`-set property to `true` as a side effect;
+    /// `ClutterActor:transform-set` property to `true` as a side effect;
     /// setting this property with `nil` will set the
-    /// `ClutterActor:transform`-set property to `false`.
+    /// `ClutterActor:transform-set` property to `false`.
     /// 
     /// The `ClutterActor:transform` property is animatable.
     case notifyTransform = "notify::transform"
     /// Whether the `ClutterActor:transform` property is set.
     case notifyTransformSet = "notify::transform-set"
     /// An additional translation applied along the X axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-x property is animatable.
+    /// The `ClutterActor:translation-x` property is animatable.
     case notifyTranslationX = "notify::translation-x"
     /// An additional translation applied along the Y axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-y property is animatable.
+    /// The `ClutterActor:translation-y` property is animatable.
     case notifyTranslationY = "notify::translation-y"
     /// An additional translation applied along the Z axis, relative
-    /// to the actor's `ClutterActor:pivot`-point.
+    /// to the actor's `ClutterActor:pivot-point`.
     /// 
-    /// The `ClutterActor:translation`-z property is animatable.
+    /// The `ClutterActor:translation-z` property is animatable.
     case notifyTranslationZ = "notify::translation-z"
     /// Whether the `ClutterStage` should honour the alpha component of the
     /// `ClutterStage:color` property when painting. If Clutter is run under
@@ -6484,7 +6504,7 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// The `ClutterActor:x` property is animatable.
     case notifyX = "notify::x"
     /// The alignment of an actor on the X axis, if the actor has been given
-    /// extra space for its allocation. See also the `ClutterActor:x`-expand
+    /// extra space for its allocation. See also the `ClutterActor:x-expand`
     /// property.
     case notifyXAlign = "notify::x-align"
     /// Whether a layout manager should assign more space to the actor on
@@ -6509,10 +6529,10 @@ public enum StageSignalName: String, SignalNameProtocol {
     /// whereas negative values will bring the actor's position farther from
     /// the user.
     /// 
-    /// The `ClutterActor:z`-position does not affect the paint or allocation
+    /// The `ClutterActor:z-position` does not affect the paint or allocation
     /// order.
     /// 
-    /// The `ClutterActor:z`-position property is animatable.
+    /// The `ClutterActor:z-position` property is animatable.
     case notifyZPosition = "notify::z-position"
 }
 
@@ -6570,7 +6590,7 @@ public extension StageProtocol {
     /// Typed `activate` signal for using the `connect(signal:)` methods
     static var activateSignal: StageSignalName { .activate }
     
-    /// The `after`-paint signal is emitted after the stage is painted,
+    /// The `after-paint` signal is emitted after the stage is painted,
     /// but before the results are displayed on the screen.
     /// - Note: This represents the underlying `after-paint` signal
     /// - Parameter flags: Flags
@@ -6622,7 +6642,7 @@ public extension StageProtocol {
     /// Typed `deactivate` signal for using the `connect(signal:)` methods
     static var deactivateSignal: StageSignalName { .deactivate }
     
-    /// The `delete`-event signal is emitted when the user closes a
+    /// The `delete-event` signal is emitted when the user closes a
     /// `ClutterStage` window using the window controls.
     /// 
     /// Clutter by default will call `clutter_main_quit()` if `stage` is
@@ -7575,7 +7595,7 @@ public extension StageProtocol {
     /// depends solely on the distance from the viewer. The `cogl_set_fog()`
     /// function in COGL exposes more of the underlying implementation,
     /// and allows changing the for progression function. It can be directly
-    /// used by disabling the `ClutterStage:use`-fog property and connecting
+    /// used by disabling the `ClutterStage:use-fog` property and connecting
     /// a signal handler to the `ClutterActor::paint` signal on the `stage`,
     /// like:
     /// 
@@ -7636,7 +7656,7 @@ public extension StageProtocol {
     /// If you want to receive notification of the fullscreen state you
     /// should either use the `ClutterStage::fullscreen` and
     /// `ClutterStage::unfullscreen` signals, or use the notify signal
-    /// for the `ClutterStage:fullscreen`-set property
+    /// for the `ClutterStage:fullscreen-set` property
     @inlinable func set(fullscreen: Bool) {
         clutter_stage_set_fullscreen(stage_ptr, gboolean((fullscreen) ? 1 : 0))
     
@@ -7661,7 +7681,7 @@ public extension StageProtocol {
     /// uses `ClutterStage` inside a window
     /// 
     /// This is a convenience function, and it is equivalent to setting the
-    /// `ClutterActor:min`-width and `ClutterActor:min`-height on `stage`
+    /// `ClutterActor:min-width` and `ClutterActor:min-height` on `stage`
     /// 
     /// If the current size of `stage` is smaller than the minimum size, the
     /// `stage` will be resized to the new `width` and `height`
@@ -7680,9 +7700,9 @@ public extension StageProtocol {
     /// If `enable` is `false` the following signals will not be emitted
     /// by the actors children of `stage:`
     /// 
-    ///  - `ClutterActor::motion`-event
-    ///  - `ClutterActor::enter`-event
-    ///  - `ClutterActor::leave`-event
+    ///  - `ClutterActor::motion-event`
+    ///  - `ClutterActor::enter-event`
+    ///  - `ClutterActor::leave-event`
     /// 
     /// The events will still be delivered to the `ClutterStage`.
     /// 
@@ -7840,7 +7860,7 @@ public extension StageProtocol {
         /// If you want to receive notification of the fullscreen state you
         /// should either use the `ClutterStage::fullscreen` and
         /// `ClutterStage::unfullscreen` signals, or use the notify signal
-        /// for the `ClutterStage:fullscreen`-set property
+        /// for the `ClutterStage:fullscreen-set` property
         nonmutating set {
             clutter_stage_set_fullscreen(stage_ptr, gboolean((newValue) ? 1 : 0))
         }
@@ -7897,9 +7917,9 @@ public extension StageProtocol {
         /// If `enable` is `false` the following signals will not be emitted
         /// by the actors children of `stage:`
         /// 
-        ///  - `ClutterActor::motion`-event
-        ///  - `ClutterActor::enter`-event
-        ///  - `ClutterActor::leave`-event
+        ///  - `ClutterActor::motion-event`
+        ///  - `ClutterActor::enter-event`
+        ///  - `ClutterActor::leave-event`
         /// 
         /// The events will still be delivered to the `ClutterStage`.
         /// 
@@ -8052,6 +8072,8 @@ public protocol StageManagerProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterStageManager` instance.
     var stage_manager_ptr: UnsafeMutablePointer<ClutterStageManager>! { get }
 
+    /// Required Initialiser for types conforming to `StageManagerProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StageManagerRef` type acts as a lightweight Swift reference to an underlying `ClutterStageManager` instance.
@@ -8250,14 +8272,14 @@ open class StageManager: GLibObject.Object, StageManagerProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageManagerProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -8369,10 +8391,10 @@ public enum StageManagerSignalName: String, SignalNameProtocol {
     /// [canonical parameter names](#canonical-parameter-names) as
     /// detail strings for the notify signal.
     case notify = "notify"
-    /// The `stage`-added signal is emitted each time a new `ClutterStage`
+    /// The `stage-added` signal is emitted each time a new `ClutterStage`
     /// has been added to the stage manager.
     case stageAdded = "stage-added"
-    /// The `stage`-removed signal is emitted each time a `ClutterStage`
+    /// The `stage-removed` signal is emitted each time a `ClutterStage`
     /// has been removed from the stage manager.
     case stageRemoved = "stage-removed"
     /// The default stage used by Clutter.
@@ -8407,7 +8429,7 @@ public extension StageManagerProtocol {
     }
     
     
-    /// The `stage`-added signal is emitted each time a new `ClutterStage`
+    /// The `stage-added` signal is emitted each time a new `ClutterStage`
     /// has been added to the stage manager.
     /// - Note: This represents the underlying `stage-added` signal
     /// - Parameter flags: Flags
@@ -8434,7 +8456,7 @@ public extension StageManagerProtocol {
     /// Typed `stage-added` signal for using the `connect(signal:)` methods
     static var stageAddedSignal: StageManagerSignalName { .stageAdded }
     
-    /// The `stage`-removed signal is emitted each time a `ClutterStage`
+    /// The `stage-removed` signal is emitted each time a `ClutterStage`
     /// has been removed from the stage manager.
     /// - Note: This represents the underlying `stage-removed` signal
     /// - Parameter flags: Flags
@@ -8580,6 +8602,8 @@ public protocol StateProtocol: GLibObject.ObjectProtocol, ScriptableProtocol {
     /// Typed pointer to the underlying `ClutterState` instance.
     var state_ptr: UnsafeMutablePointer<ClutterState>! { get }
 
+    /// Required Initialiser for types conforming to `StateProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StateRef` type acts as a lightweight Swift reference to an underlying `ClutterState` instance.
@@ -8784,14 +8808,14 @@ open class State: GLibObject.Object, StateProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9401,6 +9425,8 @@ public protocol SwipeActionProtocol: GestureActionProtocol {
     /// Typed pointer to the underlying `ClutterSwipeAction` instance.
     var swipe_action_ptr: UnsafeMutablePointer<ClutterSwipeAction>! { get }
 
+    /// Required Initialiser for types conforming to `SwipeActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SwipeActionRef` type acts as a lightweight Swift reference to an underlying `ClutterSwipeAction` instance.
@@ -9601,14 +9627,14 @@ open class SwipeAction: GestureAction, SwipeActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SwipeActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -9646,20 +9672,20 @@ public enum SwipeActionPropertyName: String, PropertyNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceX = "threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceY = "threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction::gesture`-begin signal or to emit the
-    /// `ClutterGestureAction::gesture`-cancel signal.
+    /// `ClutterGestureAction::gesture-begin` signal or to emit the
+    /// `ClutterGestureAction::gesture-cancel` signal.
     case thresholdTriggerEdge = "threshold-trigger-edge"
 }
 
@@ -9720,20 +9746,20 @@ public enum SwipeActionSignalName: String, SignalNameProtocol {
     /// The `gesture_begin` signal is emitted when the `ClutterActor` to which
     /// a `ClutterGestureAction` has been applied starts receiving a gesture.
     case gestureBegin = "gesture-begin"
-    /// The `gesture`-cancel signal is emitted when the ongoing gesture gets
-    /// cancelled from the `ClutterGestureAction::gesture`-progress signal handler.
+    /// The `gesture-cancel` signal is emitted when the ongoing gesture gets
+    /// cancelled from the `ClutterGestureAction::gesture-progress` signal handler.
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     case gestureCancel = "gesture-cancel"
-    /// The `gesture`-end signal is emitted at the end of the gesture gesture,
+    /// The `gesture-end` signal is emitted at the end of the gesture gesture,
     /// when the pointer's button is released
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     case gestureEnd = "gesture-end"
-    /// The `gesture`-progress signal is emitted for each motion event after
-    /// the `ClutterGestureAction::gesture`-begin signal has been emitted.
+    /// The `gesture-progress` signal is emitted for each motion event after
+    /// the `ClutterGestureAction::gesture-begin` signal has been emitted.
     case gestureProgress = "gesture-progress"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -9778,20 +9804,20 @@ public enum SwipeActionSignalName: String, SignalNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceX = "notify::threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceY = "notify::threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction::gesture`-begin signal or to emit the
-    /// `ClutterGestureAction::gesture`-cancel signal.
+    /// `ClutterGestureAction::gesture-begin` signal or to emit the
+    /// `ClutterGestureAction::gesture-cancel` signal.
     case notifyThresholdTriggerEdge = "notify::threshold-trigger-edge"
 }
 
@@ -9912,6 +9938,8 @@ public protocol TableLayoutProtocol: LayoutManagerProtocol {
     /// Typed pointer to the underlying `ClutterTableLayout` instance.
     var table_layout_ptr: UnsafeMutablePointer<ClutterTableLayout>! { get }
 
+    /// Required Initialiser for types conforming to `TableLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TableLayoutRef` type acts as a lightweight Swift reference to an underlying `ClutterTableLayout` instance.
@@ -10115,14 +10143,14 @@ open class TableLayout: LayoutManager, TableLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `TableLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -10159,7 +10187,7 @@ public enum TableLayoutPropertyName: String, PropertyNameProtocol {
     /// **column-spacing is deprecated:**
     /// Use #ClutterGridLayout:column-spacing instead
     case columnSpacing = "column-spacing"
-    /// The duration of the animations, in case `ClutterTableLayout:use`-animations
+    /// The duration of the animations, in case `ClutterTableLayout:use-animations`
     /// is set to `true`.
     /// 
     /// The duration is expressed in milliseconds.
@@ -10169,7 +10197,7 @@ public enum TableLayoutPropertyName: String, PropertyNameProtocol {
     ///   of the children when allocating them
     case easingDuration = "easing-duration"
     /// The easing mode for the animations, in case
-    /// `ClutterTableLayout:use`-animations is set to `true`.
+    /// `ClutterTableLayout:use-animations` is set to `true`.
     /// 
     /// The easing mode has the same semantics of `ClutterAnimation:mode:` it can
     /// either be a value from the `ClutterAnimationMode` enumeration, like
@@ -10193,7 +10221,7 @@ public enum TableLayoutPropertyName: String, PropertyNameProtocol {
     /// By default, `ClutterTableLayout` will honour the easing state of
     /// the children when allocating them. Setting this property to
     /// `true` will override the easing state with the layout manager's
-    /// `ClutterTableLayout:easing`-mode and `ClutterTableLayout:easing`-duration
+    /// `ClutterTableLayout:easing-mode` and `ClutterTableLayout:easing-duration`
     /// properties.
     ///
     /// **use-animations is deprecated:**
@@ -10256,9 +10284,9 @@ public extension TableLayoutProtocol {
 }
 
 public enum TableLayoutSignalName: String, SignalNameProtocol {
-    /// The `layout`-changed signal is emitted each time a layout manager
+    /// The `layout-changed` signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the `layout`-changed
+    /// as a layout manager should connect a handler to the `layout-changed`
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -10276,7 +10304,7 @@ public enum TableLayoutSignalName: String, SignalNameProtocol {
     /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// `layout`-changed signal whenever one of the parameters changes,
+    /// `layout-changed` signal whenever one of the parameters changes,
     /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -10309,7 +10337,7 @@ public enum TableLayoutSignalName: String, SignalNameProtocol {
     /// **column-spacing is deprecated:**
     /// Use #ClutterGridLayout:column-spacing instead
     case notifyColumnSpacing = "notify::column-spacing"
-    /// The duration of the animations, in case `ClutterTableLayout:use`-animations
+    /// The duration of the animations, in case `ClutterTableLayout:use-animations`
     /// is set to `true`.
     /// 
     /// The duration is expressed in milliseconds.
@@ -10319,7 +10347,7 @@ public enum TableLayoutSignalName: String, SignalNameProtocol {
     ///   of the children when allocating them
     case notifyEasingDuration = "notify::easing-duration"
     /// The easing mode for the animations, in case
-    /// `ClutterTableLayout:use`-animations is set to `true`.
+    /// `ClutterTableLayout:use-animations` is set to `true`.
     /// 
     /// The easing mode has the same semantics of `ClutterAnimation:mode:` it can
     /// either be a value from the `ClutterAnimationMode` enumeration, like
@@ -10343,7 +10371,7 @@ public enum TableLayoutSignalName: String, SignalNameProtocol {
     /// By default, `ClutterTableLayout` will honour the easing state of
     /// the children when allocating them. Setting this property to
     /// `true` will override the easing state with the layout manager's
-    /// `ClutterTableLayout:easing`-mode and `ClutterTableLayout:easing`-duration
+    /// `ClutterTableLayout:easing-mode` and `ClutterTableLayout:easing-duration`
     /// properties.
     ///
     /// **use-animations is deprecated:**

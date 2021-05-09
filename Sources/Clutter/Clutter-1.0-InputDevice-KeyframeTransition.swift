@@ -29,6 +29,8 @@ public protocol InputDeviceProtocol: GLibObject.ObjectProtocol {
     /// Typed pointer to the underlying `ClutterInputDevice` instance.
     var input_device_ptr: UnsafeMutablePointer<ClutterInputDevice>! { get }
 
+    /// Required Initialiser for types conforming to `InputDeviceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `InputDeviceRef` type acts as a lightweight Swift reference to an underlying `ClutterInputDevice` instance.
@@ -224,14 +226,14 @@ open class InputDevice: GLibObject.Object, InputDeviceProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `InputDeviceProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -263,7 +265,7 @@ public enum InputDevicePropertyName: String, PropertyNameProtocol {
     case deviceType = "device-type"
     /// Whether the device is enabled.
     /// 
-    /// A device with the `ClutterInputDevice:device`-mode property set
+    /// A device with the `ClutterInputDevice:device-mode` property set
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
@@ -370,7 +372,7 @@ public enum InputDeviceSignalName: String, SignalNameProtocol {
     case notifyDeviceType = "notify::device-type"
     /// Whether the device is enabled.
     /// 
-    /// A device with the `ClutterInputDevice:device`-mode property set
+    /// A device with the `ClutterInputDevice:device-mode` property set
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
@@ -398,7 +400,7 @@ public extension InputDeviceProtocol {
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
     /// associated to `device`.
     /// 
-    /// If the `ClutterInputDevice:device`-mode property of `device` is
+    /// If the `ClutterInputDevice:device-mode` property of `device` is
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
     @inlinable func getAssociatedDevice() -> InputDeviceRef! {
@@ -610,7 +612,7 @@ public extension InputDeviceProtocol {
 
     /// Enables or disables a `ClutterInputDevice`.
     /// 
-    /// Only devices with a `ClutterInputDevice:device`-mode property set
+    /// Only devices with a `ClutterInputDevice:device-mode` property set
     /// to `CLUTTER_INPUT_MODE_SLAVE` or `CLUTTER_INPUT_MODE_FLOATING` can
     /// be disabled.
     @inlinable func set(enabled: Bool) {
@@ -691,14 +693,14 @@ public extension InputDeviceProtocol {
     /// Retrieves a pointer to the `ClutterInputDevice` that has been
     /// associated to `device`.
     /// 
-    /// If the `ClutterInputDevice:device`-mode property of `device` is
+    /// If the `ClutterInputDevice:device-mode` property of `device` is
     /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
     /// `nil`.
     @inlinable var associatedDevice: InputDeviceRef! {
         /// Retrieves a pointer to the `ClutterInputDevice` that has been
         /// associated to `device`.
         /// 
-        /// If the `ClutterInputDevice:device`-mode property of `device` is
+        /// If the `ClutterInputDevice:device-mode` property of `device` is
         /// set to `CLUTTER_INPUT_MODE_MASTER`, this function will return
         /// `nil`.
         get {
@@ -745,7 +747,7 @@ public extension InputDeviceProtocol {
 
     /// Whether the device is enabled.
     /// 
-    /// A device with the `ClutterInputDevice:device`-mode property set
+    /// A device with the `ClutterInputDevice:device-mode` property set
     /// to `CLUTTER_INPUT_MODE_MASTER` cannot be disabled.
     /// 
     /// A device must be enabled in order to receive events from it.
@@ -757,7 +759,7 @@ public extension InputDeviceProtocol {
         }
         /// Enables or disables a `ClutterInputDevice`.
         /// 
-        /// Only devices with a `ClutterInputDevice:device`-mode property set
+        /// Only devices with a `ClutterInputDevice:device-mode` property set
         /// to `CLUTTER_INPUT_MODE_SLAVE` or `CLUTTER_INPUT_MODE_FLOATING` can
         /// be disabled.
         nonmutating set {
@@ -882,6 +884,8 @@ public protocol IntervalProtocol: GLibObject.InitiallyUnownedProtocol, Scriptabl
     /// Typed pointer to the underlying `ClutterInterval` instance.
     var interval_ptr: UnsafeMutablePointer<ClutterInterval>! { get }
 
+    /// Required Initialiser for types conforming to `IntervalProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `IntervalRef` type acts as a lightweight Swift reference to an underlying `ClutterInterval` instance.
@@ -1097,14 +1101,14 @@ open class Interval: GLibObject.InitiallyUnowned, IntervalProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `IntervalProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1393,6 +1397,8 @@ public protocol KeyframeTransitionProtocol: PropertyTransitionProtocol {
     /// Typed pointer to the underlying `ClutterKeyframeTransition` instance.
     var keyframe_transition_ptr: UnsafeMutablePointer<ClutterKeyframeTransition>! { get }
 
+    /// Required Initialiser for types conforming to `KeyframeTransitionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyframeTransitionRef` type acts as a lightweight Swift reference to an underlying `ClutterKeyframeTransition` instance.
@@ -1593,14 +1599,14 @@ open class KeyframeTransition: PropertyTransition, KeyframeTransitionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KeyframeTransitionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1649,8 +1655,8 @@ public enum KeyframeTransitionPropertyName: String, PropertyNameProtocol {
     /// Whether the timeline should automatically rewind and restart.
     /// 
     /// As a side effect, setting this property to `true` will set the
-    /// `ClutterTimeline:repeat`-count property to -1, while setting this
-    /// property to `false` will set the `ClutterTimeline:repeat`-count
+    /// `ClutterTimeline:repeat-count` property to -1, while setting this
+    /// property to `false` will set the `ClutterTimeline:repeat-count`
     /// property to 0.
     ///
     /// **loop is deprecated:**
@@ -1664,8 +1670,8 @@ public enum KeyframeTransitionPropertyName: String, PropertyNameProtocol {
     /// from the `ClutterTransition:animatable` instance whenever the
     /// `ClutterTimeline::stopped` signal is emitted.
     /// 
-    /// The `ClutterTransition:remove`-on-complete property takes into
-    /// account the value of the `ClutterTimeline:repeat`-count property,
+    /// The `ClutterTransition:remove-on-complete` property takes into
+    /// account the value of the `ClutterTimeline:repeat-count` property,
     /// and it only detaches the transition if the transition is not
     /// repeating.
     case removeOnComplete = "remove-on-complete"
@@ -1743,14 +1749,14 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// been stopped or has finished its run, including its eventual repeats,
     /// you should use the `ClutterTimeline::stopped` signal instead.
     case completed = "completed"
-    /// The `marker`-reached signal is emitted each time a timeline
+    /// The `marker-reached` signal is emitted each time a timeline
     /// reaches a marker set with
     /// `clutter_timeline_add_marker_at_time()`. This signal is detailed
     /// with the name of the marker as well, so it is possible to connect
-    /// a callback to the `marker`-reached signal for a specific marker
+    /// a callback to the `marker-reached` signal for a specific marker
     /// with:
     /// 
-    /// <informalexample><programlisting>
+    /// &lt;informalexample&gt;&lt;programlisting&gt;
     ///   clutter_timeline_add_marker_at_time (timeline, "foo", 500);
     ///   clutter_timeline_add_marker_at_time (timeline, "bar", 750);
     /// 
@@ -1760,13 +1766,13 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     ///                     G_CALLBACK (foo_marker_reached), NULL);
     ///   g_signal_connect (timeline, "marker-reached`bar`",
     ///                     G_CALLBACK (bar_marker_reached), NULL);
-    /// </programlisting></informalexample>
+    /// &lt;/programlisting&gt;&lt;/informalexample&gt;
     /// 
     /// In the example, the first callback will be invoked for both
     /// the "foo" and "bar" marker, while the second and third callbacks
     /// will be invoked for the "foo" or "bar" markers, respectively.
     case markerReached = "marker-reached"
-    /// The `new`-frame signal is emitted for each timeline running
+    /// The `new-frame` signal is emitted for each timeline running
     /// timeline before a new frame is drawn to give animations a chance
     /// to update the scene.
     case newFrame = "new-frame"
@@ -1832,8 +1838,8 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// Whether the timeline should automatically rewind and restart.
     /// 
     /// As a side effect, setting this property to `true` will set the
-    /// `ClutterTimeline:repeat`-count property to -1, while setting this
-    /// property to `false` will set the `ClutterTimeline:repeat`-count
+    /// `ClutterTimeline:repeat-count` property to -1, while setting this
+    /// property to `false` will set the `ClutterTimeline:repeat-count`
     /// property to 0.
     ///
     /// **loop is deprecated:**
@@ -1847,8 +1853,8 @@ public enum KeyframeTransitionSignalName: String, SignalNameProtocol {
     /// from the `ClutterTransition:animatable` instance whenever the
     /// `ClutterTimeline::stopped` signal is emitted.
     /// 
-    /// The `ClutterTransition:remove`-on-complete property takes into
-    /// account the value of the `ClutterTimeline:repeat`-count property,
+    /// The `ClutterTransition:remove-on-complete` property takes into
+    /// account the value of the `ClutterTimeline:repeat-count` property,
     /// and it only detaches the transition if the transition is not
     /// repeating.
     case notifyRemoveOnComplete = "notify::remove-on-complete"

@@ -43,6 +43,8 @@ public protocol DesaturateEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterDesaturateEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterDesaturateEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `DesaturateEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DesaturateEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterDesaturateEffectClass` instance.
@@ -169,6 +171,8 @@ public protocol DeviceManagerClassProtocol {
     /// Typed pointer to the underlying `ClutterDeviceManagerClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterDeviceManagerClass>! { get }
 
+    /// Required Initialiser for types conforming to `DeviceManagerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DeviceManagerClassRef` type acts as a lightweight Swift reference to an underlying `ClutterDeviceManagerClass` instance.
@@ -311,6 +315,8 @@ public protocol DragActionClassProtocol {
     /// Typed pointer to the underlying `ClutterDragActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterDragActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `DragActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DragActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterDragActionClass` instance.
@@ -456,6 +462,8 @@ public protocol DropActionClassProtocol {
     /// Typed pointer to the underlying `ClutterDropActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterDropActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `DropActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `DropActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterDropActionClass` instance.
@@ -608,6 +616,8 @@ public protocol EffectClassProtocol {
     /// Typed pointer to the underlying `ClutterEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `EffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `EffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterEffectClass` instance.

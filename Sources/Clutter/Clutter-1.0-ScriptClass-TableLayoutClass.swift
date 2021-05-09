@@ -43,6 +43,8 @@ public protocol ScriptClassProtocol {
     /// Typed pointer to the underlying `ClutterScriptClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterScriptClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScriptClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScriptClassRef` type acts as a lightweight Swift reference to an underlying `ClutterScriptClass` instance.
@@ -190,6 +192,8 @@ public protocol ScriptableIfaceProtocol {
     /// Typed pointer to the underlying `ClutterScriptableIface` instance.
     var _ptr: UnsafeMutablePointer<ClutterScriptableIface>! { get }
 
+    /// Required Initialiser for types conforming to `ScriptableIfaceProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScriptableIfaceRef` type acts as a lightweight Swift reference to an underlying `ClutterScriptableIface` instance.
@@ -328,6 +332,8 @@ public protocol ScrollActorClassProtocol {
     /// Typed pointer to the underlying `ClutterScrollActorClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterScrollActorClass>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollActorClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollActorClassRef` type acts as a lightweight Swift reference to an underlying `ClutterScrollActorClass` instance.
@@ -443,6 +449,8 @@ public protocol ScrollEventProtocol {
     /// Typed pointer to the underlying `ClutterScrollEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterScrollEvent>! { get }
 
+    /// Required Initialiser for types conforming to `ScrollEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ScrollEventRef` type acts as a lightweight Swift reference to an underlying `ClutterScrollEvent` instance.
@@ -646,7 +654,7 @@ open class ScrollEvent: ScrollEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ScrollEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -894,6 +902,8 @@ public protocol SettingsClassProtocol {
     /// Typed pointer to the underlying `ClutterSettingsClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterSettingsClass>! { get }
 
+    /// Required Initialiser for types conforming to `SettingsClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SettingsClassRef` type acts as a lightweight Swift reference to an underlying `ClutterSettingsClass` instance.
@@ -1020,6 +1030,8 @@ public protocol ShaderClassProtocol {
     /// Typed pointer to the underlying `ClutterShaderClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterShaderClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderClassRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderClass` instance.
@@ -1148,6 +1160,8 @@ public protocol ShaderEffectClassProtocol {
     /// Typed pointer to the underlying `ClutterShaderEffectClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterShaderEffectClass>! { get }
 
+    /// Required Initialiser for types conforming to `ShaderEffectClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ShaderEffectClassRef` type acts as a lightweight Swift reference to an underlying `ClutterShaderEffectClass` instance.
@@ -1273,6 +1287,8 @@ public protocol SizeProtocol {
     /// Typed pointer to the underlying `ClutterSize` instance.
     var size_ptr: UnsafeMutablePointer<ClutterSize>! { get }
 
+    /// Required Initialiser for types conforming to `SizeProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SizeRef` type acts as a lightweight Swift reference to an underlying `ClutterSize` instance.
@@ -1481,7 +1497,7 @@ open class Size: SizeProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `SizeProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -1611,6 +1627,8 @@ public protocol SnapConstraintClassProtocol {
     /// Typed pointer to the underlying `ClutterSnapConstraintClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterSnapConstraintClass>! { get }
 
+    /// Required Initialiser for types conforming to `SnapConstraintClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SnapConstraintClassRef` type acts as a lightweight Swift reference to an underlying `ClutterSnapConstraintClass` instance.
@@ -1737,6 +1755,8 @@ public protocol StageClassProtocol {
     /// Typed pointer to the underlying `ClutterStageClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterStageClass>! { get }
 
+    /// Required Initialiser for types conforming to `StageClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StageClassRef` type acts as a lightweight Swift reference to an underlying `ClutterStageClass` instance.
@@ -1877,6 +1897,8 @@ public protocol StageManagerClassProtocol {
     /// Typed pointer to the underlying `ClutterStageManagerClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterStageManagerClass>! { get }
 
+    /// Required Initialiser for types conforming to `StageManagerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StageManagerClassRef` type acts as a lightweight Swift reference to an underlying `ClutterStageManagerClass` instance.
@@ -1994,6 +2016,8 @@ public protocol StageStateEventProtocol {
     /// Typed pointer to the underlying `ClutterStageStateEvent` instance.
     var _ptr: UnsafeMutablePointer<ClutterStageStateEvent>! { get }
 
+    /// Required Initialiser for types conforming to `StageStateEventProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StageStateEventRef` type acts as a lightweight Swift reference to an underlying `ClutterStageStateEvent` instance.
@@ -2197,7 +2221,7 @@ open class StageStateEvent: StageStateEventProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StageStateEventProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -2365,6 +2389,8 @@ public protocol StateClassProtocol {
     /// Typed pointer to the underlying `ClutterStateClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterStateClass>! { get }
 
+    /// Required Initialiser for types conforming to `StateClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StateClassRef` type acts as a lightweight Swift reference to an underlying `ClutterStateClass` instance.
@@ -2483,6 +2509,8 @@ public protocol StateKeyProtocol {
     /// Typed pointer to the underlying `ClutterStateKey` instance.
     var state_key_ptr: UnsafeMutablePointer<ClutterStateKey>! { get }
 
+    /// Required Initialiser for types conforming to `StateKeyProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `StateKeyRef` type acts as a lightweight Swift reference to an underlying `ClutterStateKey` instance.
@@ -2688,7 +2716,7 @@ open class StateKey: StateKeyProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `StateKeyProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -3017,6 +3045,8 @@ public protocol SwipeActionClassProtocol {
     /// Typed pointer to the underlying `ClutterSwipeActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterSwipeActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `SwipeActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `SwipeActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterSwipeActionClass` instance.
@@ -3162,6 +3192,8 @@ public protocol TableLayoutClassProtocol {
     /// Typed pointer to the underlying `ClutterTableLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterTableLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `TableLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `TableLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterTableLayoutClass` instance.

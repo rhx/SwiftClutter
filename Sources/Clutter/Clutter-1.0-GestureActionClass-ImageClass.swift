@@ -44,6 +44,8 @@ public protocol GestureActionClassProtocol {
     /// Typed pointer to the underlying `ClutterGestureActionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterGestureActionClass>! { get }
 
+    /// Required Initialiser for types conforming to `GestureActionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureActionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterGestureActionClass` instance.
@@ -195,6 +197,8 @@ public protocol GridLayoutClassProtocol {
     /// Typed pointer to the underlying `ClutterGridLayoutClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterGridLayoutClass>! { get }
 
+    /// Required Initialiser for types conforming to `GridLayoutClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GridLayoutClassRef` type acts as a lightweight Swift reference to an underlying `ClutterGridLayoutClass` instance.
@@ -325,6 +329,8 @@ public protocol GroupClassProtocol {
     /// Typed pointer to the underlying `ClutterGroupClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterGroupClass>! { get }
 
+    /// Required Initialiser for types conforming to `GroupClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GroupClassRef` type acts as a lightweight Swift reference to an underlying `ClutterGroupClass` instance.
@@ -465,6 +471,8 @@ public protocol ImageClassProtocol {
     /// Typed pointer to the underlying `ClutterImageClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterImageClass>! { get }
 
+    /// Required Initialiser for types conforming to `ImageClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ImageClassRef` type acts as a lightweight Swift reference to an underlying `ClutterImageClass` instance.

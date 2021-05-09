@@ -29,6 +29,8 @@ public protocol FixedLayoutProtocol: LayoutManagerProtocol {
     /// Typed pointer to the underlying `ClutterFixedLayout` instance.
     var fixed_layout_ptr: UnsafeMutablePointer<ClutterFixedLayout>! { get }
 
+    /// Required Initialiser for types conforming to `FixedLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FixedLayoutRef` type acts as a lightweight Swift reference to an underlying `ClutterFixedLayout` instance.
@@ -229,14 +231,14 @@ open class FixedLayout: LayoutManager, FixedLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FixedLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -267,9 +269,9 @@ open class FixedLayout: LayoutManager, FixedLayoutProtocol {
 // MARK: no FixedLayout properties
 
 public enum FixedLayoutSignalName: String, SignalNameProtocol {
-    /// The `layout`-changed signal is emitted each time a layout manager
+    /// The `layout-changed` signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the `layout`-changed
+    /// as a layout manager should connect a handler to the `layout-changed`
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -287,7 +289,7 @@ public enum FixedLayoutSignalName: String, SignalNameProtocol {
     /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// `layout`-changed signal whenever one of the parameters changes,
+    /// `layout-changed` signal whenever one of the parameters changes,
     /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -347,6 +349,8 @@ public protocol FlowLayoutProtocol: LayoutManagerProtocol {
     /// Typed pointer to the underlying `ClutterFlowLayout` instance.
     var flow_layout_ptr: UnsafeMutablePointer<ClutterFlowLayout>! { get }
 
+    /// Required Initialiser for types conforming to `FlowLayoutProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `FlowLayoutRef` type acts as a lightweight Swift reference to an underlying `ClutterFlowLayout` instance.
@@ -547,14 +551,14 @@ open class FlowLayout: LayoutManager, FlowLayoutProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `FlowLayoutProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -668,9 +672,9 @@ public extension FlowLayoutProtocol {
 }
 
 public enum FlowLayoutSignalName: String, SignalNameProtocol {
-    /// The `layout`-changed signal is emitted each time a layout manager
+    /// The `layout-changed` signal is emitted each time a layout manager
     /// has been changed. Every `ClutterActor` using the `manager` instance
-    /// as a layout manager should connect a handler to the `layout`-changed
+    /// as a layout manager should connect a handler to the `layout-changed`
     /// signal and queue a relayout on themselves:
     /// 
     /// ```
@@ -688,7 +692,7 @@ public enum FlowLayoutSignalName: String, SignalNameProtocol {
     /// 
     /// Sub-classes of `ClutterLayoutManager` that implement a layout that
     /// can be controlled or changed using parameters should emit the
-    /// `layout`-changed signal whenever one of the parameters changes,
+    /// `layout-changed` signal whenever one of the parameters changes,
     /// by using `clutter_layout_manager_layout_changed()`.
     case layoutChanged = "layout-changed"
     /// The notify signal is emitted on an object when one of its properties has
@@ -789,7 +793,7 @@ public extension FlowLayoutProtocol {
         return rv
     }
 
-    /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
+    /// Retrieves the value of `ClutterFlowLayout:snap-to-grid` property
     @inlinable func getSnapToGrid() -> Bool {
         let rv = ((clutter_flow_layout_get_snap_to_grid(flow_layout_ptr)) != 0)
         return rv
@@ -902,9 +906,9 @@ public extension FlowLayoutProtocol {
         }
     }
 
-    /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
+    /// Retrieves the value of `ClutterFlowLayout:snap-to-grid` property
     @inlinable var snapToGrid: Bool {
-        /// Retrieves the value of `ClutterFlowLayout:snap`-to-grid property
+        /// Retrieves the value of `ClutterFlowLayout:snap-to-grid` property
         get {
             let rv = ((clutter_flow_layout_get_snap_to_grid(flow_layout_ptr)) != 0)
             return rv
@@ -939,6 +943,8 @@ public protocol GestureActionProtocol: ActionProtocol {
     /// Typed pointer to the underlying `ClutterGestureAction` instance.
     var gesture_action_ptr: UnsafeMutablePointer<ClutterGestureAction>! { get }
 
+    /// Required Initialiser for types conforming to `GestureActionProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `GestureActionRef` type acts as a lightweight Swift reference to an underlying `ClutterGestureAction` instance.
@@ -1139,14 +1145,14 @@ open class GestureAction: Action, GestureActionProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable override public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         super.init(raw: p)
     }
 
     /// Unsafe untyped, retaining initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `GestureActionProtocol`.**
     /// - Parameter raw: mutable raw pointer to the underlying object
-    @inlinable override public init(retainingRaw raw: UnsafeMutableRawPointer) {
+    @inlinable required public init(retainingRaw raw: UnsafeMutableRawPointer) {
         super.init(retainingRaw: raw)
     }
 
@@ -1184,20 +1190,20 @@ public enum GestureActionPropertyName: String, PropertyNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case name = "name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceX = "threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case thresholdTriggerDistanceY = "threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction::gesture`-begin signal or to emit the
-    /// `ClutterGestureAction::gesture`-cancel signal.
+    /// `ClutterGestureAction::gesture-begin` signal or to emit the
+    /// `ClutterGestureAction::gesture-cancel` signal.
     case thresholdTriggerEdge = "threshold-trigger-edge"
 }
 
@@ -1258,20 +1264,20 @@ public enum GestureActionSignalName: String, SignalNameProtocol {
     /// The `gesture_begin` signal is emitted when the `ClutterActor` to which
     /// a `ClutterGestureAction` has been applied starts receiving a gesture.
     case gestureBegin = "gesture-begin"
-    /// The `gesture`-cancel signal is emitted when the ongoing gesture gets
-    /// cancelled from the `ClutterGestureAction::gesture`-progress signal handler.
+    /// The `gesture-cancel` signal is emitted when the ongoing gesture gets
+    /// cancelled from the `ClutterGestureAction::gesture-progress` signal handler.
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     case gestureCancel = "gesture-cancel"
-    /// The `gesture`-end signal is emitted at the end of the gesture gesture,
+    /// The `gesture-end` signal is emitted at the end of the gesture gesture,
     /// when the pointer's button is released
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     case gestureEnd = "gesture-end"
-    /// The `gesture`-progress signal is emitted for each motion event after
-    /// the `ClutterGestureAction::gesture`-begin signal has been emitted.
+    /// The `gesture-progress` signal is emitted for each motion event after
+    /// the `ClutterGestureAction::gesture-begin` signal has been emitted.
     case gestureProgress = "gesture-progress"
     /// The notify signal is emitted on an object when one of its properties has
     /// its value set through `g_object_set_property()`, `g_object_set()`, et al.
@@ -1307,20 +1313,20 @@ public enum GestureActionSignalName: String, SignalNameProtocol {
     /// The unique name to access the `ClutterActorMeta`
     case notifyName = "notify::name"
     /// The horizontal trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceX = "notify::threshold-trigger-distance-x"
     /// The vertical trigger distance to be used by the action to either
-    /// emit the `ClutterGestureAction::gesture`-begin signal or to emit
-    /// the `ClutterGestureAction::gesture`-cancel signal.
+    /// emit the `ClutterGestureAction::gesture-begin` signal or to emit
+    /// the `ClutterGestureAction::gesture-cancel` signal.
     /// 
     /// A negative value will be interpreted as the default drag threshold.
     case notifyThresholdTriggerDistanceY = "notify::threshold-trigger-distance-y"
     /// The trigger edge to be used by the action to either emit the
-    /// `ClutterGestureAction::gesture`-begin signal or to emit the
-    /// `ClutterGestureAction::gesture`-cancel signal.
+    /// `ClutterGestureAction::gesture-begin` signal or to emit the
+    /// `ClutterGestureAction::gesture-cancel` signal.
     case notifyThresholdTriggerEdge = "notify::threshold-trigger-edge"
 }
 
@@ -1379,10 +1385,10 @@ public extension GestureActionProtocol {
     /// Typed `gesture-begin` signal for using the `connect(signal:)` methods
     static var gestureBeginSignal: GestureActionSignalName { .gestureBegin }
     
-    /// The `gesture`-cancel signal is emitted when the ongoing gesture gets
-    /// cancelled from the `ClutterGestureAction::gesture`-progress signal handler.
+    /// The `gesture-cancel` signal is emitted when the ongoing gesture gets
+    /// cancelled from the `ClutterGestureAction::gesture-progress` signal handler.
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     /// - Note: This represents the underlying `gesture-cancel` signal
     /// - Parameter flags: Flags
@@ -1409,10 +1415,10 @@ public extension GestureActionProtocol {
     /// Typed `gesture-cancel` signal for using the `connect(signal:)` methods
     static var gestureCancelSignal: GestureActionSignalName { .gestureCancel }
     
-    /// The `gesture`-end signal is emitted at the end of the gesture gesture,
+    /// The `gesture-end` signal is emitted at the end of the gesture gesture,
     /// when the pointer's button is released
     /// 
-    /// This signal is emitted if and only if the `ClutterGestureAction::gesture`-begin
+    /// This signal is emitted if and only if the `ClutterGestureAction::gesture-begin`
     /// signal has been emitted first.
     /// - Note: This represents the underlying `gesture-end` signal
     /// - Parameter flags: Flags
@@ -1439,8 +1445,8 @@ public extension GestureActionProtocol {
     /// Typed `gesture-end` signal for using the `connect(signal:)` methods
     static var gestureEndSignal: GestureActionSignalName { .gestureEnd }
     
-    /// The `gesture`-progress signal is emitted for each motion event after
-    /// the `ClutterGestureAction::gesture`-begin signal has been emitted.
+    /// The `gesture-progress` signal is emitted for each motion event after
+    /// the `ClutterGestureAction::gesture-begin` signal has been emitted.
     /// - Note: This represents the underlying `gesture-progress` signal
     /// - Parameter flags: Flags
     /// - Parameter unownedSelf: Reference to instance of self

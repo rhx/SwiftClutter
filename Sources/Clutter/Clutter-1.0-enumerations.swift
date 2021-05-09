@@ -17,8 +17,8 @@ import Atk
 /// assigned to it during the allocation.
 /// 
 /// Alignment only matters if the allocated space given to an actor is
-/// bigger than its natural size; for example, when the `ClutterActor:x`-expand
-/// or the `ClutterActor:y`-expand properties of `ClutterActor` are set to `true`.
+/// bigger than its natural size; for example, when the `ClutterActor:x-expand`
+/// or the `ClutterActor:y-expand` properties of `ClutterActor` are set to `true`.
 public typealias ActorAlign = ClutterActorAlign
 
 public extension ActorAlign {
@@ -70,10 +70,10 @@ public extension AlignAxis {
 /// The animation modes used by `ClutterAlpha` and `ClutterAnimation`. This
 /// enumeration can be expanded in later versions of Clutter.
 /// 
-/// <figure id="easing-modes">
-///   <title>Easing modes provided by Clutter</title>
-///   <graphic fileref="easing-modes.png" format="PNG"/>
-/// </figure>
+/// &lt;figure id="easing-modes"&gt;
+///   &lt;title&gt;Easing modes provided by Clutter&lt;/title&gt;
+///   &lt;graphic fileref="easing-modes.png" format="PNG"/&gt;
+/// &lt;/figure&gt;
 /// 
 /// Every global alpha function registered using `clutter_alpha_register_func()`
 /// or `clutter_alpha_register_closure()` will have a logical id greater than
@@ -689,7 +689,7 @@ public extension Interpolation {
 
 
 
-/// The states for the `ClutterClickAction::long`-press signal.
+/// The states for the `ClutterClickAction::long-press` signal.
 public typealias LongPressState = ClutterLongPressState
 
 public extension LongPressState {
@@ -876,8 +876,8 @@ public extension RotateDirection {
 
 
 
-/// The scaling filters to be used with the `ClutterActor:minification`-filter
-/// and `ClutterActor:magnification`-filter properties.
+/// The scaling filters to be used with the `ClutterActor:minification-filter`
+/// and `ClutterActor:magnification-filter` properties.
 public typealias ScalingFilter = ClutterScalingFilter
 
 public extension ScalingFilter {
@@ -1200,7 +1200,7 @@ public extension TableAlignment {
 
 
 
-/// The text direction to be used by `ClutterActor`<!-- -->s
+/// The text direction to be used by `ClutterActor`&lt;!-- --&gt;s
 public typealias TextDirection = ClutterTextDirection
 
 public extension TextDirection {

@@ -29,6 +29,8 @@ public protocol ContentProtocol {
     /// Typed pointer to the underlying `ClutterContent` instance.
     var content_ptr: UnsafeMutablePointer<ClutterContent>! { get }
 
+    /// Required Initialiser for types conforming to `ContentProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `ContentRef` type acts as a lightweight Swift reference to an underlying `ClutterContent` instance.
@@ -234,7 +236,7 @@ open class Content: ContentProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `ContentProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -408,6 +410,8 @@ public protocol MediaProtocol {
     /// Typed pointer to the underlying `ClutterMedia` instance.
     var media_ptr: UnsafeMutablePointer<ClutterMedia>! { get }
 
+    /// Required Initialiser for types conforming to `MediaProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `MediaRef` type acts as a lightweight Swift reference to an underlying `ClutterMedia` instance.
@@ -613,7 +617,7 @@ open class Media: MediaProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `MediaProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 

@@ -44,6 +44,8 @@ public protocol KeyframeTransitionClassProtocol {
     /// Typed pointer to the underlying `ClutterKeyframeTransitionClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterKeyframeTransitionClass>! { get }
 
+    /// Required Initialiser for types conforming to `KeyframeTransitionClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KeyframeTransitionClassRef` type acts as a lightweight Swift reference to an underlying `ClutterKeyframeTransitionClass` instance.
@@ -159,6 +161,8 @@ public protocol KnotProtocol {
     /// Typed pointer to the underlying `ClutterKnot` instance.
     var knot_ptr: UnsafeMutablePointer<ClutterKnot>! { get }
 
+    /// Required Initialiser for types conforming to `KnotProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `KnotRef` type acts as a lightweight Swift reference to an underlying `ClutterKnot` instance.
@@ -362,7 +366,7 @@ open class Knot: KnotProtocol {
     /// Unsafe untyped initialiser.
     /// **Do not use unless you know the underlying data type the pointer points to conforms to `KnotProtocol`.**
     /// - Parameter p: mutable raw pointer to the underlying object
-    @inlinable public init(raw p: UnsafeMutableRawPointer) {
+    @inlinable public required init(raw p: UnsafeMutableRawPointer) {
         ptr = p
     }
 
@@ -482,6 +486,8 @@ public protocol LayoutManagerClassProtocol {
     /// Typed pointer to the underlying `ClutterLayoutManagerClass` instance.
     var _ptr: UnsafeMutablePointer<ClutterLayoutManagerClass>! { get }
 
+    /// Required Initialiser for types conforming to `LayoutManagerClassProtocol`
+    init(raw: UnsafeMutableRawPointer)
 }
 
 /// The `LayoutManagerClassRef` type acts as a lightweight Swift reference to an underlying `ClutterLayoutManagerClass` instance.
