@@ -62,7 +62,7 @@ on macOS, or on Linux you should get something like:
 
 ### Clutter, GLib 2.56 or higher
 
-These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, and 2.66.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
+These Swift wrappers have been tested with glib-2.56, 2.58, 2.60, 2.62, 2.64, 2.66, and 2.68.  They should work with higher versions, but YMMV.  Also make sure you have `gobject-introspection` and its `.gir` files installed.
 
 #### Linux
 
@@ -138,6 +138,19 @@ On macOS, you can build the project using Xcode instead.  To do this, you need t
 	open Clutter.xcodeproj
 
 After that, use the (usual) Build and Test buttons to build/test this package.
+
+## Documentation
+
+You can find reference documentation inside the [docs](https://rhx.github.io/SwiftGLib/) folder.
+This was generated using the [jazzy](https://github.com/realm/jazzy) tool.
+If you want to generate your own documentation, matching your local installation,
+you can use the `generate-documentation.sh` script in the repository.
+Make sure you have [sourcekitten](https://github.com/jpsim/SourceKitten) and [jazzy](https://github.com/realm/jazzy) installed, e.g. on macOS:
+
+	brew install sourcekitten
+	sudo gem install jazzy
+	./run-gir2swift.sh
+	./generate-documentation.sh
 
 
 ## Troubleshooting
