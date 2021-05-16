@@ -6,11 +6,11 @@ let package = Package(
     name: "Clutter",
     products: [ .library(name: "Clutter", targets: ["Clutter"]) ],
     dependencies: [
-        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("main")),
-        .package(name: "Cairo", url: "https://github.com/rhx/SwiftCairo.git", .branch("main")),
-        .package(name: "CoglPango", url: "https://github.com/rhx/SwiftCoglPango.git", .branch("main")),
-        .package(name: "Atk", url: "https://github.com/rhx/SwiftAtk.git", .branch("main")),
-        .package(name: "GIO", url: "https://github.com/rhx/SwiftGIO.git", .branch("main")),
+        .package(name: "gir2swift", url: "https://github.com/rhx/gir2swift.git", .branch("development")),
+        .package(name: "Cairo", url: "https://github.com/rhx/SwiftCairo.git", .branch("development")),
+        .package(name: "CoglPango", url: "https://github.com/rhx/SwiftCoglPango.git", .branch("development")),
+        .package(name: "Atk", url: "https://github.com/rhx/SwiftAtk.git", .branch("development")),
+        .package(name: "GIO", url: "https://github.com/rhx/SwiftGIO.git", .branch("development")),
     ],
     targets: [
 	.systemLibrary(name: "CClutter", pkgConfig: "clutter-1.0",
