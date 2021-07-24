@@ -16,18 +16,7 @@ function generate_arg-path_arg-g2s-exec_arg-gir-pre_arg-gir-path {
     local NAME=$(package_name)
     local GIR_PRE_ARGS=`for FILE in ${GIR_PRE}; do echo -n "-p ${GIR_PATH}/${FILE}.gir "; done`
     
-    bash -c "${G2S_EXEC} -o Sources/${NAME} -m ${GIR_NAME}.module ${GIR_PRE_ARGS} ${GIR_PATH}/${GIR_NAME}.gir"
-
-    for src in Sources/${NAME}/*-*.swift ; do
-	    sed -f ${GIR_NAME}.sed < ${src} > ${src}.out
-	    mv -f ${src}.out ${src}
-	    for ver in 1.26.2 ; do
-		    if pkg-config --max-version=$ver clutter-1.0 ; then
-			    awk -f ${GIR_NAME}-$ver.awk < ${src} > ${src}.out
-			    mv -f ${src}.out ${src}
-		    fi
-	    done
-    done
+    bash -c "${G2S_EXEC} -o Sources/${NAME} ${GIR_PRE_ARGS} ${GIR_PATH}/${GIR_NAME}.gir"
     touch Sources/${NAME}/${GIR_NAME}.swift
 
     cd $CALLER
